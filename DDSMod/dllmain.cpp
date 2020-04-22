@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include "mem.h"
+#include "SDK.h"
 
 DWORD WINAPI HackThread(HMODULE hModule)
 {
@@ -56,7 +57,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 
 		////continuous writes / freeze
 
-		//if (localPlayerPtr)
+		//if (*localPlayerPtr)
 		//{
 		//	if (bHealth)
 		//	{

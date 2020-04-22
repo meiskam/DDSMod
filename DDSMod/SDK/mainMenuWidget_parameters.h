@@ -1,0 +1,220 @@
+#pragma once
+
+#include "../SDK.h"
+
+// Name: DDS, Version: 2020.4.21
+
+#ifdef _MSC_VER
+	#pragma pack(push, 0x8)
+#endif
+
+namespace SDK
+{
+//---------------------------------------------------------------------------
+// Parameters
+//---------------------------------------------------------------------------
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnGame_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnGame_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnTester_K2Node_ComponentBoundEvent_3_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnTester_K2Node_ComponentBoundEvent_3_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnTester_K2Node_ComponentBoundEvent_6_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnTester_K2Node_ComponentBoundEvent_6_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnGame_K2Node_ComponentBoundEvent_7_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnGame_K2Node_ComponentBoundEvent_7_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnSettings_K2Node_ComponentBoundEvent_8_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnSettings_K2Node_ComponentBoundEvent_8_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.Tick
+struct UmainMenuWidget_C_Tick_Params
+{
+	struct FGeometry*                                  MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+	float*                                             InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.Construct
+struct UmainMenuWidget_C_Construct_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnExit_K2Node_ComponentBoundEvent_9_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnExit_K2Node_ComponentBoundEvent_9_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnSettings_K2Node_ComponentBoundEvent_11_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnSettings_K2Node_ComponentBoundEvent_11_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.overridePlay
+struct UmainMenuWidget_C_overridePlay_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnVersion_K2Node_ComponentBoundEvent_12_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnVersion_K2Node_ComponentBoundEvent_12_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnVersion_K2Node_ComponentBoundEvent_13_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnVersion_K2Node_ComponentBoundEvent_13_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__Button_1_K2Node_ComponentBoundEvent_16_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__Button_1_K2Node_ComponentBoundEvent_16_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnContinue_K2Node_ComponentBoundEvent_17_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnContinue_K2Node_ComponentBoundEvent_17_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnExitGame_K2Node_ComponentBoundEvent_18_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnExitGame_K2Node_ComponentBoundEvent_18_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnOptions_K2Node_ComponentBoundEvent_19_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnOptions_K2Node_ComponentBoundEvent_19_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnOptions_K2Node_ComponentBoundEvent_20_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnOptions_K2Node_ComponentBoundEvent_20_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnContinue_K2Node_ComponentBoundEvent_21_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnContinue_K2Node_ComponentBoundEvent_21_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnContinue_K2Node_ComponentBoundEvent_22_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnContinue_K2Node_ComponentBoundEvent_22_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnExitGame_K2Node_ComponentBoundEvent_23_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnExitGame_K2Node_ComponentBoundEvent_23_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnExitGame_K2Node_ComponentBoundEvent_24_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnExitGame_K2Node_ComponentBoundEvent_24_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__Button_0_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__Button_0_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_4_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_4_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.startNewGame
+struct UmainMenuWidget_C_startNewGame_Params
+{
+	TEnumAsByte<EdifficultyLevels>                     chosenDifficulty;                                         // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnCasual_K2Node_ComponentBoundEvent_5_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnCasual_K2Node_ComponentBoundEvent_5_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__Button_3_K2Node_ComponentBoundEvent_10_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__Button_3_K2Node_ComponentBoundEvent_10_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__Button_4_K2Node_ComponentBoundEvent_14_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__Button_4_K2Node_ComponentBoundEvent_14_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__Button_5_K2Node_ComponentBoundEvent_25_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__Button_5_K2Node_ComponentBoundEvent_25_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnCasual_K2Node_ComponentBoundEvent_26_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnCasual_K2Node_ComponentBoundEvent_26_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnNormal_K2Node_ComponentBoundEvent_27_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnNormal_K2Node_ComponentBoundEvent_27_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnHard_K2Node_ComponentBoundEvent_28_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnHard_K2Node_ComponentBoundEvent_28_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnHardcore_K2Node_ComponentBoundEvent_29_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnHardcore_K2Node_ComponentBoundEvent_29_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnCasual_K2Node_ComponentBoundEvent_30_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnCasual_K2Node_ComponentBoundEvent_30_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnNormal_K2Node_ComponentBoundEvent_31_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnNormal_K2Node_ComponentBoundEvent_31_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnHard_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnHard_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnHardcore_K2Node_ComponentBoundEvent_33_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnHardcore_K2Node_ComponentBoundEvent_33_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__Button_6_K2Node_ComponentBoundEvent_34_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__Button_6_K2Node_ComponentBoundEvent_34_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.ExecuteUbergraph_mainMenuWidget
+struct UmainMenuWidget_C_ExecuteUbergraph_mainMenuWidget_Params
+{
+	int                                                EntryPoint;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+}
+
+#ifdef _MSC_VER
+	#pragma pack(pop)
+#endif
