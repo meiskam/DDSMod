@@ -50,10 +50,10 @@ void UsymbolChoiceWidget_C::Construct()
 // Function symbolChoiceWidget.symbolChoiceWidget_C.Tick
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// float*                         InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// float                          InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UsymbolChoiceWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
+void UsymbolChoiceWidget_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function symbolChoiceWidget.symbolChoiceWidget_C.Tick");
 

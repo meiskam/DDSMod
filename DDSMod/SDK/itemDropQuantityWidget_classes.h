@@ -43,7 +43,7 @@ public:
 
 
 	void getMaxQuantity(const struct FString& TargetString, class UUserWidget* Widget, int sourceQuan, const struct FinventoryItemStruct& Data, int* MaxQuantity);
-	void PreConstruct(bool* IsDesignTime);
+	void PreConstruct(bool IsDesignTime);
 	void Construct();
 	void BndEvt__btnCancel_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();
 	void setup(const struct FString& TargetString, int QuanMax, class UUserWidget* TargetWidget, class UinventoryItemWidget_C* Payload);

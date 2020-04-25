@@ -65,7 +65,7 @@ public:
 	void ShiftHeldDown();
 	void ShiftReleased();
 	void placeCurObject();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void ReceiveBeginPlay();
 	void scrollOneUp();
 	void scrollOneDown();

@@ -55,9 +55,9 @@ void ADrugSalePoint_C::UserConstructionScript()
 // Function DrugSalePoint.DrugSalePoint_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ADrugSalePoint_C::ReceiveTick(float* DeltaSeconds)
+void ADrugSalePoint_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function DrugSalePoint.DrugSalePoint_C.ReceiveTick");
 

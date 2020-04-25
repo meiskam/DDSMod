@@ -35,6 +35,15 @@ enum class EGameplayContainerMatchType : uint8_t
 };
 
 
+// Enum GameplayTags.EGameplayTagMatchType
+enum class EGameplayTagMatchType : uint8_t
+{
+	EGameplayTagMatchType__Explicit = 0,
+	EGameplayTagMatchType__IncludeParentTags = 1,
+	EGameplayTagMatchType__EGameplayTagMatchType_MAX = 2
+};
+
+
 // Enum GameplayTags.EGameplayTagSelectionType
 enum class EGameplayTagSelectionType : uint8_t
 {
@@ -56,15 +65,6 @@ enum class EGameplayTagSourceType : uint8_t
 	EGameplayTagSourceType__DataTable = 4,
 	EGameplayTagSourceType__Invalid = 5,
 	EGameplayTagSourceType__EGameplayTagSourceType_MAX = 6
-};
-
-
-// Enum GameplayTags.EGameplayTagMatchType
-enum class EGameplayTagMatchType : uint8_t
-{
-	EGameplayTagMatchType__Explicit = 0,
-	EGameplayTagMatchType__IncludeParentTags = 1,
-	EGameplayTagMatchType__EGameplayTagMatchType_MAX = 2
 };
 
 
@@ -98,6 +98,17 @@ struct FGameplayTagQuery
 	TArray<unsigned char>                              QueryTokenStream;                                         // 0x0018(0x0010) (ZeroConstructor)
 	struct FString                                     UserDescription;                                          // 0x0028(0x0010) (ZeroConstructor)
 	struct FString                                     AutoDescription;                                          // 0x0038(0x0010) (ZeroConstructor)
+};
+
+// ScriptStruct GameplayTags.GameplayTagSource
+// 0x0020
+struct FGameplayTagSource
+{
+	struct FName                                       SourceName;                                               // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
+	EGameplayTagSourceType                             SourceType;                                               // 0x0008(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0009(0x0007) MISSED OFFSET
+	class UGameplayTagsList*                           SourceTagList;                                            // 0x0010(0x0008) (ZeroConstructor, IsPlainOldData)
+	class URestrictedGameplayTagsList*                 SourceRestrictedTagList;                                  // 0x0018(0x0008) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct GameplayTags.GameplayTagTableRow
@@ -138,17 +149,6 @@ struct FRestrictedConfigInfo
 {
 	struct FString                                     RestrictedConfigName;                                     // 0x0000(0x0010) (Edit, ZeroConstructor, Config)
 	TArray<struct FString>                             Owners;                                                   // 0x0010(0x0010) (Edit, ZeroConstructor, Config)
-};
-
-// ScriptStruct GameplayTags.GameplayTagSource
-// 0x0020
-struct FGameplayTagSource
-{
-	struct FName                                       SourceName;                                               // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
-	EGameplayTagSourceType                             SourceType;                                               // 0x0008(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0009(0x0007) MISSED OFFSET
-	class UGameplayTagsList*                           SourceTagList;                                            // 0x0010(0x0008) (ZeroConstructor, IsPlainOldData)
-	class URestrictedGameplayTagsList*                 SourceRestrictedTagList;                                  // 0x0018(0x0008) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct GameplayTags.GameplayTagCreationWidgetHelper

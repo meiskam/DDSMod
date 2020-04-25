@@ -101,7 +101,7 @@ struct AkeijiBP_C_hearYa_Params
 // Function keijiBP.keijiBP_C.ReceiveTick
 struct AkeijiBP_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function keijiBP.keijiBP_C.animateMouth

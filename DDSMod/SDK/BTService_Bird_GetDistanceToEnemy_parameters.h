@@ -17,9 +17,9 @@ namespace SDK
 // Function BTService_Bird_GetDistanceToEnemy.BTService_Bird_GetDistanceToEnemy_C.ReceiveTickAI
 struct UBTService_Bird_GetDistanceToEnemy_C_ReceiveTickAI_Params
 {
-	class AAIController**                              OwnerController;                                          // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	class APawn**                                      ControlledPawn;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AAIController*                               OwnerController;                                          // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       ControlledPawn;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function BTService_Bird_GetDistanceToEnemy.BTService_Bird_GetDistanceToEnemy_C.ExecuteUbergraph_BTService_Bird_GetDistanceToEnemy

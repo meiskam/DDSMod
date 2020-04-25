@@ -2404,9 +2404,9 @@ void AplayerCharacterBP_C::ReceiveBeginPlay()
 // Function playerCharacterBP.playerCharacterBP_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AplayerCharacterBP_C::ReceiveTick(float* DeltaSeconds)
+void AplayerCharacterBP_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function playerCharacterBP.playerCharacterBP_C.ReceiveTick");
 
@@ -2538,9 +2538,9 @@ void AplayerCharacterBP_C::footStep()
 // Function playerCharacterBP.playerCharacterBP_C.ReceivePossessed
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AController**            NewController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AController*             NewController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AplayerCharacterBP_C::ReceivePossessed(class AController** NewController)
+void AplayerCharacterBP_C::ReceivePossessed(class AController* NewController)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function playerCharacterBP.playerCharacterBP_C.ReceivePossessed");
 
@@ -2878,9 +2878,9 @@ void AplayerCharacterBP_C::closeLockpickMode()
 // Function playerCharacterBP.playerCharacterBP_C.ReceiveUnpossessed
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AController**            OldController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AController*             OldController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AplayerCharacterBP_C::ReceiveUnpossessed(class AController** OldController)
+void AplayerCharacterBP_C::ReceiveUnpossessed(class AController* OldController)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function playerCharacterBP.playerCharacterBP_C.ReceiveUnpossessed");
 
@@ -3193,9 +3193,9 @@ void AplayerCharacterBP_C::removeMap()
 // Function playerCharacterBP.playerCharacterBP_C.OnLanded
 // (Event, Public, HasOutParms, BlueprintEvent)
 // Parameters:
-// struct FHitResult*             Hit                            (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, IsPlainOldData)
+// struct FHitResult              Hit                            (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, IsPlainOldData)
 
-void AplayerCharacterBP_C::OnLanded(struct FHitResult* Hit)
+void AplayerCharacterBP_C::OnLanded(const struct FHitResult& Hit)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function playerCharacterBP.playerCharacterBP_C.OnLanded");
 

@@ -40,7 +40,7 @@ public:
 
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void Activate();
 	void Deactivate();
 	void WindowActionPressed();

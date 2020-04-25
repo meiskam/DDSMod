@@ -42,7 +42,7 @@ struct AAdaptiveMusic_BP_C_endChaseMusic_Params
 // Function AdaptiveMusic_BP.AdaptiveMusic_BP_C.ReceiveTick
 struct AAdaptiveMusic_BP_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function AdaptiveMusic_BP.AdaptiveMusic_BP_C.InitiateMe

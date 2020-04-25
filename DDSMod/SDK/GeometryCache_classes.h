@@ -203,24 +203,6 @@ public:
 };
 
 
-// Class GeometryCache.GeometryCacheTrack_TransformGroupAnimation
-// 0x00A8 (0x0100 - 0x0058)
-class UGeometryCacheTrack_TransformGroupAnimation : public UGeometryCacheTrack
-{
-public:
-	unsigned char                                      UnknownData00[0xA8];                                      // 0x0058(0x00A8) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class GeometryCache.GeometryCacheTrack_TransformGroupAnimation");
-		return ptr;
-	}
-
-
-	void SetMesh(const struct FGeometryCacheMeshData& NewMeshData);
-};
-
-
 // Class GeometryCache.GeometryCacheTrack_TransformAnimation
 // 0x00A8 (0x0100 - 0x0058)
 class UGeometryCacheTrack_TransformAnimation : public UGeometryCacheTrack
@@ -231,6 +213,24 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class GeometryCache.GeometryCacheTrack_TransformAnimation");
+		return ptr;
+	}
+
+
+	void SetMesh(const struct FGeometryCacheMeshData& NewMeshData);
+};
+
+
+// Class GeometryCache.GeometryCacheTrack_TransformGroupAnimation
+// 0x00A8 (0x0100 - 0x0058)
+class UGeometryCacheTrack_TransformGroupAnimation : public UGeometryCacheTrack
+{
+public:
+	unsigned char                                      UnknownData00[0xA8];                                      // 0x0058(0x00A8) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class GeometryCache.GeometryCacheTrack_TransformGroupAnimation");
 		return ptr;
 	}
 

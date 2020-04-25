@@ -16,9 +16,9 @@ namespace SDK
 // Function donaldShopOwnerAnimBP.donaldShopOwnerAnimBP_C.BlueprintUpdateAnimation
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UdonaldShopOwnerAnimBP_C::BlueprintUpdateAnimation(float* DeltaTimeX)
+void UdonaldShopOwnerAnimBP_C::BlueprintUpdateAnimation(float DeltaTimeX)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function donaldShopOwnerAnimBP.donaldShopOwnerAnimBP_C.BlueprintUpdateAnimation");
 

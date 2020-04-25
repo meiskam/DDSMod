@@ -65,7 +65,7 @@ public:
 	void CalculateDistanceToActor(class AActor* InputActor, float* DistanceToActor);
 	void AddActorToEnemyArray(class AActor* InputActor);
 	void UserConstructionScript();
-	void OnPossess(class APawn** PossessedPawn);
+	void OnPossess(class APawn* PossessedPawn);
 	void BndEvt__AIPerception_K2Node_ComponentBoundEvent_3_PerceptionUpdatedDelegate__DelegateSignature(TArray<class AActor*> UpdatedActors);
 	void EnemySelection();
 	void OnEnemyDestroyed(class AActor* DestroyedActor);

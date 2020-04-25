@@ -95,7 +95,7 @@ public:
 
 	void adaptDifficulty();
 	void checkCanSpotPlayer(bool* canSpot);
-	void checkBallenaProtection(bool* protected);
+	void checkBallenaProtection(bool* isProtected);
 	void checkPlayerRunning(float Delta);
 	void finishChasing(bool stayAlerted);
 	void checkChasingPolicemen();
@@ -108,7 +108,7 @@ public:
 	void setBlackboardBool(const struct FName& KeyName, bool BoolValue);
 	void lookAtPlayer(float DeltaTime, bool lookAtPlayer);
 	void UserConstructionScript();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void BndEvt__AIPerception_K2Node_ComponentBoundEvent_2_ActorPerceptionUpdatedDelegate__DelegateSignature(class AActor* Actor, const struct FAIStimulus& Stimulus);
 	void playSeekSound();
 	void ReceiveBeginPlay();

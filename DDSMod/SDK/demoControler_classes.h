@@ -36,7 +36,7 @@ public:
 	void showEndScreen();
 	void Sleep();
 	void DemoEnded();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void ReceiveBeginPlay();
 	void ExecuteUbergraph_demoControler(int EntryPoint);
 };

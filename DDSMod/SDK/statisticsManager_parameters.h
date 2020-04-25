@@ -104,7 +104,7 @@ struct AstatisticsManager_C_ReceiveBeginPlay_Params
 // Function statisticsManager.statisticsManager_C.ReceiveTick
 struct AstatisticsManager_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function statisticsManager.statisticsManager_C.levelUpWidget

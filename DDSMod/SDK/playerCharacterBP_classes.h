@@ -427,14 +427,14 @@ public:
 	void InpActEvt_L_K2Node_InputKeyEvent_1(const struct FKey& Key);
 	void InpActEvt_MapToggle_K2Node_InputActionEvent_1(const struct FKey& Key);
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void InpAxisEvt_MoveForward_K2Node_InputAxisEvent_1(float AxisValue);
 	void InpAxisEvt_MoveSideways_K2Node_InputAxisEvent_2(float AxisValue);
 	void InpAxisEvt_LookUp_K2Node_InputAxisEvent_3(float AxisValue);
 	void InpAxisEvt_LookSideways_K2Node_InputAxisEvent_4(float AxisValue);
 	void breakCrouch();
 	void footStep();
-	void ReceivePossessed(class AController** NewController);
+	void ReceivePossessed(class AController* NewController);
 	void lineTraceCheck();
 	void breakSprint();
 	void playerStateUpdates();
@@ -453,7 +453,7 @@ public:
 	void selectActionOption();
 	void startLockpickMode(class AdoorBase_C* LockpickedDoor);
 	void closeLockpickMode();
-	void ReceiveUnpossessed(class AController** OldController);
+	void ReceiveUnpossessed(class AController* OldController);
 	void startDialogue(class AdialogueInstance_C* dialogueInstance);
 	void endDialogue();
 	void openTrade();
@@ -471,7 +471,7 @@ public:
 	void clearOptionPanel();
 	void ActionRelease();
 	void removeMap();
-	void OnLanded(struct FHitResult* Hit);
+	void OnLanded(const struct FHitResult& Hit);
 	void openMap();
 	void enterAppartmentMode();
 	void endAppartmentMode();

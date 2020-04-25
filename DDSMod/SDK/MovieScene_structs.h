@@ -12,18 +12,6 @@ namespace SDK
 // Enums
 //---------------------------------------------------------------------------
 
-// Enum MovieScene.EMovieSceneKeyInterpolation
-enum class EMovieSceneKeyInterpolation : uint8_t
-{
-	EMovieSceneKeyInterpolation__Auto = 0,
-	EMovieSceneKeyInterpolation__User = 1,
-	EMovieSceneKeyInterpolation__Break = 2,
-	EMovieSceneKeyInterpolation__Linear = 3,
-	EMovieSceneKeyInterpolation__Constant = 4,
-	EMovieSceneKeyInterpolation__EMovieSceneKeyInterpolation_MAX = 5
-};
-
-
 // Enum MovieScene.EMovieSceneBlendType
 enum class EMovieSceneBlendType : uint8_t
 {
@@ -63,6 +51,15 @@ enum class EMovieSceneBuiltInEasing : uint8_t
 };
 
 
+// Enum MovieScene.EEvaluationMethod
+enum class EEvaluationMethod : uint8_t
+{
+	EEvaluationMethod__Static      = 0,
+	EEvaluationMethod__Swept       = 1,
+	EEvaluationMethod__EEvaluationMethod_MAX = 2
+};
+
+
 // Enum MovieScene.EUpdateClockSource
 enum class EUpdateClockSource : uint8_t
 {
@@ -73,12 +70,12 @@ enum class EUpdateClockSource : uint8_t
 };
 
 
-// Enum MovieScene.EEvaluationMethod
-enum class EEvaluationMethod : uint8_t
+// Enum MovieScene.EMovieSceneEvaluationType
+enum class EMovieSceneEvaluationType : uint8_t
 {
-	EEvaluationMethod__Static      = 0,
-	EEvaluationMethod__Swept       = 1,
-	EEvaluationMethod__EEvaluationMethod_MAX = 2
+	EMovieSceneEvaluationType__FrameLocked = 0,
+	EMovieSceneEvaluationType__WithSubFrames = 1,
+	EMovieSceneEvaluationType__EMovieSceneEvaluationType_MAX = 2
 };
 
 
@@ -93,15 +90,6 @@ enum class EMovieScenePlayerStatus : uint8_t
 	EMovieScenePlayerStatus__Stepping = 5,
 	EMovieScenePlayerStatus__Paused = 6,
 	EMovieScenePlayerStatus__MAX   = 7
-};
-
-
-// Enum MovieScene.EMovieSceneEvaluationType
-enum class EMovieSceneEvaluationType : uint8_t
-{
-	EMovieSceneEvaluationType__FrameLocked = 0,
-	EMovieSceneEvaluationType__WithSubFrames = 1,
-	EMovieSceneEvaluationType__EMovieSceneEvaluationType_MAX = 2
 };
 
 
@@ -141,6 +129,18 @@ enum class ESpawnOwnership : uint8_t
 	ESpawnOwnership__MasterSequence = 1,
 	ESpawnOwnership__External      = 2,
 	ESpawnOwnership__ESpawnOwnership_MAX = 3
+};
+
+
+// Enum MovieScene.EMovieSceneKeyInterpolation
+enum class EMovieSceneKeyInterpolation : uint8_t
+{
+	EMovieSceneKeyInterpolation__Auto = 0,
+	EMovieSceneKeyInterpolation__User = 1,
+	EMovieSceneKeyInterpolation__Break = 2,
+	EMovieSceneKeyInterpolation__Linear = 3,
+	EMovieSceneKeyInterpolation__Constant = 4,
+	EMovieSceneKeyInterpolation__EMovieSceneKeyInterpolation_MAX = 5
 };
 
 
@@ -483,28 +483,6 @@ struct FMovieSceneObjectBindingID
 	struct FGuid                                       Guid;                                                     // 0x0008(0x0010) (Edit, ZeroConstructor, IsPlainOldData)
 };
 
-// ScriptStruct MovieScene.MovieSceneBindingOverrideData
-// 0x0024
-struct FMovieSceneBindingOverrideData
-{
-	struct FMovieSceneObjectBindingID                  ObjectBindingId;                                          // 0x0000(0x0018) (Edit)
-	TWeakObjectPtr<class UObject>                      Object;                                                   // 0x0018(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	bool                                               bOverridesDefault;                                        // 0x0020(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0021(0x0003) MISSED OFFSET
-};
-
-// ScriptStruct MovieScene.MovieSceneSectionParameters
-// 0x0018
-struct FMovieSceneSectionParameters
-{
-	struct FFrameNumber                                StartFrameOffset;                                         // 0x0000(0x0004) (Edit)
-	float                                              TimeScale;                                                // 0x0004(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                HierarchicalBias;                                         // 0x0008(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              StartOffset;                                              // 0x000C(0x0004) (ZeroConstructor, Deprecated, IsPlainOldData)
-	float                                              PrerollTime;                                              // 0x0010(0x0004) (ZeroConstructor, Deprecated, IsPlainOldData)
-	float                                              PostrollTime;                                             // 0x0014(0x0004) (ZeroConstructor, Deprecated, IsPlainOldData)
-};
-
 // ScriptStruct MovieScene.MovieSceneSpawnable
 // 0x0090
 struct FMovieSceneSpawnable
@@ -539,6 +517,28 @@ struct FMovieSceneBinding
 	struct FGuid                                       ObjectGuid;                                               // 0x0000(0x0010) (ZeroConstructor, IsPlainOldData)
 	struct FString                                     BindingName;                                              // 0x0010(0x0010) (ZeroConstructor)
 	TArray<class UMovieSceneTrack*>                    Tracks;                                                   // 0x0020(0x0010) (ExportObject, ZeroConstructor)
+};
+
+// ScriptStruct MovieScene.MovieSceneBindingOverrideData
+// 0x0024
+struct FMovieSceneBindingOverrideData
+{
+	struct FMovieSceneObjectBindingID                  ObjectBindingId;                                          // 0x0000(0x0018) (Edit)
+	TWeakObjectPtr<class UObject>                      Object;                                                   // 0x0018(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               bOverridesDefault;                                        // 0x0020(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0021(0x0003) MISSED OFFSET
+};
+
+// ScriptStruct MovieScene.MovieSceneSectionParameters
+// 0x0018
+struct FMovieSceneSectionParameters
+{
+	struct FFrameNumber                                StartFrameOffset;                                         // 0x0000(0x0004) (Edit)
+	float                                              TimeScale;                                                // 0x0004(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                HierarchicalBias;                                         // 0x0008(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              StartOffset;                                              // 0x000C(0x0004) (ZeroConstructor, Deprecated, IsPlainOldData)
+	float                                              PrerollTime;                                              // 0x0010(0x0004) (ZeroConstructor, Deprecated, IsPlainOldData)
+	float                                              PostrollTime;                                             // 0x0014(0x0004) (ZeroConstructor, Deprecated, IsPlainOldData)
 };
 
 // ScriptStruct MovieScene.MovieSceneEvalTemplateBase
@@ -740,6 +740,16 @@ struct FMovieScenePropertySectionTemplate : public FMovieSceneEvalTemplate
 	struct FMovieScenePropertySectionData              PropertyData;                                             // 0x0020(0x0028)
 };
 
+// ScriptStruct MovieScene.SectionEvaluationData
+// 0x000C
+struct FSectionEvaluationData
+{
+	int                                                ImplIndex;                                                // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
+	struct FFrameNumber                                ForcedTime;                                               // 0x0004(0x0004)
+	ESectionEvaluationFlags                            Flags;                                                    // 0x0008(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
+};
+
 // ScriptStruct MovieScene.MovieSceneSequenceInstanceData
 // 0x0008
 struct FMovieSceneSequenceInstanceData
@@ -759,16 +769,6 @@ struct FTestMovieSceneEvalTemplate : public FMovieSceneEvalTemplate
 struct FMovieSceneTrackImplementation : public FMovieSceneEvalTemplateBase
 {
 
-};
-
-// ScriptStruct MovieScene.SectionEvaluationData
-// 0x000C
-struct FSectionEvaluationData
-{
-	int                                                ImplIndex;                                                // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
-	struct FFrameNumber                                ForcedTime;                                               // 0x0004(0x0004)
-	ESectionEvaluationFlags                            Flags;                                                    // 0x0008(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
 };
 
 }

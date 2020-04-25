@@ -37,7 +37,7 @@ struct UCitizenMale01_animBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_Citiz
 // Function CitizenMale01_animBP.CitizenMale01_animBP_C.BlueprintUpdateAnimation
 struct UCitizenMale01_animBP_C_BlueprintUpdateAnimation_Params
 {
-	float*                                             DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function CitizenMale01_animBP.CitizenMale01_animBP_C.ExecuteUbergraph_CitizenMale01_animBP

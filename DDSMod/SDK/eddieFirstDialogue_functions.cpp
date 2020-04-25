@@ -144,9 +144,9 @@ void AeddieFirstDialogue_C::ReceiveBeginPlay()
 // Function eddieFirstDialogue.eddieFirstDialogue_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AeddieFirstDialogue_C::ReceiveTick(float* DeltaSeconds)
+void AeddieFirstDialogue_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function eddieFirstDialogue.eddieFirstDialogue_C.ReceiveTick");
 

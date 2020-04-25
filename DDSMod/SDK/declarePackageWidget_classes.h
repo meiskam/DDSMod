@@ -53,7 +53,7 @@ public:
 
 	void changeQuantity(int Quan);
 	void clearAllButtons();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void setup(class UpackageProductWidget_C* Parent);
 	void BndEvt__btnCancel_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__btn1g_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature();

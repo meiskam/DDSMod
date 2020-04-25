@@ -56,7 +56,7 @@ public:
 	void raidMusicFadeOut__FinishedFunc();
 	void raidMusicFadeOut__UpdateFunc();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void StartKurwaRaid();
 	void raidCountdown();
 	void overrideEndCountdown();

@@ -33,12 +33,12 @@ void ABP_NPC_Bird_Base_C::UserConstructionScript()
 // Function BP_NPC_Bird_Base.BP_NPC_Bird_Base_C.ReceiveAnyDamage
 // (BlueprintAuthorityOnly, Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         Damage                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// class UDamageType**            DamageType                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// class AController**            InstigatedBy                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// class AActor**                 DamageCauser                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          Damage                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class UDamageType*             DamageType                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AController*             InstigatedBy                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  DamageCauser                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ABP_NPC_Bird_Base_C::ReceiveAnyDamage(float* Damage, class UDamageType** DamageType, class AController** InstigatedBy, class AActor** DamageCauser)
+void ABP_NPC_Bird_Base_C::ReceiveAnyDamage(float Damage, class UDamageType* DamageType, class AController* InstigatedBy, class AActor* DamageCauser)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC_Bird_Base.BP_NPC_Bird_Base_C.ReceiveAnyDamage");
 
@@ -59,9 +59,9 @@ void ABP_NPC_Bird_Base_C::ReceiveAnyDamage(float* Damage, class UDamageType** Da
 // Function BP_NPC_Bird_Base.BP_NPC_Bird_Base_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ABP_NPC_Bird_Base_C::ReceiveTick(float* DeltaSeconds)
+void ABP_NPC_Bird_Base_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function BP_NPC_Bird_Base.BP_NPC_Bird_Base_C.ReceiveTick");
 

@@ -22,7 +22,7 @@ struct AextinguishPoliceCar_C_UserConstructionScript_Params
 // Function extinguishPoliceCar.extinguishPoliceCar_C.ReceiveTick
 struct AextinguishPoliceCar_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function extinguishPoliceCar.extinguishPoliceCar_C.startMoving

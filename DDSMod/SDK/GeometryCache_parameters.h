@@ -145,14 +145,14 @@ struct UGeometryCacheTrack_FlipbookAnimation_AddMeshSample_Params
 	float                                              SampleTime;                                               // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function GeometryCache.GeometryCacheTrack_TransformGroupAnimation.SetMesh
-struct UGeometryCacheTrack_TransformGroupAnimation_SetMesh_Params
+// Function GeometryCache.GeometryCacheTrack_TransformAnimation.SetMesh
+struct UGeometryCacheTrack_TransformAnimation_SetMesh_Params
 {
 	struct FGeometryCacheMeshData                      NewMeshData;                                              // (ConstParm, Parm, OutParm, ReferenceParm)
 };
 
-// Function GeometryCache.GeometryCacheTrack_TransformAnimation.SetMesh
-struct UGeometryCacheTrack_TransformAnimation_SetMesh_Params
+// Function GeometryCache.GeometryCacheTrack_TransformGroupAnimation.SetMesh
+struct UGeometryCacheTrack_TransformGroupAnimation_SetMesh_Params
 {
 	struct FGeometryCacheMeshData                      NewMeshData;                                              // (ConstParm, Parm, OutParm, ReferenceParm)
 };

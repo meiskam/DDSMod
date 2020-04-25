@@ -234,7 +234,7 @@ struct AsalesManager_C_ReceiveBeginPlay_Params
 // Function salesManager.salesManager_C.ReceiveTick
 struct AsalesManager_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function salesManager.salesManager_C.tryInitialise

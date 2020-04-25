@@ -76,9 +76,9 @@ void AadditiveContainerBase_C::ReceiveBeginPlay()
 // Function additiveContainerBase.additiveContainerBase_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AadditiveContainerBase_C::ReceiveTick(float* DeltaSeconds)
+void AadditiveContainerBase_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function additiveContainerBase.additiveContainerBase_C.ReceiveTick");
 

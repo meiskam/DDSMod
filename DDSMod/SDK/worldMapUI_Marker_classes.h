@@ -36,7 +36,7 @@ public:
 
 
 	void checkAreaUnlocked(bool* unlocked);
-	struct FEventReply OnMouseButtonDoubleClick(struct FGeometry* InMyGeometry, struct FPointerEvent* InMouseEvent);
+	struct FEventReply OnMouseButtonDoubleClick(const struct FGeometry& InMyGeometry, const struct FPointerEvent& InMouseEvent);
 	class UWidget* Get_mainCanvas_ToolTipWidget_1();
 	bool Get_mainCanvas_bIsEnabled_1();
 	void setup(const struct FText& MarkerName, TEnumAsByte<EmapMarkerCategories> MarkerType, const struct FVector2D& basePos, const struct FText& ToolTip, bool dealer, const struct FString& AreaString);

@@ -32,7 +32,7 @@ public:
 
 
 	void removeMe();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void setup(const struct FText& Monologue, float Duration, const struct FText& Name);
 	void Construct();
 	void ExecuteUbergraph_narratorSubtitlesWidget(int EntryPoint);

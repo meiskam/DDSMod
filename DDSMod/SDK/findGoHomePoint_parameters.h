@@ -17,7 +17,7 @@ namespace SDK
 // Function findGoHomePoint.findGoHomePoint_C.ReceiveExecute
 struct UfindGoHomePoint_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function findGoHomePoint.findGoHomePoint_C.ExecuteUbergraph_findGoHomePoint

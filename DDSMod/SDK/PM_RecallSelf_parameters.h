@@ -17,7 +17,7 @@ namespace SDK
 // Function PM_RecallSelf.PM_RecallSelf_C.ReceiveExecute
 struct UPM_RecallSelf_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_RecallSelf.PM_RecallSelf_C.ExecuteUbergraph_PM_RecallSelf

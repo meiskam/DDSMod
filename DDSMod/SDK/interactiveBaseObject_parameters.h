@@ -63,7 +63,7 @@ struct AinteractiveBaseObject_C_ReceiveBeginPlay_Params
 // Function interactiveBaseObject.interactiveBaseObject_C.ReceiveTick
 struct AinteractiveBaseObject_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function interactiveBaseObject.interactiveBaseObject_C.adaptPlaceMaterial

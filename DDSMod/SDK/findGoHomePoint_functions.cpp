@@ -16,9 +16,9 @@ namespace SDK
 // Function findGoHomePoint.findGoHomePoint_C.ReceiveExecute
 // (Event, Protected, BlueprintEvent)
 // Parameters:
-// class AActor**                 OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UfindGoHomePoint_C::ReceiveExecute(class AActor** OwnerActor)
+void UfindGoHomePoint_C::ReceiveExecute(class AActor* OwnerActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function findGoHomePoint.findGoHomePoint_C.ReceiveExecute");
 

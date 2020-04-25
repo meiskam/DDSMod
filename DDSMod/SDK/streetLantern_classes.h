@@ -42,7 +42,7 @@ public:
 
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void eventLightChange(bool* on);
+	void eventLightChange(bool on);
 	void checkDayTime();
 	void repairLantern();
 	void updatePlayerDistance();

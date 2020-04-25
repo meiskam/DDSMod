@@ -51,7 +51,7 @@ public:
 	void turnOffset(float DeltaTime);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void AnihilateTrain();
 	void playHorn();
 	void trainShake();

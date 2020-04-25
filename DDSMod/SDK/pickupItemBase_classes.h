@@ -38,7 +38,7 @@ public:
 	void pickupEventScript();
 	void setupItem(const struct FinventoryItemStruct& Data, int quantity, const struct FText& Object_Name, const struct FText& Action_Name, bool Droped, bool SimulatePhysics, bool isGizmo);
 	void resetDroped();
-	void ReceiveActorBeginOverlap(class AActor** OtherActor);
+	void ReceiveActorBeginOverlap(class AActor* OtherActor);
 	void ExecuteUbergraph_pickupItemBase(int EntryPoint);
 };
 

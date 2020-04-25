@@ -78,7 +78,7 @@ public:
 	void ChangeViewAppartment(int AppartmentID);
 	void startAppartmentViewer();
 	void sendDebtInfo();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void ReceiveBeginPlay();
 	void firstRentAction();
 	void ExecuteUbergraph_appartmentManager(int EntryPoint);

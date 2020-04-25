@@ -16,10 +16,10 @@ namespace SDK
 // Function sampleClientInSale.sampleClientInSale_C.ReceiveTick
 // (Event, Protected, BlueprintEvent)
 // Parameters:
-// class AActor**                 OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UsampleClientInSale_C::ReceiveTick(class AActor** OwnerActor, float* DeltaSeconds)
+void UsampleClientInSale_C::ReceiveTick(class AActor* OwnerActor, float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function sampleClientInSale.sampleClientInSale_C.ReceiveTick");
 

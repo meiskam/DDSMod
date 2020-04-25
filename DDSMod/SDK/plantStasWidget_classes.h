@@ -33,7 +33,7 @@ public:
 
 
 	void Construct();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void setup(class AweedPlantBP_C* PlantRef);
 	void updateMe();
 	void ExecuteUbergraph_plantStasWidget(int EntryPoint);

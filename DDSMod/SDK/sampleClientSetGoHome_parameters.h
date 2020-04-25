@@ -17,7 +17,7 @@ namespace SDK
 // Function sampleClientSetGoHome.sampleClientSetGoHome_C.ReceiveExecute
 struct UsampleClientSetGoHome_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function sampleClientSetGoHome.sampleClientSetGoHome_C.ExecuteUbergraph_sampleClientSetGoHome

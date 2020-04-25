@@ -31,7 +31,7 @@ public:
 
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void testPlayerSee();
 	void makeGoHome();
 	void ExecuteUbergraph_sampleClientBP(int EntryPoint);

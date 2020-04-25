@@ -85,7 +85,7 @@ struct AmainComputer_C_ReceiveBeginPlay_Params
 // Function mainComputer.mainComputer_C.ReceiveTick
 struct AmainComputer_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function mainComputer.mainComputer_C.openComputer

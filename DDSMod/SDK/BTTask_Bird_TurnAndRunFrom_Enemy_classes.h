@@ -32,7 +32,7 @@ public:
 
 	void OnFail_A030AE6644CF82915307329D4CCBBD31(TEnumAsByte<EPathFollowingResult> MovementResult);
 	void OnSuccess_A030AE6644CF82915307329D4CCBBD31(TEnumAsByte<EPathFollowingResult> MovementResult);
-	void ReceiveExecuteAI(class AAIController** OwnerController, class APawn** ControlledPawn);
+	void ReceiveExecuteAI(class AAIController* OwnerController, class APawn* ControlledPawn);
 	void ExecuteUbergraph_BTTask_Bird_TurnAndRunFrom_Enemy(int EntryPoint);
 };
 

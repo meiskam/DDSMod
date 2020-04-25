@@ -78,6 +78,24 @@ public:
 };
 
 
+// Class GameplayTasks.GameplayTask_TimeLimitedExecution
+// 0x0030 (0x0098 - 0x0068)
+class UGameplayTask_TimeLimitedExecution : public UGameplayTask
+{
+public:
+	struct FScriptMulticastDelegate                    OnFinished;                                               // 0x0068(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnTimeExpired;                                            // 0x0078(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0088(0x0010) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class GameplayTasks.GameplayTask_TimeLimitedExecution");
+		return ptr;
+	}
+
+};
+
+
 // Class GameplayTasks.GameplayTask_WaitDelay
 // 0x0018 (0x0080 - 0x0068)
 class UGameplayTask_WaitDelay : public UGameplayTask
@@ -107,24 +125,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class GameplayTasks.GameplayTaskOwnerInterface");
-		return ptr;
-	}
-
-};
-
-
-// Class GameplayTasks.GameplayTask_TimeLimitedExecution
-// 0x0030 (0x0098 - 0x0068)
-class UGameplayTask_TimeLimitedExecution : public UGameplayTask
-{
-public:
-	struct FScriptMulticastDelegate                    OnFinished;                                               // 0x0068(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnTimeExpired;                                            // 0x0078(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0088(0x0010) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class GameplayTasks.GameplayTask_TimeLimitedExecution");
 		return ptr;
 	}
 

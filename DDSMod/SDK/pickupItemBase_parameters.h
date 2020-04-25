@@ -54,7 +54,7 @@ struct ApickupItemBase_C_resetDroped_Params
 // Function pickupItemBase.pickupItemBase_C.ReceiveActorBeginOverlap
 struct ApickupItemBase_C_ReceiveActorBeginOverlap_Params
 {
-	class AActor**                                     OtherActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OtherActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function pickupItemBase.pickupItemBase_C.ExecuteUbergraph_pickupItemBase

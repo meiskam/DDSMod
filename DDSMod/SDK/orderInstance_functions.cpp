@@ -273,9 +273,9 @@ void AorderInstance_C::ReceiveBeginPlay()
 // Function orderInstance.orderInstance_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AorderInstance_C::ReceiveTick(float* DeltaSeconds)
+void AorderInstance_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderInstance.orderInstance_C.ReceiveTick");
 

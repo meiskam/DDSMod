@@ -35,7 +35,7 @@ public:
 	void checkObstacles(bool* CanSpawn);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void spawnSpray();
 	void ExecuteUbergraph_spraySpawnPoint(int EntryPoint);
 };

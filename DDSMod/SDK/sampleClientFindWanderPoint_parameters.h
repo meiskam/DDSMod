@@ -17,7 +17,7 @@ namespace SDK
 // Function sampleClientFindWanderPoint.sampleClientFindWanderPoint_C.ReceiveExecute
 struct UsampleClientFindWanderPoint_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function sampleClientFindWanderPoint.sampleClientFindWanderPoint_C.ExecuteUbergraph_sampleClientFindWanderPoint

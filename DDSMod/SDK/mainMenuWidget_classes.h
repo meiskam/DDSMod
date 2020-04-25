@@ -67,7 +67,7 @@ public:
 	void BndEvt__btnGame_K2Node_ComponentBoundEvent_7_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__btnSettings_K2Node_ComponentBoundEvent_8_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void Construct();
 	void BndEvt__btnExit_K2Node_ComponentBoundEvent_9_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__btnSettings_K2Node_ComponentBoundEvent_11_OnButtonHoverEvent__DelegateSignature();

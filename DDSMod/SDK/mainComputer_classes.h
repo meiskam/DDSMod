@@ -113,7 +113,7 @@ public:
 	void sendNewOrder(TArray<struct FdrugData>* drugData, TArray<int>* DrugQuantities);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void openComputer();
 	void prepareOrderResponse();
 	void ActivateComputer();

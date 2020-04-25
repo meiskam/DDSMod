@@ -67,9 +67,9 @@ void AsaveStation_C::ReceiveBeginPlay()
 // Function saveStation.saveStation_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AsaveStation_C::ReceiveTick(float* DeltaSeconds)
+void AsaveStation_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function saveStation.saveStation_C.ReceiveTick");
 

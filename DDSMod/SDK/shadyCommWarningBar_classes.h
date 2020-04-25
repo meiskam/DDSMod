@@ -36,8 +36,8 @@ public:
 	void Construct();
 	void setup(const struct FText& Content, const struct FText& ToolTip);
 	void playPing();
-	void OnMouseEnter(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent);
-	void OnMouseLeave(struct FPointerEvent* MouseEvent);
+	void OnMouseEnter(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent);
+	void OnMouseLeave(const struct FPointerEvent& MouseEvent);
 	void ExecuteUbergraph_shadyCommWarningBar(int EntryPoint);
 };
 

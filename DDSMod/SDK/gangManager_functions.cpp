@@ -232,9 +232,9 @@ void AgangManager_C::ReceiveBeginPlay()
 // Function gangManager.gangManager_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AgangManager_C::ReceiveTick(float* DeltaSeconds)
+void AgangManager_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function gangManager.gangManager_C.ReceiveTick");
 

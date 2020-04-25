@@ -17,7 +17,7 @@ namespace SDK
 // Function sampleClientForceGotHome.sampleClientForceGotHome_C.ReceiveExecute
 struct UsampleClientForceGotHome_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function sampleClientForceGotHome.sampleClientForceGotHome_C.ExecuteUbergraph_sampleClientForceGotHome

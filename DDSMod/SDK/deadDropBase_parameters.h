@@ -39,7 +39,7 @@ struct AdeadDropBase_C_ReceiveBeginPlay_Params
 // Function deadDropBase.deadDropBase_C.ReceiveTick
 struct AdeadDropBase_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function deadDropBase.deadDropBase_C.closeEventScript

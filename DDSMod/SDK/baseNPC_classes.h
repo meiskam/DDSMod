@@ -118,7 +118,7 @@ public:
 	void setupNewDrugSale(const struct FdrugData& drugData, int DrugQuantity, const struct FText& characterName, float expectedPrice, int OrderId, int TaskID, bool isMale, bool isDealer, float ExpectationLevel);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void dialogueMode();
 	void endDialogueMode();
 	void activateTrade();

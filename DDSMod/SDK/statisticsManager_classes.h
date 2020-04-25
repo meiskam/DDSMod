@@ -95,7 +95,7 @@ public:
 	void calcExpForLevelUp(float* ExpLacking, float* ExpNeededTotal, float* NextLevelProgress);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void levelUpWidget();
 	void checkStatuses();
 	void tryShowLevel();

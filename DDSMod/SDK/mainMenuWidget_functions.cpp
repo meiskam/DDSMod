@@ -118,10 +118,10 @@ void UmainMenuWidget_C::BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHov
 // Function mainMenuWidget.mainMenuWidget_C.Tick
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// float*                         InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// float                          InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UmainMenuWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
+void UmainMenuWidget_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.Tick");
 

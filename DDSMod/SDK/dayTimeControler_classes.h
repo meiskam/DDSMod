@@ -69,7 +69,7 @@ public:
 	void calculateSky();
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void updateSun();
 	void disableStreetLight();
 	void enableStreetLight();

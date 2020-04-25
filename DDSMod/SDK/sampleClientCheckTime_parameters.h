@@ -17,8 +17,8 @@ namespace SDK
 // Function sampleClientCheckTime.sampleClientCheckTime_C.ReceiveTick
 struct UsampleClientCheckTime_C_ReceiveTick_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function sampleClientCheckTime.sampleClientCheckTime_C.ExecuteUbergraph_sampleClientCheckTime

@@ -67,9 +67,9 @@ void AbackpackBase_C::ReceiveBeginPlay()
 // Function backpackBase.backpackBase_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AbackpackBase_C::ReceiveTick(float* DeltaSeconds)
+void AbackpackBase_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function backpackBase.backpackBase_C.ReceiveTick");
 

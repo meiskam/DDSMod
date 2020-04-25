@@ -87,7 +87,7 @@ public:
 	}
 
 
-	void BlueprintUpdateAnimation(float* DeltaTimeX);
+	void BlueprintUpdateAnimation(float DeltaTimeX);
 	void AnimNotify_IdleEnd();
 	void ExecuteUbergraph_Pigeon_AnimBlueprint(int EntryPoint);
 };

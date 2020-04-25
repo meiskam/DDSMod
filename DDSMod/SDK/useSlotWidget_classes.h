@@ -41,8 +41,8 @@ public:
 	void useSlotItem();
 	void clearSlot();
 	void checkItemAvailable(bool* itemAvailable);
-	bool OnDrop(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation);
-	void PreConstruct(bool* IsDesignTime);
+	bool OnDrop(const struct FGeometry& MyGeometry, const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation);
+	void PreConstruct(bool IsDesignTime);
 	void Construct();
 	void ExecuteUbergraph_useSlotWidget(int EntryPoint);
 };

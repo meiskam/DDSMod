@@ -37,7 +37,7 @@ public:
 	void selectFillBottle(int* ChosenBottleQuantity);
 	void fillOneBottle();
 	void UserConstructionScript();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void sinkActionHeld();
 	void sinkActionRelease();
 	void showWaterFillDialogue();

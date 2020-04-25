@@ -17,8 +17,8 @@ namespace SDK
 // Function checkPatrolMoving.checkPatrolMoving_C.ReceiveTick
 struct UcheckPatrolMoving_C_ReceiveTick_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function checkPatrolMoving.checkPatrolMoving_C.ExecuteUbergraph_checkPatrolMoving

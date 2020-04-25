@@ -33,9 +33,9 @@ void AeddieWalkPoint_C::UserConstructionScript()
 // Function eddieWalkPoint.eddieWalkPoint_C.ReceiveActorBeginOverlap
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AActor**                 OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AeddieWalkPoint_C::ReceiveActorBeginOverlap(class AActor** OtherActor)
+void AeddieWalkPoint_C::ReceiveActorBeginOverlap(class AActor* OtherActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function eddieWalkPoint.eddieWalkPoint_C.ReceiveActorBeginOverlap");
 

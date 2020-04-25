@@ -478,16 +478,16 @@ void UGeometryCacheTrack_FlipbookAnimation::AddMeshSample(const struct FGeometry
 }
 
 
-// Function GeometryCache.GeometryCacheTrack_TransformGroupAnimation.SetMesh
+// Function GeometryCache.GeometryCacheTrack_TransformAnimation.SetMesh
 // (Final, Native, Public, HasOutParms)
 // Parameters:
 // struct FGeometryCacheMeshData  NewMeshData                    (ConstParm, Parm, OutParm, ReferenceParm)
 
-void UGeometryCacheTrack_TransformGroupAnimation::SetMesh(const struct FGeometryCacheMeshData& NewMeshData)
+void UGeometryCacheTrack_TransformAnimation::SetMesh(const struct FGeometryCacheMeshData& NewMeshData)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function GeometryCache.GeometryCacheTrack_TransformGroupAnimation.SetMesh");
+	static auto fn = UObject::FindObject<UFunction>("Function GeometryCache.GeometryCacheTrack_TransformAnimation.SetMesh");
 
-	UGeometryCacheTrack_TransformGroupAnimation_SetMesh_Params params;
+	UGeometryCacheTrack_TransformAnimation_SetMesh_Params params;
 	params.NewMeshData = NewMeshData;
 
 	auto flags = fn->FunctionFlags;
@@ -499,16 +499,16 @@ void UGeometryCacheTrack_TransformGroupAnimation::SetMesh(const struct FGeometry
 }
 
 
-// Function GeometryCache.GeometryCacheTrack_TransformAnimation.SetMesh
+// Function GeometryCache.GeometryCacheTrack_TransformGroupAnimation.SetMesh
 // (Final, Native, Public, HasOutParms)
 // Parameters:
 // struct FGeometryCacheMeshData  NewMeshData                    (ConstParm, Parm, OutParm, ReferenceParm)
 
-void UGeometryCacheTrack_TransformAnimation::SetMesh(const struct FGeometryCacheMeshData& NewMeshData)
+void UGeometryCacheTrack_TransformGroupAnimation::SetMesh(const struct FGeometryCacheMeshData& NewMeshData)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function GeometryCache.GeometryCacheTrack_TransformAnimation.SetMesh");
+	static auto fn = UObject::FindObject<UFunction>("Function GeometryCache.GeometryCacheTrack_TransformGroupAnimation.SetMesh");
 
-	UGeometryCacheTrack_TransformAnimation_SetMesh_Params params;
+	UGeometryCacheTrack_TransformGroupAnimation_SetMesh_Params params;
 	params.NewMeshData = NewMeshData;
 
 	auto flags = fn->FunctionFlags;

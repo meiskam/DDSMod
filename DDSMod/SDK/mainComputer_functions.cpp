@@ -232,9 +232,9 @@ void AmainComputer_C::ReceiveBeginPlay()
 // Function mainComputer.mainComputer_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AmainComputer_C::ReceiveTick(float* DeltaSeconds)
+void AmainComputer_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function mainComputer.mainComputer_C.ReceiveTick");
 

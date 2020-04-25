@@ -26,7 +26,7 @@ public:
 	}
 
 
-	void ReceiveTick(class AActor** OwnerActor, float* DeltaSeconds);
+	void ReceiveTick(class AActor* OwnerActor, float DeltaSeconds);
 	void ExecuteUbergraph_checkDistanceToLeash(int EntryPoint);
 };
 

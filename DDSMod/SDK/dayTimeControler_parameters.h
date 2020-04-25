@@ -85,7 +85,7 @@ struct AdayTimeControler_C_ReceiveBeginPlay_Params
 // Function dayTimeControler.dayTimeControler_C.ReceiveTick
 struct AdayTimeControler_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function dayTimeControler.dayTimeControler_C.updateSun

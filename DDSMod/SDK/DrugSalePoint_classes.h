@@ -37,7 +37,7 @@ public:
 
 	void peopleOverlaping(bool* Clear);
 	void UserConstructionScript();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void ExecuteUbergraph_DrugSalePoint(int EntryPoint);
 };
 

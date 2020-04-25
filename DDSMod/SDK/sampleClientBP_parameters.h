@@ -27,7 +27,7 @@ struct AsampleClientBP_C_ReceiveBeginPlay_Params
 // Function sampleClientBP.sampleClientBP_C.ReceiveTick
 struct AsampleClientBP_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function sampleClientBP.sampleClientBP_C.testPlayerSee

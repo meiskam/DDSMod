@@ -38,7 +38,7 @@ public:
 	void reconstructReferences();
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void checkPositioning();
 	void ExecuteUbergraph_policeDogLeash(int EntryPoint);
 };

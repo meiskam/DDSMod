@@ -35,7 +35,7 @@ public:
 
 
 	void Construct();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void setup(const struct FText& Text, TEnumAsByte<EquickHintType> Category);
 	void ExecuteUbergraph_quickHintWidget(int EntryPoint);
 };

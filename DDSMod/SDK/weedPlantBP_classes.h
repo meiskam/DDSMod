@@ -69,7 +69,7 @@ public:
 	void useWater(float waterToUse);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void updateGrowth();
 	void harvestPlant();
 	void activateMe();

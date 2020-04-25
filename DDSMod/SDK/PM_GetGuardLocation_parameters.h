@@ -17,7 +17,7 @@ namespace SDK
 // Function PM_GetGuardLocation.PM_GetGuardLocation_C.ReceiveExecute
 struct UPM_GetGuardLocation_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_GetGuardLocation.PM_GetGuardLocation_C.ExecuteUbergraph_PM_GetGuardLocation

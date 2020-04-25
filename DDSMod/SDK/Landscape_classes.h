@@ -467,23 +467,6 @@ public:
 };
 
 
-// Class Landscape.LandscapeStreamingProxy
-// 0x0020 (0x0660 - 0x0640)
-class ALandscapeStreamingProxy : public ALandscapeProxy
-{
-public:
-	TLazyObjectPtr<class ALandscape>                   LandscapeActor;                                           // 0x0640(0x001C) (Edit, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x065C(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Landscape.LandscapeStreamingProxy");
-		return ptr;
-	}
-
-};
-
-
 // Class Landscape.LandscapeSplineSegment
 // 0x0088 (0x00B0 - 0x0028)
 class ULandscapeSplineSegment : public UObject
@@ -499,6 +482,23 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Landscape.LandscapeSplineSegment");
+		return ptr;
+	}
+
+};
+
+
+// Class Landscape.LandscapeStreamingProxy
+// 0x0020 (0x0660 - 0x0640)
+class ALandscapeStreamingProxy : public ALandscapeProxy
+{
+public:
+	TLazyObjectPtr<class ALandscape>                   LandscapeActor;                                           // 0x0640(0x001C) (Edit, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x065C(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Landscape.LandscapeStreamingProxy");
 		return ptr;
 	}
 

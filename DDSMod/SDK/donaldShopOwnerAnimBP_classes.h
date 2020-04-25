@@ -40,7 +40,7 @@ public:
 	}
 
 
-	void BlueprintUpdateAnimation(float* DeltaTimeX);
+	void BlueprintUpdateAnimation(float DeltaTimeX);
 	void ExecuteUbergraph_donaldShopOwnerAnimBP(int EntryPoint);
 };
 

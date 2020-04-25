@@ -48,6 +48,16 @@ enum class EMediaPlayerTrack : uint8_t
 };
 
 
+// Enum MediaAssets.EMediaSoundChannels
+enum class EMediaSoundChannels : uint8_t
+{
+	EMediaSoundChannels__Mono      = 0,
+	EMediaSoundChannels__Stereo    = 1,
+	EMediaSoundChannels__Surround  = 2,
+	EMediaSoundChannels__EMediaSoundChannels_MAX = 3
+};
+
+
 // Enum MediaAssets.EMediaAudioCaptureDeviceFilter
 enum class EMediaAudioCaptureDeviceFilter : uint8_t
 {
@@ -56,16 +66,6 @@ enum class EMediaAudioCaptureDeviceFilter : uint8_t
 	EMediaAudioCaptureDeviceFilter__Software = 2,
 	EMediaAudioCaptureDeviceFilter__Unknown = 3,
 	EMediaAudioCaptureDeviceFilter__EMediaAudioCaptureDeviceFilter_MAX = 4
-};
-
-
-// Enum MediaAssets.EMediaSoundChannels
-enum class EMediaSoundChannels : uint8_t
-{
-	EMediaSoundChannels__Mono      = 0,
-	EMediaSoundChannels__Stereo    = 1,
-	EMediaSoundChannels__Surround  = 2,
-	EMediaSoundChannels__EMediaSoundChannels_MAX = 3
 };
 
 

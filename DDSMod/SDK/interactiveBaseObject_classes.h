@@ -55,7 +55,7 @@ public:
 	void beenActivated();
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void adaptPlaceMaterial();
 	void SetAsGizmo();
 	void ExecuteUbergraph_interactiveBaseObject(int EntryPoint);

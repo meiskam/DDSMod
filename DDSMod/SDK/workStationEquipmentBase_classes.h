@@ -85,7 +85,7 @@ public:
 	void checkCanFit(bool* canFit);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void initialSetup(const struct FappartmentEquipment& Data, bool Gizmo, bool FromHovered);
 	void verifyCorrectNaming();
 	void selectMe();

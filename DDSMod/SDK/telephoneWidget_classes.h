@@ -70,7 +70,7 @@ public:
 	void renderNotifications();
 	void renderMessages(class AtelephoneBP_C* phoneRef, bool renderUserMsg, int userID);
 	void renderCallList(class AtelephoneBP_C* phoneRef);
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void slideNext();
 	void slidePrevious();
 	void setSlide(int slideNum);

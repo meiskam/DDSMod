@@ -135,7 +135,7 @@ struct AworkStationEquipmentBase_C_ReceiveBeginPlay_Params
 // Function workStationEquipmentBase.workStationEquipmentBase_C.ReceiveTick
 struct AworkStationEquipmentBase_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function workStationEquipmentBase.workStationEquipmentBase_C.initialSetup

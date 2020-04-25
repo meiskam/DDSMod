@@ -38,7 +38,7 @@ public:
 	void Timeline_0__FinishedFunc();
 	void Timeline_0__UpdateFunc();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void walkHome();
 	void animateMouth();
 	void stopAnimateMouth();

@@ -66,7 +66,7 @@ struct ABird_AI_Controller_C_UserConstructionScript_Params
 // Function Bird_AI_Controller.Bird_AI_Controller_C.OnPossess
 struct ABird_AI_Controller_C_OnPossess_Params
 {
-	class APawn**                                      PossessedPawn;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       PossessedPawn;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Bird_AI_Controller.Bird_AI_Controller_C.BndEvt__AIPerception_K2Node_ComponentBoundEvent_3_PerceptionUpdatedDelegate__DelegateSignature

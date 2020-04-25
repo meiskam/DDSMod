@@ -50,9 +50,9 @@ void AstreetLantern_C::ReceiveBeginPlay()
 // Function streetLantern.streetLantern_C.eventLightChange
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool*                          on                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           on                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AstreetLantern_C::eventLightChange(bool* on)
+void AstreetLantern_C::eventLightChange(bool on)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function streetLantern.streetLantern_C.eventLightChange");
 

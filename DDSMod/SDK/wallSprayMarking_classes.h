@@ -38,7 +38,7 @@ public:
 	void setSpraySymbol();
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void ExecuteUbergraph_wallSprayMarking(int EntryPoint);
 };
 

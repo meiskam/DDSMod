@@ -34,7 +34,7 @@ struct AspraySpawner_C_ReceiveBeginPlay_Params
 // Function spraySpawner.spraySpawner_C.ReceiveTick
 struct AspraySpawner_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function spraySpawner.spraySpawner_C.trySpawnSpray

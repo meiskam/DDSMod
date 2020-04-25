@@ -52,6 +52,27 @@ enum class ELandscapeLODFalloff : uint8_t
 };
 
 
+// Enum Landscape.ELandscapeLayerDisplayMode
+enum class ELandscapeLayerDisplayMode : uint8_t
+{
+	ELandscapeLayerDisplayMode__Default = 0,
+	ELandscapeLayerDisplayMode__Alphabetical = 1,
+	ELandscapeLayerDisplayMode__UserSpecific = 2,
+	ELandscapeLayerDisplayMode__ELandscapeLayerDisplayMode_MAX = 3
+};
+
+
+// Enum Landscape.ELandscapeLayerPaintingRestriction
+enum class ELandscapeLayerPaintingRestriction : uint8_t
+{
+	ELandscapeLayerPaintingRestriction__None = 0,
+	ELandscapeLayerPaintingRestriction__UseMaxLayers = 1,
+	ELandscapeLayerPaintingRestriction__ExistingOnly = 2,
+	ELandscapeLayerPaintingRestriction__UseComponentWhitelist = 3,
+	ELandscapeLayerPaintingRestriction__ELandscapeLayerPaintingRestriction_MAX = 4
+};
+
+
 // Enum Landscape.ELandscapeImportAlphamapType
 enum class ELandscapeImportAlphamapType : uint8_t
 {
@@ -80,14 +101,15 @@ enum class ELandscapeLayerBlendType : uint8_t
 };
 
 
-// Enum Landscape.ELandscapeLayerPaintingRestriction
-enum class ELandscapeLayerPaintingRestriction : uint8_t
+// Enum Landscape.ELandscapeCustomizedCoordType
+enum class ELandscapeCustomizedCoordType : uint8_t
 {
-	ELandscapeLayerPaintingRestriction__None = 0,
-	ELandscapeLayerPaintingRestriction__UseMaxLayers = 1,
-	ELandscapeLayerPaintingRestriction__ExistingOnly = 2,
-	ELandscapeLayerPaintingRestriction__UseComponentWhitelist = 3,
-	ELandscapeLayerPaintingRestriction__ELandscapeLayerPaintingRestriction_MAX = 4
+	LCCT_None                      = 0,
+	LCCT_CustomUV0                 = 1,
+	LCCT_CustomUV1                 = 2,
+	LCCT_CustomUV2                 = 3,
+	LCCT_WeightMapUV               = 4,
+	LCCT_MAX                       = 5
 };
 
 
@@ -99,28 +121,6 @@ enum class ETerrainCoordMappingType : uint8_t
 	TCMT_XZ                        = 2,
 	TCMT_YZ                        = 3,
 	TCMT_MAX                       = 4
-};
-
-
-// Enum Landscape.ELandscapeLayerDisplayMode
-enum class ELandscapeLayerDisplayMode : uint8_t
-{
-	ELandscapeLayerDisplayMode__Default = 0,
-	ELandscapeLayerDisplayMode__Alphabetical = 1,
-	ELandscapeLayerDisplayMode__UserSpecific = 2,
-	ELandscapeLayerDisplayMode__ELandscapeLayerDisplayMode_MAX = 3
-};
-
-
-// Enum Landscape.ELandscapeCustomizedCoordType
-enum class ELandscapeCustomizedCoordType : uint8_t
-{
-	LCCT_None                      = 0,
-	LCCT_CustomUV0                 = 1,
-	LCCT_CustomUV1                 = 2,
-	LCCT_CustomUV2                 = 3,
-	LCCT_WeightMapUV               = 4,
-	LCCT_MAX                       = 5
 };
 
 
@@ -277,9 +277,9 @@ struct FLandscapeLayerStruct
 	class ULandscapeLayerInfoObject*                   LayerInfoObj;                                             // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
 };
 
-// ScriptStruct Landscape.LandscapeImportLayerInfo
+// ScriptStruct Landscape.LandscapeEditorLayerSettings
 // 0x0001
-struct FLandscapeImportLayerInfo
+struct FLandscapeEditorLayerSettings
 {
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };
@@ -291,16 +291,16 @@ struct FLandscapeWeightmapUsage
 	class ULandscapeComponent*                         ChannelUsage[0x4];                                        // 0x0000(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
 };
 
-// ScriptStruct Landscape.LandscapeEditorLayerSettings
+// ScriptStruct Landscape.ForeignWorldSplineData
 // 0x0001
-struct FLandscapeEditorLayerSettings
+struct FForeignWorldSplineData
 {
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };
 
-// ScriptStruct Landscape.ForeignWorldSplineData
+// ScriptStruct Landscape.ForeignSplineSegmentData
 // 0x0001
-struct FForeignWorldSplineData
+struct FForeignSplineSegmentData
 {
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };
@@ -330,9 +330,9 @@ struct FLandscapeSplineMeshEntry
 	unsigned char                                      UnknownData02[0x1];                                       // 0x0037(0x0001) MISSED OFFSET
 };
 
-// ScriptStruct Landscape.ForeignSplineSegmentData
+// ScriptStruct Landscape.LandscapeImportLayerInfo
 // 0x0001
-struct FForeignSplineSegmentData
+struct FLandscapeImportLayerInfo
 {
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };

@@ -70,7 +70,7 @@ public:
 	void sendGangOrder(bool SkipMessage, int ExpectedDrugID, float ExpectedDrugMinQuality, int packageSizes, int packageQuantity);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void unlockKeijiGang();
 	void unlockBallenaGang();
 	void retryInitiate();

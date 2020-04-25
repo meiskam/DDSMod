@@ -27,7 +27,7 @@ struct AnoisyNeighbourBP_C_ReceiveBeginPlay_Params
 // Function noisyNeighbourBP.noisyNeighbourBP_C.ReceiveTick
 struct AnoisyNeighbourBP_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function noisyNeighbourBP.noisyNeighbourBP_C.reInitialise

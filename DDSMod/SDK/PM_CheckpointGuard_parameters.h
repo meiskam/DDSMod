@@ -34,7 +34,7 @@ struct APM_CheckpointGuard_C_ReceiveBeginPlay_Params
 // Function PM_CheckpointGuard.PM_CheckpointGuard_C.ReceiveTick
 struct APM_CheckpointGuard_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_CheckpointGuard.PM_CheckpointGuard_C.checkTrespass

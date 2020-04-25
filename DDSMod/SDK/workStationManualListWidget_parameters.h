@@ -17,7 +17,7 @@ namespace SDK
 // Function workStationManualListWidget.workStationManualListWidget_C.PreConstruct
 struct UworkStationManualListWidget_C_PreConstruct_Params
 {
-	bool*                                              IsDesignTime;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               IsDesignTime;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function workStationManualListWidget.workStationManualListWidget_C.Construct

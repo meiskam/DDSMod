@@ -516,7 +516,7 @@ struct AquestManager_C_addCashToLaunder_Params
 // Function questManager.questManager_C.ReceiveTick
 struct AquestManager_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function questManager.questManager_C.eddieCallGangsters

@@ -62,7 +62,7 @@ public:
 	void thatTrue();
 	void whosAsking();
 	void hearYa();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void animateMouth();
 	void stopAnimateMouth();
 	void sayCorrect();

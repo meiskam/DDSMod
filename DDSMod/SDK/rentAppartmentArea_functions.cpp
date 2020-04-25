@@ -256,9 +256,9 @@ void ArentAppartmentArea_C::ReceiveBeginPlay()
 // Function rentAppartmentArea.rentAppartmentArea_C.ReceiveActorBeginOverlap
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AActor**                 OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ArentAppartmentArea_C::ReceiveActorBeginOverlap(class AActor** OtherActor)
+void ArentAppartmentArea_C::ReceiveActorBeginOverlap(class AActor* OtherActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.ReceiveActorBeginOverlap");
 
@@ -276,9 +276,9 @@ void ArentAppartmentArea_C::ReceiveActorBeginOverlap(class AActor** OtherActor)
 // Function rentAppartmentArea.rentAppartmentArea_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ArentAppartmentArea_C::ReceiveTick(float* DeltaSeconds)
+void ArentAppartmentArea_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.ReceiveTick");
 
@@ -296,9 +296,9 @@ void ArentAppartmentArea_C::ReceiveTick(float* DeltaSeconds)
 // Function rentAppartmentArea.rentAppartmentArea_C.ReceiveActorEndOverlap
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AActor**                 OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ArentAppartmentArea_C::ReceiveActorEndOverlap(class AActor** OtherActor)
+void ArentAppartmentArea_C::ReceiveActorEndOverlap(class AActor* OtherActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.ReceiveActorEndOverlap");
 

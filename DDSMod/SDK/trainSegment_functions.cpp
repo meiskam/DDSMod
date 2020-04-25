@@ -70,9 +70,9 @@ void AtrainSegment_C::ReceiveBeginPlay()
 // Function trainSegment.trainSegment_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AtrainSegment_C::ReceiveTick(float* DeltaSeconds)
+void AtrainSegment_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function trainSegment.trainSegment_C.ReceiveTick");
 

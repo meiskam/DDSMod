@@ -133,9 +133,9 @@ void ApickupItemBase_C::resetDroped()
 // Function pickupItemBase.pickupItemBase_C.ReceiveActorBeginOverlap
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AActor**                 OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ApickupItemBase_C::ReceiveActorBeginOverlap(class AActor** OtherActor)
+void ApickupItemBase_C::ReceiveActorBeginOverlap(class AActor* OtherActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function pickupItemBase.pickupItemBase_C.ReceiveActorBeginOverlap");
 

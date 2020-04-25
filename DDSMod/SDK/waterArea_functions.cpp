@@ -33,9 +33,9 @@ void AwaterArea_C::UserConstructionScript()
 // Function waterArea.waterArea_C.ReceiveActorBeginOverlap
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AActor**                 OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AwaterArea_C::ReceiveActorBeginOverlap(class AActor** OtherActor)
+void AwaterArea_C::ReceiveActorBeginOverlap(class AActor* OtherActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function waterArea.waterArea_C.ReceiveActorBeginOverlap");
 
@@ -53,9 +53,9 @@ void AwaterArea_C::ReceiveActorBeginOverlap(class AActor** OtherActor)
 // Function waterArea.waterArea_C.ReceiveActorEndOverlap
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AActor**                 OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AwaterArea_C::ReceiveActorEndOverlap(class AActor** OtherActor)
+void AwaterArea_C::ReceiveActorEndOverlap(class AActor* OtherActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function waterArea.waterArea_C.ReceiveActorEndOverlap");
 

@@ -741,9 +741,9 @@ void AsalesManager_C::ReceiveBeginPlay()
 // Function salesManager.salesManager_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AsalesManager_C::ReceiveTick(float* DeltaSeconds)
+void AsalesManager_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function salesManager.salesManager_C.ReceiveTick");
 

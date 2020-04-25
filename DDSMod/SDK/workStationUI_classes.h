@@ -100,9 +100,9 @@ public:
 	void scrollDrugsUp();
 	void scrollDrugsDown();
 	void renderInventoryDrugs();
-	void PreConstruct(bool* IsDesignTime);
+	void PreConstruct(bool IsDesignTime);
 	void Construct();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void reInitialise();
 	void popRing();
 	void ManualToggle();

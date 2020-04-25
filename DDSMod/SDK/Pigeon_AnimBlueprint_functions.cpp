@@ -16,9 +16,9 @@ namespace SDK
 // Function Pigeon_AnimBlueprint.Pigeon_AnimBlueprint_C.BlueprintUpdateAnimation
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UPigeon_AnimBlueprint_C::BlueprintUpdateAnimation(float* DeltaTimeX)
+void UPigeon_AnimBlueprint_C::BlueprintUpdateAnimation(float DeltaTimeX)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Pigeon_AnimBlueprint.Pigeon_AnimBlueprint_C.BlueprintUpdateAnimation");
 

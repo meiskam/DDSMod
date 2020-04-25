@@ -37,25 +37,6 @@ public:
 };
 
 
-// Class CinematicCamera.CineCameraActor
-// 0x0040 (0x0880 - 0x0840)
-class ACineCameraActor : public ACameraActor
-{
-public:
-	struct FCameraLookatTrackingSettings               LookatTrackingSettings;                                   // 0x0840(0x0030) (Edit, BlueprintVisible)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0870(0x0010) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class CinematicCamera.CineCameraActor");
-		return ptr;
-	}
-
-
-	class UCineCameraComponent* GetCineCameraComponent();
-};
-
-
 // Class CinematicCamera.CameraRig_Rail
 // 0x0020 (0x0348 - 0x0328)
 class ACameraRig_Rail : public AActor
@@ -74,6 +55,25 @@ public:
 		return ptr;
 	}
 
+};
+
+
+// Class CinematicCamera.CineCameraActor
+// 0x0040 (0x0880 - 0x0840)
+class ACineCameraActor : public ACameraActor
+{
+public:
+	struct FCameraLookatTrackingSettings               LookatTrackingSettings;                                   // 0x0840(0x0030) (Edit, BlueprintVisible)
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0870(0x0010) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class CinematicCamera.CineCameraActor");
+		return ptr;
+	}
+
+
+	class UCineCameraComponent* GetCineCameraComponent();
 };
 
 

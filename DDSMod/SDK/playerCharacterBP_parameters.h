@@ -743,7 +743,7 @@ struct AplayerCharacterBP_C_ReceiveBeginPlay_Params
 // Function playerCharacterBP.playerCharacterBP_C.ReceiveTick
 struct AplayerCharacterBP_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.InpAxisEvt_MoveForward_K2Node_InputAxisEvent_1
@@ -783,7 +783,7 @@ struct AplayerCharacterBP_C_footStep_Params
 // Function playerCharacterBP.playerCharacterBP_C.ReceivePossessed
 struct AplayerCharacterBP_C_ReceivePossessed_Params
 {
-	class AController**                                NewController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AController*                                 NewController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.lineTraceCheck
@@ -884,7 +884,7 @@ struct AplayerCharacterBP_C_closeLockpickMode_Params
 // Function playerCharacterBP.playerCharacterBP_C.ReceiveUnpossessed
 struct AplayerCharacterBP_C_ReceiveUnpossessed_Params
 {
-	class AController**                                OldController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AController*                                 OldController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.startDialogue
@@ -977,7 +977,7 @@ struct AplayerCharacterBP_C_removeMap_Params
 // Function playerCharacterBP.playerCharacterBP_C.OnLanded
 struct AplayerCharacterBP_C_OnLanded_Params
 {
-	struct FHitResult*                                 Hit;                                                      // (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, IsPlainOldData)
+	struct FHitResult                                  Hit;                                                      // (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.openMap

@@ -17,7 +17,7 @@ namespace SDK
 // Function PM_PredictPlayerEscapePath.PM_PredictPlayerEscapePath_C.ReceiveExecute
 struct UPM_PredictPlayerEscapePath_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_PredictPlayerEscapePath.PM_PredictPlayerEscapePath_C.ExecuteUbergraph_PM_PredictPlayerEscapePath

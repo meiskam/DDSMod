@@ -17,7 +17,7 @@ namespace SDK
 // Function PM_PatrolPointCycle.PM_PatrolPointCycle_C.ReceiveExecute
 struct UPM_PatrolPointCycle_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_PatrolPointCycle.PM_PatrolPointCycle_C.ExecuteUbergraph_PM_PatrolPointCycle

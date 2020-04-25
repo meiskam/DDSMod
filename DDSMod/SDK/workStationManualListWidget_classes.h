@@ -32,7 +32,7 @@ public:
 	}
 
 
-	void PreConstruct(bool* IsDesignTime);
+	void PreConstruct(bool IsDesignTime);
 	void Construct();
 	void ExecuteUbergraph_workStationManualListWidget(int EntryPoint);
 };

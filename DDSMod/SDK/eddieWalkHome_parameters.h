@@ -37,7 +37,7 @@ struct AeddieWalkHome_C_ReceiveBeginPlay_Params
 // Function eddieWalkHome.eddieWalkHome_C.ReceiveTick
 struct AeddieWalkHome_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function eddieWalkHome.eddieWalkHome_C.walkHome

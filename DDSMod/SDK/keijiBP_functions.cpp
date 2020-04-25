@@ -293,9 +293,9 @@ void AkeijiBP_C::hearYa()
 // Function keijiBP.keijiBP_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AkeijiBP_C::ReceiveTick(float* DeltaSeconds)
+void AkeijiBP_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function keijiBP.keijiBP_C.ReceiveTick");
 

@@ -25,21 +25,6 @@ enum class EXRTrackedDeviceType : uint8_t
 };
 
 
-// Enum HeadMountedDisplay.ESpectatorScreenMode
-enum class ESpectatorScreenMode : uint8_t
-{
-	ESpectatorScreenMode__Disabled = 0,
-	ESpectatorScreenMode__SingleEyeLetterboxed = 1,
-	ESpectatorScreenMode__Undistorted = 2,
-	ESpectatorScreenMode__Distorted = 3,
-	ESpectatorScreenMode__SingleEye = 4,
-	ESpectatorScreenMode__SingleEyeCroppedToFill = 5,
-	ESpectatorScreenMode__Texture  = 6,
-	ESpectatorScreenMode__TexturePlusEye = 7,
-	ESpectatorScreenMode__ESpectatorScreenMode_MAX = 8
-};
-
-
 // Enum HeadMountedDisplay.EHMDWornState
 enum class EHMDWornState : uint8_t
 {
@@ -66,6 +51,21 @@ enum class EOrientPositionSelector : uint8_t
 	EOrientPositionSelector__Position = 1,
 	EOrientPositionSelector__OrientationAndPosition = 2,
 	EOrientPositionSelector__EOrientPositionSelector_MAX = 3
+};
+
+
+// Enum HeadMountedDisplay.ESpectatorScreenMode
+enum class ESpectatorScreenMode : uint8_t
+{
+	ESpectatorScreenMode__Disabled = 0,
+	ESpectatorScreenMode__SingleEyeLetterboxed = 1,
+	ESpectatorScreenMode__Undistorted = 2,
+	ESpectatorScreenMode__Distorted = 3,
+	ESpectatorScreenMode__SingleEye = 4,
+	ESpectatorScreenMode__SingleEyeCroppedToFill = 5,
+	ESpectatorScreenMode__Texture  = 6,
+	ESpectatorScreenMode__TexturePlusEye = 7,
+	ESpectatorScreenMode__ESpectatorScreenMode_MAX = 8
 };
 
 

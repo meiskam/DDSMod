@@ -34,7 +34,7 @@ public:
 	void selectSpawnPoint(class AspraySpawnPoint_C** Output, bool* Success);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void trySpawnSpray();
 	void burstInitialSprayPaint();
 	void ExecuteUbergraph_spraySpawner(int EntryPoint);

@@ -47,7 +47,7 @@ public:
 	class UWidget* GetToolTipWidget_1();
 	void updateActivity();
 	void Construct();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void SetValues(float skillLevel, float SkillMax);
 	void BndEvt__Button_0_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();
 	void ExecuteUbergraph_skillLevelWidget(int EntryPoint);

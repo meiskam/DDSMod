@@ -161,10 +161,10 @@ void UworkStationSubstanceAddWidget_C::killWidget(bool DontChangeInput)
 // Function workStationSubstanceAddWidget.workStationSubstanceAddWidget_C.Tick
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// float*                         InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// float                          InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UworkStationSubstanceAddWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
+void UworkStationSubstanceAddWidget_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function workStationSubstanceAddWidget.workStationSubstanceAddWidget_C.Tick");
 

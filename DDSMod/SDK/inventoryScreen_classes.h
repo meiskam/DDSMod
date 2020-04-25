@@ -153,9 +153,9 @@ public:
 	void prepareInventoryMode(class AcontainerBase_C* ContainerRef, class AbaseNPC_C* sellerRef, class AplayerCharacterBP_C* playerRef);
 	void renderPockets(class AplayerCharacterBP_C* Player, TArray<struct FinventoryItemStruct>* pocketItems);
 	void renderBackpack(TArray<struct FinventoryItemStruct>* backpackItems);
-	void PreConstruct(bool* IsDesignTime);
+	void PreConstruct(bool IsDesignTime);
 	void Construct();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void BndEvt__tabInventory_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__tabCharacter_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__btnOrganiser_K2Node_ComponentBoundEvent_2_OnButtonClickedEvent__DelegateSignature();

@@ -42,7 +42,7 @@ struct AgasStationDoorBP_C_ReceiveBeginPlay_Params
 // Function gasStationDoorBP.gasStationDoorBP_C.ReceiveTick
 struct AgasStationDoorBP_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function gasStationDoorBP.gasStationDoorBP_C.openDoor

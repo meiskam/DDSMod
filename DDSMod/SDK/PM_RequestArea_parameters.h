@@ -17,7 +17,7 @@ namespace SDK
 // Function PM_RequestArea.PM_RequestArea_C.ReceiveExecute
 struct UPM_RequestArea_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_RequestArea.PM_RequestArea_C.ExecuteUbergraph_PM_RequestArea

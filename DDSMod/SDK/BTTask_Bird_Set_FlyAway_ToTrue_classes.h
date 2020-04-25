@@ -27,7 +27,7 @@ public:
 	}
 
 
-	void ReceiveExecuteAI(class AAIController** OwnerController, class APawn** ControlledPawn);
+	void ReceiveExecuteAI(class AAIController* OwnerController, class APawn* ControlledPawn);
 	void ExecuteUbergraph_BTTask_Bird_Set_FlyAway_ToTrue(int EntryPoint);
 };
 

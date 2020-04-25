@@ -30,7 +30,7 @@ public:
 
 
 	void UserConstructionScript();
-	void ReceiveActorBeginOverlap(class AActor** OtherActor);
+	void ReceiveActorBeginOverlap(class AActor* OtherActor);
 	void ExecuteUbergraph_eddieWalkPoint(int EntryPoint);
 };
 

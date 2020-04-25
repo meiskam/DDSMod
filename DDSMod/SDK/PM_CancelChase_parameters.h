@@ -17,7 +17,7 @@ namespace SDK
 // Function PM_CancelChase.PM_CancelChase_C.ReceiveExecute
 struct UPM_CancelChase_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_CancelChase.PM_CancelChase_C.ExecuteUbergraph_PM_CancelChase

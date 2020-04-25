@@ -72,9 +72,9 @@ void AinteractiveWaterSinkBP_C::UserConstructionScript()
 // Function interactiveWaterSinkBP.interactiveWaterSinkBP_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AinteractiveWaterSinkBP_C::ReceiveTick(float* DeltaSeconds)
+void AinteractiveWaterSinkBP_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function interactiveWaterSinkBP.interactiveWaterSinkBP_C.ReceiveTick");
 

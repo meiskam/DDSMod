@@ -17,7 +17,7 @@ namespace SDK
 // Function PM_SoundFail.PM_SoundFail_C.ReceiveExecute
 struct UPM_SoundFail_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_SoundFail.PM_SoundFail_C.ExecuteUbergraph_PM_SoundFail

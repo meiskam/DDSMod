@@ -17,7 +17,7 @@ namespace SDK
 // Function PM_GetSearchPoint.PM_GetSearchPoint_C.ReceiveExecute
 struct UPM_GetSearchPoint_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_GetSearchPoint.PM_GetSearchPoint_C.ExecuteUbergraph_PM_GetSearchPoint

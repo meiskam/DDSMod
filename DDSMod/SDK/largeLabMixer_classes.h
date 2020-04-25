@@ -30,7 +30,7 @@ public:
 
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void ExecuteUbergraph_largeLabMixer(int EntryPoint);
 };
 

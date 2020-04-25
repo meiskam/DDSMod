@@ -181,9 +181,9 @@ void ABird_AI_Controller_C::UserConstructionScript()
 // Function Bird_AI_Controller.Bird_AI_Controller_C.OnPossess
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class APawn**                  PossessedPawn                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class APawn*                   PossessedPawn                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ABird_AI_Controller_C::OnPossess(class APawn** PossessedPawn)
+void ABird_AI_Controller_C::OnPossess(class APawn* PossessedPawn)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Bird_AI_Controller.Bird_AI_Controller_C.OnPossess");
 

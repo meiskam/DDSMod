@@ -46,9 +46,9 @@ void UitemDropQuantityWidget_C::getMaxQuantity(const struct FString& TargetStrin
 // Function itemDropQuantityWidget.itemDropQuantityWidget_C.PreConstruct
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// bool*                          IsDesignTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           IsDesignTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UitemDropQuantityWidget_C::PreConstruct(bool* IsDesignTime)
+void UitemDropQuantityWidget_C::PreConstruct(bool IsDesignTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function itemDropQuantityWidget.itemDropQuantityWidget_C.PreConstruct");
 

@@ -48,16 +48,6 @@ enum class EFoliageVertexColorMask : uint8_t
 };
 
 
-// Enum Foliage.ESimulationOverlap
-enum class ESimulationOverlap : uint8_t
-{
-	ESimulationOverlap__CollisionOverlap = 0,
-	ESimulationOverlap__ShadeOverlap = 1,
-	ESimulationOverlap__None       = 2,
-	ESimulationOverlap__ESimulationOverlap_MAX = 3
-};
-
-
 // Enum Foliage.ESimulationQuery
 enum class ESimulationQuery : uint8_t
 {
@@ -65,6 +55,16 @@ enum class ESimulationQuery : uint8_t
 	ESimulationQuery__ShadeOverlap = 1,
 	ESimulationQuery__AnyOverlap   = 2,
 	ESimulationQuery__ESimulationQuery_MAX = 3
+};
+
+
+// Enum Foliage.ESimulationOverlap
+enum class ESimulationOverlap : uint8_t
+{
+	ESimulationOverlap__CollisionOverlap = 0,
+	ESimulationOverlap__ShadeOverlap = 1,
+	ESimulationOverlap__None       = 2,
+	ESimulationOverlap__ESimulationOverlap_MAX = 3
 };
 
 

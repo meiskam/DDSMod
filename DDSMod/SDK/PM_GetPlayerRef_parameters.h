@@ -17,7 +17,7 @@ namespace SDK
 // Function PM_GetPlayerRef.PM_GetPlayerRef_C.ReceiveExecute
 struct UPM_GetPlayerRef_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_GetPlayerRef.PM_GetPlayerRef_C.ExecuteUbergraph_PM_GetPlayerRef

@@ -17,7 +17,7 @@ namespace SDK
 // Function dogFindPlayerLoc.dogFindPlayerLoc_C.ReceiveExecute
 struct UdogFindPlayerLoc_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function dogFindPlayerLoc.dogFindPlayerLoc_C.ExecuteUbergraph_dogFindPlayerLoc

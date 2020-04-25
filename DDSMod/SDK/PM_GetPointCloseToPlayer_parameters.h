@@ -17,7 +17,7 @@ namespace SDK
 // Function PM_GetPointCloseToPlayer.PM_GetPointCloseToPlayer_C.ReceiveExecute
 struct UPM_GetPointCloseToPlayer_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_GetPointCloseToPlayer.PM_GetPointCloseToPlayer_C.ExecuteUbergraph_PM_GetPointCloseToPlayer

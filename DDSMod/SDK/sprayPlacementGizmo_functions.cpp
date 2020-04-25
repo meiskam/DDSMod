@@ -149,9 +149,9 @@ void AsprayPlacementGizmo_C::ReceiveBeginPlay()
 // Function sprayPlacementGizmo.sprayPlacementGizmo_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AsprayPlacementGizmo_C::ReceiveTick(float* DeltaSeconds)
+void AsprayPlacementGizmo_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function sprayPlacementGizmo.sprayPlacementGizmo_C.ReceiveTick");
 

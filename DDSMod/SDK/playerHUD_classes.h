@@ -89,7 +89,7 @@ public:
 	void refreshCompass();
 	void updateCompass();
 	void Construct();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void showAction(const struct FText& KeyName, const struct FText& ActionName, const struct FText& ObjectName);
 	void hideAction();
 	void toggleSterowanie();

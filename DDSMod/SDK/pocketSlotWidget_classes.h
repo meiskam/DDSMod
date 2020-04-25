@@ -46,13 +46,13 @@ public:
 	void processDropOperation(int quantity);
 	void checkSource(class UObject* Object, const struct FString& Tag, bool* CanDrop);
 	class UWidget* Get_itemIcon_ToolTipWidget_1();
-	void OnDragDetected(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation);
-	struct FEventReply OnMouseButtonDown(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent);
+	void OnDragDetected(const struct FGeometry& MyGeometry, const struct FPointerEvent& PointerEvent, class UDragDropOperation** Operation);
+	struct FEventReply OnMouseButtonDown(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent);
 	void clearSlot();
-	bool OnDrop(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation);
+	bool OnDrop(const struct FGeometry& MyGeometry, const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation);
 	void setSlot(const struct FinventoryItemStruct& Data, int Index, int quantity, bool fromVendor);
-	void OnDragLeave(struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation);
-	void OnDragEnter(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation);
+	void OnDragLeave(const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation);
+	void OnDragEnter(const struct FGeometry& MyGeometry, const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation);
 	void Construct();
 	void ExecuteUbergraph_pocketSlotWidget(int EntryPoint);
 };

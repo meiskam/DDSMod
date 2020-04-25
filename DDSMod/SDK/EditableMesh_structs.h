@@ -12,6 +12,25 @@ namespace SDK
 // Enums
 //---------------------------------------------------------------------------
 
+// Enum EditableMesh.ETriangleTessellationMode
+enum class ETriangleTessellationMode : uint8_t
+{
+	ETriangleTessellationMode__ThreeTriangles = 0,
+	ETriangleTessellationMode__FourTriangles = 1,
+	ETriangleTessellationMode__ETriangleTessellationMode_MAX = 2
+};
+
+
+// Enum EditableMesh.EInsetPolygonsMode
+enum class EInsetPolygonsMode : uint8_t
+{
+	EInsetPolygonsMode__All        = 0,
+	EInsetPolygonsMode__CenterPolygonOnly = 1,
+	EInsetPolygonsMode__SidePolygonsOnly = 2,
+	EInsetPolygonsMode__EInsetPolygonsMode_MAX = 3
+};
+
+
 // Enum EditableMesh.EPolygonEdgeHardness
 enum class EPolygonEdgeHardness : uint8_t
 {
@@ -54,25 +73,6 @@ enum class EMeshModificationType : uint8_t
 	EMeshModificationType__Interim = 1,
 	EMeshModificationType__Final   = 2,
 	EMeshModificationType__EMeshModificationType_MAX = 3
-};
-
-
-// Enum EditableMesh.ETriangleTessellationMode
-enum class ETriangleTessellationMode : uint8_t
-{
-	ETriangleTessellationMode__ThreeTriangles = 0,
-	ETriangleTessellationMode__FourTriangles = 1,
-	ETriangleTessellationMode__ETriangleTessellationMode_MAX = 2
-};
-
-
-// Enum EditableMesh.EInsetPolygonsMode
-enum class EInsetPolygonsMode : uint8_t
-{
-	EInsetPolygonsMode__All        = 0,
-	EInsetPolygonsMode__CenterPolygonOnly = 1,
-	EInsetPolygonsMode__SidePolygonsOnly = 2,
-	EInsetPolygonsMode__EInsetPolygonsMode_MAX = 3
 };
 
 

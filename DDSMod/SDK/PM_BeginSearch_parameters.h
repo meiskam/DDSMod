@@ -17,7 +17,7 @@ namespace SDK
 // Function PM_BeginSearch.PM_BeginSearch_C.ReceiveExecute
 struct UPM_BeginSearch_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_BeginSearch.PM_BeginSearch_C.ExecuteUbergraph_PM_BeginSearch

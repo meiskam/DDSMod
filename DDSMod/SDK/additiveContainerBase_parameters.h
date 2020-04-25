@@ -36,7 +36,7 @@ struct AadditiveContainerBase_C_ReceiveBeginPlay_Params
 // Function additiveContainerBase.additiveContainerBase_C.ReceiveTick
 struct AadditiveContainerBase_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function additiveContainerBase.additiveContainerBase_C.addSubstance

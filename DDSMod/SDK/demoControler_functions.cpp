@@ -84,9 +84,9 @@ void AdemoControler_C::DemoEnded()
 // Function demoControler.demoControler_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AdemoControler_C::ReceiveTick(float* DeltaSeconds)
+void AdemoControler_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function demoControler.demoControler_C.ReceiveTick");
 

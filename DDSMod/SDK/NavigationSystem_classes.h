@@ -124,6 +124,21 @@ public:
 };
 
 
+// Class NavigationSystem.NavArea_LowHeight
+// 0x0000 (0x0048 - 0x0048)
+class UNavArea_LowHeight : public UNavArea
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavArea_LowHeight");
+		return ptr;
+	}
+
+};
+
+
 // Class NavigationSystem.NavArea_Null
 // 0x0000 (0x0048 - 0x0048)
 class UNavArea_Null : public UNavArea
@@ -523,36 +538,6 @@ public:
 };
 
 
-// Class NavigationSystem.NavArea_LowHeight
-// 0x0000 (0x0048 - 0x0048)
-class UNavArea_LowHeight : public UNavArea
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavArea_LowHeight");
-		return ptr;
-	}
-
-};
-
-
-// Class NavigationSystem.NavLinkCustomInterface
-// 0x0000 (0x0028 - 0x0028)
-class UNavLinkCustomInterface : public UInterface
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkCustomInterface");
-		return ptr;
-	}
-
-};
-
-
 // Class NavigationSystem.NavLinkCustomComponent
 // 0x00A8 (0x01C8 - 0x0120)
 class UNavLinkCustomComponent : public UNavRelevantComponent
@@ -589,6 +574,21 @@ public:
 };
 
 
+// Class NavigationSystem.NavLinkCustomInterface
+// 0x0000 (0x0028 - 0x0028)
+class UNavLinkCustomInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkCustomInterface");
+		return ptr;
+	}
+
+};
+
+
 // Class NavigationSystem.NavLinkHostInterface
 // 0x0000 (0x0028 - 0x0028)
 class UNavLinkHostInterface : public UInterface
@@ -598,6 +598,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkHostInterface");
+		return ptr;
+	}
+
+};
+
+
+// Class NavigationSystem.NavLinkRenderingComponent
+// 0x0000 (0x0560 - 0x0560)
+class UNavLinkRenderingComponent : public UPrimitiveComponent
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkRenderingComponent");
 		return ptr;
 	}
 
@@ -725,21 +740,6 @@ public:
 };
 
 
-// Class NavigationSystem.NavLinkRenderingComponent
-// 0x0000 (0x0560 - 0x0560)
-class UNavLinkRenderingComponent : public UPrimitiveComponent
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkRenderingComponent");
-		return ptr;
-	}
-
-};
-
-
 // Class NavigationSystem.NavTestRenderingComponent
 // 0x0000 (0x0560 - 0x0560)
 class UNavTestRenderingComponent : public UPrimitiveComponent
@@ -749,6 +749,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class NavigationSystem.NavTestRenderingComponent");
+		return ptr;
+	}
+
+};
+
+
+// Class NavigationSystem.RecastFilter_UseDefaultArea
+// 0x0000 (0x0048 - 0x0048)
+class URecastFilter_UseDefaultArea : public UNavigationQueryFilter
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.RecastFilter_UseDefaultArea");
 		return ptr;
 	}
 
@@ -843,21 +858,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class NavigationSystem.RecastNavMeshDataChunk");
-		return ptr;
-	}
-
-};
-
-
-// Class NavigationSystem.RecastFilter_UseDefaultArea
-// 0x0000 (0x0048 - 0x0048)
-class URecastFilter_UseDefaultArea : public UNavigationQueryFilter
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.RecastFilter_UseDefaultArea");
 		return ptr;
 	}
 

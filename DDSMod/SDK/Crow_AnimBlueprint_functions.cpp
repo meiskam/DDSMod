@@ -16,9 +16,9 @@ namespace SDK
 // Function Crow_AnimBlueprint.Crow_AnimBlueprint_C.BlueprintUpdateAnimation
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UCrow_AnimBlueprint_C::BlueprintUpdateAnimation(float* DeltaTimeX)
+void UCrow_AnimBlueprint_C::BlueprintUpdateAnimation(float DeltaTimeX)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Crow_AnimBlueprint.Crow_AnimBlueprint_C.BlueprintUpdateAnimation");
 

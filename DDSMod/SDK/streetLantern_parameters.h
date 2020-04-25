@@ -27,7 +27,7 @@ struct AstreetLantern_C_ReceiveBeginPlay_Params
 // Function streetLantern.streetLantern_C.eventLightChange
 struct AstreetLantern_C_eventLightChange_Params
 {
-	bool*                                              on;                                                       // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               on;                                                       // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function streetLantern.streetLantern_C.checkDayTime

@@ -75,9 +75,9 @@ void AspraySpawner_C::ReceiveBeginPlay()
 // Function spraySpawner.spraySpawner_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AspraySpawner_C::ReceiveTick(float* DeltaSeconds)
+void AspraySpawner_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function spraySpawner.spraySpawner_C.ReceiveTick");
 

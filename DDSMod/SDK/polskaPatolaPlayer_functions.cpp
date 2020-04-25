@@ -33,9 +33,9 @@ void ApolskaPatolaPlayer_C::UserConstructionScript()
 // Function polskaPatolaPlayer.polskaPatolaPlayer_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ApolskaPatolaPlayer_C::ReceiveTick(float* DeltaSeconds)
+void ApolskaPatolaPlayer_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function polskaPatolaPlayer.polskaPatolaPlayer_C.ReceiveTick");
 

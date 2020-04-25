@@ -27,7 +27,7 @@ struct AlargeLabMixer_C_ReceiveBeginPlay_Params
 // Function largeLabMixer.largeLabMixer_C.ReceiveTick
 struct AlargeLabMixer_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function largeLabMixer.largeLabMixer_C.ExecuteUbergraph_largeLabMixer

@@ -31,7 +31,7 @@ public:
 	}
 
 
-	void ReceiveTickAI(class AAIController** OwnerController, class APawn** ControlledPawn, float* DeltaSeconds);
+	void ReceiveTickAI(class AAIController* OwnerController, class APawn* ControlledPawn, float DeltaSeconds);
 	void ExecuteUbergraph_BTService_Bird_LandWhenCloseTo_GroundTarget(int EntryPoint);
 };
 

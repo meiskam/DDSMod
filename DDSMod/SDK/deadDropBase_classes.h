@@ -37,7 +37,7 @@ public:
 	void stealProbability(float* Percent);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void closeEventScript();
 	void testPlayerDistance();
 	void testItemSteal();

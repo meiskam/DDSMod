@@ -260,7 +260,7 @@ public:
 	void gaveAwayFreeSample();
 	void launderCash();
 	void addCashToLaunder(int Amount);
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void eddieCallGangsters();
 	void repeatEddieGangsters();
 	void retryEddieGangsters();

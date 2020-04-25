@@ -22,8 +22,8 @@ struct UdebugSkradankowy_C_Construct_Params
 // Function debugSkradankowy.debugSkradankowy_C.Tick
 struct UdebugSkradankowy_C_Tick_Params
 {
-	struct FGeometry*                                  MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-	float*                                             InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	struct FGeometry                                   MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+	float                                              InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function debugSkradankowy.debugSkradankowy_C.ExecuteUbergraph_debugSkradankowy

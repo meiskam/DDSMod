@@ -35,7 +35,7 @@ public:
 
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void Stop();
 	void checkPlaneVisible();
 	void ExecuteUbergraph_airplaneBP(int EntryPoint);

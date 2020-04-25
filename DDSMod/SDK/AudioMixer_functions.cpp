@@ -115,48 +115,6 @@ bool USynthComponent::IsPlaying()
 }
 
 
-// Function AudioMixer.SubmixEffectDynamicsProcessorPreset.SetSettings
-// (Final, Native, Public, HasOutParms, BlueprintCallable)
-// Parameters:
-// struct FSubmixEffectDynamicsProcessorSettings InSettings                     (ConstParm, Parm, OutParm, ReferenceParm)
-
-void USubmixEffectDynamicsProcessorPreset::SetSettings(const struct FSubmixEffectDynamicsProcessorSettings& InSettings)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AudioMixer.SubmixEffectDynamicsProcessorPreset.SetSettings");
-
-	USubmixEffectDynamicsProcessorPreset_SetSettings_Params params;
-	params.InSettings = InSettings;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AudioMixer.SubmixEffectSubmixEQPreset.SetSettings
-// (Final, Native, Public, HasOutParms, BlueprintCallable)
-// Parameters:
-// struct FSubmixEffectSubmixEQSettings InSettings                     (ConstParm, Parm, OutParm, ReferenceParm)
-
-void USubmixEffectSubmixEQPreset::SetSettings(const struct FSubmixEffectSubmixEQSettings& InSettings)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AudioMixer.SubmixEffectSubmixEQPreset.SetSettings");
-
-	USubmixEffectSubmixEQPreset_SetSettings_Params params;
-	params.InSettings = InSettings;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function AudioMixer.AudioMixerBlueprintLibrary.StopRecordingOutput
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
@@ -422,6 +380,48 @@ void UAudioMixerBlueprintLibrary::STATIC_AddMasterSubmixEffect(class UObject* Wo
 	UAudioMixerBlueprintLibrary_AddMasterSubmixEffect_Params params;
 	params.WorldContextObject = WorldContextObject;
 	params.SubmixEffectPreset = SubmixEffectPreset;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AudioMixer.SubmixEffectDynamicsProcessorPreset.SetSettings
+// (Final, Native, Public, HasOutParms, BlueprintCallable)
+// Parameters:
+// struct FSubmixEffectDynamicsProcessorSettings InSettings                     (ConstParm, Parm, OutParm, ReferenceParm)
+
+void USubmixEffectDynamicsProcessorPreset::SetSettings(const struct FSubmixEffectDynamicsProcessorSettings& InSettings)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AudioMixer.SubmixEffectDynamicsProcessorPreset.SetSettings");
+
+	USubmixEffectDynamicsProcessorPreset_SetSettings_Params params;
+	params.InSettings = InSettings;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AudioMixer.SubmixEffectSubmixEQPreset.SetSettings
+// (Final, Native, Public, HasOutParms, BlueprintCallable)
+// Parameters:
+// struct FSubmixEffectSubmixEQSettings InSettings                     (ConstParm, Parm, OutParm, ReferenceParm)
+
+void USubmixEffectSubmixEQPreset::SetSettings(const struct FSubmixEffectSubmixEQSettings& InSettings)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AudioMixer.SubmixEffectSubmixEQPreset.SetSettings");
+
+	USubmixEffectSubmixEQPreset_SetSettings_Params params;
+	params.InSettings = InSettings;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;

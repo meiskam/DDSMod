@@ -16,9 +16,9 @@ namespace SDK
 // Function PM_CancelChase.PM_CancelChase_C.ReceiveExecute
 // (Event, Protected, BlueprintEvent)
 // Parameters:
-// class AActor**                 OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UPM_CancelChase_C::ReceiveExecute(class AActor** OwnerActor)
+void UPM_CancelChase_C::ReceiveExecute(class AActor* OwnerActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function PM_CancelChase.PM_CancelChase_C.ReceiveExecute");
 

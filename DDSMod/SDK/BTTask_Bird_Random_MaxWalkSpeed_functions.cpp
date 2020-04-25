@@ -16,9 +16,9 @@ namespace SDK
 // Function BTTask_Bird_Random_MaxWalkSpeed.BTTask_Bird_Random_MaxWalkSpeed_C.ReceiveExecute
 // (Event, Protected, BlueprintEvent)
 // Parameters:
-// class AActor**                 OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UBTTask_Bird_Random_MaxWalkSpeed_C::ReceiveExecute(class AActor** OwnerActor)
+void UBTTask_Bird_Random_MaxWalkSpeed_C::ReceiveExecute(class AActor* OwnerActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function BTTask_Bird_Random_MaxWalkSpeed.BTTask_Bird_Random_MaxWalkSpeed_C.ReceiveExecute");
 

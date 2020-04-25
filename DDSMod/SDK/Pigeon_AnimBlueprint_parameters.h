@@ -17,7 +17,7 @@ namespace SDK
 // Function Pigeon_AnimBlueprint.Pigeon_AnimBlueprint_C.BlueprintUpdateAnimation
 struct UPigeon_AnimBlueprint_C_BlueprintUpdateAnimation_Params
 {
-	float*                                             DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Pigeon_AnimBlueprint.Pigeon_AnimBlueprint_C.AnimNotify_IdleEnd

@@ -17,7 +17,7 @@ namespace SDK
 // Function eddieFindHomeTask.eddieFindHomeTask_C.ReceiveExecute
 struct UeddieFindHomeTask_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function eddieFindHomeTask.eddieFindHomeTask_C.ExecuteUbergraph_eddieFindHomeTask

@@ -17,7 +17,7 @@ namespace SDK
 // Function getPointAroundMaster.getPointAroundMaster_C.ReceiveExecute
 struct UgetPointAroundMaster_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function getPointAroundMaster.getPointAroundMaster_C.ExecuteUbergraph_getPointAroundMaster

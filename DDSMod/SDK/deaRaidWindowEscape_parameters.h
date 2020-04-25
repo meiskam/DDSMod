@@ -27,7 +27,7 @@ struct AdeaRaidWindowEscape_C_ReceiveBeginPlay_Params
 // Function deaRaidWindowEscape.deaRaidWindowEscape_C.ReceiveTick
 struct AdeaRaidWindowEscape_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function deaRaidWindowEscape.deaRaidWindowEscape_C.Activate

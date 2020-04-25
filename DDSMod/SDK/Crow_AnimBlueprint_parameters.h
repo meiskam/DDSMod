@@ -17,7 +17,7 @@ namespace SDK
 // Function Crow_AnimBlueprint.Crow_AnimBlueprint_C.BlueprintUpdateAnimation
 struct UCrow_AnimBlueprint_C_BlueprintUpdateAnimation_Params
 {
-	float*                                             DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Crow_AnimBlueprint.Crow_AnimBlueprint_C.AnimNotify_IdleEnd

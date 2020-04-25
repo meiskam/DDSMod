@@ -46,7 +46,7 @@ public:
 	void adaptDifficulty();
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void checkDistance();
 	void ActivateSaveStation();
 	void setTimeout();

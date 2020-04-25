@@ -43,7 +43,7 @@ struct AdeaRaidManager_C_ReceiveBeginPlay_Params
 // Function deaRaidManager.deaRaidManager_C.ReceiveTick
 struct AdeaRaidManager_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function deaRaidManager.deaRaidManager_C.StartKurwaRaid

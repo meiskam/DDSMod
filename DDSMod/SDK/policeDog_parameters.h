@@ -32,7 +32,7 @@ struct ApoliceDog_C_ReceiveBeginPlay_Params
 // Function policeDog.policeDog_C.ReceiveTick
 struct ApoliceDog_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function policeDog.policeDog_C.testPlayerDistance

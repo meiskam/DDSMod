@@ -1,5 +1,4 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
-#include "stdafx.h"
 #include <iostream>
 #include "mem.h"
 #include "SDK.h"
@@ -27,8 +26,10 @@ DWORD WINAPI HackThread(HMODULE hModule)
 			break;
 		}
 
-		//if (GetAsyncKeyState(VK_NUMPAD1) & 1)
-		//	bHealth = !bHealth;
+		if (GetAsyncKeyState(VK_NUMPAD1) & 1)
+		{
+			SDK::AplayerCharacterBP_C::StaticClass();
+		}
 
 		//if (GetAsyncKeyState(VK_NUMPAD2) & 1)
 		//{

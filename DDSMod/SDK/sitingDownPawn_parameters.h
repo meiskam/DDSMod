@@ -75,7 +75,7 @@ struct AsitingDownPawn_C_InpAxisEvt_LookSideways_K2Node_InputAxisEvent_2_Params
 // Function sitingDownPawn.sitingDownPawn_C.ReceivePossessed
 struct AsitingDownPawn_C_ReceivePossessed_Params
 {
-	class AController**                                NewController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AController*                                 NewController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function sitingDownPawn.sitingDownPawn_C.forceStandUp

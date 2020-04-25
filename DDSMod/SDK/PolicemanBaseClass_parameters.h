@@ -28,7 +28,7 @@ struct APolicemanBaseClass_C_checkCanSpotPlayer_Params
 // Function PolicemanBaseClass.PolicemanBaseClass_C.checkBallenaProtection
 struct APolicemanBaseClass_C_checkBallenaProtection_Params
 {
-	bool                                               protected;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               isProtected;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PolicemanBaseClass.PolicemanBaseClass_C.checkPlayerRunning
@@ -109,7 +109,7 @@ struct APolicemanBaseClass_C_UserConstructionScript_Params
 // Function PolicemanBaseClass.PolicemanBaseClass_C.ReceiveTick
 struct APolicemanBaseClass_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PolicemanBaseClass.PolicemanBaseClass_C.BndEvt__AIPerception_K2Node_ComponentBoundEvent_2_ActorPerceptionUpdatedDelegate__DelegateSignature

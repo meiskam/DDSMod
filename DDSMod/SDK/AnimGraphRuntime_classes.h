@@ -27,6 +27,22 @@ public:
 };
 
 
+// Class AnimGraphRuntime.AnimNotify_PlayMontageNotify
+// 0x0008 (0x0040 - 0x0038)
+class UAnimNotify_PlayMontageNotify : public UAnimNotify
+{
+public:
+	struct FName                                       NotifyName;                                               // 0x0038(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class AnimGraphRuntime.AnimNotify_PlayMontageNotify");
+		return ptr;
+	}
+
+};
+
+
 // Class AnimGraphRuntime.AnimNotify_PlayMontageNotifyWindow
 // 0x0008 (0x0038 - 0x0030)
 class UAnimNotify_PlayMontageNotifyWindow : public UAnimNotifyState
@@ -52,22 +68,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class AnimGraphRuntime.AnimSequencerInstance");
-		return ptr;
-	}
-
-};
-
-
-// Class AnimGraphRuntime.AnimNotify_PlayMontageNotify
-// 0x0008 (0x0040 - 0x0038)
-class UAnimNotify_PlayMontageNotify : public UAnimNotify
-{
-public:
-	struct FName                                       NotifyName;                                               // 0x0038(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class AnimGraphRuntime.AnimNotify_PlayMontageNotify");
 		return ptr;
 	}
 

@@ -53,7 +53,7 @@ public:
 	void ReceiveBeginPlay();
 	void InpAxisEvt_LookUp_K2Node_InputAxisEvent_1(float AxisValue);
 	void InpAxisEvt_LookSideways_K2Node_InputAxisEvent_2(float AxisValue);
-	void ReceivePossessed(class AController** NewController);
+	void ReceivePossessed(class AController* NewController);
 	void forceStandUp();
 	void CreateChoiceOption(const struct FText& OptionANam, const struct FText& OptionBNam, const struct FString& FunctionOnA, const struct FString& FunctionOnB);
 	void forceChoiceA();

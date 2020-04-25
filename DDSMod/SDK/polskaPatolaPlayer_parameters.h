@@ -22,7 +22,7 @@ struct ApolskaPatolaPlayer_C_UserConstructionScript_Params
 // Function polskaPatolaPlayer.polskaPatolaPlayer_C.ReceiveTick
 struct ApolskaPatolaPlayer_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function polskaPatolaPlayer.polskaPatolaPlayer_C.BndEvt__Sphere_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature

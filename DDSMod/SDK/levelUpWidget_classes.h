@@ -31,7 +31,7 @@ public:
 
 
 	void Construct();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void setup(int NewLevel);
 	void ExecuteUbergraph_levelUpWidget(int EntryPoint);
 };

@@ -84,9 +84,9 @@ void AeddieWalkHome_C::ReceiveBeginPlay()
 // Function eddieWalkHome.eddieWalkHome_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AeddieWalkHome_C::ReceiveTick(float* DeltaSeconds)
+void AeddieWalkHome_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function eddieWalkHome.eddieWalkHome_C.ReceiveTick");
 

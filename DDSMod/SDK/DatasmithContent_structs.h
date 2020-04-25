@@ -54,19 +54,6 @@ enum class EDatasmithImportScene : uint8_t
 };
 
 
-// Enum DatasmithContent.EDatasmithImportLightmapMin
-enum class EDatasmithImportLightmapMin : uint8_t
-{
-	EDatasmithImportLightmapMin__LIGHTMAP = 0,
-	EDatasmithImportLightmapMin__LIGHTMAP01 = 1,
-	EDatasmithImportLightmapMin__LIGHTMAP02 = 2,
-	EDatasmithImportLightmapMin__LIGHTMAP03 = 3,
-	EDatasmithImportLightmapMin__LIGHTMAP04 = 4,
-	EDatasmithImportLightmapMin__LIGHTMAP05 = 5,
-	EDatasmithImportLightmapMin__LIGHTMAP_MAX = 6
-};
-
-
 // Enum DatasmithContent.EDatasmithImportLightmapMax
 enum class EDatasmithImportLightmapMax : uint8_t
 {
@@ -78,6 +65,19 @@ enum class EDatasmithImportLightmapMax : uint8_t
 	EDatasmithImportLightmapMax__LIGHTMAP05 = 5,
 	EDatasmithImportLightmapMax__LIGHTMAP06 = 6,
 	EDatasmithImportLightmapMax__LIGHTMAP_MAX = 7
+};
+
+
+// Enum DatasmithContent.EDatasmithImportLightmapMin
+enum class EDatasmithImportLightmapMin : uint8_t
+{
+	EDatasmithImportLightmapMin__LIGHTMAP = 0,
+	EDatasmithImportLightmapMin__LIGHTMAP01 = 1,
+	EDatasmithImportLightmapMin__LIGHTMAP02 = 2,
+	EDatasmithImportLightmapMin__LIGHTMAP03 = 3,
+	EDatasmithImportLightmapMin__LIGHTMAP04 = 4,
+	EDatasmithImportLightmapMin__LIGHTMAP05 = 5,
+	EDatasmithImportLightmapMin__LIGHTMAP_MAX = 6
 };
 
 
@@ -101,6 +101,15 @@ enum class EDatasmithImportActorPolicy : uint8_t
 };
 
 
+// Enum DatasmithContent.EDatasmithImportSearchPackagePolicy
+enum class EDatasmithImportSearchPackagePolicy : uint8_t
+{
+	EDatasmithImportSearchPackagePolicy__Current = 0,
+	EDatasmithImportSearchPackagePolicy__All = 1,
+	EDatasmithImportSearchPackagePolicy__EDatasmithImportSearchPackagePolicy_MAX = 2
+};
+
+
 // Enum DatasmithContent.EDatasmithImportAssetConflictPolicy
 enum class EDatasmithImportAssetConflictPolicy : uint8_t
 {
@@ -109,15 +118,6 @@ enum class EDatasmithImportAssetConflictPolicy : uint8_t
 	EDatasmithImportAssetConflictPolicy__Use = 2,
 	EDatasmithImportAssetConflictPolicy__Ignore = 3,
 	EDatasmithImportAssetConflictPolicy__EDatasmithImportAssetConflictPolicy_MAX = 4
-};
-
-
-// Enum DatasmithContent.EDatasmithImportSearchPackagePolicy
-enum class EDatasmithImportSearchPackagePolicy : uint8_t
-{
-	EDatasmithImportSearchPackagePolicy__Current = 0,
-	EDatasmithImportSearchPackagePolicy__All = 1,
-	EDatasmithImportSearchPackagePolicy__EDatasmithImportSearchPackagePolicy_MAX = 2
 };
 
 

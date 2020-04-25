@@ -47,8 +47,8 @@ struct UmainMenuWidget_C_BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHo
 // Function mainMenuWidget.mainMenuWidget_C.Tick
 struct UmainMenuWidget_C_Tick_Params
 {
-	struct FGeometry*                                  MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-	float*                                             InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	struct FGeometry                                   MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+	float                                              InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function mainMenuWidget.mainMenuWidget_C.Construct

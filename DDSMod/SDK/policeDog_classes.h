@@ -46,7 +46,7 @@ public:
 	void reconstructReferences();
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void testPlayerDistance();
 	void sniffTest();
 	void sensedDrugs();

@@ -59,7 +59,7 @@ public:
 	void getSmuggleLocRef();
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void SetupOrder(int ID, float spawnTime, TArray<struct FdrugData>* drugData, TArray<int>* DrugQuantities);
 	void checkOrderSpawnTime();
 	void spawnOrderNow();

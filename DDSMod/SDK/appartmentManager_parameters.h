@@ -108,7 +108,7 @@ struct AappartmentManager_C_sendDebtInfo_Params
 // Function appartmentManager.appartmentManager_C.ReceiveTick
 struct AappartmentManager_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function appartmentManager.appartmentManager_C.ReceiveBeginPlay

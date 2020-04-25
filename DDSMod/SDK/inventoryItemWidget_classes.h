@@ -54,12 +54,12 @@ public:
 
 
 	void formToText(TEnumAsByte<EdrugForm> Form, struct FText* OutText);
-	struct FEventReply OnMouseButtonDoubleClick(struct FGeometry* InMyGeometry, struct FPointerEvent* InMouseEvent);
+	struct FEventReply OnMouseButtonDoubleClick(const struct FGeometry& InMyGeometry, const struct FPointerEvent& InMouseEvent);
 	void widgetSetup(int setPrice, bool showPrice, bool fromVendor, bool workStation);
-	void OnDragDetected(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation);
-	struct FEventReply OnMouseButtonDown(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent);
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
-	void OnDragCancelled(struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation);
+	void OnDragDetected(const struct FGeometry& MyGeometry, const struct FPointerEvent& PointerEvent, class UDragDropOperation** Operation);
+	struct FEventReply OnMouseButtonDown(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
+	void OnDragCancelled(const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation);
 	void ExecuteUbergraph_inventoryItemWidget(int EntryPoint);
 };
 

@@ -37,7 +37,7 @@ public:
 
 
 	void UserConstructionScript();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void startMoving();
 	void ExecuteUbergraph_extinguishPoliceCar(int EntryPoint);
 };

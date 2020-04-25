@@ -37,7 +37,7 @@ struct AdemoControler_C_DemoEnded_Params
 // Function demoControler.demoControler_C.ReceiveTick
 struct AdemoControler_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function demoControler.demoControler_C.ReceiveBeginPlay

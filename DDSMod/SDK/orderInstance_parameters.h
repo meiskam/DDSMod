@@ -93,7 +93,7 @@ struct AorderInstance_C_ReceiveBeginPlay_Params
 // Function orderInstance.orderInstance_C.ReceiveTick
 struct AorderInstance_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function orderInstance.orderInstance_C.SetupOrder

@@ -45,7 +45,7 @@ public:
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_TransitionResult_55B0C9EE493AF45A9A1EBD9C6A7C3B11();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_BlendSpacePlayer_4443FE4A4BC18FEB7F81BD834C88C1E2();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_TransitionResult_AE542AA94B7B457D5751EDB52EC232F9();
-	void BlueprintUpdateAnimation(float* DeltaTimeX);
+	void BlueprintUpdateAnimation(float DeltaTimeX);
 	void ExecuteUbergraph_CitizenMale03_animBP(int EntryPoint);
 };
 

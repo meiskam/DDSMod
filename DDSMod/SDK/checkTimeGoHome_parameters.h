@@ -17,8 +17,8 @@ namespace SDK
 // Function checkTimeGoHome.checkTimeGoHome_C.ReceiveTick
 struct UcheckTimeGoHome_C_ReceiveTick_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function checkTimeGoHome.checkTimeGoHome_C.ExecuteUbergraph_checkTimeGoHome

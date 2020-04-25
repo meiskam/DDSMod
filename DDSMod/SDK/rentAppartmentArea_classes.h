@@ -89,9 +89,9 @@ public:
 	void checkPlayerOverlaping();
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveActorBeginOverlap(class AActor** OtherActor);
-	void ReceiveTick(float* DeltaSeconds);
-	void ReceiveActorEndOverlap(class AActor** OtherActor);
+	void ReceiveActorBeginOverlap(class AActor* OtherActor);
+	void ReceiveTick(float DeltaSeconds);
+	void ReceiveActorEndOverlap(class AActor* OtherActor);
 	void purgeAppartment();
 	void unlockAppartment();
 	void areaRaidStarted();

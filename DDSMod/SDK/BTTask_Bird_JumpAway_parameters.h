@@ -17,8 +17,8 @@ namespace SDK
 // Function BTTask_Bird_JumpAway.BTTask_Bird_JumpAway_C.ReceiveExecuteAI
 struct UBTTask_Bird_JumpAway_C_ReceiveExecuteAI_Params
 {
-	class AAIController**                              OwnerController;                                          // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	class APawn**                                      ControlledPawn;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AAIController*                               OwnerController;                                          // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       ControlledPawn;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function BTTask_Bird_JumpAway.BTTask_Bird_JumpAway_C.ExecuteUbergraph_BTTask_Bird_JumpAway

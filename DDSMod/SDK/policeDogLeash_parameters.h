@@ -32,7 +32,7 @@ struct ApoliceDogLeash_C_ReceiveBeginPlay_Params
 // Function policeDogLeash.policeDogLeash_C.ReceiveTick
 struct ApoliceDogLeash_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function policeDogLeash.policeDogLeash_C.checkPositioning

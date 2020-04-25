@@ -34,7 +34,7 @@ public:
 
 
 	void Construct();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void checkDistance();
 	void ExecuteUbergraph_mapMarkerWidget(int EntryPoint);
 };

@@ -100,7 +100,7 @@ public:
 	}
 
 
-	void BlueprintUpdateAnimation(float* DeltaTimeX);
+	void BlueprintUpdateAnimation(float DeltaTimeX);
 	void AnimNotify_IdleEnd();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_Crow_AnimBlueprint_AnimGraphNode_BlendListByInt_4538200D48041B6AC28C66A93C62DF57();
 	void ExecuteUbergraph_Crow_AnimBlueprint(int EntryPoint);

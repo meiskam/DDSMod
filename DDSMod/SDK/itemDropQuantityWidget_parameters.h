@@ -27,7 +27,7 @@ struct UitemDropQuantityWidget_C_getMaxQuantity_Params
 // Function itemDropQuantityWidget.itemDropQuantityWidget_C.PreConstruct
 struct UitemDropQuantityWidget_C_PreConstruct_Params
 {
-	bool*                                              IsDesignTime;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               IsDesignTime;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function itemDropQuantityWidget.itemDropQuantityWidget_C.Construct

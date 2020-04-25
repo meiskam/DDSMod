@@ -188,6 +188,33 @@ public:
 };
 
 
+// Class MovieScene.MovieScene
+// 0x0080 (0x00D0 - 0x0050)
+class UMovieScene : public UMovieSceneSignedObject
+{
+public:
+	TArray<struct FMovieSceneSpawnable>                Spawnables;                                               // 0x0050(0x0010) (ZeroConstructor)
+	TArray<struct FMovieScenePossessable>              Possessables;                                             // 0x0060(0x0010) (ZeroConstructor)
+	TArray<struct FMovieSceneBinding>                  ObjectBindings;                                           // 0x0070(0x0010) (ZeroConstructor)
+	TArray<class UMovieSceneTrack*>                    MasterTracks;                                             // 0x0080(0x0010) (ExportObject, ZeroConstructor)
+	class UMovieSceneTrack*                            CameraCutTrack;                                           // 0x0090(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FMovieSceneFrameRange                       SelectionRange;                                           // 0x0098(0x0010)
+	struct FMovieSceneFrameRange                       PlaybackRange;                                            // 0x00A8(0x0010)
+	struct FFrameRate                                  TickResolution;                                           // 0x00B8(0x0008) (ZeroConstructor, IsPlainOldData)
+	struct FFrameRate                                  DisplayRate;                                              // 0x00C0(0x0008) (ZeroConstructor, IsPlainOldData)
+	EMovieSceneEvaluationType                          EvaluationType;                                           // 0x00C8(0x0001) (ZeroConstructor, IsPlainOldData)
+	EUpdateClockSource                                 ClockSource;                                              // 0x00C9(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x6];                                       // 0x00CA(0x0006) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MovieScene.MovieScene");
+		return ptr;
+	}
+
+};
+
+
 // Class MovieScene.MovieSceneBindingOverrides
 // 0x0070 (0x0098 - 0x0028)
 class UMovieSceneBindingOverrides : public UObject
@@ -236,6 +263,24 @@ public:
 };
 
 
+// Class MovieScene.MovieSceneBuiltInEasingFunction
+// 0x0010 (0x0038 - 0x0028)
+class UMovieSceneBuiltInEasingFunction : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
+	EMovieSceneBuiltInEasing                           Type;                                                     // 0x0030(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MovieScene.MovieSceneBuiltInEasingFunction");
+		return ptr;
+	}
+
+};
+
+
 // Class MovieScene.MovieSceneEasingExternalCurve
 // 0x0010 (0x0038 - 0x0028)
 class UMovieSceneEasingExternalCurve : public UObject
@@ -270,18 +315,20 @@ public:
 };
 
 
-// Class MovieScene.MovieSceneBuiltInEasingFunction
-// 0x0010 (0x0038 - 0x0028)
-class UMovieSceneBuiltInEasingFunction : public UObject
+// Class MovieScene.MovieSceneFolder
+// 0x0048 (0x0070 - 0x0028)
+class UMovieSceneFolder : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
-	EMovieSceneBuiltInEasing                           Type;                                                     // 0x0030(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
+	struct FName                                       FolderName;                                               // 0x0028(0x0008) (ZeroConstructor, IsPlainOldData)
+	TArray<class UMovieSceneFolder*>                   ChildFolders;                                             // 0x0030(0x0010) (ExportObject, ZeroConstructor)
+	TArray<class UMovieSceneTrack*>                    ChildMasterTracks;                                        // 0x0040(0x0010) (ExportObject, ZeroConstructor)
+	TArray<struct FString>                             ChildObjectBindingStrings;                                // 0x0050(0x0010) (ZeroConstructor)
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0060(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class MovieScene.MovieSceneBuiltInEasingFunction");
+		static auto ptr = UObject::FindClass("Class MovieScene.MovieSceneFolder");
 		return ptr;
 	}
 
@@ -328,20 +375,16 @@ public:
 };
 
 
-// Class MovieScene.MovieSceneFolder
-// 0x0048 (0x0070 - 0x0028)
-class UMovieSceneFolder : public UObject
+// Class MovieScene.MovieSceneSubTrack
+// 0x0010 (0x0068 - 0x0058)
+class UMovieSceneSubTrack : public UMovieSceneNameableTrack
 {
 public:
-	struct FName                                       FolderName;                                               // 0x0028(0x0008) (ZeroConstructor, IsPlainOldData)
-	TArray<class UMovieSceneFolder*>                   ChildFolders;                                             // 0x0030(0x0010) (ExportObject, ZeroConstructor)
-	TArray<class UMovieSceneTrack*>                    ChildMasterTracks;                                        // 0x0040(0x0010) (ExportObject, ZeroConstructor)
-	TArray<struct FString>                             ChildObjectBindingStrings;                                // 0x0050(0x0010) (ZeroConstructor)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0060(0x0010) MISSED OFFSET
+	TArray<class UMovieSceneSection*>                  Sections;                                                 // 0x0058(0x0010) (ExportObject, ZeroConstructor)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class MovieScene.MovieSceneFolder");
+		static auto ptr = UObject::FindClass("Class MovieScene.MovieSceneSubTrack");
 		return ptr;
 	}
 
@@ -381,22 +424,6 @@ public:
 };
 
 
-// Class MovieScene.MovieSceneSubTrack
-// 0x0010 (0x0068 - 0x0058)
-class UMovieSceneSubTrack : public UMovieSceneNameableTrack
-{
-public:
-	TArray<class UMovieSceneSection*>                  Sections;                                                 // 0x0058(0x0010) (ExportObject, ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MovieScene.MovieSceneSubTrack");
-		return ptr;
-	}
-
-};
-
-
 // Class MovieScene.TestMovieSceneSequence
 // 0x0008 (0x0350 - 0x0348)
 class UTestMovieSceneSequence : public UMovieSceneSequence
@@ -407,33 +434,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class MovieScene.TestMovieSceneSequence");
-		return ptr;
-	}
-
-};
-
-
-// Class MovieScene.MovieScene
-// 0x0080 (0x00D0 - 0x0050)
-class UMovieScene : public UMovieSceneSignedObject
-{
-public:
-	TArray<struct FMovieSceneSpawnable>                Spawnables;                                               // 0x0050(0x0010) (ZeroConstructor)
-	TArray<struct FMovieScenePossessable>              Possessables;                                             // 0x0060(0x0010) (ZeroConstructor)
-	TArray<struct FMovieSceneBinding>                  ObjectBindings;                                           // 0x0070(0x0010) (ZeroConstructor)
-	TArray<class UMovieSceneTrack*>                    MasterTracks;                                             // 0x0080(0x0010) (ExportObject, ZeroConstructor)
-	class UMovieSceneTrack*                            CameraCutTrack;                                           // 0x0090(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FMovieSceneFrameRange                       SelectionRange;                                           // 0x0098(0x0010)
-	struct FMovieSceneFrameRange                       PlaybackRange;                                            // 0x00A8(0x0010)
-	struct FFrameRate                                  TickResolution;                                           // 0x00B8(0x0008) (ZeroConstructor, IsPlainOldData)
-	struct FFrameRate                                  DisplayRate;                                              // 0x00C0(0x0008) (ZeroConstructor, IsPlainOldData)
-	EMovieSceneEvaluationType                          EvaluationType;                                           // 0x00C8(0x0001) (ZeroConstructor, IsPlainOldData)
-	EUpdateClockSource                                 ClockSource;                                              // 0x00C9(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x6];                                       // 0x00CA(0x0006) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MovieScene.MovieScene");
 		return ptr;
 	}
 

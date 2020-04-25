@@ -19,13 +19,6 @@ struct FSessionServiceLogUnsubscribe
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };
 
-// ScriptStruct SessionMessages.SessionServiceLogSubscribe
-// 0x0001
-struct FSessionServiceLogSubscribe
-{
-	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
-};
-
 // ScriptStruct SessionMessages.SessionServiceLog
 // 0x0038
 struct FSessionServiceLog
@@ -36,6 +29,13 @@ struct FSessionServiceLog
 	double                                             TimeSeconds;                                              // 0x0028(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      Verbosity;                                                // 0x0030(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
+};
+
+// ScriptStruct SessionMessages.SessionServiceLogSubscribe
+// 0x0001
+struct FSessionServiceLogSubscribe
+{
+	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };
 
 // ScriptStruct SessionMessages.SessionServicePong

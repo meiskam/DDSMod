@@ -49,6 +49,21 @@ public:
 };
 
 
+// Class MovieSceneCapture.NullAudioCaptureProtocol
+// 0x0000 (0x0058 - 0x0058)
+class UNullAudioCaptureProtocol : public UMovieSceneAudioCaptureProtocolBase
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MovieSceneCapture.NullAudioCaptureProtocol");
+		return ptr;
+	}
+
+};
+
+
 // Class MovieSceneCapture.MasterAudioSubmixCaptureProtocol
 // 0x0038 (0x0090 - 0x0058)
 class UMasterAudioSubmixCaptureProtocol : public UMovieSceneAudioCaptureProtocolBase
@@ -75,21 +90,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class MovieSceneCapture.MovieSceneImageCaptureProtocolBase");
-		return ptr;
-	}
-
-};
-
-
-// Class MovieSceneCapture.NullAudioCaptureProtocol
-// 0x0000 (0x0058 - 0x0058)
-class UNullAudioCaptureProtocol : public UMovieSceneAudioCaptureProtocolBase
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MovieSceneCapture.NullAudioCaptureProtocol");
 		return ptr;
 	}
 

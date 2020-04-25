@@ -16,10 +16,10 @@ namespace SDK
 // Function checkDistanceToLeash.checkDistanceToLeash_C.ReceiveTick
 // (Event, Protected, BlueprintEvent)
 // Parameters:
-// class AActor**                 OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UcheckDistanceToLeash_C::ReceiveTick(class AActor** OwnerActor, float* DeltaSeconds)
+void UcheckDistanceToLeash_C::ReceiveTick(class AActor* OwnerActor, float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function checkDistanceToLeash.checkDistanceToLeash_C.ReceiveTick");
 

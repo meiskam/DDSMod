@@ -59,7 +59,7 @@ public:
 	void generateDurgIcon(int quantity, TEnumAsByte<EdrugForm> Form, class UTexture2D** IconOut);
 	void checkButtonActivity();
 	void checkCanFitInventory(bool* canFit);
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void setup(class AworkStationEquipmentBase_C* EqRef);
 	void BndEvt__btnCancel_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();
 	void killMe();

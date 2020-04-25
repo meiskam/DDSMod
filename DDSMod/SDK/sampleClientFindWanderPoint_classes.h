@@ -27,7 +27,7 @@ public:
 	}
 
 
-	void ReceiveExecute(class AActor** OwnerActor);
+	void ReceiveExecute(class AActor* OwnerActor);
 	void ExecuteUbergraph_sampleClientFindWanderPoint(int EntryPoint);
 };
 

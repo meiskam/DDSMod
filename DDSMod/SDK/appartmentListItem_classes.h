@@ -35,7 +35,7 @@ public:
 	}
 
 
-	struct FEventReply OnMouseButtonDown(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent);
+	struct FEventReply OnMouseButtonDown(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent);
 	void setup(const struct FText& Name, const struct FText& Address, float Meterage, class UTexture2D* Image, int Index, class UEquipmentShopInterfaceWidget_C* parentRef, bool selected);
 	void ExecuteUbergraph_appartmentListItem(int EntryPoint);
 };

@@ -22,16 +22,6 @@ enum class EVirtualKeyboardDismissAction : uint8_t
 };
 
 
-// Enum Slate.ETableViewMode
-enum class ETableViewMode : uint8_t
-{
-	ETableViewMode__List           = 0,
-	ETableViewMode__Tile           = 1,
-	ETableViewMode__Tree           = 2,
-	ETableViewMode__ETableViewMode_MAX = 3
-};
-
-
 // Enum Slate.ESelectionMode
 enum class ESelectionMode : uint8_t
 {
@@ -52,6 +42,21 @@ enum class EProgressBarFillType : uint8_t
 	EProgressBarFillType__TopToBottom = 3,
 	EProgressBarFillType__BottomToTop = 4,
 	EProgressBarFillType__EProgressBarFillType_MAX = 5
+};
+
+
+// Enum Slate.EStretch
+enum class EStretch : uint8_t
+{
+	EStretch__None                 = 0,
+	EStretch__Fill                 = 1,
+	EStretch__ScaleToFit           = 2,
+	EStretch__ScaleToFitX          = 3,
+	EStretch__ScaleToFitY          = 4,
+	EStretch__ScaleToFill          = 5,
+	EStretch__ScaleBySafeZone      = 6,
+	EStretch__UserSpecified        = 7,
+	EStretch__EStretch_MAX         = 8
 };
 
 
@@ -128,18 +133,13 @@ enum class EMultipleKeyBindingIndex : uint8_t
 };
 
 
-// Enum Slate.EStretch
-enum class EStretch : uint8_t
+// Enum Slate.ETableViewMode
+enum class ETableViewMode : uint8_t
 {
-	EStretch__None                 = 0,
-	EStretch__Fill                 = 1,
-	EStretch__ScaleToFit           = 2,
-	EStretch__ScaleToFitX          = 3,
-	EStretch__ScaleToFitY          = 4,
-	EStretch__ScaleToFill          = 5,
-	EStretch__ScaleBySafeZone      = 6,
-	EStretch__UserSpecified        = 7,
-	EStretch__EStretch_MAX         = 8
+	ETableViewMode__List           = 0,
+	ETableViewMode__Tile           = 1,
+	ETableViewMode__Tree           = 2,
+	ETableViewMode__ETableViewMode_MAX = 3
 };
 
 

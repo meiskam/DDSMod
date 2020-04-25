@@ -74,7 +74,7 @@ public:
 	void HideoutTransitionTimeline__FinishedFunc();
 	void HideoutTransitionTimeline__UpdateFunc();
 	void endChaseMusic();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void InitiateMe(class AplayerCharacterBP_C* playerRef);
 	void startChaseMusic();
 	void BndEvt__IntroChase_K2Node_ComponentBoundEvent_4_OnAudioPlaybackPercent__DelegateSignature(class USoundWave* PlayingSoundWave, float PlaybackPercent);

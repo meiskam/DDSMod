@@ -138,9 +138,9 @@ void AweedPlantBP_C::ReceiveBeginPlay()
 // Function weedPlantBP.weedPlantBP_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AweedPlantBP_C::ReceiveTick(float* DeltaSeconds)
+void AweedPlantBP_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function weedPlantBP.weedPlantBP_C.ReceiveTick");
 

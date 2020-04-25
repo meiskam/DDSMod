@@ -101,9 +101,9 @@ void UCitizenMale03_animBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_Citize
 // Function CitizenMale03_animBP.CitizenMale03_animBP_C.BlueprintUpdateAnimation
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UCitizenMale03_animBP_C::BlueprintUpdateAnimation(float* DeltaTimeX)
+void UCitizenMale03_animBP_C::BlueprintUpdateAnimation(float DeltaTimeX)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function CitizenMale03_animBP.CitizenMale03_animBP_C.BlueprintUpdateAnimation");
 

@@ -16,9 +16,9 @@ namespace SDK
 // Function sampleClientForceGotHome.sampleClientForceGotHome_C.ReceiveExecute
 // (Event, Protected, BlueprintEvent)
 // Parameters:
-// class AActor**                 OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UsampleClientForceGotHome_C::ReceiveExecute(class AActor** OwnerActor)
+void UsampleClientForceGotHome_C::ReceiveExecute(class AActor* OwnerActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function sampleClientForceGotHome.sampleClientForceGotHome_C.ReceiveExecute");
 

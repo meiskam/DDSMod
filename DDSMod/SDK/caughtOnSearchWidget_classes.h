@@ -28,7 +28,7 @@ public:
 	}
 
 
-	void PreConstruct(bool* IsDesignTime);
+	void PreConstruct(bool IsDesignTime);
 	void setup(bool foundDrugs);
 	void ExecuteUbergraph_caughtOnSearchWidget(int EntryPoint);
 };

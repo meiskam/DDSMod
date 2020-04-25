@@ -95,7 +95,7 @@ struct AdrugWorkStation_C_placeCurObject_Params
 // Function drugWorkStation.drugWorkStation_C.ReceiveTick
 struct AdrugWorkStation_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function drugWorkStation.drugWorkStation_C.ReceiveBeginPlay

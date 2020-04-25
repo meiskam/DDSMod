@@ -53,7 +53,7 @@ public:
 
 	void compareAngles(bool* aligned);
 	void Construct();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void MouseY(float Value);
 	void MouseX(float Value);
 	void resetCircle();

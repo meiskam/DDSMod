@@ -61,7 +61,7 @@ public:
 	void countdownHold(float Delta);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void ActionPress();
 	void ActionRelease();
 	void PutSpraySymbol();

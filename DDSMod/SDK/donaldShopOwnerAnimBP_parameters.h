@@ -17,7 +17,7 @@ namespace SDK
 // Function donaldShopOwnerAnimBP.donaldShopOwnerAnimBP_C.BlueprintUpdateAnimation
 struct UdonaldShopOwnerAnimBP_C_BlueprintUpdateAnimation_Params
 {
-	float*                                             DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function donaldShopOwnerAnimBP.donaldShopOwnerAnimBP_C.ExecuteUbergraph_donaldShopOwnerAnimBP

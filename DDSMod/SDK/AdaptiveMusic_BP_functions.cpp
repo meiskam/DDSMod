@@ -101,9 +101,9 @@ void AAdaptiveMusic_BP_C::endChaseMusic()
 // Function AdaptiveMusic_BP.AdaptiveMusic_BP_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AAdaptiveMusic_BP_C::ReceiveTick(float* DeltaSeconds)
+void AAdaptiveMusic_BP_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function AdaptiveMusic_BP.AdaptiveMusic_BP_C.ReceiveTick");
 

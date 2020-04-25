@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "proc.h"
 //https://guidedhacking.com/threads/how-to-hack-any-game-first-internal-hack-dll-tutorial.12142/
 

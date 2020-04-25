@@ -81,7 +81,7 @@ struct AgangManager_C_ReceiveBeginPlay_Params
 // Function gangManager.gangManager_C.ReceiveTick
 struct AgangManager_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function gangManager.gangManager_C.unlockKeijiGang

@@ -27,7 +27,7 @@ struct APM_PatrolLead_C_ReceiveBeginPlay_Params
 // Function PM_PatrolLead.PM_PatrolLead_C.ReceiveTick
 struct APM_PatrolLead_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_PatrolLead.PM_PatrolLead_C.EngageSuspect

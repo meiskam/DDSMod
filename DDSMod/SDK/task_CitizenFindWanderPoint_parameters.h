@@ -17,7 +17,7 @@ namespace SDK
 // Function task_CitizenFindWanderPoint.task_CitizenFindWanderPoint_C.ReceiveExecute
 struct Utask_CitizenFindWanderPoint_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function task_CitizenFindWanderPoint.task_CitizenFindWanderPoint_C.ExecuteUbergraph_task_CitizenFindWanderPoint

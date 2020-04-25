@@ -119,7 +119,7 @@ public:
 
 
 	struct FText getKeyNam(float Scale, const struct FName& Name);
-	struct FEventReply OnKeyDown(struct FGeometry* MyGeometry, struct FKeyEvent* InKeyEvent);
+	struct FEventReply OnKeyDown(const struct FGeometry& MyGeometry, const struct FKeyEvent& InKeyEvent);
 	void setDiffButtons();
 	void SaveSettings();
 	void Construct();

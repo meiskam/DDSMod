@@ -22,7 +22,7 @@ struct USeagull_AnimationBlueprint_C_EvaluateGraphExposedInputs_ExecuteUbergraph
 // Function Seagull_AnimationBlueprint.Seagull_AnimationBlueprint_C.BlueprintUpdateAnimation
 struct USeagull_AnimationBlueprint_C_BlueprintUpdateAnimation_Params
 {
-	float*                                             DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Seagull_AnimationBlueprint.Seagull_AnimationBlueprint_C.AnimNotify_IdleEnd

@@ -419,9 +419,9 @@ void AworkStationEquipmentBase_C::ReceiveBeginPlay()
 // Function workStationEquipmentBase.workStationEquipmentBase_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AworkStationEquipmentBase_C::ReceiveTick(float* DeltaSeconds)
+void AworkStationEquipmentBase_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function workStationEquipmentBase.workStationEquipmentBase_C.ReceiveTick");
 

@@ -16,9 +16,9 @@ namespace SDK
 // Function PM_CantReachPlayer.PM_CantReachPlayer_C.ReceiveExecute
 // (Event, Protected, BlueprintEvent)
 // Parameters:
-// class AActor**                 OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UPM_CantReachPlayer_C::ReceiveExecute(class AActor** OwnerActor)
+void UPM_CantReachPlayer_C::ReceiveExecute(class AActor* OwnerActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function PM_CantReachPlayer.PM_CantReachPlayer_C.ReceiveExecute");
 

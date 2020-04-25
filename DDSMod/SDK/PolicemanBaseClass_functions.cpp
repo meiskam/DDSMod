@@ -57,7 +57,7 @@ void APolicemanBaseClass_C::checkCanSpotPlayer(bool* canSpot)
 // Parameters:
 // bool                           protected                      (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void APolicemanBaseClass_C::checkBallenaProtection(bool* protected)
+void APolicemanBaseClass_C::checkBallenaProtection(bool* isProtected)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function PolicemanBaseClass.PolicemanBaseClass_C.checkBallenaProtection");
 
@@ -69,8 +69,8 @@ void APolicemanBaseClass_C::checkBallenaProtection(bool* protected)
 
 	fn->FunctionFlags = flags;
 
-	if (protected != nullptr)
-		*protected = params.protected;
+	if (isProtected != nullptr)
+		*isProtected = params.isProtected;
 }
 
 
@@ -322,9 +322,9 @@ void APolicemanBaseClass_C::UserConstructionScript()
 // Function PolicemanBaseClass.PolicemanBaseClass_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void APolicemanBaseClass_C::ReceiveTick(float* DeltaSeconds)
+void APolicemanBaseClass_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function PolicemanBaseClass.PolicemanBaseClass_C.ReceiveTick");
 

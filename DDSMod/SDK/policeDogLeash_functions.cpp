@@ -67,9 +67,9 @@ void ApoliceDogLeash_C::ReceiveBeginPlay()
 // Function policeDogLeash.policeDogLeash_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ApoliceDogLeash_C::ReceiveTick(float* DeltaSeconds)
+void ApoliceDogLeash_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function policeDogLeash.policeDogLeash_C.ReceiveTick");
 

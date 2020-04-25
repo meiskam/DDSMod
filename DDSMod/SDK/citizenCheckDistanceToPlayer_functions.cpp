@@ -16,10 +16,10 @@ namespace SDK
 // Function citizenCheckDistanceToPlayer.citizenCheckDistanceToPlayer_C.ReceiveTick
 // (Event, Protected, BlueprintEvent)
 // Parameters:
-// class AActor**                 OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UcitizenCheckDistanceToPlayer_C::ReceiveTick(class AActor** OwnerActor, float* DeltaSeconds)
+void UcitizenCheckDistanceToPlayer_C::ReceiveTick(class AActor* OwnerActor, float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function citizenCheckDistanceToPlayer.citizenCheckDistanceToPlayer_C.ReceiveTick");
 

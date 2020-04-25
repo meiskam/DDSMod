@@ -238,9 +238,9 @@ void AdayTimeControler_C::ReceiveBeginPlay()
 // Function dayTimeControler.dayTimeControler_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AdayTimeControler_C::ReceiveTick(float* DeltaSeconds)
+void AdayTimeControler_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function dayTimeControler.dayTimeControler_C.ReceiveTick");
 

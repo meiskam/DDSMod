@@ -32,7 +32,7 @@ struct AbackpackBase_C_ReceiveBeginPlay_Params
 // Function backpackBase.backpackBase_C.ReceiveTick
 struct AbackpackBase_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function backpackBase.backpackBase_C.ExecuteUbergraph_backpackBase

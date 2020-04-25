@@ -12,16 +12,6 @@ namespace SDK
 // Enums
 //---------------------------------------------------------------------------
 
-// Enum PhysXVehicles.EWheelSweepType
-enum class EWheelSweepType : uint8_t
-{
-	SimpleAndComplex               = 0,
-	Simple                         = 1,
-	Complex                        = 2,
-	EWheelSweepType_MAX            = 3
-};
-
-
 // Enum PhysXVehicles.EVehicleDifferential4W
 enum class EVehicleDifferential4W : uint8_t
 {
@@ -32,6 +22,16 @@ enum class EVehicleDifferential4W : uint8_t
 	EVehicleDifferential4W__Open_FrontDrive = 4,
 	EVehicleDifferential4W__Open_RearDrive = 5,
 	EVehicleDifferential4W__EVehicleDifferential4W_MAX = 6
+};
+
+
+// Enum PhysXVehicles.EWheelSweepType
+enum class EWheelSweepType : uint8_t
+{
+	SimpleAndComplex               = 0,
+	Simple                         = 1,
+	Complex                        = 2,
+	EWheelSweepType_MAX            = 3
 };
 
 

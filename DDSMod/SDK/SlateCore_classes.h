@@ -28,6 +28,21 @@ public:
 };
 
 
+// Class SlateCore.FontFaceInterface
+// 0x0000 (0x0028 - 0x0028)
+class UFontFaceInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class SlateCore.FontFaceInterface");
+		return ptr;
+	}
+
+};
+
+
 // Class SlateCore.FontProviderInterface
 // 0x0000 (0x0028 - 0x0028)
 class UFontProviderInterface : public UInterface
@@ -99,21 +114,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class SlateCore.SlateWidgetStyleContainerInterface");
-		return ptr;
-	}
-
-};
-
-
-// Class SlateCore.FontFaceInterface
-// 0x0000 (0x0028 - 0x0028)
-class UFontFaceInterface : public UInterface
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class SlateCore.FontFaceInterface");
 		return ptr;
 	}
 

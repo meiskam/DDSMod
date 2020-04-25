@@ -109,18 +109,6 @@ enum class EPawnActionEventType : uint8_t
 };
 
 
-// Enum AIModule.EPawnActionResult
-enum class EPawnActionResult : uint8_t
-{
-	EPawnActionResult__NotStarted  = 0,
-	EPawnActionResult__InProgress  = 1,
-	EPawnActionResult__Success     = 2,
-	EPawnActionResult__Failed      = 3,
-	EPawnActionResult__Aborted     = 4,
-	EPawnActionResult__EPawnActionResult_MAX = 5
-};
-
-
 // Enum AIModule.EPawnActionAbortState
 enum class EPawnActionAbortState : uint8_t
 {
@@ -133,13 +121,15 @@ enum class EPawnActionAbortState : uint8_t
 };
 
 
-// Enum AIModule.FAIDistanceType
-enum class EFAIDistanceType : uint8_t
+// Enum AIModule.EPawnActionResult
+enum class EPawnActionResult : uint8_t
 {
-	FAIDistanceType__Distance3D    = 0,
-	FAIDistanceType__Distance2D    = 1,
-	FAIDistanceType__DistanceZ     = 2,
-	FAIDistanceType__MAX           = 3
+	EPawnActionResult__NotStarted  = 0,
+	EPawnActionResult__InProgress  = 1,
+	EPawnActionResult__Success     = 2,
+	EPawnActionResult__Failed      = 3,
+	EPawnActionResult__Aborted     = 4,
+	EPawnActionResult__EPawnActionResult_MAX = 5
 };
 
 
@@ -172,6 +162,16 @@ enum class EBTNodeResult : uint8_t
 	EBTNodeResult__Aborted         = 2,
 	EBTNodeResult__InProgress      = 3,
 	EBTNodeResult__EBTNodeResult_MAX = 4
+};
+
+
+// Enum AIModule.FAIDistanceType
+enum class EFAIDistanceType : uint8_t
+{
+	FAIDistanceType__Distance3D    = 0,
+	FAIDistanceType__Distance2D    = 1,
+	FAIDistanceType__DistanceZ     = 2,
+	FAIDistanceType__MAX           = 3
 };
 
 
@@ -247,6 +247,15 @@ enum class EBTBlackboardRestart : uint8_t
 };
 
 
+// Enum AIModule.EBlackBoardEntryComparison
+enum class EBlackBoardEntryComparison : uint8_t
+{
+	EBlackBoardEntryComparison__Equal = 0,
+	EBlackBoardEntryComparison__NotEqual = 1,
+	EBlackBoardEntryComparison__EBlackBoardEntryComparison_MAX = 2
+};
+
+
 // Enum AIModule.EPathExistanceQueryType
 enum class EPathExistanceQueryType : uint8_t
 {
@@ -257,30 +266,21 @@ enum class EPathExistanceQueryType : uint8_t
 };
 
 
-// Enum AIModule.EPointOnCircleSpacingMethod
-enum class EPointOnCircleSpacingMethod : uint8_t
-{
-	EPointOnCircleSpacingMethod__BySpaceBetween = 0,
-	EPointOnCircleSpacingMethod__ByNumberOfPoints = 1,
-	EPointOnCircleSpacingMethod__EPointOnCircleSpacingMethod_MAX = 2
-};
-
-
-// Enum AIModule.EBlackBoardEntryComparison
-enum class EBlackBoardEntryComparison : uint8_t
-{
-	EBlackBoardEntryComparison__Equal = 0,
-	EBlackBoardEntryComparison__NotEqual = 1,
-	EBlackBoardEntryComparison__EBlackBoardEntryComparison_MAX = 2
-};
-
-
 // Enum AIModule.EEQSNormalizationType
 enum class EEQSNormalizationType : uint8_t
 {
 	EEQSNormalizationType__Absolute = 0,
 	EEQSNormalizationType__RelativeToScores = 1,
 	EEQSNormalizationType__EEQSNormalizationType_MAX = 2
+};
+
+
+// Enum AIModule.EPointOnCircleSpacingMethod
+enum class EPointOnCircleSpacingMethod : uint8_t
+{
+	EPointOnCircleSpacingMethod__BySpaceBetween = 0,
+	EPointOnCircleSpacingMethod__ByNumberOfPoints = 1,
+	EPointOnCircleSpacingMethod__EPointOnCircleSpacingMethod_MAX = 2
 };
 
 
@@ -343,14 +343,14 @@ enum class EEnvOverlapShape : uint8_t
 };
 
 
-// Enum AIModule.EEnvQueryTrace
-enum class EEnvQueryTrace : uint8_t
+// Enum AIModule.EEnvTraceShape
+enum class EEnvTraceShape : uint8_t
 {
-	EEnvQueryTrace__None           = 0,
-	EEnvQueryTrace__Navigation     = 1,
-	EEnvQueryTrace__Geometry       = 2,
-	EEnvQueryTrace__NavigationOverLedges = 3,
-	EEnvQueryTrace__EEnvQueryTrace_MAX = 4
+	EEnvTraceShape__Line           = 0,
+	EEnvTraceShape__Box            = 1,
+	EEnvTraceShape__Sphere         = 2,
+	EEnvTraceShape__Capsule        = 3,
+	EEnvTraceShape__EEnvTraceShape_MAX = 4
 };
 
 
@@ -364,14 +364,24 @@ enum class EAIParamType : uint8_t
 };
 
 
-// Enum AIModule.EEnvTraceShape
-enum class EEnvTraceShape : uint8_t
+// Enum AIModule.EEnvQueryTrace
+enum class EEnvQueryTrace : uint8_t
 {
-	EEnvTraceShape__Line           = 0,
-	EEnvTraceShape__Box            = 1,
-	EEnvTraceShape__Sphere         = 2,
-	EEnvTraceShape__Capsule        = 3,
-	EEnvTraceShape__EEnvTraceShape_MAX = 4
+	EEnvQueryTrace__None           = 0,
+	EEnvQueryTrace__Navigation     = 1,
+	EEnvQueryTrace__Geometry       = 2,
+	EEnvQueryTrace__NavigationOverLedges = 3,
+	EEnvQueryTrace__EEnvQueryTrace_MAX = 4
+};
+
+
+// Enum AIModule.EEnvQueryParam
+enum class EEnvQueryParam : uint8_t
+{
+	EEnvQueryParam__Float          = 0,
+	EEnvQueryParam__Int            = 1,
+	EEnvQueryParam__Bool           = 2,
+	EEnvQueryParam__EEnvQueryParam_MAX = 3
 };
 
 
@@ -386,22 +396,13 @@ enum class EEnvQueryRunMode : uint8_t
 };
 
 
-// Enum AIModule.EEnvQueryParam
-enum class EEnvQueryParam : uint8_t
+// Enum AIModule.EEnvTestScoreOperator
+enum class EEnvTestScoreOperator : uint8_t
 {
-	EEnvQueryParam__Float          = 0,
-	EEnvQueryParam__Int            = 1,
-	EEnvQueryParam__Bool           = 2,
-	EEnvQueryParam__EEnvQueryParam_MAX = 3
-};
-
-
-// Enum AIModule.EEnvTestFilterOperator
-enum class EEnvTestFilterOperator : uint8_t
-{
-	EEnvTestFilterOperator__AllPass = 0,
-	EEnvTestFilterOperator__AnyPass = 1,
-	EEnvTestFilterOperator__EEnvTestFilterOperator_MAX = 2
+	EEnvTestScoreOperator__AverageScore = 0,
+	EEnvTestScoreOperator__MinScore = 1,
+	EEnvTestScoreOperator__MaxScore = 2,
+	EEnvTestScoreOperator__EEnvTestScoreOperator_MAX = 3
 };
 
 
@@ -415,13 +416,16 @@ enum class EEnvTestCost : uint8_t
 };
 
 
-// Enum AIModule.EEnvTestScoreOperator
-enum class EEnvTestScoreOperator : uint8_t
+// Enum AIModule.EEnvTestWeight
+enum class EEnvTestWeight : uint8_t
 {
-	EEnvTestScoreOperator__AverageScore = 0,
-	EEnvTestScoreOperator__MinScore = 1,
-	EEnvTestScoreOperator__MaxScore = 2,
-	EEnvTestScoreOperator__EEnvTestScoreOperator_MAX = 3
+	EEnvTestWeight__None           = 0,
+	EEnvTestWeight__Square         = 1,
+	EEnvTestWeight__Inverse        = 2,
+	EEnvTestWeight__Unused         = 3,
+	EEnvTestWeight__Constant       = 4,
+	EEnvTestWeight__Skip           = 5,
+	EEnvTestWeight__EEnvTestWeight_MAX = 6
 };
 
 
@@ -448,19 +452,6 @@ enum class EEnvTestFilterType : uint8_t
 };
 
 
-// Enum AIModule.EEnvTestWeight
-enum class EEnvTestWeight : uint8_t
-{
-	EEnvTestWeight__None           = 0,
-	EEnvTestWeight__Square         = 1,
-	EEnvTestWeight__Inverse        = 2,
-	EEnvTestWeight__Unused         = 3,
-	EEnvTestWeight__Constant       = 4,
-	EEnvTestWeight__Skip           = 5,
-	EEnvTestWeight__EEnvTestWeight_MAX = 6
-};
-
-
 // Enum AIModule.EEnvTestPurpose
 enum class EEnvTestPurpose : uint8_t
 {
@@ -468,16 +459,6 @@ enum class EEnvTestPurpose : uint8_t
 	EEnvTestPurpose__Score         = 1,
 	EEnvTestPurpose__FilterAndScore = 2,
 	EEnvTestPurpose__EEnvTestPurpose_MAX = 3
-};
-
-
-// Enum AIModule.ETeamAttitude
-enum class ETeamAttitude : uint8_t
-{
-	ETeamAttitude__Friendly        = 0,
-	ETeamAttitude__Neutral         = 1,
-	ETeamAttitude__Hostile         = 2,
-	ETeamAttitude__ETeamAttitude_MAX = 3
 };
 
 
@@ -491,6 +472,16 @@ enum class EEnvQueryHightlightMode : uint8_t
 };
 
 
+// Enum AIModule.ETeamAttitude
+enum class ETeamAttitude : uint8_t
+{
+	ETeamAttitude__Friendly        = 0,
+	ETeamAttitude__Neutral         = 1,
+	ETeamAttitude__Hostile         = 2,
+	ETeamAttitude__ETeamAttitude_MAX = 3
+};
+
+
 // Enum AIModule.EPathFollowingRequestResult
 enum class EPathFollowingRequestResult : uint8_t
 {
@@ -498,18 +489,6 @@ enum class EPathFollowingRequestResult : uint8_t
 	EPathFollowingRequestResult__AlreadyAtGoal = 1,
 	EPathFollowingRequestResult__RequestSuccessful = 2,
 	EPathFollowingRequestResult__EPathFollowingRequestResult_MAX = 3
-};
-
-
-// Enum AIModule.EPathFollowingAction
-enum class EPathFollowingAction : uint8_t
-{
-	EPathFollowingAction__Error    = 0,
-	EPathFollowingAction__NoMove   = 1,
-	EPathFollowingAction__DirectMove = 2,
-	EPathFollowingAction__PartialPath = 3,
-	EPathFollowingAction__PathToGoal = 4,
-	EPathFollowingAction__EPathFollowingAction_MAX = 5
 };
 
 
@@ -542,6 +521,18 @@ enum class EPawnSubActionTriggeringPolicy : uint8_t
 };
 
 
+// Enum AIModule.EPathFollowingAction
+enum class EPathFollowingAction : uint8_t
+{
+	EPathFollowingAction__Error    = 0,
+	EPathFollowingAction__NoMove   = 1,
+	EPathFollowingAction__DirectMove = 2,
+	EPathFollowingAction__PartialPath = 3,
+	EPathFollowingAction__PathToGoal = 4,
+	EPathFollowingAction__EPathFollowingAction_MAX = 5
+};
+
+
 // Enum AIModule.EPawnActionMoveMode
 enum class EPawnActionMoveMode : uint8_t
 {
@@ -551,10 +542,26 @@ enum class EPawnActionMoveMode : uint8_t
 };
 
 
+// Enum AIModule.EEnvTestFilterOperator
+enum class EEnvTestFilterOperator : uint8_t
+{
+	EEnvTestFilterOperator__AllPass = 0,
+	EEnvTestFilterOperator__AnyPass = 1,
+	EEnvTestFilterOperator__EEnvTestFilterOperator_MAX = 2
+};
+
+
 
 //---------------------------------------------------------------------------
 // Script Structs
 //---------------------------------------------------------------------------
+
+// ScriptStruct AIModule.AIRequestID
+// 0x0004
+struct FAIRequestID
+{
+	uint32_t                                           RequestID;                                                // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
+};
 
 // ScriptStruct AIModule.AIStimulus
 // 0x0048
@@ -595,15 +602,6 @@ struct FAIDamageEvent
 	class AActor*                                      Instigator;                                               // 0x0028(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
 
-// ScriptStruct AIModule.AIPredictionEvent
-// 0x0018
-struct FAIPredictionEvent
-{
-	class AActor*                                      Requestor;                                                // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
-	class AActor*                                      PredictedActor;                                           // 0x0008(0x0008) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0010(0x0008) MISSED OFFSET
-};
-
 // ScriptStruct AIModule.AINoiseEvent
 // 0x0030
 struct FAINoiseEvent
@@ -615,6 +613,15 @@ struct FAINoiseEvent
 	class AActor*                                      Instigator;                                               // 0x0018(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	struct FName                                       Tag;                                                      // 0x0020(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
+};
+
+// ScriptStruct AIModule.AIPredictionEvent
+// 0x0018
+struct FAIPredictionEvent
+{
+	class AActor*                                      Requestor;                                                // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
+	class AActor*                                      PredictedActor;                                           // 0x0008(0x0008) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0010(0x0008) MISSED OFFSET
 };
 
 // ScriptStruct AIModule.AITeamStimulusEvent
@@ -653,6 +660,15 @@ struct FAIMoveRequest
 	unsigned char                                      UnknownData00[0x38];                                      // 0x0008(0x0038) MISSED OFFSET
 };
 
+// ScriptStruct AIModule.BTDecoratorLogic
+// 0x0004
+struct FBTDecoratorLogic
+{
+	TEnumAsByte<EBTDecoratorLogic>                     Operation;                                                // 0x0000(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x1];                                       // 0x0001(0x0001) MISSED OFFSET
+	uint16_t                                           Number;                                                   // 0x0002(0x0002) (ZeroConstructor, IsPlainOldData)
+};
+
 // ScriptStruct AIModule.BehaviorTreeTemplateInfo
 // 0x0018
 struct FBehaviorTreeTemplateInfo
@@ -670,22 +686,6 @@ struct FBlackboardEntry
 	class UBlackboardKeyType*                          KeyType;                                                  // 0x0008(0x0008) (Edit, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
 	unsigned char                                      bInstanceSynced : 1;                                      // 0x0010(0x0001) (Edit)
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0011(0x0007) MISSED OFFSET
-};
-
-// ScriptStruct AIModule.BTDecoratorLogic
-// 0x0004
-struct FBTDecoratorLogic
-{
-	TEnumAsByte<EBTDecoratorLogic>                     Operation;                                                // 0x0000(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x1];                                       // 0x0001(0x0001) MISSED OFFSET
-	uint16_t                                           Number;                                                   // 0x0002(0x0002) (ZeroConstructor, IsPlainOldData)
-};
-
-// ScriptStruct AIModule.AIRequestID
-// 0x0004
-struct FAIRequestID
-{
-	uint32_t                                           RequestID;                                                // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct AIModule.BTCompositeChild
@@ -770,14 +770,6 @@ struct FEnvNamedValue
 	float                                              Value;                                                    // 0x000C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
 
-// ScriptStruct AIModule.AIDataProviderBoolValue
-// 0x0008 (0x0030 - 0x0028)
-struct FAIDataProviderBoolValue : public FAIDataProviderTypedValue
-{
-	bool                                               DefaultValue;                                             // 0x0028(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0029(0x0007) MISSED OFFSET
-};
-
 // ScriptStruct AIModule.CrowdAvoidanceConfig
 // 0x001C
 struct FCrowdAvoidanceConfig
@@ -800,6 +792,14 @@ struct FCrowdAvoidanceSamplingPattern
 {
 	TArray<float>                                      Angles;                                                   // 0x0000(0x0010) (Edit, ZeroConstructor)
 	TArray<float>                                      Radii;                                                    // 0x0010(0x0010) (Edit, ZeroConstructor)
+};
+
+// ScriptStruct AIModule.AIDataProviderBoolValue
+// 0x0008 (0x0030 - 0x0028)
+struct FAIDataProviderBoolValue : public FAIDataProviderTypedValue
+{
+	bool                                               DefaultValue;                                             // 0x0028(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0029(0x0007) MISSED OFFSET
 };
 
 // ScriptStruct AIModule.EnvTraceData
@@ -847,6 +847,14 @@ struct FEnvDirection
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0019(0x0007) MISSED OFFSET
 };
 
+// ScriptStruct AIModule.EnvQueryInstanceCache
+// 0x0178
+struct FEnvQueryInstanceCache
+{
+	class UEnvQuery*                                   Template;                                                 // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x170];                                     // 0x0008(0x0170) MISSED OFFSET
+};
+
 // ScriptStruct AIModule.EnvOverlapData
 // 0x0020
 struct FEnvOverlapData
@@ -861,14 +869,6 @@ struct FEnvOverlapData
 	unsigned char                                      bOnlyBlockingHits : 1;                                    // 0x001C(0x0001) (Edit, DisableEditOnInstance)
 	unsigned char                                      bOverlapComplex : 1;                                      // 0x001C(0x0001) (Edit, DisableEditOnInstance)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x001D(0x0003) MISSED OFFSET
-};
-
-// ScriptStruct AIModule.EnvQueryInstanceCache
-// 0x0178
-struct FEnvQueryInstanceCache
-{
-	class UEnvQuery*                                   Template;                                                 // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x170];                                     // 0x0008(0x0170) MISSED OFFSET
 };
 
 // ScriptStruct AIModule.PawnActionStack

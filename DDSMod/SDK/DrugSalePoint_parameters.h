@@ -28,7 +28,7 @@ struct ADrugSalePoint_C_UserConstructionScript_Params
 // Function DrugSalePoint.DrugSalePoint_C.ReceiveTick
 struct ADrugSalePoint_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function DrugSalePoint.DrugSalePoint_C.ExecuteUbergraph_DrugSalePoint

@@ -36,7 +36,7 @@ public:
 
 
 	void Construct();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void setup(float respAmount, const struct FText& areaNam, float respectNow, float respectAfter, float respectMax);
 	void ExecuteUbergraph_respectRaiseWidget(int EntryPoint);
 };

@@ -56,7 +56,7 @@ struct AsprayPlacementGizmo_C_ReceiveBeginPlay_Params
 // Function sprayPlacementGizmo.sprayPlacementGizmo_C.ReceiveTick
 struct AsprayPlacementGizmo_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function sprayPlacementGizmo.sprayPlacementGizmo_C.ActionPress

@@ -17,8 +17,8 @@ namespace SDK
 // Function citizenCheckDistanceToPlayer.citizenCheckDistanceToPlayer_C.ReceiveTick
 struct UcitizenCheckDistanceToPlayer_C_ReceiveTick_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function citizenCheckDistanceToPlayer.citizenCheckDistanceToPlayer_C.ExecuteUbergraph_citizenCheckDistanceToPlayer

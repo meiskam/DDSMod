@@ -17,7 +17,7 @@ namespace SDK
 // Function caughtOnSearchWidget.caughtOnSearchWidget_C.PreConstruct
 struct UcaughtOnSearchWidget_C_PreConstruct_Params
 {
-	bool*                                              IsDesignTime;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               IsDesignTime;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function caughtOnSearchWidget.caughtOnSearchWidget_C.setup

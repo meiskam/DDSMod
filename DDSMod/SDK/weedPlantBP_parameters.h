@@ -53,7 +53,7 @@ struct AweedPlantBP_C_ReceiveBeginPlay_Params
 // Function weedPlantBP.weedPlantBP_C.ReceiveTick
 struct AweedPlantBP_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function weedPlantBP.weedPlantBP_C.updateGrowth

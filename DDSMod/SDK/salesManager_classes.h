@@ -164,7 +164,7 @@ public:
 	void generateNewClient(bool Force);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void tryInitialise();
 	void checkClientState();
 	void trySpawnSampleGuy();

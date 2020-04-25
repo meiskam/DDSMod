@@ -16,9 +16,9 @@ namespace SDK
 // Function caughtOnSearchWidget.caughtOnSearchWidget_C.PreConstruct
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// bool*                          IsDesignTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           IsDesignTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UcaughtOnSearchWidget_C::PreConstruct(bool* IsDesignTime)
+void UcaughtOnSearchWidget_C::PreConstruct(bool IsDesignTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function caughtOnSearchWidget.caughtOnSearchWidget_C.PreConstruct");
 

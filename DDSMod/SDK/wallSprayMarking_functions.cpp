@@ -67,9 +67,9 @@ void AwallSprayMarking_C::ReceiveBeginPlay()
 // Function wallSprayMarking.wallSprayMarking_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AwallSprayMarking_C::ReceiveTick(float* DeltaSeconds)
+void AwallSprayMarking_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function wallSprayMarking.wallSprayMarking_C.ReceiveTick");
 

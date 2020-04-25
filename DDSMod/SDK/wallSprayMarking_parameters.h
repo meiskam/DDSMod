@@ -32,7 +32,7 @@ struct AwallSprayMarking_C_ReceiveBeginPlay_Params
 // Function wallSprayMarking.wallSprayMarking_C.ReceiveTick
 struct AwallSprayMarking_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function wallSprayMarking.wallSprayMarking_C.ExecuteUbergraph_wallSprayMarking

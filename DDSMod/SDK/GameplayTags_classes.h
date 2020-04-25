@@ -57,6 +57,26 @@ public:
 };
 
 
+// Class GameplayTags.GameplayTagAssetInterface
+// 0x0000 (0x0028 - 0x0028)
+class UGameplayTagAssetInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class GameplayTags.GameplayTagAssetInterface");
+		return ptr;
+	}
+
+
+	bool HasMatchingGameplayTag(const struct FGameplayTag& TagToCheck);
+	bool HasAnyMatchingGameplayTags(const struct FGameplayTagContainer& TagContainer);
+	bool HasAllMatchingGameplayTags(const struct FGameplayTagContainer& TagContainer);
+	void GetOwnedGameplayTags(struct FGameplayTagContainer* TagContainer);
+};
+
+
 // Class GameplayTags.EditableGameplayTagQuery
 // 0x0070 (0x0098 - 0x0028)
 class UEditableGameplayTagQuery : public UObject
@@ -123,23 +143,35 @@ public:
 };
 
 
-// Class GameplayTags.GameplayTagAssetInterface
-// 0x0000 (0x0028 - 0x0028)
-class UGameplayTagAssetInterface : public UInterface
+// Class GameplayTags.EditableGameplayTagQueryExpression_NoTagsMatch
+// 0x0020 (0x0048 - 0x0028)
+class UEditableGameplayTagQueryExpression_NoTagsMatch : public UEditableGameplayTagQueryExpression
 {
 public:
+	struct FGameplayTagContainer                       Tags;                                                     // 0x0028(0x0020) (Edit, DisableEditOnInstance)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameplayTags.GameplayTagAssetInterface");
+		static auto ptr = UObject::FindClass("Class GameplayTags.EditableGameplayTagQueryExpression_NoTagsMatch");
 		return ptr;
 	}
 
+};
 
-	bool HasMatchingGameplayTag(const struct FGameplayTag& TagToCheck);
-	bool HasAnyMatchingGameplayTags(const struct FGameplayTagContainer& TagContainer);
-	bool HasAllMatchingGameplayTags(const struct FGameplayTagContainer& TagContainer);
-	void GetOwnedGameplayTags(struct FGameplayTagContainer* TagContainer);
+
+// Class GameplayTags.EditableGameplayTagQueryExpression_AnyExprMatch
+// 0x0010 (0x0038 - 0x0028)
+class UEditableGameplayTagQueryExpression_AnyExprMatch : public UEditableGameplayTagQueryExpression
+{
+public:
+	TArray<class UEditableGameplayTagQueryExpression*> Expressions;                                              // 0x0028(0x0010) (Edit, ExportObject, ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class GameplayTags.EditableGameplayTagQueryExpression_AnyExprMatch");
+		return ptr;
+	}
+
 };
 
 
@@ -175,33 +207,21 @@ public:
 };
 
 
-// Class GameplayTags.EditableGameplayTagQueryExpression_NoTagsMatch
-// 0x0020 (0x0048 - 0x0028)
-class UEditableGameplayTagQueryExpression_NoTagsMatch : public UEditableGameplayTagQueryExpression
+// Class GameplayTags.GameplayTagsManager
+// 0x0168 (0x0190 - 0x0028)
+class UGameplayTagsManager : public UObject
 {
 public:
-	struct FGameplayTagContainer                       Tags;                                                     // 0x0028(0x0020) (Edit, DisableEditOnInstance)
+	unsigned char                                      UnknownData00[0x80];                                      // 0x0028(0x0080) MISSED OFFSET
+	TArray<struct FGameplayTagSource>                  TagSources;                                               // 0x00A8(0x0010) (ZeroConstructor)
+	unsigned char                                      UnknownData01[0x68];                                      // 0x00B8(0x0068) MISSED OFFSET
+	TArray<class UDataTable*>                          RestrictedGameplayTagTables;                              // 0x0120(0x0010) (ZeroConstructor)
+	TArray<class UDataTable*>                          GameplayTagTables;                                        // 0x0130(0x0010) (ZeroConstructor)
+	unsigned char                                      UnknownData02[0x50];                                      // 0x0140(0x0050) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class GameplayTags.EditableGameplayTagQueryExpression_NoTagsMatch");
-		return ptr;
-	}
-
-};
-
-
-// Class GameplayTags.RestrictedGameplayTagsList
-// 0x0020 (0x0048 - 0x0028)
-class URestrictedGameplayTagsList : public UObject
-{
-public:
-	struct FString                                     ConfigFileName;                                           // 0x0028(0x0010) (ZeroConstructor)
-	TArray<struct FRestrictedGameplayTagTableRow>      RestrictedGameplayTagList;                                // 0x0038(0x0010) (Edit, ZeroConstructor, Config)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class GameplayTags.RestrictedGameplayTagsList");
+		static auto ptr = UObject::FindClass("Class GameplayTags.GameplayTagsManager");
 		return ptr;
 	}
 
@@ -219,6 +239,23 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class GameplayTags.GameplayTagsList");
+		return ptr;
+	}
+
+};
+
+
+// Class GameplayTags.RestrictedGameplayTagsList
+// 0x0020 (0x0048 - 0x0028)
+class URestrictedGameplayTagsList : public UObject
+{
+public:
+	struct FString                                     ConfigFileName;                                           // 0x0028(0x0010) (ZeroConstructor)
+	TArray<struct FRestrictedGameplayTagTableRow>      RestrictedGameplayTagList;                                // 0x0038(0x0010) (Edit, ZeroConstructor, Config)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class GameplayTags.RestrictedGameplayTagsList");
 		return ptr;
 	}
 
@@ -246,43 +283,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class GameplayTags.GameplayTagsSettings");
-		return ptr;
-	}
-
-};
-
-
-// Class GameplayTags.GameplayTagsManager
-// 0x0168 (0x0190 - 0x0028)
-class UGameplayTagsManager : public UObject
-{
-public:
-	unsigned char                                      UnknownData00[0x80];                                      // 0x0028(0x0080) MISSED OFFSET
-	TArray<struct FGameplayTagSource>                  TagSources;                                               // 0x00A8(0x0010) (ZeroConstructor)
-	unsigned char                                      UnknownData01[0x68];                                      // 0x00B8(0x0068) MISSED OFFSET
-	TArray<class UDataTable*>                          RestrictedGameplayTagTables;                              // 0x0120(0x0010) (ZeroConstructor)
-	TArray<class UDataTable*>                          GameplayTagTables;                                        // 0x0130(0x0010) (ZeroConstructor)
-	unsigned char                                      UnknownData02[0x50];                                      // 0x0140(0x0050) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class GameplayTags.GameplayTagsManager");
-		return ptr;
-	}
-
-};
-
-
-// Class GameplayTags.EditableGameplayTagQueryExpression_AnyExprMatch
-// 0x0010 (0x0038 - 0x0028)
-class UEditableGameplayTagQueryExpression_AnyExprMatch : public UEditableGameplayTagQueryExpression
-{
-public:
-	TArray<class UEditableGameplayTagQueryExpression*> Expressions;                                              // 0x0028(0x0010) (Edit, ExportObject, ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class GameplayTags.EditableGameplayTagQueryExpression_AnyExprMatch");
 		return ptr;
 	}
 

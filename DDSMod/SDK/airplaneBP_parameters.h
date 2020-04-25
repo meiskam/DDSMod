@@ -27,7 +27,7 @@ struct AairplaneBP_C_ReceiveBeginPlay_Params
 // Function airplaneBP.airplaneBP_C.ReceiveTick
 struct AairplaneBP_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function airplaneBP.airplaneBP_C.Stop

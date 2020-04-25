@@ -17,7 +17,7 @@ namespace SDK
 // Function PM_CantReachPlayer.PM_CantReachPlayer_C.ReceiveExecute
 struct UPM_CantReachPlayer_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_CantReachPlayer.PM_CantReachPlayer_C.ExecuteUbergraph_PM_CantReachPlayer
