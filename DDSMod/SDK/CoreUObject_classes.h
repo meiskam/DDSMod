@@ -138,7 +138,7 @@ public:
 	}
 
 	inline void ProcessEvent(class UFunction* function, void* parms) {
-		return GetVFunction<void(*)(UObject*, class UFunction*, void*)>(this, 176)(this, function, parms);
+		return GetVFunction<void(*)(UObject*, class UFunction*, void*)>(this, 0xB0)(this, function, parms);
 	}
 
 
@@ -288,17 +288,19 @@ public:
 class UFunction : public UStruct
 {
 public:
-	int32_t                                            FunctionFlags;                                            // 0x0000(0x0000) NOT AUTO-GENERATED PROPERTY
-	int16_t                                            RepOffset;                                                // 0x0004(0x0000) NOT AUTO-GENERATED PROPERTY
-	int8_t                                             NumParms;                                                 // 0x0006(0x0000) NOT AUTO-GENERATED PROPERTY
-	int16_t                                            ParmsSize;                                                // 0x0007(0x0000) NOT AUTO-GENERATED PROPERTY
-	int16_t                                            ReturnValueOffset;                                        // 0x0009(0x0000) NOT AUTO-GENERATED PROPERTY
-	int16_t                                            RPCId;                                                    // 0x000b(0x0000) NOT AUTO-GENERATED PROPERTY
-	int16_t                                            RPCResponseId;                                            // 0x000d(0x0000) NOT AUTO-GENERATED PROPERTY
-	class UProperty*                                   FirstPropertyToInit;                                      // 0x000f(0x0000) NOT AUTO-GENERATED PROPERTY
-	class UFunction*                                   EventGraphFunction;                                       // 0x0013(0x0000) NOT AUTO-GENERATED PROPERTY
-	int32_t                                            EventGraphCallOffset;                                     // 0x0017(0x0000) NOT AUTO-GENERATED PROPERTY
-	void*                                              Func;                                                     // 0x001b(0x0000) NOT AUTO-GENERATED PROPERTY   A3
+	int32_t                                            FunctionFlags;                                            // 0x0088(0x0004) NOT AUTO-GENERATED PROPERTY
+	int16_t                                            RepOffset;                                                // 0x008C(0x0002) NOT AUTO-GENERATED PROPERTY
+	int8_t                                             NumParms;                                                 // 0x008E(0x0001) NOT AUTO-GENERATED PROPERTY
+                                                                                                                 // 0x1 pad?
+	int16_t                                            ParmsSize;                                                // 0x0090(0x0002) NOT AUTO-GENERATED PROPERTY
+	int16_t                                            ReturnValueOffset;                                        // 0x0092(0x0002) NOT AUTO-GENERATED PROPERTY
+	int16_t                                            RPCId;                                                    // 0x0094(0x0002) NOT AUTO-GENERATED PROPERTY
+	int16_t                                            RPCResponseId;                                            // 0x0096(0x0002) NOT AUTO-GENERATED PROPERTY
+	class UProperty*                                   FirstPropertyToInit;                                      // 0x0098(0x0008) NOT AUTO-GENERATED PROPERTY
+	class UFunction*                                   EventGraphFunction;                                       // 0x00A0(0x0008) NOT AUTO-GENERATED PROPERTY
+	int32_t                                            EventGraphCallOffset;                                     // 0x00A8(0x0004) NOT AUTO-GENERATED PROPERTY
+                                                                                                                 // 0x4 pad?
+	void*                                              Func;                                                     // 0x00B0(0x0008) NOT AUTO-GENERATED PROPERTY
 
 	static UClass* StaticClass()
 	{

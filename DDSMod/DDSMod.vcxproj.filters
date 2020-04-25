@@ -7816,6 +7816,7 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK.h" />
+    <ClInclude Include="tinyformat.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="SDK">
