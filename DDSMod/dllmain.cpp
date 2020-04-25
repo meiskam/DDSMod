@@ -43,7 +43,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	FILE* f;
 	freopen_s(&f, "CONOUT$", "w", stdout);
 
-	std::cout << "Loaded" << std::endl;
+	std::cout << "loading..." << std::endl;
 
 	//uintptr_t moduleBase = (uintptr_t)GetModuleHandle(L"DrugDealerSimulator-Win64-Shipping.exe");
 
@@ -56,8 +56,12 @@ DWORD WINAPI HackThread(HMODULE hModule)
 		0x2E43590,  // objs: 48 8D 05 ? ? ? ? 48 89 01 33 C9 84 D2
 		0x2E3F260); // name: 4C 8B 35 ? ? ? ? 4D 85 F6 75 51 B9 ? ? ? ? E8
 
-	//SDK::AplayerCharacterBP_C *player = nullptr;
-	SDK::UmainMenuWidget_C *menu = nullptr;
+	SDK::AplayerCharacterBP_C *player = SDK::UObject::FindObjectReverse<SDK::AplayerCharacterBP_C>();
+	SDK::AmainComputer_C *computer = SDK::UObject::FindObjectReverse<SDK::AmainComputer_C>();
+	SDK::AclothesWardrobeBP_C *wardrobe = SDK::UObject::FindObjectReverse<SDK::AclothesWardrobeBP_C>();
+	//SDK::UmainMenuWidget_C *menu = nullptr;
+	//Dump();
+	std::cout << "done" << std::endl;
 	while (true)
 	{
 		if (GetAsyncKeyState(VK_END) & 1)
@@ -79,33 +83,35 @@ DWORD WINAPI HackThread(HMODULE hModule)
 			Dump();
 			std::cout << "done" << std::endl;
 		}
-		/*
+		
 		if (GetAsyncKeyState(VK_NUMPAD3) & 1)
 		{
 			std::cout << "key3" << std::endl;
-			if (player == nullptr) {
-				player = SDK::UObject::FindObjects<SDK::AplayerCharacterBP_C>().back();
-			}
 			
-			bool *ret = nullptr;
+			bool *ret = new bool;
 			player->addMoney(1, ret);
-			if (*ret) {
-				std::cout << "success" << std::endl;
-			}
-			else {
+			if (ret == nullptr || ret == false) {
 				std::cout << "failure" << std::endl;
 			}
-		}*/
+			else {
+				std::cout << "success" << std::endl;
+			}
+			delete ret;
+		}
 
 		if (GetAsyncKeyState(VK_NUMPAD4) & 1)
 		{
 			std::cout << "key4" << std::endl;
-			if (menu == nullptr) {
-				menu = SDK::UObject::FindObjects<SDK::UmainMenuWidget_C>().back();
-			}
 
-			bool *ret = nullptr;
-			menu->BndEvt__btnSettings_K2Node_ComponentBoundEvent_8_OnButtonClickedEvent__DelegateSignature();
+			computer->openComputer();
+			std::cout << "done" << std::endl;
+		}
+
+		if (GetAsyncKeyState(VK_NUMPAD5) & 1)
+		{
+			std::cout << "key5" << std::endl;
+
+			wardrobe->ChangeClothes();
 			std::cout << "done" << std::endl;
 		}
 

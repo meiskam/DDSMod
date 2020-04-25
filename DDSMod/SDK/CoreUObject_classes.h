@@ -76,6 +76,27 @@ public:
 	}
 
 	template<typename T>
+	static T* FindObjectReverse()
+	{
+		auto v = T::StaticClass();
+		for (int i = SDK::UObject::GetGlobalObjects().Num() - 1; i >= 0; --i)
+		{
+			auto object = SDK::UObject::GetGlobalObjects().GetByIndex(i);
+
+			if (object == nullptr)
+			{
+				continue;
+			}
+
+			if (object->IsA(v))
+			{
+				return static_cast<T*>(object);
+			}
+		}
+		return nullptr;
+	}
+
+	template<typename T>
 	static std::vector<T*> FindObjects(const std::string& name)
 	{
 		std::vector<T*> ret;
@@ -139,7 +160,7 @@ public:
 	}
 
 	inline void ProcessEvent(class UFunction* function, void* parms) {
-		return GetVFunction<void(*)(UObject*, class UFunction*, void*)>(this, 55)(this, function, parms);
+		return GetVFunction<void(*)(UObject*, class UFunction*, void*)>(this, 64)(this, function, parms);
 	}
 
 
