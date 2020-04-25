@@ -17,7 +17,7 @@ void Dump()
 
 			if (obj != nullptr)
 			{
-				tfm::format(o, "[%06i] %P %-100s\n", i, obj, obj->GetFullName());
+				tfm::format(o, "[%06i] %P %s\n", i, obj, obj->GetFullName());
 			}
 		}
 	}
@@ -55,23 +55,57 @@ DWORD WINAPI HackThread(HMODULE hModule)
 	SDK::InitSdk("DrugDealerSimulator-Win64-Shipping.exe", 
 		0x2E43590,  // objs: 48 8D 05 ? ? ? ? 48 89 01 33 C9 84 D2
 		0x2E3F260); // name: 4C 8B 35 ? ? ? ? 4D 85 F6 75 51 B9 ? ? ? ? E8
-	
+
+	//SDK::AplayerCharacterBP_C *player = nullptr;
+	SDK::UmainMenuWidget_C *menu = nullptr;
 	while (true)
 	{
 		if (GetAsyncKeyState(VK_END) & 1)
 		{
 			break;
 		}
-
+		/*
 		if (GetAsyncKeyState(VK_NUMPAD1) & 1)
 		{
-			std::cout << "AplayerCharacterBP_C: " << std::hex << SDK::AplayerCharacterBP_C::StaticClass() << std::dec << std::endl;
-		}
+			std::cout << "looking for player..." << std::endl;
+			player = SDK::UObject::FindObjects<SDK::AplayerCharacterBP_C>().back();
+			std::cout << "found: " << std::hex << player << std::dec << std::endl;
+			//std::cout << "AplayerCharacterBP_C: " << std::hex << player << std::dec << std::endl;
+		}*/
 
 		if (GetAsyncKeyState(VK_NUMPAD2) & 1)
 		{
 			std::cout << "dumping..." << std::endl;
 			Dump();
+			std::cout << "done" << std::endl;
+		}
+		/*
+		if (GetAsyncKeyState(VK_NUMPAD3) & 1)
+		{
+			std::cout << "key3" << std::endl;
+			if (player == nullptr) {
+				player = SDK::UObject::FindObjects<SDK::AplayerCharacterBP_C>().back();
+			}
+			
+			bool *ret = nullptr;
+			player->addMoney(1, ret);
+			if (*ret) {
+				std::cout << "success" << std::endl;
+			}
+			else {
+				std::cout << "failure" << std::endl;
+			}
+		}*/
+
+		if (GetAsyncKeyState(VK_NUMPAD4) & 1)
+		{
+			std::cout << "key4" << std::endl;
+			if (menu == nullptr) {
+				menu = SDK::UObject::FindObjects<SDK::UmainMenuWidget_C>().back();
+			}
+
+			bool *ret = nullptr;
+			menu->BndEvt__btnSettings_K2Node_ComponentBoundEvent_8_OnButtonClickedEvent__DelegateSignature();
 			std::cout << "done" << std::endl;
 		}
 

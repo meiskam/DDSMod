@@ -88,6 +88,7 @@ public:
 				continue;
 			}
 
+			//if (object->GetFullName().compare(0, std::string::npos, name, 0, name.length))
 			if (object->GetFullName() == name)
 			{
 				ret.push_back(static_cast<T*>(object));
@@ -138,7 +139,7 @@ public:
 	}
 
 	inline void ProcessEvent(class UFunction* function, void* parms) {
-		return GetVFunction<void(*)(UObject*, class UFunction*, void*)>(this, 0xB0)(this, function, parms);
+		return GetVFunction<void(*)(UObject*, class UFunction*, void*)>(this, 55)(this, function, parms);
 	}
 
 
