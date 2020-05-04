@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{CF974883-C680-4644-97D3-D1C6136F06B3}</ProjectGuid>
+    <ProjectGuid>{82AD4BB0-67D8-4EEA-8747-46DC7780E5F9}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>DDSMod</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
