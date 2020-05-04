@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -23,8 +23,8 @@ struct UworldMapUI_Marker_C_checkAreaUnlocked_Params
 // Function worldMapUI_Marker.worldMapUI_Marker_C.OnMouseButtonDoubleClick
 struct UworldMapUI_Marker_C_OnMouseButtonDoubleClick_Params
 {
-	struct FGeometry                                   InMyGeometry;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-	struct FPointerEvent                               InMouseEvent;                                             // (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+	struct FGeometry*                                  InMyGeometry;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+	struct FPointerEvent*                              InMouseEvent;                                             // (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 	struct FEventReply                                 ReturnValue;                                              // (Parm, OutParm, ReturnParm)
 };
 

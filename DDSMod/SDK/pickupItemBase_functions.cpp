@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -85,20 +85,20 @@ void ApickupItemBase_C::pickupEventScript()
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
 // struct FinventoryItemStruct    Data                           (BlueprintVisible, BlueprintReadOnly, Parm)
-// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   Object_Name                    (BlueprintVisible, BlueprintReadOnly, Parm)
 // struct FText                   Action_Name                    (BlueprintVisible, BlueprintReadOnly, Parm)
 // bool                           Droped                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           SimulatePhysics                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           isGizmo                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ApickupItemBase_C::setupItem(const struct FinventoryItemStruct& Data, int quantity, const struct FText& Object_Name, const struct FText& Action_Name, bool Droped, bool SimulatePhysics, bool isGizmo)
+void ApickupItemBase_C::setupItem(const struct FinventoryItemStruct& Data, int Quantity, const struct FText& Object_Name, const struct FText& Action_Name, bool Droped, bool SimulatePhysics, bool isGizmo)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function pickupItemBase.pickupItemBase_C.setupItem");
 
 	ApickupItemBase_C_setupItem_Params params;
 	params.Data = Data;
-	params.quantity = quantity;
+	params.Quantity = Quantity;
 	params.Object_Name = Object_Name;
 	params.Action_Name = Action_Name;
 	params.Droped = Droped;
@@ -133,9 +133,9 @@ void ApickupItemBase_C::resetDroped()
 // Function pickupItemBase.pickupItemBase_C.ReceiveActorBeginOverlap
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AActor*                  OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor**                 OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ApickupItemBase_C::ReceiveActorBeginOverlap(class AActor* OtherActor)
+void ApickupItemBase_C::ReceiveActorBeginOverlap(class AActor** OtherActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function pickupItemBase.pickupItemBase_C.ReceiveActorBeginOverlap");
 

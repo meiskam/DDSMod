@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,11 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
+
+// Function drugWorkStation.drugWorkStation_C.respawnWorkStation
+struct AdrugWorkStation_C_respawnWorkStation_Params
+{
+};
 
 // Function drugWorkStation.drugWorkStation_C.checkHasEquipment
 struct AdrugWorkStation_C_checkHasEquipment_Params
@@ -95,7 +100,7 @@ struct AdrugWorkStation_C_placeCurObject_Params
 // Function drugWorkStation.drugWorkStation_C.ReceiveTick
 struct AdrugWorkStation_C_ReceiveTick_Params
 {
-	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function drugWorkStation.drugWorkStation_C.ReceiveBeginPlay

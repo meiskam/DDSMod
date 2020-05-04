@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -62,8 +62,8 @@ public:
 
 
 	void UserConstructionScript();
-	void ReceiveAnyDamage(float Damage, class UDamageType* DamageType, class AController* InstigatedBy, class AActor* DamageCauser);
-	void ReceiveTick(float DeltaSeconds);
+	void ReceiveAnyDamage(float* Damage, class UDamageType** DamageType, class AController** InstigatedBy, class AActor** DamageCauser);
+	void ReceiveTick(float* DeltaSeconds);
 	void BndEvt__CapsuleComponent_K2Node_ComponentBoundEvent_12_ComponentHitSignature__DelegateSignature(class UPrimitiveComponent* HitComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, const struct FVector& NormalImpulse, const struct FHitResult& Hit);
 	void SetMovementTo_Flying();
 	void SetMovementTo_Walking();

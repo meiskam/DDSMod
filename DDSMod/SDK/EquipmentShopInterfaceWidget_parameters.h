@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -56,9 +56,9 @@ struct UEquipmentShopInterfaceWidget_C_addListItem_Params
 {
 	struct FText                                       Name;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm)
 	float                                              Price;                                                    // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	int                                                Index;                                                    // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	class UTexture2D*                                  Icon;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class UTexture2D*                                  icon;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	struct FappartmentEquipment                        Data;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm)
 	struct FText                                       Description;                                              // (BlueprintVisible, BlueprintReadOnly, Parm)
 	class UequipmentShopItemWidget_C*                  ItemRef;                                                  // (Parm, OutParm, ZeroConstructor, InstancedReference, IsPlainOldData)

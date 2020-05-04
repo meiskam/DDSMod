@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -79,21 +79,21 @@ void AsalesManager_C::adaptDifficulty()
 // Parameters:
 // bool                           dealer                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           CashMeet                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   DrugNam                        (BlueprintVisible, BlueprintReadOnly, Parm)
-// bool                           PriceHigh                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           priceHigh                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   Message                        (Parm, OutParm)
 
-void AsalesManager_C::generateClientMessage(bool dealer, bool CashMeet, int quantity, const struct FText& DrugNam, bool PriceHigh, struct FText* Message)
+void AsalesManager_C::generateClientMessage(bool dealer, bool CashMeet, int Quantity, const struct FText& DrugNam, bool priceHigh, struct FText* Message)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function salesManager.salesManager_C.generateClientMessage");
 
 	AsalesManager_C_generateClientMessage_Params params;
 	params.dealer = dealer;
 	params.CashMeet = CashMeet;
-	params.quantity = quantity;
+	params.Quantity = Quantity;
 	params.DrugNam = DrugNam;
-	params.PriceHigh = PriceHigh;
+	params.priceHigh = priceHigh;
 
 	auto flags = fn->FunctionFlags;
 
@@ -290,9 +290,9 @@ void AsalesManager_C::getOrderedDrugName(int DrugIndex, struct FText* Output)
 // int                            ClientId                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            DrugDemandedID                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           Interested                     (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-// bool                           PriceHigh                      (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           priceHigh                      (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AsalesManager_C::checkClientInterested(int ClientId, int DrugDemandedID, bool* Interested, bool* PriceHigh)
+void AsalesManager_C::checkClientInterested(int ClientId, int DrugDemandedID, bool* Interested, bool* priceHigh)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function salesManager.salesManager_C.checkClientInterested");
 
@@ -308,8 +308,8 @@ void AsalesManager_C::checkClientInterested(int ClientId, int DrugDemandedID, bo
 
 	if (Interested != nullptr)
 		*Interested = params.Interested;
-	if (PriceHigh != nullptr)
-		*PriceHigh = params.PriceHigh;
+	if (priceHigh != nullptr)
+		*priceHigh = params.priceHigh;
 }
 
 
@@ -619,17 +619,17 @@ void AsalesManager_C::countClientStatistics()
 // Parameters:
 // int                            inClientID                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           nightTime                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// bool                           PriceHigh                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            OutQuantity                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           priceHigh                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            outQuantity                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AsalesManager_C::calcOrderQuantity(int inClientID, bool nightTime, bool PriceHigh, int* OutQuantity)
+void AsalesManager_C::calcOrderQuantity(int inClientID, bool nightTime, bool priceHigh, int* outQuantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function salesManager.salesManager_C.calcOrderQuantity");
 
 	AsalesManager_C_calcOrderQuantity_Params params;
 	params.inClientID = inClientID;
 	params.nightTime = nightTime;
-	params.PriceHigh = PriceHigh;
+	params.priceHigh = priceHigh;
 
 	auto flags = fn->FunctionFlags;
 
@@ -637,8 +637,8 @@ void AsalesManager_C::calcOrderQuantity(int inClientID, bool nightTime, bool Pri
 
 	fn->FunctionFlags = flags;
 
-	if (OutQuantity != nullptr)
-		*OutQuantity = params.OutQuantity;
+	if (outQuantity != nullptr)
+		*outQuantity = params.outQuantity;
 }
 
 
@@ -741,9 +741,9 @@ void AsalesManager_C::ReceiveBeginPlay()
 // Function salesManager.salesManager_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AsalesManager_C::ReceiveTick(float DeltaSeconds)
+void AsalesManager_C::ReceiveTick(float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function salesManager.salesManager_C.ReceiveTick");
 

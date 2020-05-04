@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -238,9 +238,9 @@ void AdayTimeControler_C::ReceiveBeginPlay()
 // Function dayTimeControler.dayTimeControler_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AdayTimeControler_C::ReceiveTick(float DeltaSeconds)
+void AdayTimeControler_C::ReceiveTick(float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function dayTimeControler.dayTimeControler_C.ReceiveTick");
 

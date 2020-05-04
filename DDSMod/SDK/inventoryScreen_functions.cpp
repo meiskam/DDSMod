@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -110,9 +110,11 @@ void UinventoryScreen_C::countTotalDrugGrams(int* OutGrams)
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
 // TArray<struct FinventoryItemStruct> Substances                     (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+// TArray<int>                    quantities                     (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 // bool                           TheSame                        (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// struct FdrugData               dataAverage                    (Parm, OutParm)
 
-void UinventoryScreen_C::checkSubstanceSame(TArray<struct FinventoryItemStruct>* Substances, bool* TheSame)
+void UinventoryScreen_C::checkSubstanceSame(TArray<struct FinventoryItemStruct>* Substances, TArray<int>* quantities, bool* TheSame, struct FdrugData* dataAverage)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function inventoryScreen.inventoryScreen_C.checkSubstanceSame");
 
@@ -126,8 +128,12 @@ void UinventoryScreen_C::checkSubstanceSame(TArray<struct FinventoryItemStruct>*
 
 	if (Substances != nullptr)
 		*Substances = params.Substances;
+	if (quantities != nullptr)
+		*quantities = params.quantities;
 	if (TheSame != nullptr)
 		*TheSame = params.TheSame;
+	if (dataAverage != nullptr)
+		*dataAverage = params.dataAverage;
 }
 
 
@@ -315,8 +321,9 @@ void UinventoryScreen_C::countTotalSelledDrugsMoney(bool* playerCanFitMoney)
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // bool                           CheckedPositive                (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// struct FdrugData               endDrugAverage                 (Parm, OutParm)
 
-void UinventoryScreen_C::checkSelledDrugs(bool* CheckedPositive)
+void UinventoryScreen_C::checkSelledDrugs(bool* CheckedPositive, struct FdrugData* endDrugAverage)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function inventoryScreen.inventoryScreen_C.checkSelledDrugs");
 
@@ -330,6 +337,8 @@ void UinventoryScreen_C::checkSelledDrugs(bool* CheckedPositive)
 
 	if (CheckedPositive != nullptr)
 		*CheckedPositive = params.CheckedPositive;
+	if (endDrugAverage != nullptr)
+		*endDrugAverage = params.endDrugAverage;
 }
 
 
@@ -555,9 +564,9 @@ void UinventoryScreen_C::renderBackpack(TArray<struct FinventoryItemStruct>* bac
 // Function inventoryScreen.inventoryScreen_C.PreConstruct
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// bool                           IsDesignTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool*                          IsDesignTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UinventoryScreen_C::PreConstruct(bool IsDesignTime)
+void UinventoryScreen_C::PreConstruct(bool* IsDesignTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function inventoryScreen.inventoryScreen_C.PreConstruct");
 
@@ -592,10 +601,10 @@ void UinventoryScreen_C::Construct()
 // Function inventoryScreen.inventoryScreen_C.Tick
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// float                          InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// float*                         InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UinventoryScreen_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
+void UinventoryScreen_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function inventoryScreen.inventoryScreen_C.Tick");
 

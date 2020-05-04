@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -5355,20 +5355,6 @@ struct UMaterialInstanceConstant_K2_GetScalarParameterValue_Params
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Engine.AnimNotify.Received_Notify
-struct UAnimNotify_Received_Notify_Params
-{
-	class USkeletalMeshComponent*                      MeshComp;                                                 // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UAnimSequenceBase*                           Animation;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimNotify.GetNotifyName
-struct UAnimNotify_GetNotifyName_Params
-{
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
 // Function Engine.AnimNotifyState.Received_NotifyTick
 struct UAnimNotifyState_Received_NotifyTick_Params
 {
@@ -5525,6 +5511,20 @@ struct UAnimMontage_GetDefaultBlendOutTime_Params
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function Engine.AnimNotify.Received_Notify
+struct UAnimNotify_Received_Notify_Params
+{
+	class USkeletalMeshComponent*                      MeshComp;                                                 // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UAnimSequenceBase*                           Animation;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimNotify.GetNotifyName
+struct UAnimNotify_GetNotifyName_Params
+{
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
 // Function Engine.AnimNotifyState_Trail.OverridePSTemplate
 struct UAnimNotifyState_Trail_OverridePSTemplate_Params
 {
@@ -5652,15 +5652,6 @@ struct UAsyncActionLoadPrimaryAssetList_AsyncLoadPrimaryAssetList_Params
 	class UAsyncActionLoadPrimaryAssetList*            ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Engine.AsyncActionLoadPrimaryAssetClassList.AsyncLoadPrimaryAssetClassList
-struct UAsyncActionLoadPrimaryAssetClassList_AsyncLoadPrimaryAssetClassList_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	TArray<struct FPrimaryAssetId>                     PrimaryAssetList;                                         // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	TArray<struct FName>                               LoadBundles;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	class UAsyncActionLoadPrimaryAssetClassList*       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function Engine.AsyncActionChangePrimaryAssetBundles.AsyncChangeBundleStateForPrimaryAssetList
 struct UAsyncActionChangePrimaryAssetBundles_AsyncChangeBundleStateForPrimaryAssetList_Params
 {
@@ -5763,6 +5754,15 @@ struct UAtmosphericFogComponent_DisableSunDisk_Params
 struct UAtmosphericFogComponent_DisableGroundScattering_Params
 {
 	bool                                               NewGroundScattering;                                      // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AsyncActionLoadPrimaryAssetClassList.AsyncLoadPrimaryAssetClassList
+struct UAsyncActionLoadPrimaryAssetClassList_AsyncLoadPrimaryAssetClassList_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	TArray<struct FPrimaryAssetId>                     PrimaryAssetList;                                         // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	TArray<struct FName>                               LoadBundles;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	class UAsyncActionLoadPrimaryAssetClassList*       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Engine.AudioVolume.SetReverbSettings
@@ -7865,54 +7865,30 @@ struct UCurveLinearColorAtlas_GetCurvePosition_Params
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function Engine.CurveSourceInterface.GetCurveValue
+struct UCurveSourceInterface_GetCurveValue_Params
+{
+	struct FName                                       CurveName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.CurveSourceInterface.GetCurves
+struct UCurveSourceInterface_GetCurves_Params
+{
+	TArray<struct FNamedCurveValue>                    OutValues;                                                // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function Engine.CurveSourceInterface.GetBindingName
+struct UCurveSourceInterface_GetBindingName_Params
+{
+	struct FName                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function Engine.CurveVector.GetVectorValue
 struct UCurveVector_GetVectorValue_Params
 {
 	float                                              InTime;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.DataTableFunctionLibrary.GetDataTableRowNames
-struct UDataTableFunctionLibrary_GetDataTableRowNames_Params
-{
-	class UDataTable*                                  Table;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	TArray<struct FName>                               OutRowNames;                                              // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function Engine.DataTableFunctionLibrary.GetDataTableRowFromName
-struct UDataTableFunctionLibrary_GetDataTableRowFromName_Params
-{
-	class UDataTable*                                  Table;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       RowName;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FTableRowBase                               OutRow;                                                   // (Parm, OutParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.DataTableFunctionLibrary.GetDataTableColumnAsString
-struct UDataTableFunctionLibrary_GetDataTableColumnAsString_Params
-{
-	class UDataTable*                                  DataTable;                                                // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       PropertyName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	TArray<struct FString>                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.DataTableFunctionLibrary.EvaluateCurveTableRow
-struct UDataTableFunctionLibrary_EvaluateCurveTableRow_Params
-{
-	class UCurveTable*                                 CurveTable;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       RowName;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              InXY;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EEvaluateCurveTableResult>             OutResult;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              OutXY;                                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ContextString;                                            // (Parm, ZeroConstructor)
-};
-
-// Function Engine.DataTableFunctionLibrary.DoesDataTableRowExist
-struct UDataTableFunctionLibrary_DoesDataTableRowExist_Params
-{
-	class UDataTable*                                  Table;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       RowName;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Engine.DebugCameraController.ToggleDisplay
@@ -7956,6 +7932,49 @@ struct ADebugCameraController_ReceiveOnActivate_Params
 struct ADebugCameraController_GetSelectedActor_Params
 {
 	class AActor*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.DataTableFunctionLibrary.GetDataTableRowNames
+struct UDataTableFunctionLibrary_GetDataTableRowNames_Params
+{
+	class UDataTable*                                  Table;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	TArray<struct FName>                               OutRowNames;                                              // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function Engine.DataTableFunctionLibrary.GetDataTableRowFromName
+struct UDataTableFunctionLibrary_GetDataTableRowFromName_Params
+{
+	class UDataTable*                                  Table;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       RowName;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FTableRowBase                               OutRow;                                                   // (Parm, OutParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.DataTableFunctionLibrary.GetDataTableColumnAsString
+struct UDataTableFunctionLibrary_GetDataTableColumnAsString_Params
+{
+	class UDataTable*                                  DataTable;                                                // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       PropertyName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	TArray<struct FString>                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.DataTableFunctionLibrary.EvaluateCurveTableRow
+struct UDataTableFunctionLibrary_EvaluateCurveTableRow_Params
+{
+	class UCurveTable*                                 CurveTable;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       RowName;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              InXY;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EEvaluateCurveTableResult>             OutResult;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              OutXY;                                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ContextString;                                            // (Parm, ZeroConstructor)
+};
+
+// Function Engine.DataTableFunctionLibrary.DoesDataTableRowExist
+struct UDataTableFunctionLibrary_DoesDataTableRowExist_Params
+{
+	class UDataTable*                                  Table;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       RowName;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Engine.HUD.ShowHUD
@@ -8623,25 +8642,6 @@ struct USphereComponent_GetScaledSphereRadius_Params
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Engine.CurveSourceInterface.GetCurveValue
-struct UCurveSourceInterface_GetCurveValue_Params
-{
-	struct FName                                       CurveName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.CurveSourceInterface.GetCurves
-struct UCurveSourceInterface_GetCurves_Params
-{
-	TArray<struct FNamedCurveValue>                    OutValues;                                                // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function Engine.CurveSourceInterface.GetBindingName
-struct UCurveSourceInterface_GetBindingName_Params
-{
-	struct FName                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function Engine.Emitter.ToggleActive
 struct AEmitter_ToggleActive_Params
 {
@@ -8859,6 +8859,42 @@ struct UExporter_RunAssetExportTask_Params
 {
 	class UAssetExportTask*                            Task;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.ForceFeedbackComponent.Stop
+struct UForceFeedbackComponent_Stop_Params
+{
+};
+
+// Function Engine.ForceFeedbackComponent.SetIntensityMultiplier
+struct UForceFeedbackComponent_SetIntensityMultiplier_Params
+{
+	float                                              NewIntensityMultiplier;                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.ForceFeedbackComponent.SetForceFeedbackEffect
+struct UForceFeedbackComponent_SetForceFeedbackEffect_Params
+{
+	class UForceFeedbackEffect*                        NewForceFeedbackEffect;                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.ForceFeedbackComponent.Play
+struct UForceFeedbackComponent_Play_Params
+{
+	float                                              StartTime;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.ForceFeedbackComponent.BP_GetAttenuationSettingsToApply
+struct UForceFeedbackComponent_BP_GetAttenuationSettingsToApply_Params
+{
+	struct FForceFeedbackAttenuationSettings           OutAttenuationSettings;                                   // (Parm, OutParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.ForceFeedbackComponent.AdjustAttenuation
+struct UForceFeedbackComponent_AdjustAttenuation_Params
+{
+	struct FForceFeedbackAttenuationSettings           InAttenuationSettings;                                    // (ConstParm, Parm, OutParm, ReferenceParm)
 };
 
 // Function Engine.GameModeBase.StartPlay
@@ -9115,6 +9151,470 @@ struct AGameMode_EndMatch_Params
 // Function Engine.GameMode.AbortMatch
 struct AGameMode_AbortMatch_Params
 {
+};
+
+// Function Engine.GameStateBase.OnRep_SpectatorClass
+struct AGameStateBase_OnRep_SpectatorClass_Params
+{
+};
+
+// Function Engine.GameStateBase.OnRep_ReplicatedWorldTimeSeconds
+struct AGameStateBase_OnRep_ReplicatedWorldTimeSeconds_Params
+{
+};
+
+// Function Engine.GameStateBase.OnRep_ReplicatedHasBegunPlay
+struct AGameStateBase_OnRep_ReplicatedHasBegunPlay_Params
+{
+};
+
+// Function Engine.GameStateBase.OnRep_GameModeClass
+struct AGameStateBase_OnRep_GameModeClass_Params
+{
+};
+
+// Function Engine.GameStateBase.HasMatchStarted
+struct AGameStateBase_HasMatchStarted_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameStateBase.HasBegunPlay
+struct AGameStateBase_HasBegunPlay_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameStateBase.GetServerWorldTimeSeconds
+struct AGameStateBase_GetServerWorldTimeSeconds_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameStateBase.GetPlayerStartTime
+struct AGameStateBase_GetPlayerStartTime_Params
+{
+	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameStateBase.GetPlayerRespawnDelay
+struct AGameStateBase_GetPlayerRespawnDelay_Params
+{
+	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameState.OnRep_MatchState
+struct AGameState_OnRep_MatchState_Params
+{
+};
+
+// Function Engine.GameState.OnRep_ElapsedTime
+struct AGameState_OnRep_ElapsedTime_Params
+{
+};
+
+// Function Engine.GameUserSettings.ValidateSettings
+struct UGameUserSettings_ValidateSettings_Params
+{
+};
+
+// Function Engine.GameUserSettings.SupportsHDRDisplayOutput
+struct UGameUserSettings_SupportsHDRDisplayOutput_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetVSyncEnabled
+struct UGameUserSettings_SetVSyncEnabled_Params
+{
+	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetVisualEffectQuality
+struct UGameUserSettings_SetVisualEffectQuality_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetViewDistanceQuality
+struct UGameUserSettings_SetViewDistanceQuality_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetToDefaults
+struct UGameUserSettings_SetToDefaults_Params
+{
+};
+
+// Function Engine.GameUserSettings.SetTextureQuality
+struct UGameUserSettings_SetTextureQuality_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetShadowQuality
+struct UGameUserSettings_SetShadowQuality_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetScreenResolution
+struct UGameUserSettings_SetScreenResolution_Params
+{
+	struct FIntPoint                                   Resolution;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetResolutionScaleValueEx
+struct UGameUserSettings_SetResolutionScaleValueEx_Params
+{
+	float                                              NewScaleValue;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetResolutionScaleValue
+struct UGameUserSettings_SetResolutionScaleValue_Params
+{
+	int                                                NewScaleValue;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetResolutionScaleNormalized
+struct UGameUserSettings_SetResolutionScaleNormalized_Params
+{
+	float                                              NewScaleNormalized;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetPostProcessingQuality
+struct UGameUserSettings_SetPostProcessingQuality_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetOverallScalabilityLevel
+struct UGameUserSettings_SetOverallScalabilityLevel_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetFullscreenMode
+struct UGameUserSettings_SetFullscreenMode_Params
+{
+	TEnumAsByte<EWindowMode>                           InFullscreenMode;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetFrameRateLimit
+struct UGameUserSettings_SetFrameRateLimit_Params
+{
+	float                                              NewLimit;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetFoliageQuality
+struct UGameUserSettings_SetFoliageQuality_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetDynamicResolutionEnabled
+struct UGameUserSettings_SetDynamicResolutionEnabled_Params
+{
+	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetBenchmarkFallbackValues
+struct UGameUserSettings_SetBenchmarkFallbackValues_Params
+{
+};
+
+// Function Engine.GameUserSettings.SetAudioQualityLevel
+struct UGameUserSettings_SetAudioQualityLevel_Params
+{
+	int                                                QualityLevel;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetAntiAliasingQuality
+struct UGameUserSettings_SetAntiAliasingQuality_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SaveSettings
+struct UGameUserSettings_SaveSettings_Params
+{
+};
+
+// Function Engine.GameUserSettings.RunHardwareBenchmark
+struct UGameUserSettings_RunHardwareBenchmark_Params
+{
+	int                                                WorkScale;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              CPUMultiplier;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              GPUMultiplier;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.RevertVideoMode
+struct UGameUserSettings_RevertVideoMode_Params
+{
+};
+
+// Function Engine.GameUserSettings.ResetToCurrentSettings
+struct UGameUserSettings_ResetToCurrentSettings_Params
+{
+};
+
+// Function Engine.GameUserSettings.LoadSettings
+struct UGameUserSettings_LoadSettings_Params
+{
+	bool                                               bForceReload;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsVSyncEnabled
+struct UGameUserSettings_IsVSyncEnabled_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsVSyncDirty
+struct UGameUserSettings_IsVSyncDirty_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsScreenResolutionDirty
+struct UGameUserSettings_IsScreenResolutionDirty_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsHDREnabled
+struct UGameUserSettings_IsHDREnabled_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsFullscreenModeDirty
+struct UGameUserSettings_IsFullscreenModeDirty_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsDynamicResolutionEnabled
+struct UGameUserSettings_IsDynamicResolutionEnabled_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsDynamicResolutionDirty
+struct UGameUserSettings_IsDynamicResolutionDirty_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsDirty
+struct UGameUserSettings_IsDirty_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetVisualEffectQuality
+struct UGameUserSettings_GetVisualEffectQuality_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetViewDistanceQuality
+struct UGameUserSettings_GetViewDistanceQuality_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetTextureQuality
+struct UGameUserSettings_GetTextureQuality_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetShadowQuality
+struct UGameUserSettings_GetShadowQuality_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetScreenResolution
+struct UGameUserSettings_GetScreenResolution_Params
+{
+	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetResolutionScaleInformationEx
+struct UGameUserSettings_GetResolutionScaleInformationEx_Params
+{
+	float                                              CurrentScaleNormalized;                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              CurrentScaleValue;                                        // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              MinScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              MaxScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetResolutionScaleInformation
+struct UGameUserSettings_GetResolutionScaleInformation_Params
+{
+	float                                              CurrentScaleNormalized;                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                CurrentScaleValue;                                        // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                MinScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                MaxScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetRecommendedResolutionScale
+struct UGameUserSettings_GetRecommendedResolutionScale_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetPreferredFullscreenMode
+struct UGameUserSettings_GetPreferredFullscreenMode_Params
+{
+	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetPostProcessingQuality
+struct UGameUserSettings_GetPostProcessingQuality_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetOverallScalabilityLevel
+struct UGameUserSettings_GetOverallScalabilityLevel_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetLastConfirmedScreenResolution
+struct UGameUserSettings_GetLastConfirmedScreenResolution_Params
+{
+	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetLastConfirmedFullscreenMode
+struct UGameUserSettings_GetLastConfirmedFullscreenMode_Params
+{
+	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetGameUserSettings
+struct UGameUserSettings_GetGameUserSettings_Params
+{
+	class UGameUserSettings*                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetFullscreenMode
+struct UGameUserSettings_GetFullscreenMode_Params
+{
+	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetFrameRateLimit
+struct UGameUserSettings_GetFrameRateLimit_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetFoliageQuality
+struct UGameUserSettings_GetFoliageQuality_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetDesktopResolution
+struct UGameUserSettings_GetDesktopResolution_Params
+{
+	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetDefaultWindowPosition
+struct UGameUserSettings_GetDefaultWindowPosition_Params
+{
+	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetDefaultWindowMode
+struct UGameUserSettings_GetDefaultWindowMode_Params
+{
+	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetDefaultResolutionScale
+struct UGameUserSettings_GetDefaultResolutionScale_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetDefaultResolution
+struct UGameUserSettings_GetDefaultResolution_Params
+{
+	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetCurrentHDRDisplayNits
+struct UGameUserSettings_GetCurrentHDRDisplayNits_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetAudioQualityLevel
+struct UGameUserSettings_GetAudioQualityLevel_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetAntiAliasingQuality
+struct UGameUserSettings_GetAntiAliasingQuality_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.EnableHDRDisplayOutput
+struct UGameUserSettings_EnableHDRDisplayOutput_Params
+{
+	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                DisplayNits;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.ConfirmVideoMode
+struct UGameUserSettings_ConfirmVideoMode_Params
+{
+};
+
+// Function Engine.GameUserSettings.ApplySettings
+struct UGameUserSettings_ApplySettings_Params
+{
+	bool                                               bCheckForCommandLineOverrides;                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.ApplyResolutionSettings
+struct UGameUserSettings_ApplyResolutionSettings_Params
+{
+	bool                                               bCheckForCommandLineOverrides;                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.ApplyNonResolutionSettings
+struct UGameUserSettings_ApplyNonResolutionSettings_Params
+{
+};
+
+// Function Engine.GameUserSettings.ApplyHardwareBenchmarkResults
+struct UGameUserSettings_ApplyHardwareBenchmarkResults_Params
+{
+};
+
+// Function Engine.SpotLight.SetOuterConeAngle
+struct ASpotLight_SetOuterConeAngle_Params
+{
+	float                                              NewOuterConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.SpotLight.SetInnerConeAngle
+struct ASpotLight_SetInnerConeAngle_Params
+{
+	float                                              NewInnerConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Engine.GameplayStatics.UnloadStreamLevel
@@ -10170,506 +10670,6 @@ struct UGameplayStatics_ActivateReverbEffect_Params
 	float                                              Priority;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 	float                                              Volume;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 	float                                              FadeTime;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameStateBase.OnRep_SpectatorClass
-struct AGameStateBase_OnRep_SpectatorClass_Params
-{
-};
-
-// Function Engine.GameStateBase.OnRep_ReplicatedWorldTimeSeconds
-struct AGameStateBase_OnRep_ReplicatedWorldTimeSeconds_Params
-{
-};
-
-// Function Engine.GameStateBase.OnRep_ReplicatedHasBegunPlay
-struct AGameStateBase_OnRep_ReplicatedHasBegunPlay_Params
-{
-};
-
-// Function Engine.GameStateBase.OnRep_GameModeClass
-struct AGameStateBase_OnRep_GameModeClass_Params
-{
-};
-
-// Function Engine.GameStateBase.HasMatchStarted
-struct AGameStateBase_HasMatchStarted_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameStateBase.HasBegunPlay
-struct AGameStateBase_HasBegunPlay_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameStateBase.GetServerWorldTimeSeconds
-struct AGameStateBase_GetServerWorldTimeSeconds_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameStateBase.GetPlayerStartTime
-struct AGameStateBase_GetPlayerStartTime_Params
-{
-	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameStateBase.GetPlayerRespawnDelay
-struct AGameStateBase_GetPlayerRespawnDelay_Params
-{
-	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameState.OnRep_MatchState
-struct AGameState_OnRep_MatchState_Params
-{
-};
-
-// Function Engine.GameState.OnRep_ElapsedTime
-struct AGameState_OnRep_ElapsedTime_Params
-{
-};
-
-// Function Engine.GameUserSettings.ValidateSettings
-struct UGameUserSettings_ValidateSettings_Params
-{
-};
-
-// Function Engine.GameUserSettings.SupportsHDRDisplayOutput
-struct UGameUserSettings_SupportsHDRDisplayOutput_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetVSyncEnabled
-struct UGameUserSettings_SetVSyncEnabled_Params
-{
-	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetVisualEffectQuality
-struct UGameUserSettings_SetVisualEffectQuality_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetViewDistanceQuality
-struct UGameUserSettings_SetViewDistanceQuality_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetToDefaults
-struct UGameUserSettings_SetToDefaults_Params
-{
-};
-
-// Function Engine.GameUserSettings.SetTextureQuality
-struct UGameUserSettings_SetTextureQuality_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetShadowQuality
-struct UGameUserSettings_SetShadowQuality_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetScreenResolution
-struct UGameUserSettings_SetScreenResolution_Params
-{
-	struct FIntPoint                                   Resolution;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetResolutionScaleValueEx
-struct UGameUserSettings_SetResolutionScaleValueEx_Params
-{
-	float                                              NewScaleValue;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetResolutionScaleValue
-struct UGameUserSettings_SetResolutionScaleValue_Params
-{
-	int                                                NewScaleValue;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetResolutionScaleNormalized
-struct UGameUserSettings_SetResolutionScaleNormalized_Params
-{
-	float                                              NewScaleNormalized;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetPostProcessingQuality
-struct UGameUserSettings_SetPostProcessingQuality_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetOverallScalabilityLevel
-struct UGameUserSettings_SetOverallScalabilityLevel_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetFullscreenMode
-struct UGameUserSettings_SetFullscreenMode_Params
-{
-	TEnumAsByte<EWindowMode>                           InFullscreenMode;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetFrameRateLimit
-struct UGameUserSettings_SetFrameRateLimit_Params
-{
-	float                                              NewLimit;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetFoliageQuality
-struct UGameUserSettings_SetFoliageQuality_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetDynamicResolutionEnabled
-struct UGameUserSettings_SetDynamicResolutionEnabled_Params
-{
-	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetBenchmarkFallbackValues
-struct UGameUserSettings_SetBenchmarkFallbackValues_Params
-{
-};
-
-// Function Engine.GameUserSettings.SetAudioQualityLevel
-struct UGameUserSettings_SetAudioQualityLevel_Params
-{
-	int                                                QualityLevel;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetAntiAliasingQuality
-struct UGameUserSettings_SetAntiAliasingQuality_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SaveSettings
-struct UGameUserSettings_SaveSettings_Params
-{
-};
-
-// Function Engine.GameUserSettings.RunHardwareBenchmark
-struct UGameUserSettings_RunHardwareBenchmark_Params
-{
-	int                                                WorkScale;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              CPUMultiplier;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              GPUMultiplier;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.RevertVideoMode
-struct UGameUserSettings_RevertVideoMode_Params
-{
-};
-
-// Function Engine.GameUserSettings.ResetToCurrentSettings
-struct UGameUserSettings_ResetToCurrentSettings_Params
-{
-};
-
-// Function Engine.GameUserSettings.LoadSettings
-struct UGameUserSettings_LoadSettings_Params
-{
-	bool                                               bForceReload;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsVSyncEnabled
-struct UGameUserSettings_IsVSyncEnabled_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsVSyncDirty
-struct UGameUserSettings_IsVSyncDirty_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsScreenResolutionDirty
-struct UGameUserSettings_IsScreenResolutionDirty_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsHDREnabled
-struct UGameUserSettings_IsHDREnabled_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsFullscreenModeDirty
-struct UGameUserSettings_IsFullscreenModeDirty_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsDynamicResolutionEnabled
-struct UGameUserSettings_IsDynamicResolutionEnabled_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsDynamicResolutionDirty
-struct UGameUserSettings_IsDynamicResolutionDirty_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsDirty
-struct UGameUserSettings_IsDirty_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetVisualEffectQuality
-struct UGameUserSettings_GetVisualEffectQuality_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetViewDistanceQuality
-struct UGameUserSettings_GetViewDistanceQuality_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetTextureQuality
-struct UGameUserSettings_GetTextureQuality_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetShadowQuality
-struct UGameUserSettings_GetShadowQuality_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetScreenResolution
-struct UGameUserSettings_GetScreenResolution_Params
-{
-	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetResolutionScaleInformationEx
-struct UGameUserSettings_GetResolutionScaleInformationEx_Params
-{
-	float                                              CurrentScaleNormalized;                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              CurrentScaleValue;                                        // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              MinScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              MaxScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetResolutionScaleInformation
-struct UGameUserSettings_GetResolutionScaleInformation_Params
-{
-	float                                              CurrentScaleNormalized;                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                CurrentScaleValue;                                        // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                MinScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                MaxScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetRecommendedResolutionScale
-struct UGameUserSettings_GetRecommendedResolutionScale_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetPreferredFullscreenMode
-struct UGameUserSettings_GetPreferredFullscreenMode_Params
-{
-	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetPostProcessingQuality
-struct UGameUserSettings_GetPostProcessingQuality_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetOverallScalabilityLevel
-struct UGameUserSettings_GetOverallScalabilityLevel_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetLastConfirmedScreenResolution
-struct UGameUserSettings_GetLastConfirmedScreenResolution_Params
-{
-	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetLastConfirmedFullscreenMode
-struct UGameUserSettings_GetLastConfirmedFullscreenMode_Params
-{
-	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetGameUserSettings
-struct UGameUserSettings_GetGameUserSettings_Params
-{
-	class UGameUserSettings*                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetFullscreenMode
-struct UGameUserSettings_GetFullscreenMode_Params
-{
-	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetFrameRateLimit
-struct UGameUserSettings_GetFrameRateLimit_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetFoliageQuality
-struct UGameUserSettings_GetFoliageQuality_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetDesktopResolution
-struct UGameUserSettings_GetDesktopResolution_Params
-{
-	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetDefaultWindowPosition
-struct UGameUserSettings_GetDefaultWindowPosition_Params
-{
-	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetDefaultWindowMode
-struct UGameUserSettings_GetDefaultWindowMode_Params
-{
-	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetDefaultResolutionScale
-struct UGameUserSettings_GetDefaultResolutionScale_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetDefaultResolution
-struct UGameUserSettings_GetDefaultResolution_Params
-{
-	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetCurrentHDRDisplayNits
-struct UGameUserSettings_GetCurrentHDRDisplayNits_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetAudioQualityLevel
-struct UGameUserSettings_GetAudioQualityLevel_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetAntiAliasingQuality
-struct UGameUserSettings_GetAntiAliasingQuality_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.EnableHDRDisplayOutput
-struct UGameUserSettings_EnableHDRDisplayOutput_Params
-{
-	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                DisplayNits;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.ConfirmVideoMode
-struct UGameUserSettings_ConfirmVideoMode_Params
-{
-};
-
-// Function Engine.GameUserSettings.ApplySettings
-struct UGameUserSettings_ApplySettings_Params
-{
-	bool                                               bCheckForCommandLineOverrides;                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.ApplyResolutionSettings
-struct UGameUserSettings_ApplyResolutionSettings_Params
-{
-	bool                                               bCheckForCommandLineOverrides;                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.ApplyNonResolutionSettings
-struct UGameUserSettings_ApplyNonResolutionSettings_Params
-{
-};
-
-// Function Engine.GameUserSettings.ApplyHardwareBenchmarkResults
-struct UGameUserSettings_ApplyHardwareBenchmarkResults_Params
-{
-};
-
-// Function Engine.SpotLight.SetOuterConeAngle
-struct ASpotLight_SetOuterConeAngle_Params
-{
-	float                                              NewOuterConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.SpotLight.SetInnerConeAngle
-struct ASpotLight_SetInnerConeAngle_Params
-{
-	float                                              NewInnerConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.ForceFeedbackComponent.Stop
-struct UForceFeedbackComponent_Stop_Params
-{
-};
-
-// Function Engine.ForceFeedbackComponent.SetIntensityMultiplier
-struct UForceFeedbackComponent_SetIntensityMultiplier_Params
-{
-	float                                              NewIntensityMultiplier;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.ForceFeedbackComponent.SetForceFeedbackEffect
-struct UForceFeedbackComponent_SetForceFeedbackEffect_Params
-{
-	class UForceFeedbackEffect*                        NewForceFeedbackEffect;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.ForceFeedbackComponent.Play
-struct UForceFeedbackComponent_Play_Params
-{
-	float                                              StartTime;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.ForceFeedbackComponent.BP_GetAttenuationSettingsToApply
-struct UForceFeedbackComponent_BP_GetAttenuationSettingsToApply_Params
-{
-	struct FForceFeedbackAttenuationSettings           OutAttenuationSettings;                                   // (Parm, OutParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.ForceFeedbackComponent.AdjustAttenuation
-struct UForceFeedbackComponent_AdjustAttenuation_Params
-{
-	struct FForceFeedbackAttenuationSettings           InAttenuationSettings;                                    // (ConstParm, Parm, OutParm, ReferenceParm)
 };
 
 // Function Engine.HealthSnapshotBlueprintLibrary.StopPerformanceSnapshots
@@ -15025,6 +15025,525 @@ struct UKismetRenderingLibrary_BeginDrawCanvasToRenderTarget_Params
 	struct FDrawToRenderTargetContext                  Context;                                                  // (Parm, OutParm)
 };
 
+// Function Engine.KismetStringLibrary.TrimTrailing
+struct UKismetStringLibrary_TrimTrailing_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Trim
+struct UKismetStringLibrary_Trim_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.ToUpper
+struct UKismetStringLibrary_ToUpper_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.ToLower
+struct UKismetStringLibrary_ToLower_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.TimeSecondsToString
+struct UKismetStringLibrary_TimeSecondsToString_Params
+{
+	float                                              InSeconds;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.StartsWith
+struct UKismetStringLibrary_StartsWith_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	struct FString                                     InPrefix;                                                 // (Parm, ZeroConstructor)
+	TEnumAsByte<ESearchCase>                           SearchCase;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.Split
+struct UKismetStringLibrary_Split_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	struct FString                                     InStr;                                                    // (Parm, ZeroConstructor)
+	struct FString                                     LeftS;                                                    // (Parm, OutParm, ZeroConstructor)
+	struct FString                                     RightS;                                                   // (Parm, OutParm, ZeroConstructor)
+	TEnumAsByte<ESearchCase>                           SearchCase;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<ESearchDir>                            SearchDir;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.RightPad
+struct UKismetStringLibrary_RightPad_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	int                                                ChCount;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.RightChop
+struct UKismetStringLibrary_RightChop_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	int                                                Count;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Right
+struct UKismetStringLibrary_Right_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	int                                                Count;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Reverse
+struct UKismetStringLibrary_Reverse_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.ReplaceInline
+struct UKismetStringLibrary_ReplaceInline_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, OutParm, ZeroConstructor, ReferenceParm)
+	struct FString                                     SearchText;                                               // (Parm, ZeroConstructor)
+	struct FString                                     ReplacementText;                                          // (Parm, ZeroConstructor)
+	TEnumAsByte<ESearchCase>                           SearchCase;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.Replace
+struct UKismetStringLibrary_Replace_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	struct FString                                     From;                                                     // (Parm, ZeroConstructor)
+	struct FString                                     To;                                                       // (Parm, ZeroConstructor)
+	TEnumAsByte<ESearchCase>                           SearchCase;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.ParseIntoArray
+struct UKismetStringLibrary_ParseIntoArray_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	struct FString                                     Delimiter;                                                // (Parm, ZeroConstructor)
+	bool                                               CullEmptyStrings;                                         // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	TArray<struct FString>                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.NotEqual_StrStr
+struct UKismetStringLibrary_NotEqual_StrStr_Params
+{
+	struct FString                                     A;                                                        // (Parm, ZeroConstructor)
+	struct FString                                     B;                                                        // (Parm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.NotEqual_StriStri
+struct UKismetStringLibrary_NotEqual_StriStri_Params
+{
+	struct FString                                     A;                                                        // (Parm, ZeroConstructor)
+	struct FString                                     B;                                                        // (Parm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.Mid
+struct UKismetStringLibrary_Mid_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	int                                                Start;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Count;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.MatchesWildcard
+struct UKismetStringLibrary_MatchesWildcard_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	struct FString                                     Wildcard;                                                 // (Parm, ZeroConstructor)
+	TEnumAsByte<ESearchCase>                           SearchCase;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.Len
+struct UKismetStringLibrary_Len_Params
+{
+	struct FString                                     S;                                                        // (Parm, ZeroConstructor)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.LeftPad
+struct UKismetStringLibrary_LeftPad_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	int                                                ChCount;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.LeftChop
+struct UKismetStringLibrary_LeftChop_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	int                                                Count;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Left
+struct UKismetStringLibrary_Left_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	int                                                Count;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.JoinStringArray
+struct UKismetStringLibrary_JoinStringArray_Params
+{
+	TArray<struct FString>                             SourceArray;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	struct FString                                     Separator;                                                // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.IsNumeric
+struct UKismetStringLibrary_IsNumeric_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.GetSubstring
+struct UKismetStringLibrary_GetSubstring_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	int                                                StartIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Length;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.GetCharacterAsNumber
+struct UKismetStringLibrary_GetCharacterAsNumber_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.GetCharacterArrayFromString
+struct UKismetStringLibrary_GetCharacterArrayFromString_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	TArray<struct FString>                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.FindSubstring
+struct UKismetStringLibrary_FindSubstring_Params
+{
+	struct FString                                     SearchIn;                                                 // (Parm, ZeroConstructor)
+	struct FString                                     Substring;                                                // (Parm, ZeroConstructor)
+	bool                                               bUseCase;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bSearchFromEnd;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                StartPosition;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.EqualEqual_StrStr
+struct UKismetStringLibrary_EqualEqual_StrStr_Params
+{
+	struct FString                                     A;                                                        // (Parm, ZeroConstructor)
+	struct FString                                     B;                                                        // (Parm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.EqualEqual_StriStri
+struct UKismetStringLibrary_EqualEqual_StriStri_Params
+{
+	struct FString                                     A;                                                        // (Parm, ZeroConstructor)
+	struct FString                                     B;                                                        // (Parm, ZeroConstructor)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.EndsWith
+struct UKismetStringLibrary_EndsWith_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	struct FString                                     InSuffix;                                                 // (Parm, ZeroConstructor)
+	TEnumAsByte<ESearchCase>                           SearchCase;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.CullArray
+struct UKismetStringLibrary_CullArray_Params
+{
+	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
+	TArray<struct FString>                             inArray;                                                  // (Parm, OutParm, ZeroConstructor)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.Conv_VectorToString
+struct UKismetStringLibrary_Conv_VectorToString_Params
+{
+	struct FVector                                     InVec;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Conv_Vector2dToString
+struct UKismetStringLibrary_Conv_Vector2dToString_Params
+{
+	struct FVector2D                                   InVec;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Conv_TransformToString
+struct UKismetStringLibrary_Conv_TransformToString_Params
+{
+	struct FTransform                                  InTrans;                                                  // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Conv_StringToVector2D
+struct UKismetStringLibrary_Conv_StringToVector2D_Params
+{
+	struct FString                                     inString;                                                 // (Parm, ZeroConstructor)
+	struct FVector2D                                   OutConvertedVector2D;                                     // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               OutIsValid;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.Conv_StringToVector
+struct UKismetStringLibrary_Conv_StringToVector_Params
+{
+	struct FString                                     inString;                                                 // (Parm, ZeroConstructor)
+	struct FVector                                     OutConvertedVector;                                       // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               OutIsValid;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.Conv_StringToRotator
+struct UKismetStringLibrary_Conv_StringToRotator_Params
+{
+	struct FString                                     inString;                                                 // (Parm, ZeroConstructor)
+	struct FRotator                                    OutConvertedRotator;                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               OutIsValid;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.Conv_StringToName
+struct UKismetStringLibrary_Conv_StringToName_Params
+{
+	struct FString                                     inString;                                                 // (Parm, ZeroConstructor)
+	struct FName                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.Conv_StringToInt
+struct UKismetStringLibrary_Conv_StringToInt_Params
+{
+	struct FString                                     inString;                                                 // (Parm, ZeroConstructor)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.Conv_StringToFloat
+struct UKismetStringLibrary_Conv_StringToFloat_Params
+{
+	struct FString                                     inString;                                                 // (Parm, ZeroConstructor)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.Conv_StringToColor
+struct UKismetStringLibrary_Conv_StringToColor_Params
+{
+	struct FString                                     inString;                                                 // (Parm, ZeroConstructor)
+	struct FLinearColor                                OutConvertedColor;                                        // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               OutIsValid;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.Conv_RotatorToString
+struct UKismetStringLibrary_Conv_RotatorToString_Params
+{
+	struct FRotator                                    InRot;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Conv_ObjectToString
+struct UKismetStringLibrary_Conv_ObjectToString_Params
+{
+	class UObject*                                     InObj;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Conv_NameToString
+struct UKismetStringLibrary_Conv_NameToString_Params
+{
+	struct FName                                       InName;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Conv_IntVectorToString
+struct UKismetStringLibrary_Conv_IntVectorToString_Params
+{
+	struct FIntVector                                  InIntVec;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Conv_IntToString
+struct UKismetStringLibrary_Conv_IntToString_Params
+{
+	int                                                inInt;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Conv_FloatToString
+struct UKismetStringLibrary_Conv_FloatToString_Params
+{
+	float                                              InFloat;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Conv_ColorToString
+struct UKismetStringLibrary_Conv_ColorToString_Params
+{
+	struct FLinearColor                                InColor;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Conv_ByteToString
+struct UKismetStringLibrary_Conv_ByteToString_Params
+{
+	unsigned char                                      InByte;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Conv_BoolToString
+struct UKismetStringLibrary_Conv_BoolToString_Params
+{
+	bool                                               InBool;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.Contains
+struct UKismetStringLibrary_Contains_Params
+{
+	struct FString                                     SearchIn;                                                 // (Parm, ZeroConstructor)
+	struct FString                                     Substring;                                                // (Parm, ZeroConstructor)
+	bool                                               bUseCase;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bSearchFromEnd;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetStringLibrary.Concat_StrStr
+struct UKismetStringLibrary_Concat_StrStr_Params
+{
+	struct FString                                     A;                                                        // (Parm, ZeroConstructor)
+	struct FString                                     B;                                                        // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.BuildString_Vector2d
+struct UKismetStringLibrary_BuildString_Vector2d_Params
+{
+	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
+	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
+	struct FVector2D                                   InVector2D;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.BuildString_Vector
+struct UKismetStringLibrary_BuildString_Vector_Params
+{
+	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
+	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
+	struct FVector                                     InVector;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.BuildString_Rotator
+struct UKismetStringLibrary_BuildString_Rotator_Params
+{
+	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
+	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
+	struct FRotator                                    InRot;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.BuildString_Object
+struct UKismetStringLibrary_BuildString_Object_Params
+{
+	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
+	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
+	class UObject*                                     InObj;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.BuildString_Name
+struct UKismetStringLibrary_BuildString_Name_Params
+{
+	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
+	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
+	struct FName                                       InName;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.BuildString_IntVector
+struct UKismetStringLibrary_BuildString_IntVector_Params
+{
+	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
+	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
+	struct FIntVector                                  InIntVector;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.BuildString_Int
+struct UKismetStringLibrary_BuildString_Int_Params
+{
+	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
+	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
+	int                                                inInt;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.BuildString_Float
+struct UKismetStringLibrary_BuildString_Float_Params
+{
+	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
+	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
+	float                                              InFloat;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.BuildString_Color
+struct UKismetStringLibrary_BuildString_Color_Params
+{
+	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
+	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
+	struct FLinearColor                                InColor;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
+// Function Engine.KismetStringLibrary.BuildString_Bool
+struct UKismetStringLibrary_BuildString_Bool_Params
+{
+	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
+	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
+	bool                                               InBool;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
 // Function Engine.KismetStringTableLibrary.IsRegisteredTableId
 struct UKismetStringTableLibrary_IsRegisteredTableId_Params
 {
@@ -17495,525 +18014,6 @@ struct ALevelScriptActor_LevelReset_Params
 {
 };
 
-// Function Engine.KismetStringLibrary.TrimTrailing
-struct UKismetStringLibrary_TrimTrailing_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Trim
-struct UKismetStringLibrary_Trim_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.ToUpper
-struct UKismetStringLibrary_ToUpper_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.ToLower
-struct UKismetStringLibrary_ToLower_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.TimeSecondsToString
-struct UKismetStringLibrary_TimeSecondsToString_Params
-{
-	float                                              InSeconds;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.StartsWith
-struct UKismetStringLibrary_StartsWith_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	struct FString                                     InPrefix;                                                 // (Parm, ZeroConstructor)
-	TEnumAsByte<ESearchCase>                           SearchCase;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.Split
-struct UKismetStringLibrary_Split_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	struct FString                                     InStr;                                                    // (Parm, ZeroConstructor)
-	struct FString                                     LeftS;                                                    // (Parm, OutParm, ZeroConstructor)
-	struct FString                                     RightS;                                                   // (Parm, OutParm, ZeroConstructor)
-	TEnumAsByte<ESearchCase>                           SearchCase;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<ESearchDir>                            SearchDir;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.RightPad
-struct UKismetStringLibrary_RightPad_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	int                                                ChCount;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.RightChop
-struct UKismetStringLibrary_RightChop_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	int                                                Count;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Right
-struct UKismetStringLibrary_Right_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	int                                                Count;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Reverse
-struct UKismetStringLibrary_Reverse_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.ReplaceInline
-struct UKismetStringLibrary_ReplaceInline_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, OutParm, ZeroConstructor, ReferenceParm)
-	struct FString                                     SearchText;                                               // (Parm, ZeroConstructor)
-	struct FString                                     ReplacementText;                                          // (Parm, ZeroConstructor)
-	TEnumAsByte<ESearchCase>                           SearchCase;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.Replace
-struct UKismetStringLibrary_Replace_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	struct FString                                     From;                                                     // (Parm, ZeroConstructor)
-	struct FString                                     To;                                                       // (Parm, ZeroConstructor)
-	TEnumAsByte<ESearchCase>                           SearchCase;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.ParseIntoArray
-struct UKismetStringLibrary_ParseIntoArray_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	struct FString                                     Delimiter;                                                // (Parm, ZeroConstructor)
-	bool                                               CullEmptyStrings;                                         // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	TArray<struct FString>                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.NotEqual_StrStr
-struct UKismetStringLibrary_NotEqual_StrStr_Params
-{
-	struct FString                                     A;                                                        // (Parm, ZeroConstructor)
-	struct FString                                     B;                                                        // (Parm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.NotEqual_StriStri
-struct UKismetStringLibrary_NotEqual_StriStri_Params
-{
-	struct FString                                     A;                                                        // (Parm, ZeroConstructor)
-	struct FString                                     B;                                                        // (Parm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.Mid
-struct UKismetStringLibrary_Mid_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	int                                                Start;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Count;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.MatchesWildcard
-struct UKismetStringLibrary_MatchesWildcard_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	struct FString                                     Wildcard;                                                 // (Parm, ZeroConstructor)
-	TEnumAsByte<ESearchCase>                           SearchCase;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.Len
-struct UKismetStringLibrary_Len_Params
-{
-	struct FString                                     S;                                                        // (Parm, ZeroConstructor)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.LeftPad
-struct UKismetStringLibrary_LeftPad_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	int                                                ChCount;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.LeftChop
-struct UKismetStringLibrary_LeftChop_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	int                                                Count;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Left
-struct UKismetStringLibrary_Left_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	int                                                Count;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.JoinStringArray
-struct UKismetStringLibrary_JoinStringArray_Params
-{
-	TArray<struct FString>                             SourceArray;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	struct FString                                     Separator;                                                // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.IsNumeric
-struct UKismetStringLibrary_IsNumeric_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.GetSubstring
-struct UKismetStringLibrary_GetSubstring_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	int                                                StartIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Length;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.GetCharacterAsNumber
-struct UKismetStringLibrary_GetCharacterAsNumber_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	int                                                Index;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.GetCharacterArrayFromString
-struct UKismetStringLibrary_GetCharacterArrayFromString_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	TArray<struct FString>                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.FindSubstring
-struct UKismetStringLibrary_FindSubstring_Params
-{
-	struct FString                                     SearchIn;                                                 // (Parm, ZeroConstructor)
-	struct FString                                     Substring;                                                // (Parm, ZeroConstructor)
-	bool                                               bUseCase;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bSearchFromEnd;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                StartPosition;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.EqualEqual_StrStr
-struct UKismetStringLibrary_EqualEqual_StrStr_Params
-{
-	struct FString                                     A;                                                        // (Parm, ZeroConstructor)
-	struct FString                                     B;                                                        // (Parm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.EqualEqual_StriStri
-struct UKismetStringLibrary_EqualEqual_StriStri_Params
-{
-	struct FString                                     A;                                                        // (Parm, ZeroConstructor)
-	struct FString                                     B;                                                        // (Parm, ZeroConstructor)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.EndsWith
-struct UKismetStringLibrary_EndsWith_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	struct FString                                     InSuffix;                                                 // (Parm, ZeroConstructor)
-	TEnumAsByte<ESearchCase>                           SearchCase;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.CullArray
-struct UKismetStringLibrary_CullArray_Params
-{
-	struct FString                                     SourceString;                                             // (Parm, ZeroConstructor)
-	TArray<struct FString>                             inArray;                                                  // (Parm, OutParm, ZeroConstructor)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.Conv_VectorToString
-struct UKismetStringLibrary_Conv_VectorToString_Params
-{
-	struct FVector                                     InVec;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Conv_Vector2dToString
-struct UKismetStringLibrary_Conv_Vector2dToString_Params
-{
-	struct FVector2D                                   InVec;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Conv_TransformToString
-struct UKismetStringLibrary_Conv_TransformToString_Params
-{
-	struct FTransform                                  InTrans;                                                  // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Conv_StringToVector2D
-struct UKismetStringLibrary_Conv_StringToVector2D_Params
-{
-	struct FString                                     inString;                                                 // (Parm, ZeroConstructor)
-	struct FVector2D                                   OutConvertedVector2D;                                     // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	bool                                               OutIsValid;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.Conv_StringToVector
-struct UKismetStringLibrary_Conv_StringToVector_Params
-{
-	struct FString                                     inString;                                                 // (Parm, ZeroConstructor)
-	struct FVector                                     OutConvertedVector;                                       // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	bool                                               OutIsValid;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.Conv_StringToRotator
-struct UKismetStringLibrary_Conv_StringToRotator_Params
-{
-	struct FString                                     inString;                                                 // (Parm, ZeroConstructor)
-	struct FRotator                                    OutConvertedRotator;                                      // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	bool                                               OutIsValid;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.Conv_StringToName
-struct UKismetStringLibrary_Conv_StringToName_Params
-{
-	struct FString                                     inString;                                                 // (Parm, ZeroConstructor)
-	struct FName                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.Conv_StringToInt
-struct UKismetStringLibrary_Conv_StringToInt_Params
-{
-	struct FString                                     inString;                                                 // (Parm, ZeroConstructor)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.Conv_StringToFloat
-struct UKismetStringLibrary_Conv_StringToFloat_Params
-{
-	struct FString                                     inString;                                                 // (Parm, ZeroConstructor)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.Conv_StringToColor
-struct UKismetStringLibrary_Conv_StringToColor_Params
-{
-	struct FString                                     inString;                                                 // (Parm, ZeroConstructor)
-	struct FLinearColor                                OutConvertedColor;                                        // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	bool                                               OutIsValid;                                               // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.Conv_RotatorToString
-struct UKismetStringLibrary_Conv_RotatorToString_Params
-{
-	struct FRotator                                    InRot;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Conv_ObjectToString
-struct UKismetStringLibrary_Conv_ObjectToString_Params
-{
-	class UObject*                                     InObj;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Conv_NameToString
-struct UKismetStringLibrary_Conv_NameToString_Params
-{
-	struct FName                                       InName;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Conv_IntVectorToString
-struct UKismetStringLibrary_Conv_IntVectorToString_Params
-{
-	struct FIntVector                                  InIntVec;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Conv_IntToString
-struct UKismetStringLibrary_Conv_IntToString_Params
-{
-	int                                                inInt;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Conv_FloatToString
-struct UKismetStringLibrary_Conv_FloatToString_Params
-{
-	float                                              InFloat;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Conv_ColorToString
-struct UKismetStringLibrary_Conv_ColorToString_Params
-{
-	struct FLinearColor                                InColor;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Conv_ByteToString
-struct UKismetStringLibrary_Conv_ByteToString_Params
-{
-	unsigned char                                      InByte;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Conv_BoolToString
-struct UKismetStringLibrary_Conv_BoolToString_Params
-{
-	bool                                               InBool;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.Contains
-struct UKismetStringLibrary_Contains_Params
-{
-	struct FString                                     SearchIn;                                                 // (Parm, ZeroConstructor)
-	struct FString                                     Substring;                                                // (Parm, ZeroConstructor)
-	bool                                               bUseCase;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bSearchFromEnd;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetStringLibrary.Concat_StrStr
-struct UKismetStringLibrary_Concat_StrStr_Params
-{
-	struct FString                                     A;                                                        // (Parm, ZeroConstructor)
-	struct FString                                     B;                                                        // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.BuildString_Vector2d
-struct UKismetStringLibrary_BuildString_Vector2d_Params
-{
-	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
-	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
-	struct FVector2D                                   InVector2D;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.BuildString_Vector
-struct UKismetStringLibrary_BuildString_Vector_Params
-{
-	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
-	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
-	struct FVector                                     InVector;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.BuildString_Rotator
-struct UKismetStringLibrary_BuildString_Rotator_Params
-{
-	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
-	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
-	struct FRotator                                    InRot;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.BuildString_Object
-struct UKismetStringLibrary_BuildString_Object_Params
-{
-	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
-	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
-	class UObject*                                     InObj;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.BuildString_Name
-struct UKismetStringLibrary_BuildString_Name_Params
-{
-	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
-	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
-	struct FName                                       InName;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.BuildString_IntVector
-struct UKismetStringLibrary_BuildString_IntVector_Params
-{
-	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
-	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
-	struct FIntVector                                  InIntVector;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.BuildString_Int
-struct UKismetStringLibrary_BuildString_Int_Params
-{
-	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
-	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
-	int                                                inInt;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.BuildString_Float
-struct UKismetStringLibrary_BuildString_Float_Params
-{
-	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
-	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
-	float                                              InFloat;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.BuildString_Color
-struct UKismetStringLibrary_BuildString_Color_Params
-{
-	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
-	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
-	struct FLinearColor                                InColor;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.KismetStringLibrary.BuildString_Bool
-struct UKismetStringLibrary_BuildString_Bool_Params
-{
-	struct FString                                     AppendTo;                                                 // (Parm, ZeroConstructor)
-	struct FString                                     Prefix;                                                   // (Parm, ZeroConstructor)
-	bool                                               InBool;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FString                                     Suffix;                                                   // (Parm, ZeroConstructor)
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
 // Function Engine.World.HandleTimelineScrubbed
 struct UWorld_HandleTimelineScrubbed_Params
 {
@@ -18285,13 +18285,6 @@ struct UNavigationSystem_SimpleMoveToActor_Params
 	class AActor*                                      Goal;                                                     // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Engine.ParticleSystem.ContainsEmitterType
-struct UParticleSystem_ContainsEmitterType_Params
-{
-	class UClass*                                      TypeData;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function Engine.ParticleSystemComponent.SetVectorParameter
 struct UParticleSystemComponent_SetVectorParameter_Params
 {
@@ -18534,12 +18527,11 @@ struct UParticleSystemComponent_BeginTrails_Params
 	float                                              InWidth;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Engine.PawnNoiseEmitterComponent.MakeNoise
-struct UPawnNoiseEmitterComponent_MakeNoise_Params
+// Function Engine.ParticleSystem.ContainsEmitterType
+struct UParticleSystem_ContainsEmitterType_Params
 {
-	class AActor*                                      NoiseMaker;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              Loudness;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     NoiseLocation;                                            // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+	class UClass*                                      TypeData;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Engine.PhysicalAnimationComponent.SetStrengthMultiplyer
@@ -18583,6 +18575,14 @@ struct UPhysicalAnimationComponent_ApplyPhysicalAnimationProfileBelow_Params
 	struct FName                                       ProfileName;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               bIncludeSelf;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               bClearNotFound;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.PawnNoiseEmitterComponent.MakeNoise
+struct UPawnNoiseEmitterComponent_MakeNoise_Params
+{
+	class AActor*                                      NoiseMaker;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Loudness;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     NoiseLocation;                                            // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 };
 
 // Function Engine.PhysicsConstraintComponent.SetOrientationDriveTwistAndSwing
@@ -18909,6 +18909,36 @@ struct UPhysicsHandleComponent_GetGrabbedComponent_Params
 	class UPrimitiveComponent*                         ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
 };
 
+// Function Engine.PhysicsSpringComponent.GetSpringRestingPoint
+struct UPhysicsSpringComponent_GetSpringRestingPoint_Params
+{
+	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.PhysicsSpringComponent.GetSpringDirection
+struct UPhysicsSpringComponent_GetSpringDirection_Params
+{
+	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.PhysicsSpringComponent.GetSpringCurrentEndPoint
+struct UPhysicsSpringComponent_GetSpringCurrentEndPoint_Params
+{
+	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.PhysicsSpringComponent.GetNormalizedCompressionScalar
+struct UPhysicsSpringComponent_GetNormalizedCompressionScalar_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.PlanarReflection.OnInterpToggle
+struct APlanarReflection_OnInterpToggle_Params
+{
+	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function Engine.SceneCaptureComponent.ShowOnlyComponent
 struct USceneCaptureComponent_ShowOnlyComponent_Params
 {
@@ -18960,12 +18990,6 @@ struct USceneCaptureComponent_ClearShowOnlyComponents_Params
 // Function Engine.SceneCaptureComponent.ClearHiddenComponents
 struct USceneCaptureComponent_ClearHiddenComponents_Params
 {
-};
-
-// Function Engine.PlanarReflection.OnInterpToggle
-struct APlanarReflection_OnInterpToggle_Params
-{
-	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Engine.PlatformEventsComponent.SupportsConvertibleLaptops
@@ -19290,30 +19314,6 @@ struct APointLight_SetLightFalloffExponent_Params
 	float                                              NewLightFalloffExponent;                                  // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Engine.PhysicsSpringComponent.GetSpringRestingPoint
-struct UPhysicsSpringComponent_GetSpringRestingPoint_Params
-{
-	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.PhysicsSpringComponent.GetSpringDirection
-struct UPhysicsSpringComponent_GetSpringDirection_Params
-{
-	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.PhysicsSpringComponent.GetSpringCurrentEndPoint
-struct UPhysicsSpringComponent_GetSpringCurrentEndPoint_Params
-{
-	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.PhysicsSpringComponent.GetNormalizedCompressionScalar
-struct UPhysicsSpringComponent_GetNormalizedCompressionScalar_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function Engine.PointLightComponent.SetSourceRadius
 struct UPointLightComponent_SetSourceRadius_Params
 {
@@ -19545,10 +19545,27 @@ struct USceneCaptureComponent2D_AddOrUpdateBlendable_Params
 	float                                              InWeight;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function Engine.SceneCaptureComponentCube.CaptureScene
+struct USceneCaptureComponentCube_CaptureScene_Params
+{
+};
+
 // Function Engine.SceneCaptureCube.OnInterpToggle
 struct ASceneCaptureCube_OnInterpToggle_Params
 {
 	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.RectLightComponent.SetSourceWidth
+struct URectLightComponent_SetSourceWidth_Params
+{
+	float                                              bNewValue;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.RectLightComponent.SetSourceHeight
+struct URectLightComponent_SetSourceHeight_Params
+{
+	float                                              NewValue;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Engine.SkeletalMesh.SetLODSettings
@@ -19612,18 +19629,6 @@ struct USkeletalMesh_FindSocket_Params
 	class USkeletalMeshSocket*                         ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Engine.RectLightComponent.SetSourceWidth
-struct URectLightComponent_SetSourceWidth_Params
-{
-	float                                              bNewValue;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.RectLightComponent.SetSourceHeight
-struct URectLightComponent_SetSourceHeight_Params
-{
-	float                                              NewValue;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function Engine.SkeletalMeshActor.OnRep_ReplicatedPhysAsset
 struct ASkeletalMeshActor_OnRep_ReplicatedPhysAsset_Params
 {
@@ -19644,8 +19649,23 @@ struct ASkeletalMeshActor_OnRep_ReplicatedMaterial0_Params
 {
 };
 
-// Function Engine.SceneCaptureComponentCube.CaptureScene
-struct USceneCaptureComponentCube_CaptureScene_Params
+// Function Engine.SkeletalMeshSocket.InitializeSocketFromLocation
+struct USkeletalMeshSocket_InitializeSocketFromLocation_Params
+{
+	class USkeletalMeshComponent*                      SkelComp;                                                 // (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FVector                                     WorldLocation;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     WorldNormal;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.SkeletalMeshSocket.GetSocketLocation
+struct USkeletalMeshSocket_GetSocketLocation_Params
+{
+	class USkeletalMeshComponent*                      SkelComp;                                                 // (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.SkyLight.OnRep_bEnabled
+struct ASkyLight_OnRep_bEnabled_Params
 {
 };
 
@@ -19720,26 +19740,6 @@ struct USkyLightComponent_SetCubemap_Params
 // Function Engine.SkyLightComponent.RecaptureSky
 struct USkyLightComponent_RecaptureSky_Params
 {
-};
-
-// Function Engine.SkyLight.OnRep_bEnabled
-struct ASkyLight_OnRep_bEnabled_Params
-{
-};
-
-// Function Engine.SkeletalMeshSocket.InitializeSocketFromLocation
-struct USkeletalMeshSocket_InitializeSocketFromLocation_Params
-{
-	class USkeletalMeshComponent*                      SkelComp;                                                 // (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FVector                                     WorldLocation;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     WorldNormal;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.SkeletalMeshSocket.GetSocketLocation
-struct USkeletalMeshSocket_GetSocketLocation_Params
-{
-	class USkeletalMeshComponent*                      SkelComp;                                                 // (ConstParm, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Engine.SoundSubmix.StopRecordingOutput
@@ -19975,6 +19975,18 @@ struct USplineMeshComponent_GetBoundaryMax_Params
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function Engine.SpotLightComponent.SetOuterConeAngle
+struct USpotLightComponent_SetOuterConeAngle_Params
+{
+	float                                              NewOuterConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.SpotLightComponent.SetInnerConeAngle
+struct USpotLightComponent_SetInnerConeAngle_Params
+{
+	float                                              NewInnerConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function Engine.SpringArmComponent.IsCollisionFixApplied
 struct USpringArmComponent_IsCollisionFixApplied_Params
 {
@@ -19993,16 +20005,43 @@ struct USpringArmComponent_GetTargetRotation_Params
 	struct FRotator                                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Engine.SpotLightComponent.SetOuterConeAngle
-struct USpotLightComponent_SetOuterConeAngle_Params
+// Function Engine.StaticMesh.GetNumSections
+struct UStaticMesh_GetNumSections_Params
 {
-	float                                              NewOuterConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                InLOD;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Engine.SpotLightComponent.SetInnerConeAngle
-struct USpotLightComponent_SetInnerConeAngle_Params
+// Function Engine.StaticMesh.GetNumLODs
+struct UStaticMesh_GetNumLODs_Params
 {
-	float                                              NewInnerConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.StaticMesh.GetMaterialIndex
+struct UStaticMesh_GetMaterialIndex_Params
+{
+	struct FName                                       MaterialSlotName;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.StaticMesh.GetMaterial
+struct UStaticMesh_GetMaterial_Params
+{
+	int                                                MaterialIndex;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	class UMaterialInterface*                          ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.StaticMesh.GetBounds
+struct UStaticMesh_GetBounds_Params
+{
+	struct FBoxSphereBounds                            ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.StaticMesh.GetBoundingBox
+struct UStaticMesh_GetBoundingBox_Params
+{
+	struct FBox                                        ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Engine.StereoLayerComponent.SetUVRect
@@ -20058,43 +20097,30 @@ struct UStereoLayerComponent_GetPriority_Params
 	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Engine.StaticMesh.GetNumSections
-struct UStaticMesh_GetNumSections_Params
+// Function Engine.StereoLayerFunctionLibrary.ShowSplashScreen
+struct UStereoLayerFunctionLibrary_ShowSplashScreen_Params
 {
-	int                                                InLOD;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Engine.StaticMesh.GetNumLODs
-struct UStaticMesh_GetNumLODs_Params
+// Function Engine.StereoLayerFunctionLibrary.SetSplashScreen
+struct UStereoLayerFunctionLibrary_SetSplashScreen_Params
 {
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+	class UTexture*                                    Texture;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector2D                                   Scale;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector2D                                   Offset;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bShowLoadingMovie;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bShowOnSet;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Engine.StaticMesh.GetMaterialIndex
-struct UStaticMesh_GetMaterialIndex_Params
+// Function Engine.StereoLayerFunctionLibrary.HideSplashScreen
+struct UStereoLayerFunctionLibrary_HideSplashScreen_Params
 {
-	struct FName                                       MaterialSlotName;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Engine.StaticMesh.GetMaterial
-struct UStaticMesh_GetMaterial_Params
+// Function Engine.StereoLayerFunctionLibrary.EnableAutoLoadingSplashScreen
+struct UStereoLayerFunctionLibrary_EnableAutoLoadingSplashScreen_Params
 {
-	int                                                MaterialIndex;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	class UMaterialInterface*                          ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.StaticMesh.GetBounds
-struct UStaticMesh_GetBounds_Params
-{
-	struct FBoxSphereBounds                            ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.StaticMesh.GetBoundingBox
-struct UStaticMesh_GetBoundingBox_Params
-{
-	struct FBox                                        ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+	bool                                               InAutoShowEnabled;                                        // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Engine.TimecodeProvider.GetTimecode
@@ -20203,32 +20229,6 @@ struct UTextRenderComponent_GetTextWorldSize_Params
 struct UTextRenderComponent_GetTextLocalSize_Params
 {
 	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.StereoLayerFunctionLibrary.ShowSplashScreen
-struct UStereoLayerFunctionLibrary_ShowSplashScreen_Params
-{
-};
-
-// Function Engine.StereoLayerFunctionLibrary.SetSplashScreen
-struct UStereoLayerFunctionLibrary_SetSplashScreen_Params
-{
-	class UTexture*                                    Texture;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector2D                                   Scale;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector2D                                   Offset;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bShowLoadingMovie;                                        // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bShowOnSet;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.StereoLayerFunctionLibrary.HideSplashScreen
-struct UStereoLayerFunctionLibrary_HideSplashScreen_Params
-{
-};
-
-// Function Engine.StereoLayerFunctionLibrary.EnableAutoLoadingSplashScreen
-struct UStereoLayerFunctionLibrary_EnableAutoLoadingSplashScreen_Params
-{
-	bool                                               InAutoShowEnabled;                                        // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Engine.TimelineComponent.Stop

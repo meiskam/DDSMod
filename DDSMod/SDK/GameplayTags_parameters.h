@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,33 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
+
+// Function GameplayTags.GameplayTagAssetInterface.HasMatchingGameplayTag
+struct UGameplayTagAssetInterface_HasMatchingGameplayTag_Params
+{
+	struct FGameplayTag                                TagToCheck;                                               // (Parm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function GameplayTags.GameplayTagAssetInterface.HasAnyMatchingGameplayTags
+struct UGameplayTagAssetInterface_HasAnyMatchingGameplayTags_Params
+{
+	struct FGameplayTagContainer                       TagContainer;                                             // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function GameplayTags.GameplayTagAssetInterface.HasAllMatchingGameplayTags
+struct UGameplayTagAssetInterface_HasAllMatchingGameplayTags_Params
+{
+	struct FGameplayTagContainer                       TagContainer;                                             // (ConstParm, Parm, OutParm, ReferenceParm)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function GameplayTags.GameplayTagAssetInterface.GetOwnedGameplayTags
+struct UGameplayTagAssetInterface_GetOwnedGameplayTags_Params
+{
+	struct FGameplayTagContainer                       TagContainer;                                             // (Parm, OutParm)
+};
 
 // Function GameplayTags.BlueprintGameplayTagLibrary.RemoveGameplayTag
 struct UBlueprintGameplayTagLibrary_RemoveGameplayTag_Params
@@ -237,33 +264,6 @@ struct UBlueprintGameplayTagLibrary_AddGameplayTag_Params
 {
 	struct FGameplayTagContainer                       TagContainer;                                             // (Parm, OutParm, ReferenceParm)
 	struct FGameplayTag                                Tag;                                                      // (Parm)
-};
-
-// Function GameplayTags.GameplayTagAssetInterface.HasMatchingGameplayTag
-struct UGameplayTagAssetInterface_HasMatchingGameplayTag_Params
-{
-	struct FGameplayTag                                TagToCheck;                                               // (Parm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function GameplayTags.GameplayTagAssetInterface.HasAnyMatchingGameplayTags
-struct UGameplayTagAssetInterface_HasAnyMatchingGameplayTags_Params
-{
-	struct FGameplayTagContainer                       TagContainer;                                             // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function GameplayTags.GameplayTagAssetInterface.HasAllMatchingGameplayTags
-struct UGameplayTagAssetInterface_HasAllMatchingGameplayTags_Params
-{
-	struct FGameplayTagContainer                       TagContainer;                                             // (ConstParm, Parm, OutParm, ReferenceParm)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function GameplayTags.GameplayTagAssetInterface.GetOwnedGameplayTags
-struct UGameplayTagAssetInterface_GetOwnedGameplayTags_Params
-{
-	struct FGameplayTagContainer                       TagContainer;                                             // (Parm, OutParm)
 };
 
 }

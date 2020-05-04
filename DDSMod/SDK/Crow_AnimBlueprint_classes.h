@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -100,7 +100,7 @@ public:
 	}
 
 
-	void BlueprintUpdateAnimation(float DeltaTimeX);
+	void BlueprintUpdateAnimation(float* DeltaTimeX);
 	void AnimNotify_IdleEnd();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_Crow_AnimBlueprint_AnimGraphNode_BlendListByInt_4538200D48041B6AC28C66A93C62DF57();
 	void ExecuteUbergraph_Crow_AnimBlueprint(int EntryPoint);

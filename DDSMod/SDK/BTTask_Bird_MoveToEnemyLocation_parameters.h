@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -29,8 +29,8 @@ struct UBTTask_Bird_MoveToEnemyLocation_C_OnSuccess_F22B8A5A43E73BA6CA860ABAD385
 // Function BTTask_Bird_MoveToEnemyLocation.BTTask_Bird_MoveToEnemyLocation_C.ReceiveExecuteAI
 struct UBTTask_Bird_MoveToEnemyLocation_C_ReceiveExecuteAI_Params
 {
-	class AAIController*                               OwnerController;                                          // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	class APawn*                                       ControlledPawn;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AAIController**                              OwnerController;                                          // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class APawn**                                      ControlledPawn;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function BTTask_Bird_MoveToEnemyLocation.BTTask_Bird_MoveToEnemyLocation_C.ExecuteUbergraph_BTTask_Bird_MoveToEnemyLocation

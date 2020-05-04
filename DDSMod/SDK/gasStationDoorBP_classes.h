@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -48,7 +48,7 @@ public:
 	void openPercent__FinishedFunc();
 	void openPercent__UpdateFunc();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float DeltaSeconds);
+	void ReceiveTick(float* DeltaSeconds);
 	void openDoor();
 	void closeDoor();
 	void BndEvt__entryBox_K2Node_ComponentBoundEvent_1_ComponentBeginOverlapSignature__DelegateSignature(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);

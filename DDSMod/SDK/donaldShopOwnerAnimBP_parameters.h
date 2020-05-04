@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,7 +17,7 @@ namespace SDK
 // Function donaldShopOwnerAnimBP.donaldShopOwnerAnimBP_C.BlueprintUpdateAnimation
 struct UdonaldShopOwnerAnimBP_C_BlueprintUpdateAnimation_Params
 {
-	float                                              DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float*                                             DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function donaldShopOwnerAnimBP.donaldShopOwnerAnimBP_C.ExecuteUbergraph_donaldShopOwnerAnimBP

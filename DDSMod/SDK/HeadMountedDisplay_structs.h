@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -54,6 +54,16 @@ enum class EOrientPositionSelector : uint8_t
 };
 
 
+// Enum HeadMountedDisplay.ETrackingStatus
+enum class ETrackingStatus : uint8_t
+{
+	ETrackingStatus__NotTracked    = 0,
+	ETrackingStatus__InertialOnly  = 1,
+	ETrackingStatus__Tracked       = 2,
+	ETrackingStatus__ETrackingStatus_MAX = 3
+};
+
+
 // Enum HeadMountedDisplay.ESpectatorScreenMode
 enum class ESpectatorScreenMode : uint8_t
 {
@@ -66,16 +76,6 @@ enum class ESpectatorScreenMode : uint8_t
 	ESpectatorScreenMode__Texture  = 6,
 	ESpectatorScreenMode__TexturePlusEye = 7,
 	ESpectatorScreenMode__ESpectatorScreenMode_MAX = 8
-};
-
-
-// Enum HeadMountedDisplay.ETrackingStatus
-enum class ETrackingStatus : uint8_t
-{
-	ETrackingStatus__NotTracked    = 0,
-	ETrackingStatus__InertialOnly  = 1,
-	ETrackingStatus__Tracked       = 2,
-	ETrackingStatus__ETrackingStatus_MAX = 3
 };
 
 

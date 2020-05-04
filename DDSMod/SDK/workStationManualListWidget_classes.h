@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -32,7 +32,7 @@ public:
 	}
 
 
-	void PreConstruct(bool IsDesignTime);
+	void PreConstruct(bool* IsDesignTime);
 	void Construct();
 	void ExecuteUbergraph_workStationManualListWidget(int EntryPoint);
 };

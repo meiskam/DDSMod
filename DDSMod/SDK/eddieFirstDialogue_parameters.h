@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -55,7 +55,7 @@ struct AeddieFirstDialogue_C_ReceiveBeginPlay_Params
 // Function eddieFirstDialogue.eddieFirstDialogue_C.ReceiveTick
 struct AeddieFirstDialogue_C_ReceiveTick_Params
 {
-	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function eddieFirstDialogue.eddieFirstDialogue_C.BndEvt__playerComeTrigger_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature
@@ -74,8 +74,8 @@ struct AeddieFirstDialogue_C_playInpatientQuote_Params
 {
 };
 
-// Function eddieFirstDialogue.eddieFirstDialogue_C.PlayerSatDown
-struct AeddieFirstDialogue_C_PlayerSatDown_Params
+// Function eddieFirstDialogue.eddieFirstDialogue_C.playerSatDown
+struct AeddieFirstDialogue_C_playerSatDown_Params
 {
 };
 

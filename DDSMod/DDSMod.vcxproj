@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -1099,9 +1099,6 @@
     <ClInclude Include="SDK\keijiRestaurantManager_classes.h" />
     <ClInclude Include="SDK\keijiRestaurantManager_parameters.h" />
     <ClInclude Include="SDK\keijiRestaurantManager_structs.h" />
-    <ClInclude Include="SDK\keijiTerritoryLook_classes.h" />
-    <ClInclude Include="SDK\keijiTerritoryLook_parameters.h" />
-    <ClInclude Include="SDK\keijiTerritoryLook_structs.h" />
     <ClInclude Include="SDK\laBallenaAnimBP_classes.h" />
     <ClInclude Include="SDK\laBallenaAnimBP_parameters.h" />
     <ClInclude Include="SDK\laBallenaAnimBP_structs.h" />
@@ -2426,7 +2423,6 @@
     <ClCompile Include="SDK\keijiManSpawnPoint_functions.cpp" />
     <ClCompile Include="SDK\keijiMoneyDialogueInstance_functions.cpp" />
     <ClCompile Include="SDK\keijiRestaurantManager_functions.cpp" />
-    <ClCompile Include="SDK\keijiTerritoryLook_functions.cpp" />
     <ClCompile Include="SDK\laBallenaAnimBP_functions.cpp" />
     <ClCompile Include="SDK\laBallena_functions.cpp" />
     <ClCompile Include="SDK\labCrystaliserBP_functions.cpp" />

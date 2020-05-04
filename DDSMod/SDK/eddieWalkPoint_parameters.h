@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -22,7 +22,7 @@ struct AeddieWalkPoint_C_UserConstructionScript_Params
 // Function eddieWalkPoint.eddieWalkPoint_C.ReceiveActorBeginOverlap
 struct AeddieWalkPoint_C_ReceiveActorBeginOverlap_Params
 {
-	class AActor*                                      OtherActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor**                                     OtherActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function eddieWalkPoint.eddieWalkPoint_C.ExecuteUbergraph_eddieWalkPoint

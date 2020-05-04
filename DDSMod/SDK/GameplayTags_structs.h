@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -23,15 +23,6 @@ enum class EGameplayTagQueryExprType : uint8_t
 	EGameplayTagQueryExprType__AllExprMatch = 5,
 	EGameplayTagQueryExprType__NoExprMatch = 6,
 	EGameplayTagQueryExprType__EGameplayTagQueryExprType_MAX = 7
-};
-
-
-// Enum GameplayTags.EGameplayContainerMatchType
-enum class EGameplayContainerMatchType : uint8_t
-{
-	EGameplayContainerMatchType__Any = 0,
-	EGameplayContainerMatchType__All = 1,
-	EGameplayContainerMatchType__EGameplayContainerMatchType_MAX = 2
 };
 
 
@@ -65,6 +56,15 @@ enum class EGameplayTagSourceType : uint8_t
 	EGameplayTagSourceType__DataTable = 4,
 	EGameplayTagSourceType__Invalid = 5,
 	EGameplayTagSourceType__EGameplayTagSourceType_MAX = 6
+};
+
+
+// Enum GameplayTags.EGameplayContainerMatchType
+enum class EGameplayContainerMatchType : uint8_t
+{
+	EGameplayContainerMatchType__Any = 0,
+	EGameplayContainerMatchType__All = 1,
+	EGameplayContainerMatchType__EGameplayContainerMatchType_MAX = 2
 };
 
 

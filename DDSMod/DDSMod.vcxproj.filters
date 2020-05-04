@@ -955,9 +955,6 @@
     <ClCompile Include="SDK\keijiRestaurantManager_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\keijiTerritoryLook_functions.cpp">
-      <Filter>SDK</Filter>
-    </ClCompile>
     <ClCompile Include="SDK\laBallena_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
@@ -4807,15 +4804,6 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\keijiRestaurantManager_structs.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\keijiTerritoryLook_classes.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\keijiTerritoryLook_parameters.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\keijiTerritoryLook_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\laBallena_classes.h">

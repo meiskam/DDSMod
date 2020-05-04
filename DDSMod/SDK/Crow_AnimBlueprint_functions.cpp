@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,9 +16,9 @@ namespace SDK
 // Function Crow_AnimBlueprint.Crow_AnimBlueprint_C.BlueprintUpdateAnimation
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UCrow_AnimBlueprint_C::BlueprintUpdateAnimation(float DeltaTimeX)
+void UCrow_AnimBlueprint_C::BlueprintUpdateAnimation(float* DeltaTimeX)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Crow_AnimBlueprint.Crow_AnimBlueprint_C.BlueprintUpdateAnimation");
 

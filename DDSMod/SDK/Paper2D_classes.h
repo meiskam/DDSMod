@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -143,22 +143,6 @@ public:
 };
 
 
-// Class Paper2D.PaperGroupedSpriteActor
-// 0x0008 (0x0330 - 0x0328)
-class APaperGroupedSpriteActor : public AActor
-{
-public:
-	class UPaperGroupedSpriteComponent*                RenderComponent;                                          // 0x0328(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Paper2D.PaperGroupedSpriteActor");
-		return ptr;
-	}
-
-};
-
-
 // Class Paper2D.PaperGroupedSpriteComponent
 // 0x0030 (0x05B0 - 0x0580)
 class UPaperGroupedSpriteComponent : public UMeshComponent
@@ -205,33 +189,16 @@ public:
 };
 
 
-// Class Paper2D.PaperSprite
-// 0x0098 (0x00C0 - 0x0028)
-class UPaperSprite : public UObject
+// Class Paper2D.PaperGroupedSpriteActor
+// 0x0008 (0x0330 - 0x0328)
+class APaperGroupedSpriteActor : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0028(0x0010) MISSED OFFSET
-	struct FVector2D                                   SourceUV;                                                 // 0x0038(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FVector2D                                   SourceDimension;                                          // 0x0040(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UTexture2D*                                  SourceTexture;                                            // 0x0048(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	TArray<class UTexture*>                            AdditionalSourceTextures;                                 // 0x0050(0x0010) (Edit, ZeroConstructor)
-	struct FVector2D                                   BakedSourceUV;                                            // 0x0060(0x0008) (ZeroConstructor, IsPlainOldData)
-	struct FVector2D                                   BakedSourceDimension;                                     // 0x0068(0x0008) (ZeroConstructor, IsPlainOldData)
-	class UTexture2D*                                  BakedSourceTexture;                                       // 0x0070(0x0008) (ZeroConstructor, IsPlainOldData)
-	class UMaterialInterface*                          DefaultMaterial;                                          // 0x0078(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	class UMaterialInterface*                          AlternateMaterial;                                        // 0x0080(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	TArray<struct FPaperSpriteSocket>                  Sockets;                                                  // 0x0088(0x0010) (Edit, ZeroConstructor)
-	TEnumAsByte<ESpriteCollisionMode>                  SpriteCollisionDomain;                                    // 0x0098(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x0099(0x0003) MISSED OFFSET
-	float                                              PixelsPerUnrealUnit;                                      // 0x009C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	class UBodySetup*                                  BodySetup;                                                // 0x00A0(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                AlternateMaterialSplitIndex;                              // 0x00A8(0x0004) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x4];                                       // 0x00AC(0x0004) MISSED OFFSET
-	TArray<struct FVector4>                            BakedRenderData;                                          // 0x00B0(0x0010) (ZeroConstructor)
+	class UPaperGroupedSpriteComponent*                RenderComponent;                                          // 0x0328(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Paper2D.PaperSprite");
+		static auto ptr = UObject::FindClass("Class Paper2D.PaperGroupedSpriteActor");
 		return ptr;
 	}
 
@@ -568,6 +535,39 @@ public:
 	struct FName STATIC_GetTileUserData(const struct FPaperTileInfo& Tile);
 	struct FTransform STATIC_GetTileTransform(const struct FPaperTileInfo& Tile);
 	void STATIC_BreakTile(const struct FPaperTileInfo& Tile, int* TileIndex, class UPaperTileSet** TileSet, bool* bFlipH, bool* bFlipV, bool* bFlipD);
+};
+
+
+// Class Paper2D.PaperSprite
+// 0x0098 (0x00C0 - 0x0028)
+class UPaperSprite : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0028(0x0010) MISSED OFFSET
+	struct FVector2D                                   SourceUV;                                                 // 0x0038(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FVector2D                                   SourceDimension;                                          // 0x0040(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UTexture2D*                                  SourceTexture;                                            // 0x0048(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	TArray<class UTexture*>                            AdditionalSourceTextures;                                 // 0x0050(0x0010) (Edit, ZeroConstructor)
+	struct FVector2D                                   BakedSourceUV;                                            // 0x0060(0x0008) (ZeroConstructor, IsPlainOldData)
+	struct FVector2D                                   BakedSourceDimension;                                     // 0x0068(0x0008) (ZeroConstructor, IsPlainOldData)
+	class UTexture2D*                                  BakedSourceTexture;                                       // 0x0070(0x0008) (ZeroConstructor, IsPlainOldData)
+	class UMaterialInterface*                          DefaultMaterial;                                          // 0x0078(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	class UMaterialInterface*                          AlternateMaterial;                                        // 0x0080(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	TArray<struct FPaperSpriteSocket>                  Sockets;                                                  // 0x0088(0x0010) (Edit, ZeroConstructor)
+	TEnumAsByte<ESpriteCollisionMode>                  SpriteCollisionDomain;                                    // 0x0098(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0099(0x0003) MISSED OFFSET
+	float                                              PixelsPerUnrealUnit;                                      // 0x009C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	class UBodySetup*                                  BodySetup;                                                // 0x00A0(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                AlternateMaterialSplitIndex;                              // 0x00A8(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x4];                                       // 0x00AC(0x0004) MISSED OFFSET
+	TArray<struct FVector4>                            BakedRenderData;                                          // 0x00B0(0x0010) (ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Paper2D.PaperSprite");
+		return ptr;
+	}
+
 };
 
 

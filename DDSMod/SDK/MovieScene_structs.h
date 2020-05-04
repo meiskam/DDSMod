@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,18 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
+
+// Enum MovieScene.EMovieSceneKeyInterpolation
+enum class EMovieSceneKeyInterpolation : uint8_t
+{
+	EMovieSceneKeyInterpolation__Auto = 0,
+	EMovieSceneKeyInterpolation__User = 1,
+	EMovieSceneKeyInterpolation__Break = 2,
+	EMovieSceneKeyInterpolation__Linear = 3,
+	EMovieSceneKeyInterpolation__Constant = 4,
+	EMovieSceneKeyInterpolation__EMovieSceneKeyInterpolation_MAX = 5
+};
+
 
 // Enum MovieScene.EMovieSceneBlendType
 enum class EMovieSceneBlendType : uint8_t
@@ -93,15 +105,6 @@ enum class EMovieScenePlayerStatus : uint8_t
 };
 
 
-// Enum MovieScene.EMovieSceneObjectBindingSpace
-enum class EMovieSceneObjectBindingSpace : uint8_t
-{
-	EMovieSceneObjectBindingSpace__Local = 0,
-	EMovieSceneObjectBindingSpace__Root = 1,
-	EMovieSceneObjectBindingSpace__EMovieSceneObjectBindingSpace_MAX = 2
-};
-
-
 // Enum MovieScene.EMovieSceneCompletionMode
 enum class EMovieSceneCompletionMode : uint8_t
 {
@@ -132,15 +135,12 @@ enum class ESpawnOwnership : uint8_t
 };
 
 
-// Enum MovieScene.EMovieSceneKeyInterpolation
-enum class EMovieSceneKeyInterpolation : uint8_t
+// Enum MovieScene.EMovieSceneObjectBindingSpace
+enum class EMovieSceneObjectBindingSpace : uint8_t
 {
-	EMovieSceneKeyInterpolation__Auto = 0,
-	EMovieSceneKeyInterpolation__User = 1,
-	EMovieSceneKeyInterpolation__Break = 2,
-	EMovieSceneKeyInterpolation__Linear = 3,
-	EMovieSceneKeyInterpolation__Constant = 4,
-	EMovieSceneKeyInterpolation__EMovieSceneKeyInterpolation_MAX = 5
+	EMovieSceneObjectBindingSpace__Local = 0,
+	EMovieSceneObjectBindingSpace__Root = 1,
+	EMovieSceneObjectBindingSpace__EMovieSceneObjectBindingSpace_MAX = 2
 };
 
 

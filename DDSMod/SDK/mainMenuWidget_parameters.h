@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,23 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
+
+// Function mainMenuWidget.mainMenuWidget_C.Construct
+struct UmainMenuWidget_C_Construct_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.Tick
+struct UmainMenuWidget_C_Tick_Params
+{
+	struct FGeometry*                                  MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+	float*                                             InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature_Params
+{
+};
 
 // Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnGame_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature
 struct UmainMenuWidget_C_BndEvt__btnGame_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature_Params
@@ -36,23 +53,6 @@ struct UmainMenuWidget_C_BndEvt__btnGame_K2Node_ComponentBoundEvent_7_OnButtonCl
 
 // Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnSettings_K2Node_ComponentBoundEvent_8_OnButtonClickedEvent__DelegateSignature
 struct UmainMenuWidget_C_BndEvt__btnSettings_K2Node_ComponentBoundEvent_8_OnButtonClickedEvent__DelegateSignature_Params
-{
-};
-
-// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature
-struct UmainMenuWidget_C_BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature_Params
-{
-};
-
-// Function mainMenuWidget.mainMenuWidget_C.Tick
-struct UmainMenuWidget_C_Tick_Params
-{
-	struct FGeometry                                   MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-	float                                              InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function mainMenuWidget.mainMenuWidget_C.Construct
-struct UmainMenuWidget_C_Construct_Params
 {
 };
 
@@ -139,7 +139,7 @@ struct UmainMenuWidget_C_BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_4_OnButt
 // Function mainMenuWidget.mainMenuWidget_C.startNewGame
 struct UmainMenuWidget_C_startNewGame_Params
 {
-	TEnumAsByte<EdifficultyLevels>                     chosenDifficulty;                                         // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EdifficultyLevels>                     ChosenDifficulty;                                         // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnCasual_K2Node_ComponentBoundEvent_5_OnButtonHoverEvent__DelegateSignature
@@ -204,6 +204,21 @@ struct UmainMenuWidget_C_BndEvt__btnHardcore_K2Node_ComponentBoundEvent_33_OnBut
 
 // Function mainMenuWidget.mainMenuWidget_C.BndEvt__Button_6_K2Node_ComponentBoundEvent_34_OnButtonClickedEvent__DelegateSignature
 struct UmainMenuWidget_C_BndEvt__Button_6_K2Node_ComponentBoundEvent_34_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnCredits_K2Node_ComponentBoundEvent_15_OnButtonClickedEvent__DelegateSignature
+struct UmainMenuWidget_C_BndEvt__btnCredits_K2Node_ComponentBoundEvent_15_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.resetCredits
+struct UmainMenuWidget_C_resetCredits_Params
+{
+};
+
+// Function mainMenuWidget.mainMenuWidget_C.glitchSubs
+struct UmainMenuWidget_C_glitchSubs_Params
 {
 };
 

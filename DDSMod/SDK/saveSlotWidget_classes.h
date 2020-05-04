@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -33,11 +33,11 @@ public:
 	}
 
 
-	struct FEventReply OnMouseButtonDown(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent);
-	struct FEventReply OnMouseButtonUp(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent);
-	void setup(bool occupied, const struct FString& SlotCustomName, const struct FString& saveDateTime, int Slot_Num, class UsaveLoadWidget_C* Parent);
-	void OnMouseEnter(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent);
-	void OnMouseLeave(const struct FPointerEvent& MouseEvent);
+	struct FEventReply OnMouseButtonDown(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent);
+	struct FEventReply OnMouseButtonUp(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent);
+	void setup(bool Occupied, const struct FString& SlotCustomName, const struct FString& saveDateTime, int Slot_Num, class UsaveLoadWidget_C* Parent);
+	void OnMouseEnter(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent);
+	void OnMouseLeave(struct FPointerEvent* MouseEvent);
 	void ExecuteUbergraph_saveSlotWidget(int EntryPoint);
 };
 

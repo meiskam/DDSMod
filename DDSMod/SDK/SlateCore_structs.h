@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -21,6 +21,15 @@ enum class EWidgetClipping : uint8_t
 	EWidgetClipping__ClipToBoundsAlways = 3,
 	EWidgetClipping__OnDemand      = 4,
 	EWidgetClipping__EWidgetClipping_MAX = 5
+};
+
+
+// Enum SlateCore.EFontLayoutMethod
+enum class EFontLayoutMethod : uint8_t
+{
+	EFontLayoutMethod__Metrics     = 0,
+	EFontLayoutMethod__BoundingBox = 1,
+	EFontLayoutMethod__EFontLayoutMethod_MAX = 2
 };
 
 
@@ -69,12 +78,17 @@ enum class ETextShapingMethod : uint8_t
 };
 
 
-// Enum SlateCore.EFontLayoutMethod
-enum class EFontLayoutMethod : uint8_t
+// Enum SlateCore.EUINavigationRule
+enum class EUINavigationRule : uint8_t
 {
-	EFontLayoutMethod__Metrics     = 0,
-	EFontLayoutMethod__BoundingBox = 1,
-	EFontLayoutMethod__EFontLayoutMethod_MAX = 2
+	EUINavigationRule__Escape      = 0,
+	EUINavigationRule__Explicit    = 1,
+	EUINavigationRule__Wrap        = 2,
+	EUINavigationRule__Stop        = 3,
+	EUINavigationRule__Custom      = 4,
+	EUINavigationRule__CustomBoundary = 5,
+	EUINavigationRule__Invalid     = 6,
+	EUINavigationRule__EUINavigationRule_MAX = 7
 };
 
 
@@ -110,17 +124,6 @@ enum class ESlateBrushTileType : uint8_t
 };
 
 
-// Enum SlateCore.ESlateBrushDrawType
-enum class ESlateBrushDrawType : uint8_t
-{
-	ESlateBrushDrawType__NoDrawType = 0,
-	ESlateBrushDrawType__Box       = 1,
-	ESlateBrushDrawType__Border    = 2,
-	ESlateBrushDrawType__Image     = 3,
-	ESlateBrushDrawType__ESlateBrushDrawType_MAX = 4
-};
-
-
 // Enum SlateCore.ESlateBrushMirrorType
 enum class ESlateBrushMirrorType : uint8_t
 {
@@ -129,6 +132,17 @@ enum class ESlateBrushMirrorType : uint8_t
 	ESlateBrushMirrorType__Vertical = 2,
 	ESlateBrushMirrorType__Both    = 3,
 	ESlateBrushMirrorType__ESlateBrushMirrorType_MAX = 4
+};
+
+
+// Enum SlateCore.ESlateBrushDrawType
+enum class ESlateBrushDrawType : uint8_t
+{
+	ESlateBrushDrawType__NoDrawType = 0,
+	ESlateBrushDrawType__Box       = 1,
+	ESlateBrushDrawType__Border    = 2,
+	ESlateBrushDrawType__Image     = 3,
+	ESlateBrushDrawType__ESlateBrushDrawType_MAX = 4
 };
 
 
@@ -183,6 +197,17 @@ enum class EOrientation : uint8_t
 };
 
 
+// Enum SlateCore.EVerticalAlignment
+enum class EVerticalAlignment : uint8_t
+{
+	VAlign_Fill                    = 0,
+	VAlign_Top                     = 1,
+	VAlign_Center                  = 2,
+	VAlign_Bottom                  = 3,
+	VAlign_MAX                     = 4
+};
+
+
 // Enum SlateCore.EMenuPlacement
 enum class EMenuPlacement : uint8_t
 {
@@ -200,17 +225,6 @@ enum class EMenuPlacement : uint8_t
 	MenuPlacement_RightLeftCenter  = 11,
 	MenuPlacement_MatchBottomLeft  = 12,
 	MenuPlacement_MAX              = 13
-};
-
-
-// Enum SlateCore.EVerticalAlignment
-enum class EVerticalAlignment : uint8_t
-{
-	VAlign_Fill                    = 0,
-	VAlign_Top                     = 1,
-	VAlign_Center                  = 2,
-	VAlign_Bottom                  = 3,
-	VAlign_MAX                     = 4
 };
 
 
@@ -260,21 +274,21 @@ enum class EButtonPressMethod : uint8_t
 };
 
 
-// Enum SlateCore.EButtonTouchMethod
-enum class EButtonTouchMethod : uint8_t
-{
-	EButtonTouchMethod__DownAndUp  = 0,
-	EButtonTouchMethod__PreciseTap = 1,
-	EButtonTouchMethod__EButtonTouchMethod_MAX = 2
-};
-
-
 // Enum SlateCore.ENavigationSource
 enum class ENavigationSource : uint8_t
 {
 	ENavigationSource__FocusedWidget = 0,
 	ENavigationSource__WidgetUnderCursor = 1,
 	ENavigationSource__ENavigationSource_MAX = 2
+};
+
+
+// Enum SlateCore.EButtonTouchMethod
+enum class EButtonTouchMethod : uint8_t
+{
+	EButtonTouchMethod__DownAndUp  = 0,
+	EButtonTouchMethod__PreciseTap = 1,
+	EButtonTouchMethod__EButtonTouchMethod_MAX = 2
 };
 
 
@@ -286,16 +300,6 @@ enum class EButtonClickMethod : uint8_t
 	EButtonClickMethod__MouseUp    = 2,
 	EButtonClickMethod__PreciseClick = 3,
 	EButtonClickMethod__EButtonClickMethod_MAX = 4
-};
-
-
-// Enum SlateCore.ECheckBoxState
-enum class ECheckBoxState : uint8_t
-{
-	ECheckBoxState__Unchecked      = 0,
-	ECheckBoxState__Checked        = 1,
-	ECheckBoxState__Undetermined   = 2,
-	ECheckBoxState__ECheckBoxState_MAX = 3
 };
 
 
@@ -337,17 +341,13 @@ enum class EConsumeMouseWheel : uint8_t
 };
 
 
-// Enum SlateCore.EUINavigationRule
-enum class EUINavigationRule : uint8_t
+// Enum SlateCore.ECheckBoxState
+enum class ECheckBoxState : uint8_t
 {
-	EUINavigationRule__Escape      = 0,
-	EUINavigationRule__Explicit    = 1,
-	EUINavigationRule__Wrap        = 2,
-	EUINavigationRule__Stop        = 3,
-	EUINavigationRule__Custom      = 4,
-	EUINavigationRule__CustomBoundary = 5,
-	EUINavigationRule__Invalid     = 6,
-	EUINavigationRule__EUINavigationRule_MAX = 7
+	ECheckBoxState__Unchecked      = 0,
+	ECheckBoxState__Checked        = 1,
+	ECheckBoxState__Undetermined   = 2,
+	ECheckBoxState__ECheckBoxState_MAX = 3
 };
 
 
@@ -741,14 +741,6 @@ struct FDockTabStyle : public FSlateWidgetStyle
 	struct FSlateColor                                 FlashColor;                                               // 0x06D8(0x0028) (Edit)
 };
 
-// ScriptStruct SlateCore.SplitterStyle
-// 0x0110 (0x0118 - 0x0008)
-struct FSplitterStyle : public FSlateWidgetStyle
-{
-	struct FSlateBrush                                 HandleNormalBrush;                                        // 0x0008(0x0088) (Edit, BlueprintVisible)
-	struct FSlateBrush                                 HandleHighlightBrush;                                     // 0x0090(0x0088) (Edit, BlueprintVisible)
-};
-
 // ScriptStruct SlateCore.TableColumnHeaderStyle
 // 0x04C8 (0x04D0 - 0x0008)
 struct FTableColumnHeaderStyle : public FSlateWidgetStyle
@@ -762,6 +754,14 @@ struct FTableColumnHeaderStyle : public FSlateWidgetStyle
 	struct FSlateBrush                                 MenuDropdownImage;                                        // 0x0338(0x0088) (Edit)
 	struct FSlateBrush                                 MenuDropdownNormalBorderBrush;                            // 0x03C0(0x0088) (Edit)
 	struct FSlateBrush                                 MenuDropdownHoveredBorderBrush;                           // 0x0448(0x0088) (Edit)
+};
+
+// ScriptStruct SlateCore.SplitterStyle
+// 0x0110 (0x0118 - 0x0008)
+struct FSplitterStyle : public FSlateWidgetStyle
+{
+	struct FSlateBrush                                 HandleNormalBrush;                                        // 0x0008(0x0088) (Edit, BlueprintVisible)
+	struct FSlateBrush                                 HandleHighlightBrush;                                     // 0x0090(0x0088) (Edit, BlueprintVisible)
 };
 
 // ScriptStruct SlateCore.HeaderRowStyle
@@ -835,14 +835,6 @@ struct FExpandableAreaStyle : public FSlateWidgetStyle
 	unsigned char                                      UnknownData00[0x4];                                       // 0x011C(0x0004) MISSED OFFSET
 };
 
-// ScriptStruct SlateCore.InlineEditableTextBlockStyle
-// 0x09E0 (0x09E8 - 0x0008)
-struct FInlineEditableTextBlockStyle : public FSlateWidgetStyle
-{
-	struct FEditableTextBoxStyle                       EditableTextBoxStyle;                                     // 0x0008(0x07F8) (Edit, BlueprintVisible)
-	struct FTextBlockStyle                             TextStyle;                                                // 0x0800(0x01E8) (Edit, BlueprintVisible)
-};
-
 // ScriptStruct SlateCore.ProgressBarStyle
 // 0x0198 (0x01A0 - 0x0008)
 struct FProgressBarStyle : public FSlateWidgetStyle
@@ -850,6 +842,14 @@ struct FProgressBarStyle : public FSlateWidgetStyle
 	struct FSlateBrush                                 BackgroundImage;                                          // 0x0008(0x0088) (Edit, BlueprintVisible)
 	struct FSlateBrush                                 FillImage;                                                // 0x0090(0x0088) (Edit, BlueprintVisible)
 	struct FSlateBrush                                 MarqueeImage;                                             // 0x0118(0x0088) (Edit, BlueprintVisible)
+};
+
+// ScriptStruct SlateCore.InlineEditableTextBlockStyle
+// 0x09E0 (0x09E8 - 0x0008)
+struct FInlineEditableTextBlockStyle : public FSlateWidgetStyle
+{
+	struct FEditableTextBoxStyle                       EditableTextBoxStyle;                                     // 0x0008(0x07F8) (Edit, BlueprintVisible)
+	struct FTextBlockStyle                             TextStyle;                                                // 0x0800(0x01E8) (Edit, BlueprintVisible)
 };
 
 // ScriptStruct SlateCore.HyperlinkStyle

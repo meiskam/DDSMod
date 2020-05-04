@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,14 +13,13 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass PM_PatrolLead.PM_PatrolLead_C
-// 0x002A (0x0894 - 0x086A)
+// 0x0024 (0x0894 - 0x0870)
 class APM_PatrolLead_C : public APolicemanBaseClass_C
 {
 public:
-	unsigned char                                      UnknownData00[0x6];                                       // 0x086A(0x0006) MISSED OFFSET
 	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x0870(0x0008) (ZeroConstructor, Transient, DuplicateTransient)
 	bool                                               controlingPlayer;                                         // 0x0878(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0879(0x0007) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0879(0x0007) MISSED OFFSET
 	class UpoliceSearchWidget_C*                       controlWidget;                                            // 0x0880(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData)
 	float                                              controlTime;                                              // 0x0888(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              controlTimer;                                             // 0x088C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -35,7 +34,7 @@ public:
 
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float DeltaSeconds);
+	void ReceiveTick(float* DeltaSeconds);
 	void EngageSuspect();
 	void BndEvt__overlapDetector_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
 	void ControlEnded();

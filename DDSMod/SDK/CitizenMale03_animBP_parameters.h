@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -29,11 +29,6 @@ struct UCitizenMale03_animBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_Citiz
 {
 };
 
-// Function CitizenMale03_animBP.CitizenMale03_animBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_BlendSpacePlayer_4443FE4A4BC18FEB7F81BD834C88C1E2
-struct UCitizenMale03_animBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_BlendSpacePlayer_4443FE4A4BC18FEB7F81BD834C88C1E2_Params
-{
-};
-
 // Function CitizenMale03_animBP.CitizenMale03_animBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_TransitionResult_AE542AA94B7B457D5751EDB52EC232F9
 struct UCitizenMale03_animBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_TransitionResult_AE542AA94B7B457D5751EDB52EC232F9_Params
 {
@@ -42,7 +37,7 @@ struct UCitizenMale03_animBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_Citiz
 // Function CitizenMale03_animBP.CitizenMale03_animBP_C.BlueprintUpdateAnimation
 struct UCitizenMale03_animBP_C_BlueprintUpdateAnimation_Params
 {
-	float                                              DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float*                                             DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function CitizenMale03_animBP.CitizenMale03_animBP_C.ExecuteUbergraph_CitizenMale03_animBP

@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -78,11 +78,11 @@ class UWidget* UshadyCommInterface_C::Get_txtStatusDeliveryTime_ToolTipWidget_1(
 // Function shadyCommInterface.shadyCommInterface_C.countAverageSatisfaction
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// TArray<bool>                   clientsLost                    (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+// TArray<bool>                   ClientsLost                    (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 // TArray<float>                  ClientSatisfaction             (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 // TArray<int>                    ClientNumSales                 (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 
-void UshadyCommInterface_C::countAverageSatisfaction(TArray<bool>* clientsLost, TArray<float>* ClientSatisfaction, TArray<int>* ClientNumSales)
+void UshadyCommInterface_C::countAverageSatisfaction(TArray<bool>* ClientsLost, TArray<float>* ClientSatisfaction, TArray<int>* ClientNumSales)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function shadyCommInterface.shadyCommInterface_C.countAverageSatisfaction");
 
@@ -94,8 +94,8 @@ void UshadyCommInterface_C::countAverageSatisfaction(TArray<bool>* clientsLost, 
 
 	fn->FunctionFlags = flags;
 
-	if (clientsLost != nullptr)
-		*clientsLost = params.clientsLost;
+	if (ClientsLost != nullptr)
+		*ClientsLost = params.ClientsLost;
 	if (ClientSatisfaction != nullptr)
 		*ClientSatisfaction = params.ClientSatisfaction;
 	if (ClientNumSales != nullptr)
@@ -630,10 +630,10 @@ void UshadyCommInterface_C::Construct()
 // Function shadyCommInterface.shadyCommInterface_C.Tick
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// float                          InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// float*                         InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UshadyCommInterface_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
+void UshadyCommInterface_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function shadyCommInterface.shadyCommInterface_C.Tick");
 

@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -32,7 +32,7 @@ struct UappartmentModeWidget_C_Construct_Params
 // Function appartmentModeWidget.appartmentModeWidget_C.SetupWidget
 struct UappartmentModeWidget_C_SetupWidget_Params
 {
-	class ArentAppartmentArea_C*                       appartmentRef;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class ArentAppartmentArea_C*                       AppartmentRef;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function appartmentModeWidget.appartmentModeWidget_C.setNewObjectGizmo

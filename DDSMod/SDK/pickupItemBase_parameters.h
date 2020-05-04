@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -38,7 +38,7 @@ struct ApickupItemBase_C_pickupEventScript_Params
 struct ApickupItemBase_C_setupItem_Params
 {
 	struct FinventoryItemStruct                        Data;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm)
-	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	struct FText                                       Object_Name;                                              // (BlueprintVisible, BlueprintReadOnly, Parm)
 	struct FText                                       Action_Name;                                              // (BlueprintVisible, BlueprintReadOnly, Parm)
 	bool                                               Droped;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
@@ -54,7 +54,7 @@ struct ApickupItemBase_C_resetDroped_Params
 // Function pickupItemBase.pickupItemBase_C.ReceiveActorBeginOverlap
 struct ApickupItemBase_C_ReceiveActorBeginOverlap_Params
 {
-	class AActor*                                      OtherActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor**                                     OtherActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function pickupItemBase.pickupItemBase_C.ExecuteUbergraph_pickupItemBase

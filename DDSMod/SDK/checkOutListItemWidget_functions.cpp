@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -18,18 +18,18 @@ namespace SDK
 // Parameters:
 // struct FappartmentEquipment    Data                           (BlueprintVisible, BlueprintReadOnly, Parm)
 // float                          Price                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            Index                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // class UEquipmentShopInterfaceWidget_C* parentRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 
-void UcheckOutListItemWidget_C::setup(const struct FappartmentEquipment& Data, float Price, int quantity, int Index, class UEquipmentShopInterfaceWidget_C* parentRef)
+void UcheckOutListItemWidget_C::setup(const struct FappartmentEquipment& Data, float Price, int Quantity, int Index, class UEquipmentShopInterfaceWidget_C* parentRef)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function checkOutListItemWidget.checkOutListItemWidget_C.setup");
 
 	UcheckOutListItemWidget_C_setup_Params params;
 	params.Data = Data;
 	params.Price = Price;
-	params.quantity = quantity;
+	params.Quantity = Quantity;
 	params.Index = Index;
 	params.parentRef = parentRef;
 

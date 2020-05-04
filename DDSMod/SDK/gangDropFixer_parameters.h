@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -14,18 +14,23 @@ namespace SDK
 // Parameters
 //---------------------------------------------------------------------------
 
-// Function keijiTerritoryLook.keijiTerritoryLook_C.UserConstructionScript
-struct AkeijiTerritoryLook_C_UserConstructionScript_Params
+// Function gangDropFixer.gangDropFixer_C.UserConstructionScript
+struct AgangDropFixer_C_UserConstructionScript_Params
 {
 };
 
-// Function keijiTerritoryLook.keijiTerritoryLook_C.playerLookedAt
-struct AkeijiTerritoryLook_C_playerLookedAt_Params
+// Function gangDropFixer.gangDropFixer_C.ReceiveBeginPlay
+struct AgangDropFixer_C_ReceiveBeginPlay_Params
 {
 };
 
-// Function keijiTerritoryLook.keijiTerritoryLook_C.ExecuteUbergraph_keijiTerritoryLook
-struct AkeijiTerritoryLook_C_ExecuteUbergraph_keijiTerritoryLook_Params
+// Function gangDropFixer.gangDropFixer_C.breakLoop
+struct AgangDropFixer_C_breakLoop_Params
+{
+};
+
+// Function gangDropFixer.gangDropFixer_C.ExecuteUbergraph_gangDropFixer
+struct AgangDropFixer_C_ExecuteUbergraph_gangDropFixer_Params
 {
 	int                                                EntryPoint;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };

@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -122,7 +122,7 @@ struct AbaseNPC_C_setupNewDrugSale_Params
 {
 	struct FdrugData                                   drugData;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm)
 	int                                                DrugQuantity;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	struct FText                                       characterName;                                            // (BlueprintVisible, BlueprintReadOnly, Parm)
+	struct FText                                       CharacterName;                                            // (BlueprintVisible, BlueprintReadOnly, Parm)
 	float                                              expectedPrice;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	int                                                OrderId;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	int                                                TaskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
@@ -144,7 +144,7 @@ struct AbaseNPC_C_ReceiveBeginPlay_Params
 // Function baseNPC.baseNPC_C.ReceiveTick
 struct AbaseNPC_C_ReceiveTick_Params
 {
-	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function baseNPC.baseNPC_C.dialogueMode

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -74,6 +74,16 @@ enum class ESlateSizeRule : uint8_t
 };
 
 
+// Enum UMG.EUMGSequencePlayMode
+enum class EUMGSequencePlayMode : uint8_t
+{
+	EUMGSequencePlayMode__Forward  = 0,
+	EUMGSequencePlayMode__Reverse  = 1,
+	EUMGSequencePlayMode__PingPong = 2,
+	EUMGSequencePlayMode__EUMGSequencePlayMode_MAX = 3
+};
+
+
 // Enum UMG.EWidgetTickFrequency
 enum class EWidgetTickFrequency : uint8_t
 {
@@ -94,22 +104,21 @@ enum class EWidgetDesignFlags : uint8_t
 };
 
 
-// Enum UMG.EUMGSequencePlayMode
-enum class EUMGSequencePlayMode : uint8_t
-{
-	EUMGSequencePlayMode__Forward  = 0,
-	EUMGSequencePlayMode__Reverse  = 1,
-	EUMGSequencePlayMode__PingPong = 2,
-	EUMGSequencePlayMode__EUMGSequencePlayMode_MAX = 3
-};
-
-
 // Enum UMG.EBindingKind
 enum class EBindingKind : uint8_t
 {
 	EBindingKind__Function         = 0,
 	EBindingKind__Property         = 1,
 	EBindingKind__EBindingKind_MAX = 2
+};
+
+
+// Enum UMG.EWidgetGeometryMode
+enum class EWidgetGeometryMode : uint8_t
+{
+	EWidgetGeometryMode__Plane     = 0,
+	EWidgetGeometryMode__Cylinder  = 1,
+	EWidgetGeometryMode__EWidgetGeometryMode_MAX = 2
 };
 
 
@@ -123,12 +132,12 @@ enum class EWidgetBlendMode : uint8_t
 };
 
 
-// Enum UMG.EWidgetGeometryMode
-enum class EWidgetGeometryMode : uint8_t
+// Enum UMG.EWidgetTimingPolicy
+enum class EWidgetTimingPolicy : uint8_t
 {
-	EWidgetGeometryMode__Plane     = 0,
-	EWidgetGeometryMode__Cylinder  = 1,
-	EWidgetGeometryMode__EWidgetGeometryMode_MAX = 2
+	EWidgetTimingPolicy__RealTime  = 0,
+	EWidgetTimingPolicy__GameTime  = 1,
+	EWidgetTimingPolicy__EWidgetTimingPolicy_MAX = 2
 };
 
 
@@ -149,15 +158,6 @@ enum class EWidgetInteractionSource : uint8_t
 	EWidgetInteractionSource__CenterScreen = 2,
 	EWidgetInteractionSource__Custom = 3,
 	EWidgetInteractionSource__EWidgetInteractionSource_MAX = 4
-};
-
-
-// Enum UMG.EWidgetTimingPolicy
-enum class EWidgetTimingPolicy : uint8_t
-{
-	EWidgetTimingPolicy__RealTime  = 0,
-	EWidgetTimingPolicy__GameTime  = 1,
-	EWidgetTimingPolicy__EWidgetTimingPolicy_MAX = 2
 };
 
 
@@ -313,6 +313,13 @@ struct FMovieSceneMarginSectionTemplate : public FMovieScenePropertySectionTempl
 	unsigned char                                      UnknownData00[0x7];                                       // 0x02C9(0x0007) MISSED OFFSET
 };
 
+// ScriptStruct UMG.MovieSceneWidgetMaterialSectionTemplate
+// 0x0010 (0x0060 - 0x0050)
+struct FMovieSceneWidgetMaterialSectionTemplate : public FMovieSceneParameterSectionTemplate
+{
+	TArray<struct FName>                               BrushPropertyNamePath;                                    // 0x0050(0x0010) (ZeroConstructor)
+};
+
 // ScriptStruct UMG.RichTextStyleRow
 // 0x01E8 (0x01F0 - 0x0008)
 struct FRichTextStyleRow : public FTableRowBase
@@ -325,13 +332,6 @@ struct FRichTextStyleRow : public FTableRowBase
 struct FRichImageRow : public FTableRowBase
 {
 	struct FSlateBrush                                 Brush;                                                    // 0x0008(0x0088) (Edit)
-};
-
-// ScriptStruct UMG.MovieSceneWidgetMaterialSectionTemplate
-// 0x0010 (0x0060 - 0x0050)
-struct FMovieSceneWidgetMaterialSectionTemplate : public FMovieSceneParameterSectionTemplate
-{
-	TArray<struct FName>                               BrushPropertyNamePath;                                    // 0x0050(0x0010) (ZeroConstructor)
 };
 
 }

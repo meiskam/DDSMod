@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -144,9 +144,9 @@ void AeddieFirstDialogue_C::ReceiveBeginPlay()
 // Function eddieFirstDialogue.eddieFirstDialogue_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AeddieFirstDialogue_C::ReceiveTick(float DeltaSeconds)
+void AeddieFirstDialogue_C::ReceiveTick(float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function eddieFirstDialogue.eddieFirstDialogue_C.ReceiveTick");
 
@@ -208,14 +208,14 @@ void AeddieFirstDialogue_C::playInpatientQuote()
 }
 
 
-// Function eddieFirstDialogue.eddieFirstDialogue_C.PlayerSatDown
+// Function eddieFirstDialogue.eddieFirstDialogue_C.playerSatDown
 // (BlueprintCallable, BlueprintEvent)
 
-void AeddieFirstDialogue_C::PlayerSatDown()
+void AeddieFirstDialogue_C::playerSatDown()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function eddieFirstDialogue.eddieFirstDialogue_C.PlayerSatDown");
+	static auto fn = UObject::FindObject<UFunction>("Function eddieFirstDialogue.eddieFirstDialogue_C.playerSatDown");
 
-	AeddieFirstDialogue_C_PlayerSatDown_Params params;
+	AeddieFirstDialogue_C_playerSatDown_Params params;
 
 	auto flags = fn->FunctionFlags;
 

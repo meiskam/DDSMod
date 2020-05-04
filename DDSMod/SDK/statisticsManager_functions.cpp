@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -310,9 +310,9 @@ void AstatisticsManager_C::ReceiveBeginPlay()
 // Function statisticsManager.statisticsManager_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AstatisticsManager_C::ReceiveTick(float DeltaSeconds)
+void AstatisticsManager_C::ReceiveTick(float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function statisticsManager.statisticsManager_C.ReceiveTick");
 

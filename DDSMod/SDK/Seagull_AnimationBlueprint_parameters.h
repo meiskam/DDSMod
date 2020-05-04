@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -22,7 +22,7 @@ struct USeagull_AnimationBlueprint_C_EvaluateGraphExposedInputs_ExecuteUbergraph
 // Function Seagull_AnimationBlueprint.Seagull_AnimationBlueprint_C.BlueprintUpdateAnimation
 struct USeagull_AnimationBlueprint_C_BlueprintUpdateAnimation_Params
 {
-	float                                              DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float*                                             DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Seagull_AnimationBlueprint.Seagull_AnimationBlueprint_C.AnimNotify_IdleEnd

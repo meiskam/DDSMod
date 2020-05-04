@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -26,7 +26,7 @@ public:
 	}
 
 
-	void ReceiveTick(class AActor* OwnerActor, float DeltaSeconds);
+	void ReceiveTick(class AActor** OwnerActor, float* DeltaSeconds);
 	void ExecuteUbergraph_checkDistanceToLeash(int EntryPoint);
 };
 

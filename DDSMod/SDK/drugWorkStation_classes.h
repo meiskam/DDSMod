@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass drugWorkStation.drugWorkStation_C
-// 0x00A3 (0x0494 - 0x03F1)
+// 0x00A4 (0x0495 - 0x03F1)
 class AdrugWorkStation_C : public AinteractiveBaseObject_C
 {
 public:
@@ -42,6 +42,7 @@ public:
 	unsigned char                                      UnknownData03[0x7];                                       // 0x0471(0x0007) MISSED OFFSET
 	struct FText                                       actionKeyName;                                            // 0x0478(0x0018) (Edit, BlueprintVisible, DisableEditOnInstance)
 	int                                                objectsOnStation;                                         // 0x0490(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               respawned;                                                // 0x0494(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -50,6 +51,7 @@ public:
 	}
 
 
+	void respawnWorkStation();
 	void checkHasEquipment(bool* hasEquipment);
 	void displayInteractionError();
 	void eqGizmoUpdate();
@@ -65,7 +67,7 @@ public:
 	void ShiftHeldDown();
 	void ShiftReleased();
 	void placeCurObject();
-	void ReceiveTick(float DeltaSeconds);
+	void ReceiveTick(float* DeltaSeconds);
 	void ReceiveBeginPlay();
 	void scrollOneUp();
 	void scrollOneDown();

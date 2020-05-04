@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -19,6 +19,111 @@ struct UAIAsyncTaskBlueprintProxy_OnMoveCompleted_Params
 {
 	struct FAIRequestID                                RequestID;                                                // (Parm)
 	TEnumAsByte<EPathFollowingResult>                  MovementResult;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AIBlueprintHelperLibrary.UnlockAIResourcesWithAnimation
+struct UAIBlueprintHelperLibrary_UnlockAIResourcesWithAnimation_Params
+{
+	class UAnimInstance*                               AnimInstance;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bUnlockMovement;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               UnlockAILogic;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AIBlueprintHelperLibrary.SpawnAIFromClass
+struct UAIBlueprintHelperLibrary_SpawnAIFromClass_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      PawnClass;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	class UBehaviorTree*                               BehaviorTree;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     Location;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FRotator                                    Rotation;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bNoCollisionFail;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AIModule.AIBlueprintHelperLibrary.SimpleMoveToLocation
+struct UAIBlueprintHelperLibrary_SimpleMoveToLocation_Params
+{
+	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     Goal;                                                     // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+};
+
+// Function AIModule.AIBlueprintHelperLibrary.SimpleMoveToActor
+struct UAIBlueprintHelperLibrary_SimpleMoveToActor_Params
+{
+	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      Goal;                                                     // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AIBlueprintHelperLibrary.SendAIMessage
+struct UAIBlueprintHelperLibrary_SendAIMessage_Params
+{
+	class APawn*                                       Target;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       Message;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	class UObject*                                     MessageSource;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bSuccess;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AIBlueprintHelperLibrary.LockAIResourcesWithAnimation
+struct UAIBlueprintHelperLibrary_LockAIResourcesWithAnimation_Params
+{
+	class UAnimInstance*                               AnimInstance;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bLockMovement;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               LockAILogic;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AIBlueprintHelperLibrary.IsValidAIRotation
+struct UAIBlueprintHelperLibrary_IsValidAIRotation_Params
+{
+	struct FRotator                                    Rotation;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AIModule.AIBlueprintHelperLibrary.IsValidAILocation
+struct UAIBlueprintHelperLibrary_IsValidAILocation_Params
+{
+	struct FVector                                     Location;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AIModule.AIBlueprintHelperLibrary.IsValidAIDirection
+struct UAIBlueprintHelperLibrary_IsValidAIDirection_Params
+{
+	struct FVector                                     DirectionVector;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AIModule.AIBlueprintHelperLibrary.GetCurrentPath
+struct UAIBlueprintHelperLibrary_GetCurrentPath_Params
+{
+	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	class UNavigationPath*                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AIModule.AIBlueprintHelperLibrary.GetBlackboard
+struct UAIBlueprintHelperLibrary_GetBlackboard_Params
+{
+	class AActor*                                      Target;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	class UBlackboardComponent*                        ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+};
+
+// Function AIModule.AIBlueprintHelperLibrary.GetAIController
+struct UAIBlueprintHelperLibrary_GetAIController_Params
+{
+	class AActor*                                      ControlledActor;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	class AAIController*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AIModule.AIBlueprintHelperLibrary.CreateMoveToProxyObject
+struct UAIBlueprintHelperLibrary_CreateMoveToProxyObject_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       Pawn;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     Destination;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      TargetActor;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              AcceptanceRadius;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bStopOnOverlap;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	class UAIAsyncTaskBlueprintProxy*                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function AIModule.AIController.UseBlackboard
@@ -928,66 +1033,6 @@ struct UBTFunctionLibrary_ClearBlackboardValue_Params
 	struct FBlackboardKeySelector                      Key;                                                      // (ConstParm, Parm, OutParm, ReferenceParm)
 };
 
-// Function AIModule.BTService_BlueprintBase.ReceiveTickAI
-struct UBTService_BlueprintBase_ReceiveTickAI_Params
-{
-	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              DeltaSeconds;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveTick
-struct UBTService_BlueprintBase_ReceiveTick_Params
-{
-	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              DeltaSeconds;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveSearchStartAI
-struct UBTService_BlueprintBase_ReceiveSearchStartAI_Params
-{
-	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveSearchStart
-struct UBTService_BlueprintBase_ReceiveSearchStart_Params
-{
-	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveDeactivationAI
-struct UBTService_BlueprintBase_ReceiveDeactivationAI_Params
-{
-	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveDeactivation
-struct UBTService_BlueprintBase_ReceiveDeactivation_Params
-{
-	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveActivationAI
-struct UBTService_BlueprintBase_ReceiveActivationAI_Params
-{
-	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.ReceiveActivation
-struct UBTService_BlueprintBase_ReceiveActivation_Params
-{
-	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.BTService_BlueprintBase.IsServiceActive
-struct UBTService_BlueprintBase_IsServiceActive_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function AIModule.BTTask_BlueprintBase.SetFinishOnMessageWithId
 struct UBTTask_BlueprintBase_SetFinishOnMessageWithId_Params
 {
@@ -1065,109 +1110,64 @@ struct UBTTask_BlueprintBase_FinishAbort_Params
 {
 };
 
-// Function AIModule.AIBlueprintHelperLibrary.UnlockAIResourcesWithAnimation
-struct UAIBlueprintHelperLibrary_UnlockAIResourcesWithAnimation_Params
+// Function AIModule.BTService_BlueprintBase.ReceiveTickAI
+struct UBTService_BlueprintBase_ReceiveTickAI_Params
 {
-	class UAnimInstance*                               AnimInstance;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bUnlockMovement;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               UnlockAILogic;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function AIModule.AIBlueprintHelperLibrary.SpawnAIFromClass
-struct UAIBlueprintHelperLibrary_SpawnAIFromClass_Params
+// Function AIModule.BTService_BlueprintBase.ReceiveTick
+struct UBTService_BlueprintBase_ReceiveTick_Params
 {
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      PawnClass;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	class UBehaviorTree*                               BehaviorTree;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     Location;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FRotator                                    Rotation;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bNoCollisionFail;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	class APawn*                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function AIModule.AIBlueprintHelperLibrary.SimpleMoveToLocation
-struct UAIBlueprintHelperLibrary_SimpleMoveToLocation_Params
+// Function AIModule.BTService_BlueprintBase.ReceiveSearchStartAI
+struct UBTService_BlueprintBase_ReceiveSearchStartAI_Params
 {
-	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     Goal;                                                     // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function AIModule.AIBlueprintHelperLibrary.SimpleMoveToActor
-struct UAIBlueprintHelperLibrary_SimpleMoveToActor_Params
+// Function AIModule.BTService_BlueprintBase.ReceiveSearchStart
+struct UBTService_BlueprintBase_ReceiveSearchStart_Params
 {
-	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      Goal;                                                     // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function AIModule.AIBlueprintHelperLibrary.SendAIMessage
-struct UAIBlueprintHelperLibrary_SendAIMessage_Params
+// Function AIModule.BTService_BlueprintBase.ReceiveDeactivationAI
+struct UBTService_BlueprintBase_ReceiveDeactivationAI_Params
 {
-	class APawn*                                       Target;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       Message;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	class UObject*                                     MessageSource;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bSuccess;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function AIModule.AIBlueprintHelperLibrary.LockAIResourcesWithAnimation
-struct UAIBlueprintHelperLibrary_LockAIResourcesWithAnimation_Params
+// Function AIModule.BTService_BlueprintBase.ReceiveDeactivation
+struct UBTService_BlueprintBase_ReceiveDeactivation_Params
 {
-	class UAnimInstance*                               AnimInstance;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bLockMovement;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               LockAILogic;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function AIModule.AIBlueprintHelperLibrary.IsValidAIRotation
-struct UAIBlueprintHelperLibrary_IsValidAIRotation_Params
+// Function AIModule.BTService_BlueprintBase.ReceiveActivationAI
+struct UBTService_BlueprintBase_ReceiveActivationAI_Params
 {
-	struct FRotator                                    Rotation;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	class AAIController*                               OwnerController;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       ControlledPawn;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.BTService_BlueprintBase.ReceiveActivation
+struct UBTService_BlueprintBase_ReceiveActivation_Params
+{
+	class AActor*                                      OwnerActor;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.BTService_BlueprintBase.IsServiceActive
+struct UBTService_BlueprintBase_IsServiceActive_Params
+{
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function AIModule.AIBlueprintHelperLibrary.IsValidAILocation
-struct UAIBlueprintHelperLibrary_IsValidAILocation_Params
-{
-	struct FVector                                     Location;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function AIModule.AIBlueprintHelperLibrary.IsValidAIDirection
-struct UAIBlueprintHelperLibrary_IsValidAIDirection_Params
-{
-	struct FVector                                     DirectionVector;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function AIModule.AIBlueprintHelperLibrary.GetCurrentPath
-struct UAIBlueprintHelperLibrary_GetCurrentPath_Params
-{
-	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	class UNavigationPath*                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function AIModule.AIBlueprintHelperLibrary.GetBlackboard
-struct UAIBlueprintHelperLibrary_GetBlackboard_Params
-{
-	class AActor*                                      Target;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	class UBlackboardComponent*                        ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
-};
-
-// Function AIModule.AIBlueprintHelperLibrary.GetAIController
-struct UAIBlueprintHelperLibrary_GetAIController_Params
-{
-	class AActor*                                      ControlledActor;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	class AAIController*                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function AIModule.AIBlueprintHelperLibrary.CreateMoveToProxyObject
-struct UAIBlueprintHelperLibrary_CreateMoveToProxyObject_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class APawn*                                       Pawn;                                                     // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     Destination;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      TargetActor;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              AcceptanceRadius;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bStopOnOverlap;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-	class UAIAsyncTaskBlueprintProxy*                  ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function AIModule.PathFollowingComponent.OnNavDataRegistered

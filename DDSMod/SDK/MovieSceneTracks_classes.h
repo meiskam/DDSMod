@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -595,6 +595,23 @@ public:
 };
 
 
+// Class MovieSceneTracks.MovieSceneEventSection
+// 0x00F0 (0x01D0 - 0x00E0)
+class UMovieSceneEventSection : public UMovieSceneSection
+{
+public:
+	struct FNameCurve                                  Events;                                                   // 0x00E0(0x0068) (Deprecated)
+	struct FMovieSceneEventSectionData                 EventData;                                                // 0x0148(0x0088)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MovieSceneTracks.MovieSceneEventSection");
+		return ptr;
+	}
+
+};
+
+
 // Class MovieSceneTracks.MovieSceneEventTrack
 // 0x0028 (0x0080 - 0x0058)
 class UMovieSceneEventTrack : public UMovieSceneNameableTrack
@@ -691,23 +708,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class MovieSceneTracks.MovieSceneFadeTrack");
-		return ptr;
-	}
-
-};
-
-
-// Class MovieSceneTracks.MovieSceneEventSection
-// 0x00F0 (0x01D0 - 0x00E0)
-class UMovieSceneEventSection : public UMovieSceneSection
-{
-public:
-	struct FNameCurve                                  Events;                                                   // 0x00E0(0x0068) (Deprecated)
-	struct FMovieSceneEventSectionData                 EventData;                                                // 0x0148(0x0088)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MovieSceneTracks.MovieSceneEventSection");
 		return ptr;
 	}
 
@@ -822,6 +822,24 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class MovieSceneTracks.MovieSceneComponentMaterialTrack");
+		return ptr;
+	}
+
+};
+
+
+// Class MovieSceneTracks.MovieSceneParameterSection
+// 0x0030 (0x0110 - 0x00E0)
+class UMovieSceneParameterSection : public UMovieSceneSection
+{
+public:
+	TArray<struct FScalarParameterNameAndCurve>        ScalarParameterNamesAndCurves;                            // 0x00E0(0x0010) (ZeroConstructor)
+	TArray<struct FVectorParameterNameAndCurves>       VectorParameterNamesAndCurves;                            // 0x00F0(0x0010) (ZeroConstructor)
+	TArray<struct FColorParameterNameAndCurves>        ColorParameterNamesAndCurves;                             // 0x0100(0x0010) (ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MovieSceneTracks.MovieSceneParameterSection");
 		return ptr;
 	}
 
@@ -1011,18 +1029,15 @@ public:
 };
 
 
-// Class MovieSceneTracks.MovieSceneParameterSection
-// 0x0030 (0x0110 - 0x00E0)
-class UMovieSceneParameterSection : public UMovieSceneSection
+// Class MovieSceneTracks.MovieSceneTransformTrack
+// 0x0000 (0x0080 - 0x0080)
+class UMovieSceneTransformTrack : public UMovieScenePropertyTrack
 {
 public:
-	TArray<struct FScalarParameterNameAndCurve>        ScalarParameterNamesAndCurves;                            // 0x00E0(0x0010) (ZeroConstructor)
-	TArray<struct FVectorParameterNameAndCurves>       VectorParameterNamesAndCurves;                            // 0x00F0(0x0010) (ZeroConstructor)
-	TArray<struct FColorParameterNameAndCurves>        ColorParameterNamesAndCurves;                             // 0x0100(0x0010) (ZeroConstructor)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class MovieSceneTracks.MovieSceneParameterSection");
+		static auto ptr = UObject::FindClass("Class MovieSceneTracks.MovieSceneTransformTrack");
 		return ptr;
 	}
 
@@ -1058,21 +1073,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class MovieSceneTracks.MovieSceneVectorTrack");
-		return ptr;
-	}
-
-};
-
-
-// Class MovieSceneTracks.MovieSceneTransformTrack
-// 0x0000 (0x0080 - 0x0080)
-class UMovieSceneTransformTrack : public UMovieScenePropertyTrack
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MovieSceneTracks.MovieSceneTransformTrack");
 		return ptr;
 	}
 

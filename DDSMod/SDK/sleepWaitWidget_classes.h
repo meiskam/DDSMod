@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // WidgetBlueprintGeneratedClass sleepWaitWidget.sleepWaitWidget_C
-// 0x00B8 (0x02C0 - 0x0208)
+// 0x00C0 (0x02C8 - 0x0208)
 class UsleepWaitWidget_C : public UUserWidget
 {
 public:
@@ -44,6 +44,7 @@ public:
 	int                                                couchWaitMultiplier;                                      // 0x02B4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	int                                                bedWaitMultiplier;                                        // 0x02B8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	int                                                endWaitMultiplier;                                        // 0x02BC(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	class UAudioComponent*                             musicLoop;                                                // 0x02C0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -53,7 +54,7 @@ public:
 
 
 	void Construct();
-	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
+	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
 	void changeHour(float Value);
 	void changeMinute(float Value);
 	void BndEvt__btnSubHour_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();

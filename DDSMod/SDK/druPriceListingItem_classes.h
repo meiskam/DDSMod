@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -45,7 +45,7 @@ public:
 	}
 
 
-	void setup(const struct FdrugData& drugData, float BuyPrice, float CurSellPrice, int DrugIndex, class AmainComputer_C* ComputerRef, bool firstLocked);
+	void setup(const struct FdrugData& drugData, float BuyPrice, float CurSellPrice, int DrugIndex, class AmainComputer_C* computerRef, bool firstLocked);
 	void BndEvt__btnPriceLower_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__btnDisableEnable_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__btnUnlockDrug_K2Node_ComponentBoundEvent_2_OnButtonClickedEvent__DelegateSignature();

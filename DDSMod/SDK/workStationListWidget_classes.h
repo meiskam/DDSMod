@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -26,7 +26,7 @@ public:
 	class UTextBlock*                                  txtNam;                                                   // 0x0238(0x0008) (BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, RepSkip, RepNotify, Interp, NonTransactional, EditorOnly, NoDestructor, AutoWeak, ContainsInstancedReference, AssetRegistrySearchable, SimpleDisplay, AdvancedDisplay, Protected, BlueprintCallable, BlueprintAuthorityOnly, TextExportTransient, NonPIEDuplicateTransient, ExposeOnSpawn, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, NativeAccessSpecifierProtected, NativeAccessSpecifierPrivate)
 	class UTextBlock*                                  txtQuan;                                                  // 0x0240(0x0008) (BlueprintVisible, ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData, RepSkip, RepNotify, Interp, NonTransactional, EditorOnly, NoDestructor, AutoWeak, ContainsInstancedReference, AssetRegistrySearchable, SimpleDisplay, AdvancedDisplay, Protected, BlueprintCallable, BlueprintAuthorityOnly, TextExportTransient, NonPIEDuplicateTransient, ExposeOnSpawn, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, NativeAccessSpecifierProtected, NativeAccessSpecifierPrivate)
 	struct FText                                       itemDescription;                                          // 0x0248(0x0018) (Edit, BlueprintVisible, DisableEditOnInstance)
-	int                                                quantity;                                                 // 0x0260(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                Quantity;                                                 // 0x0260(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0264(0x0004) MISSED OFFSET
 	struct FinventoryItemStruct                        invData;                                                  // 0x0268(0x0108) (Edit, BlueprintVisible, DisableEditOnInstance)
 	struct FappartmentEquipment                        eqData;                                                   // 0x0370(0x0050) (Edit, BlueprintVisible, DisableEditOnInstance)
@@ -38,7 +38,7 @@ public:
 	}
 
 
-	void setup(const struct FinventoryItemStruct& InventoryData, int quantity, bool equipment, const struct FappartmentEquipment& eqData, bool selected);
+	void setup(const struct FinventoryItemStruct& InventoryData, int Quantity, bool equipment, const struct FappartmentEquipment& eqData, bool selected);
 	void ExecuteUbergraph_workStationListWidget(int EntryPoint);
 };
 

@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -141,14 +141,14 @@ void AkeijiBP_C::ReceiveBeginPlay()
 }
 
 
-// Function keijiBP.keijiBP_C.PlayerSatDown
+// Function keijiBP.keijiBP_C.playerSatDown
 // (BlueprintCallable, BlueprintEvent)
 
-void AkeijiBP_C::PlayerSatDown()
+void AkeijiBP_C::playerSatDown()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function keijiBP.keijiBP_C.PlayerSatDown");
+	static auto fn = UObject::FindObject<UFunction>("Function keijiBP.keijiBP_C.playerSatDown");
 
-	AkeijiBP_C_PlayerSatDown_Params params;
+	AkeijiBP_C_playerSatDown_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -293,9 +293,9 @@ void AkeijiBP_C::hearYa()
 // Function keijiBP.keijiBP_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AkeijiBP_C::ReceiveTick(float DeltaSeconds)
+void AkeijiBP_C::ReceiveTick(float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function keijiBP.keijiBP_C.ReceiveTick");
 

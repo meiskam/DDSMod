@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -101,9 +101,9 @@ void AAdaptiveMusic_BP_C::endChaseMusic()
 // Function AdaptiveMusic_BP.AdaptiveMusic_BP_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AAdaptiveMusic_BP_C::ReceiveTick(float DeltaSeconds)
+void AAdaptiveMusic_BP_C::ReceiveTick(float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function AdaptiveMusic_BP.AdaptiveMusic_BP_C.ReceiveTick");
 
@@ -138,14 +138,14 @@ void AAdaptiveMusic_BP_C::InitiateMe(class AplayerCharacterBP_C* playerRef)
 }
 
 
-// Function AdaptiveMusic_BP.AdaptiveMusic_BP_C.startChaseMusic
+// Function AdaptiveMusic_BP.AdaptiveMusic_BP_C.StartChaseMusic
 // (BlueprintCallable, BlueprintEvent)
 
-void AAdaptiveMusic_BP_C::startChaseMusic()
+void AAdaptiveMusic_BP_C::StartChaseMusic()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function AdaptiveMusic_BP.AdaptiveMusic_BP_C.startChaseMusic");
+	static auto fn = UObject::FindObject<UFunction>("Function AdaptiveMusic_BP.AdaptiveMusic_BP_C.StartChaseMusic");
 
-	AAdaptiveMusic_BP_C_startChaseMusic_Params params;
+	AAdaptiveMusic_BP_C_StartChaseMusic_Params params;
 
 	auto flags = fn->FunctionFlags;
 

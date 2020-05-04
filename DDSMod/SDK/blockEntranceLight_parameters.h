@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -31,6 +31,11 @@ struct AblockEntranceLight_C_turnLightOn_Params
 
 // Function blockEntranceLight.blockEntranceLight_C.turnLightOff
 struct AblockEntranceLight_C_turnLightOff_Params
+{
+};
+
+// Function blockEntranceLight.blockEntranceLight_C.testDistance
+struct AblockEntranceLight_C_testDistance_Params
 {
 };
 

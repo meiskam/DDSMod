@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // AnimBlueprintGeneratedClass CitizenMale03_animBP.CitizenMale03_animBP_C
-// 0x0578 (0x08D8 - 0x0360)
+// 0x057C (0x08DC - 0x0360)
 class UCitizenMale03_animBP_C : public UAnimInstance
 {
 public:
@@ -32,6 +32,7 @@ public:
 	struct FAnimNode_StateMachine                      AnimGraphNode_StateMachine_237D71224AB499B3A59BF983A0846508;// 0x07F0(0x00E0)
 	float                                              RotRate;                                                  // 0x08D0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              Speed;                                                    // 0x08D4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              Velocity;                                                 // 0x08D8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -43,9 +44,8 @@ public:
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_TransitionResult_71BEB6F646831C3C4EB2E396EF02B1DA();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_TransitionResult_800789BC469BA5C983354C9A7881531A();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_TransitionResult_55B0C9EE493AF45A9A1EBD9C6A7C3B11();
-	void EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_BlendSpacePlayer_4443FE4A4BC18FEB7F81BD834C88C1E2();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_TransitionResult_AE542AA94B7B457D5751EDB52EC232F9();
-	void BlueprintUpdateAnimation(float DeltaTimeX);
+	void BlueprintUpdateAnimation(float* DeltaTimeX);
 	void ExecuteUbergraph_CitizenMale03_animBP(int EntryPoint);
 };
 

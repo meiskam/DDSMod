@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,23 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function drugWorkStation.drugWorkStation_C.respawnWorkStation
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void AdrugWorkStation_C::respawnWorkStation()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function drugWorkStation.drugWorkStation_C.respawnWorkStation");
+
+	AdrugWorkStation_C_respawnWorkStation_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function drugWorkStation.drugWorkStation_C.checkHasEquipment
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent)
@@ -281,9 +298,9 @@ void AdrugWorkStation_C::placeCurObject()
 // Function drugWorkStation.drugWorkStation_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AdrugWorkStation_C::ReceiveTick(float DeltaSeconds)
+void AdrugWorkStation_C::ReceiveTick(float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function drugWorkStation.drugWorkStation_C.ReceiveTick");
 

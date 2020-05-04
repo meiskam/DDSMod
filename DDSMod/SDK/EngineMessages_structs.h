@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -35,6 +35,14 @@ struct FEngineServiceExecuteCommand
 	struct FString                                     UserName;                                                 // 0x0010(0x0010) (Edit, ZeroConstructor)
 };
 
+// ScriptStruct EngineMessages.EngineServiceAuthGrant
+// 0x0020
+struct FEngineServiceAuthGrant
+{
+	struct FString                                     UserName;                                                 // 0x0000(0x0010) (Edit, ZeroConstructor)
+	struct FString                                     UserToGrant;                                              // 0x0010(0x0010) (Edit, ZeroConstructor)
+};
+
 // ScriptStruct EngineMessages.EngineServiceAuthDeny
 // 0x0020
 struct FEngineServiceAuthDeny
@@ -56,14 +64,6 @@ struct FEngineServicePong
 	struct FGuid                                       SessionId;                                                // 0x0038(0x0010) (Edit, ZeroConstructor, IsPlainOldData)
 	float                                              WorldTimeSeconds;                                         // 0x0048(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x4];                                       // 0x004C(0x0004) MISSED OFFSET
-};
-
-// ScriptStruct EngineMessages.EngineServiceAuthGrant
-// 0x0020
-struct FEngineServiceAuthGrant
-{
-	struct FString                                     UserName;                                                 // 0x0000(0x0010) (Edit, ZeroConstructor)
-	struct FString                                     UserToGrant;                                              // 0x0010(0x0010) (Edit, ZeroConstructor)
 };
 
 // ScriptStruct EngineMessages.EngineServicePing

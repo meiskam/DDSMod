@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -24,7 +24,7 @@ public:
 	class USceneComponent*                             DefaultSceneRoot;                                         // 0x0348(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	struct FText                                       SalePointName;                                            // 0x0350(0x0018) (Edit, BlueprintVisible)
 	bool                                               nightTime;                                                // 0x0368(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	bool                                               occupied;                                                 // 0x0369(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               Occupied;                                                 // 0x0369(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x2];                                       // 0x036A(0x0002) MISSED OFFSET
 	float                                              occupyTime;                                               // 0x036C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
@@ -37,7 +37,7 @@ public:
 
 	void peopleOverlaping(bool* Clear);
 	void UserConstructionScript();
-	void ReceiveTick(float DeltaSeconds);
+	void ReceiveTick(float* DeltaSeconds);
 	void ExecuteUbergraph_DrugSalePoint(int EntryPoint);
 };
 

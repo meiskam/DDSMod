@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -49,32 +49,6 @@ struct UGameplayTask_ClaimResource_ClaimResource_Params
 	class UGameplayTask_ClaimResource*                 ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function GameplayTasks.GameplayTask_SpawnActor.SpawnActor
-struct UGameplayTask_SpawnActor_SpawnActor_Params
-{
-	TScriptInterface<class UGameplayTaskOwnerInterface> TaskOwner;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     SpawnLocation;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FRotator                                    SpawnRotation;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Class;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bSpawnOnlyOnAuthority;                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	class UGameplayTask_SpawnActor*                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function GameplayTasks.GameplayTask_SpawnActor.FinishSpawningActor
-struct UGameplayTask_SpawnActor_FinishSpawningActor_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      SpawnedActor;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function GameplayTasks.GameplayTask_SpawnActor.BeginSpawningActor
-struct UGameplayTask_SpawnActor_BeginSpawningActor_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      SpawnedActor;                                             // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function GameplayTasks.GameplayTask_WaitDelay.TaskWaitDelay
 struct UGameplayTask_WaitDelay_TaskWaitDelay_Params
 {
@@ -103,6 +77,32 @@ struct UGameplayTasksComponent_K2_RunGameplayTask_Params
 	TArray<class UClass*>                              AdditionalRequiredResources;                              // (Parm, ZeroConstructor)
 	TArray<class UClass*>                              AdditionalClaimedResources;                               // (Parm, ZeroConstructor)
 	EGameplayTaskRunResult                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function GameplayTasks.GameplayTask_SpawnActor.SpawnActor
+struct UGameplayTask_SpawnActor_SpawnActor_Params
+{
+	TScriptInterface<class UGameplayTaskOwnerInterface> TaskOwner;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     SpawnLocation;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FRotator                                    SpawnRotation;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Class;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bSpawnOnlyOnAuthority;                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	class UGameplayTask_SpawnActor*                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function GameplayTasks.GameplayTask_SpawnActor.FinishSpawningActor
+struct UGameplayTask_SpawnActor_FinishSpawningActor_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      SpawnedActor;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function GameplayTasks.GameplayTask_SpawnActor.BeginSpawningActor
+struct UGameplayTask_SpawnActor_BeginSpawningActor_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      SpawnedActor;                                             // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 }

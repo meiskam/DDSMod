@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass gangManager.gangManager_C
-// 0x0090 (0x03B8 - 0x0328)
+// 0x0094 (0x03BC - 0x0328)
 class AgangManager_C : public AActor
 {
 public:
@@ -51,6 +51,7 @@ public:
 	bool                                               blockNewOrder;                                            // 0x03B0(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData04[0x3];                                       // 0x03B1(0x0003) MISSED OFFSET
 	float                                              gangSatisfactionMax;                                      // 0x03B4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                gangLevel;                                                // 0x03B8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -59,6 +60,7 @@ public:
 	}
 
 
+	void gangLevelLimitRaise();
 	void reconstructOrderFlow();
 	void reconstructDropRef();
 	void modifyGangSatisfaction(float Value);
@@ -67,10 +69,10 @@ public:
 	void getFinaliseTaskDescription(struct FText* Text);
 	void testDropForQuantity();
 	void checkOrderDrop(bool* OrderOK);
-	void sendGangOrder(bool SkipMessage, int ExpectedDrugID, float ExpectedDrugMinQuality, int packageSizes, int packageQuantity);
+	void sendGangOrder(bool SkipMessage, int ExpectedDrugID, float ExpectedDrugMinQuality, int PackageSizes, int PackageQuantity);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float DeltaSeconds);
+	void ReceiveTick(float* DeltaSeconds);
 	void unlockKeijiGang();
 	void unlockBallenaGang();
 	void retryInitiate();

@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,9 +16,9 @@ namespace SDK
 // Function workStationManualListWidget.workStationManualListWidget_C.PreConstruct
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// bool                           IsDesignTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool*                          IsDesignTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UworkStationManualListWidget_C::PreConstruct(bool IsDesignTime)
+void UworkStationManualListWidget_C::PreConstruct(bool* IsDesignTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function workStationManualListWidget.workStationManualListWidget_C.PreConstruct");
 

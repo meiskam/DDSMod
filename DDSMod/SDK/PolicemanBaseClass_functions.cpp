@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -55,7 +55,7 @@ void APolicemanBaseClass_C::checkCanSpotPlayer(bool* canSpot)
 // Function PolicemanBaseClass.PolicemanBaseClass_C.checkBallenaProtection
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
-// bool                           protected                      (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           isProtected                      (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
 void APolicemanBaseClass_C::checkBallenaProtection(bool* isProtected)
 {
@@ -97,14 +97,14 @@ void APolicemanBaseClass_C::checkPlayerRunning(float Delta)
 // Function PolicemanBaseClass.PolicemanBaseClass_C.finishChasing
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           stayAlerted                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           StayAlerted                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void APolicemanBaseClass_C::finishChasing(bool stayAlerted)
+void APolicemanBaseClass_C::finishChasing(bool StayAlerted)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function PolicemanBaseClass.PolicemanBaseClass_C.finishChasing");
 
 	APolicemanBaseClass_C_finishChasing_Params params;
-	params.stayAlerted = stayAlerted;
+	params.StayAlerted = StayAlerted;
 
 	auto flags = fn->FunctionFlags;
 
@@ -322,9 +322,9 @@ void APolicemanBaseClass_C::UserConstructionScript()
 // Function PolicemanBaseClass.PolicemanBaseClass_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void APolicemanBaseClass_C::ReceiveTick(float DeltaSeconds)
+void APolicemanBaseClass_C::ReceiveTick(float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function PolicemanBaseClass.PolicemanBaseClass_C.ReceiveTick");
 
@@ -540,15 +540,15 @@ void APolicemanBaseClass_C::SetChaseMode()
 // Function PolicemanBaseClass.PolicemanBaseClass_C.EndChase
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           stayAlerted                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           StayAlerted                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           cancelAllChasers               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void APolicemanBaseClass_C::EndChase(bool stayAlerted, bool cancelAllChasers)
+void APolicemanBaseClass_C::EndChase(bool StayAlerted, bool cancelAllChasers)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function PolicemanBaseClass.PolicemanBaseClass_C.EndChase");
 
 	APolicemanBaseClass_C_EndChase_Params params;
-	params.stayAlerted = stayAlerted;
+	params.StayAlerted = StayAlerted;
 	params.cancelAllChasers = cancelAllChasers;
 
 	auto flags = fn->FunctionFlags;

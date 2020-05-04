@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -33,7 +33,7 @@ struct AinteractiveWaterSinkBP_C_UserConstructionScript_Params
 // Function interactiveWaterSinkBP.interactiveWaterSinkBP_C.ReceiveTick
 struct AinteractiveWaterSinkBP_C_ReceiveTick_Params
 {
-	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function interactiveWaterSinkBP.interactiveWaterSinkBP_C.sinkActionHeld

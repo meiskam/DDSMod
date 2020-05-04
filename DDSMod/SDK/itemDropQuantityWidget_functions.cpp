@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,18 +16,18 @@ namespace SDK
 // Function itemDropQuantityWidget.itemDropQuantityWidget_C.getMaxQuantity
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FString                 TargetString                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
+// struct FString                 targetString                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 // class UUserWidget*             Widget                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 // int                            sourceQuan                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FinventoryItemStruct    Data                           (BlueprintVisible, BlueprintReadOnly, Parm)
 // int                            MaxQuantity                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UitemDropQuantityWidget_C::getMaxQuantity(const struct FString& TargetString, class UUserWidget* Widget, int sourceQuan, const struct FinventoryItemStruct& Data, int* MaxQuantity)
+void UitemDropQuantityWidget_C::getMaxQuantity(const struct FString& targetString, class UUserWidget* Widget, int sourceQuan, const struct FinventoryItemStruct& Data, int* MaxQuantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function itemDropQuantityWidget.itemDropQuantityWidget_C.getMaxQuantity");
 
 	UitemDropQuantityWidget_C_getMaxQuantity_Params params;
-	params.TargetString = TargetString;
+	params.targetString = targetString;
 	params.Widget = Widget;
 	params.sourceQuan = sourceQuan;
 	params.Data = Data;
@@ -46,9 +46,9 @@ void UitemDropQuantityWidget_C::getMaxQuantity(const struct FString& TargetStrin
 // Function itemDropQuantityWidget.itemDropQuantityWidget_C.PreConstruct
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// bool                           IsDesignTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool*                          IsDesignTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UitemDropQuantityWidget_C::PreConstruct(bool IsDesignTime)
+void UitemDropQuantityWidget_C::PreConstruct(bool* IsDesignTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function itemDropQuantityWidget.itemDropQuantityWidget_C.PreConstruct");
 
@@ -100,17 +100,17 @@ void UitemDropQuantityWidget_C::BndEvt__btnCancel_K2Node_ComponentBoundEvent_0_O
 // Function itemDropQuantityWidget.itemDropQuantityWidget_C.setup
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FString                 TargetString                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
+// struct FString                 targetString                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 // int                            QuanMax                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // class UUserWidget*             TargetWidget                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 // class UinventoryItemWidget_C*  Payload                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 
-void UitemDropQuantityWidget_C::setup(const struct FString& TargetString, int QuanMax, class UUserWidget* TargetWidget, class UinventoryItemWidget_C* Payload)
+void UitemDropQuantityWidget_C::setup(const struct FString& targetString, int QuanMax, class UUserWidget* TargetWidget, class UinventoryItemWidget_C* Payload)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function itemDropQuantityWidget.itemDropQuantityWidget_C.setup");
 
 	UitemDropQuantityWidget_C_setup_Params params;
-	params.TargetString = TargetString;
+	params.targetString = targetString;
 	params.QuanMax = QuanMax;
 	params.TargetWidget = TargetWidget;
 	params.Payload = Payload;

@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,7 +17,7 @@ namespace SDK
 // Function PM_PlaySearchSound.PM_PlaySearchSound_C.ReceiveExecute
 struct UPM_PlaySearchSound_C_ReceiveExecute_Params
 {
-	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_PlaySearchSound.PM_PlaySearchSound_C.ExecuteUbergraph_PM_PlaySearchSound

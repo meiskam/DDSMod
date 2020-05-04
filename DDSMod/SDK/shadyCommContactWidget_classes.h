@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -37,11 +37,11 @@ public:
 	}
 
 
-	struct FEventReply OnMouseButtonDoubleClick(const struct FGeometry& InMyGeometry, const struct FPointerEvent& InMouseEvent);
-	struct FEventReply OnMouseButtonDown(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent);
+	struct FEventReply OnMouseButtonDoubleClick(struct FGeometry* InMyGeometry, struct FPointerEvent* InMouseEvent);
+	struct FEventReply OnMouseButtonDown(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent);
 	void setup(int userID, bool active, class UshadyCommInterface_C* shadyRef, const struct FcontactPersonStruct& userData, int newMessageNumber, bool isDead, bool Addicted);
-	void OnMouseEnter(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent);
-	void OnMouseLeave(const struct FPointerEvent& MouseEvent);
+	void OnMouseEnter(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent);
+	void OnMouseLeave(struct FPointerEvent* MouseEvent);
 	void ExecuteUbergraph_shadyCommContactWidget(int EntryPoint);
 };
 

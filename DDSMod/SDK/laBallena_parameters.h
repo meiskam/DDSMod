@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -52,8 +52,8 @@ struct AlaBallena_C_ReceiveBeginPlay_Params
 {
 };
 
-// Function laBallena.laBallena_C.PlayerSatDown
-struct AlaBallena_C_PlayerSatDown_Params
+// Function laBallena.laBallena_C.playerSatDown
+struct AlaBallena_C_playerSatDown_Params
 {
 };
 
@@ -71,7 +71,7 @@ struct AlaBallena_C_BndEvt__Box_K2Node_ComponentBoundEvent_0_ComponentBeginOverl
 // Function laBallena.laBallena_C.ReceiveTick
 struct AlaBallena_C_ReceiveTick_Params
 {
-	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function laBallena.laBallena_C.animateMouth

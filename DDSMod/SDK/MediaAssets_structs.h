@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,28 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
+
+// Enum MediaAssets.EMediaVideoCaptureDeviceFilter
+enum class EMediaVideoCaptureDeviceFilter : uint8_t
+{
+	EMediaVideoCaptureDeviceFilter__Card = 0,
+	EMediaVideoCaptureDeviceFilter__Software = 1,
+	EMediaVideoCaptureDeviceFilter__Unknown = 2,
+	EMediaVideoCaptureDeviceFilter__Webcam = 3,
+	EMediaVideoCaptureDeviceFilter__EMediaVideoCaptureDeviceFilter_MAX = 4
+};
+
+
+// Enum MediaAssets.EMediaAudioCaptureDeviceFilter
+enum class EMediaAudioCaptureDeviceFilter : uint8_t
+{
+	EMediaAudioCaptureDeviceFilter__Card = 0,
+	EMediaAudioCaptureDeviceFilter__Microphone = 1,
+	EMediaAudioCaptureDeviceFilter__Software = 2,
+	EMediaAudioCaptureDeviceFilter__Unknown = 3,
+	EMediaAudioCaptureDeviceFilter__EMediaAudioCaptureDeviceFilter_MAX = 4
+};
+
 
 // Enum MediaAssets.EMediaWebcamCaptureDeviceFilter
 enum class EMediaWebcamCaptureDeviceFilter : uint8_t
@@ -23,14 +45,13 @@ enum class EMediaWebcamCaptureDeviceFilter : uint8_t
 };
 
 
-// Enum MediaAssets.EMediaVideoCaptureDeviceFilter
-enum class EMediaVideoCaptureDeviceFilter : uint8_t
+// Enum MediaAssets.EMediaSoundChannels
+enum class EMediaSoundChannels : uint8_t
 {
-	EMediaVideoCaptureDeviceFilter__Card = 0,
-	EMediaVideoCaptureDeviceFilter__Software = 1,
-	EMediaVideoCaptureDeviceFilter__Unknown = 2,
-	EMediaVideoCaptureDeviceFilter__Webcam = 3,
-	EMediaVideoCaptureDeviceFilter__EMediaVideoCaptureDeviceFilter_MAX = 4
+	EMediaSoundChannels__Mono      = 0,
+	EMediaSoundChannels__Stereo    = 1,
+	EMediaSoundChannels__Surround  = 2,
+	EMediaSoundChannels__EMediaSoundChannels_MAX = 3
 };
 
 
@@ -45,27 +66,6 @@ enum class EMediaPlayerTrack : uint8_t
 	EMediaPlayerTrack__Text        = 5,
 	EMediaPlayerTrack__Video       = 6,
 	EMediaPlayerTrack__EMediaPlayerTrack_MAX = 7
-};
-
-
-// Enum MediaAssets.EMediaSoundChannels
-enum class EMediaSoundChannels : uint8_t
-{
-	EMediaSoundChannels__Mono      = 0,
-	EMediaSoundChannels__Stereo    = 1,
-	EMediaSoundChannels__Surround  = 2,
-	EMediaSoundChannels__EMediaSoundChannels_MAX = 3
-};
-
-
-// Enum MediaAssets.EMediaAudioCaptureDeviceFilter
-enum class EMediaAudioCaptureDeviceFilter : uint8_t
-{
-	EMediaAudioCaptureDeviceFilter__Card = 0,
-	EMediaAudioCaptureDeviceFilter__Microphone = 1,
-	EMediaAudioCaptureDeviceFilter__Software = 2,
-	EMediaAudioCaptureDeviceFilter__Unknown = 3,
-	EMediaAudioCaptureDeviceFilter__EMediaAudioCaptureDeviceFilter_MAX = 4
 };
 
 

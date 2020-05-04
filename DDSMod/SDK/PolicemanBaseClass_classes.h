@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass PolicemanBaseClass.PolicemanBaseClass_C
-// 0x012A (0x086A - 0x0740)
+// 0x0130 (0x0870 - 0x0740)
 class APolicemanBaseClass_C : public ACharacter
 {
 public:
@@ -85,6 +85,8 @@ public:
 	float                                              minDistancePerceptionClamp;                               // 0x0864(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               staticPoliceman;                                          // 0x0868(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               canHearPlayer;                                            // 0x0869(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData06[0x2];                                       // 0x086A(0x0002) MISSED OFFSET
+	float                                              spotChanceMultiplier;                                     // 0x086C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -97,7 +99,7 @@ public:
 	void checkCanSpotPlayer(bool* canSpot);
 	void checkBallenaProtection(bool* isProtected);
 	void checkPlayerRunning(float Delta);
-	void finishChasing(bool stayAlerted);
+	void finishChasing(bool StayAlerted);
 	void checkChasingPolicemen();
 	void calcControlMultiplier(class AplayerCharacterBP_C* playerRef);
 	void alertedCountdown(float Delta);
@@ -108,7 +110,7 @@ public:
 	void setBlackboardBool(const struct FName& KeyName, bool BoolValue);
 	void lookAtPlayer(float DeltaTime, bool lookAtPlayer);
 	void UserConstructionScript();
-	void ReceiveTick(float DeltaSeconds);
+	void ReceiveTick(float* DeltaSeconds);
 	void BndEvt__AIPerception_K2Node_ComponentBoundEvent_2_ActorPerceptionUpdatedDelegate__DelegateSignature(class AActor* Actor, const struct FAIStimulus& Stimulus);
 	void playSeekSound();
 	void ReceiveBeginPlay();
@@ -120,7 +122,7 @@ public:
 	void EngageSuspect();
 	void LostPlayer();
 	void SetChaseMode();
-	void EndChase(bool stayAlerted, bool cancelAllChasers);
+	void EndChase(bool StayAlerted, bool cancelAllChasers);
 	void ReangageChase();
 	void walkSpeedCheck();
 	void removeMe();

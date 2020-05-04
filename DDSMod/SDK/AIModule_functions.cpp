@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -33,6 +33,341 @@ void UAIAsyncTaskBlueprintProxy::OnMoveCompleted(const struct FAIRequestID& Requ
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AIBlueprintHelperLibrary.UnlockAIResourcesWithAnimation
+// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UAnimInstance*           AnimInstance                   (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bUnlockMovement                (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           UnlockAILogic                  (Parm, ZeroConstructor, IsPlainOldData)
+
+void UAIBlueprintHelperLibrary::STATIC_UnlockAIResourcesWithAnimation(class UAnimInstance* AnimInstance, bool bUnlockMovement, bool UnlockAILogic)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.UnlockAIResourcesWithAnimation");
+
+	UAIBlueprintHelperLibrary_UnlockAIResourcesWithAnimation_Params params;
+	params.AnimInstance = AnimInstance;
+	params.bUnlockMovement = bUnlockMovement;
+	params.UnlockAILogic = UnlockAILogic;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AIBlueprintHelperLibrary.SpawnAIFromClass
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
+// class UClass*                  PawnClass                      (Parm, ZeroConstructor, IsPlainOldData)
+// class UBehaviorTree*           BehaviorTree                   (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector                 Location                       (Parm, ZeroConstructor, IsPlainOldData)
+// struct FRotator                Rotation                       (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bNoCollisionFail               (Parm, ZeroConstructor, IsPlainOldData)
+// class APawn*                   ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class APawn* UAIBlueprintHelperLibrary::STATIC_SpawnAIFromClass(class UObject* WorldContextObject, class UClass* PawnClass, class UBehaviorTree* BehaviorTree, const struct FVector& Location, const struct FRotator& Rotation, bool bNoCollisionFail)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.SpawnAIFromClass");
+
+	UAIBlueprintHelperLibrary_SpawnAIFromClass_Params params;
+	params.WorldContextObject = WorldContextObject;
+	params.PawnClass = PawnClass;
+	params.BehaviorTree = BehaviorTree;
+	params.Location = Location;
+	params.Rotation = Rotation;
+	params.bNoCollisionFail = bNoCollisionFail;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function AIModule.AIBlueprintHelperLibrary.SimpleMoveToLocation
+// (Final, Native, Static, Public, HasOutParms, HasDefaults, BlueprintCallable)
+// Parameters:
+// class AController*             Controller                     (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector                 Goal                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+
+void UAIBlueprintHelperLibrary::STATIC_SimpleMoveToLocation(class AController* Controller, const struct FVector& Goal)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.SimpleMoveToLocation");
+
+	UAIBlueprintHelperLibrary_SimpleMoveToLocation_Params params;
+	params.Controller = Controller;
+	params.Goal = Goal;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AIBlueprintHelperLibrary.SimpleMoveToActor
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class AController*             Controller                     (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  Goal                           (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+
+void UAIBlueprintHelperLibrary::STATIC_SimpleMoveToActor(class AController* Controller, class AActor* Goal)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.SimpleMoveToActor");
+
+	UAIBlueprintHelperLibrary_SimpleMoveToActor_Params params;
+	params.Controller = Controller;
+	params.Goal = Goal;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AIBlueprintHelperLibrary.SendAIMessage
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class APawn*                   Target                         (Parm, ZeroConstructor, IsPlainOldData)
+// struct FName                   Message                        (Parm, ZeroConstructor, IsPlainOldData)
+// class UObject*                 MessageSource                  (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bSuccess                       (Parm, ZeroConstructor, IsPlainOldData)
+
+void UAIBlueprintHelperLibrary::STATIC_SendAIMessage(class APawn* Target, const struct FName& Message, class UObject* MessageSource, bool bSuccess)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.SendAIMessage");
+
+	UAIBlueprintHelperLibrary_SendAIMessage_Params params;
+	params.Target = Target;
+	params.Message = Message;
+	params.MessageSource = MessageSource;
+	params.bSuccess = bSuccess;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AIBlueprintHelperLibrary.LockAIResourcesWithAnimation
+// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// class UAnimInstance*           AnimInstance                   (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bLockMovement                  (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           LockAILogic                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void UAIBlueprintHelperLibrary::STATIC_LockAIResourcesWithAnimation(class UAnimInstance* AnimInstance, bool bLockMovement, bool LockAILogic)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.LockAIResourcesWithAnimation");
+
+	UAIBlueprintHelperLibrary_LockAIResourcesWithAnimation_Params params;
+	params.AnimInstance = AnimInstance;
+	params.bLockMovement = bLockMovement;
+	params.LockAILogic = LockAILogic;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.AIBlueprintHelperLibrary.IsValidAIRotation
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// Parameters:
+// struct FRotator                Rotation                       (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UAIBlueprintHelperLibrary::STATIC_IsValidAIRotation(const struct FRotator& Rotation)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.IsValidAIRotation");
+
+	UAIBlueprintHelperLibrary_IsValidAIRotation_Params params;
+	params.Rotation = Rotation;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function AIModule.AIBlueprintHelperLibrary.IsValidAILocation
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// Parameters:
+// struct FVector                 Location                       (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UAIBlueprintHelperLibrary::STATIC_IsValidAILocation(const struct FVector& Location)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.IsValidAILocation");
+
+	UAIBlueprintHelperLibrary_IsValidAILocation_Params params;
+	params.Location = Location;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function AIModule.AIBlueprintHelperLibrary.IsValidAIDirection
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// Parameters:
+// struct FVector                 DirectionVector                (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UAIBlueprintHelperLibrary::STATIC_IsValidAIDirection(const struct FVector& DirectionVector)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.IsValidAIDirection");
+
+	UAIBlueprintHelperLibrary_IsValidAIDirection_Params params;
+	params.DirectionVector = DirectionVector;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function AIModule.AIBlueprintHelperLibrary.GetCurrentPath
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class AController*             Controller                     (Parm, ZeroConstructor, IsPlainOldData)
+// class UNavigationPath*         ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class UNavigationPath* UAIBlueprintHelperLibrary::STATIC_GetCurrentPath(class AController* Controller)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.GetCurrentPath");
+
+	UAIBlueprintHelperLibrary_GetCurrentPath_Params params;
+	params.Controller = Controller;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function AIModule.AIBlueprintHelperLibrary.GetBlackboard
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class AActor*                  Target                         (Parm, ZeroConstructor, IsPlainOldData)
+// class UBlackboardComponent*    ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+
+class UBlackboardComponent* UAIBlueprintHelperLibrary::STATIC_GetBlackboard(class AActor* Target)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.GetBlackboard");
+
+	UAIBlueprintHelperLibrary_GetBlackboard_Params params;
+	params.Target = Target;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function AIModule.AIBlueprintHelperLibrary.GetAIController
+// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
+// Parameters:
+// class AActor*                  ControlledActor                (Parm, ZeroConstructor, IsPlainOldData)
+// class AAIController*           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class AAIController* UAIBlueprintHelperLibrary::STATIC_GetAIController(class AActor* ControlledActor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.GetAIController");
+
+	UAIBlueprintHelperLibrary_GetAIController_Params params;
+	params.ControlledActor = ControlledActor;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function AIModule.AIBlueprintHelperLibrary.CreateMoveToProxyObject
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
+// class APawn*                   Pawn                           (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector                 Destination                    (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  TargetActor                    (Parm, ZeroConstructor, IsPlainOldData)
+// float                          AcceptanceRadius               (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bStopOnOverlap                 (Parm, ZeroConstructor, IsPlainOldData)
+// class UAIAsyncTaskBlueprintProxy* ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class UAIAsyncTaskBlueprintProxy* UAIBlueprintHelperLibrary::STATIC_CreateMoveToProxyObject(class UObject* WorldContextObject, class APawn* Pawn, const struct FVector& Destination, class AActor* TargetActor, float AcceptanceRadius, bool bStopOnOverlap)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.CreateMoveToProxyObject");
+
+	UAIBlueprintHelperLibrary_CreateMoveToProxyObject_Params params;
+	params.WorldContextObject = WorldContextObject;
+	params.Pawn = Pawn;
+	params.Destination = Destination;
+	params.TargetActor = TargetActor;
+	params.AcceptanceRadius = AcceptanceRadius;
+	params.bStopOnOverlap = bStopOnOverlap;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
@@ -3037,200 +3372,6 @@ void UBTFunctionLibrary::STATIC_ClearBlackboardValue(class UBTNode* NodeOwner, c
 }
 
 
-// Function AIModule.BTService_BlueprintBase.ReceiveTickAI
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
-// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
-// float                          DeltaSeconds                   (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveTickAI(class AAIController* OwnerController, class APawn* ControlledPawn, float DeltaSeconds)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveTickAI");
-
-	UBTService_BlueprintBase_ReceiveTickAI_Params params;
-	params.OwnerController = OwnerController;
-	params.ControlledPawn = ControlledPawn;
-	params.DeltaSeconds = DeltaSeconds;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveTick
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
-// float                          DeltaSeconds                   (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveTick(class AActor* OwnerActor, float DeltaSeconds)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveTick");
-
-	UBTService_BlueprintBase_ReceiveTick_Params params;
-	params.OwnerActor = OwnerActor;
-	params.DeltaSeconds = DeltaSeconds;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveSearchStartAI
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
-// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveSearchStartAI(class AAIController* OwnerController, class APawn* ControlledPawn)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveSearchStartAI");
-
-	UBTService_BlueprintBase_ReceiveSearchStartAI_Params params;
-	params.OwnerController = OwnerController;
-	params.ControlledPawn = ControlledPawn;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveSearchStart
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveSearchStart(class AActor* OwnerActor)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveSearchStart");
-
-	UBTService_BlueprintBase_ReceiveSearchStart_Params params;
-	params.OwnerActor = OwnerActor;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveDeactivationAI
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
-// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveDeactivationAI(class AAIController* OwnerController, class APawn* ControlledPawn)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveDeactivationAI");
-
-	UBTService_BlueprintBase_ReceiveDeactivationAI_Params params;
-	params.OwnerController = OwnerController;
-	params.ControlledPawn = ControlledPawn;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveDeactivation
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveDeactivation(class AActor* OwnerActor)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveDeactivation");
-
-	UBTService_BlueprintBase_ReceiveDeactivation_Params params;
-	params.OwnerActor = OwnerActor;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveActivationAI
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
-// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveActivationAI(class AAIController* OwnerController, class APawn* ControlledPawn)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveActivationAI");
-
-	UBTService_BlueprintBase_ReceiveActivationAI_Params params;
-	params.OwnerController = OwnerController;
-	params.ControlledPawn = ControlledPawn;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveActivation
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveActivation(class AActor* OwnerActor)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveActivation");
-
-	UBTService_BlueprintBase_ReceiveActivation_Params params;
-	params.OwnerActor = OwnerActor;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.IsServiceActive
-// (Final, Native, Protected, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool UBTService_BlueprintBase::IsServiceActive()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.IsServiceActive");
-
-	UBTService_BlueprintBase_IsServiceActive_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
 // Function AIModule.BTTask_BlueprintBase.SetFinishOnMessageWithId
 // (Final, Native, Protected, BlueprintCallable)
 // Parameters:
@@ -3488,24 +3629,23 @@ void UBTTask_BlueprintBase::FinishAbort()
 }
 
 
-// Function AIModule.AIBlueprintHelperLibrary.UnlockAIResourcesWithAnimation
-// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
+// Function AIModule.BTService_BlueprintBase.ReceiveTickAI
+// (Event, Protected, BlueprintEvent)
 // Parameters:
-// class UAnimInstance*           AnimInstance                   (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bUnlockMovement                (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           UnlockAILogic                  (Parm, ZeroConstructor, IsPlainOldData)
+// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
+// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (Parm, ZeroConstructor, IsPlainOldData)
 
-void UAIBlueprintHelperLibrary::STATIC_UnlockAIResourcesWithAnimation(class UAnimInstance* AnimInstance, bool bUnlockMovement, bool UnlockAILogic)
+void UBTService_BlueprintBase::ReceiveTickAI(class AAIController* OwnerController, class APawn* ControlledPawn, float DeltaSeconds)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.UnlockAIResourcesWithAnimation");
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveTickAI");
 
-	UAIBlueprintHelperLibrary_UnlockAIResourcesWithAnimation_Params params;
-	params.AnimInstance = AnimInstance;
-	params.bUnlockMovement = bUnlockMovement;
-	params.UnlockAILogic = UnlockAILogic;
+	UBTService_BlueprintBase_ReceiveTickAI_Params params;
+	params.OwnerController = OwnerController;
+	params.ControlledPawn = ControlledPawn;
+	params.DeltaSeconds = DeltaSeconds;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3513,56 +3653,21 @@ void UAIBlueprintHelperLibrary::STATIC_UnlockAIResourcesWithAnimation(class UAni
 }
 
 
-// Function AIModule.AIBlueprintHelperLibrary.SpawnAIFromClass
-// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
+// Function AIModule.BTService_BlueprintBase.ReceiveTick
+// (Event, Protected, BlueprintEvent)
 // Parameters:
-// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
-// class UClass*                  PawnClass                      (Parm, ZeroConstructor, IsPlainOldData)
-// class UBehaviorTree*           BehaviorTree                   (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector                 Location                       (Parm, ZeroConstructor, IsPlainOldData)
-// struct FRotator                Rotation                       (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bNoCollisionFail               (Parm, ZeroConstructor, IsPlainOldData)
-// class APawn*                   ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (Parm, ZeroConstructor, IsPlainOldData)
 
-class APawn* UAIBlueprintHelperLibrary::STATIC_SpawnAIFromClass(class UObject* WorldContextObject, class UClass* PawnClass, class UBehaviorTree* BehaviorTree, const struct FVector& Location, const struct FRotator& Rotation, bool bNoCollisionFail)
+void UBTService_BlueprintBase::ReceiveTick(class AActor* OwnerActor, float DeltaSeconds)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.SpawnAIFromClass");
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveTick");
 
-	UAIBlueprintHelperLibrary_SpawnAIFromClass_Params params;
-	params.WorldContextObject = WorldContextObject;
-	params.PawnClass = PawnClass;
-	params.BehaviorTree = BehaviorTree;
-	params.Location = Location;
-	params.Rotation = Rotation;
-	params.bNoCollisionFail = bNoCollisionFail;
+	UBTService_BlueprintBase_ReceiveTick_Params params;
+	params.OwnerActor = OwnerActor;
+	params.DeltaSeconds = DeltaSeconds;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function AIModule.AIBlueprintHelperLibrary.SimpleMoveToLocation
-// (Final, Native, Static, Public, HasOutParms, HasDefaults, BlueprintCallable)
-// Parameters:
-// class AController*             Controller                     (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector                 Goal                           (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-
-void UAIBlueprintHelperLibrary::STATIC_SimpleMoveToLocation(class AController* Controller, const struct FVector& Goal)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.SimpleMoveToLocation");
-
-	UAIBlueprintHelperLibrary_SimpleMoveToLocation_Params params;
-	params.Controller = Controller;
-	params.Goal = Goal;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3570,22 +3675,21 @@ void UAIBlueprintHelperLibrary::STATIC_SimpleMoveToLocation(class AController* C
 }
 
 
-// Function AIModule.AIBlueprintHelperLibrary.SimpleMoveToActor
-// (Final, Native, Static, Public, BlueprintCallable)
+// Function AIModule.BTService_BlueprintBase.ReceiveSearchStartAI
+// (Event, Protected, BlueprintEvent)
 // Parameters:
-// class AController*             Controller                     (Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  Goal                           (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
+// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
 
-void UAIBlueprintHelperLibrary::STATIC_SimpleMoveToActor(class AController* Controller, class AActor* Goal)
+void UBTService_BlueprintBase::ReceiveSearchStartAI(class AAIController* OwnerController, class APawn* ControlledPawn)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.SimpleMoveToActor");
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveSearchStartAI");
 
-	UAIBlueprintHelperLibrary_SimpleMoveToActor_Params params;
-	params.Controller = Controller;
-	params.Goal = Goal;
+	UBTService_BlueprintBase_ReceiveSearchStartAI_Params params;
+	params.OwnerController = OwnerController;
+	params.ControlledPawn = ControlledPawn;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3593,26 +3697,19 @@ void UAIBlueprintHelperLibrary::STATIC_SimpleMoveToActor(class AController* Cont
 }
 
 
-// Function AIModule.AIBlueprintHelperLibrary.SendAIMessage
-// (Final, Native, Static, Public, BlueprintCallable)
+// Function AIModule.BTService_BlueprintBase.ReceiveSearchStart
+// (Event, Protected, BlueprintEvent)
 // Parameters:
-// class APawn*                   Target                         (Parm, ZeroConstructor, IsPlainOldData)
-// struct FName                   Message                        (Parm, ZeroConstructor, IsPlainOldData)
-// class UObject*                 MessageSource                  (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bSuccess                       (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
 
-void UAIBlueprintHelperLibrary::STATIC_SendAIMessage(class APawn* Target, const struct FName& Message, class UObject* MessageSource, bool bSuccess)
+void UBTService_BlueprintBase::ReceiveSearchStart(class AActor* OwnerActor)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.SendAIMessage");
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveSearchStart");
 
-	UAIBlueprintHelperLibrary_SendAIMessage_Params params;
-	params.Target = Target;
-	params.Message = Message;
-	params.MessageSource = MessageSource;
-	params.bSuccess = bSuccess;
+	UBTService_BlueprintBase_ReceiveSearchStart_Params params;
+	params.OwnerActor = OwnerActor;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3620,24 +3717,21 @@ void UAIBlueprintHelperLibrary::STATIC_SendAIMessage(class APawn* Target, const 
 }
 
 
-// Function AIModule.AIBlueprintHelperLibrary.LockAIResourcesWithAnimation
-// (Final, BlueprintAuthorityOnly, Native, Static, Public, BlueprintCallable)
+// Function AIModule.BTService_BlueprintBase.ReceiveDeactivationAI
+// (Event, Protected, BlueprintEvent)
 // Parameters:
-// class UAnimInstance*           AnimInstance                   (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bLockMovement                  (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           LockAILogic                    (Parm, ZeroConstructor, IsPlainOldData)
+// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
+// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
 
-void UAIBlueprintHelperLibrary::STATIC_LockAIResourcesWithAnimation(class UAnimInstance* AnimInstance, bool bLockMovement, bool LockAILogic)
+void UBTService_BlueprintBase::ReceiveDeactivationAI(class AAIController* OwnerController, class APawn* ControlledPawn)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.LockAIResourcesWithAnimation");
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveDeactivationAI");
 
-	UAIBlueprintHelperLibrary_LockAIResourcesWithAnimation_Params params;
-	params.AnimInstance = AnimInstance;
-	params.bLockMovement = bLockMovement;
-	params.LockAILogic = LockAILogic;
+	UBTService_BlueprintBase_ReceiveDeactivationAI_Params params;
+	params.OwnerController = OwnerController;
+	params.ControlledPawn = ControlledPawn;
 
 	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -3645,172 +3739,78 @@ void UAIBlueprintHelperLibrary::STATIC_LockAIResourcesWithAnimation(class UAnimI
 }
 
 
-// Function AIModule.AIBlueprintHelperLibrary.IsValidAIRotation
-// (Final, Native, Static, Public, HasDefaults, BlueprintCallable, BlueprintPure)
+// Function AIModule.BTService_BlueprintBase.ReceiveDeactivation
+// (Event, Protected, BlueprintEvent)
 // Parameters:
-// struct FRotator                Rotation                       (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBTService_BlueprintBase::ReceiveDeactivation(class AActor* OwnerActor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveDeactivation");
+
+	UBTService_BlueprintBase_ReceiveDeactivation_Params params;
+	params.OwnerActor = OwnerActor;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.BTService_BlueprintBase.ReceiveActivationAI
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
+// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBTService_BlueprintBase::ReceiveActivationAI(class AAIController* OwnerController, class APawn* ControlledPawn)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveActivationAI");
+
+	UBTService_BlueprintBase_ReceiveActivationAI_Params params;
+	params.OwnerController = OwnerController;
+	params.ControlledPawn = ControlledPawn;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.BTService_BlueprintBase.ReceiveActivation
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBTService_BlueprintBase::ReceiveActivation(class AActor* OwnerActor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveActivation");
+
+	UBTService_BlueprintBase_ReceiveActivation_Params params;
+	params.OwnerActor = OwnerActor;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.BTService_BlueprintBase.IsServiceActive
+// (Final, Native, Protected, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
 // bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 
-bool UAIBlueprintHelperLibrary::STATIC_IsValidAIRotation(const struct FRotator& Rotation)
+bool UBTService_BlueprintBase::IsServiceActive()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.IsValidAIRotation");
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.IsServiceActive");
 
-	UAIBlueprintHelperLibrary_IsValidAIRotation_Params params;
-	params.Rotation = Rotation;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function AIModule.AIBlueprintHelperLibrary.IsValidAILocation
-// (Final, Native, Static, Public, HasDefaults, BlueprintCallable, BlueprintPure)
-// Parameters:
-// struct FVector                 Location                       (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool UAIBlueprintHelperLibrary::STATIC_IsValidAILocation(const struct FVector& Location)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.IsValidAILocation");
-
-	UAIBlueprintHelperLibrary_IsValidAILocation_Params params;
-	params.Location = Location;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function AIModule.AIBlueprintHelperLibrary.IsValidAIDirection
-// (Final, Native, Static, Public, HasDefaults, BlueprintCallable, BlueprintPure)
-// Parameters:
-// struct FVector                 DirectionVector                (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool UAIBlueprintHelperLibrary::STATIC_IsValidAIDirection(const struct FVector& DirectionVector)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.IsValidAIDirection");
-
-	UAIBlueprintHelperLibrary_IsValidAIDirection_Params params;
-	params.DirectionVector = DirectionVector;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function AIModule.AIBlueprintHelperLibrary.GetCurrentPath
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class AController*             Controller                     (Parm, ZeroConstructor, IsPlainOldData)
-// class UNavigationPath*         ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class UNavigationPath* UAIBlueprintHelperLibrary::STATIC_GetCurrentPath(class AController* Controller)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.GetCurrentPath");
-
-	UAIBlueprintHelperLibrary_GetCurrentPath_Params params;
-	params.Controller = Controller;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function AIModule.AIBlueprintHelperLibrary.GetBlackboard
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class AActor*                  Target                         (Parm, ZeroConstructor, IsPlainOldData)
-// class UBlackboardComponent*    ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
-
-class UBlackboardComponent* UAIBlueprintHelperLibrary::STATIC_GetBlackboard(class AActor* Target)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.GetBlackboard");
-
-	UAIBlueprintHelperLibrary_GetBlackboard_Params params;
-	params.Target = Target;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function AIModule.AIBlueprintHelperLibrary.GetAIController
-// (Final, Native, Static, Public, BlueprintCallable, BlueprintPure)
-// Parameters:
-// class AActor*                  ControlledActor                (Parm, ZeroConstructor, IsPlainOldData)
-// class AAIController*           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class AAIController* UAIBlueprintHelperLibrary::STATIC_GetAIController(class AActor* ControlledActor)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.GetAIController");
-
-	UAIBlueprintHelperLibrary_GetAIController_Params params;
-	params.ControlledActor = ControlledActor;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function AIModule.AIBlueprintHelperLibrary.CreateMoveToProxyObject
-// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
-// class APawn*                   Pawn                           (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector                 Destination                    (Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  TargetActor                    (Parm, ZeroConstructor, IsPlainOldData)
-// float                          AcceptanceRadius               (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bStopOnOverlap                 (Parm, ZeroConstructor, IsPlainOldData)
-// class UAIAsyncTaskBlueprintProxy* ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class UAIAsyncTaskBlueprintProxy* UAIBlueprintHelperLibrary::STATIC_CreateMoveToProxyObject(class UObject* WorldContextObject, class APawn* Pawn, const struct FVector& Destination, class AActor* TargetActor, float AcceptanceRadius, bool bStopOnOverlap)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.AIBlueprintHelperLibrary.CreateMoveToProxyObject");
-
-	UAIBlueprintHelperLibrary_CreateMoveToProxyObject_Params params;
-	params.WorldContextObject = WorldContextObject;
-	params.Pawn = Pawn;
-	params.Destination = Destination;
-	params.TargetActor = TargetActor;
-	params.AcceptanceRadius = AcceptanceRadius;
-	params.bStopOnOverlap = bStopOnOverlap;
+	UBTService_BlueprintBase_IsServiceActive_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;

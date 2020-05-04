@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -81,8 +81,25 @@ void AblockEntranceLight_C::turnLightOff()
 }
 
 
+// Function blockEntranceLight.blockEntranceLight_C.testDistance
+// (BlueprintCallable, BlueprintEvent)
+
+void AblockEntranceLight_C::testDistance()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function blockEntranceLight.blockEntranceLight_C.testDistance");
+
+	AblockEntranceLight_C_testDistance_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function blockEntranceLight.blockEntranceLight_C.ExecuteUbergraph_blockEntranceLight
-// (Final)
+// (Final, HasDefaults)
 // Parameters:
 // int                            EntryPoint                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 

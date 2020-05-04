@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,16 +17,16 @@ namespace SDK
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
 // TEnumAsByte<EdrugForm>         Form                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // class UTexture2D*              IconOut                        (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AorderInstance_C::choosePackageIcon(TEnumAsByte<EdrugForm> Form, int quantity, class UTexture2D** IconOut)
+void AorderInstance_C::choosePackageIcon(TEnumAsByte<EdrugForm> Form, int Quantity, class UTexture2D** IconOut)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderInstance.orderInstance_C.choosePackageIcon");
 
 	AorderInstance_C_choosePackageIcon_Params params;
 	params.Form = Form;
-	params.quantity = quantity;
+	params.Quantity = Quantity;
 
 	auto flags = fn->FunctionFlags;
 
@@ -71,7 +71,7 @@ void AorderInstance_C::constructOrderSMS(TArray<struct FText>* MessageTemplates,
 // int                            Index                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            leftToDivide                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   PackageName                    (Parm, OutParm)
-// int                            packageQuantity                (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// int                            PackageQuantity                (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 // float                          packageSize                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 // float                          packageWeight                  (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 // int                            restLeft                       (Parm, OutParm, ZeroConstructor, IsPlainOldData)
@@ -79,7 +79,7 @@ void AorderInstance_C::constructOrderSMS(TArray<struct FText>* MessageTemplates,
 // class UTexture2D*              packageIcon                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 // class UClass*                  ObjectClass                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AorderInstance_C::calcPackagingPattern(const struct FdrugData& drugData, int Index, int leftToDivide, struct FText* PackageName, int* packageQuantity, float* packageSize, float* packageWeight, int* restLeft, int* gramsPerPack, class UTexture2D** packageIcon, class UClass** ObjectClass)
+void AorderInstance_C::calcPackagingPattern(const struct FdrugData& drugData, int Index, int leftToDivide, struct FText* PackageName, int* PackageQuantity, float* packageSize, float* packageWeight, int* restLeft, int* gramsPerPack, class UTexture2D** packageIcon, class UClass** ObjectClass)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderInstance.orderInstance_C.calcPackagingPattern");
 
@@ -96,8 +96,8 @@ void AorderInstance_C::calcPackagingPattern(const struct FdrugData& drugData, in
 
 	if (PackageName != nullptr)
 		*PackageName = params.PackageName;
-	if (packageQuantity != nullptr)
-		*packageQuantity = params.packageQuantity;
+	if (PackageQuantity != nullptr)
+		*PackageQuantity = params.PackageQuantity;
 	if (packageSize != nullptr)
 		*packageSize = params.packageSize;
 	if (packageWeight != nullptr)
@@ -117,9 +117,9 @@ void AorderInstance_C::calcPackagingPattern(const struct FdrugData& drugData, in
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // TArray<struct FinventoryItemStruct> OutInventory                   (Parm, OutParm, ZeroConstructor)
-// TArray<int>                    OutQuantity                    (Parm, OutParm, ZeroConstructor)
+// TArray<int>                    outQuantity                    (Parm, OutParm, ZeroConstructor)
 
-void AorderInstance_C::generatePackageContents(TArray<struct FinventoryItemStruct>* OutInventory, TArray<int>* OutQuantity)
+void AorderInstance_C::generatePackageContents(TArray<struct FinventoryItemStruct>* OutInventory, TArray<int>* outQuantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderInstance.orderInstance_C.generatePackageContents");
 
@@ -133,8 +133,8 @@ void AorderInstance_C::generatePackageContents(TArray<struct FinventoryItemStruc
 
 	if (OutInventory != nullptr)
 		*OutInventory = params.OutInventory;
-	if (OutQuantity != nullptr)
-		*OutQuantity = params.OutQuantity;
+	if (outQuantity != nullptr)
+		*outQuantity = params.outQuantity;
 }
 
 
@@ -273,9 +273,9 @@ void AorderInstance_C::ReceiveBeginPlay()
 // Function orderInstance.orderInstance_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AorderInstance_C::ReceiveTick(float DeltaSeconds)
+void AorderInstance_C::ReceiveTick(float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderInstance.orderInstance_C.ReceiveTick");
 

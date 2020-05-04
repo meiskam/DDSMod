@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -51,12 +51,12 @@ public:
 	void InpActEvt_Escape_K2Node_InputKeyEvent_2(const struct FKey& Key);
 	void InpActEvt_F10_K2Node_InputKeyEvent_1(const struct FKey& Key);
 	void InpActEvt_JumpObstacle_K2Node_InputActionEvent_1(const struct FKey& Key);
-	void ReceivePossessed(class AController* NewController);
-	void ReceiveUnpossessed(class AController* OldController);
+	void ReceivePossessed(class AController** NewController);
+	void ReceiveUnpossessed(class AController** OldController);
 	void breachHit();
 	void endBreach();
 	void rushBreach();
-	void ReceiveTick(float DeltaSeconds);
+	void ReceiveTick(float* DeltaSeconds);
 	void ExecuteUbergraph_doorBreacher(int EntryPoint);
 };
 

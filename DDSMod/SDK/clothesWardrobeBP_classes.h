@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass clothesWardrobeBP.clothesWardrobeBP_C
-// 0x0018 (0x0409 - 0x03F1)
+// 0x0019 (0x040A - 0x03F1)
 class AclothesWardrobeBP_C : public AinteractiveBaseObject_C
 {
 public:
@@ -21,6 +21,7 @@ public:
 	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x03F8(0x0008) (ZeroConstructor, Transient, DuplicateTransient)
 	class URamaSaveComponent*                          RamaSave;                                                 // 0x0400(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	bool                                               changingClothes;                                          // 0x0408(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               respawned;                                                // 0x0409(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -30,6 +31,7 @@ public:
 
 
 	void UserConstructionScript();
+	void ReceiveBeginPlay();
 	void ChangeClothes();
 	void unlockChange();
 	void ExecuteUbergraph_clothesWardrobeBP(int EntryPoint);

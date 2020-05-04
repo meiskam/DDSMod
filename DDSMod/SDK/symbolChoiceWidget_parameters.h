@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -27,8 +27,8 @@ struct UsymbolChoiceWidget_C_Construct_Params
 // Function symbolChoiceWidget.symbolChoiceWidget_C.Tick
 struct UsymbolChoiceWidget_C_Tick_Params
 {
-	struct FGeometry                                   MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-	float                                              InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	struct FGeometry*                                  MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+	float*                                             InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function symbolChoiceWidget.symbolChoiceWidget_C.BndEvt__btnSymbol1_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature

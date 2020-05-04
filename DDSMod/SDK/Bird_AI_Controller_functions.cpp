@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -181,9 +181,9 @@ void ABird_AI_Controller_C::UserConstructionScript()
 // Function Bird_AI_Controller.Bird_AI_Controller_C.OnPossess
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class APawn*                   PossessedPawn                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class APawn**                  PossessedPawn                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ABird_AI_Controller_C::OnPossess(class APawn* PossessedPawn)
+void ABird_AI_Controller_C::OnPossess(class APawn** PossessedPawn)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Bird_AI_Controller.Bird_AI_Controller_C.OnPossess");
 

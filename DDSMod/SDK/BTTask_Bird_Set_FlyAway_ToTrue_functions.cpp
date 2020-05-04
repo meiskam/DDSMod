@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,10 +16,10 @@ namespace SDK
 // Function BTTask_Bird_Set_FlyAway_ToTrue.BTTask_Bird_Set_FlyAway_ToTrue_C.ReceiveExecuteAI
 // (Event, Protected, BlueprintEvent)
 // Parameters:
-// class AAIController*           OwnerController                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// class APawn*                   ControlledPawn                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AAIController**          OwnerController                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class APawn**                  ControlledPawn                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UBTTask_Bird_Set_FlyAway_ToTrue_C::ReceiveExecuteAI(class AAIController* OwnerController, class APawn* ControlledPawn)
+void UBTTask_Bird_Set_FlyAway_ToTrue_C::ReceiveExecuteAI(class AAIController** OwnerController, class APawn** ControlledPawn)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function BTTask_Bird_Set_FlyAway_ToTrue.BTTask_Bird_Set_FlyAway_ToTrue_C.ReceiveExecuteAI");
 

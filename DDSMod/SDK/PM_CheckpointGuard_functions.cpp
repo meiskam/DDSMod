@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -74,9 +74,9 @@ void APM_CheckpointGuard_C::ReceiveBeginPlay()
 // Function PM_CheckpointGuard.PM_CheckpointGuard_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void APM_CheckpointGuard_C::ReceiveTick(float DeltaSeconds)
+void APM_CheckpointGuard_C::ReceiveTick(float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function PM_CheckpointGuard.PM_CheckpointGuard_C.ReceiveTick");
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,9 +12,9 @@ namespace SDK
 // Script Structs
 //---------------------------------------------------------------------------
 
-// ScriptStruct SessionMessages.SessionServiceLogUnsubscribe
+// ScriptStruct SessionMessages.SessionServiceLogSubscribe
 // 0x0001
-struct FSessionServiceLogUnsubscribe
+struct FSessionServiceLogSubscribe
 {
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };
@@ -31,9 +31,9 @@ struct FSessionServiceLog
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
 };
 
-// ScriptStruct SessionMessages.SessionServiceLogSubscribe
+// ScriptStruct SessionMessages.SessionServiceLogUnsubscribe
 // 0x0001
-struct FSessionServiceLogSubscribe
+struct FSessionServiceLogUnsubscribe
 {
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };

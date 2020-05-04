@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -67,14 +67,14 @@ void UappartmentModeWidget_C::Construct()
 // Function appartmentModeWidget.appartmentModeWidget_C.SetupWidget
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class ArentAppartmentArea_C*   appartmentRef                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class ArentAppartmentArea_C*   AppartmentRef                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UappartmentModeWidget_C::SetupWidget(class ArentAppartmentArea_C* appartmentRef)
+void UappartmentModeWidget_C::SetupWidget(class ArentAppartmentArea_C* AppartmentRef)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function appartmentModeWidget.appartmentModeWidget_C.SetupWidget");
 
 	UappartmentModeWidget_C_SetupWidget_Params params;
-	params.appartmentRef = appartmentRef;
+	params.AppartmentRef = AppartmentRef;
 
 	auto flags = fn->FunctionFlags;
 

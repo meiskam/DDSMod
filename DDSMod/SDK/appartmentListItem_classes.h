@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -35,7 +35,7 @@ public:
 	}
 
 
-	struct FEventReply OnMouseButtonDown(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent);
+	struct FEventReply OnMouseButtonDown(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent);
 	void setup(const struct FText& Name, const struct FText& Address, float Meterage, class UTexture2D* Image, int Index, class UEquipmentShopInterfaceWidget_C* parentRef, bool selected);
 	void ExecuteUbergraph_appartmentListItem(int EntryPoint);
 };

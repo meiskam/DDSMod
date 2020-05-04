@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,15 +17,15 @@ namespace SDK
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // struct FappartmentEquipment    Data                           (BlueprintVisible, BlueprintReadOnly, Parm)
-// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AequipmentShop_C::removeItems(const struct FappartmentEquipment& Data, int quantity)
+void AequipmentShop_C::removeItems(const struct FappartmentEquipment& Data, int Quantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function equipmentShop.equipmentShop_C.removeItems");
 
 	AequipmentShop_C_removeItems_Params params;
 	params.Data = Data;
-	params.quantity = quantity;
+	params.Quantity = Quantity;
 
 	auto flags = fn->FunctionFlags;
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -29,7 +29,7 @@ public:
 	int                                                curSelectedListObject;                                    // 0x0260(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0264(0x0004) MISSED OFFSET
 	TArray<int>                                        placeObjectsSourceIndex;                                  // 0x0268(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
-	class ArentAppartmentArea_C*                       appartmentRef;                                            // 0x0278(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
+	class ArentAppartmentArea_C*                       AppartmentRef;                                            // 0x0278(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -41,7 +41,7 @@ public:
 	void reconstructSourceIndexes();
 	void renderObjectList();
 	void Construct();
-	void SetupWidget(class ArentAppartmentArea_C* appartmentRef);
+	void SetupWidget(class ArentAppartmentArea_C* AppartmentRef);
 	void setNewObjectGizmo();
 	void selectIndexUp();
 	void selectIndexDown();

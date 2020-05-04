@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -96,7 +96,7 @@ public:
 
 
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_Seagull_AnimationBlueprint_AnimGraphNode_BlendListByInt_85473F0A4FD880EC4878C4AE83C6B14A();
-	void BlueprintUpdateAnimation(float DeltaTimeX);
+	void BlueprintUpdateAnimation(float* DeltaTimeX);
 	void AnimNotify_IdleEnd();
 	void ExecuteUbergraph_Seagull_AnimationBlueprint(int EntryPoint);
 };

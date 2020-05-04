@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -74,9 +74,9 @@ public:
 	void HideoutTransitionTimeline__FinishedFunc();
 	void HideoutTransitionTimeline__UpdateFunc();
 	void endChaseMusic();
-	void ReceiveTick(float DeltaSeconds);
+	void ReceiveTick(float* DeltaSeconds);
 	void InitiateMe(class AplayerCharacterBP_C* playerRef);
-	void startChaseMusic();
+	void StartChaseMusic();
 	void BndEvt__IntroChase_K2Node_ComponentBoundEvent_4_OnAudioPlaybackPercent__DelegateSignature(class USoundWave* PlayingSoundWave, float PlaybackPercent);
 	void PlayChaseMusic(float StartTime);
 	void PlayIntroMusic();

@@ -4,6 +4,7 @@
 #include "mem.h"
 #include "SDK.h"
 #include "tinyformat.h"
+// DDSMod created by lixbin
 
 void Dump()
 {
@@ -21,7 +22,7 @@ void Dump()
 			}
 		}
 	}
-	{
+	{ //this bit is broke :/
 		std::ofstream o("NamesDump.txt");
 		tfm::format(o, "Address: 0x%P\n\n", reinterpret_cast<void*>(*reinterpret_cast<uintptr_t*>(&SDK::FName::GetGlobalNames())));
 		
@@ -90,7 +91,7 @@ DWORD WINAPI HackThread(HMODULE hModule)
 			
 			bool *ret = new bool;
 			player->addMoney(1, ret);
-			if (ret == nullptr || ret == false) {
+			if (ret == nullptr || *ret == false) {
 				std::cout << "failure" << std::endl;
 			}
 			else {

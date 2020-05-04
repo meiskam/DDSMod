@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -162,9 +162,9 @@ void UworkStationUI_C::renderInventoryDrugs()
 // Function workStationUI.workStationUI_C.PreConstruct
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// bool                           IsDesignTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool*                          IsDesignTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UworkStationUI_C::PreConstruct(bool IsDesignTime)
+void UworkStationUI_C::PreConstruct(bool* IsDesignTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function workStationUI.workStationUI_C.PreConstruct");
 
@@ -199,10 +199,10 @@ void UworkStationUI_C::Construct()
 // Function workStationUI.workStationUI_C.Tick
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// float                          InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// float*                         InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UworkStationUI_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
+void UworkStationUI_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function workStationUI.workStationUI_C.Tick");
 

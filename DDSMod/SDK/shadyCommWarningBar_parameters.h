@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -40,14 +40,14 @@ struct UshadyCommWarningBar_C_playPing_Params
 // Function shadyCommWarningBar.shadyCommWarningBar_C.OnMouseEnter
 struct UshadyCommWarningBar_C_OnMouseEnter_Params
 {
-	struct FGeometry                                   MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-	struct FPointerEvent                               MouseEvent;                                               // (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+	struct FGeometry*                                  MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+	struct FPointerEvent*                              MouseEvent;                                               // (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 };
 
 // Function shadyCommWarningBar.shadyCommWarningBar_C.OnMouseLeave
 struct UshadyCommWarningBar_C_OnMouseLeave_Params
 {
-	struct FPointerEvent                               MouseEvent;                                               // (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+	struct FPointerEvent*                              MouseEvent;                                               // (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 };
 
 // Function shadyCommWarningBar.shadyCommWarningBar_C.ExecuteUbergraph_shadyCommWarningBar

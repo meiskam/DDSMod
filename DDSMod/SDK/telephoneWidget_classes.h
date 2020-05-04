@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -70,7 +70,7 @@ public:
 	void renderNotifications();
 	void renderMessages(class AtelephoneBP_C* phoneRef, bool renderUserMsg, int userID);
 	void renderCallList(class AtelephoneBP_C* phoneRef);
-	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
+	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
 	void slideNext();
 	void slidePrevious();
 	void setSlide(int slideNum);

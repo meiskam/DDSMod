@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -270,6 +270,13 @@ struct FLandscapeInfoLayerSettings
 	struct FName                                       LayerName;                                                // 0x0008(0x0008) (ZeroConstructor, IsPlainOldData)
 };
 
+// ScriptStruct Landscape.LandscapeImportLayerInfo
+// 0x0001
+struct FLandscapeImportLayerInfo
+{
+	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
+};
+
 // ScriptStruct Landscape.LandscapeLayerStruct
 // 0x0008
 struct FLandscapeLayerStruct
@@ -328,13 +335,6 @@ struct FLandscapeSplineMeshEntry
 	TEnumAsByte<ESplineMeshAxis>                       ForwardAxis;                                              // 0x0035(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	TEnumAsByte<ESplineMeshAxis>                       UpAxis;                                                   // 0x0036(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x1];                                       // 0x0037(0x0001) MISSED OFFSET
-};
-
-// ScriptStruct Landscape.LandscapeImportLayerInfo
-// 0x0001
-struct FLandscapeImportLayerInfo
-{
-	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };
 
 }

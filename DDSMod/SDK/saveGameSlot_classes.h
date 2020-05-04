@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass saveGameSlot.saveGameSlot_C
-// 0x0058 (0x0080 - 0x0028)
+// 0x0078 (0x00A0 - 0x0028)
 class UsaveGameSlot_C : public USaveGame
 {
 public:
@@ -24,6 +24,8 @@ public:
 	int                                                lastSavedGame;                                            // 0x0068(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x006C(0x0004) MISSED OFFSET
 	TArray<TEnumAsByte<EdifficultyLevels>>             saveDifficulty;                                           // 0x0070(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	TArray<int>                                        gangLevel;                                                // 0x0080(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	TArray<float>                                      pitcoinWallet;                                            // 0x0090(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 
 	static UClass* StaticClass()
 	{

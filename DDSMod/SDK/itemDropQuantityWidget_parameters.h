@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,7 +17,7 @@ namespace SDK
 // Function itemDropQuantityWidget.itemDropQuantityWidget_C.getMaxQuantity
 struct UitemDropQuantityWidget_C_getMaxQuantity_Params
 {
-	struct FString                                     TargetString;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
+	struct FString                                     targetString;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 	class UUserWidget*                                 Widget;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 	int                                                sourceQuan;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	struct FinventoryItemStruct                        Data;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm)
@@ -27,7 +27,7 @@ struct UitemDropQuantityWidget_C_getMaxQuantity_Params
 // Function itemDropQuantityWidget.itemDropQuantityWidget_C.PreConstruct
 struct UitemDropQuantityWidget_C_PreConstruct_Params
 {
-	bool                                               IsDesignTime;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool*                                              IsDesignTime;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function itemDropQuantityWidget.itemDropQuantityWidget_C.Construct
@@ -43,7 +43,7 @@ struct UitemDropQuantityWidget_C_BndEvt__btnCancel_K2Node_ComponentBoundEvent_0_
 // Function itemDropQuantityWidget.itemDropQuantityWidget_C.setup
 struct UitemDropQuantityWidget_C_setup_Params
 {
-	struct FString                                     TargetString;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
+	struct FString                                     targetString;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 	int                                                QuanMax;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	class UUserWidget*                                 TargetWidget;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 	class UinventoryItemWidget_C*                      Payload;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)

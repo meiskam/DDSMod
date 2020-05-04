@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -21,6 +21,23 @@ void AclothesWardrobeBP_C::UserConstructionScript()
 	static auto fn = UObject::FindObject<UFunction>("Function clothesWardrobeBP.clothesWardrobeBP_C.UserConstructionScript");
 
 	AclothesWardrobeBP_C_UserConstructionScript_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function clothesWardrobeBP.clothesWardrobeBP_C.ReceiveBeginPlay
+// (Event, Protected, BlueprintEvent)
+
+void AclothesWardrobeBP_C::ReceiveBeginPlay()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function clothesWardrobeBP.clothesWardrobeBP_C.ReceiveBeginPlay");
+
+	AclothesWardrobeBP_C_ReceiveBeginPlay_Params params;
 
 	auto flags = fn->FunctionFlags;
 

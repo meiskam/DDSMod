@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -73,15 +73,15 @@ void UpackageProductWidget_C::renderPackageList()
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // int                            Size                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UpackageProductWidget_C::addPackage(int Size, int quantity)
+void UpackageProductWidget_C::addPackage(int Size, int Quantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function packageProductWidget.packageProductWidget_C.addPackage");
 
 	UpackageProductWidget_C_addPackage_Params params;
 	params.Size = Size;
-	params.quantity = quantity;
+	params.Quantity = Quantity;
 
 	auto flags = fn->FunctionFlags;
 
@@ -94,16 +94,16 @@ void UpackageProductWidget_C::addPackage(int Size, int quantity)
 // Function packageProductWidget.packageProductWidget_C.generateDurgIcon
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
-// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // TEnumAsByte<EdrugForm>         Form                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // class UTexture2D*              IconOut                        (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UpackageProductWidget_C::generateDurgIcon(int quantity, TEnumAsByte<EdrugForm> Form, class UTexture2D** IconOut)
+void UpackageProductWidget_C::generateDurgIcon(int Quantity, TEnumAsByte<EdrugForm> Form, class UTexture2D** IconOut)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function packageProductWidget.packageProductWidget_C.generateDurgIcon");
 
 	UpackageProductWidget_C_generateDurgIcon_Params params;
-	params.quantity = quantity;
+	params.Quantity = Quantity;
 	params.Form = Form;
 
 	auto flags = fn->FunctionFlags;
@@ -159,10 +159,10 @@ void UpackageProductWidget_C::checkCanFitInventory(bool* canFit)
 // Function packageProductWidget.packageProductWidget_C.Tick
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// float                          InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// float*                         InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UpackageProductWidget_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
+void UpackageProductWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function packageProductWidget.packageProductWidget_C.Tick");
 

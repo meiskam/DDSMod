@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -141,14 +141,14 @@ void AlaBallena_C::ReceiveBeginPlay()
 }
 
 
-// Function laBallena.laBallena_C.PlayerSatDown
+// Function laBallena.laBallena_C.playerSatDown
 // (BlueprintCallable, BlueprintEvent)
 
-void AlaBallena_C::PlayerSatDown()
+void AlaBallena_C::playerSatDown()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function laBallena.laBallena_C.PlayerSatDown");
+	static auto fn = UObject::FindObject<UFunction>("Function laBallena.laBallena_C.playerSatDown");
 
-	AlaBallena_C_PlayerSatDown_Params params;
+	AlaBallena_C_playerSatDown_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -191,9 +191,9 @@ void AlaBallena_C::BndEvt__Box_K2Node_ComponentBoundEvent_0_ComponentBeginOverla
 // Function laBallena.laBallena_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AlaBallena_C::ReceiveTick(float DeltaSeconds)
+void AlaBallena_C::ReceiveTick(float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function laBallena.laBallena_C.ReceiveTick");
 

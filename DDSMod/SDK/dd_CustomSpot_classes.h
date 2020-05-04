@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,14 +13,14 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass dd_CustomSpot.dd_CustomSpot_C
-// 0x0034 (0x04AC - 0x0478)
+// 0x0034 (0x04B4 - 0x0480)
 class Add_CustomSpot_C : public AdeadDropBase_C
 {
 public:
-	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x0478(0x0008) (ZeroConstructor, Transient, DuplicateTransient)
-	class UBoxComponent*                               Box;                                                      // 0x0480(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FText                                       CustomStotName;                                           // 0x0488(0x0018) (Edit, BlueprintVisible)
-	struct FVector                                     colliderExtent;                                           // 0x04A0(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x0480(0x0008) (ZeroConstructor, Transient, DuplicateTransient)
+	class UBoxComponent*                               Box;                                                      // 0x0488(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
+	struct FText                                       CustomStotName;                                           // 0x0490(0x0018) (Edit, BlueprintVisible)
+	struct FVector                                     colliderExtent;                                           // 0x04A8(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{

@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,40 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function containerBase.containerBase_C.reconstructContentsReferences
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void AcontainerBase_C::reconstructContentsReferences()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function containerBase.containerBase_C.reconstructContentsReferences");
+
+	AcontainerBase_C_reconstructContentsReferences_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function containerBase.containerBase_C.respawnFurniture
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void AcontainerBase_C::respawnFurniture()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function containerBase.containerBase_C.respawnFurniture");
+
+	AcontainerBase_C_respawnFurniture_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function containerBase.containerBase_C.setBackpackDefaults
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
@@ -78,15 +112,15 @@ void AcontainerBase_C::resetContentSizes()
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // int                            ItemIndex                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AcontainerBase_C::removeItem(int ItemIndex, int quantity)
+void AcontainerBase_C::removeItem(int ItemIndex, int Quantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function containerBase.containerBase_C.removeItem");
 
 	AcontainerBase_C_removeItem_Params params;
 	params.ItemIndex = ItemIndex;
-	params.quantity = quantity;
+	params.Quantity = Quantity;
 
 	auto flags = fn->FunctionFlags;
 
@@ -102,8 +136,9 @@ void AcontainerBase_C::removeItem(int ItemIndex, int quantity)
 // struct FinventoryItemStruct    itemData                       (BlueprintVisible, BlueprintReadOnly, Parm)
 // int                            itemQuantity                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            AddedIndex                     (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           QuanChanged                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AcontainerBase_C::AddItem(const struct FinventoryItemStruct& itemData, int itemQuantity, int* AddedIndex)
+void AcontainerBase_C::AddItem(const struct FinventoryItemStruct& itemData, int itemQuantity, int* AddedIndex, bool* QuanChanged)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function containerBase.containerBase_C.AddItem");
 
@@ -119,6 +154,8 @@ void AcontainerBase_C::AddItem(const struct FinventoryItemStruct& itemData, int 
 
 	if (AddedIndex != nullptr)
 		*AddedIndex = params.AddedIndex;
+	if (QuanChanged != nullptr)
+		*QuanChanged = params.QuanChanged;
 }
 
 

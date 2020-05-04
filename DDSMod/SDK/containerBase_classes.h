@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass containerBase.containerBase_C
-// 0x006F (0x0460 - 0x03F1)
+// 0x0070 (0x0461 - 0x03F1)
 class AcontainerBase_C : public AinteractiveBaseObject_C
 {
 public:
@@ -32,6 +32,7 @@ public:
 	float                                              curItemSize;                                              // 0x0454(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              curItemWeight;                                            // 0x0458(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	int                                                containerRefID;                                           // 0x045C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               respawned;                                                // 0x0460(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -40,11 +41,13 @@ public:
 	}
 
 
+	void reconstructContentsReferences();
+	void respawnFurniture();
 	void setBackpackDefaults();
 	void returnItemSizing(const struct FinventoryItemStruct& Data, float* Size, float* Weight);
 	void resetContentSizes();
-	void removeItem(int ItemIndex, int quantity);
-	void AddItem(const struct FinventoryItemStruct& itemData, int itemQuantity, int* AddedIndex);
+	void removeItem(int ItemIndex, int Quantity);
+	void AddItem(const struct FinventoryItemStruct& itemData, int itemQuantity, int* AddedIndex, bool* QuanChanged);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
 	void openContainer();

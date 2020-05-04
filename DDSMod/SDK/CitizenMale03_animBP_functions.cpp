@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -64,23 +64,6 @@ void UCitizenMale03_animBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_Citize
 }
 
 
-// Function CitizenMale03_animBP.CitizenMale03_animBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_BlendSpacePlayer_4443FE4A4BC18FEB7F81BD834C88C1E2
-// (BlueprintEvent)
-
-void UCitizenMale03_animBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_BlendSpacePlayer_4443FE4A4BC18FEB7F81BD834C88C1E2()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function CitizenMale03_animBP.CitizenMale03_animBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_BlendSpacePlayer_4443FE4A4BC18FEB7F81BD834C88C1E2");
-
-	UCitizenMale03_animBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_BlendSpacePlayer_4443FE4A4BC18FEB7F81BD834C88C1E2_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function CitizenMale03_animBP.CitizenMale03_animBP_C.EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale03_animBP_AnimGraphNode_TransitionResult_AE542AA94B7B457D5751EDB52EC232F9
 // (BlueprintEvent)
 
@@ -101,9 +84,9 @@ void UCitizenMale03_animBP_C::EvaluateGraphExposedInputs_ExecuteUbergraph_Citize
 // Function CitizenMale03_animBP.CitizenMale03_animBP_C.BlueprintUpdateAnimation
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UCitizenMale03_animBP_C::BlueprintUpdateAnimation(float DeltaTimeX)
+void UCitizenMale03_animBP_C::BlueprintUpdateAnimation(float* DeltaTimeX)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function CitizenMale03_animBP.CitizenMale03_animBP_C.BlueprintUpdateAnimation");
 

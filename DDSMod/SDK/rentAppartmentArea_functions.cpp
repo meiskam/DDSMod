@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,23 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function rentAppartmentArea.rentAppartmentArea_C.mapMarkerCheck
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void ArentAppartmentArea_C::mapMarkerCheck()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.mapMarkerCheck");
+
+	ArentAppartmentArea_C_mapMarkerCheck_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function rentAppartmentArea.rentAppartmentArea_C.markerOpc
 // (Public, BlueprintCallable, BlueprintEvent)
@@ -162,15 +179,15 @@ void ArentAppartmentArea_C::spawnFlashBang()
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // struct FappartmentEquipment    eqData                         (BlueprintVisible, BlueprintReadOnly, Parm)
-// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ArentAppartmentArea_C::addInventoryItem(const struct FappartmentEquipment& eqData, int quantity)
+void ArentAppartmentArea_C::addInventoryItem(const struct FappartmentEquipment& eqData, int Quantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.addInventoryItem");
 
 	ArentAppartmentArea_C_addInventoryItem_Params params;
 	params.eqData = eqData;
-	params.quantity = quantity;
+	params.Quantity = Quantity;
 
 	auto flags = fn->FunctionFlags;
 
@@ -184,15 +201,15 @@ void ArentAppartmentArea_C::addInventoryItem(const struct FappartmentEquipment& 
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // int                            Index                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ArentAppartmentArea_C::removeInventoryItem(int Index, int quantity)
+void ArentAppartmentArea_C::removeInventoryItem(int Index, int Quantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.removeInventoryItem");
 
 	ArentAppartmentArea_C_removeInventoryItem_Params params;
 	params.Index = Index;
-	params.quantity = quantity;
+	params.Quantity = Quantity;
 
 	auto flags = fn->FunctionFlags;
 
@@ -256,9 +273,9 @@ void ArentAppartmentArea_C::ReceiveBeginPlay()
 // Function rentAppartmentArea.rentAppartmentArea_C.ReceiveActorBeginOverlap
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AActor*                  OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor**                 OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ArentAppartmentArea_C::ReceiveActorBeginOverlap(class AActor* OtherActor)
+void ArentAppartmentArea_C::ReceiveActorBeginOverlap(class AActor** OtherActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.ReceiveActorBeginOverlap");
 
@@ -276,9 +293,9 @@ void ArentAppartmentArea_C::ReceiveActorBeginOverlap(class AActor* OtherActor)
 // Function rentAppartmentArea.rentAppartmentArea_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ArentAppartmentArea_C::ReceiveTick(float DeltaSeconds)
+void ArentAppartmentArea_C::ReceiveTick(float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.ReceiveTick");
 
@@ -296,9 +313,9 @@ void ArentAppartmentArea_C::ReceiveTick(float DeltaSeconds)
 // Function rentAppartmentArea.rentAppartmentArea_C.ReceiveActorEndOverlap
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AActor*                  OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor**                 OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ArentAppartmentArea_C::ReceiveActorEndOverlap(class AActor* OtherActor)
+void ArentAppartmentArea_C::ReceiveActorEndOverlap(class AActor** OtherActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.ReceiveActorEndOverlap");
 

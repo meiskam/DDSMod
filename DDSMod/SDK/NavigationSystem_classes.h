@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -154,21 +154,6 @@ public:
 };
 
 
-// Class NavigationSystem.NavArea_Obstacle
-// 0x0000 (0x0048 - 0x0048)
-class UNavArea_Obstacle : public UNavArea
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavArea_Obstacle");
-		return ptr;
-	}
-
-};
-
-
 // Class NavigationSystem.NavAreaMeta
 // 0x0000 (0x0048 - 0x0048)
 class UNavAreaMeta : public UNavArea
@@ -209,6 +194,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class NavigationSystem.NavAreaMeta_SwitchByAgent");
+		return ptr;
+	}
+
+};
+
+
+// Class NavigationSystem.NavArea_Obstacle
+// 0x0000 (0x0048 - 0x0048)
+class UNavArea_Obstacle : public UNavArea
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavArea_Obstacle");
 		return ptr;
 	}
 
@@ -430,26 +430,6 @@ public:
 };
 
 
-// Class NavigationSystem.NavigationSystemModuleConfig
-// 0x0008 (0x0050 - 0x0048)
-class UNavigationSystemModuleConfig : public UNavigationSystemConfig
-{
-public:
-	unsigned char                                      bStrictlyStatic : 1;                                      // 0x0048(0x0001) (Edit)
-	unsigned char                                      bCreateOnClient : 1;                                      // 0x0048(0x0001) (Edit)
-	unsigned char                                      bAutoSpawnMissingNavData : 1;                             // 0x0048(0x0001) (Edit)
-	unsigned char                                      bSpawnNavDataInNavBoundsLevel : 1;                        // 0x0048(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0049(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavigationSystemModuleConfig");
-		return ptr;
-	}
-
-};
-
-
 // Class NavigationSystem.NavigationTestingActor
 // 0x00E8 (0x0410 - 0x0328)
 class ANavigationTestingActor : public AActor
@@ -501,16 +481,20 @@ public:
 };
 
 
-// Class NavigationSystem.NavLinkComponent
-// 0x0010 (0x0570 - 0x0560)
-class UNavLinkComponent : public UPrimitiveComponent
+// Class NavigationSystem.NavigationSystemModuleConfig
+// 0x0008 (0x0050 - 0x0048)
+class UNavigationSystemModuleConfig : public UNavigationSystemConfig
 {
 public:
-	TArray<struct FNavigationLink>                     Links;                                                    // 0x0560(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	unsigned char                                      bStrictlyStatic : 1;                                      // 0x0048(0x0001) (Edit)
+	unsigned char                                      bCreateOnClient : 1;                                      // 0x0048(0x0001) (Edit)
+	unsigned char                                      bAutoSpawnMissingNavData : 1;                             // 0x0048(0x0001) (Edit)
+	unsigned char                                      bSpawnNavDataInNavBoundsLevel : 1;                        // 0x0048(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0049(0x0007) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkComponent");
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavigationSystemModuleConfig");
 		return ptr;
 	}
 
@@ -568,6 +552,22 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkCustomComponent");
+		return ptr;
+	}
+
+};
+
+
+// Class NavigationSystem.NavLinkComponent
+// 0x0010 (0x0570 - 0x0560)
+class UNavLinkComponent : public UPrimitiveComponent
+{
+public:
+	TArray<struct FNavigationLink>                     Links;                                                    // 0x0560(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkComponent");
 		return ptr;
 	}
 
@@ -740,21 +740,6 @@ public:
 };
 
 
-// Class NavigationSystem.NavTestRenderingComponent
-// 0x0000 (0x0560 - 0x0560)
-class UNavTestRenderingComponent : public UPrimitiveComponent
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavTestRenderingComponent");
-		return ptr;
-	}
-
-};
-
-
 // Class NavigationSystem.RecastFilter_UseDefaultArea
 // 0x0000 (0x0048 - 0x0048)
 class URecastFilter_UseDefaultArea : public UNavigationQueryFilter
@@ -858,6 +843,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class NavigationSystem.RecastNavMeshDataChunk");
+		return ptr;
+	}
+
+};
+
+
+// Class NavigationSystem.NavTestRenderingComponent
+// 0x0000 (0x0560 - 0x0560)
+class UNavTestRenderingComponent : public UPrimitiveComponent
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavTestRenderingComponent");
 		return ptr;
 	}
 

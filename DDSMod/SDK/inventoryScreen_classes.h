@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -132,7 +132,7 @@ public:
 	void inventoryError(const struct FText& ErrorText);
 	void refreshSkills();
 	void countTotalDrugGrams(int* OutGrams);
-	void checkSubstanceSame(TArray<struct FinventoryItemStruct>* Substances, bool* TheSame);
+	void checkSubstanceSame(TArray<struct FinventoryItemStruct>* Substances, TArray<int>* quantities, bool* TheSame, struct FdrugData* dataAverage);
 	void renderQuestList();
 	void acceptBoughtItems();
 	void countBoughtItemValue(class AplayerCharacterBP_C* playerRef, int* Value);
@@ -142,7 +142,7 @@ public:
 	class UWidget* GetToolTipWidget_1();
 	void renderTasklist();
 	void countTotalSelledDrugsMoney(bool* playerCanFitMoney);
-	void checkSelledDrugs(bool* CheckedPositive);
+	void checkSelledDrugs(bool* CheckedPositive, struct FdrugData* endDrugAverage);
 	void renderBuyerNeeded();
 	void checkItemsFitPockets(class AplayerCharacterBP_C* playerRef, bool* NoFit);
 	void countTradeItemSizing(float* TotalSize, float* TotalWieght);
@@ -153,9 +153,9 @@ public:
 	void prepareInventoryMode(class AcontainerBase_C* ContainerRef, class AbaseNPC_C* sellerRef, class AplayerCharacterBP_C* playerRef);
 	void renderPockets(class AplayerCharacterBP_C* Player, TArray<struct FinventoryItemStruct>* pocketItems);
 	void renderBackpack(TArray<struct FinventoryItemStruct>* backpackItems);
-	void PreConstruct(bool IsDesignTime);
+	void PreConstruct(bool* IsDesignTime);
 	void Construct();
-	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
+	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
 	void BndEvt__tabInventory_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__tabCharacter_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__btnOrganiser_K2Node_ComponentBoundEvent_2_OnButtonClickedEvent__DelegateSignature();

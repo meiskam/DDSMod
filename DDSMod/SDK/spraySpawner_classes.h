@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -34,7 +34,7 @@ public:
 	void selectSpawnPoint(class AspraySpawnPoint_C** Output, bool* Success);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float DeltaSeconds);
+	void ReceiveTick(float* DeltaSeconds);
 	void trySpawnSpray();
 	void burstInitialSprayPaint();
 	void ExecuteUbergraph_spraySpawner(int EntryPoint);

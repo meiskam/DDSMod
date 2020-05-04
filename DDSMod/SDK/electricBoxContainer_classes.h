@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass electricBoxContainer.electricBoxContainer_C
-// 0x0000 (0x0460 - 0x0460)
+// 0x0000 (0x0461 - 0x0461)
 class AelectricBoxContainer_C : public AcontainerBase_C
 {
 public:

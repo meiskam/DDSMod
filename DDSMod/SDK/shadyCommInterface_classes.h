@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -133,7 +133,7 @@ public:
 	void checkUserResetReadMessages(int userID);
 	class UWidget* Get_txtStatusClientSatisfaction_ToolTipWidget_1();
 	class UWidget* Get_txtStatusDeliveryTime_ToolTipWidget_1();
-	void countAverageSatisfaction(TArray<bool>* clientsLost, TArray<float>* ClientSatisfaction, TArray<int>* ClientNumSales);
+	void countAverageSatisfaction(TArray<bool>* ClientsLost, TArray<float>* ClientSatisfaction, TArray<int>* ClientNumSales);
 	class UWidget* GetToolTipWidget_4();
 	class UWidget* GetToolTipWidget_3();
 	class UWidget* GetToolTipWidget_2();
@@ -160,7 +160,7 @@ public:
 	void renderDrugs(class AmainComputer_C* Computer);
 	void renderContacts();
 	void Construct();
-	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
+	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
 	void setup(class AmainComputer_C* parentRef);
 	void BndEvt__btnOpenOptions_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__btnSendMessage_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature();

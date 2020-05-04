@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -40,7 +40,7 @@ struct APolicemanBaseClass_C_checkPlayerRunning_Params
 // Function PolicemanBaseClass.PolicemanBaseClass_C.finishChasing
 struct APolicemanBaseClass_C_finishChasing_Params
 {
-	bool                                               stayAlerted;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               StayAlerted;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PolicemanBaseClass.PolicemanBaseClass_C.checkChasingPolicemen
@@ -109,7 +109,7 @@ struct APolicemanBaseClass_C_UserConstructionScript_Params
 // Function PolicemanBaseClass.PolicemanBaseClass_C.ReceiveTick
 struct APolicemanBaseClass_C_ReceiveTick_Params
 {
-	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PolicemanBaseClass.PolicemanBaseClass_C.BndEvt__AIPerception_K2Node_ComponentBoundEvent_2_ActorPerceptionUpdatedDelegate__DelegateSignature
@@ -174,7 +174,7 @@ struct APolicemanBaseClass_C_SetChaseMode_Params
 // Function PolicemanBaseClass.PolicemanBaseClass_C.EndChase
 struct APolicemanBaseClass_C_EndChase_Params
 {
-	bool                                               stayAlerted;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               StayAlerted;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               cancelAllChasers;                                         // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 

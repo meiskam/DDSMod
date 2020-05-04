@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -39,7 +39,7 @@ public:
 	struct FString                                     functionCallAccept;                                       // 0x03A8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	struct FString                                     functionCallDecline;                                      // 0x03B8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	struct FString                                     functionCallEnd;                                          // 0x03C8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
-	struct FText                                       CallText;                                                 // 0x03D8(0x0018) (Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FText                                       callText;                                                 // 0x03D8(0x0018) (Edit, BlueprintVisible, DisableEditOnInstance)
 	int                                                curCallerID;                                              // 0x03F0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x4];                                       // 0x03F4(0x0004) MISSED OFFSET
 	struct FString                                     curCallTime;                                              // 0x03F8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
@@ -71,7 +71,7 @@ public:
 	}
 
 
-	void pushNotification(class UTexture2D* Icon, const struct FText& Text, bool PlaySound);
+	void pushNotification(class UTexture2D* icon, const struct FText& Text, bool PlaySound);
 	void interfaceBack();
 	void interfaceEnter();
 	void playMessageSound();

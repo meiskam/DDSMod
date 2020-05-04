@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,62 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function mainMenuWidget.mainMenuWidget_C.Construct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+
+void UmainMenuWidget_C::Construct()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.Construct");
+
+	UmainMenuWidget_C_Construct_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function mainMenuWidget.mainMenuWidget_C.Tick
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+// Parameters:
+// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// float*                         InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+
+void UmainMenuWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.Tick");
+
+	UmainMenuWidget_C_Tick_Params params;
+	params.MyGeometry = MyGeometry;
+	params.InDeltaTime = InDeltaTime;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UmainMenuWidget_C::BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature");
+
+	UmainMenuWidget_C_BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnGame_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature
 // (BlueprintEvent)
@@ -89,62 +145,6 @@ void UmainMenuWidget_C::BndEvt__btnSettings_K2Node_ComponentBoundEvent_8_OnButto
 	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnSettings_K2Node_ComponentBoundEvent_8_OnButtonClickedEvent__DelegateSignature");
 
 	UmainMenuWidget_C_BndEvt__btnSettings_K2Node_ComponentBoundEvent_8_OnButtonClickedEvent__DelegateSignature_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature
-// (BlueprintEvent)
-
-void UmainMenuWidget_C::BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature");
-
-	UmainMenuWidget_C_BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function mainMenuWidget.mainMenuWidget_C.Tick
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-// Parameters:
-// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// float                          InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-
-void UmainMenuWidget_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.Tick");
-
-	UmainMenuWidget_C_Tick_Params params;
-	params.MyGeometry = MyGeometry;
-	params.InDeltaTime = InDeltaTime;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function mainMenuWidget.mainMenuWidget_C.Construct
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-
-void UmainMenuWidget_C::Construct()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.Construct");
-
-	UmainMenuWidget_C_Construct_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -429,14 +429,14 @@ void UmainMenuWidget_C::BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_4_OnButto
 // Function mainMenuWidget.mainMenuWidget_C.startNewGame
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// TEnumAsByte<EdifficultyLevels> chosenDifficulty               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// TEnumAsByte<EdifficultyLevels> ChosenDifficulty               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UmainMenuWidget_C::startNewGame(TEnumAsByte<EdifficultyLevels> chosenDifficulty)
+void UmainMenuWidget_C::startNewGame(TEnumAsByte<EdifficultyLevels> ChosenDifficulty)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.startNewGame");
 
 	UmainMenuWidget_C_startNewGame_Params params;
-	params.chosenDifficulty = chosenDifficulty;
+	params.ChosenDifficulty = ChosenDifficulty;
 
 	auto flags = fn->FunctionFlags;
 
@@ -658,6 +658,57 @@ void UmainMenuWidget_C::BndEvt__Button_6_K2Node_ComponentBoundEvent_34_OnButtonC
 	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.BndEvt__Button_6_K2Node_ComponentBoundEvent_34_OnButtonClickedEvent__DelegateSignature");
 
 	UmainMenuWidget_C_BndEvt__Button_6_K2Node_ComponentBoundEvent_34_OnButtonClickedEvent__DelegateSignature_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnCredits_K2Node_ComponentBoundEvent_15_OnButtonClickedEvent__DelegateSignature
+// (BlueprintEvent)
+
+void UmainMenuWidget_C::BndEvt__btnCredits_K2Node_ComponentBoundEvent_15_OnButtonClickedEvent__DelegateSignature()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnCredits_K2Node_ComponentBoundEvent_15_OnButtonClickedEvent__DelegateSignature");
+
+	UmainMenuWidget_C_BndEvt__btnCredits_K2Node_ComponentBoundEvent_15_OnButtonClickedEvent__DelegateSignature_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function mainMenuWidget.mainMenuWidget_C.resetCredits
+// (BlueprintCallable, BlueprintEvent)
+
+void UmainMenuWidget_C::resetCredits()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.resetCredits");
+
+	UmainMenuWidget_C_resetCredits_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function mainMenuWidget.mainMenuWidget_C.glitchSubs
+// (BlueprintCallable, BlueprintEvent)
+
+void UmainMenuWidget_C::glitchSubs()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.glitchSubs");
+
+	UmainMenuWidget_C_glitchSubs_Params params;
 
 	auto flags = fn->FunctionFlags;
 

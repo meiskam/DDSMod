@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -101,15 +101,6 @@ enum class EDatasmithImportActorPolicy : uint8_t
 };
 
 
-// Enum DatasmithContent.EDatasmithImportSearchPackagePolicy
-enum class EDatasmithImportSearchPackagePolicy : uint8_t
-{
-	EDatasmithImportSearchPackagePolicy__Current = 0,
-	EDatasmithImportSearchPackagePolicy__All = 1,
-	EDatasmithImportSearchPackagePolicy__EDatasmithImportSearchPackagePolicy_MAX = 2
-};
-
-
 // Enum DatasmithContent.EDatasmithImportAssetConflictPolicy
 enum class EDatasmithImportAssetConflictPolicy : uint8_t
 {
@@ -118,6 +109,15 @@ enum class EDatasmithImportAssetConflictPolicy : uint8_t
 	EDatasmithImportAssetConflictPolicy__Use = 2,
 	EDatasmithImportAssetConflictPolicy__Ignore = 3,
 	EDatasmithImportAssetConflictPolicy__EDatasmithImportAssetConflictPolicy_MAX = 4
+};
+
+
+// Enum DatasmithContent.EDatasmithImportSearchPackagePolicy
+enum class EDatasmithImportSearchPackagePolicy : uint8_t
+{
+	EDatasmithImportSearchPackagePolicy__Current = 0,
+	EDatasmithImportSearchPackagePolicy__All = 1,
+	EDatasmithImportSearchPackagePolicy__EDatasmithImportSearchPackagePolicy_MAX = 2
 };
 
 

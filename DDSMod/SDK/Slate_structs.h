@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -30,6 +30,16 @@ enum class ESelectionMode : uint8_t
 	ESelectionMode__SingleToggle   = 2,
 	ESelectionMode__Multi          = 3,
 	ESelectionMode__ESelectionMode_MAX = 4
+};
+
+
+// Enum Slate.ETableViewMode
+enum class ETableViewMode : uint8_t
+{
+	ETableViewMode__List           = 0,
+	ETableViewMode__Tile           = 1,
+	ETableViewMode__Tree           = 2,
+	ETableViewMode__ETableViewMode_MAX = 3
 };
 
 
@@ -67,16 +77,6 @@ enum class EStretchDirection : uint8_t
 	EStretchDirection__DownOnly    = 1,
 	EStretchDirection__UpOnly      = 2,
 	EStretchDirection__EStretchDirection_MAX = 3
-};
-
-
-// Enum Slate.EDescendantScrollDestination
-enum class EDescendantScrollDestination : uint8_t
-{
-	EDescendantScrollDestination__IntoView = 0,
-	EDescendantScrollDestination__TopOrLeft = 1,
-	EDescendantScrollDestination__Center = 2,
-	EDescendantScrollDestination__EDescendantScrollDestination_MAX = 3
 };
 
 
@@ -133,13 +133,13 @@ enum class EMultipleKeyBindingIndex : uint8_t
 };
 
 
-// Enum Slate.ETableViewMode
-enum class ETableViewMode : uint8_t
+// Enum Slate.EDescendantScrollDestination
+enum class EDescendantScrollDestination : uint8_t
 {
-	ETableViewMode__List           = 0,
-	ETableViewMode__Tile           = 1,
-	ETableViewMode__Tree           = 2,
-	ETableViewMode__ETableViewMode_MAX = 3
+	EDescendantScrollDestination__IntoView = 0,
+	EDescendantScrollDestination__TopOrLeft = 1,
+	EDescendantScrollDestination__Center = 2,
+	EDescendantScrollDestination__EDescendantScrollDestination_MAX = 3
 };
 
 

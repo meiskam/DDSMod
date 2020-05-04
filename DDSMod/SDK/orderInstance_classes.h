@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -32,7 +32,7 @@ public:
 	bool                                               ready;                                                    // 0x038C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x038D(0x0003) MISSED OFFSET
 	class AdayTimeControler_C*                         dayTimeControlerRef;                                      // 0x0390(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
-	TArray<int>                                        packageSizes;                                             // 0x0398(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	TArray<int>                                        PackageSizes;                                             // 0x0398(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<struct FText>                               packageNaming;                                            // 0x03A8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	float                                              oneGramSizeScale;                                         // 0x03B8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              oneGramWieghtScale;                                       // 0x03BC(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -48,10 +48,10 @@ public:
 	}
 
 
-	void choosePackageIcon(TEnumAsByte<EdrugForm> Form, int quantity, class UTexture2D** IconOut);
+	void choosePackageIcon(TEnumAsByte<EdrugForm> Form, int Quantity, class UTexture2D** IconOut);
 	void constructOrderSMS(TArray<struct FText>* MessageTemplates, struct FText* MessageText);
-	void calcPackagingPattern(const struct FdrugData& drugData, int Index, int leftToDivide, struct FText* PackageName, int* packageQuantity, float* packageSize, float* packageWeight, int* restLeft, int* gramsPerPack, class UTexture2D** packageIcon, class UClass** ObjectClass);
-	void generatePackageContents(TArray<struct FinventoryItemStruct>* OutInventory, TArray<int>* OutQuantity);
+	void calcPackagingPattern(const struct FdrugData& drugData, int Index, int leftToDivide, struct FText* PackageName, int* PackageQuantity, float* packageSize, float* packageWeight, int* restLeft, int* gramsPerPack, class UTexture2D** packageIcon, class UClass** ObjectClass);
+	void generatePackageContents(TArray<struct FinventoryItemStruct>* OutInventory, TArray<int>* outQuantity);
 	void spawnOrderPackage(bool spawnAtHome);
 	void calcPrepTime(float* TimeSeconds);
 	void setSmuggleDateTime();
@@ -59,7 +59,7 @@ public:
 	void getSmuggleLocRef();
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float DeltaSeconds);
+	void ReceiveTick(float* DeltaSeconds);
 	void SetupOrder(int ID, float spawnTime, TArray<struct FdrugData>* drugData, TArray<int>* DrugQuantities);
 	void checkOrderSpawnTime();
 	void spawnOrderNow();

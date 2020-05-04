@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass dd_ventShaft01.dd_ventShaft01_C
-// 0x0000 (0x0478 - 0x0478)
+// 0x0000 (0x0480 - 0x0480)
 class Add_ventShaft01_C : public AdeadDropBase_C
 {
 public:

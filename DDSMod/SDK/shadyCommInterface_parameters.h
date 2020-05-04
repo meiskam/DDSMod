@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -35,7 +35,7 @@ struct UshadyCommInterface_C_Get_txtStatusDeliveryTime_ToolTipWidget_1_Params
 // Function shadyCommInterface.shadyCommInterface_C.countAverageSatisfaction
 struct UshadyCommInterface_C_countAverageSatisfaction_Params
 {
-	TArray<bool>                                       clientsLost;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	TArray<bool>                                       ClientsLost;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	TArray<float>                                      ClientSatisfaction;                                       // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	TArray<int>                                        ClientNumSales;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 };
@@ -197,8 +197,8 @@ struct UshadyCommInterface_C_Construct_Params
 // Function shadyCommInterface.shadyCommInterface_C.Tick
 struct UshadyCommInterface_C_Tick_Params
 {
-	struct FGeometry                                   MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-	float                                              InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	struct FGeometry*                                  MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+	float*                                             InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function shadyCommInterface.shadyCommInterface_C.setup

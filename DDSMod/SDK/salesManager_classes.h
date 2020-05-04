@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -33,7 +33,7 @@ public:
 	TArray<int>                                        clientsAvailable;                                         // 0x0378(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<struct FText>                               clientsNicknames;                                         // 0x0388(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<bool>                                       clientsMale;                                              // 0x0398(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
-	TArray<bool>                                       clientsLost;                                              // 0x03A8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	TArray<bool>                                       ClientsLost;                                              // 0x03A8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<bool>                                       clientsOD;                                                // 0x03B8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<bool>                                       clientAwaitingResponse;                                   // 0x03C8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<bool>                                       clientsSuspended;                                         // 0x03D8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
@@ -133,7 +133,7 @@ public:
 	void countAddictedClients(int* ClientCount);
 	void countMaxDealers(int* NumDealers);
 	void adaptDifficulty();
-	void generateClientMessage(bool dealer, bool CashMeet, int quantity, const struct FText& DrugNam, bool PriceHigh, struct FText* Message);
+	void generateClientMessage(bool dealer, bool CashMeet, int Quantity, const struct FText& DrugNam, bool priceHigh, struct FText* Message);
 	void recalcClientCount();
 	void tryDisplayClientState();
 	void displayClientAddictedPopup(int ClientId);
@@ -143,7 +143,7 @@ public:
 	void updateAreaTimeMultiplier();
 	void loopCheckPrices(bool* someAffordable);
 	void getOrderedDrugName(int DrugIndex, struct FText* Output);
-	void checkClientInterested(int ClientId, int DrugDemandedID, bool* Interested, bool* PriceHigh);
+	void checkClientInterested(int ClientId, int DrugDemandedID, bool* Interested, bool* priceHigh);
 	void badSaleResponse(bool ClientLost, int ClientId);
 	void sendDealerOffer(int ClientId);
 	bool dealerOfferChance(int ClientId);
@@ -158,13 +158,13 @@ public:
 	void getOrderedDrugIndex(int RandomIndex, int* OutIndex);
 	void refreshAvailableDrugs(bool* DrugsAreAvailable);
 	void countClientStatistics();
-	void calcOrderQuantity(int inClientID, bool nightTime, bool PriceHigh, int* OutQuantity);
+	void calcOrderQuantity(int inClientID, bool nightTime, bool priceHigh, int* outQuantity);
 	void clientSendNewOrder(int ClientId, bool nightTime);
 	void clientOrderCountdown(float Delta);
 	void generateNewClient(bool Force);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float DeltaSeconds);
+	void ReceiveTick(float* DeltaSeconds);
 	void tryInitialise();
 	void checkClientState();
 	void trySpawnSampleGuy();

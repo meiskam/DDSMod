@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -147,18 +147,18 @@ void AmainComputer_C::getOrderRefByID(int ID, class AorderInstance_C** orderInst
 // Parameters:
 // bool                           LastIndex                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           BeforeLastIndex                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FdrugData               drugData                       (BlueprintVisible, BlueprintReadOnly, Parm)
 // bool                           isSingle                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AmainComputer_C::constructMessageSentence(bool LastIndex, bool BeforeLastIndex, int quantity, const struct FdrugData& drugData, bool isSingle)
+void AmainComputer_C::constructMessageSentence(bool LastIndex, bool BeforeLastIndex, int Quantity, const struct FdrugData& drugData, bool isSingle)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function mainComputer.mainComputer_C.constructMessageSentence");
 
 	AmainComputer_C_constructMessageSentence_Params params;
 	params.LastIndex = LastIndex;
 	params.BeforeLastIndex = BeforeLastIndex;
-	params.quantity = quantity;
+	params.Quantity = Quantity;
 	params.drugData = drugData;
 	params.isSingle = isSingle;
 
@@ -232,9 +232,9 @@ void AmainComputer_C::ReceiveBeginPlay()
 // Function mainComputer.mainComputer_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AmainComputer_C::ReceiveTick(float DeltaSeconds)
+void AmainComputer_C::ReceiveTick(float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function mainComputer.mainComputer_C.ReceiveTick");
 

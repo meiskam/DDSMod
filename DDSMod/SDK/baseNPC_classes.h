@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -28,7 +28,7 @@ public:
 	class USkeletalMeshComponent*                      SK_Chest;                                                 // 0x0780(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	class USkeletalMeshComponent*                      SK_Hat;                                                   // 0x0788(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	class AdialogueInstance_C*                         curDialogue;                                              // 0x0790(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData)
-	struct FText                                       characterName;                                            // 0x0798(0x0018) (Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FText                                       CharacterName;                                            // 0x0798(0x0018) (Edit, BlueprintVisible, DisableEditOnInstance)
 	struct FText                                       characterSurname;                                         // 0x07B0(0x0018) (Edit, BlueprintVisible, DisableEditOnInstance)
 	struct FText                                       characterFullName;                                        // 0x07C8(0x0018) (Edit, BlueprintVisible, DisableEditOnInstance)
 	struct FRotator                                    initialRotationLook;                                      // 0x07E0(0x000C) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -115,10 +115,10 @@ public:
 	void SetMasterPoseComponentForParts();
 	bool IsDefaultMeshInheritungItsAnimationAsset();
 	void processReceivedDrugs();
-	void setupNewDrugSale(const struct FdrugData& drugData, int DrugQuantity, const struct FText& characterName, float expectedPrice, int OrderId, int TaskID, bool isMale, bool isDealer, float ExpectationLevel);
+	void setupNewDrugSale(const struct FdrugData& drugData, int DrugQuantity, const struct FText& CharacterName, float expectedPrice, int OrderId, int TaskID, bool isMale, bool isDealer, float ExpectationLevel);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float DeltaSeconds);
+	void ReceiveTick(float* DeltaSeconds);
 	void dialogueMode();
 	void endDialogueMode();
 	void activateTrade();

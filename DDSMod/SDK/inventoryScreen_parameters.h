@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -45,7 +45,9 @@ struct UinventoryScreen_C_countTotalDrugGrams_Params
 struct UinventoryScreen_C_checkSubstanceSame_Params
 {
 	TArray<struct FinventoryItemStruct>                Substances;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	TArray<int>                                        quantities;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	bool                                               TheSame;                                                  // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	struct FdrugData                                   dataAverage;                                              // (Parm, OutParm)
 };
 
 // Function inventoryScreen.inventoryScreen_C.renderQuestList
@@ -104,6 +106,7 @@ struct UinventoryScreen_C_countTotalSelledDrugsMoney_Params
 struct UinventoryScreen_C_checkSelledDrugs_Params
 {
 	bool                                               CheckedPositive;                                          // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	struct FdrugData                                   endDrugAverage;                                           // (Parm, OutParm)
 };
 
 // Function inventoryScreen.inventoryScreen_C.renderBuyerNeeded
@@ -173,7 +176,7 @@ struct UinventoryScreen_C_renderBackpack_Params
 // Function inventoryScreen.inventoryScreen_C.PreConstruct
 struct UinventoryScreen_C_PreConstruct_Params
 {
-	bool                                               IsDesignTime;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool*                                              IsDesignTime;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function inventoryScreen.inventoryScreen_C.Construct
@@ -184,8 +187,8 @@ struct UinventoryScreen_C_Construct_Params
 // Function inventoryScreen.inventoryScreen_C.Tick
 struct UinventoryScreen_C_Tick_Params
 {
-	struct FGeometry                                   MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-	float                                              InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	struct FGeometry*                                  MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+	float*                                             InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function inventoryScreen.inventoryScreen_C.BndEvt__tabInventory_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature

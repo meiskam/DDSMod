@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -115,15 +115,6 @@ struct FSpriteInstanceData
 	int                                                MaterialIndex;                                            // 0x004C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 };
 
-// ScriptStruct Paper2D.PaperSpriteSocket
-// 0x0040
-struct FPaperSpriteSocket
-{
-	struct FTransform                                  LocalTransform;                                           // 0x0000(0x0030) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
-	struct FName                                       SocketName;                                               // 0x0030(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0038(0x0008) MISSED OFFSET
-};
-
 // ScriptStruct Paper2D.PaperTerrainMaterialRule
 // 0x0038
 struct FPaperTerrainMaterialRule
@@ -207,6 +198,15 @@ struct FPaperTileSetTerrain
 	struct FString                                     TerrainName;                                              // 0x0000(0x0010) (Edit, ZeroConstructor)
 	int                                                CenterTileIndex;                                          // 0x0010(0x0004) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0014(0x0004) MISSED OFFSET
+};
+
+// ScriptStruct Paper2D.PaperSpriteSocket
+// 0x0040
+struct FPaperSpriteSocket
+{
+	struct FTransform                                  LocalTransform;                                           // 0x0000(0x0030) (Edit, BlueprintVisible, BlueprintReadOnly, IsPlainOldData)
+	struct FName                                       SocketName;                                               // 0x0030(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0038(0x0008) MISSED OFFSET
 };
 
 // ScriptStruct Paper2D.PaperSpriteAtlasSlot

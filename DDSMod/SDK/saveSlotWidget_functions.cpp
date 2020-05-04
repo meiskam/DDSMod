@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,11 +16,11 @@ namespace SDK
 // Function saveSlotWidget.saveSlotWidget_C.OnMouseButtonDown
 // (BlueprintCosmetic, Event, Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// struct FPointerEvent           MouseEvent                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// struct FPointerEvent*          MouseEvent                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 // struct FEventReply             ReturnValue                    (Parm, OutParm, ReturnParm)
 
-struct FEventReply UsaveSlotWidget_C::OnMouseButtonDown(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent)
+struct FEventReply UsaveSlotWidget_C::OnMouseButtonDown(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function saveSlotWidget.saveSlotWidget_C.OnMouseButtonDown");
 
@@ -41,11 +41,11 @@ struct FEventReply UsaveSlotWidget_C::OnMouseButtonDown(const struct FGeometry& 
 // Function saveSlotWidget.saveSlotWidget_C.OnMouseButtonUp
 // (BlueprintCosmetic, Event, Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// struct FPointerEvent           MouseEvent                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// struct FPointerEvent*          MouseEvent                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 // struct FEventReply             ReturnValue                    (Parm, OutParm, ReturnParm)
 
-struct FEventReply UsaveSlotWidget_C::OnMouseButtonUp(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent)
+struct FEventReply UsaveSlotWidget_C::OnMouseButtonUp(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function saveSlotWidget.saveSlotWidget_C.OnMouseButtonUp");
 
@@ -66,18 +66,18 @@ struct FEventReply UsaveSlotWidget_C::OnMouseButtonUp(const struct FGeometry& My
 // Function saveSlotWidget.saveSlotWidget_C.setup
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           occupied                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           Occupied                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FString                 SlotCustomName                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 // struct FString                 saveDateTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 // int                            Slot_Num                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // class UsaveLoadWidget_C*       Parent                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 
-void UsaveSlotWidget_C::setup(bool occupied, const struct FString& SlotCustomName, const struct FString& saveDateTime, int Slot_Num, class UsaveLoadWidget_C* Parent)
+void UsaveSlotWidget_C::setup(bool Occupied, const struct FString& SlotCustomName, const struct FString& saveDateTime, int Slot_Num, class UsaveLoadWidget_C* Parent)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function saveSlotWidget.saveSlotWidget_C.setup");
 
 	UsaveSlotWidget_C_setup_Params params;
-	params.occupied = occupied;
+	params.Occupied = Occupied;
 	params.SlotCustomName = SlotCustomName;
 	params.saveDateTime = saveDateTime;
 	params.Slot_Num = Slot_Num;
@@ -94,10 +94,10 @@ void UsaveSlotWidget_C::setup(bool occupied, const struct FString& SlotCustomNam
 // Function saveSlotWidget.saveSlotWidget_C.OnMouseEnter
 // (BlueprintCosmetic, Event, Public, HasOutParms, BlueprintEvent)
 // Parameters:
-// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// struct FPointerEvent           MouseEvent                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// struct FPointerEvent*          MouseEvent                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 
-void UsaveSlotWidget_C::OnMouseEnter(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent)
+void UsaveSlotWidget_C::OnMouseEnter(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function saveSlotWidget.saveSlotWidget_C.OnMouseEnter");
 
@@ -116,9 +116,9 @@ void UsaveSlotWidget_C::OnMouseEnter(const struct FGeometry& MyGeometry, const s
 // Function saveSlotWidget.saveSlotWidget_C.OnMouseLeave
 // (BlueprintCosmetic, Event, Public, HasOutParms, BlueprintEvent)
 // Parameters:
-// struct FPointerEvent           MouseEvent                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// struct FPointerEvent*          MouseEvent                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 
-void UsaveSlotWidget_C::OnMouseLeave(const struct FPointerEvent& MouseEvent)
+void UsaveSlotWidget_C::OnMouseLeave(struct FPointerEvent* MouseEvent)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function saveSlotWidget.saveSlotWidget_C.OnMouseLeave");
 

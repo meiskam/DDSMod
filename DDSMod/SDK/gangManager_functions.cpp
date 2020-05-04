@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,8 +13,25 @@ namespace SDK
 // Functions
 //---------------------------------------------------------------------------
 
-// Function gangManager.gangManager_C.reconstructOrderFlow
+// Function gangManager.gangManager_C.gangLevelLimitRaise
 // (Public, BlueprintCallable, BlueprintEvent)
+
+void AgangManager_C::gangLevelLimitRaise()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function gangManager.gangManager_C.gangLevelLimitRaise");
+
+	AgangManager_C_gangLevelLimitRaise_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function gangManager.gangManager_C.reconstructOrderFlow
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 
 void AgangManager_C::reconstructOrderFlow()
 {
@@ -173,10 +190,10 @@ void AgangManager_C::checkOrderDrop(bool* OrderOK)
 // bool                           SkipMessage                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            ExpectedDrugID                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          ExpectedDrugMinQuality         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            packageSizes                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            packageQuantity                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            PackageSizes                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            PackageQuantity                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AgangManager_C::sendGangOrder(bool SkipMessage, int ExpectedDrugID, float ExpectedDrugMinQuality, int packageSizes, int packageQuantity)
+void AgangManager_C::sendGangOrder(bool SkipMessage, int ExpectedDrugID, float ExpectedDrugMinQuality, int PackageSizes, int PackageQuantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function gangManager.gangManager_C.sendGangOrder");
 
@@ -184,8 +201,8 @@ void AgangManager_C::sendGangOrder(bool SkipMessage, int ExpectedDrugID, float E
 	params.SkipMessage = SkipMessage;
 	params.ExpectedDrugID = ExpectedDrugID;
 	params.ExpectedDrugMinQuality = ExpectedDrugMinQuality;
-	params.packageSizes = packageSizes;
-	params.packageQuantity = packageQuantity;
+	params.PackageSizes = PackageSizes;
+	params.PackageQuantity = PackageQuantity;
 
 	auto flags = fn->FunctionFlags;
 
@@ -232,9 +249,9 @@ void AgangManager_C::ReceiveBeginPlay()
 // Function gangManager.gangManager_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AgangManager_C::ReceiveTick(float DeltaSeconds)
+void AgangManager_C::ReceiveTick(float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function gangManager.gangManager_C.ReceiveTick");
 

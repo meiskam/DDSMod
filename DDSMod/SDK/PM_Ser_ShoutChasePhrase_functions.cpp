@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,10 +16,10 @@ namespace SDK
 // Function PM_Ser_ShoutChasePhrase.PM_Ser_ShoutChasePhrase_C.ReceiveTick
 // (Event, Protected, BlueprintEvent)
 // Parameters:
-// class AActor*                  OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor**                 OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UPM_Ser_ShoutChasePhrase_C::ReceiveTick(class AActor* OwnerActor, float DeltaSeconds)
+void UPM_Ser_ShoutChasePhrase_C::ReceiveTick(class AActor** OwnerActor, float* DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function PM_Ser_ShoutChasePhrase.PM_Ser_ShoutChasePhrase_C.ReceiveTick");
 

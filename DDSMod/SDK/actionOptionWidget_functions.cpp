@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -38,14 +38,14 @@ void UactionOptionWidget_C::setup(bool InitActive, const struct FText& ActionNam
 // Function actionOptionWidget.actionOptionWidget_C.SetActive
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           activated                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           Activated                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UactionOptionWidget_C::SetActive(bool activated)
+void UactionOptionWidget_C::SetActive(bool Activated)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function actionOptionWidget.actionOptionWidget_C.SetActive");
 
 	UactionOptionWidget_C_SetActive_Params params;
-	params.activated = activated;
+	params.Activated = Activated;
 
 	auto flags = fn->FunctionFlags;
 

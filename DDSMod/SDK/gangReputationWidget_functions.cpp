@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.21
+// Name: DDS, Version: 2020.4.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -33,10 +33,10 @@ void UgangReputationWidget_C::Construct()
 // Function gangReputationWidget.gangReputationWidget_C.Tick
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// float                          InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// float*                         InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UgangReputationWidget_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
+void UgangReputationWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function gangReputationWidget.gangReputationWidget_C.Tick");
 
@@ -59,8 +59,10 @@ void UgangReputationWidget_C::Tick(const struct FGeometry& MyGeometry, float InD
 // float                          respectNow                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          respectAfter                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          respectMax                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            gangLevel                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           levelUp                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UgangReputationWidget_C::setup(float respAmount, float respectNow, float respectAfter, float respectMax)
+void UgangReputationWidget_C::setup(float respAmount, float respectNow, float respectAfter, float respectMax, int gangLevel, bool levelUp)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function gangReputationWidget.gangReputationWidget_C.setup");
 
@@ -69,6 +71,8 @@ void UgangReputationWidget_C::setup(float respAmount, float respectNow, float re
 	params.respectNow = respectNow;
 	params.respectAfter = respectAfter;
 	params.respectMax = respectMax;
+	params.gangLevel = gangLevel;
+	params.levelUp = levelUp;
 
 	auto flags = fn->FunctionFlags;
 
