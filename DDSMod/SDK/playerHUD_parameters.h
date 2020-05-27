@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -93,6 +93,13 @@ struct UplayerHUD_C_checkShowTaskList_Params
 // Function playerHUD.playerHUD_C.breakListRender
 struct UplayerHUD_C_breakListRender_Params
 {
+};
+
+// Function playerHUD.playerHUD_C.updateWeedPanel
+struct UplayerHUD_C_updateWeedPanel_Params
+{
+	class ArentAppartmentArea_C*                       HideoutRef;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               InAppartment;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerHUD.playerHUD_C.ExecuteUbergraph_playerHUD

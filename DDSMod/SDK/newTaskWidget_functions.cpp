@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -57,16 +57,16 @@ void UnewTaskWidget_C::Construct()
 // Function newTaskWidget.newTaskWidget_C.setup
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FText                   Heading                        (BlueprintVisible, BlueprintReadOnly, Parm)
+// struct FText                   heading                        (BlueprintVisible, BlueprintReadOnly, Parm)
 // struct FText                   Desc                           (BlueprintVisible, BlueprintReadOnly, Parm)
 // TEnumAsByte<EtaskStatuses>     TaskStatus                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UnewTaskWidget_C::setup(const struct FText& Heading, const struct FText& Desc, TEnumAsByte<EtaskStatuses> TaskStatus)
+void UnewTaskWidget_C::setup(const struct FText& heading, const struct FText& Desc, TEnumAsByte<EtaskStatuses> TaskStatus)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function newTaskWidget.newTaskWidget_C.setup");
 
 	UnewTaskWidget_C_setup_Params params;
-	params.Heading = Heading;
+	params.heading = heading;
 	params.Desc = Desc;
 	params.TaskStatus = TaskStatus;
 

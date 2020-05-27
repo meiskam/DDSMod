@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,11 +13,11 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass worldCustomMarker.worldCustomMarker_C
-// 0x0008 (0x03B8 - 0x03B0)
+// 0x0008 (0x03C0 - 0x03B8)
 class AworldCustomMarker_C : public AworldMapMarker_C
 {
 public:
-	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x03B0(0x0008) (ZeroConstructor, Transient, DuplicateTransient)
+	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x03B8(0x0008) (ZeroConstructor, Transient, DuplicateTransient)
 
 	static UClass* StaticClass()
 	{

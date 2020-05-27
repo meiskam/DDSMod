@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -37,7 +37,7 @@ public:
 
 	void Construct();
 	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
-	void setup(float respAmount, const struct FText& AreaNam, float respectNow, float respectAfter, float respectMax);
+	void setup(float respAmount, const struct FText& areaNam, float respectNow, float respectAfter, float respectMax);
 	void ExecuteUbergraph_respectRaiseWidget(int EntryPoint);
 };
 

@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,23 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function rentAppartmentArea.rentAppartmentArea_C.checkWeedStatus
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void ArentAppartmentArea_C::checkWeedStatus()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.checkWeedStatus");
+
+	ArentAppartmentArea_C_checkWeedStatus_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function rentAppartmentArea.rentAppartmentArea_C.mapMarkerCheck
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
@@ -610,6 +627,57 @@ void ArentAppartmentArea_C::updateMarker()
 	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.updateMarker");
 
 	ArentAppartmentArea_C_updateMarker_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function rentAppartmentArea.rentAppartmentArea_C.weedPotentialFail
+// (BlueprintCallable, BlueprintEvent)
+
+void ArentAppartmentArea_C::weedPotentialFail()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.weedPotentialFail");
+
+	ArentAppartmentArea_C_weedPotentialFail_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function rentAppartmentArea.rentAppartmentArea_C.resetFailStatusRefresh
+// (BlueprintCallable, BlueprintEvent)
+
+void ArentAppartmentArea_C::resetFailStatusRefresh()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.resetFailStatusRefresh");
+
+	ArentAppartmentArea_C_resetFailStatusRefresh_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function rentAppartmentArea.rentAppartmentArea_C.resetFilterWarning
+// (BlueprintCallable, BlueprintEvent)
+
+void ArentAppartmentArea_C::resetFilterWarning()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.resetFilterWarning");
+
+	ArentAppartmentArea_C_resetFilterWarning_Params params;
 
 	auto flags = fn->FunctionFlags;
 

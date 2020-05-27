@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -24,15 +24,6 @@ enum class EWidgetClipping : uint8_t
 };
 
 
-// Enum SlateCore.EFontLayoutMethod
-enum class EFontLayoutMethod : uint8_t
-{
-	EFontLayoutMethod__Metrics     = 0,
-	EFontLayoutMethod__BoundingBox = 1,
-	EFontLayoutMethod__EFontLayoutMethod_MAX = 2
-};
-
-
 // Enum SlateCore.EFontLoadingPolicy
 enum class EFontLoadingPolicy : uint8_t
 {
@@ -52,6 +43,15 @@ enum class EFontHinting : uint8_t
 	EFontHinting__Monochrome       = 3,
 	EFontHinting__None             = 4,
 	EFontHinting__EFontHinting_MAX = 5
+};
+
+
+// Enum SlateCore.EFontLayoutMethod
+enum class EFontLayoutMethod : uint8_t
+{
+	EFontLayoutMethod__Metrics     = 0,
+	EFontLayoutMethod__BoundingBox = 1,
+	EFontLayoutMethod__EFontLayoutMethod_MAX = 2
 };
 
 
@@ -113,17 +113,6 @@ enum class ESlateBrushImageType : uint8_t
 };
 
 
-// Enum SlateCore.ESlateBrushTileType
-enum class ESlateBrushTileType : uint8_t
-{
-	ESlateBrushTileType__NoTile    = 0,
-	ESlateBrushTileType__Horizontal = 1,
-	ESlateBrushTileType__Vertical  = 2,
-	ESlateBrushTileType__Both      = 3,
-	ESlateBrushTileType__ESlateBrushTileType_MAX = 4
-};
-
-
 // Enum SlateCore.ESlateBrushMirrorType
 enum class ESlateBrushMirrorType : uint8_t
 {
@@ -132,6 +121,17 @@ enum class ESlateBrushMirrorType : uint8_t
 	ESlateBrushMirrorType__Vertical = 2,
 	ESlateBrushMirrorType__Both    = 3,
 	ESlateBrushMirrorType__ESlateBrushMirrorType_MAX = 4
+};
+
+
+// Enum SlateCore.ESlateBrushTileType
+enum class ESlateBrushTileType : uint8_t
+{
+	ESlateBrushTileType__NoTile    = 0,
+	ESlateBrushTileType__Horizontal = 1,
+	ESlateBrushTileType__Vertical  = 2,
+	ESlateBrushTileType__Both      = 3,
+	ESlateBrushTileType__ESlateBrushTileType_MAX = 4
 };
 
 
@@ -197,17 +197,6 @@ enum class EOrientation : uint8_t
 };
 
 
-// Enum SlateCore.EVerticalAlignment
-enum class EVerticalAlignment : uint8_t
-{
-	VAlign_Fill                    = 0,
-	VAlign_Top                     = 1,
-	VAlign_Center                  = 2,
-	VAlign_Bottom                  = 3,
-	VAlign_MAX                     = 4
-};
-
-
 // Enum SlateCore.EMenuPlacement
 enum class EMenuPlacement : uint8_t
 {
@@ -225,6 +214,17 @@ enum class EMenuPlacement : uint8_t
 	MenuPlacement_RightLeftCenter  = 11,
 	MenuPlacement_MatchBottomLeft  = 12,
 	MenuPlacement_MAX              = 13
+};
+
+
+// Enum SlateCore.EVerticalAlignment
+enum class EVerticalAlignment : uint8_t
+{
+	VAlign_Fill                    = 0,
+	VAlign_Top                     = 1,
+	VAlign_Center                  = 2,
+	VAlign_Bottom                  = 3,
+	VAlign_MAX                     = 4
 };
 
 
@@ -264,16 +264,6 @@ enum class EUINavigation : uint8_t
 };
 
 
-// Enum SlateCore.EButtonPressMethod
-enum class EButtonPressMethod : uint8_t
-{
-	EButtonPressMethod__DownAndUp  = 0,
-	EButtonPressMethod__ButtonPress = 1,
-	EButtonPressMethod__ButtonRelease = 2,
-	EButtonPressMethod__EButtonPressMethod_MAX = 3
-};
-
-
 // Enum SlateCore.ENavigationSource
 enum class ENavigationSource : uint8_t
 {
@@ -303,6 +293,16 @@ enum class EButtonClickMethod : uint8_t
 };
 
 
+// Enum SlateCore.EButtonPressMethod
+enum class EButtonPressMethod : uint8_t
+{
+	EButtonPressMethod__DownAndUp  = 0,
+	EButtonPressMethod__ButtonPress = 1,
+	EButtonPressMethod__ButtonRelease = 2,
+	EButtonPressMethod__EButtonPressMethod_MAX = 3
+};
+
+
 // Enum SlateCore.EFontFallback
 enum class EFontFallback : uint8_t
 {
@@ -310,6 +310,16 @@ enum class EFontFallback : uint8_t
 	EFontFallback__FF_LocalizedFallback = 1,
 	EFontFallback__FF_LastResortFallback = 2,
 	EFontFallback__FF_Max          = 3
+};
+
+
+// Enum SlateCore.ECheckBoxState
+enum class ECheckBoxState : uint8_t
+{
+	ECheckBoxState__Unchecked      = 0,
+	ECheckBoxState__Checked        = 1,
+	ECheckBoxState__Undetermined   = 2,
+	ECheckBoxState__ECheckBoxState_MAX = 3
 };
 
 
@@ -338,16 +348,6 @@ enum class EConsumeMouseWheel : uint8_t
 	EConsumeMouseWheel__Always     = 1,
 	EConsumeMouseWheel__Never      = 2,
 	EConsumeMouseWheel__EConsumeMouseWheel_MAX = 3
-};
-
-
-// Enum SlateCore.ECheckBoxState
-enum class ECheckBoxState : uint8_t
-{
-	ECheckBoxState__Unchecked      = 0,
-	ECheckBoxState__Checked        = 1,
-	ECheckBoxState__Undetermined   = 2,
-	ECheckBoxState__ECheckBoxState_MAX = 3
 };
 
 

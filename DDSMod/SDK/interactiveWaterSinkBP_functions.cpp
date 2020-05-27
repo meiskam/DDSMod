@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -60,6 +60,23 @@ void AinteractiveWaterSinkBP_C::UserConstructionScript()
 	static auto fn = UObject::FindObject<UFunction>("Function interactiveWaterSinkBP.interactiveWaterSinkBP_C.UserConstructionScript");
 
 	AinteractiveWaterSinkBP_C_UserConstructionScript_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function interactiveWaterSinkBP.interactiveWaterSinkBP_C.ReceiveBeginPlay
+// (Event, Protected, BlueprintEvent)
+
+void AinteractiveWaterSinkBP_C::ReceiveBeginPlay()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function interactiveWaterSinkBP.interactiveWaterSinkBP_C.ReceiveBeginPlay");
+
+	AinteractiveWaterSinkBP_C_ReceiveBeginPlay_Params params;
 
 	auto flags = fn->FunctionFlags;
 

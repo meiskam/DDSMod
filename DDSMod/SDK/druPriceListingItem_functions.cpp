@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -20,10 +20,10 @@ namespace SDK
 // float                          BuyPrice                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          CurSellPrice                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            DrugIndex                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// class AmainComputer_C*         computerRef                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AmainComputer_C*         ComputerRef                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           firstLocked                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UdruPriceListingItem_C::setup(const struct FdrugData& drugData, float BuyPrice, float CurSellPrice, int DrugIndex, class AmainComputer_C* computerRef, bool firstLocked)
+void UdruPriceListingItem_C::setup(const struct FdrugData& drugData, float BuyPrice, float CurSellPrice, int DrugIndex, class AmainComputer_C* ComputerRef, bool firstLocked)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function druPriceListingItem.druPriceListingItem_C.setup");
 
@@ -32,7 +32,7 @@ void UdruPriceListingItem_C::setup(const struct FdrugData& drugData, float BuyPr
 	params.BuyPrice = BuyPrice;
 	params.CurSellPrice = CurSellPrice;
 	params.DrugIndex = DrugIndex;
-	params.computerRef = computerRef;
+	params.ComputerRef = ComputerRef;
 	params.firstLocked = firstLocked;
 
 	auto flags = fn->FunctionFlags;

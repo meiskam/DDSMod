@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -4017,6 +4017,453 @@ struct UCharacterMovementComponent_AddForce_Params
 	struct FVector                                     Force;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function Engine.AnimInstance.UnlockAIResources
+struct UAnimInstance_UnlockAIResources_Params
+{
+	bool                                               bUnlockMovement;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               UnlockAILogic;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.TryGetPawnOwner
+struct UAnimInstance_TryGetPawnOwner_Params
+{
+	class APawn*                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.StopSlotAnimation
+struct UAnimInstance_StopSlotAnimation_Params
+{
+	float                                              InBlendOutTime;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       SlotNodeName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.SnapshotPose
+struct UAnimInstance_SnapshotPose_Params
+{
+	struct FPoseSnapshot                               Snapshot;                                                 // (Parm, OutParm, ReferenceParm)
+};
+
+// Function Engine.AnimInstance.SetRootMotionMode
+struct UAnimInstance_SetRootMotionMode_Params
+{
+	TEnumAsByte<ERootMotionMode>                       Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.SetMorphTarget
+struct UAnimInstance_SetMorphTarget_Params
+{
+	struct FName                                       MorphTargetName;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.SavePoseSnapshot
+struct UAnimInstance_SavePoseSnapshot_Params
+{
+	struct FName                                       SnapshotName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.ResetDynamics
+struct UAnimInstance_ResetDynamics_Params
+{
+	ETeleportType                                      InTeleportType;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.PlaySlotAnimationAsDynamicMontage
+struct UAnimInstance_PlaySlotAnimationAsDynamicMontage_Params
+{
+	class UAnimSequenceBase*                           Asset;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       SlotNodeName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              BlendInTime;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              BlendOutTime;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              InPlayRate;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                LoopCount;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              BlendOutTriggerTime;                                      // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              InTimeToStartMontageAt;                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	class UAnimMontage*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.PlaySlotAnimation
+struct UAnimInstance_PlaySlotAnimation_Params
+{
+	class UAnimSequenceBase*                           Asset;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       SlotNodeName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              BlendInTime;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              BlendOutTime;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              InPlayRate;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                LoopCount;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_Stop
+struct UAnimInstance_Montage_Stop_Params
+{
+	float                                              InBlendOutTime;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_SetPosition
+struct UAnimInstance_Montage_SetPosition_Params
+{
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              NewPosition;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_SetPlayRate
+struct UAnimInstance_Montage_SetPlayRate_Params
+{
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              NewPlayRate;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_SetNextSection
+struct UAnimInstance_Montage_SetNextSection_Params
+{
+	struct FName                                       SectionNameToChange;                                      // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       NextSection;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_Resume
+struct UAnimInstance_Montage_Resume_Params
+{
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_Play
+struct UAnimInstance_Montage_Play_Params
+{
+	class UAnimMontage*                                MontageToPlay;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              InPlayRate;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	EMontagePlayReturnType                             ReturnValueType;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              InTimeToStartMontageAt;                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bStopAllMontages;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_Pause
+struct UAnimInstance_Montage_Pause_Params
+{
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_JumpToSectionsEnd
+struct UAnimInstance_Montage_JumpToSectionsEnd_Params
+{
+	struct FName                                       SectionName;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_JumpToSection
+struct UAnimInstance_Montage_JumpToSection_Params
+{
+	struct FName                                       SectionName;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_IsPlaying
+struct UAnimInstance_Montage_IsPlaying_Params
+{
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_IsActive
+struct UAnimInstance_Montage_IsActive_Params
+{
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_GetPosition
+struct UAnimInstance_Montage_GetPosition_Params
+{
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_GetPlayRate
+struct UAnimInstance_Montage_GetPlayRate_Params
+{
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_GetIsStopped
+struct UAnimInstance_Montage_GetIsStopped_Params
+{
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_GetCurrentSection
+struct UAnimInstance_Montage_GetCurrentSection_Params
+{
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.Montage_GetBlendTime
+struct UAnimInstance_Montage_GetBlendTime_Params
+{
+	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.LockAIResources
+struct UAnimInstance_LockAIResources_Params
+{
+	bool                                               bLockMovement;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               LockAILogic;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.IsSyncGroupBetweenMarkers
+struct UAnimInstance_IsSyncGroupBetweenMarkers_Params
+{
+	struct FName                                       InSyncGroupName;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       PreviousMarker;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       NextMarker;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bRespectMarkerOrder;                                      // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.IsPlayingSlotAnimation
+struct UAnimInstance_IsPlayingSlotAnimation_Params
+{
+	class UAnimSequenceBase*                           Asset;                                                    // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       SlotNodeName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.IsAnyMontagePlaying
+struct UAnimInstance_IsAnyMontagePlaying_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.HasMarkerBeenHitThisFrame
+struct UAnimInstance_HasMarkerBeenHitThisFrame_Params
+{
+	struct FName                                       SyncGroup;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       MarkerName;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetTimeToClosestMarker
+struct UAnimInstance_GetTimeToClosestMarker_Params
+{
+	struct FName                                       SyncGroup;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       MarkerName;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              OutMarkerTime;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetSyncGroupPosition
+struct UAnimInstance_GetSyncGroupPosition_Params
+{
+	struct FName                                       InSyncGroupName;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FMarkerSyncAnimPosition                     ReturnValue;                                              // (Parm, OutParm, ReturnParm)
+};
+
+// Function Engine.AnimInstance.GetRelevantAnimTimeRemainingFraction
+struct UAnimInstance_GetRelevantAnimTimeRemainingFraction_Params
+{
+	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                StateIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetRelevantAnimTimeRemaining
+struct UAnimInstance_GetRelevantAnimTimeRemaining_Params
+{
+	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                StateIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetRelevantAnimTimeFraction
+struct UAnimInstance_GetRelevantAnimTimeFraction_Params
+{
+	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                StateIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetRelevantAnimTime
+struct UAnimInstance_GetRelevantAnimTime_Params
+{
+	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                StateIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetRelevantAnimLength
+struct UAnimInstance_GetRelevantAnimLength_Params
+{
+	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                StateIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetOwningComponent
+struct UAnimInstance_GetOwningComponent_Params
+{
+	class USkeletalMeshComponent*                      ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetOwningActor
+struct UAnimInstance_GetOwningActor_Params
+{
+	class AActor*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetInstanceTransitionTimeElapsedFraction
+struct UAnimInstance_GetInstanceTransitionTimeElapsedFraction_Params
+{
+	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                TransitionIndex;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetInstanceTransitionTimeElapsed
+struct UAnimInstance_GetInstanceTransitionTimeElapsed_Params
+{
+	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                TransitionIndex;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetInstanceTransitionCrossfadeDuration
+struct UAnimInstance_GetInstanceTransitionCrossfadeDuration_Params
+{
+	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                TransitionIndex;                                          // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetInstanceStateWeight
+struct UAnimInstance_GetInstanceStateWeight_Params
+{
+	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                StateIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetInstanceMachineWeight
+struct UAnimInstance_GetInstanceMachineWeight_Params
+{
+	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetInstanceCurrentStateElapsedTime
+struct UAnimInstance_GetInstanceCurrentStateElapsedTime_Params
+{
+	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetInstanceAssetPlayerTimeFromEndFraction
+struct UAnimInstance_GetInstanceAssetPlayerTimeFromEndFraction_Params
+{
+	int                                                AssetPlayerIndex;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetInstanceAssetPlayerTimeFromEnd
+struct UAnimInstance_GetInstanceAssetPlayerTimeFromEnd_Params
+{
+	int                                                AssetPlayerIndex;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetInstanceAssetPlayerTimeFraction
+struct UAnimInstance_GetInstanceAssetPlayerTimeFraction_Params
+{
+	int                                                AssetPlayerIndex;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetInstanceAssetPlayerTime
+struct UAnimInstance_GetInstanceAssetPlayerTime_Params
+{
+	int                                                AssetPlayerIndex;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetInstanceAssetPlayerLength
+struct UAnimInstance_GetInstanceAssetPlayerLength_Params
+{
+	int                                                AssetPlayerIndex;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetCurveValue
+struct UAnimInstance_GetCurveValue_Params
+{
+	struct FName                                       CurveName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetCurrentStateName
+struct UAnimInstance_GetCurrentStateName_Params
+{
+	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetCurrentActiveMontage
+struct UAnimInstance_GetCurrentActiveMontage_Params
+{
+	class UAnimMontage*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.GetAllCurveNames
+struct UAnimInstance_GetAllCurveNames_Params
+{
+	TArray<struct FName>                               OutNames;                                                 // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function Engine.AnimInstance.GetActiveCurveNames
+struct UAnimInstance_GetActiveCurveNames_Params
+{
+	EAnimCurveType                                     CurveType;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	TArray<struct FName>                               OutNames;                                                 // (Parm, OutParm, ZeroConstructor)
+};
+
+// Function Engine.AnimInstance.ClearMorphTargets
+struct UAnimInstance_ClearMorphTargets_Params
+{
+};
+
+// Function Engine.AnimInstance.CalculateDirection
+struct UAnimInstance_CalculateDirection_Params
+{
+	struct FVector                                     Velocity;                                                 // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+	struct FRotator                                    BaseRotation;                                             // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.BlueprintUpdateAnimation
+struct UAnimInstance_BlueprintUpdateAnimation_Params
+{
+	float                                              DeltaTimeX;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.AnimInstance.BlueprintPostEvaluateAnimation
+struct UAnimInstance_BlueprintPostEvaluateAnimation_Params
+{
+};
+
+// Function Engine.AnimInstance.BlueprintInitializeAnimation
+struct UAnimInstance_BlueprintInitializeAnimation_Params
+{
+};
+
+// Function Engine.AnimInstance.BlueprintBeginPlay
+struct UAnimInstance_BlueprintBeginPlay_Params
+{
+};
+
 // Function Engine.SkinnedMeshComponent.UnHideBoneByName
 struct USkinnedMeshComponent_UnHideBoneByName_Params
 {
@@ -4739,453 +5186,6 @@ struct USkeletalMeshComponent_AccumulateAllBodiesBelowPhysicsBlendWeight_Params
 	bool                                               bSkipCustomPhysicsType;                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Engine.AnimInstance.UnlockAIResources
-struct UAnimInstance_UnlockAIResources_Params
-{
-	bool                                               bUnlockMovement;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               UnlockAILogic;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.TryGetPawnOwner
-struct UAnimInstance_TryGetPawnOwner_Params
-{
-	class APawn*                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.StopSlotAnimation
-struct UAnimInstance_StopSlotAnimation_Params
-{
-	float                                              InBlendOutTime;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       SlotNodeName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.SnapshotPose
-struct UAnimInstance_SnapshotPose_Params
-{
-	struct FPoseSnapshot                               Snapshot;                                                 // (Parm, OutParm, ReferenceParm)
-};
-
-// Function Engine.AnimInstance.SetRootMotionMode
-struct UAnimInstance_SetRootMotionMode_Params
-{
-	TEnumAsByte<ERootMotionMode>                       Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.SetMorphTarget
-struct UAnimInstance_SetMorphTarget_Params
-{
-	struct FName                                       MorphTargetName;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.SavePoseSnapshot
-struct UAnimInstance_SavePoseSnapshot_Params
-{
-	struct FName                                       SnapshotName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.ResetDynamics
-struct UAnimInstance_ResetDynamics_Params
-{
-	ETeleportType                                      InTeleportType;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.PlaySlotAnimationAsDynamicMontage
-struct UAnimInstance_PlaySlotAnimationAsDynamicMontage_Params
-{
-	class UAnimSequenceBase*                           Asset;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       SlotNodeName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              BlendInTime;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              BlendOutTime;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              InPlayRate;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                LoopCount;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              BlendOutTriggerTime;                                      // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              InTimeToStartMontageAt;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	class UAnimMontage*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.PlaySlotAnimation
-struct UAnimInstance_PlaySlotAnimation_Params
-{
-	class UAnimSequenceBase*                           Asset;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       SlotNodeName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              BlendInTime;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              BlendOutTime;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              InPlayRate;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                LoopCount;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_Stop
-struct UAnimInstance_Montage_Stop_Params
-{
-	float                                              InBlendOutTime;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_SetPosition
-struct UAnimInstance_Montage_SetPosition_Params
-{
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	float                                              NewPosition;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_SetPlayRate
-struct UAnimInstance_Montage_SetPlayRate_Params
-{
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	float                                              NewPlayRate;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_SetNextSection
-struct UAnimInstance_Montage_SetNextSection_Params
-{
-	struct FName                                       SectionNameToChange;                                      // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       NextSection;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_Resume
-struct UAnimInstance_Montage_Resume_Params
-{
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_Play
-struct UAnimInstance_Montage_Play_Params
-{
-	class UAnimMontage*                                MontageToPlay;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              InPlayRate;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	EMontagePlayReturnType                             ReturnValueType;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              InTimeToStartMontageAt;                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bStopAllMontages;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_Pause
-struct UAnimInstance_Montage_Pause_Params
-{
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_JumpToSectionsEnd
-struct UAnimInstance_Montage_JumpToSectionsEnd_Params
-{
-	struct FName                                       SectionName;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_JumpToSection
-struct UAnimInstance_Montage_JumpToSection_Params
-{
-	struct FName                                       SectionName;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_IsPlaying
-struct UAnimInstance_Montage_IsPlaying_Params
-{
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_IsActive
-struct UAnimInstance_Montage_IsActive_Params
-{
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_GetPosition
-struct UAnimInstance_Montage_GetPosition_Params
-{
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_GetPlayRate
-struct UAnimInstance_Montage_GetPlayRate_Params
-{
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_GetIsStopped
-struct UAnimInstance_Montage_GetIsStopped_Params
-{
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_GetCurrentSection
-struct UAnimInstance_Montage_GetCurrentSection_Params
-{
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.Montage_GetBlendTime
-struct UAnimInstance_Montage_GetBlendTime_Params
-{
-	class UAnimMontage*                                Montage;                                                  // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.LockAIResources
-struct UAnimInstance_LockAIResources_Params
-{
-	bool                                               bLockMovement;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               LockAILogic;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.IsSyncGroupBetweenMarkers
-struct UAnimInstance_IsSyncGroupBetweenMarkers_Params
-{
-	struct FName                                       InSyncGroupName;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       PreviousMarker;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       NextMarker;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bRespectMarkerOrder;                                      // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.IsPlayingSlotAnimation
-struct UAnimInstance_IsPlayingSlotAnimation_Params
-{
-	class UAnimSequenceBase*                           Asset;                                                    // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       SlotNodeName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.IsAnyMontagePlaying
-struct UAnimInstance_IsAnyMontagePlaying_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.HasMarkerBeenHitThisFrame
-struct UAnimInstance_HasMarkerBeenHitThisFrame_Params
-{
-	struct FName                                       SyncGroup;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       MarkerName;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetTimeToClosestMarker
-struct UAnimInstance_GetTimeToClosestMarker_Params
-{
-	struct FName                                       SyncGroup;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       MarkerName;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              OutMarkerTime;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetSyncGroupPosition
-struct UAnimInstance_GetSyncGroupPosition_Params
-{
-	struct FName                                       InSyncGroupName;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FMarkerSyncAnimPosition                     ReturnValue;                                              // (Parm, OutParm, ReturnParm)
-};
-
-// Function Engine.AnimInstance.GetRelevantAnimTimeRemainingFraction
-struct UAnimInstance_GetRelevantAnimTimeRemainingFraction_Params
-{
-	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                StateIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetRelevantAnimTimeRemaining
-struct UAnimInstance_GetRelevantAnimTimeRemaining_Params
-{
-	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                StateIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetRelevantAnimTimeFraction
-struct UAnimInstance_GetRelevantAnimTimeFraction_Params
-{
-	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                StateIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetRelevantAnimTime
-struct UAnimInstance_GetRelevantAnimTime_Params
-{
-	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                StateIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetRelevantAnimLength
-struct UAnimInstance_GetRelevantAnimLength_Params
-{
-	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                StateIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetOwningComponent
-struct UAnimInstance_GetOwningComponent_Params
-{
-	class USkeletalMeshComponent*                      ReturnValue;                                              // (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetOwningActor
-struct UAnimInstance_GetOwningActor_Params
-{
-	class AActor*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetInstanceTransitionTimeElapsedFraction
-struct UAnimInstance_GetInstanceTransitionTimeElapsedFraction_Params
-{
-	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                TransitionIndex;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetInstanceTransitionTimeElapsed
-struct UAnimInstance_GetInstanceTransitionTimeElapsed_Params
-{
-	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                TransitionIndex;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetInstanceTransitionCrossfadeDuration
-struct UAnimInstance_GetInstanceTransitionCrossfadeDuration_Params
-{
-	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                TransitionIndex;                                          // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetInstanceStateWeight
-struct UAnimInstance_GetInstanceStateWeight_Params
-{
-	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                StateIndex;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetInstanceMachineWeight
-struct UAnimInstance_GetInstanceMachineWeight_Params
-{
-	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetInstanceCurrentStateElapsedTime
-struct UAnimInstance_GetInstanceCurrentStateElapsedTime_Params
-{
-	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetInstanceAssetPlayerTimeFromEndFraction
-struct UAnimInstance_GetInstanceAssetPlayerTimeFromEndFraction_Params
-{
-	int                                                AssetPlayerIndex;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetInstanceAssetPlayerTimeFromEnd
-struct UAnimInstance_GetInstanceAssetPlayerTimeFromEnd_Params
-{
-	int                                                AssetPlayerIndex;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetInstanceAssetPlayerTimeFraction
-struct UAnimInstance_GetInstanceAssetPlayerTimeFraction_Params
-{
-	int                                                AssetPlayerIndex;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetInstanceAssetPlayerTime
-struct UAnimInstance_GetInstanceAssetPlayerTime_Params
-{
-	int                                                AssetPlayerIndex;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetInstanceAssetPlayerLength
-struct UAnimInstance_GetInstanceAssetPlayerLength_Params
-{
-	int                                                AssetPlayerIndex;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetCurveValue
-struct UAnimInstance_GetCurveValue_Params
-{
-	struct FName                                       CurveName;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetCurrentStateName
-struct UAnimInstance_GetCurrentStateName_Params
-{
-	int                                                MachineIndex;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetCurrentActiveMontage
-struct UAnimInstance_GetCurrentActiveMontage_Params
-{
-	class UAnimMontage*                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.GetAllCurveNames
-struct UAnimInstance_GetAllCurveNames_Params
-{
-	TArray<struct FName>                               OutNames;                                                 // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function Engine.AnimInstance.GetActiveCurveNames
-struct UAnimInstance_GetActiveCurveNames_Params
-{
-	EAnimCurveType                                     CurveType;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	TArray<struct FName>                               OutNames;                                                 // (Parm, OutParm, ZeroConstructor)
-};
-
-// Function Engine.AnimInstance.ClearMorphTargets
-struct UAnimInstance_ClearMorphTargets_Params
-{
-};
-
-// Function Engine.AnimInstance.CalculateDirection
-struct UAnimInstance_CalculateDirection_Params
-{
-	struct FVector                                     Velocity;                                                 // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-	struct FRotator                                    BaseRotation;                                             // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.BlueprintUpdateAnimation
-struct UAnimInstance_BlueprintUpdateAnimation_Params
-{
-	float                                              DeltaTimeX;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AnimInstance.BlueprintPostEvaluateAnimation
-struct UAnimInstance_BlueprintPostEvaluateAnimation_Params
-{
-};
-
-// Function Engine.AnimInstance.BlueprintInitializeAnimation
-struct UAnimInstance_BlueprintInitializeAnimation_Params
-{
-};
-
-// Function Engine.AnimInstance.BlueprintBeginPlay
-struct UAnimInstance_BlueprintBeginPlay_Params
-{
-};
-
 // Function Engine.StaticMeshComponent.SetStaticMesh
 struct UStaticMeshComponent_SetStaticMesh_Params
 {
@@ -5355,6 +5355,20 @@ struct UMaterialInstanceConstant_K2_GetScalarParameterValue_Params
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function Engine.AnimNotify.Received_Notify
+struct UAnimNotify_Received_Notify_Params
+{
+	class USkeletalMeshComponent*                      MeshComp;                                                 // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UAnimSequenceBase*                           Animation;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AnimNotify.GetNotifyName
+struct UAnimNotify_GetNotifyName_Params
+{
+	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
+};
+
 // Function Engine.AnimNotifyState.Received_NotifyTick
 struct UAnimNotifyState_Received_NotifyTick_Params
 {
@@ -5511,28 +5525,6 @@ struct UAnimMontage_GetDefaultBlendOutTime_Params
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Engine.AnimNotify.Received_Notify
-struct UAnimNotify_Received_Notify_Params
-{
-	class USkeletalMeshComponent*                      MeshComp;                                                 // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UAnimSequenceBase*                           Animation;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.AnimNotify.GetNotifyName
-struct UAnimNotify_GetNotifyName_Params
-{
-	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function Engine.AnimNotifyState_Trail.OverridePSTemplate
-struct UAnimNotifyState_Trail_OverridePSTemplate_Params
-{
-	class USkeletalMeshComponent*                      MeshComp;                                                 // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UAnimSequenceBase*                           Animation;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	class UParticleSystem*                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function Engine.AnimSingleNodeInstance.StopAnim
 struct UAnimSingleNodeInstance_StopAnim_Params
 {
@@ -5619,6 +5611,14 @@ struct UAnimSingleNodeInstance_GetAnimationAsset_Params
 	class UAnimationAsset*                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
+// Function Engine.AnimNotifyState_Trail.OverridePSTemplate
+struct UAnimNotifyState_Trail_OverridePSTemplate_Params
+{
+	class USkeletalMeshComponent*                      MeshComp;                                                 // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UAnimSequenceBase*                           Animation;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	class UParticleSystem*                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
 // Function Engine.ArrowComponent.SetArrowColor
 struct UArrowComponent_SetArrowColor_Params
 {
@@ -5634,15 +5634,6 @@ struct UAsyncActionLoadPrimaryAsset_AsyncLoadPrimaryAsset_Params
 	class UAsyncActionLoadPrimaryAsset*                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Engine.AsyncActionLoadPrimaryAssetClass.AsyncLoadPrimaryAssetClass
-struct UAsyncActionLoadPrimaryAssetClass_AsyncLoadPrimaryAssetClass_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FPrimaryAssetId                             PrimaryAsset;                                             // (Parm, ZeroConstructor)
-	TArray<struct FName>                               LoadBundles;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	class UAsyncActionLoadPrimaryAssetClass*           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function Engine.AsyncActionLoadPrimaryAssetList.AsyncLoadPrimaryAssetList
 struct UAsyncActionLoadPrimaryAssetList_AsyncLoadPrimaryAssetList_Params
 {
@@ -5650,6 +5641,15 @@ struct UAsyncActionLoadPrimaryAssetList_AsyncLoadPrimaryAssetList_Params
 	TArray<struct FPrimaryAssetId>                     PrimaryAssetList;                                         // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	TArray<struct FName>                               LoadBundles;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	class UAsyncActionLoadPrimaryAssetList*            ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AsyncActionLoadPrimaryAssetClass.AsyncLoadPrimaryAssetClass
+struct UAsyncActionLoadPrimaryAssetClass_AsyncLoadPrimaryAssetClass_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FPrimaryAssetId                             PrimaryAsset;                                             // (Parm, ZeroConstructor)
+	TArray<struct FName>                               LoadBundles;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	class UAsyncActionLoadPrimaryAssetClass*           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Engine.AsyncActionChangePrimaryAssetBundles.AsyncChangeBundleStateForPrimaryAssetList
@@ -5669,6 +5669,15 @@ struct UAsyncActionChangePrimaryAssetBundles_AsyncChangeBundleStateForMatchingPr
 	TArray<struct FName>                               NewBundles;                                               // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	TArray<struct FName>                               OldBundles;                                               // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	class UAsyncActionChangePrimaryAssetBundles*       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.AsyncActionLoadPrimaryAssetClassList.AsyncLoadPrimaryAssetClassList
+struct UAsyncActionLoadPrimaryAssetClassList_AsyncLoadPrimaryAssetClassList_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	TArray<struct FPrimaryAssetId>                     PrimaryAssetList;                                         // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	TArray<struct FName>                               LoadBundles;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	class UAsyncActionLoadPrimaryAssetClassList*       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Engine.AtmosphericFogComponent.StartPrecompute
@@ -5754,15 +5763,6 @@ struct UAtmosphericFogComponent_DisableSunDisk_Params
 struct UAtmosphericFogComponent_DisableGroundScattering_Params
 {
 	bool                                               NewGroundScattering;                                      // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.AsyncActionLoadPrimaryAssetClassList.AsyncLoadPrimaryAssetClassList
-struct UAsyncActionLoadPrimaryAssetClassList_AsyncLoadPrimaryAssetClassList_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	TArray<struct FPrimaryAssetId>                     PrimaryAssetList;                                         // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	TArray<struct FName>                               LoadBundles;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	class UAsyncActionLoadPrimaryAssetClassList*       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Engine.AudioVolume.SetReverbSettings
@@ -7484,6 +7484,12 @@ struct APlayerController_ActivateTouchInterface_Params
 	class UTouchInterface*                             NewTouchInterface;                                        // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function Engine.ChildActorComponent.SetChildActorClass
+struct UChildActorComponent_SetChildActorClass_Params
+{
+	class UClass*                                      InClass;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function Engine.CheatManager.Walk
 struct UCheatManager_Walk_Params
 {
@@ -7788,12 +7794,6 @@ struct UCheatManager_BugIt_Params
 	struct FString                                     ScreenShotDescription;                                    // (Parm, ZeroConstructor)
 };
 
-// Function Engine.ChildActorComponent.SetChildActorClass
-struct UChildActorComponent_SetChildActorClass_Params
-{
-	class UClass*                                      InClass;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function Engine.GameViewportClient.SSSwapControllers
 struct UGameViewportClient_SSSwapControllers_Params
 {
@@ -7891,49 +7891,6 @@ struct UCurveVector_GetVectorValue_Params
 	struct FVector                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
-// Function Engine.DebugCameraController.ToggleDisplay
-struct ADebugCameraController_ToggleDisplay_Params
-{
-};
-
-// Function Engine.DebugCameraController.ShowDebugSelectedInfo
-struct ADebugCameraController_ShowDebugSelectedInfo_Params
-{
-};
-
-// Function Engine.DebugCameraController.SetPawnMovementSpeedScale
-struct ADebugCameraController_SetPawnMovementSpeedScale_Params
-{
-	float                                              NewSpeedScale;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.DebugCameraController.ReceiveOnDeactivate
-struct ADebugCameraController_ReceiveOnDeactivate_Params
-{
-	class APlayerController*                           RestoredPC;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.DebugCameraController.ReceiveOnActorSelected
-struct ADebugCameraController_ReceiveOnActorSelected_Params
-{
-	class AActor*                                      NewSelectedActor;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     SelectHitLocation;                                        // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-	struct FVector                                     SelectHitNormal;                                          // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-	struct FHitResult                                  Hit;                                                      // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
-};
-
-// Function Engine.DebugCameraController.ReceiveOnActivate
-struct ADebugCameraController_ReceiveOnActivate_Params
-{
-	class APlayerController*                           OriginalPC;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.DebugCameraController.GetSelectedActor
-struct ADebugCameraController_GetSelectedActor_Params
-{
-	class AActor*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
 // Function Engine.DataTableFunctionLibrary.GetDataTableRowNames
 struct UDataTableFunctionLibrary_GetDataTableRowNames_Params
 {
@@ -7975,6 +7932,49 @@ struct UDataTableFunctionLibrary_DoesDataTableRowExist_Params
 	class UDataTable*                                  Table;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FName                                       RowName;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.DebugCameraController.ToggleDisplay
+struct ADebugCameraController_ToggleDisplay_Params
+{
+};
+
+// Function Engine.DebugCameraController.ShowDebugSelectedInfo
+struct ADebugCameraController_ShowDebugSelectedInfo_Params
+{
+};
+
+// Function Engine.DebugCameraController.SetPawnMovementSpeedScale
+struct ADebugCameraController_SetPawnMovementSpeedScale_Params
+{
+	float                                              NewSpeedScale;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.DebugCameraController.ReceiveOnDeactivate
+struct ADebugCameraController_ReceiveOnDeactivate_Params
+{
+	class APlayerController*                           RestoredPC;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.DebugCameraController.ReceiveOnActorSelected
+struct ADebugCameraController_ReceiveOnActorSelected_Params
+{
+	class AActor*                                      NewSelectedActor;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     SelectHitLocation;                                        // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+	struct FVector                                     SelectHitNormal;                                          // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+	struct FHitResult                                  Hit;                                                      // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+};
+
+// Function Engine.DebugCameraController.ReceiveOnActivate
+struct ADebugCameraController_ReceiveOnActivate_Params
+{
+	class APlayerController*                           OriginalPC;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.DebugCameraController.GetSelectedActor
+struct ADebugCameraController_GetSelectedActor_Params
+{
+	class AActor*                                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Engine.HUD.ShowHUD
@@ -9153,470 +9153,6 @@ struct AGameMode_AbortMatch_Params
 {
 };
 
-// Function Engine.GameStateBase.OnRep_SpectatorClass
-struct AGameStateBase_OnRep_SpectatorClass_Params
-{
-};
-
-// Function Engine.GameStateBase.OnRep_ReplicatedWorldTimeSeconds
-struct AGameStateBase_OnRep_ReplicatedWorldTimeSeconds_Params
-{
-};
-
-// Function Engine.GameStateBase.OnRep_ReplicatedHasBegunPlay
-struct AGameStateBase_OnRep_ReplicatedHasBegunPlay_Params
-{
-};
-
-// Function Engine.GameStateBase.OnRep_GameModeClass
-struct AGameStateBase_OnRep_GameModeClass_Params
-{
-};
-
-// Function Engine.GameStateBase.HasMatchStarted
-struct AGameStateBase_HasMatchStarted_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameStateBase.HasBegunPlay
-struct AGameStateBase_HasBegunPlay_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameStateBase.GetServerWorldTimeSeconds
-struct AGameStateBase_GetServerWorldTimeSeconds_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameStateBase.GetPlayerStartTime
-struct AGameStateBase_GetPlayerStartTime_Params
-{
-	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameStateBase.GetPlayerRespawnDelay
-struct AGameStateBase_GetPlayerRespawnDelay_Params
-{
-	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameState.OnRep_MatchState
-struct AGameState_OnRep_MatchState_Params
-{
-};
-
-// Function Engine.GameState.OnRep_ElapsedTime
-struct AGameState_OnRep_ElapsedTime_Params
-{
-};
-
-// Function Engine.GameUserSettings.ValidateSettings
-struct UGameUserSettings_ValidateSettings_Params
-{
-};
-
-// Function Engine.GameUserSettings.SupportsHDRDisplayOutput
-struct UGameUserSettings_SupportsHDRDisplayOutput_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetVSyncEnabled
-struct UGameUserSettings_SetVSyncEnabled_Params
-{
-	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetVisualEffectQuality
-struct UGameUserSettings_SetVisualEffectQuality_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetViewDistanceQuality
-struct UGameUserSettings_SetViewDistanceQuality_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetToDefaults
-struct UGameUserSettings_SetToDefaults_Params
-{
-};
-
-// Function Engine.GameUserSettings.SetTextureQuality
-struct UGameUserSettings_SetTextureQuality_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetShadowQuality
-struct UGameUserSettings_SetShadowQuality_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetScreenResolution
-struct UGameUserSettings_SetScreenResolution_Params
-{
-	struct FIntPoint                                   Resolution;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetResolutionScaleValueEx
-struct UGameUserSettings_SetResolutionScaleValueEx_Params
-{
-	float                                              NewScaleValue;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetResolutionScaleValue
-struct UGameUserSettings_SetResolutionScaleValue_Params
-{
-	int                                                NewScaleValue;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetResolutionScaleNormalized
-struct UGameUserSettings_SetResolutionScaleNormalized_Params
-{
-	float                                              NewScaleNormalized;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetPostProcessingQuality
-struct UGameUserSettings_SetPostProcessingQuality_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetOverallScalabilityLevel
-struct UGameUserSettings_SetOverallScalabilityLevel_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetFullscreenMode
-struct UGameUserSettings_SetFullscreenMode_Params
-{
-	TEnumAsByte<EWindowMode>                           InFullscreenMode;                                         // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetFrameRateLimit
-struct UGameUserSettings_SetFrameRateLimit_Params
-{
-	float                                              NewLimit;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetFoliageQuality
-struct UGameUserSettings_SetFoliageQuality_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetDynamicResolutionEnabled
-struct UGameUserSettings_SetDynamicResolutionEnabled_Params
-{
-	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetBenchmarkFallbackValues
-struct UGameUserSettings_SetBenchmarkFallbackValues_Params
-{
-};
-
-// Function Engine.GameUserSettings.SetAudioQualityLevel
-struct UGameUserSettings_SetAudioQualityLevel_Params
-{
-	int                                                QualityLevel;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SetAntiAliasingQuality
-struct UGameUserSettings_SetAntiAliasingQuality_Params
-{
-	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.SaveSettings
-struct UGameUserSettings_SaveSettings_Params
-{
-};
-
-// Function Engine.GameUserSettings.RunHardwareBenchmark
-struct UGameUserSettings_RunHardwareBenchmark_Params
-{
-	int                                                WorkScale;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              CPUMultiplier;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              GPUMultiplier;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.RevertVideoMode
-struct UGameUserSettings_RevertVideoMode_Params
-{
-};
-
-// Function Engine.GameUserSettings.ResetToCurrentSettings
-struct UGameUserSettings_ResetToCurrentSettings_Params
-{
-};
-
-// Function Engine.GameUserSettings.LoadSettings
-struct UGameUserSettings_LoadSettings_Params
-{
-	bool                                               bForceReload;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsVSyncEnabled
-struct UGameUserSettings_IsVSyncEnabled_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsVSyncDirty
-struct UGameUserSettings_IsVSyncDirty_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsScreenResolutionDirty
-struct UGameUserSettings_IsScreenResolutionDirty_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsHDREnabled
-struct UGameUserSettings_IsHDREnabled_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsFullscreenModeDirty
-struct UGameUserSettings_IsFullscreenModeDirty_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsDynamicResolutionEnabled
-struct UGameUserSettings_IsDynamicResolutionEnabled_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsDynamicResolutionDirty
-struct UGameUserSettings_IsDynamicResolutionDirty_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.IsDirty
-struct UGameUserSettings_IsDirty_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetVisualEffectQuality
-struct UGameUserSettings_GetVisualEffectQuality_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetViewDistanceQuality
-struct UGameUserSettings_GetViewDistanceQuality_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetTextureQuality
-struct UGameUserSettings_GetTextureQuality_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetShadowQuality
-struct UGameUserSettings_GetShadowQuality_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetScreenResolution
-struct UGameUserSettings_GetScreenResolution_Params
-{
-	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetResolutionScaleInformationEx
-struct UGameUserSettings_GetResolutionScaleInformationEx_Params
-{
-	float                                              CurrentScaleNormalized;                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              CurrentScaleValue;                                        // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              MinScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	float                                              MaxScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetResolutionScaleInformation
-struct UGameUserSettings_GetResolutionScaleInformation_Params
-{
-	float                                              CurrentScaleNormalized;                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                CurrentScaleValue;                                        // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                MinScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                MaxScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetRecommendedResolutionScale
-struct UGameUserSettings_GetRecommendedResolutionScale_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetPreferredFullscreenMode
-struct UGameUserSettings_GetPreferredFullscreenMode_Params
-{
-	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetPostProcessingQuality
-struct UGameUserSettings_GetPostProcessingQuality_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetOverallScalabilityLevel
-struct UGameUserSettings_GetOverallScalabilityLevel_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetLastConfirmedScreenResolution
-struct UGameUserSettings_GetLastConfirmedScreenResolution_Params
-{
-	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetLastConfirmedFullscreenMode
-struct UGameUserSettings_GetLastConfirmedFullscreenMode_Params
-{
-	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetGameUserSettings
-struct UGameUserSettings_GetGameUserSettings_Params
-{
-	class UGameUserSettings*                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetFullscreenMode
-struct UGameUserSettings_GetFullscreenMode_Params
-{
-	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetFrameRateLimit
-struct UGameUserSettings_GetFrameRateLimit_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetFoliageQuality
-struct UGameUserSettings_GetFoliageQuality_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetDesktopResolution
-struct UGameUserSettings_GetDesktopResolution_Params
-{
-	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetDefaultWindowPosition
-struct UGameUserSettings_GetDefaultWindowPosition_Params
-{
-	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetDefaultWindowMode
-struct UGameUserSettings_GetDefaultWindowMode_Params
-{
-	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetDefaultResolutionScale
-struct UGameUserSettings_GetDefaultResolutionScale_Params
-{
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetDefaultResolution
-struct UGameUserSettings_GetDefaultResolution_Params
-{
-	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetCurrentHDRDisplayNits
-struct UGameUserSettings_GetCurrentHDRDisplayNits_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetAudioQualityLevel
-struct UGameUserSettings_GetAudioQualityLevel_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.GetAntiAliasingQuality
-struct UGameUserSettings_GetAntiAliasingQuality_Params
-{
-	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.EnableHDRDisplayOutput
-struct UGameUserSettings_EnableHDRDisplayOutput_Params
-{
-	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-	int                                                DisplayNits;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.ConfirmVideoMode
-struct UGameUserSettings_ConfirmVideoMode_Params
-{
-};
-
-// Function Engine.GameUserSettings.ApplySettings
-struct UGameUserSettings_ApplySettings_Params
-{
-	bool                                               bCheckForCommandLineOverrides;                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.ApplyResolutionSettings
-struct UGameUserSettings_ApplyResolutionSettings_Params
-{
-	bool                                               bCheckForCommandLineOverrides;                            // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.GameUserSettings.ApplyNonResolutionSettings
-struct UGameUserSettings_ApplyNonResolutionSettings_Params
-{
-};
-
-// Function Engine.GameUserSettings.ApplyHardwareBenchmarkResults
-struct UGameUserSettings_ApplyHardwareBenchmarkResults_Params
-{
-};
-
-// Function Engine.SpotLight.SetOuterConeAngle
-struct ASpotLight_SetOuterConeAngle_Params
-{
-	float                                              NewOuterConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.SpotLight.SetInnerConeAngle
-struct ASpotLight_SetInnerConeAngle_Params
-{
-	float                                              NewInnerConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function Engine.GameplayStatics.UnloadStreamLevel
 struct UGameplayStatics_UnloadStreamLevel_Params
 {
@@ -10672,6 +10208,470 @@ struct UGameplayStatics_ActivateReverbEffect_Params
 	float                                              FadeTime;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function Engine.GameStateBase.OnRep_SpectatorClass
+struct AGameStateBase_OnRep_SpectatorClass_Params
+{
+};
+
+// Function Engine.GameStateBase.OnRep_ReplicatedWorldTimeSeconds
+struct AGameStateBase_OnRep_ReplicatedWorldTimeSeconds_Params
+{
+};
+
+// Function Engine.GameStateBase.OnRep_ReplicatedHasBegunPlay
+struct AGameStateBase_OnRep_ReplicatedHasBegunPlay_Params
+{
+};
+
+// Function Engine.GameStateBase.OnRep_GameModeClass
+struct AGameStateBase_OnRep_GameModeClass_Params
+{
+};
+
+// Function Engine.GameStateBase.HasMatchStarted
+struct AGameStateBase_HasMatchStarted_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameStateBase.HasBegunPlay
+struct AGameStateBase_HasBegunPlay_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameStateBase.GetServerWorldTimeSeconds
+struct AGameStateBase_GetServerWorldTimeSeconds_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameStateBase.GetPlayerStartTime
+struct AGameStateBase_GetPlayerStartTime_Params
+{
+	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameStateBase.GetPlayerRespawnDelay
+struct AGameStateBase_GetPlayerRespawnDelay_Params
+{
+	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameState.OnRep_MatchState
+struct AGameState_OnRep_MatchState_Params
+{
+};
+
+// Function Engine.GameState.OnRep_ElapsedTime
+struct AGameState_OnRep_ElapsedTime_Params
+{
+};
+
+// Function Engine.GameUserSettings.ValidateSettings
+struct UGameUserSettings_ValidateSettings_Params
+{
+};
+
+// Function Engine.GameUserSettings.SupportsHDRDisplayOutput
+struct UGameUserSettings_SupportsHDRDisplayOutput_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetVSyncEnabled
+struct UGameUserSettings_SetVSyncEnabled_Params
+{
+	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetVisualEffectQuality
+struct UGameUserSettings_SetVisualEffectQuality_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetViewDistanceQuality
+struct UGameUserSettings_SetViewDistanceQuality_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetToDefaults
+struct UGameUserSettings_SetToDefaults_Params
+{
+};
+
+// Function Engine.GameUserSettings.SetTextureQuality
+struct UGameUserSettings_SetTextureQuality_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetShadowQuality
+struct UGameUserSettings_SetShadowQuality_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetScreenResolution
+struct UGameUserSettings_SetScreenResolution_Params
+{
+	struct FIntPoint                                   Resolution;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetResolutionScaleValueEx
+struct UGameUserSettings_SetResolutionScaleValueEx_Params
+{
+	float                                              NewScaleValue;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetResolutionScaleValue
+struct UGameUserSettings_SetResolutionScaleValue_Params
+{
+	int                                                NewScaleValue;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetResolutionScaleNormalized
+struct UGameUserSettings_SetResolutionScaleNormalized_Params
+{
+	float                                              NewScaleNormalized;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetPostProcessingQuality
+struct UGameUserSettings_SetPostProcessingQuality_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetOverallScalabilityLevel
+struct UGameUserSettings_SetOverallScalabilityLevel_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetFullscreenMode
+struct UGameUserSettings_SetFullscreenMode_Params
+{
+	TEnumAsByte<EWindowMode>                           InFullscreenMode;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetFrameRateLimit
+struct UGameUserSettings_SetFrameRateLimit_Params
+{
+	float                                              NewLimit;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetFoliageQuality
+struct UGameUserSettings_SetFoliageQuality_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetDynamicResolutionEnabled
+struct UGameUserSettings_SetDynamicResolutionEnabled_Params
+{
+	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetBenchmarkFallbackValues
+struct UGameUserSettings_SetBenchmarkFallbackValues_Params
+{
+};
+
+// Function Engine.GameUserSettings.SetAudioQualityLevel
+struct UGameUserSettings_SetAudioQualityLevel_Params
+{
+	int                                                QualityLevel;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SetAntiAliasingQuality
+struct UGameUserSettings_SetAntiAliasingQuality_Params
+{
+	int                                                Value;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.SaveSettings
+struct UGameUserSettings_SaveSettings_Params
+{
+};
+
+// Function Engine.GameUserSettings.RunHardwareBenchmark
+struct UGameUserSettings_RunHardwareBenchmark_Params
+{
+	int                                                WorkScale;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              CPUMultiplier;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              GPUMultiplier;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.RevertVideoMode
+struct UGameUserSettings_RevertVideoMode_Params
+{
+};
+
+// Function Engine.GameUserSettings.ResetToCurrentSettings
+struct UGameUserSettings_ResetToCurrentSettings_Params
+{
+};
+
+// Function Engine.GameUserSettings.LoadSettings
+struct UGameUserSettings_LoadSettings_Params
+{
+	bool                                               bForceReload;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsVSyncEnabled
+struct UGameUserSettings_IsVSyncEnabled_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsVSyncDirty
+struct UGameUserSettings_IsVSyncDirty_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsScreenResolutionDirty
+struct UGameUserSettings_IsScreenResolutionDirty_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsHDREnabled
+struct UGameUserSettings_IsHDREnabled_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsFullscreenModeDirty
+struct UGameUserSettings_IsFullscreenModeDirty_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsDynamicResolutionEnabled
+struct UGameUserSettings_IsDynamicResolutionEnabled_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsDynamicResolutionDirty
+struct UGameUserSettings_IsDynamicResolutionDirty_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.IsDirty
+struct UGameUserSettings_IsDirty_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetVisualEffectQuality
+struct UGameUserSettings_GetVisualEffectQuality_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetViewDistanceQuality
+struct UGameUserSettings_GetViewDistanceQuality_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetTextureQuality
+struct UGameUserSettings_GetTextureQuality_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetShadowQuality
+struct UGameUserSettings_GetShadowQuality_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetScreenResolution
+struct UGameUserSettings_GetScreenResolution_Params
+{
+	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetResolutionScaleInformationEx
+struct UGameUserSettings_GetResolutionScaleInformationEx_Params
+{
+	float                                              CurrentScaleNormalized;                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              CurrentScaleValue;                                        // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              MinScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              MaxScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetResolutionScaleInformation
+struct UGameUserSettings_GetResolutionScaleInformation_Params
+{
+	float                                              CurrentScaleNormalized;                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                CurrentScaleValue;                                        // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                MinScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                MaxScaleValue;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetRecommendedResolutionScale
+struct UGameUserSettings_GetRecommendedResolutionScale_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetPreferredFullscreenMode
+struct UGameUserSettings_GetPreferredFullscreenMode_Params
+{
+	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetPostProcessingQuality
+struct UGameUserSettings_GetPostProcessingQuality_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetOverallScalabilityLevel
+struct UGameUserSettings_GetOverallScalabilityLevel_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetLastConfirmedScreenResolution
+struct UGameUserSettings_GetLastConfirmedScreenResolution_Params
+{
+	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetLastConfirmedFullscreenMode
+struct UGameUserSettings_GetLastConfirmedFullscreenMode_Params
+{
+	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetGameUserSettings
+struct UGameUserSettings_GetGameUserSettings_Params
+{
+	class UGameUserSettings*                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetFullscreenMode
+struct UGameUserSettings_GetFullscreenMode_Params
+{
+	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetFrameRateLimit
+struct UGameUserSettings_GetFrameRateLimit_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetFoliageQuality
+struct UGameUserSettings_GetFoliageQuality_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetDesktopResolution
+struct UGameUserSettings_GetDesktopResolution_Params
+{
+	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetDefaultWindowPosition
+struct UGameUserSettings_GetDefaultWindowPosition_Params
+{
+	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetDefaultWindowMode
+struct UGameUserSettings_GetDefaultWindowMode_Params
+{
+	TEnumAsByte<EWindowMode>                           ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetDefaultResolutionScale
+struct UGameUserSettings_GetDefaultResolutionScale_Params
+{
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetDefaultResolution
+struct UGameUserSettings_GetDefaultResolution_Params
+{
+	struct FIntPoint                                   ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetCurrentHDRDisplayNits
+struct UGameUserSettings_GetCurrentHDRDisplayNits_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetAudioQualityLevel
+struct UGameUserSettings_GetAudioQualityLevel_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.GetAntiAliasingQuality
+struct UGameUserSettings_GetAntiAliasingQuality_Params
+{
+	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.EnableHDRDisplayOutput
+struct UGameUserSettings_EnableHDRDisplayOutput_Params
+{
+	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                DisplayNits;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.ConfirmVideoMode
+struct UGameUserSettings_ConfirmVideoMode_Params
+{
+};
+
+// Function Engine.GameUserSettings.ApplySettings
+struct UGameUserSettings_ApplySettings_Params
+{
+	bool                                               bCheckForCommandLineOverrides;                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.ApplyResolutionSettings
+struct UGameUserSettings_ApplyResolutionSettings_Params
+{
+	bool                                               bCheckForCommandLineOverrides;                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.GameUserSettings.ApplyNonResolutionSettings
+struct UGameUserSettings_ApplyNonResolutionSettings_Params
+{
+};
+
+// Function Engine.GameUserSettings.ApplyHardwareBenchmarkResults
+struct UGameUserSettings_ApplyHardwareBenchmarkResults_Params
+{
+};
+
+// Function Engine.SpotLight.SetOuterConeAngle
+struct ASpotLight_SetOuterConeAngle_Params
+{
+	float                                              NewOuterConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.SpotLight.SetInnerConeAngle
+struct ASpotLight_SetInnerConeAngle_Params
+{
+	float                                              NewInnerConeAngle;                                        // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function Engine.HealthSnapshotBlueprintLibrary.StopPerformanceSnapshots
 struct UHealthSnapshotBlueprintLibrary_StopPerformanceSnapshots_Params
 {
@@ -11501,51 +11501,6 @@ struct UKismetInternationalizationLibrary_ClearCurrentAssetGroupCulture_Params
 {
 	struct FName                                       AssetGroup;                                               // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               SaveToConfig;                                             // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.KismetMaterialLibrary.SetVectorParameterValue
-struct UKismetMaterialLibrary_SetVectorParameterValue_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class UMaterialParameterCollection*                Collection;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       ParameterName;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FLinearColor                                ParameterValue;                                           // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
-};
-
-// Function Engine.KismetMaterialLibrary.SetScalarParameterValue
-struct UKismetMaterialLibrary_SetScalarParameterValue_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class UMaterialParameterCollection*                Collection;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       ParameterName;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ParameterValue;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.KismetMaterialLibrary.GetVectorParameterValue
-struct UKismetMaterialLibrary_GetVectorParameterValue_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class UMaterialParameterCollection*                Collection;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       ParameterName;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FLinearColor                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetMaterialLibrary.GetScalarParameterValue
-struct UKismetMaterialLibrary_GetScalarParameterValue_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class UMaterialParameterCollection*                Collection;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       ParameterName;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Engine.KismetMaterialLibrary.CreateDynamicMaterialInstance
-struct UKismetMaterialLibrary_CreateDynamicMaterialInstance_Params
-{
-	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
-	class UMaterialInterface*                          Parent;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       OptionalName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
-	class UMaterialInstanceDynamic*                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Engine.KismetMathLibrary.Xor_IntInt
@@ -18014,9 +17969,49 @@ struct ALevelScriptActor_LevelReset_Params
 {
 };
 
-// Function Engine.World.HandleTimelineScrubbed
-struct UWorld_HandleTimelineScrubbed_Params
+// Function Engine.KismetMaterialLibrary.SetVectorParameterValue
+struct UKismetMaterialLibrary_SetVectorParameterValue_Params
 {
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class UMaterialParameterCollection*                Collection;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       ParameterName;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FLinearColor                                ParameterValue;                                           // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+};
+
+// Function Engine.KismetMaterialLibrary.SetScalarParameterValue
+struct UKismetMaterialLibrary_SetScalarParameterValue_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class UMaterialParameterCollection*                Collection;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       ParameterName;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ParameterValue;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.KismetMaterialLibrary.GetVectorParameterValue
+struct UKismetMaterialLibrary_GetVectorParameterValue_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class UMaterialParameterCollection*                Collection;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       ParameterName;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FLinearColor                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetMaterialLibrary.GetScalarParameterValue
+struct UKismetMaterialLibrary_GetScalarParameterValue_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class UMaterialParameterCollection*                Collection;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       ParameterName;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.KismetMaterialLibrary.CreateDynamicMaterialInstance
+struct UKismetMaterialLibrary_CreateDynamicMaterialInstance_Params
+{
+	class UObject*                                     WorldContextObject;                                       // (Parm, ZeroConstructor, IsPlainOldData)
+	class UMaterialInterface*                          Parent;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       OptionalName;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+	class UMaterialInstanceDynamic*                    ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Engine.LevelStreaming.ShouldBeLoaded
@@ -18099,6 +18094,11 @@ struct ULevelStreamingDynamic_LoadLevelInstance_Params
 	struct FRotator                                    Rotation;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               bOutSuccess;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 	class ULevelStreamingDynamic*                      ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function Engine.World.HandleTimelineScrubbed
+struct UWorld_HandleTimelineScrubbed_Params
+{
 };
 
 // Function Engine.LocalLightComponent.SetAttenuationRadius
@@ -18283,6 +18283,13 @@ struct UNavigationSystem_SimpleMoveToActor_Params
 {
 	class AController*                                 Controller;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 	class AActor*                                      Goal;                                                     // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.ParticleSystem.ContainsEmitterType
+struct UParticleSystem_ContainsEmitterType_Params
+{
+	class UClass*                                      TypeData;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function Engine.ParticleSystemComponent.SetVectorParameter
@@ -18527,11 +18534,12 @@ struct UParticleSystemComponent_BeginTrails_Params
 	float                                              InWidth;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function Engine.ParticleSystem.ContainsEmitterType
-struct UParticleSystem_ContainsEmitterType_Params
+// Function Engine.PawnNoiseEmitterComponent.MakeNoise
+struct UPawnNoiseEmitterComponent_MakeNoise_Params
 {
-	class UClass*                                      TypeData;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+	class AActor*                                      NoiseMaker;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Loudness;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     NoiseLocation;                                            // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 };
 
 // Function Engine.PhysicalAnimationComponent.SetStrengthMultiplyer
@@ -18575,14 +18583,6 @@ struct UPhysicalAnimationComponent_ApplyPhysicalAnimationProfileBelow_Params
 	struct FName                                       ProfileName;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               bIncludeSelf;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               bClearNotFound;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.PawnNoiseEmitterComponent.MakeNoise
-struct UPawnNoiseEmitterComponent_MakeNoise_Params
-{
-	class AActor*                                      NoiseMaker;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	float                                              Loudness;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     NoiseLocation;                                            // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 };
 
 // Function Engine.PhysicsConstraintComponent.SetOrientationDriveTwistAndSwing
@@ -19527,6 +19527,18 @@ struct URadialForceComponent_AddObjectTypeToAffect_Params
 	TEnumAsByte<EObjectTypeQuery>                      ObjectType;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function Engine.RectLightComponent.SetSourceWidth
+struct URectLightComponent_SetSourceWidth_Params
+{
+	float                                              bNewValue;                                                // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.RectLightComponent.SetSourceHeight
+struct URectLightComponent_SetSourceHeight_Params
+{
+	float                                              NewValue;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function Engine.SceneCapture2D.OnInterpToggle
 struct ASceneCapture2D_OnInterpToggle_Params
 {
@@ -19554,18 +19566,6 @@ struct USceneCaptureComponentCube_CaptureScene_Params
 struct ASceneCaptureCube_OnInterpToggle_Params
 {
 	bool                                               bEnable;                                                  // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.RectLightComponent.SetSourceWidth
-struct URectLightComponent_SetSourceWidth_Params
-{
-	float                                              bNewValue;                                                // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function Engine.RectLightComponent.SetSourceHeight
-struct URectLightComponent_SetSourceHeight_Params
-{
-	float                                              NewValue;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Engine.SkeletalMesh.SetLODSettings
@@ -20511,12 +20511,6 @@ struct UVOIPTalker_BPOnTalkingBegin_Params
 	class UAudioComponent*                             AudioComponent;                                           // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 };
 
-// Function Engine.VOIPStatics.SetMicThreshold
-struct UVOIPStatics_SetMicThreshold_Params
-{
-	float                                              InThreshold;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function Engine.WindDirectionalSourceComponent.SetWindType
 struct UWindDirectionalSourceComponent_SetWindType_Params
 {
@@ -20551,6 +20545,12 @@ struct UWindDirectionalSourceComponent_SetMinimumGustAmount_Params
 struct UWindDirectionalSourceComponent_SetMaximumGustAmount_Params
 {
 	float                                              InNewMaxGust;                                             // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function Engine.VOIPStatics.SetMicThreshold
+struct UVOIPStatics_SetMicThreshold_Params
+{
+	float                                              InThreshold;                                              // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function Engine.WorldSettings.OnRep_WorldGravityZ

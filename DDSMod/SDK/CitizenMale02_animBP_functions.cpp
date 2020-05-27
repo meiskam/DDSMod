@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -92,6 +92,23 @@ void UCitizenMale02_animBP_C::BlueprintUpdateAnimation(float* DeltaTimeX)
 
 	UCitizenMale02_animBP_C_BlueprintUpdateAnimation_Params params;
 	params.DeltaTimeX = DeltaTimeX;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function CitizenMale02_animBP.CitizenMale02_animBP_C.BlueprintBeginPlay
+// (Event, Public, BlueprintEvent)
+
+void UCitizenMale02_animBP_C::BlueprintBeginPlay()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function CitizenMale02_animBP.CitizenMale02_animBP_C.BlueprintBeginPlay");
+
+	UCitizenMale02_animBP_C_BlueprintBeginPlay_Params params;
 
 	auto flags = fn->FunctionFlags;
 

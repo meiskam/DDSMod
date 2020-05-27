@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,132 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function weedPlantBP.weedPlantBP_C.onLoadNamingUpdate
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void AweedPlantBP_C::onLoadNamingUpdate()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function weedPlantBP.weedPlantBP_C.onLoadNamingUpdate");
+
+	AweedPlantBP_C_onLoadNamingUpdate_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function weedPlantBP.weedPlantBP_C.setPlantMaterial
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void AweedPlantBP_C::setPlantMaterial()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function weedPlantBP.weedPlantBP_C.setPlantMaterial");
+
+	AweedPlantBP_C_setPlantMaterial_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function weedPlantBP.weedPlantBP_C.updateLightSources
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void AweedPlantBP_C::updateLightSources()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function weedPlantBP.weedPlantBP_C.updateLightSources");
+
+	AweedPlantBP_C_updateLightSources_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function weedPlantBP.weedPlantBP_C.calcSunRange
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void AweedPlantBP_C::calcSunRange()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function weedPlantBP.weedPlantBP_C.calcSunRange");
+
+	AweedPlantBP_C_calcSunRange_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function weedPlantBP.weedPlantBP_C.adaptDifficulty
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void AweedPlantBP_C::adaptDifficulty()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function weedPlantBP.weedPlantBP_C.adaptDifficulty");
+
+	AweedPlantBP_C_adaptDifficulty_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function weedPlantBP.weedPlantBP_C.plantComprimised
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void AweedPlantBP_C::plantComprimised()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function weedPlantBP.weedPlantBP_C.plantComprimised");
+
+	AweedPlantBP_C_plantComprimised_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function weedPlantBP.weedPlantBP_C.checkNpcOverlap
+// (Public, HasOutParms, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class AActor*                  Actor                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           Fail                           (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+
+void AweedPlantBP_C::checkNpcOverlap(class AActor* Actor, bool* Fail)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function weedPlantBP.weedPlantBP_C.checkNpcOverlap");
+
+	AweedPlantBP_C_checkNpcOverlap_Params params;
+	params.Actor = Actor;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (Fail != nullptr)
+		*Fail = params.Fail;
+}
+
 
 // Function weedPlantBP.weedPlantBP_C.generateDrugIcon
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
@@ -316,6 +442,113 @@ void AweedPlantBP_C::forceLastUpdate()
 	static auto fn = UObject::FindObject<UFunction>("Function weedPlantBP.weedPlantBP_C.forceLastUpdate");
 
 	AweedPlantBP_C_forceLastUpdate_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function weedPlantBP.weedPlantBP_C.weedGizmo
+// (BlueprintCallable, BlueprintEvent)
+
+void AweedPlantBP_C::weedGizmo()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function weedPlantBP.weedPlantBP_C.weedGizmo");
+
+	AweedPlantBP_C_weedGizmo_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function weedPlantBP.weedPlantBP_C.BndEvt__playerSphere_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature
+// (HasOutParms, BlueprintEvent)
+// Parameters:
+// class UPrimitiveComponent*     OverlappedComponent            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// class AActor*                  OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class UPrimitiveComponent*     OtherComp                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// int                            OtherBodyIndex                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bFromSweep                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FHitResult              SweepResult                    (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, IsPlainOldData)
+
+void AweedPlantBP_C::BndEvt__playerSphere_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function weedPlantBP.weedPlantBP_C.BndEvt__playerSphere_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature");
+
+	AweedPlantBP_C_BndEvt__playerSphere_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature_Params params;
+	params.OverlappedComponent = OverlappedComponent;
+	params.OtherActor = OtherActor;
+	params.OtherComp = OtherComp;
+	params.OtherBodyIndex = OtherBodyIndex;
+	params.bFromSweep = bFromSweep;
+	params.SweepResult = SweepResult;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function weedPlantBP.weedPlantBP_C.BndEvt__playerSphere_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature
+// (BlueprintEvent)
+// Parameters:
+// class UPrimitiveComponent*     OverlappedComponent            (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// class AActor*                  OtherActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class UPrimitiveComponent*     OtherComp                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// int                            OtherBodyIndex                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+
+void AweedPlantBP_C::BndEvt__playerSphere_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int OtherBodyIndex)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function weedPlantBP.weedPlantBP_C.BndEvt__playerSphere_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature");
+
+	AweedPlantBP_C_BndEvt__playerSphere_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature_Params params;
+	params.OverlappedComponent = OverlappedComponent;
+	params.OtherActor = OtherActor;
+	params.OtherComp = OtherComp;
+	params.OtherBodyIndex = OtherBodyIndex;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function weedPlantBP.weedPlantBP_C.startTestCompromised
+// (BlueprintCallable, BlueprintEvent)
+
+void AweedPlantBP_C::startTestCompromised()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function weedPlantBP.weedPlantBP_C.startTestCompromised");
+
+	AweedPlantBP_C_startTestCompromised_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function weedPlantBP.weedPlantBP_C.testCompromised
+// (BlueprintCallable, BlueprintEvent)
+
+void AweedPlantBP_C::testCompromised()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function weedPlantBP.weedPlantBP_C.testCompromised");
+
+	AweedPlantBP_C_testCompromised_Params params;
 
 	auto flags = fn->FunctionFlags;
 

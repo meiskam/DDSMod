@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -47,22 +47,23 @@ public:
 };
 
 
-// Class MediaAssets.MediaBlueprintFunctionLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UMediaBlueprintFunctionLibrary : public UBlueprintFunctionLibrary
+// Class MediaAssets.FileMediaSource
+// 0x0028 (0x0060 - 0x0038)
+class UFileMediaSource : public UBaseMediaSource
 {
 public:
+	struct FString                                     FilePath;                                                 // 0x0038(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	bool                                               PrecacheFile;                                             // 0x0048(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x17];                                      // 0x0049(0x0017) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class MediaAssets.MediaBlueprintFunctionLibrary");
+		static auto ptr = UObject::FindClass("Class MediaAssets.FileMediaSource");
 		return ptr;
 	}
 
 
-	void STATIC_EnumerateWebcamCaptureDevices(int Filter, TArray<struct FMediaCaptureDevice>* OutDevices);
-	void STATIC_EnumerateVideoCaptureDevices(int Filter, TArray<struct FMediaCaptureDevice>* OutDevices);
-	void STATIC_EnumerateAudioCaptureDevices(int Filter, TArray<struct FMediaCaptureDevice>* OutDevices);
+	void SetFilePath(const struct FString& Path);
 };
 
 
@@ -176,23 +177,32 @@ public:
 };
 
 
-// Class MediaAssets.FileMediaSource
-// 0x0028 (0x0060 - 0x0038)
-class UFileMediaSource : public UBaseMediaSource
+// Class MediaAssets.MediaPlaylist
+// 0x0010 (0x0038 - 0x0028)
+class UMediaPlaylist : public UObject
 {
 public:
-	struct FString                                     FilePath;                                                 // 0x0038(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	bool                                               PrecacheFile;                                             // 0x0048(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x17];                                      // 0x0049(0x0017) MISSED OFFSET
+	TArray<class UMediaSource*>                        Items;                                                    // 0x0028(0x0010) (Edit, ZeroConstructor)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class MediaAssets.FileMediaSource");
+		static auto ptr = UObject::FindClass("Class MediaAssets.MediaPlaylist");
 		return ptr;
 	}
 
 
-	void SetFilePath(const struct FString& Path);
+	bool Replace(int Index, class UMediaSource* Replacement);
+	bool RemoveAt(int Index);
+	bool Remove(class UMediaSource* MediaSource);
+	int Num();
+	void Insert(class UMediaSource* MediaSource, int Index);
+	class UMediaSource* GetRandom(int* OutIndex);
+	class UMediaSource* GetPrevious(int* InOutIndex);
+	class UMediaSource* GetNext(int* InOutIndex);
+	class UMediaSource* Get(int Index);
+	bool AddUrl(const struct FString& URL);
+	bool AddFile(const struct FString& FilePath);
+	bool Add(class UMediaSource* MediaSource);
 };
 
 
@@ -253,22 +263,6 @@ public:
 };
 
 
-// Class MediaAssets.PlatformMediaSource
-// 0x0008 (0x0038 - 0x0030)
-class UPlatformMediaSource : public UMediaSource
-{
-public:
-	class UMediaSource*                                MediaSource;                                              // 0x0030(0x0008) (ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MediaAssets.PlatformMediaSource");
-		return ptr;
-	}
-
-};
-
-
 // Class MediaAssets.StreamMediaSource
 // 0x0010 (0x0048 - 0x0038)
 class UStreamMediaSource : public UBaseMediaSource
@@ -302,32 +296,38 @@ public:
 };
 
 
-// Class MediaAssets.MediaPlaylist
-// 0x0010 (0x0038 - 0x0028)
-class UMediaPlaylist : public UObject
+// Class MediaAssets.PlatformMediaSource
+// 0x0008 (0x0038 - 0x0030)
+class UPlatformMediaSource : public UMediaSource
 {
 public:
-	TArray<class UMediaSource*>                        Items;                                                    // 0x0028(0x0010) (Edit, ZeroConstructor)
+	class UMediaSource*                                MediaSource;                                              // 0x0030(0x0008) (ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class MediaAssets.MediaPlaylist");
+		static auto ptr = UObject::FindClass("Class MediaAssets.PlatformMediaSource");
+		return ptr;
+	}
+
+};
+
+
+// Class MediaAssets.MediaBlueprintFunctionLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UMediaBlueprintFunctionLibrary : public UBlueprintFunctionLibrary
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MediaAssets.MediaBlueprintFunctionLibrary");
 		return ptr;
 	}
 
 
-	bool Replace(int Index, class UMediaSource* Replacement);
-	bool RemoveAt(int Index);
-	bool Remove(class UMediaSource* MediaSource);
-	int Num();
-	void Insert(class UMediaSource* MediaSource, int Index);
-	class UMediaSource* GetRandom(int* OutIndex);
-	class UMediaSource* GetPrevious(int* InOutIndex);
-	class UMediaSource* GetNext(int* InOutIndex);
-	class UMediaSource* Get(int Index);
-	bool AddUrl(const struct FString& URL);
-	bool AddFile(const struct FString& FilePath);
-	bool Add(class UMediaSource* MediaSource);
+	void STATIC_EnumerateWebcamCaptureDevices(int Filter, TArray<struct FMediaCaptureDevice>* OutDevices);
+	void STATIC_EnumerateVideoCaptureDevices(int Filter, TArray<struct FMediaCaptureDevice>* OutDevices);
+	void STATIC_EnumerateAudioCaptureDevices(int Filter, TArray<struct FMediaCaptureDevice>* OutDevices);
 };
 
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -33,7 +33,7 @@ public:
 
 	void getStatusNam(TEnumAsByte<EtaskStatuses> Status, struct FText* StatusNam);
 	void Construct();
-	void setup(const struct FText& Heading, const struct FText& Desc, TEnumAsByte<EtaskStatuses> TaskStatus);
+	void setup(const struct FText& heading, const struct FText& Desc, TEnumAsByte<EtaskStatuses> TaskStatus);
 	void ExecuteUbergraph_newTaskWidget(int EntryPoint);
 };
 

@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -30,6 +30,23 @@ void AshopAmyGasStaion_C::UserConstructionScript()
 }
 
 
+// Function shopAmyGasStaion.shopAmyGasStaion_C.ReceiveBeginPlay
+// (Event, Protected, BlueprintEvent)
+
+void AshopAmyGasStaion_C::ReceiveBeginPlay()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function shopAmyGasStaion.shopAmyGasStaion_C.ReceiveBeginPlay");
+
+	AshopAmyGasStaion_C_ReceiveBeginPlay_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function shopAmyGasStaion.shopAmyGasStaion_C.scriptResupplyEvent
 // (BlueprintCallable, BlueprintEvent)
 
@@ -48,7 +65,7 @@ void AshopAmyGasStaion_C::scriptResupplyEvent()
 
 
 // Function shopAmyGasStaion.shopAmyGasStaion_C.ExecuteUbergraph_shopAmyGasStaion
-// (Final)
+// (Final, HasDefaults)
 // Parameters:
 // int                            EntryPoint                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // AnimBlueprintGeneratedClass CitizenMale01_animBP.CitizenMale01_animBP_C
-// 0x057C (0x08DC - 0x0360)
+// 0x0588 (0x08E8 - 0x0360)
 class UCitizenMale01_animBP_C : public UAnimInstance
 {
 public:
@@ -33,6 +33,8 @@ public:
 	float                                              RotRate;                                                  // 0x08D0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              Speed;                                                    // 0x08D4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              Velocity;                                                 // 0x08D8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x08DC(0x0004) MISSED OFFSET
+	class APawn*                                       Owner;                                                    // 0x08E0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -46,6 +48,7 @@ public:
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale01_animBP_AnimGraphNode_TransitionResult_1F60BAFE44AB61205A98B3A0EACABB48();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale01_animBP_AnimGraphNode_TransitionResult_F3385A714B79706C247AC9B1A2080176();
 	void BlueprintUpdateAnimation(float* DeltaTimeX);
+	void BlueprintBeginPlay();
 	void ExecuteUbergraph_CitizenMale01_animBP(int EntryPoint);
 };
 

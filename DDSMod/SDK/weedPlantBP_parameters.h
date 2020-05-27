@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,43 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
+
+// Function weedPlantBP.weedPlantBP_C.onLoadNamingUpdate
+struct AweedPlantBP_C_onLoadNamingUpdate_Params
+{
+};
+
+// Function weedPlantBP.weedPlantBP_C.setPlantMaterial
+struct AweedPlantBP_C_setPlantMaterial_Params
+{
+};
+
+// Function weedPlantBP.weedPlantBP_C.updateLightSources
+struct AweedPlantBP_C_updateLightSources_Params
+{
+};
+
+// Function weedPlantBP.weedPlantBP_C.calcSunRange
+struct AweedPlantBP_C_calcSunRange_Params
+{
+};
+
+// Function weedPlantBP.weedPlantBP_C.adaptDifficulty
+struct AweedPlantBP_C_adaptDifficulty_Params
+{
+};
+
+// Function weedPlantBP.weedPlantBP_C.plantComprimised
+struct AweedPlantBP_C_plantComprimised_Params
+{
+};
+
+// Function weedPlantBP.weedPlantBP_C.checkNpcOverlap
+struct AweedPlantBP_C_checkNpcOverlap_Params
+{
+	class AActor*                                      Actor;                                                    // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               Fail;                                                     // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
 
 // Function weedPlantBP.weedPlantBP_C.generateDrugIcon
 struct AweedPlantBP_C_generateDrugIcon_Params
@@ -103,6 +140,41 @@ struct AweedPlantBP_C_PlantDied_Params
 
 // Function weedPlantBP.weedPlantBP_C.forceLastUpdate
 struct AweedPlantBP_C_forceLastUpdate_Params
+{
+};
+
+// Function weedPlantBP.weedPlantBP_C.weedGizmo
+struct AweedPlantBP_C_weedGizmo_Params
+{
+};
+
+// Function weedPlantBP.weedPlantBP_C.BndEvt__playerSphere_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature
+struct AweedPlantBP_C_BndEvt__playerSphere_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature_Params
+{
+	class UPrimitiveComponent*                         OverlappedComponent;                                      // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class AActor*                                      OtherActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class UPrimitiveComponent*                         OtherComp;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	int                                                OtherBodyIndex;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bFromSweep;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	struct FHitResult                                  SweepResult;                                              // (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, IsPlainOldData)
+};
+
+// Function weedPlantBP.weedPlantBP_C.BndEvt__playerSphere_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature
+struct AweedPlantBP_C_BndEvt__playerSphere_K2Node_ComponentBoundEvent_1_ComponentEndOverlapSignature__DelegateSignature_Params
+{
+	class UPrimitiveComponent*                         OverlappedComponent;                                      // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class AActor*                                      OtherActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class UPrimitiveComponent*                         OtherComp;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	int                                                OtherBodyIndex;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function weedPlantBP.weedPlantBP_C.startTestCompromised
+struct AweedPlantBP_C_startTestCompromised_Params
+{
+};
+
+// Function weedPlantBP.weedPlantBP_C.testCompromised
+struct AweedPlantBP_C_testCompromised_Params
 {
 };
 

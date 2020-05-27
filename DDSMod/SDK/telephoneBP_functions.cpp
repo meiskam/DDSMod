@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,16 +16,16 @@ namespace SDK
 // Function telephoneBP.telephoneBP_C.pushNotification
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class UTexture2D*              icon                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class UTexture2D*              Icon                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   Text                           (BlueprintVisible, BlueprintReadOnly, Parm)
 // bool                           PlaySound                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AtelephoneBP_C::pushNotification(class UTexture2D* icon, const struct FText& Text, bool PlaySound)
+void AtelephoneBP_C::pushNotification(class UTexture2D* Icon, const struct FText& Text, bool PlaySound)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function telephoneBP.telephoneBP_C.pushNotification");
 
 	AtelephoneBP_C_pushNotification_Params params;
-	params.icon = icon;
+	params.Icon = Icon;
 	params.Text = Text;
 	params.PlaySound = PlaySound;
 

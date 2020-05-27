@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,11 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
+
+// Function shadyCommInterface.shadyCommInterface_C.spawnSeedGuy
+struct UshadyCommInterface_C_spawnSeedGuy_Params
+{
+};
 
 // Function shadyCommInterface.shadyCommInterface_C.checkUserResetReadMessages
 struct UshadyCommInterface_C_checkUserResetReadMessages_Params

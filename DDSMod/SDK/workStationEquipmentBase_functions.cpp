@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -363,9 +363,9 @@ void AworkStationEquipmentBase_C::calcLineTracePoints()
 // Function workStationEquipmentBase.workStationEquipmentBase_C.checkCanFit
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           canFit                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           CanFit                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AworkStationEquipmentBase_C::checkCanFit(bool* canFit)
+void AworkStationEquipmentBase_C::checkCanFit(bool* CanFit)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function workStationEquipmentBase.workStationEquipmentBase_C.checkCanFit");
 
@@ -377,8 +377,8 @@ void AworkStationEquipmentBase_C::checkCanFit(bool* canFit)
 
 	fn->FunctionFlags = flags;
 
-	if (canFit != nullptr)
-		*canFit = params.canFit;
+	if (CanFit != nullptr)
+		*CanFit = params.CanFit;
 }
 
 

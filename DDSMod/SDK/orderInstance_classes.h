@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -51,7 +51,7 @@ public:
 	void choosePackageIcon(TEnumAsByte<EdrugForm> Form, int Quantity, class UTexture2D** IconOut);
 	void constructOrderSMS(TArray<struct FText>* MessageTemplates, struct FText* MessageText);
 	void calcPackagingPattern(const struct FdrugData& drugData, int Index, int leftToDivide, struct FText* PackageName, int* PackageQuantity, float* packageSize, float* packageWeight, int* restLeft, int* gramsPerPack, class UTexture2D** packageIcon, class UClass** ObjectClass);
-	void generatePackageContents(TArray<struct FinventoryItemStruct>* OutInventory, TArray<int>* outQuantity);
+	void generatePackageContents(TArray<struct FinventoryItemStruct>* OutInventory, TArray<int>* OutQuantity);
 	void spawnOrderPackage(bool spawnAtHome);
 	void calcPrepTime(float* TimeSeconds);
 	void setSmuggleDateTime();

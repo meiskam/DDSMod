@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -3372,6 +3372,200 @@ void UBTFunctionLibrary::STATIC_ClearBlackboardValue(class UBTNode* NodeOwner, c
 }
 
 
+// Function AIModule.BTService_BlueprintBase.ReceiveTickAI
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
+// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBTService_BlueprintBase::ReceiveTickAI(class AAIController* OwnerController, class APawn* ControlledPawn, float DeltaSeconds)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveTickAI");
+
+	UBTService_BlueprintBase_ReceiveTickAI_Params params;
+	params.OwnerController = OwnerController;
+	params.ControlledPawn = ControlledPawn;
+	params.DeltaSeconds = DeltaSeconds;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.BTService_BlueprintBase.ReceiveTick
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBTService_BlueprintBase::ReceiveTick(class AActor* OwnerActor, float DeltaSeconds)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveTick");
+
+	UBTService_BlueprintBase_ReceiveTick_Params params;
+	params.OwnerActor = OwnerActor;
+	params.DeltaSeconds = DeltaSeconds;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.BTService_BlueprintBase.ReceiveSearchStartAI
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
+// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBTService_BlueprintBase::ReceiveSearchStartAI(class AAIController* OwnerController, class APawn* ControlledPawn)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveSearchStartAI");
+
+	UBTService_BlueprintBase_ReceiveSearchStartAI_Params params;
+	params.OwnerController = OwnerController;
+	params.ControlledPawn = ControlledPawn;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.BTService_BlueprintBase.ReceiveSearchStart
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBTService_BlueprintBase::ReceiveSearchStart(class AActor* OwnerActor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveSearchStart");
+
+	UBTService_BlueprintBase_ReceiveSearchStart_Params params;
+	params.OwnerActor = OwnerActor;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.BTService_BlueprintBase.ReceiveDeactivationAI
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
+// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBTService_BlueprintBase::ReceiveDeactivationAI(class AAIController* OwnerController, class APawn* ControlledPawn)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveDeactivationAI");
+
+	UBTService_BlueprintBase_ReceiveDeactivationAI_Params params;
+	params.OwnerController = OwnerController;
+	params.ControlledPawn = ControlledPawn;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.BTService_BlueprintBase.ReceiveDeactivation
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBTService_BlueprintBase::ReceiveDeactivation(class AActor* OwnerActor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveDeactivation");
+
+	UBTService_BlueprintBase_ReceiveDeactivation_Params params;
+	params.OwnerActor = OwnerActor;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.BTService_BlueprintBase.ReceiveActivationAI
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
+// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBTService_BlueprintBase::ReceiveActivationAI(class AAIController* OwnerController, class APawn* ControlledPawn)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveActivationAI");
+
+	UBTService_BlueprintBase_ReceiveActivationAI_Params params;
+	params.OwnerController = OwnerController;
+	params.ControlledPawn = ControlledPawn;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.BTService_BlueprintBase.ReceiveActivation
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
+
+void UBTService_BlueprintBase::ReceiveActivation(class AActor* OwnerActor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveActivation");
+
+	UBTService_BlueprintBase_ReceiveActivation_Params params;
+	params.OwnerActor = OwnerActor;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIModule.BTService_BlueprintBase.IsServiceActive
+// (Final, Native, Protected, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UBTService_BlueprintBase::IsServiceActive()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.IsServiceActive");
+
+	UBTService_BlueprintBase_IsServiceActive_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
 // Function AIModule.BTTask_BlueprintBase.SetFinishOnMessageWithId
 // (Final, Native, Protected, BlueprintCallable)
 // Parameters:
@@ -3626,200 +3820,6 @@ void UBTTask_BlueprintBase::FinishAbort()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveTickAI
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
-// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
-// float                          DeltaSeconds                   (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveTickAI(class AAIController* OwnerController, class APawn* ControlledPawn, float DeltaSeconds)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveTickAI");
-
-	UBTService_BlueprintBase_ReceiveTickAI_Params params;
-	params.OwnerController = OwnerController;
-	params.ControlledPawn = ControlledPawn;
-	params.DeltaSeconds = DeltaSeconds;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveTick
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
-// float                          DeltaSeconds                   (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveTick(class AActor* OwnerActor, float DeltaSeconds)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveTick");
-
-	UBTService_BlueprintBase_ReceiveTick_Params params;
-	params.OwnerActor = OwnerActor;
-	params.DeltaSeconds = DeltaSeconds;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveSearchStartAI
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
-// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveSearchStartAI(class AAIController* OwnerController, class APawn* ControlledPawn)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveSearchStartAI");
-
-	UBTService_BlueprintBase_ReceiveSearchStartAI_Params params;
-	params.OwnerController = OwnerController;
-	params.ControlledPawn = ControlledPawn;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveSearchStart
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveSearchStart(class AActor* OwnerActor)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveSearchStart");
-
-	UBTService_BlueprintBase_ReceiveSearchStart_Params params;
-	params.OwnerActor = OwnerActor;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveDeactivationAI
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
-// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveDeactivationAI(class AAIController* OwnerController, class APawn* ControlledPawn)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveDeactivationAI");
-
-	UBTService_BlueprintBase_ReceiveDeactivationAI_Params params;
-	params.OwnerController = OwnerController;
-	params.ControlledPawn = ControlledPawn;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveDeactivation
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveDeactivation(class AActor* OwnerActor)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveDeactivation");
-
-	UBTService_BlueprintBase_ReceiveDeactivation_Params params;
-	params.OwnerActor = OwnerActor;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveActivationAI
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AAIController*           OwnerController                (Parm, ZeroConstructor, IsPlainOldData)
-// class APawn*                   ControlledPawn                 (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveActivationAI(class AAIController* OwnerController, class APawn* ControlledPawn)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveActivationAI");
-
-	UBTService_BlueprintBase_ReceiveActivationAI_Params params;
-	params.OwnerController = OwnerController;
-	params.ControlledPawn = ControlledPawn;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.ReceiveActivation
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class AActor*                  OwnerActor                     (Parm, ZeroConstructor, IsPlainOldData)
-
-void UBTService_BlueprintBase::ReceiveActivation(class AActor* OwnerActor)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.ReceiveActivation");
-
-	UBTService_BlueprintBase_ReceiveActivation_Params params;
-	params.OwnerActor = OwnerActor;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function AIModule.BTService_BlueprintBase.IsServiceActive
-// (Final, Native, Protected, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool UBTService_BlueprintBase::IsServiceActive()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function AIModule.BTService_BlueprintBase.IsServiceActive");
-
-	UBTService_BlueprintBase_IsServiceActive_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
 }
 
 

@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -56,18 +56,18 @@ void UrespectRaiseWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTim
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
 // float                          respAmount                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// struct FText                   AreaNam                        (BlueprintVisible, BlueprintReadOnly, Parm)
+// struct FText                   areaNam                        (BlueprintVisible, BlueprintReadOnly, Parm)
 // float                          respectNow                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          respectAfter                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          respectMax                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UrespectRaiseWidget_C::setup(float respAmount, const struct FText& AreaNam, float respectNow, float respectAfter, float respectMax)
+void UrespectRaiseWidget_C::setup(float respAmount, const struct FText& areaNam, float respectNow, float respectAfter, float respectMax)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function respectRaiseWidget.respectRaiseWidget_C.setup");
 
 	UrespectRaiseWidget_C_setup_Params params;
 	params.respAmount = respAmount;
-	params.AreaNam = AreaNam;
+	params.areaNam = areaNam;
 	params.respectNow = respectNow;
 	params.respectAfter = respectAfter;
 	params.respectMax = respectMax;

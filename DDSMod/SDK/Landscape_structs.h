@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,17 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
-
-// Enum Landscape.ELandscapeSetupErrors
-enum class ELandscapeSetupErrors : uint8_t
-{
-	LSE_None                       = 0,
-	LSE_NoLandscapeInfo            = 1,
-	LSE_CollsionXY                 = 2,
-	LSE_NoLayerInfo                = 3,
-	LSE_MAX                        = 4
-};
-
 
 // Enum Landscape.ELandscapeGizmoType
 enum class ELandscapeGizmoType : uint8_t
@@ -124,6 +113,17 @@ enum class ETerrainCoordMappingType : uint8_t
 };
 
 
+// Enum Landscape.ELandscapeSetupErrors
+enum class ELandscapeSetupErrors : uint8_t
+{
+	LSE_None                       = 0,
+	LSE_NoLandscapeInfo            = 1,
+	LSE_CollsionXY                 = 2,
+	LSE_NoLayerInfo                = 3,
+	LSE_MAX                        = 4
+};
+
+
 
 //---------------------------------------------------------------------------
 // Script Structs
@@ -205,16 +205,6 @@ struct FLandscapeSplineInterpPoint
 	float                                              StartEndFalloff;                                          // 0x003C(0x0004) (ZeroConstructor, IsPlainOldData)
 };
 
-// ScriptStruct Landscape.LandscapeSplineSegmentConnection
-// 0x0018
-struct FLandscapeSplineSegmentConnection
-{
-	class ULandscapeSplineControlPoint*                ControlPoint;                                             // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
-	float                                              TangentLen;                                               // 0x0008(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
-	struct FName                                       SocketName;                                               // 0x0010(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-};
-
 // ScriptStruct Landscape.GrassInput
 // 0x0028
 struct FGrassInput
@@ -223,6 +213,16 @@ struct FGrassInput
 	class ULandscapeGrassType*                         GrassType;                                                // 0x0008(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 	struct FExpressionInput                            Input;                                                    // 0x0010(0x0010)
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0020(0x0008) MISSED OFFSET
+};
+
+// ScriptStruct Landscape.LandscapeSplineSegmentConnection
+// 0x0018
+struct FLandscapeSplineSegmentConnection
+{
+	class ULandscapeSplineControlPoint*                ControlPoint;                                             // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
+	float                                              TangentLen;                                               // 0x0008(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
+	struct FName                                       SocketName;                                               // 0x0010(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct Landscape.LayerBlendInput

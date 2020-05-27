@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -66,18 +66,18 @@ struct FEventReply UsaveSlotWidget_C::OnMouseButtonUp(struct FGeometry* MyGeomet
 // Function saveSlotWidget.saveSlotWidget_C.setup
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           Occupied                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           occupied                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FString                 SlotCustomName                 (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 // struct FString                 saveDateTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 // int                            Slot_Num                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // class UsaveLoadWidget_C*       Parent                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 
-void UsaveSlotWidget_C::setup(bool Occupied, const struct FString& SlotCustomName, const struct FString& saveDateTime, int Slot_Num, class UsaveLoadWidget_C* Parent)
+void UsaveSlotWidget_C::setup(bool occupied, const struct FString& SlotCustomName, const struct FString& saveDateTime, int Slot_Num, class UsaveLoadWidget_C* Parent)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function saveSlotWidget.saveSlotWidget_C.setup");
 
 	UsaveSlotWidget_C_setup_Params params;
-	params.Occupied = Occupied;
+	params.occupied = occupied;
 	params.SlotCustomName = SlotCustomName;
 	params.saveDateTime = saveDateTime;
 	params.Slot_Num = Slot_Num;

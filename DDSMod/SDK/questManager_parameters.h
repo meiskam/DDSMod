@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -629,6 +629,27 @@ struct AquestManager_C_longMoreAreas02_Params
 // Function questManager.questManager_C.longMoreAreas03
 struct AquestManager_C_longMoreAreas03_Params
 {
+};
+
+// Function questManager.questManager_C.openWeedGate
+struct AquestManager_C_openWeedGate_Params
+{
+};
+
+// Function questManager.questManager_C.closeWeedGate
+struct AquestManager_C_closeWeedGate_Params
+{
+};
+
+// Function questManager.questManager_C.displayWeedTutorial
+struct AquestManager_C_displayWeedTutorial_Params
+{
+};
+
+// Function questManager.questManager_C.displayPlantHints
+struct AquestManager_C_displayPlantHints_Params
+{
+	bool                                               indoor;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function questManager.questManager_C.ExecuteUbergraph_questManager

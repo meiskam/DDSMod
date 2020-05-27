@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -20,19 +20,6 @@ enum class EBeaconConnectionState : uint8_t
 	EBeaconConnectionState__Pending = 2,
 	EBeaconConnectionState__Open   = 3,
 	EBeaconConnectionState__EBeaconConnectionState_MAX = 4
-};
-
-
-// Enum OnlineSubsystemUtils.EClientRequestType
-enum class EClientRequestType : uint8_t
-{
-	EClientRequestType__NonePending = 0,
-	EClientRequestType__ExistingSessionReservation = 1,
-	EClientRequestType__ReservationUpdate = 2,
-	EClientRequestType__EmptyServerReservation = 3,
-	EClientRequestType__Reconnect  = 4,
-	EClientRequestType__Abandon    = 5,
-	EClientRequestType__EClientRequestType_MAX = 6
 };
 
 
@@ -56,6 +43,19 @@ enum class EPartyReservationResult : uint8_t
 	EPartyReservationResult__BadSessionId = 14,
 	EPartyReservationResult__ReservationDenied_ContainsExistingPlayers = 15,
 	EPartyReservationResult__EPartyReservationResult_MAX = 16
+};
+
+
+// Enum OnlineSubsystemUtils.EClientRequestType
+enum class EClientRequestType : uint8_t
+{
+	EClientRequestType__NonePending = 0,
+	EClientRequestType__ExistingSessionReservation = 1,
+	EClientRequestType__ReservationUpdate = 2,
+	EClientRequestType__EmptyServerReservation = 3,
+	EClientRequestType__Reconnect  = 4,
+	EClientRequestType__Abandon    = 5,
+	EClientRequestType__EClientRequestType_MAX = 6
 };
 
 

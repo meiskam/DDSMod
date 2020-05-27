@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,17 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
+
+// Enum MediaAssets.EMediaWebcamCaptureDeviceFilter
+enum class EMediaWebcamCaptureDeviceFilter : uint8_t
+{
+	EMediaWebcamCaptureDeviceFilter__DepthSensor = 0,
+	EMediaWebcamCaptureDeviceFilter__Front = 1,
+	EMediaWebcamCaptureDeviceFilter__Rear = 2,
+	EMediaWebcamCaptureDeviceFilter__Unknown = 3,
+	EMediaWebcamCaptureDeviceFilter__EMediaWebcamCaptureDeviceFilter_MAX = 4
+};
+
 
 // Enum MediaAssets.EMediaVideoCaptureDeviceFilter
 enum class EMediaVideoCaptureDeviceFilter : uint8_t
@@ -31,17 +42,6 @@ enum class EMediaAudioCaptureDeviceFilter : uint8_t
 	EMediaAudioCaptureDeviceFilter__Software = 2,
 	EMediaAudioCaptureDeviceFilter__Unknown = 3,
 	EMediaAudioCaptureDeviceFilter__EMediaAudioCaptureDeviceFilter_MAX = 4
-};
-
-
-// Enum MediaAssets.EMediaWebcamCaptureDeviceFilter
-enum class EMediaWebcamCaptureDeviceFilter : uint8_t
-{
-	EMediaWebcamCaptureDeviceFilter__DepthSensor = 0,
-	EMediaWebcamCaptureDeviceFilter__Front = 1,
-	EMediaWebcamCaptureDeviceFilter__Rear = 2,
-	EMediaWebcamCaptureDeviceFilter__Unknown = 3,
-	EMediaWebcamCaptureDeviceFilter__EMediaWebcamCaptureDeviceFilter_MAX = 4
 };
 
 

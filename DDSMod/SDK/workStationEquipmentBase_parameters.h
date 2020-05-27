@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -119,7 +119,7 @@ struct AworkStationEquipmentBase_C_calcLineTracePoints_Params
 // Function workStationEquipmentBase.workStationEquipmentBase_C.checkCanFit
 struct AworkStationEquipmentBase_C_checkCanFit_Params
 {
-	bool                                               canFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               CanFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function workStationEquipmentBase.workStationEquipmentBase_C.UserConstructionScript

@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,23 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function shadyCommInterface.shadyCommInterface_C.spawnSeedGuy
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
+
+void UshadyCommInterface_C::spawnSeedGuy()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function shadyCommInterface.shadyCommInterface_C.spawnSeedGuy");
+
+	UshadyCommInterface_C_spawnSeedGuy_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function shadyCommInterface.shadyCommInterface_C.checkUserResetReadMessages
 // (Public, BlueprintCallable, BlueprintEvent)

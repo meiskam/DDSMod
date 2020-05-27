@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -180,21 +180,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class MovieSceneCapture.ImageSequenceProtocol_BMP");
-		return ptr;
-	}
-
-};
-
-
-// Class MovieSceneCapture.ImageSequenceProtocol_PNG
-// 0x0000 (0x00E0 - 0x00E0)
-class UImageSequenceProtocol_PNG : public UCompressedImageSequenceProtocol
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MovieSceneCapture.ImageSequenceProtocol_PNG");
 		return ptr;
 	}
 
@@ -393,6 +378,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class MovieSceneCapture.VideoCaptureProtocol");
+		return ptr;
+	}
+
+};
+
+
+// Class MovieSceneCapture.ImageSequenceProtocol_PNG
+// 0x0000 (0x00E0 - 0x00E0)
+class UImageSequenceProtocol_PNG : public UCompressedImageSequenceProtocol
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MovieSceneCapture.ImageSequenceProtocol_PNG");
 		return ptr;
 	}
 

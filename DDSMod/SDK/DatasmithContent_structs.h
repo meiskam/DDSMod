@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -44,16 +44,6 @@ enum class EDatasmithImportHierarchy : uint8_t
 };
 
 
-// Enum DatasmithContent.EDatasmithImportScene
-enum class EDatasmithImportScene : uint8_t
-{
-	EDatasmithImportScene__NewLevel = 0,
-	EDatasmithImportScene__CurrentLevel = 1,
-	EDatasmithImportScene__AssetsOnly = 2,
-	EDatasmithImportScene__EDatasmithImportScene_MAX = 3
-};
-
-
 // Enum DatasmithContent.EDatasmithImportLightmapMax
 enum class EDatasmithImportLightmapMax : uint8_t
 {
@@ -78,6 +68,16 @@ enum class EDatasmithImportLightmapMin : uint8_t
 	EDatasmithImportLightmapMin__LIGHTMAP04 = 4,
 	EDatasmithImportLightmapMin__LIGHTMAP05 = 5,
 	EDatasmithImportLightmapMin__LIGHTMAP_MAX = 6
+};
+
+
+// Enum DatasmithContent.EDatasmithImportScene
+enum class EDatasmithImportScene : uint8_t
+{
+	EDatasmithImportScene__NewLevel = 0,
+	EDatasmithImportScene__CurrentLevel = 1,
+	EDatasmithImportScene__AssetsOnly = 2,
+	EDatasmithImportScene__EDatasmithImportScene_MAX = 3
 };
 
 

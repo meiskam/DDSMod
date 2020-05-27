@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -45,7 +45,7 @@ struct UinventoryScreen_C_countTotalDrugGrams_Params
 struct UinventoryScreen_C_checkSubstanceSame_Params
 {
 	TArray<struct FinventoryItemStruct>                Substances;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	TArray<int>                                        quantities;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	TArray<int>                                        Quantities;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	bool                                               TheSame;                                                  // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 	struct FdrugData                                   dataAverage;                                              // (Parm, OutParm)
 };
@@ -149,7 +149,7 @@ struct UinventoryScreen_C_renderShopItems_Params
 struct UinventoryScreen_C_renderContainer_Params
 {
 	TArray<struct FinventoryItemStruct>                containerItems;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	class AcontainerBase_C*                            Container;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AcontainerBase_C*                            container;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function inventoryScreen.inventoryScreen_C.prepareInventoryMode

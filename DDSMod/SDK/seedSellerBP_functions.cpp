@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -38,6 +38,40 @@ void AseedSellerBP_C::ReceiveBeginPlay()
 	static auto fn = UObject::FindObject<UFunction>("Function seedSellerBP.seedSellerBP_C.ReceiveBeginPlay");
 
 	AseedSellerBP_C_ReceiveBeginPlay_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function seedSellerBP.seedSellerBP_C.trySedGoHome
+// (BlueprintCallable, BlueprintEvent)
+
+void AseedSellerBP_C::trySedGoHome()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function seedSellerBP.seedSellerBP_C.trySedGoHome");
+
+	AseedSellerBP_C_trySedGoHome_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function seedSellerBP.seedSellerBP_C.seedGotHome
+// (BlueprintCallable, BlueprintEvent)
+
+void AseedSellerBP_C::seedGotHome()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function seedSellerBP.seedSellerBP_C.seedGotHome");
+
+	AseedSellerBP_C_seedGotHome_Params params;
 
 	auto flags = fn->FunctionFlags;
 

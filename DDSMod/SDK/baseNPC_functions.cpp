@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -369,7 +369,7 @@ void AbaseNPC_C::processReceivedDrugs()
 // Parameters:
 // struct FdrugData               drugData                       (BlueprintVisible, BlueprintReadOnly, Parm)
 // int                            DrugQuantity                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// struct FText                   CharacterName                  (BlueprintVisible, BlueprintReadOnly, Parm)
+// struct FText                   characterName                  (BlueprintVisible, BlueprintReadOnly, Parm)
 // float                          expectedPrice                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            OrderId                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            TaskID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
@@ -377,14 +377,14 @@ void AbaseNPC_C::processReceivedDrugs()
 // bool                           isDealer                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          ExpectationLevel               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AbaseNPC_C::setupNewDrugSale(const struct FdrugData& drugData, int DrugQuantity, const struct FText& CharacterName, float expectedPrice, int OrderId, int TaskID, bool isMale, bool isDealer, float ExpectationLevel)
+void AbaseNPC_C::setupNewDrugSale(const struct FdrugData& drugData, int DrugQuantity, const struct FText& characterName, float expectedPrice, int OrderId, int TaskID, bool isMale, bool isDealer, float ExpectationLevel)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function baseNPC.baseNPC_C.setupNewDrugSale");
 
 	AbaseNPC_C_setupNewDrugSale_Params params;
 	params.drugData = drugData;
 	params.DrugQuantity = DrugQuantity;
-	params.CharacterName = CharacterName;
+	params.characterName = characterName;
 	params.expectedPrice = expectedPrice;
 	params.OrderId = OrderId;
 	params.TaskID = TaskID;

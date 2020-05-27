@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -19,11 +19,11 @@ namespace SDK
 // struct FText                   DrugNam                        (BlueprintVisible, BlueprintReadOnly, Parm)
 // int                            Grams                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// class UTexture2D*              icon                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class UTexture2D*              Icon                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            Index                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // class UpackageProductWidget_C* Parent                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 
-void UonePackageWidget_C::setup(const struct FText& DrugNam, int Grams, int Quantity, class UTexture2D* icon, int Index, class UpackageProductWidget_C* Parent)
+void UonePackageWidget_C::setup(const struct FText& DrugNam, int Grams, int Quantity, class UTexture2D* Icon, int Index, class UpackageProductWidget_C* Parent)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function onePackageWidget.onePackageWidget_C.setup");
 
@@ -31,7 +31,7 @@ void UonePackageWidget_C::setup(const struct FText& DrugNam, int Grams, int Quan
 	params.DrugNam = DrugNam;
 	params.Grams = Grams;
 	params.Quantity = Quantity;
-	params.icon = icon;
+	params.Icon = Icon;
 	params.Index = Index;
 	params.Parent = Parent;
 

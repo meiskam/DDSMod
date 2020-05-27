@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -68,17 +68,17 @@ void ApackageBase_C::takeContents()
 // (HasOutParms, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // TArray<struct FinventoryItemStruct> contents                       (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
-// TArray<int>                    quantities                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+// TArray<int>                    Quantities                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 // float                          TotalSize                      (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          TotalWeight                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ApackageBase_C::setup(TArray<struct FinventoryItemStruct> contents, TArray<int> quantities, float TotalSize, float TotalWeight)
+void ApackageBase_C::setup(TArray<struct FinventoryItemStruct> contents, TArray<int> Quantities, float TotalSize, float TotalWeight)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function packageBase.packageBase_C.setup");
 
 	ApackageBase_C_setup_Params params;
 	params.contents = contents;
-	params.quantities = quantities;
+	params.Quantities = Quantities;
 	params.TotalSize = TotalSize;
 	params.TotalWeight = TotalWeight;
 

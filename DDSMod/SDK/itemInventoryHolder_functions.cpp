@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -51,18 +51,18 @@ void AitemInventoryHolder_C::ReceiveBeginPlay()
 // (HasOutParms, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // TArray<struct FinventoryItemStruct> contents                       (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
-// TArray<int>                    quantities                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+// TArray<int>                    Quantities                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 // float                          TotalSize                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          TotalWieght                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            Index                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AitemInventoryHolder_C::SetContents(TArray<struct FinventoryItemStruct> contents, TArray<int> quantities, float TotalSize, float TotalWieght, int Index)
+void AitemInventoryHolder_C::SetContents(TArray<struct FinventoryItemStruct> contents, TArray<int> Quantities, float TotalSize, float TotalWieght, int Index)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function itemInventoryHolder.itemInventoryHolder_C.SetContents");
 
 	AitemInventoryHolder_C_SetContents_Params params;
 	params.contents = contents;
-	params.quantities = quantities;
+	params.Quantities = Quantities;
 	params.TotalSize = TotalSize;
 	params.TotalWieght = TotalWieght;
 	params.Index = Index;

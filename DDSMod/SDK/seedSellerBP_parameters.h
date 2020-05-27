@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -21,6 +21,16 @@ struct AseedSellerBP_C_UserConstructionScript_Params
 
 // Function seedSellerBP.seedSellerBP_C.ReceiveBeginPlay
 struct AseedSellerBP_C_ReceiveBeginPlay_Params
+{
+};
+
+// Function seedSellerBP.seedSellerBP_C.trySedGoHome
+struct AseedSellerBP_C_trySedGoHome_Params
+{
+};
+
+// Function seedSellerBP.seedSellerBP_C.seedGotHome
+struct AseedSellerBP_C_seedGotHome_Params
 {
 };
 

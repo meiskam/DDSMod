@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,15 +16,15 @@ namespace SDK
 // Function phoneNotificationWidget.phoneNotificationWidget_C.setup
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class UTexture2D*              icon                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class UTexture2D*              Icon                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   Text                           (BlueprintVisible, BlueprintReadOnly, Parm)
 
-void UphoneNotificationWidget_C::setup(class UTexture2D* icon, const struct FText& Text)
+void UphoneNotificationWidget_C::setup(class UTexture2D* Icon, const struct FText& Text)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function phoneNotificationWidget.phoneNotificationWidget_C.setup");
 
 	UphoneNotificationWidget_C_setup_Params params;
-	params.icon = icon;
+	params.Icon = Icon;
 	params.Text = Text;
 
 	auto flags = fn->FunctionFlags;

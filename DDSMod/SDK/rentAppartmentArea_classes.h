@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass rentAppartmentArea.rentAppartmentArea_C
-// 0x011C (0x0444 - 0x0328)
+// 0x0140 (0x0468 - 0x0328)
 class ArentAppartmentArea_C : public AActor
 {
 public:
@@ -69,6 +69,12 @@ public:
 	float                                              respectDropBoost;                                         // 0x0438(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	float                                              expBoost;                                                 // 0x043C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	float                                              saleSpeedBoost;                                           // 0x0440(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              filterRatio;                                              // 0x0444(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              filterCalcRatio;                                          // 0x0448(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              weedFailBaseExpo;                                         // 0x044C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              weedFailBaseRisk;                                         // 0x0450(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              weedGrowthRatio;                                          // 0x0454(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	TArray<class AActor*>                              curPurgeItems;                                            // 0x0458(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance)
 
 	static UClass* StaticClass()
 	{
@@ -77,6 +83,7 @@ public:
 	}
 
 
+	void checkWeedStatus();
 	void mapMarkerCheck();
 	void markerOpc(bool showing);
 	void updateHideoutSetup();
@@ -110,6 +117,9 @@ public:
 	void resetApartment();
 	void tryResetMe();
 	void updateMarker();
+	void weedPotentialFail();
+	void resetFailStatusRefresh();
+	void resetFilterWarning();
 	void ExecuteUbergraph_rentAppartmentArea(int EntryPoint);
 };
 

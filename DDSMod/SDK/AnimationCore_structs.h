@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -57,6 +57,15 @@ struct FConstraintData
 	struct FTransform                                  CurrentTransform;                                         // 0x0050(0x0030) (Transient, IsPlainOldData)
 };
 
+// ScriptStruct AnimationCore.Axis
+// 0x0010
+struct FAxis
+{
+	struct FVector                                     Axis;                                                     // 0x0000(0x000C) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               bInLocalSpace;                                            // 0x000C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
+};
+
 // ScriptStruct AnimationCore.FilterOptionPerAxis
 // 0x0003
 struct FFilterOptionPerAxis
@@ -73,15 +82,6 @@ struct FConstraintDescriptionEx
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
 	struct FFilterOptionPerAxis                        AxesFilterOption;                                         // 0x0008(0x0003) (Edit)
 	unsigned char                                      UnknownData01[0x5];                                       // 0x000B(0x0005) MISSED OFFSET
-};
-
-// ScriptStruct AnimationCore.Axis
-// 0x0010
-struct FAxis
-{
-	struct FVector                                     Axis;                                                     // 0x0000(0x000C) (Edit, ZeroConstructor, IsPlainOldData)
-	bool                                               bInLocalSpace;                                            // 0x000C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x000D(0x0003) MISSED OFFSET
 };
 
 // ScriptStruct AnimationCore.AimConstraintDescription
@@ -129,18 +129,6 @@ struct FTransformConstraint
 	unsigned char                                      UnknownData01[0x3];                                       // 0x0025(0x0003) MISSED OFFSET
 };
 
-// ScriptStruct AnimationCore.ConstraintOffset
-// 0x0060
-struct FConstraintOffset
-{
-	struct FVector                                     Translation;                                              // 0x0000(0x000C) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
-	struct FQuat                                       Rotation;                                                 // 0x0010(0x0010) (IsPlainOldData)
-	struct FVector                                     Scale;                                                    // 0x0020(0x000C) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x002C(0x0004) MISSED OFFSET
-	struct FTransform                                  Parent;                                                   // 0x0030(0x0030) (IsPlainOldData)
-};
-
 // ScriptStruct AnimationCore.TransformFilter
 // 0x0009
 struct FTransformFilter
@@ -164,6 +152,18 @@ struct FEulerTransform
 struct FNodeChain
 {
 	TArray<struct FName>                               Nodes;                                                    // 0x0000(0x0010) (ZeroConstructor)
+};
+
+// ScriptStruct AnimationCore.ConstraintOffset
+// 0x0060
+struct FConstraintOffset
+{
+	struct FVector                                     Translation;                                              // 0x0000(0x000C) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x000C(0x0004) MISSED OFFSET
+	struct FQuat                                       Rotation;                                                 // 0x0010(0x0010) (IsPlainOldData)
+	struct FVector                                     Scale;                                                    // 0x0020(0x000C) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x002C(0x0004) MISSED OFFSET
+	struct FTransform                                  Parent;                                                   // 0x0030(0x0030) (IsPlainOldData)
 };
 
 // ScriptStruct AnimationCore.NodeObject

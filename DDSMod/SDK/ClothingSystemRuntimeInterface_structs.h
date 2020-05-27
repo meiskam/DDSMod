@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,13 +12,13 @@ namespace SDK
 // Script Structs
 //---------------------------------------------------------------------------
 
-// ScriptStruct ClothingSystemRuntimeInterface.ClothCollisionPrim_Sphere
-// 0x0014
-struct FClothCollisionPrim_Sphere
+// ScriptStruct ClothingSystemRuntimeInterface.ClothCollisionPrim_Convex
+// 0x0018
+struct FClothCollisionPrim_Convex
 {
-	int                                                BoneIndex;                                                // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
-	float                                              Radius;                                                   // 0x0004(0x0004) (ZeroConstructor, IsPlainOldData)
-	struct FVector                                     LocalPosition;                                            // 0x0008(0x000C) (ZeroConstructor, IsPlainOldData)
+	TArray<struct FPlane>                              Planes;                                                   // 0x0000(0x0010) (ZeroConstructor)
+	int                                                BoneIndex;                                                // 0x0010(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0014(0x0004) MISSED OFFSET
 };
 
 // ScriptStruct ClothingSystemRuntimeInterface.ClothCollisionPrim_SphereConnection
@@ -28,13 +28,13 @@ struct FClothCollisionPrim_SphereConnection
 	int                                                SphereIndices[0x2];                                       // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
 };
 
-// ScriptStruct ClothingSystemRuntimeInterface.ClothCollisionPrim_Convex
-// 0x0018
-struct FClothCollisionPrim_Convex
+// ScriptStruct ClothingSystemRuntimeInterface.ClothCollisionPrim_Sphere
+// 0x0014
+struct FClothCollisionPrim_Sphere
 {
-	TArray<struct FPlane>                              Planes;                                                   // 0x0000(0x0010) (ZeroConstructor)
-	int                                                BoneIndex;                                                // 0x0010(0x0004) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0014(0x0004) MISSED OFFSET
+	int                                                BoneIndex;                                                // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
+	float                                              Radius;                                                   // 0x0004(0x0004) (ZeroConstructor, IsPlainOldData)
+	struct FVector                                     LocalPosition;                                            // 0x0008(0x000C) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct ClothingSystemRuntimeInterface.ClothCollisionData

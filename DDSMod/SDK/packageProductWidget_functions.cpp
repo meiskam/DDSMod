@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -137,9 +137,9 @@ void UpackageProductWidget_C::checkButtonActivity()
 // Function packageProductWidget.packageProductWidget_C.checkCanFitInventory
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           canFit                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           CanFit                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UpackageProductWidget_C::checkCanFitInventory(bool* canFit)
+void UpackageProductWidget_C::checkCanFitInventory(bool* CanFit)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function packageProductWidget.packageProductWidget_C.checkCanFitInventory");
 
@@ -151,8 +151,8 @@ void UpackageProductWidget_C::checkCanFitInventory(bool* canFit)
 
 	fn->FunctionFlags = flags;
 
-	if (canFit != nullptr)
-		*canFit = params.canFit;
+	if (CanFit != nullptr)
+		*CanFit = params.CanFit;
 }
 
 

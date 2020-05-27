@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -27,6 +27,11 @@ struct AinteractiveWaterSinkBP_C_fillOneBottle_Params
 
 // Function interactiveWaterSinkBP.interactiveWaterSinkBP_C.UserConstructionScript
 struct AinteractiveWaterSinkBP_C_UserConstructionScript_Params
+{
+};
+
+// Function interactiveWaterSinkBP.interactiveWaterSinkBP_C.ReceiveBeginPlay
+struct AinteractiveWaterSinkBP_C_ReceiveBeginPlay_Params
 {
 };
 

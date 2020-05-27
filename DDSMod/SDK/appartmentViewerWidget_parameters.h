@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -23,7 +23,7 @@ struct UappartmentViewerWidget_C_refreshAccBalance_Params
 struct UappartmentViewerWidget_C_setStatistics_Params
 {
 	class ArentAppartmentArea_C*                       areaRef;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	struct FText                                       AreaNam;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm)
+	struct FText                                       areaNam;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm)
 };
 
 // Function appartmentViewerWidget.appartmentViewerWidget_C.setup

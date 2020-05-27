@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -58,7 +58,7 @@ public:
 	void addPackage(int Size, int Quantity);
 	void generateDurgIcon(int Quantity, TEnumAsByte<EdrugForm> Form, class UTexture2D** IconOut);
 	void checkButtonActivity();
-	void checkCanFitInventory(bool* canFit);
+	void checkCanFitInventory(bool* CanFit);
 	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
 	void setup(class AworkStationEquipmentBase_C* EqRef);
 	void BndEvt__btnCancel_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass playerCharacterBP.playerCharacterBP_C
-// 0x0D88 (0x14C8 - 0x0740)
+// 0x0DA0 (0x14E0 - 0x0740)
 class AplayerCharacterBP_C : public ACharacter
 {
 public:
@@ -94,7 +94,7 @@ public:
 	int                                                pocketCount;                                              // 0x08E0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               hasBackpack;                                              // 0x08E4(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData09[0x3];                                       // 0x08E5(0x0003) MISSED OFFSET
-	struct FinventoryItemStruct                        backpack;                                                 // 0x08E8(0x0108) (Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FinventoryItemStruct                        Backpack;                                                 // 0x08E8(0x0108) (Edit, BlueprintVisible, DisableEditOnInstance)
 	TArray<struct FinventoryItemStruct>                backpackItems;                                            // 0x09F0(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<int>                                        backpackItemQuantity;                                     // 0x0A00(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<bool>                                       backpackItemVendor;                                       // 0x0A10(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
@@ -114,7 +114,7 @@ public:
 	int                                                curHighlightedOption;                                     // 0x0AC8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               actionOptionsOpen;                                        // 0x0ACC(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData11[0x3];                                       // 0x0ACD(0x0003) MISSED OFFSET
-	TArray<struct FString>                             actionList;                                               // 0x0AD0(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	TArray<struct FString>                             ActionList;                                               // 0x0AD0(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	bool                                               isLockpicking;                                            // 0x0AE0(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData12[0x7];                                       // 0x0AE1(0x0007) MISSED OFFSET
 	class UlockpickWidget_C*                           lockpickWidget;                                           // 0x0AE8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData)
@@ -217,7 +217,7 @@ public:
 	float                                              fadeParameter;                                            // 0x0DDC(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               musicChased;                                              // 0x0DE0(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData32[0x3];                                       // 0x0DE1(0x0003) MISSED OFFSET
-	float                                              stressFade;                                               // 0x0DE4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              StressFade;                                               // 0x0DE4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               workStationAvailable;                                     // 0x0DE8(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               appartmentModeAvailable;                                  // 0x0DE9(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               sleepingWaitingAvailable;                                 // 0x0DEA(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -304,6 +304,11 @@ public:
 	float                                              DefaultFOV;                                               // 0x14B0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData47[0x4];                                       // 0x14B4(0x0004) MISSED OFFSET
 	struct FString                                     mgValid;                                                  // 0x14B8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	bool                                               hasOutdoorSeeds;                                          // 0x14C8(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               hasIndoorSeeds;                                           // 0x14C9(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData48[0x6];                                       // 0x14CA(0x0006) MISSED OFFSET
+	class AweedPlantBP_C*                              weedGizmo;                                                // 0x14D0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
+	class UweedSeedSelectWidget_C*                     weedSeedWidget;                                           // 0x14D8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -312,6 +317,8 @@ public:
 	}
 
 
+	void checkSeedsInventory();
+	void updateWeedPlacement();
 	struct FText geyKeyNam(float Scale, const struct FName& InActionName);
 	void updateBackpackQuan();
 	void adaptControls();
@@ -338,7 +345,7 @@ public:
 	void markAsFugitive();
 	void fugitiveCountdown(float Delta);
 	void updateNotifyIcons();
-	void checkInventorySizing(const struct FinventoryItemStruct& Data, int Quantity, bool* canFit);
+	void checkInventorySizing(const struct FinventoryItemStruct& Data, int Quantity, bool* CanFit);
 	void checkAllPocketsSizing(const struct FinventoryItemStruct& Data, int Quantity, bool* AllFits, int* Rest);
 	void compareInventoryData(const struct FinventoryItemStruct& Compare01, const struct FinventoryItemStruct& Compare02, bool* TheSame);
 	void addCryptocurrency(int Amount);
@@ -351,20 +358,20 @@ public:
 	void calcSuspicionMultiplier();
 	void calcMouseYawAction(class APlayerController* PC, float AxisValue, bool Interaction);
 	void calcMousePitchAction(class APlayerController* PC, float AxisValue, bool Interaction);
-	void displayActionOptions(TArray<struct FText>* NameList, TArray<struct FString>* actionList);
+	void displayActionOptions(TArray<struct FText>* NameList, TArray<struct FString>* ActionList);
 	void displayPopup(const struct FText& Title, const struct FText& Description, const struct FText& ButtonText, bool ShowMouse);
 	void checkItemContents(const struct FString& Source, int Index);
 	void clearBackpack();
-	void setCurrentBackpack(class AbackpackBase_C* backpack, class AitemInventoryHolder_C* itemHolder, const struct FinventoryItemStruct& backpackData);
+	void setCurrentBackpack(class AbackpackBase_C* Backpack, class AitemInventoryHolder_C* itemHolder, const struct FinventoryItemStruct& backpackData);
 	void phoneCallFunction(const struct FString& functionToCall);
 	void phoneNewNote(bool done, const struct FText& noteText);
-	void phoneNewCall(int callerID, class USoundWave* callAudio, const struct FString& functionOnAnswer, const struct FString& functionOnDecline, const struct FString& functionOnEnd, const struct FText& callText);
+	void phoneNewCall(int callerID, class USoundWave* callAudio, const struct FString& functionOnAnswer, const struct FString& functionOnDecline, const struct FString& functionOnEnd, const struct FText& CallText);
 	void phoneNewMessage(int From, const struct FText& Message, int vcardID);
-	void checkContainerSizing(const struct FinventoryItemStruct& Data, int Quantity, bool* canFit, int* MaxQuantity);
+	void checkContainerSizing(const struct FinventoryItemStruct& Data, int Quantity, bool* CanFit, int* MaxQuantity);
 	void tryAddToPockets(const struct FinventoryItemStruct& Data, int Quantity, bool* AllAdded, int* Rest);
 	void addBackpackContent(const struct FinventoryItemStruct& Data, int Quantity, bool fromVendor, int ItemPrice);
-	void checkBackpackSizing(const struct FinventoryItemStruct& itemData, int Quantity, bool* canFit, int* MaxQuantity);
-	void checkPocketSizing(const struct FinventoryItemStruct& itemData, int Quantity, int Index, bool* canFit, int* MaxQuantity);
+	void checkBackpackSizing(const struct FinventoryItemStruct& itemData, int Quantity, bool* CanFit, int* MaxQuantity);
+	void checkPocketSizing(const struct FinventoryItemStruct& itemData, int Quantity, int Index, bool* CanFit, int* MaxQuantity);
 	void setPocketContent(const struct FinventoryItemStruct& itemData, int PocketIndex, int Quantity, bool fromVendor, int vendorPrice);
 	void removeFromPocket(int Index, int Quantity);
 	void removeDraggedItem(const struct FString& parentTag, int Index, int Quantity, const struct FinventoryItemStruct& Data);

@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,11 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
+
+// Function rentAppartmentArea.rentAppartmentArea_C.checkWeedStatus
+struct ArentAppartmentArea_C_checkWeedStatus_Params
+{
+};
 
 // Function rentAppartmentArea.rentAppartmentArea_C.mapMarkerCheck
 struct ArentAppartmentArea_C_mapMarkerCheck_Params
@@ -191,6 +196,21 @@ struct ArentAppartmentArea_C_tryResetMe_Params
 
 // Function rentAppartmentArea.rentAppartmentArea_C.updateMarker
 struct ArentAppartmentArea_C_updateMarker_Params
+{
+};
+
+// Function rentAppartmentArea.rentAppartmentArea_C.weedPotentialFail
+struct ArentAppartmentArea_C_weedPotentialFail_Params
+{
+};
+
+// Function rentAppartmentArea.rentAppartmentArea_C.resetFailStatusRefresh
+struct ArentAppartmentArea_C_resetFailStatusRefresh_Params
+{
+};
+
+// Function rentAppartmentArea.rentAppartmentArea_C.resetFilterWarning
+struct ArentAppartmentArea_C_resetFilterWarning_Params
 {
 };
 

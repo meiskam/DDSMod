@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -130,6 +130,7 @@ public:
 	}
 
 
+	void spawnSeedGuy();
 	void checkUserResetReadMessages(int userID);
 	class UWidget* Get_txtStatusClientSatisfaction_ToolTipWidget_1();
 	class UWidget* Get_txtStatusDeliveryTime_ToolTipWidget_1();

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -51,17 +51,6 @@ enum class EDragPivot : uint8_t
 	EDragPivot__BottomCenter       = 8,
 	EDragPivot__BottomRight        = 9,
 	EDragPivot__EDragPivot_MAX     = 10
-};
-
-
-// Enum UMG.EDynamicBoxType
-enum class EDynamicBoxType : uint8_t
-{
-	EDynamicBoxType__Horizontal    = 0,
-	EDynamicBoxType__Vertical      = 1,
-	EDynamicBoxType__Wrap          = 2,
-	EDynamicBoxType__Overlay       = 3,
-	EDynamicBoxType__EDynamicBoxType_MAX = 4
 };
 
 
@@ -119,6 +108,17 @@ enum class EWidgetGeometryMode : uint8_t
 	EWidgetGeometryMode__Plane     = 0,
 	EWidgetGeometryMode__Cylinder  = 1,
 	EWidgetGeometryMode__EWidgetGeometryMode_MAX = 2
+};
+
+
+// Enum UMG.EDynamicBoxType
+enum class EDynamicBoxType : uint8_t
+{
+	EDynamicBoxType__Horizontal    = 0,
+	EDynamicBoxType__Vertical      = 1,
+	EDynamicBoxType__Wrap          = 2,
+	EDynamicBoxType__Overlay       = 3,
+	EDynamicBoxType__EDynamicBoxType_MAX = 4
 };
 
 
@@ -199,15 +199,6 @@ struct FAnchorData
 	struct FVector2D                                   Alignment;                                                // 0x0020(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
 
-// ScriptStruct UMG.SlateChildSize
-// 0x0008
-struct FSlateChildSize
-{
-	float                                              Value;                                                    // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<ESlateSizeRule>                        SizeRule;                                                 // 0x0004(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
-};
-
 // ScriptStruct UMG.ShapedTextOptions
 // 0x0003
 struct FShapedTextOptions
@@ -216,6 +207,15 @@ struct FShapedTextOptions
 	unsigned char                                      bOverride_TextFlowDirection : 1;                          // 0x0000(0x0001) (Edit)
 	ETextShapingMethod                                 TextShapingMethod;                                        // 0x0001(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 	ETextFlowDirection                                 TextFlowDirection;                                        // 0x0002(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct UMG.SlateChildSize
+// 0x0008
+struct FSlateChildSize
+{
+	float                                              Value;                                                    // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<ESlateSizeRule>                        SizeRule;                                                 // 0x0004(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0005(0x0003) MISSED OFFSET
 };
 
 // ScriptStruct UMG.MovieScene2DTransformMask

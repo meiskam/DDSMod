@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -53,7 +53,7 @@ struct UpackageProductWidget_C_checkButtonActivity_Params
 // Function packageProductWidget.packageProductWidget_C.checkCanFitInventory
 struct UpackageProductWidget_C_checkCanFitInventory_Params
 {
-	bool                                               canFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               CanFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function packageProductWidget.packageProductWidget_C.Tick

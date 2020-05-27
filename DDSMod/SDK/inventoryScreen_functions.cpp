@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -110,11 +110,11 @@ void UinventoryScreen_C::countTotalDrugGrams(int* OutGrams)
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
 // TArray<struct FinventoryItemStruct> Substances                     (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
-// TArray<int>                    quantities                     (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+// TArray<int>                    Quantities                     (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 // bool                           TheSame                        (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 // struct FdrugData               dataAverage                    (Parm, OutParm)
 
-void UinventoryScreen_C::checkSubstanceSame(TArray<struct FinventoryItemStruct>* Substances, TArray<int>* quantities, bool* TheSame, struct FdrugData* dataAverage)
+void UinventoryScreen_C::checkSubstanceSame(TArray<struct FinventoryItemStruct>* Substances, TArray<int>* Quantities, bool* TheSame, struct FdrugData* dataAverage)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function inventoryScreen.inventoryScreen_C.checkSubstanceSame");
 
@@ -128,8 +128,8 @@ void UinventoryScreen_C::checkSubstanceSame(TArray<struct FinventoryItemStruct>*
 
 	if (Substances != nullptr)
 		*Substances = params.Substances;
-	if (quantities != nullptr)
-		*quantities = params.quantities;
+	if (Quantities != nullptr)
+		*Quantities = params.Quantities;
 	if (TheSame != nullptr)
 		*TheSame = params.TheSame;
 	if (dataAverage != nullptr)
@@ -471,14 +471,14 @@ void UinventoryScreen_C::renderShopItems(class AbaseNPC_C* sellerRef)
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // TArray<struct FinventoryItemStruct> containerItems                 (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
-// class AcontainerBase_C*        Container                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AcontainerBase_C*        container                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UinventoryScreen_C::renderContainer(class AcontainerBase_C* Container, TArray<struct FinventoryItemStruct>* containerItems)
+void UinventoryScreen_C::renderContainer(class AcontainerBase_C* container, TArray<struct FinventoryItemStruct>* containerItems)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function inventoryScreen.inventoryScreen_C.renderContainer");
 
 	UinventoryScreen_C_renderContainer_Params params;
-	params.Container = Container;
+	params.container = container;
 
 	auto flags = fn->FunctionFlags;
 

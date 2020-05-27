@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -30,15 +30,12 @@ enum class EAnimPhysLinearConstraintType : uint8_t
 };
 
 
-// Enum AnimGraphRuntime.AnimPhysSimSpaceType
-enum class EAnimPhysSimSpaceType : uint8_t
+// Enum AnimGraphRuntime.AnimPhysAngularConstraintType
+enum class EAnimPhysAngularConstraintType : uint8_t
 {
-	AnimPhysSimSpaceType__Component = 0,
-	AnimPhysSimSpaceType__Actor    = 1,
-	AnimPhysSimSpaceType__World    = 2,
-	AnimPhysSimSpaceType__RootRelative = 3,
-	AnimPhysSimSpaceType__BoneRelative = 4,
-	AnimPhysSimSpaceType__AnimPhysSimSpaceType_MAX = 5
+	AnimPhysAngularConstraintType__Angular = 0,
+	AnimPhysAngularConstraintType__Cone = 1,
+	AnimPhysAngularConstraintType__AnimPhysAngularConstraintType_MAX = 2
 };
 
 
@@ -52,13 +49,15 @@ enum class EDrivenDestinationMode : uint8_t
 };
 
 
-// Enum AnimGraphRuntime.EDrivenBoneModificationMode
-enum class EDrivenBoneModificationMode : uint8_t
+// Enum AnimGraphRuntime.AnimPhysSimSpaceType
+enum class EAnimPhysSimSpaceType : uint8_t
 {
-	EDrivenBoneModificationMode__AddToInput = 0,
-	EDrivenBoneModificationMode__ReplaceComponent = 1,
-	EDrivenBoneModificationMode__AddToRefPose = 2,
-	EDrivenBoneModificationMode__EDrivenBoneModificationMode_MAX = 3
+	AnimPhysSimSpaceType__Component = 0,
+	AnimPhysSimSpaceType__Actor    = 1,
+	AnimPhysSimSpaceType__World    = 2,
+	AnimPhysSimSpaceType__RootRelative = 3,
+	AnimPhysSimSpaceType__BoneRelative = 4,
+	AnimPhysSimSpaceType__AnimPhysSimSpaceType_MAX = 5
 };
 
 
@@ -116,12 +115,13 @@ enum class EModifyCurveApplyMode : uint8_t
 };
 
 
-// Enum AnimGraphRuntime.AnimPhysAngularConstraintType
-enum class EAnimPhysAngularConstraintType : uint8_t
+// Enum AnimGraphRuntime.EDrivenBoneModificationMode
+enum class EDrivenBoneModificationMode : uint8_t
 {
-	AnimPhysAngularConstraintType__Angular = 0,
-	AnimPhysAngularConstraintType__Cone = 1,
-	AnimPhysAngularConstraintType__AnimPhysAngularConstraintType_MAX = 2
+	EDrivenBoneModificationMode__AddToInput = 0,
+	EDrivenBoneModificationMode__ReplaceComponent = 1,
+	EDrivenBoneModificationMode__AddToRefPose = 2,
+	EDrivenBoneModificationMode__EDrivenBoneModificationMode_MAX = 3
 };
 
 
@@ -131,15 +131,6 @@ enum class EPoseDriverSource : uint8_t
 	EPoseDriverSource__Rotation    = 0,
 	EPoseDriverSource__Translation = 1,
 	EPoseDriverSource__EPoseDriverSource_MAX = 2
-};
-
-
-// Enum AnimGraphRuntime.EPoseDriverOutput
-enum class EPoseDriverOutput : uint8_t
-{
-	EPoseDriverOutput__DrivePoses  = 0,
-	EPoseDriverOutput__DriveCurves = 1,
-	EPoseDriverOutput__EPoseDriverOutput_MAX = 2
 };
 
 
@@ -218,6 +209,15 @@ enum class ERBFDistanceMethod : uint8_t
 	ERBFDistanceMethod__Quaternion = 1,
 	ERBFDistanceMethod__SwingAngle = 2,
 	ERBFDistanceMethod__ERBFDistanceMethod_MAX = 3
+};
+
+
+// Enum AnimGraphRuntime.EPoseDriverOutput
+enum class EPoseDriverOutput : uint8_t
+{
+	EPoseDriverOutput__DrivePoses  = 0,
+	EPoseDriverOutput__DriveCurves = 1,
+	EPoseDriverOutput__EPoseDriverOutput_MAX = 2
 };
 
 
@@ -518,41 +518,6 @@ struct FAnimNode_BlendSpaceEvaluator : public FAnimNode_BlendSpacePlayer
 	unsigned char                                      UnknownData00[0x4];                                       // 0x012C(0x0004) MISSED OFFSET
 };
 
-// ScriptStruct AnimGraphRuntime.AnimNode_BoneDrivenController
-// 0x0078 (0x0168 - 0x00F0)
-struct FAnimNode_BoneDrivenController : public FAnimNode_SkeletalControlBase
-{
-	struct FBoneReference                              SourceBone;                                               // 0x00F0(0x0018) (Edit)
-	TEnumAsByte<EComponentType>                        SourceComponent;                                          // 0x0108(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0109(0x0007) MISSED OFFSET
-	class UCurveFloat*                                 DrivingCurve;                                             // 0x0110(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              Multiplier;                                               // 0x0118(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	bool                                               bUseRange;                                                // 0x011C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x011D(0x0003) MISSED OFFSET
-	float                                              RangeMin;                                                 // 0x0120(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              RangeMax;                                                 // 0x0124(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              RemappedMin;                                              // 0x0128(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              RemappedMax;                                              // 0x012C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	EDrivenDestinationMode                             DestinationMode;                                          // 0x0130(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x7];                                       // 0x0131(0x0007) MISSED OFFSET
-	struct FName                                       ParameterName;                                            // 0x0138(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FBoneReference                              TargetBone;                                               // 0x0140(0x0018) (Edit)
-	TEnumAsByte<EComponentType>                        TargetComponent;                                          // 0x0158(0x0001) (ZeroConstructor, Deprecated, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x3];                                       // 0x0159(0x0003) MISSED OFFSET
-	unsigned char                                      bAffectTargetTranslationX : 1;                            // 0x015C(0x0001) (Edit)
-	unsigned char                                      bAffectTargetTranslationY : 1;                            // 0x015C(0x0001) (Edit)
-	unsigned char                                      bAffectTargetTranslationZ : 1;                            // 0x015C(0x0001) (Edit)
-	unsigned char                                      bAffectTargetRotationX : 1;                               // 0x015C(0x0001) (Edit)
-	unsigned char                                      bAffectTargetRotationY : 1;                               // 0x015C(0x0001) (Edit)
-	unsigned char                                      bAffectTargetRotationZ : 1;                               // 0x015C(0x0001) (Edit)
-	unsigned char                                      bAffectTargetScaleX : 1;                                  // 0x015C(0x0001) (Edit)
-	unsigned char                                      bAffectTargetScaleY : 1;                                  // 0x015C(0x0001) (Edit)
-	unsigned char                                      bAffectTargetScaleZ : 1;                                  // 0x015D(0x0001) (Edit)
-	unsigned char                                      UnknownData04[0x2];                                       // 0x015E(0x0002) MISSED OFFSET
-	EDrivenBoneModificationMode                        ModificationMode;                                         // 0x0160(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData05[0x7];                                       // 0x0161(0x0007) MISSED OFFSET
-};
-
 // ScriptStruct AnimGraphRuntime.SocketReference
 // 0x0040
 struct FSocketReference
@@ -587,6 +552,41 @@ struct FAnimNode_CCDIK : public FAnimNode_SkeletalControlBase
 	bool                                               bEnableRotationLimit;                                     // 0x0199(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x6];                                       // 0x019A(0x0006) MISSED OFFSET
 	TArray<float>                                      RotationLimitPerJoints;                                   // 0x01A0(0x0010) (Edit, EditFixedSize, ZeroConstructor)
+};
+
+// ScriptStruct AnimGraphRuntime.AnimNode_BoneDrivenController
+// 0x0078 (0x0168 - 0x00F0)
+struct FAnimNode_BoneDrivenController : public FAnimNode_SkeletalControlBase
+{
+	struct FBoneReference                              SourceBone;                                               // 0x00F0(0x0018) (Edit)
+	TEnumAsByte<EComponentType>                        SourceComponent;                                          // 0x0108(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0109(0x0007) MISSED OFFSET
+	class UCurveFloat*                                 DrivingCurve;                                             // 0x0110(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              Multiplier;                                               // 0x0118(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               bUseRange;                                                // 0x011C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x011D(0x0003) MISSED OFFSET
+	float                                              RangeMin;                                                 // 0x0120(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              RangeMax;                                                 // 0x0124(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              RemappedMin;                                              // 0x0128(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              RemappedMax;                                              // 0x012C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	EDrivenDestinationMode                             DestinationMode;                                          // 0x0130(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x7];                                       // 0x0131(0x0007) MISSED OFFSET
+	struct FName                                       ParameterName;                                            // 0x0138(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FBoneReference                              TargetBone;                                               // 0x0140(0x0018) (Edit)
+	TEnumAsByte<EComponentType>                        TargetComponent;                                          // 0x0158(0x0001) (ZeroConstructor, Deprecated, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x3];                                       // 0x0159(0x0003) MISSED OFFSET
+	unsigned char                                      bAffectTargetTranslationX : 1;                            // 0x015C(0x0001) (Edit)
+	unsigned char                                      bAffectTargetTranslationY : 1;                            // 0x015C(0x0001) (Edit)
+	unsigned char                                      bAffectTargetTranslationZ : 1;                            // 0x015C(0x0001) (Edit)
+	unsigned char                                      bAffectTargetRotationX : 1;                               // 0x015C(0x0001) (Edit)
+	unsigned char                                      bAffectTargetRotationY : 1;                               // 0x015C(0x0001) (Edit)
+	unsigned char                                      bAffectTargetRotationZ : 1;                               // 0x015C(0x0001) (Edit)
+	unsigned char                                      bAffectTargetScaleX : 1;                                  // 0x015C(0x0001) (Edit)
+	unsigned char                                      bAffectTargetScaleY : 1;                                  // 0x015C(0x0001) (Edit)
+	unsigned char                                      bAffectTargetScaleZ : 1;                                  // 0x015D(0x0001) (Edit)
+	unsigned char                                      UnknownData04[0x2];                                       // 0x015E(0x0002) MISSED OFFSET
+	EDrivenBoneModificationMode                        ModificationMode;                                         // 0x0160(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData05[0x7];                                       // 0x0161(0x0007) MISSED OFFSET
 };
 
 // ScriptStruct AnimGraphRuntime.Constraint
@@ -744,16 +744,16 @@ struct FAnimNode_LegIK : public FAnimNode_SkeletalControlBase
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0118(0x0008) MISSED OFFSET
 };
 
-// ScriptStruct AnimGraphRuntime.IKChainLink
+// ScriptStruct AnimGraphRuntime.IKChain
 // 0x0040
-struct FIKChainLink
+struct FIKChain
 {
 	unsigned char                                      UnknownData00[0x40];                                      // 0x0000(0x0040) MISSED OFFSET
 };
 
-// ScriptStruct AnimGraphRuntime.IKChain
+// ScriptStruct AnimGraphRuntime.IKChainLink
 // 0x0040
-struct FIKChain
+struct FIKChainLink
 {
 	unsigned char                                      UnknownData00[0x40];                                      // 0x0000(0x0040) MISSED OFFSET
 };
@@ -795,6 +795,20 @@ struct FAnimNode_MakeDynamicAdditive : public FAnimNode_Base
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0051(0x0007) MISSED OFFSET
 };
 
+// ScriptStruct AnimGraphRuntime.AnimNode_ModifyCurve
+// 0x0050 (0x0080 - 0x0030)
+struct FAnimNode_ModifyCurve : public FAnimNode_Base
+{
+	struct FPoseLink                                   SourcePose;                                               // 0x0030(0x0010) (Edit, BlueprintVisible, EditFixedSize)
+	EModifyCurveApplyMode                              ApplyMode;                                                // 0x0040(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0041(0x0007) MISSED OFFSET
+	TArray<float>                                      CurveValues;                                              // 0x0048(0x0010) (Edit, BlueprintVisible, EditFixedSize, ZeroConstructor)
+	TArray<float>                                      LastCurveValues;                                          // 0x0058(0x0010) (ZeroConstructor, Transient)
+	TArray<struct FName>                               CurveNames;                                               // 0x0068(0x0010) (ZeroConstructor)
+	float                                              Alpha;                                                    // 0x0078(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x007C(0x0004) MISSED OFFSET
+};
+
 // ScriptStruct AnimGraphRuntime.AnimNode_ModifyBone
 // 0x0048 (0x0138 - 0x00F0)
 struct FAnimNode_ModifyBone : public FAnimNode_SkeletalControlBase
@@ -810,20 +824,6 @@ struct FAnimNode_ModifyBone : public FAnimNode_SkeletalControlBase
 	TEnumAsByte<EBoneControlSpace>                     RotationSpace;                                            // 0x0130(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	TEnumAsByte<EBoneControlSpace>                     ScaleSpace;                                               // 0x0131(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x6];                                       // 0x0132(0x0006) MISSED OFFSET
-};
-
-// ScriptStruct AnimGraphRuntime.AnimNode_ModifyCurve
-// 0x0050 (0x0080 - 0x0030)
-struct FAnimNode_ModifyCurve : public FAnimNode_Base
-{
-	struct FPoseLink                                   SourcePose;                                               // 0x0030(0x0010) (Edit, BlueprintVisible, EditFixedSize)
-	EModifyCurveApplyMode                              ApplyMode;                                                // 0x0040(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0041(0x0007) MISSED OFFSET
-	TArray<float>                                      CurveValues;                                              // 0x0048(0x0010) (Edit, BlueprintVisible, EditFixedSize, ZeroConstructor)
-	TArray<float>                                      LastCurveValues;                                          // 0x0058(0x0010) (ZeroConstructor, Transient)
-	TArray<struct FName>                               CurveNames;                                               // 0x0068(0x0010) (ZeroConstructor)
-	float                                              Alpha;                                                    // 0x0078(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x007C(0x0004) MISSED OFFSET
 };
 
 // ScriptStruct AnimGraphRuntime.AnimNode_MultiWayBlend
@@ -987,13 +987,6 @@ struct FAnimNode_RefPose : public FAnimNode_Base
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
 };
 
-// ScriptStruct AnimGraphRuntime.AnimNode_ResetRoot
-// 0x0010 (0x0100 - 0x00F0)
-struct FAnimNode_ResetRoot : public FAnimNode_SkeletalControlBase
-{
-	unsigned char                                      UnknownData00[0x10];                                      // 0x00F0(0x0010) MISSED OFFSET
-};
-
 // ScriptStruct AnimGraphRuntime.AnimNode_RigidBody
 // 0x0480 (0x0570 - 0x00F0)
 struct FAnimNode_RigidBody : public FAnimNode_SkeletalControlBase
@@ -1020,11 +1013,11 @@ struct FAnimNode_RigidBody : public FAnimNode_SkeletalControlBase
 	unsigned char                                      UnknownData04[0x40D];                                     // 0x0163(0x040D) MISSED OFFSET
 };
 
-// ScriptStruct AnimGraphRuntime.AnimNode_Root
-// 0x0010 (0x0040 - 0x0030)
-struct FAnimNode_Root : public FAnimNode_Base
+// ScriptStruct AnimGraphRuntime.AnimNode_ResetRoot
+// 0x0010 (0x0100 - 0x00F0)
+struct FAnimNode_ResetRoot : public FAnimNode_SkeletalControlBase
 {
-	struct FPoseLink                                   Result;                                                   // 0x0030(0x0010) (Edit, BlueprintVisible)
+	unsigned char                                      UnknownData00[0x10];                                      // 0x00F0(0x0010) MISSED OFFSET
 };
 
 // ScriptStruct AnimGraphRuntime.AnimNode_RotateRootBone
@@ -1040,6 +1033,13 @@ struct FAnimNode_RotateRootBone : public FAnimNode_Base
 	float                                              ActualPitch;                                              // 0x00B4(0x0004) (ZeroConstructor, Transient, IsPlainOldData)
 	float                                              ActualYaw;                                                // 0x00B8(0x0004) (ZeroConstructor, Transient, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x00BC(0x0004) MISSED OFFSET
+};
+
+// ScriptStruct AnimGraphRuntime.AnimNode_Root
+// 0x0010 (0x0040 - 0x0030)
+struct FAnimNode_Root : public FAnimNode_Base
+{
+	struct FPoseLink                                   Result;                                                   // 0x0030(0x0010) (Edit, BlueprintVisible)
 };
 
 // ScriptStruct AnimGraphRuntime.AnimNode_RotationMultiplier
@@ -1092,16 +1092,6 @@ struct FAnimNode_ScaleChainLength : public FAnimNode_Base
 	unsigned char                                      UnknownData02[0x17];                                      // 0x0099(0x0017) MISSED OFFSET
 };
 
-// ScriptStruct AnimGraphRuntime.AnimNode_Slot
-// 0x0038 (0x0068 - 0x0030)
-struct FAnimNode_Slot : public FAnimNode_Base
-{
-	struct FPoseLink                                   Source;                                                   // 0x0030(0x0010) (Edit, BlueprintVisible)
-	struct FName                                       SlotName;                                                 // 0x0040(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	bool                                               bAlwaysUpdateSourcePose;                                  // 0x0048(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x1F];                                      // 0x0049(0x001F) MISSED OFFSET
-};
-
 // ScriptStruct AnimGraphRuntime.AnimNode_SequenceEvaluator
 // 0x0018 (0x0070 - 0x0058)
 struct FAnimNode_SequenceEvaluator : public FAnimNode_AssetPlayerBase
@@ -1115,6 +1105,16 @@ struct FAnimNode_SequenceEvaluator : public FAnimNode_AssetPlayerBase
 	TEnumAsByte<ESequenceEvalReinit>                   ReinitializationBehavior;                                 // 0x006C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	bool                                               bReinitialized;                                           // 0x006D(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x2];                                       // 0x006E(0x0002) MISSED OFFSET
+};
+
+// ScriptStruct AnimGraphRuntime.AnimNode_Slot
+// 0x0038 (0x0068 - 0x0030)
+struct FAnimNode_Slot : public FAnimNode_Base
+{
+	struct FPoseLink                                   Source;                                                   // 0x0030(0x0010) (Edit, BlueprintVisible)
+	struct FName                                       SlotName;                                                 // 0x0040(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	bool                                               bAlwaysUpdateSourcePose;                                  // 0x0048(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x1F];                                      // 0x0049(0x001F) MISSED OFFSET
 };
 
 // ScriptStruct AnimGraphRuntime.SplineIKCachedBoneData

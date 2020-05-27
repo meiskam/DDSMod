@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -199,7 +199,7 @@ struct AsalesManager_C_calcOrderQuantity_Params
 	int                                                inClientID;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               nightTime;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               priceHigh;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                outQuantity;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                OutQuantity;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function salesManager.salesManager_C.clientSendNewOrder

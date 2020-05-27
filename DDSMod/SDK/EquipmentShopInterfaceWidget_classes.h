@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -79,7 +79,7 @@ public:
 	void renderMainList();
 	void renderCheckoutItems();
 	void recalcCheckout();
-	void addListItem(const struct FText& Name, float Price, int Quantity, int Index, class UTexture2D* icon, const struct FappartmentEquipment& Data, const struct FText& Description, class UequipmentShopItemWidget_C** ItemRef);
+	void addListItem(const struct FText& Name, float Price, int Quantity, int Index, class UTexture2D* Icon, const struct FappartmentEquipment& Data, const struct FText& Description, class UequipmentShopItemWidget_C** ItemRef);
 	void Construct();
 	void setup(TArray<struct FappartmentEquipment> baseEq, TArray<float> basePrices, TArray<int> baseDay, TArray<int> curQuantity, class AequipmentShop_C* ParentShopRef);
 	void BndEvt__btnOrderPay_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();

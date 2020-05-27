@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -117,9 +117,9 @@ void AorderInstance_C::calcPackagingPattern(const struct FdrugData& drugData, in
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // TArray<struct FinventoryItemStruct> OutInventory                   (Parm, OutParm, ZeroConstructor)
-// TArray<int>                    outQuantity                    (Parm, OutParm, ZeroConstructor)
+// TArray<int>                    OutQuantity                    (Parm, OutParm, ZeroConstructor)
 
-void AorderInstance_C::generatePackageContents(TArray<struct FinventoryItemStruct>* OutInventory, TArray<int>* outQuantity)
+void AorderInstance_C::generatePackageContents(TArray<struct FinventoryItemStruct>* OutInventory, TArray<int>* OutQuantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderInstance.orderInstance_C.generatePackageContents");
 
@@ -133,8 +133,8 @@ void AorderInstance_C::generatePackageContents(TArray<struct FinventoryItemStruc
 
 	if (OutInventory != nullptr)
 		*OutInventory = params.OutInventory;
-	if (outQuantity != nullptr)
-		*outQuantity = params.outQuantity;
+	if (OutQuantity != nullptr)
+		*OutQuantity = params.OutQuantity;
 }
 
 

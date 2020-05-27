@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -18,16 +18,16 @@ namespace SDK
 // Parameters:
 // struct FText                   Substance                      (BlueprintVisible, BlueprintReadOnly, Parm)
 // float                          Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// float                          totalMass                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          TotalMass                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UmixListWidget_C::setup(const struct FText& Substance, float Quantity, float totalMass)
+void UmixListWidget_C::setup(const struct FText& Substance, float Quantity, float TotalMass)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function mixListWidget.mixListWidget_C.setup");
 
 	UmixListWidget_C_setup_Params params;
 	params.Substance = Substance;
 	params.Quantity = Quantity;
-	params.totalMass = totalMass;
+	params.TotalMass = TotalMass;
 
 	auto flags = fn->FunctionFlags;
 

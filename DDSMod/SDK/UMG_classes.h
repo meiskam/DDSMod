@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -587,25 +587,6 @@ public:
 };
 
 
-// Class UMG.ColorBinding
-// 0x0008 (0x0068 - 0x0060)
-class UColorBinding : public UPropertyBinding
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0060(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class UMG.ColorBinding");
-		return ptr;
-	}
-
-
-	struct FSlateColor GetSlateValue();
-	struct FLinearColor GetLinearValue();
-};
-
-
 // Class UMG.ComboBox
 // 0x0038 (0x0138 - 0x0100)
 class UComboBox : public UWidget
@@ -699,39 +680,22 @@ public:
 };
 
 
-// Class UMG.DynamicEntryBox
-// 0x00D0 (0x01D0 - 0x0100)
-class UDynamicEntryBox : public UWidget
+// Class UMG.ColorBinding
+// 0x0008 (0x0068 - 0x0060)
+class UColorBinding : public UPropertyBinding
 {
 public:
-	EDynamicBoxType                                    EntryBoxType;                                             // 0x0100(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0101(0x0003) MISSED OFFSET
-	struct FVector2D                                   EntrySpacing;                                             // 0x0104(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x010C(0x0004) MISSED OFFSET
-	TArray<struct FVector2D>                           SpacingPattern;                                           // 0x0110(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	struct FSlateChildSize                             EntrySizeRule;                                            // 0x0120(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly)
-	TEnumAsByte<EHorizontalAlignment>                  EntryHorizontalAlignment;                                 // 0x0128(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EVerticalAlignment>                    EntryVerticalAlignment;                                   // 0x0129(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x2];                                       // 0x012A(0x0002) MISSED OFFSET
-	int                                                MaxElementSize;                                           // 0x012C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x10];                                      // 0x0130(0x0010) MISSED OFFSET
-	class UClass*                                      EntryWidgetClass;                                         // 0x0140(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData04[0x88];                                      // 0x0148(0x0088) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0060(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class UMG.DynamicEntryBox");
+		static auto ptr = UObject::FindClass("Class UMG.ColorBinding");
 		return ptr;
 	}
 
 
-	void SetEntrySpacing(const struct FVector2D& InEntrySpacing);
-	void Reset(bool bDeleteWidgets);
-	void RemoveEntry(class UUserWidget* entryWidget);
-	int GetNumEntries();
-	TArray<class UUserWidget*> GetAllEntries();
-	class UUserWidget* BP_CreateEntryOfClass(class UClass* EntryClass);
-	class UUserWidget* BP_CreateEntry();
+	struct FSlateColor GetSlateValue();
+	struct FLinearColor GetLinearValue();
 };
 
 
@@ -785,6 +749,42 @@ public:
 	void OnEditableTextCommittedEvent__DelegateSignature(const struct FText& Text, TEnumAsByte<ETextCommit> CommitMethod);
 	void OnEditableTextChangedEvent__DelegateSignature(const struct FText& Text);
 	struct FText GetText();
+};
+
+
+// Class UMG.DynamicEntryBox
+// 0x00D0 (0x01D0 - 0x0100)
+class UDynamicEntryBox : public UWidget
+{
+public:
+	EDynamicBoxType                                    EntryBoxType;                                             // 0x0100(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0101(0x0003) MISSED OFFSET
+	struct FVector2D                                   EntrySpacing;                                             // 0x0104(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x010C(0x0004) MISSED OFFSET
+	TArray<struct FVector2D>                           SpacingPattern;                                           // 0x0110(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	struct FSlateChildSize                             EntrySizeRule;                                            // 0x0120(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly)
+	TEnumAsByte<EHorizontalAlignment>                  EntryHorizontalAlignment;                                 // 0x0128(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EVerticalAlignment>                    EntryVerticalAlignment;                                   // 0x0129(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x2];                                       // 0x012A(0x0002) MISSED OFFSET
+	int                                                MaxElementSize;                                           // 0x012C(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x10];                                      // 0x0130(0x0010) MISSED OFFSET
+	class UClass*                                      EntryWidgetClass;                                         // 0x0140(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData04[0x88];                                      // 0x0148(0x0088) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class UMG.DynamicEntryBox");
+		return ptr;
+	}
+
+
+	void SetEntrySpacing(const struct FVector2D& InEntrySpacing);
+	void Reset(bool bDeleteWidgets);
+	void RemoveEntry(class UUserWidget* entryWidget);
+	int GetNumEntries();
+	TArray<class UUserWidget*> GetAllEntries();
+	class UUserWidget* BP_CreateEntryOfClass(class UClass* EntryClass);
+	class UUserWidget* BP_CreateEntry();
 };
 
 
@@ -1068,23 +1068,6 @@ public:
 };
 
 
-// Class UMG.Int32Binding
-// 0x0000 (0x0060 - 0x0060)
-class UInt32Binding : public UPropertyBinding
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class UMG.Int32Binding");
-		return ptr;
-	}
-
-
-	int GetValue();
-};
-
-
 // Class UMG.InvalidationBox
 // 0x0018 (0x0130 - 0x0118)
 class UInvalidationBox : public UContentWidget
@@ -1122,6 +1105,23 @@ public:
 
 	bool IsListItemSelected();
 	bool IsListItemExpanded();
+};
+
+
+// Class UMG.Int32Binding
+// 0x0000 (0x0060 - 0x0060)
+class UInt32Binding : public UPropertyBinding
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class UMG.Int32Binding");
+		return ptr;
+	}
+
+
+	int GetValue();
 };
 
 
@@ -1322,21 +1322,6 @@ public:
 };
 
 
-// Class UMG.MovieScene2DTransformTrack
-// 0x0000 (0x0080 - 0x0080)
-class UMovieScene2DTransformTrack : public UMovieScenePropertyTrack
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class UMG.MovieScene2DTransformTrack");
-		return ptr;
-	}
-
-};
-
-
 // Class UMG.MovieSceneMarginSection
 // 0x0280 (0x0360 - 0x00E0)
 class UMovieSceneMarginSection : public UMovieSceneSection
@@ -1356,15 +1341,15 @@ public:
 };
 
 
-// Class UMG.MovieSceneMarginTrack
+// Class UMG.MovieScene2DTransformTrack
 // 0x0000 (0x0080 - 0x0080)
-class UMovieSceneMarginTrack : public UMovieScenePropertyTrack
+class UMovieScene2DTransformTrack : public UMovieScenePropertyTrack
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class UMG.MovieSceneMarginTrack");
+		static auto ptr = UObject::FindClass("Class UMG.MovieScene2DTransformTrack");
 		return ptr;
 	}
 
@@ -1521,22 +1506,6 @@ public:
 };
 
 
-// Class UMG.NativeWidgetHost
-// 0x0010 (0x0110 - 0x0100)
-class UNativeWidgetHost : public UWidget
-{
-public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0100(0x0010) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class UMG.NativeWidgetHost");
-		return ptr;
-	}
-
-};
-
-
 // Class UMG.Overlay
 // 0x0010 (0x0128 - 0x0118)
 class UOverlay : public UPanelWidget
@@ -1579,36 +1548,19 @@ public:
 };
 
 
-// Class UMG.ProgressBar
-// 0x0210 (0x0310 - 0x0100)
-class UProgressBar : public UWidget
+// Class UMG.NativeWidgetHost
+// 0x0010 (0x0110 - 0x0100)
+class UNativeWidgetHost : public UWidget
 {
 public:
-	struct FProgressBarStyle                           WidgetStyle;                                              // 0x0100(0x01A0) (Edit, BlueprintVisible)
-	class USlateWidgetStyleAsset*                      Style;                                                    // 0x02A0(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
-	class USlateBrushAsset*                            BackgroundImage;                                          // 0x02A8(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
-	class USlateBrushAsset*                            FillImage;                                                // 0x02B0(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
-	class USlateBrushAsset*                            MarqueeImage;                                             // 0x02B8(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
-	float                                              Percent;                                                  // 0x02C0(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EProgressBarFillType>                  BarFillType;                                              // 0x02C4(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	bool                                               bIsMarquee;                                               // 0x02C5(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x2];                                       // 0x02C6(0x0002) MISSED OFFSET
-	struct FVector2D                                   BorderPadding;                                            // 0x02C8(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	struct FScriptDelegate                             PercentDelegate;                                          // 0x02D0(0x0014) (ZeroConstructor, InstancedReference)
-	struct FLinearColor                                FillColorAndOpacity;                                      // 0x02E0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	struct FScriptDelegate                             FillColorAndOpacityDelegate;                              // 0x02F0(0x0014) (ZeroConstructor, InstancedReference)
-	unsigned char                                      UnknownData01[0x10];                                      // 0x0300(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0100(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class UMG.ProgressBar");
+		static auto ptr = UObject::FindClass("Class UMG.NativeWidgetHost");
 		return ptr;
 	}
 
-
-	void SetPercent(float InPercent);
-	void SetIsMarquee(bool InbIsMarquee);
-	void SetFillColorAndOpacity(const struct FLinearColor& InColor);
 };
 
 
@@ -1642,27 +1594,18 @@ public:
 };
 
 
-// Class UMG.RichTextBlock
-// 0x0248 (0x0368 - 0x0120)
-class URichTextBlock : public UTextLayoutWidget
+// Class UMG.MovieSceneMarginTrack
+// 0x0000 (0x0080 - 0x0080)
+class UMovieSceneMarginTrack : public UMovieScenePropertyTrack
 {
 public:
-	struct FText                                       Text;                                                     // 0x0120(0x0018) (Edit)
-	class UDataTable*                                  TextStyleSet;                                             // 0x0138(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	TArray<class UClass*>                              DecoratorClasses;                                         // 0x0140(0x0010) (Edit, ZeroConstructor)
-	unsigned char                                      UnknownData00[0x1F8];                                     // 0x0150(0x01F8) MISSED OFFSET
-	TArray<class URichTextBlockDecorator*>             InstanceDecorators;                                       // 0x0348(0x0010) (ZeroConstructor, Transient)
-	unsigned char                                      UnknownData01[0x10];                                      // 0x0358(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class UMG.RichTextBlock");
+		static auto ptr = UObject::FindClass("Class UMG.MovieSceneMarginTrack");
 		return ptr;
 	}
 
-
-	void SetText(const struct FText& InText);
-	class URichTextBlockDecorator* GetDecoratorByClass(class UClass* DecoratorClass);
 };
 
 
@@ -1719,25 +1662,27 @@ public:
 };
 
 
-// Class UMG.SafeZoneSlot
-// 0x0028 (0x0060 - 0x0038)
-class USafeZoneSlot : public UPanelSlot
+// Class UMG.RichTextBlock
+// 0x0248 (0x0368 - 0x0120)
+class URichTextBlock : public UTextLayoutWidget
 {
 public:
-	bool                                               bIsTitleSafe;                                             // 0x0038(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0039(0x0003) MISSED OFFSET
-	struct FMargin                                     SafeAreaScale;                                            // 0x003C(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EHorizontalAlignment>                  HAlign;                                                   // 0x004C(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EVerticalAlignment>                    VAlign;                                                   // 0x004D(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x2];                                       // 0x004E(0x0002) MISSED OFFSET
-	struct FMargin                                     Padding;                                                  // 0x0050(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FText                                       Text;                                                     // 0x0120(0x0018) (Edit)
+	class UDataTable*                                  TextStyleSet;                                             // 0x0138(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	TArray<class UClass*>                              DecoratorClasses;                                         // 0x0140(0x0010) (Edit, ZeroConstructor)
+	unsigned char                                      UnknownData00[0x1F8];                                     // 0x0150(0x01F8) MISSED OFFSET
+	TArray<class URichTextBlockDecorator*>             InstanceDecorators;                                       // 0x0348(0x0010) (ZeroConstructor, Transient)
+	unsigned char                                      UnknownData01[0x10];                                      // 0x0358(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class UMG.SafeZoneSlot");
+		static auto ptr = UObject::FindClass("Class UMG.RichTextBlock");
 		return ptr;
 	}
 
+
+	void SetText(const struct FText& InText);
+	class URichTextBlockDecorator* GetDecoratorByClass(class UClass* DecoratorClass);
 };
 
 
@@ -1791,27 +1736,25 @@ public:
 };
 
 
-// Class UMG.ScrollBar
-// 0x04F8 (0x05F8 - 0x0100)
-class UScrollBar : public UWidget
+// Class UMG.SafeZoneSlot
+// 0x0028 (0x0060 - 0x0038)
+class USafeZoneSlot : public UPanelSlot
 {
 public:
-	struct FScrollBarStyle                             WidgetStyle;                                              // 0x0100(0x04D0) (Edit, BlueprintVisible)
-	class USlateWidgetStyleAsset*                      Style;                                                    // 0x05D0(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
-	bool                                               bAlwaysShowScrollbar;                                     // 0x05D8(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EOrientation>                          Orientation;                                              // 0x05D9(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x2];                                       // 0x05DA(0x0002) MISSED OFFSET
-	struct FVector2D                                   Thickness;                                                // 0x05DC(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x14];                                      // 0x05E4(0x0014) MISSED OFFSET
+	bool                                               bIsTitleSafe;                                             // 0x0038(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0039(0x0003) MISSED OFFSET
+	struct FMargin                                     SafeAreaScale;                                            // 0x003C(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EHorizontalAlignment>                  HAlign;                                                   // 0x004C(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EVerticalAlignment>                    VAlign;                                                   // 0x004D(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x2];                                       // 0x004E(0x0002) MISSED OFFSET
+	struct FMargin                                     Padding;                                                  // 0x0050(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class UMG.ScrollBar");
+		static auto ptr = UObject::FindClass("Class UMG.SafeZoneSlot");
 		return ptr;
 	}
 
-
-	void SetState(float InOffsetFraction, float InThumbSizeFraction);
 };
 
 
@@ -1952,6 +1895,30 @@ public:
 };
 
 
+// Class UMG.ScrollBar
+// 0x04F8 (0x05F8 - 0x0100)
+class UScrollBar : public UWidget
+{
+public:
+	struct FScrollBarStyle                             WidgetStyle;                                              // 0x0100(0x04D0) (Edit, BlueprintVisible)
+	class USlateWidgetStyleAsset*                      Style;                                                    // 0x05D0(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
+	bool                                               bAlwaysShowScrollbar;                                     // 0x05D8(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EOrientation>                          Orientation;                                              // 0x05D9(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x05DA(0x0002) MISSED OFFSET
+	struct FVector2D                                   Thickness;                                                // 0x05DC(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x14];                                      // 0x05E4(0x0014) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class UMG.ScrollBar");
+		return ptr;
+	}
+
+
+	void SetState(float InOffsetFraction, float InThumbSizeFraction);
+};
+
+
 // Class UMG.SlateBlueprintLibrary
 // 0x0000 (0x0028 - 0x0028)
 class USlateBlueprintLibrary : public UBlueprintFunctionLibrary
@@ -1996,50 +1963,6 @@ public:
 		return ptr;
 	}
 
-};
-
-
-// Class UMG.Slider
-// 0x03E8 (0x04E8 - 0x0100)
-class USlider : public UWidget
-{
-public:
-	float                                              Value;                                                    // 0x0100(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0104(0x0004) MISSED OFFSET
-	struct FScriptDelegate                             ValueDelegate;                                            // 0x0108(0x0014) (ZeroConstructor, InstancedReference)
-	struct FSliderStyle                                WidgetStyle;                                              // 0x0118(0x0340) (Edit, BlueprintVisible)
-	TEnumAsByte<EOrientation>                          Orientation;                                              // 0x0458(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x0459(0x0003) MISSED OFFSET
-	struct FLinearColor                                SliderBarColor;                                           // 0x045C(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	struct FLinearColor                                SliderHandleColor;                                        // 0x046C(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	bool                                               IndentHandle;                                             // 0x047C(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	bool                                               Locked;                                                   // 0x047D(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	bool                                               MouseUsesStep;                                            // 0x047E(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	bool                                               RequiresControllerLock;                                   // 0x047F(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	float                                              StepSize;                                                 // 0x0480(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	bool                                               IsFocusable;                                              // 0x0484(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x3];                                       // 0x0485(0x0003) MISSED OFFSET
-	struct FScriptMulticastDelegate                    OnMouseCaptureBegin;                                      // 0x0488(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnMouseCaptureEnd;                                        // 0x0498(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnControllerCaptureBegin;                                 // 0x04A8(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnControllerCaptureEnd;                                   // 0x04B8(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnValueChanged;                                           // 0x04C8(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	unsigned char                                      UnknownData03[0x10];                                      // 0x04D8(0x0010) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class UMG.Slider");
-		return ptr;
-	}
-
-
-	void SetValue(float InValue);
-	void SetStepSize(float InValue);
-	void SetSliderHandleColor(const struct FLinearColor& InValue);
-	void SetSliderBarColor(const struct FLinearColor& InValue);
-	void SetLocked(bool InValue);
-	void SetIndentHandle(bool InValue);
-	float GetValue();
 };
 
 
@@ -2212,6 +2135,39 @@ public:
 };
 
 
+// Class UMG.ProgressBar
+// 0x0210 (0x0310 - 0x0100)
+class UProgressBar : public UWidget
+{
+public:
+	struct FProgressBarStyle                           WidgetStyle;                                              // 0x0100(0x01A0) (Edit, BlueprintVisible)
+	class USlateWidgetStyleAsset*                      Style;                                                    // 0x02A0(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
+	class USlateBrushAsset*                            BackgroundImage;                                          // 0x02A8(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
+	class USlateBrushAsset*                            FillImage;                                                // 0x02B0(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
+	class USlateBrushAsset*                            MarqueeImage;                                             // 0x02B8(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
+	float                                              Percent;                                                  // 0x02C0(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EProgressBarFillType>                  BarFillType;                                              // 0x02C4(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	bool                                               bIsMarquee;                                               // 0x02C5(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x02C6(0x0002) MISSED OFFSET
+	struct FVector2D                                   BorderPadding;                                            // 0x02C8(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FScriptDelegate                             PercentDelegate;                                          // 0x02D0(0x0014) (ZeroConstructor, InstancedReference)
+	struct FLinearColor                                FillColorAndOpacity;                                      // 0x02E0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FScriptDelegate                             FillColorAndOpacityDelegate;                              // 0x02F0(0x0014) (ZeroConstructor, InstancedReference)
+	unsigned char                                      UnknownData01[0x10];                                      // 0x0300(0x0010) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class UMG.ProgressBar");
+		return ptr;
+	}
+
+
+	void SetPercent(float InPercent);
+	void SetIsMarquee(bool InbIsMarquee);
+	void SetFillColorAndOpacity(const struct FLinearColor& InColor);
+};
+
+
 // Class UMG.TileView
 // 0x0020 (0x0348 - 0x0328)
 class UTileView : public UListView
@@ -2232,29 +2188,6 @@ public:
 
 	void SetEntryWidth(float NewWidth);
 	void SetEntryHeight(float NewHeight);
-};
-
-
-// Class UMG.TreeView
-// 0x0058 (0x0380 - 0x0328)
-class UTreeView : public UListView
-{
-public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0328(0x0010) MISSED OFFSET
-	struct FScriptDelegate                             BP_OnGetItemChildren;                                     // 0x0338(0x0014) (Edit, ZeroConstructor, InstancedReference)
-	struct FScriptMulticastDelegate                    BP_OnItemExpansionChanged;                                // 0x0348(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	unsigned char                                      UnknownData01[0x28];                                      // 0x0358(0x0028) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class UMG.TreeView");
-		return ptr;
-	}
-
-
-	void SetItemExpansion(class UObject* Item, bool bExpandItem);
-	void ExpandAll();
-	void CollapseAll();
 };
 
 
@@ -3001,6 +2934,73 @@ public:
 	void SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment);
 	void SetFillSpanWhenLessThan(float InFillSpanWhenLessThan);
 	void SetFillEmptySpace(bool InbFillEmptySpace);
+};
+
+
+// Class UMG.Slider
+// 0x03E8 (0x04E8 - 0x0100)
+class USlider : public UWidget
+{
+public:
+	float                                              Value;                                                    // 0x0100(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0104(0x0004) MISSED OFFSET
+	struct FScriptDelegate                             ValueDelegate;                                            // 0x0108(0x0014) (ZeroConstructor, InstancedReference)
+	struct FSliderStyle                                WidgetStyle;                                              // 0x0118(0x0340) (Edit, BlueprintVisible)
+	TEnumAsByte<EOrientation>                          Orientation;                                              // 0x0458(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0459(0x0003) MISSED OFFSET
+	struct FLinearColor                                SliderBarColor;                                           // 0x045C(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FLinearColor                                SliderHandleColor;                                        // 0x046C(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	bool                                               IndentHandle;                                             // 0x047C(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	bool                                               Locked;                                                   // 0x047D(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	bool                                               MouseUsesStep;                                            // 0x047E(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	bool                                               RequiresControllerLock;                                   // 0x047F(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	float                                              StepSize;                                                 // 0x0480(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	bool                                               IsFocusable;                                              // 0x0484(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x3];                                       // 0x0485(0x0003) MISSED OFFSET
+	struct FScriptMulticastDelegate                    OnMouseCaptureBegin;                                      // 0x0488(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnMouseCaptureEnd;                                        // 0x0498(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnControllerCaptureBegin;                                 // 0x04A8(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnControllerCaptureEnd;                                   // 0x04B8(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnValueChanged;                                           // 0x04C8(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	unsigned char                                      UnknownData03[0x10];                                      // 0x04D8(0x0010) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class UMG.Slider");
+		return ptr;
+	}
+
+
+	void SetValue(float InValue);
+	void SetStepSize(float InValue);
+	void SetSliderHandleColor(const struct FLinearColor& InValue);
+	void SetSliderBarColor(const struct FLinearColor& InValue);
+	void SetLocked(bool InValue);
+	void SetIndentHandle(bool InValue);
+	float GetValue();
+};
+
+
+// Class UMG.TreeView
+// 0x0058 (0x0380 - 0x0328)
+class UTreeView : public UListView
+{
+public:
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0328(0x0010) MISSED OFFSET
+	struct FScriptDelegate                             BP_OnGetItemChildren;                                     // 0x0338(0x0014) (Edit, ZeroConstructor, InstancedReference)
+	struct FScriptMulticastDelegate                    BP_OnItemExpansionChanged;                                // 0x0348(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	unsigned char                                      UnknownData01[0x28];                                      // 0x0358(0x0028) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class UMG.TreeView");
+		return ptr;
+	}
+
+
+	void SetItemExpansion(class UObject* Item, bool bExpandItem);
+	void ExpandAll();
+	void CollapseAll();
 };
 
 

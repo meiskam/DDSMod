@@ -4,9 +4,6 @@
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="mem.cpp" />
     <ClCompile Include="proc.cpp" />
-    <ClCompile Include="SDK\_functions.cpp">
-      <Filter>SDK</Filter>
-    </ClCompile>
     <ClCompile Include="SDK\actionOptionWidget_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
@@ -418,6 +415,9 @@
     <ClCompile Include="SDK\CoreUObject_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\creditsCamera_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
     <ClCompile Include="SDK\Crow_AnimBlueprint_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
@@ -607,6 +607,9 @@
     <ClCompile Include="SDK\drugDealerFPS_GM_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\DrugDealerSimulator_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
     <ClCompile Include="SDK\drugForm_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
@@ -694,9 +697,6 @@
     <ClCompile Include="SDK\eqShopMarketSalesman_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\EQSTesingPawn_functions.cpp">
-      <Filter>SDK</Filter>
-    </ClCompile>
     <ClCompile Include="SDK\equipmentCategory_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
@@ -782,6 +782,9 @@
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\gangDeadDropBase_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\gangDropFixer_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\gangManager_functions.cpp">
@@ -955,6 +958,9 @@
     <ClCompile Include="SDK\keijiRestaurantManager_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\keijiTerritoryLook_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
     <ClCompile Include="SDK\laBallena_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
@@ -1001,6 +1007,9 @@
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\levelUpWidget_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\lightDistanceDisabler_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\LightPropagationVolumeRuntime_functions.cpp">
@@ -1222,13 +1231,13 @@
     <ClCompile Include="SDK\orderInstance_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\Overlay_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
     <ClCompile Include="SDK\packageBase_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\packageProductWidget_functions.cpp">
-      <Filter>SDK</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\PacketHandler_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\panEddie_functions.cpp">
@@ -1294,7 +1303,7 @@
     <ClCompile Include="SDK\planeTargetPoint_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\plantStasWidget_functions.cpp">
+    <ClCompile Include="SDK\plantStatsWidget_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\playerApartment_functions.cpp">
@@ -1552,7 +1561,19 @@
     <ClCompile Include="SDK\Seagull_AnimationBlueprint_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\sebiksController_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\sebiksSpawnPoint_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
     <ClCompile Include="SDK\seedSellerBP_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\seedSellerDialogue_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\seedSellerShopInstance_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\seedSellerSpawnPoint_functions.cpp">
@@ -1697,6 +1718,9 @@
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\statisticsManager_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\stonePreacherFixer_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\streetLantern_functions.cpp">
@@ -1870,7 +1894,58 @@
     <ClCompile Include="SDK\waterArea_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\waterBottleBP_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\waterSinkProgressWidget_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedLampRange_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
     <ClCompile Include="SDK\weedPlantBP_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedPlanyMarker_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedProductionBowl_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedProductionFilter_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedProductionLight_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedSeedSelectWidget_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedStrain_AK420_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedStrain_BongBreaker_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedStrain_Brainfuck_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedStrain_DubaiSativa_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedStrain_Firecracker_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedStrain_GhettoKush_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedStrain_Skyscrapper_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedStrain_StonerHaze_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\weedUnlocked_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\windowEscapeWidget_functions.cpp">
@@ -1959,15 +2034,8 @@
     <ClInclude Include="mem.h" />
     <ClInclude Include="proc.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="SDK\_classes.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\_parameters.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\_structs.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
+    <ClInclude Include="SDK.h" />
+    <ClInclude Include="tinyformat.h" />
     <ClInclude Include="SDK\actionOptionWidget_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
@@ -3195,6 +3263,15 @@
     <ClInclude Include="SDK\CoreUObject_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
+    <ClInclude Include="SDK\creditsCamera_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\creditsCamera_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\creditsCamera_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
     <ClInclude Include="SDK\Crow_AnimBlueprint_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
@@ -3762,6 +3839,15 @@
     <ClInclude Include="SDK\drugDealerFPS_GM_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
+    <ClInclude Include="SDK\DrugDealerSimulator_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\DrugDealerSimulator_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\DrugDealerSimulator_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
     <ClInclude Include="SDK\drugForm_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
@@ -4023,15 +4109,6 @@
     <ClInclude Include="SDK\eqShopMarketSalesman_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\EQSTesingPawn_classes.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\EQSTesingPawn_parameters.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\EQSTesingPawn_structs.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
     <ClInclude Include="SDK\equipmentCategory_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
@@ -4291,6 +4368,15 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\gangDeadDropBase_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\gangDropFixer_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\gangDropFixer_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\gangDropFixer_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\gangManager_classes.h">
@@ -4806,6 +4892,15 @@
     <ClInclude Include="SDK\keijiRestaurantManager_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
+    <ClInclude Include="SDK\keijiTerritoryLook_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\keijiTerritoryLook_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\keijiTerritoryLook_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
     <ClInclude Include="SDK\laBallena_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
@@ -4948,6 +5043,15 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\levelUpWidget_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\lightDistanceDisabler_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\lightDistanceDisabler_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\lightDistanceDisabler_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\LightPropagationVolumeRuntime_classes.h">
@@ -5191,6 +5295,9 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\miniTaskListItem_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\MISSING.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\mixConfirmWidget_classes.h">
@@ -5607,6 +5714,15 @@
     <ClInclude Include="SDK\orderInstance_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
+    <ClInclude Include="SDK\Overlay_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Overlay_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Overlay_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
     <ClInclude Include="SDK\packageBase_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
@@ -5623,15 +5739,6 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\packageProductWidget_structs.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\PacketHandler_classes.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\PacketHandler_parameters.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\PacketHandler_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\panEddie_classes.h">
@@ -5823,13 +5930,13 @@
     <ClInclude Include="SDK\planeTargetPoint_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\plantStasWidget_classes.h">
+    <ClInclude Include="SDK\plantStatsWidget_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\plantStasWidget_parameters.h">
+    <ClInclude Include="SDK\plantStatsWidget_parameters.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\plantStasWidget_structs.h">
+    <ClInclude Include="SDK\plantStatsWidget_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\playerApartment_classes.h">
@@ -6597,6 +6704,24 @@
     <ClInclude Include="SDK\Seagull_AnimationBlueprint_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
+    <ClInclude Include="SDK\sebiksController_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\sebiksController_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\sebiksController_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\sebiksSpawnPoint_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\sebiksSpawnPoint_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\sebiksSpawnPoint_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
     <ClInclude Include="SDK\seedSellerBP_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
@@ -6604,6 +6729,24 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\seedSellerBP_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\seedSellerDialogue_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\seedSellerDialogue_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\seedSellerDialogue_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\seedSellerShopInstance_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\seedSellerShopInstance_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\seedSellerShopInstance_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\seedSellerSpawnPoint_classes.h">
@@ -7036,6 +7179,15 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\statisticsManager_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stonePreacherFixer_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stonePreacherFixer_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stonePreacherFixer_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\streetLantern_classes.h">
@@ -7551,6 +7703,33 @@
     <ClInclude Include="SDK\waterArea_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
+    <ClInclude Include="SDK\waterBottleBP_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\waterBottleBP_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\waterBottleBP_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\waterSinkProgressWidget_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\waterSinkProgressWidget_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\waterSinkProgressWidget_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedLampRange_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedLampRange_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedLampRange_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
     <ClInclude Include="SDK\weedPlantBP_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
@@ -7558,6 +7737,132 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\weedPlantBP_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedPlanyMarker_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedPlanyMarker_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedPlanyMarker_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedProductionBowl_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedProductionBowl_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedProductionBowl_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedProductionFilter_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedProductionFilter_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedProductionFilter_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedProductionLight_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedProductionLight_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedProductionLight_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedSeedSelectWidget_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedSeedSelectWidget_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedSeedSelectWidget_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_AK420_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_AK420_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_AK420_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_BongBreaker_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_BongBreaker_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_BongBreaker_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_Brainfuck_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_Brainfuck_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_Brainfuck_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_DubaiSativa_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_DubaiSativa_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_DubaiSativa_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_Firecracker_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_Firecracker_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_Firecracker_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_GhettoKush_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_GhettoKush_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_GhettoKush_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_Skyscrapper_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_Skyscrapper_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_Skyscrapper_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_StonerHaze_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_StonerHaze_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedStrain_StonerHaze_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedUnlocked_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedUnlocked_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\weedUnlocked_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\windowEscapeWidget_classes.h">
@@ -7803,12 +8108,10 @@
     <ClInclude Include="SDK\ws_tableIndustrialLarge_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK.h" />
-    <ClInclude Include="tinyformat.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="SDK">
-      <UniqueIdentifier>{cac15fe1-daf9-4a4c-9062-c467aa45dfd8}</UniqueIdentifier>
+      <UniqueIdentifier>{211a845a-854b-44af-b760-e3ae4ac2289a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

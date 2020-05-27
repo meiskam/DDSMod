@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -22,7 +22,7 @@ public:
 	class URamaSaveComponent*                          RamaSave_1;                                               // 0x0400(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	class UWidgetComponent*                            Widget;                                                   // 0x0408(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	TArray<struct FinventoryItemStruct>                contents;                                                 // 0x0410(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
-	TArray<int>                                        quantities;                                               // 0x0420(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	TArray<int>                                        Quantities;                                               // 0x0420(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	struct FSlateColor                                 colorText;                                                // 0x0430(0x0028) (Edit, BlueprintVisible, DisableEditOnInstance)
 	bool                                               AllAdded;                                                 // 0x0458(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x0459(0x0003) MISSED OFFSET
@@ -39,7 +39,7 @@ public:
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
 	void takeContents();
-	void setup(TArray<struct FinventoryItemStruct> contents, TArray<int> quantities, float TotalSize, float TotalWeight);
+	void setup(TArray<struct FinventoryItemStruct> contents, TArray<int> Quantities, float TotalSize, float TotalWeight);
 	void ExecuteUbergraph_packageBase(int EntryPoint);
 };
 

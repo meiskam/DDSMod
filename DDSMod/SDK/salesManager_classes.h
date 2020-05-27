@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -158,7 +158,7 @@ public:
 	void getOrderedDrugIndex(int RandomIndex, int* OutIndex);
 	void refreshAvailableDrugs(bool* DrugsAreAvailable);
 	void countClientStatistics();
-	void calcOrderQuantity(int inClientID, bool nightTime, bool priceHigh, int* outQuantity);
+	void calcOrderQuantity(int inClientID, bool nightTime, bool priceHigh, int* OutQuantity);
 	void clientSendNewOrder(int ClientId, bool nightTime);
 	void clientOrderCountdown(float Delta);
 	void generateNewClient(bool Force);

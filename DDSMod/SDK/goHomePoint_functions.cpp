@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -21,6 +21,23 @@ void AgoHomePoint_C::UserConstructionScript()
 	static auto fn = UObject::FindObject<UFunction>("Function goHomePoint.goHomePoint_C.UserConstructionScript");
 
 	AgoHomePoint_C_UserConstructionScript_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function goHomePoint.goHomePoint_C.ReceiveBeginPlay
+// (Event, Protected, BlueprintEvent)
+
+void AgoHomePoint_C::ReceiveBeginPlay()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function goHomePoint.goHomePoint_C.ReceiveBeginPlay");
+
+	AgoHomePoint_C_ReceiveBeginPlay_Params params;
 
 	auto flags = fn->FunctionFlags;
 

@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -64,6 +64,18 @@ struct AappartmentViewerPawn_C_SpaceHeldDown_Params
 struct AappartmentViewerPawn_C_InpAxisEvt_LookSideways_K2Node_InputAxisEvent_1_Params
 {
 	float                                              AxisValue;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function appartmentViewerPawn.appartmentViewerPawn_C.ReceivePossessed
+struct AappartmentViewerPawn_C_ReceivePossessed_Params
+{
+	class AController**                                NewController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function appartmentViewerPawn.appartmentViewerPawn_C.ReceiveUnpossessed
+struct AappartmentViewerPawn_C_ReceiveUnpossessed_Params
+{
+	class AController**                                OldController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function appartmentViewerPawn.appartmentViewerPawn_C.ExecuteUbergraph_appartmentViewerPawn

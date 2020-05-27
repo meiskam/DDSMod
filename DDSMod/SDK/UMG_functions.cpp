@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -2854,50 +2854,6 @@ void UCircularThrobber::SetNumberOfPieces(int InNumberOfPieces)
 }
 
 
-// Function UMG.ColorBinding.GetSlateValue
-// (Final, Native, Public, Const)
-// Parameters:
-// struct FSlateColor             ReturnValue                    (Parm, OutParm, ReturnParm)
-
-struct FSlateColor UColorBinding::GetSlateValue()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ColorBinding.GetSlateValue");
-
-	UColorBinding_GetSlateValue_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.ColorBinding.GetLinearValue
-// (Final, Native, Public, HasDefaults, Const)
-// Parameters:
-// struct FLinearColor            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-struct FLinearColor UColorBinding::GetLinearValue()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ColorBinding.GetLinearValue");
-
-	UColorBinding_GetLinearValue_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
 // Function UMG.ComboBoxString.SetSelectedOption
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -3212,79 +3168,16 @@ void UDragDropOperation::DragCancelled(const struct FPointerEvent& PointerEvent)
 }
 
 
-// Function UMG.DynamicEntryBox.SetEntrySpacing
-// (Final, Native, Public, HasOutParms, HasDefaults, BlueprintCallable)
+// Function UMG.ColorBinding.GetSlateValue
+// (Final, Native, Public, Const)
 // Parameters:
-// struct FVector2D               InEntrySpacing                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+// struct FSlateColor             ReturnValue                    (Parm, OutParm, ReturnParm)
 
-void UDynamicEntryBox::SetEntrySpacing(const struct FVector2D& InEntrySpacing)
+struct FSlateColor UColorBinding::GetSlateValue()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.SetEntrySpacing");
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ColorBinding.GetSlateValue");
 
-	UDynamicEntryBox_SetEntrySpacing_Params params;
-	params.InEntrySpacing = InEntrySpacing;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.DynamicEntryBox.Reset
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           bDeleteWidgets                 (Parm, ZeroConstructor, IsPlainOldData)
-
-void UDynamicEntryBox::Reset(bool bDeleteWidgets)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.Reset");
-
-	UDynamicEntryBox_Reset_Params params;
-	params.bDeleteWidgets = bDeleteWidgets;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.DynamicEntryBox.RemoveEntry
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class UUserWidget*             entryWidget                    (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-
-void UDynamicEntryBox::RemoveEntry(class UUserWidget* entryWidget)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.RemoveEntry");
-
-	UDynamicEntryBox_RemoveEntry_Params params;
-	params.entryWidget = entryWidget;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.DynamicEntryBox.GetNumEntries
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-int UDynamicEntryBox::GetNumEntries()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.GetNumEntries");
-
-	UDynamicEntryBox_GetNumEntries_Params params;
+	UColorBinding_GetSlateValue_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3297,62 +3190,16 @@ int UDynamicEntryBox::GetNumEntries()
 }
 
 
-// Function UMG.DynamicEntryBox.GetAllEntries
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Function UMG.ColorBinding.GetLinearValue
+// (Final, Native, Public, HasDefaults, Const)
 // Parameters:
-// TArray<class UUserWidget*>     ReturnValue                    (ConstParm, ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm)
+// struct FLinearColor            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 
-TArray<class UUserWidget*> UDynamicEntryBox::GetAllEntries()
+struct FLinearColor UColorBinding::GetLinearValue()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.GetAllEntries");
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ColorBinding.GetLinearValue");
 
-	UDynamicEntryBox_GetAllEntries_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.DynamicEntryBox.BP_CreateEntryOfClass
-// (Final, Native, Private, BlueprintCallable)
-// Parameters:
-// class UClass*                  EntryClass                     (Parm, ZeroConstructor, IsPlainOldData)
-// class UUserWidget*             ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
-
-class UUserWidget* UDynamicEntryBox::BP_CreateEntryOfClass(class UClass* EntryClass)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.BP_CreateEntryOfClass");
-
-	UDynamicEntryBox_BP_CreateEntryOfClass_Params params;
-	params.EntryClass = EntryClass;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.DynamicEntryBox.BP_CreateEntry
-// (Final, Native, Private, BlueprintCallable)
-// Parameters:
-// class UUserWidget*             ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
-
-class UUserWidget* UDynamicEntryBox::BP_CreateEntry()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.BP_CreateEntry");
-
-	UDynamicEntryBox_BP_CreateEntry_Params params;
+	UColorBinding_GetLinearValue_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3501,6 +3348,159 @@ struct FText UEditableText::GetText()
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableText.GetText");
 
 	UEditableText_GetText_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.DynamicEntryBox.SetEntrySpacing
+// (Final, Native, Public, HasOutParms, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FVector2D               InEntrySpacing                 (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
+
+void UDynamicEntryBox::SetEntrySpacing(const struct FVector2D& InEntrySpacing)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.SetEntrySpacing");
+
+	UDynamicEntryBox_SetEntrySpacing_Params params;
+	params.InEntrySpacing = InEntrySpacing;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.DynamicEntryBox.Reset
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           bDeleteWidgets                 (Parm, ZeroConstructor, IsPlainOldData)
+
+void UDynamicEntryBox::Reset(bool bDeleteWidgets)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.Reset");
+
+	UDynamicEntryBox_Reset_Params params;
+	params.bDeleteWidgets = bDeleteWidgets;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.DynamicEntryBox.RemoveEntry
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UUserWidget*             entryWidget                    (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+
+void UDynamicEntryBox::RemoveEntry(class UUserWidget* entryWidget)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.RemoveEntry");
+
+	UDynamicEntryBox_RemoveEntry_Params params;
+	params.entryWidget = entryWidget;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.DynamicEntryBox.GetNumEntries
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+int UDynamicEntryBox::GetNumEntries()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.GetNumEntries");
+
+	UDynamicEntryBox_GetNumEntries_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.DynamicEntryBox.GetAllEntries
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// TArray<class UUserWidget*>     ReturnValue                    (ConstParm, ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm)
+
+TArray<class UUserWidget*> UDynamicEntryBox::GetAllEntries()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.GetAllEntries");
+
+	UDynamicEntryBox_GetAllEntries_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.DynamicEntryBox.BP_CreateEntryOfClass
+// (Final, Native, Private, BlueprintCallable)
+// Parameters:
+// class UClass*                  EntryClass                     (Parm, ZeroConstructor, IsPlainOldData)
+// class UUserWidget*             ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+
+class UUserWidget* UDynamicEntryBox::BP_CreateEntryOfClass(class UClass* EntryClass)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.BP_CreateEntryOfClass");
+
+	UDynamicEntryBox_BP_CreateEntryOfClass_Params params;
+	params.EntryClass = EntryClass;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.DynamicEntryBox.BP_CreateEntry
+// (Final, Native, Private, BlueprintCallable)
+// Parameters:
+// class UUserWidget*             ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
+
+class UUserWidget* UDynamicEntryBox::BP_CreateEntry()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.BP_CreateEntry");
+
+	UDynamicEntryBox_BP_CreateEntry_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -4619,28 +4619,6 @@ bool UInputKeySelector::GetIsSelectingKey()
 }
 
 
-// Function UMG.Int32Binding.GetValue
-// (Final, Native, Public, Const)
-// Parameters:
-// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-int UInt32Binding::GetValue()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Int32Binding.GetValue");
-
-	UInt32Binding_GetValue_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
 // Function UMG.InvalidationBox.SetCanCache
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -4734,6 +4712,28 @@ bool UNativeUserListEntry::IsListItemExpanded()
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.NativeUserListEntry.IsListItemExpanded");
 
 	UNativeUserListEntry_IsListItemExpanded_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.Int32Binding.GetValue
+// (Final, Native, Public, Const)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+int UInt32Binding::GetValue()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Int32Binding.GetValue");
+
+	UInt32Binding_GetValue_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5885,69 +5885,6 @@ void UOverlaySlot::SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHo
 }
 
 
-// Function UMG.ProgressBar.SetPercent
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// float                          InPercent                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void UProgressBar::SetPercent(float InPercent)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ProgressBar.SetPercent");
-
-	UProgressBar_SetPercent_Params params;
-	params.InPercent = InPercent;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ProgressBar.SetIsMarquee
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           InbIsMarquee                   (Parm, ZeroConstructor, IsPlainOldData)
-
-void UProgressBar::SetIsMarquee(bool InbIsMarquee)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ProgressBar.SetIsMarquee");
-
-	UProgressBar_SetIsMarquee_Params params;
-	params.InbIsMarquee = InbIsMarquee;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ProgressBar.SetFillColorAndOpacity
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// struct FLinearColor            InColor                        (Parm, ZeroConstructor, IsPlainOldData)
-
-void UProgressBar::SetFillColorAndOpacity(const struct FLinearColor& InColor)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ProgressBar.SetFillColorAndOpacity");
-
-	UProgressBar_SetFillColorAndOpacity_Params params;
-	params.InColor = InColor;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function UMG.RetainerBox.SetTextureParameter
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -6053,6 +5990,33 @@ class UMaterialInstanceDynamic* URetainerBox::GetEffectMaterial()
 }
 
 
+// Function UMG.SafeZone.SetSidesToPad
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           InPadLeft                      (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           InPadRight                     (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           InPadTop                       (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           InPadBottom                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void USafeZone::SetSidesToPad(bool InPadLeft, bool InPadRight, bool InPadTop, bool InPadBottom)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.SafeZone.SetSidesToPad");
+
+	USafeZone_SetSidesToPad_Params params;
+	params.InPadLeft = InPadLeft;
+	params.InPadRight = InPadRight;
+	params.InPadTop = InPadTop;
+	params.InPadBottom = InPadBottom;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function UMG.RichTextBlock.SetText
 // (Final, Native, Public, HasOutParms, BlueprintCallable)
 // Parameters:
@@ -6095,33 +6059,6 @@ class URichTextBlockDecorator* URichTextBlock::GetDecoratorByClass(class UClass*
 	fn->FunctionFlags = flags;
 
 	return params.ReturnValue;
-}
-
-
-// Function UMG.SafeZone.SetSidesToPad
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           InPadLeft                      (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           InPadRight                     (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           InPadTop                       (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           InPadBottom                    (Parm, ZeroConstructor, IsPlainOldData)
-
-void USafeZone::SetSidesToPad(bool InPadLeft, bool InPadRight, bool InPadTop, bool InPadBottom)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.SafeZone.SetSidesToPad");
-
-	USafeZone_SetSidesToPad_Params params;
-	params.InPadLeft = InPadLeft;
-	params.InPadRight = InPadRight;
-	params.InPadTop = InPadTop;
-	params.InPadBottom = InPadBottom;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
 }
 
 
@@ -6262,29 +6199,6 @@ void UScaleBoxSlot::SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InH
 
 	UScaleBoxSlot_SetHorizontalAlignment_Params params;
 	params.InHorizontalAlignment = InHorizontalAlignment;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ScrollBar.SetState
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// float                          InOffsetFraction               (Parm, ZeroConstructor, IsPlainOldData)
-// float                          InThumbSizeFraction            (Parm, ZeroConstructor, IsPlainOldData)
-
-void UScrollBar::SetState(float InOffsetFraction, float InThumbSizeFraction)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ScrollBar.SetState");
-
-	UScrollBar_SetState_Params params;
-	params.InOffsetFraction = InOffsetFraction;
-	params.InThumbSizeFraction = InThumbSizeFraction;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6925,6 +6839,29 @@ void USizeBoxSlot::SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHo
 }
 
 
+// Function UMG.ScrollBar.SetState
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                          InOffsetFraction               (Parm, ZeroConstructor, IsPlainOldData)
+// float                          InThumbSizeFraction            (Parm, ZeroConstructor, IsPlainOldData)
+
+void UScrollBar::SetState(float InOffsetFraction, float InThumbSizeFraction)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ScrollBar.SetState");
+
+	UScrollBar_SetState_Params params;
+	params.InOffsetFraction = InOffsetFraction;
+	params.InThumbSizeFraction = InThumbSizeFraction;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function UMG.SlateBlueprintLibrary.ScreenToWidgetLocal
 // (Final, Native, Static, Public, HasOutParms, HasDefaults)
 // Parameters:
@@ -7210,154 +7147,6 @@ struct FVector2D USlateBlueprintLibrary::STATIC_AbsoluteToLocal(const struct FGe
 	USlateBlueprintLibrary_AbsoluteToLocal_Params params;
 	params.Geometry = Geometry;
 	params.AbsoluteCoordinate = AbsoluteCoordinate;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.Slider.SetValue
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// float                          InValue                        (Parm, ZeroConstructor, IsPlainOldData)
-
-void USlider::SetValue(float InValue)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.SetValue");
-
-	USlider_SetValue_Params params;
-	params.InValue = InValue;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.Slider.SetStepSize
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// float                          InValue                        (Parm, ZeroConstructor, IsPlainOldData)
-
-void USlider::SetStepSize(float InValue)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.SetStepSize");
-
-	USlider_SetStepSize_Params params;
-	params.InValue = InValue;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.Slider.SetSliderHandleColor
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// struct FLinearColor            InValue                        (Parm, ZeroConstructor, IsPlainOldData)
-
-void USlider::SetSliderHandleColor(const struct FLinearColor& InValue)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.SetSliderHandleColor");
-
-	USlider_SetSliderHandleColor_Params params;
-	params.InValue = InValue;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.Slider.SetSliderBarColor
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// struct FLinearColor            InValue                        (Parm, ZeroConstructor, IsPlainOldData)
-
-void USlider::SetSliderBarColor(const struct FLinearColor& InValue)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.SetSliderBarColor");
-
-	USlider_SetSliderBarColor_Params params;
-	params.InValue = InValue;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.Slider.SetLocked
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           InValue                        (Parm, ZeroConstructor, IsPlainOldData)
-
-void USlider::SetLocked(bool InValue)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.SetLocked");
-
-	USlider_SetLocked_Params params;
-	params.InValue = InValue;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.Slider.SetIndentHandle
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           InValue                        (Parm, ZeroConstructor, IsPlainOldData)
-
-void USlider::SetIndentHandle(bool InValue)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.SetIndentHandle");
-
-	USlider_SetIndentHandle_Params params;
-	params.InValue = InValue;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.Slider.GetValue
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-float USlider::GetValue()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.GetValue");
-
-	USlider_GetValue_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8141,6 +7930,69 @@ void UThrobber::SetAnimateHorizontally(bool bInAnimateHorizontally)
 }
 
 
+// Function UMG.ProgressBar.SetPercent
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                          InPercent                      (Parm, ZeroConstructor, IsPlainOldData)
+
+void UProgressBar::SetPercent(float InPercent)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ProgressBar.SetPercent");
+
+	UProgressBar_SetPercent_Params params;
+	params.InPercent = InPercent;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ProgressBar.SetIsMarquee
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           InbIsMarquee                   (Parm, ZeroConstructor, IsPlainOldData)
+
+void UProgressBar::SetIsMarquee(bool InbIsMarquee)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ProgressBar.SetIsMarquee");
+
+	UProgressBar_SetIsMarquee_Params params;
+	params.InbIsMarquee = InbIsMarquee;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ProgressBar.SetFillColorAndOpacity
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FLinearColor            InColor                        (Parm, ZeroConstructor, IsPlainOldData)
+
+void UProgressBar::SetFillColorAndOpacity(const struct FLinearColor& InColor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ProgressBar.SetFillColorAndOpacity");
+
+	UProgressBar_SetFillColorAndOpacity_Params params;
+	params.InColor = InColor;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function UMG.TileView.SetEntryWidth
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -8173,65 +8025,6 @@ void UTileView::SetEntryHeight(float NewHeight)
 
 	UTileView_SetEntryHeight_Params params;
 	params.NewHeight = NewHeight;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.TreeView.SetItemExpansion
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bExpandItem                    (Parm, ZeroConstructor, IsPlainOldData)
-
-void UTreeView::SetItemExpansion(class UObject* Item, bool bExpandItem)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.TreeView.SetItemExpansion");
-
-	UTreeView_SetItemExpansion_Params params;
-	params.Item = Item;
-	params.bExpandItem = bExpandItem;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.TreeView.ExpandAll
-// (Final, Native, Public, BlueprintCallable)
-
-void UTreeView::ExpandAll()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.TreeView.ExpandAll");
-
-	UTreeView_ExpandAll_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.TreeView.CollapseAll
-// (Final, Native, Public, BlueprintCallable)
-
-void UTreeView::CollapseAll()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.TreeView.CollapseAll");
-
-	UTreeView_CollapseAll_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -13340,6 +13133,213 @@ void UWrapBoxSlot::SetFillEmptySpace(bool InbFillEmptySpace)
 
 	UWrapBoxSlot_SetFillEmptySpace_Params params;
 	params.InbFillEmptySpace = InbFillEmptySpace;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.Slider.SetValue
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                          InValue                        (Parm, ZeroConstructor, IsPlainOldData)
+
+void USlider::SetValue(float InValue)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.SetValue");
+
+	USlider_SetValue_Params params;
+	params.InValue = InValue;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.Slider.SetStepSize
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// float                          InValue                        (Parm, ZeroConstructor, IsPlainOldData)
+
+void USlider::SetStepSize(float InValue)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.SetStepSize");
+
+	USlider_SetStepSize_Params params;
+	params.InValue = InValue;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.Slider.SetSliderHandleColor
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FLinearColor            InValue                        (Parm, ZeroConstructor, IsPlainOldData)
+
+void USlider::SetSliderHandleColor(const struct FLinearColor& InValue)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.SetSliderHandleColor");
+
+	USlider_SetSliderHandleColor_Params params;
+	params.InValue = InValue;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.Slider.SetSliderBarColor
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FLinearColor            InValue                        (Parm, ZeroConstructor, IsPlainOldData)
+
+void USlider::SetSliderBarColor(const struct FLinearColor& InValue)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.SetSliderBarColor");
+
+	USlider_SetSliderBarColor_Params params;
+	params.InValue = InValue;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.Slider.SetLocked
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           InValue                        (Parm, ZeroConstructor, IsPlainOldData)
+
+void USlider::SetLocked(bool InValue)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.SetLocked");
+
+	USlider_SetLocked_Params params;
+	params.InValue = InValue;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.Slider.SetIndentHandle
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           InValue                        (Parm, ZeroConstructor, IsPlainOldData)
+
+void USlider::SetIndentHandle(bool InValue)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.SetIndentHandle");
+
+	USlider_SetIndentHandle_Params params;
+	params.InValue = InValue;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.Slider.GetValue
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+float USlider::GetValue()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Slider.GetValue");
+
+	USlider_GetValue_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.TreeView.SetItemExpansion
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bExpandItem                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void UTreeView::SetItemExpansion(class UObject* Item, bool bExpandItem)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.TreeView.SetItemExpansion");
+
+	UTreeView_SetItemExpansion_Params params;
+	params.Item = Item;
+	params.bExpandItem = bExpandItem;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.TreeView.ExpandAll
+// (Final, Native, Public, BlueprintCallable)
+
+void UTreeView::ExpandAll()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.TreeView.ExpandAll");
+
+	UTreeView_ExpandAll_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.TreeView.CollapseAll
+// (Final, Native, Public, BlueprintCallable)
+
+void UTreeView::CollapseAll()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.TreeView.CollapseAll");
+
+	UTreeView_CollapseAll_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;

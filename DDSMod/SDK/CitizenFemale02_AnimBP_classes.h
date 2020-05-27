@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // AnimBlueprintGeneratedClass CitizenFemale02_AnimBP.CitizenFemale02_AnimBP_C
-// 0x0294 (0x05F4 - 0x0360)
+// 0x02A0 (0x0600 - 0x0360)
 class UCitizenFemale02_AnimBP_C : public UAnimInstance
 {
 public:
@@ -23,6 +23,8 @@ public:
 	struct FAnimNode_StateResult                       AnimGraphNode_StateResult_C33BB5C44BD5FE308888A2BAF25EAFD2;// 0x04D0(0x0040)
 	struct FAnimNode_StateMachine                      AnimGraphNode_StateMachine_4BC75B6043F9AB889A71B0A16F1F4E4D;// 0x0510(0x00E0)
 	float                                              Speed;                                                    // 0x05F0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x05F4(0x0004) MISSED OFFSET
+	class APawn*                                       Owner;                                                    // 0x05F8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -31,6 +33,8 @@ public:
 	}
 
 
+	void BlueprintUpdateAnimation(float* DeltaTimeX);
+	void BlueprintBeginPlay();
 	void ExecuteUbergraph_CitizenFemale02_AnimBP(int EntryPoint);
 };
 

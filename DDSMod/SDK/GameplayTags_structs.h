@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,17 +12,12 @@ namespace SDK
 // Enums
 //---------------------------------------------------------------------------
 
-// Enum GameplayTags.EGameplayTagQueryExprType
-enum class EGameplayTagQueryExprType : uint8_t
+// Enum GameplayTags.EGameplayContainerMatchType
+enum class EGameplayContainerMatchType : uint8_t
 {
-	EGameplayTagQueryExprType__Undefined = 0,
-	EGameplayTagQueryExprType__AnyTagsMatch = 1,
-	EGameplayTagQueryExprType__AllTagsMatch = 2,
-	EGameplayTagQueryExprType__NoTagsMatch = 3,
-	EGameplayTagQueryExprType__AnyExprMatch = 4,
-	EGameplayTagQueryExprType__AllExprMatch = 5,
-	EGameplayTagQueryExprType__NoExprMatch = 6,
-	EGameplayTagQueryExprType__EGameplayTagQueryExprType_MAX = 7
+	EGameplayContainerMatchType__Any = 0,
+	EGameplayContainerMatchType__All = 1,
+	EGameplayContainerMatchType__EGameplayContainerMatchType_MAX = 2
 };
 
 
@@ -35,14 +30,17 @@ enum class EGameplayTagMatchType : uint8_t
 };
 
 
-// Enum GameplayTags.EGameplayTagSelectionType
-enum class EGameplayTagSelectionType : uint8_t
+// Enum GameplayTags.EGameplayTagQueryExprType
+enum class EGameplayTagQueryExprType : uint8_t
 {
-	EGameplayTagSelectionType__None = 0,
-	EGameplayTagSelectionType__NonRestrictedOnly = 1,
-	EGameplayTagSelectionType__RestrictedOnly = 2,
-	EGameplayTagSelectionType__All = 3,
-	EGameplayTagSelectionType__EGameplayTagSelectionType_MAX = 4
+	EGameplayTagQueryExprType__Undefined = 0,
+	EGameplayTagQueryExprType__AnyTagsMatch = 1,
+	EGameplayTagQueryExprType__AllTagsMatch = 2,
+	EGameplayTagQueryExprType__NoTagsMatch = 3,
+	EGameplayTagQueryExprType__AnyExprMatch = 4,
+	EGameplayTagQueryExprType__AllExprMatch = 5,
+	EGameplayTagQueryExprType__NoExprMatch = 6,
+	EGameplayTagQueryExprType__EGameplayTagQueryExprType_MAX = 7
 };
 
 
@@ -59,12 +57,14 @@ enum class EGameplayTagSourceType : uint8_t
 };
 
 
-// Enum GameplayTags.EGameplayContainerMatchType
-enum class EGameplayContainerMatchType : uint8_t
+// Enum GameplayTags.EGameplayTagSelectionType
+enum class EGameplayTagSelectionType : uint8_t
 {
-	EGameplayContainerMatchType__Any = 0,
-	EGameplayContainerMatchType__All = 1,
-	EGameplayContainerMatchType__EGameplayContainerMatchType_MAX = 2
+	EGameplayTagSelectionType__None = 0,
+	EGameplayTagSelectionType__NonRestrictedOnly = 1,
+	EGameplayTagSelectionType__RestrictedOnly = 2,
+	EGameplayTagSelectionType__All = 3,
+	EGameplayTagSelectionType__EGameplayTagSelectionType_MAX = 4
 };
 
 

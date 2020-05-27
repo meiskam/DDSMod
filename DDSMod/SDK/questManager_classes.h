@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass questManager.questManager_C
-// 0x0D44 (0x106C - 0x0328)
+// 0x0D58 (0x1080 - 0x0328)
 class AquestManager_C : public AActor
 {
 public:
@@ -160,6 +160,8 @@ public:
 	bool                                               officialVersion;                                          // 0x1064(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData22[0x3];                                       // 0x1065(0x0003) MISSED OFFSET
 	int                                                seedGuyContactID;                                         // 0x1068(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData23[0x4];                                       // 0x106C(0x0004) MISSED OFFSET
+	TArray<class ApassageTraderDialogue_C*>            passageTraderDialoguesDelet;                              // 0x1070(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance)
 
 	static UClass* StaticClass()
 	{
@@ -283,6 +285,10 @@ public:
 	void longMoreAreas01();
 	void longMoreAreas02();
 	void longMoreAreas03();
+	void openWeedGate();
+	void closeWeedGate();
+	void displayWeedTutorial();
+	void displayPlantHints(bool indoor);
 	void ExecuteUbergraph_questManager(int EntryPoint);
 };
 

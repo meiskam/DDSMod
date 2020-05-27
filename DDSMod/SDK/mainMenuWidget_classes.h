@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -96,7 +96,7 @@ public:
 	void BndEvt__btnExitGame_K2Node_ComponentBoundEvent_24_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__Button_0_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_4_OnButtonClickedEvent__DelegateSignature();
-	void startNewGame(TEnumAsByte<EdifficultyLevels> ChosenDifficulty);
+	void startNewGame(TEnumAsByte<EdifficultyLevels> chosenDifficulty);
 	void BndEvt__btnCasual_K2Node_ComponentBoundEvent_5_OnButtonHoverEvent__DelegateSignature();
 	void BndEvt__Button_3_K2Node_ComponentBoundEvent_10_OnButtonHoverEvent__DelegateSignature();
 	void BndEvt__Button_4_K2Node_ComponentBoundEvent_14_OnButtonHoverEvent__DelegateSignature();

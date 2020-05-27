@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,6 +16,11 @@ namespace SDK
 
 // Function shopAmyGasStaion.shopAmyGasStaion_C.UserConstructionScript
 struct AshopAmyGasStaion_C_UserConstructionScript_Params
+{
+};
+
+// Function shopAmyGasStaion.shopAmyGasStaion_C.ReceiveBeginPlay
+struct AshopAmyGasStaion_C_ReceiveBeginPlay_Params
 {
 };
 

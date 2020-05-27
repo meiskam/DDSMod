@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -274,6 +274,28 @@ void UplayerHUD_C::breakListRender()
 	static auto fn = UObject::FindObject<UFunction>("Function playerHUD.playerHUD_C.breakListRender");
 
 	UplayerHUD_C_breakListRender_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function playerHUD.playerHUD_C.updateWeedPanel
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// class ArentAppartmentArea_C*   HideoutRef                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           InAppartment                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+
+void UplayerHUD_C::updateWeedPanel(class ArentAppartmentArea_C* HideoutRef, bool InAppartment)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function playerHUD.playerHUD_C.updateWeedPanel");
+
+	UplayerHUD_C_updateWeedPanel_Params params;
+	params.HideoutRef = HideoutRef;
+	params.InAppartment = InAppartment;
 
 	auto flags = fn->FunctionFlags;
 

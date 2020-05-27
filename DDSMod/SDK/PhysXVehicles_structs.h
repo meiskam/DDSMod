@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,16 +12,6 @@ namespace SDK
 // Enums
 //---------------------------------------------------------------------------
 
-// Enum PhysXVehicles.EWheelSweepType
-enum class EWheelSweepType : uint8_t
-{
-	SimpleAndComplex               = 0,
-	Simple                         = 1,
-	Complex                        = 2,
-	EWheelSweepType_MAX            = 3
-};
-
-
 // Enum PhysXVehicles.EVehicleDifferential4W
 enum class EVehicleDifferential4W : uint8_t
 {
@@ -32,6 +22,16 @@ enum class EVehicleDifferential4W : uint8_t
 	EVehicleDifferential4W__Open_FrontDrive = 4,
 	EVehicleDifferential4W__Open_RearDrive = 5,
 	EVehicleDifferential4W__EVehicleDifferential4W_MAX = 6
+};
+
+
+// Enum PhysXVehicles.EWheelSweepType
+enum class EWheelSweepType : uint8_t
+{
+	SimpleAndComplex               = 0,
+	Simple                         = 1,
+	Complex                        = 2,
+	EWheelSweepType_MAX            = 3
 };
 
 
@@ -131,18 +131,18 @@ struct FVehicleTransmissionData
 	unsigned char                                      UnknownData01[0x4];                                       // 0x002C(0x0004) MISSED OFFSET
 };
 
-// ScriptStruct PhysXVehicles.AnimNode_WheelHandler
-// 0x0018 (0x0108 - 0x00F0)
-struct FAnimNode_WheelHandler : public FAnimNode_SkeletalControlBase
-{
-	unsigned char                                      UnknownData00[0x18];                                      // 0x00F0(0x0018) MISSED OFFSET
-};
-
 // ScriptStruct PhysXVehicles.VehicleAnimInstanceProxy
 // 0x0010 (0x0580 - 0x0570)
 struct FVehicleAnimInstanceProxy : public FAnimInstanceProxy
 {
 	unsigned char                                      UnknownData00[0x10];                                      // 0x0570(0x0010) MISSED OFFSET
+};
+
+// ScriptStruct PhysXVehicles.AnimNode_WheelHandler
+// 0x0018 (0x0108 - 0x00F0)
+struct FAnimNode_WheelHandler : public FAnimNode_SkeletalControlBase
+{
+	unsigned char                                      UnknownData00[0x18];                                      // 0x00F0(0x0018) MISSED OFFSET
 };
 
 }

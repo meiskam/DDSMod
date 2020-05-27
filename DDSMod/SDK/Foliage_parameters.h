@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,23 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
+
+// Function Foliage.InteractiveFoliageActor.CapsuleTouched
+struct AInteractiveFoliageActor_CapsuleTouched_Params
+{
+	class UPrimitiveComponent*                         OverlappedComp;                                           // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class AActor*                                      Other;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
+	class UPrimitiveComponent*                         OtherComp;                                                // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+	int                                                OtherBodyIndex;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               bFromSweep;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+	struct FHitResult                                  OverlapInfo;                                              // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
+};
+
+// Function Foliage.ProceduralFoliageSpawner.Simulate
+struct UProceduralFoliageSpawner_Simulate_Params
+{
+	int                                                NumSteps;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
+};
 
 // Function Foliage.FoliageStatistics.FoliageOverlappingSphereCount
 struct UFoliageStatistics_FoliageOverlappingSphereCount_Params
@@ -31,23 +48,6 @@ struct UFoliageStatistics_FoliageOverlappingBoxCount_Params
 	class UStaticMesh*                                 StaticMesh;                                               // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
 	struct FBox                                        Box;                                                      // (Parm, ZeroConstructor, IsPlainOldData)
 	int                                                ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function Foliage.InteractiveFoliageActor.CapsuleTouched
-struct AInteractiveFoliageActor_CapsuleTouched_Params
-{
-	class UPrimitiveComponent*                         OverlappedComp;                                           // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class AActor*                                      Other;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
-	class UPrimitiveComponent*                         OtherComp;                                                // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-	int                                                OtherBodyIndex;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               bFromSweep;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-	struct FHitResult                                  OverlapInfo;                                              // (ConstParm, Parm, OutParm, ReferenceParm, IsPlainOldData)
-};
-
-// Function Foliage.ProceduralFoliageSpawner.Simulate
-struct UProceduralFoliageSpawner_Simulate_Params
-{
-	int                                                NumSteps;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 }

@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -40,14 +40,14 @@ class UWidget* UequipmentShopItemWidget_C::Get_mainHolder_ToolTipWidget_1()
 // struct FText                   Name                           (BlueprintVisible, BlueprintReadOnly, Parm)
 // float                          Price                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// class UTexture2D*              icon                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class UTexture2D*              Icon                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            Index                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // class UEquipmentShopInterfaceWidget_C* parentRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 // struct FText                   Description                    (BlueprintVisible, BlueprintReadOnly, Parm)
 // bool                           checkedOut                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            WaitBoost                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UequipmentShopItemWidget_C::setup(const struct FText& Name, float Price, int Quantity, class UTexture2D* icon, int Index, class UEquipmentShopInterfaceWidget_C* parentRef, const struct FText& Description, bool checkedOut, int WaitBoost)
+void UequipmentShopItemWidget_C::setup(const struct FText& Name, float Price, int Quantity, class UTexture2D* Icon, int Index, class UEquipmentShopInterfaceWidget_C* parentRef, const struct FText& Description, bool checkedOut, int WaitBoost)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function equipmentShopItemWidget.equipmentShopItemWidget_C.setup");
 
@@ -55,7 +55,7 @@ void UequipmentShopItemWidget_C::setup(const struct FText& Name, float Price, in
 	params.Name = Name;
 	params.Price = Price;
 	params.Quantity = Quantity;
-	params.icon = icon;
+	params.Icon = Icon;
 	params.Index = Index;
 	params.parentRef = parentRef;
 	params.Description = Description;

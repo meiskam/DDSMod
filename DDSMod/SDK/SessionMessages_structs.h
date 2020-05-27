@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,9 +12,9 @@ namespace SDK
 // Script Structs
 //---------------------------------------------------------------------------
 
-// ScriptStruct SessionMessages.SessionServiceLogSubscribe
+// ScriptStruct SessionMessages.SessionServiceLogUnsubscribe
 // 0x0001
-struct FSessionServiceLogSubscribe
+struct FSessionServiceLogUnsubscribe
 {
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };
@@ -31,11 +31,18 @@ struct FSessionServiceLog
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
 };
 
-// ScriptStruct SessionMessages.SessionServiceLogUnsubscribe
+// ScriptStruct SessionMessages.SessionServiceLogSubscribe
 // 0x0001
-struct FSessionServiceLogUnsubscribe
+struct FSessionServiceLogSubscribe
 {
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
+};
+
+// ScriptStruct SessionMessages.SessionServicePing
+// 0x0010
+struct FSessionServicePing
+{
+	struct FString                                     UserName;                                                 // 0x0000(0x0010) (Edit, ZeroConstructor)
 };
 
 // ScriptStruct SessionMessages.SessionServicePong
@@ -56,13 +63,6 @@ struct FSessionServicePong
 	struct FString                                     SessionOwner;                                             // 0x0080(0x0010) (Edit, ZeroConstructor)
 	bool                                               Standalone;                                               // 0x0090(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x7];                                       // 0x0091(0x0007) MISSED OFFSET
-};
-
-// ScriptStruct SessionMessages.SessionServicePing
-// 0x0010
-struct FSessionServicePing
-{
-	struct FString                                     UserName;                                                 // 0x0000(0x0010) (Edit, ZeroConstructor)
 };
 
 }

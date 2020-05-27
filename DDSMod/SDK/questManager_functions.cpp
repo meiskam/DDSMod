@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -97,7 +97,7 @@ void AquestManager_C::checkCanShowTip(bool* CanShowTip)
 
 
 // Function questManager.questManager_C.onLoadFixes
-// (Public, BlueprintCallable, BlueprintEvent)
+// (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 
 void AquestManager_C::onLoadFixes()
 {
@@ -2077,6 +2077,77 @@ void AquestManager_C::longMoreAreas03()
 	static auto fn = UObject::FindObject<UFunction>("Function questManager.questManager_C.longMoreAreas03");
 
 	AquestManager_C_longMoreAreas03_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function questManager.questManager_C.openWeedGate
+// (BlueprintCallable, BlueprintEvent)
+
+void AquestManager_C::openWeedGate()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function questManager.questManager_C.openWeedGate");
+
+	AquestManager_C_openWeedGate_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function questManager.questManager_C.closeWeedGate
+// (BlueprintCallable, BlueprintEvent)
+
+void AquestManager_C::closeWeedGate()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function questManager.questManager_C.closeWeedGate");
+
+	AquestManager_C_closeWeedGate_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function questManager.questManager_C.displayWeedTutorial
+// (BlueprintCallable, BlueprintEvent)
+
+void AquestManager_C::displayWeedTutorial()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function questManager.questManager_C.displayWeedTutorial");
+
+	AquestManager_C_displayWeedTutorial_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function questManager.questManager_C.displayPlantHints
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// bool                           indoor                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+
+void AquestManager_C::displayPlantHints(bool indoor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function questManager.questManager_C.displayPlantHints");
+
+	AquestManager_C_displayPlantHints_Params params;
+	params.indoor = indoor;
 
 	auto flags = fn->FunctionFlags;
 

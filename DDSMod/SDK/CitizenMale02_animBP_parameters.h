@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -38,6 +38,11 @@ struct UCitizenMale02_animBP_C_EvaluateGraphExposedInputs_ExecuteUbergraph_Citiz
 struct UCitizenMale02_animBP_C_BlueprintUpdateAnimation_Params
 {
 	float*                                             DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function CitizenMale02_animBP.CitizenMale02_animBP_C.BlueprintBeginPlay
+struct UCitizenMale02_animBP_C_BlueprintBeginPlay_Params
+{
 };
 
 // Function CitizenMale02_animBP.CitizenMale02_animBP_C.ExecuteUbergraph_CitizenMale02_animBP

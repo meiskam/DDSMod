@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,17 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
+
+// Function CitizenFemale01_AnimBP.CitizenFemale01_AnimBP_C.BlueprintUpdateAnimation
+struct UCitizenFemale01_AnimBP_C_BlueprintUpdateAnimation_Params
+{
+	float*                                             DeltaTimeX;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function CitizenFemale01_AnimBP.CitizenFemale01_AnimBP_C.BlueprintBeginPlay
+struct UCitizenFemale01_AnimBP_C_BlueprintBeginPlay_Params
+{
+};
 
 // Function CitizenFemale01_AnimBP.CitizenFemale01_AnimBP_C.ExecuteUbergraph_CitizenFemale01_AnimBP
 struct UCitizenFemale01_AnimBP_C_ExecuteUbergraph_CitizenFemale01_AnimBP_Params

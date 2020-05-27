@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,42 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
-
-// Class Foliage.FoliageInstancedStaticMeshComponent
-// 0x0020 (0x0790 - 0x0770)
-class UFoliageInstancedStaticMeshComponent : public UHierarchicalInstancedStaticMeshComponent
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0770(0x0008) MISSED OFFSET
-	struct FScriptMulticastDelegate                    OnInstanceTakeRadialDamage;                               // 0x0778(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0788(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Foliage.FoliageInstancedStaticMeshComponent");
-		return ptr;
-	}
-
-};
-
-
-// Class Foliage.FoliageStatistics
-// 0x0000 (0x0028 - 0x0028)
-class UFoliageStatistics : public UBlueprintFunctionLibrary
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Foliage.FoliageStatistics");
-		return ptr;
-	}
-
-
-	int STATIC_FoliageOverlappingSphereCount(class UObject* WorldContextObject, class UStaticMesh* StaticMesh, const struct FVector& CenterPosition, float Radius);
-	int STATIC_FoliageOverlappingBoxCount(class UObject* WorldContextObject, class UStaticMesh* StaticMesh, const struct FBox& Box);
-};
-
 
 // Class Foliage.FoliageType
 // 0x0328 (0x0350 - 0x0028)
@@ -330,6 +294,42 @@ public:
 		return ptr;
 	}
 
+};
+
+
+// Class Foliage.FoliageInstancedStaticMeshComponent
+// 0x0020 (0x0790 - 0x0770)
+class UFoliageInstancedStaticMeshComponent : public UHierarchicalInstancedStaticMeshComponent
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0770(0x0008) MISSED OFFSET
+	struct FScriptMulticastDelegate                    OnInstanceTakeRadialDamage;                               // 0x0778(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0788(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Foliage.FoliageInstancedStaticMeshComponent");
+		return ptr;
+	}
+
+};
+
+
+// Class Foliage.FoliageStatistics
+// 0x0000 (0x0028 - 0x0028)
+class UFoliageStatistics : public UBlueprintFunctionLibrary
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Foliage.FoliageStatistics");
+		return ptr;
+	}
+
+
+	int STATIC_FoliageOverlappingSphereCount(class UObject* WorldContextObject, class UStaticMesh* StaticMesh, const struct FVector& CenterPosition, float Radius);
+	int STATIC_FoliageOverlappingBoxCount(class UObject* WorldContextObject, class UStaticMesh* StaticMesh, const struct FBox& Box);
 };
 
 

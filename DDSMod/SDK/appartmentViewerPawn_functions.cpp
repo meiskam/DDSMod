@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -178,6 +178,46 @@ void AappartmentViewerPawn_C::InpAxisEvt_LookSideways_K2Node_InputAxisEvent_1(fl
 
 	AappartmentViewerPawn_C_InpAxisEvt_LookSideways_K2Node_InputAxisEvent_1_Params params;
 	params.AxisValue = AxisValue;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function appartmentViewerPawn.appartmentViewerPawn_C.ReceivePossessed
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class AController**            NewController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+
+void AappartmentViewerPawn_C::ReceivePossessed(class AController** NewController)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function appartmentViewerPawn.appartmentViewerPawn_C.ReceivePossessed");
+
+	AappartmentViewerPawn_C_ReceivePossessed_Params params;
+	params.NewController = NewController;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function appartmentViewerPawn.appartmentViewerPawn_C.ReceiveUnpossessed
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class AController**            OldController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+
+void AappartmentViewerPawn_C::ReceiveUnpossessed(class AController** OldController)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function appartmentViewerPawn.appartmentViewerPawn_C.ReceiveUnpossessed");
+
+	AappartmentViewerPawn_C_ReceiveUnpossessed_Params params;
+	params.OldController = OldController;
 
 	auto flags = fn->FunctionFlags;
 

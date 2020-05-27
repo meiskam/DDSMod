@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -27,7 +27,7 @@ public:
 	bool                                               isGizmo_1;                                                // 0x0470(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x0471(0x0003) MISSED OFFSET
 	struct FVector2D                                   baseSizing;                                               // 0x0474(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	bool                                               canFit;                                                   // 0x047C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               CanFit;                                                   // 0x047C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x3];                                       // 0x047D(0x0003) MISSED OFFSET
 	TArray<struct FVector>                             lineTracePoints;                                          // 0x0480(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	bool                                               FromHovered;                                              // 0x0490(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -82,7 +82,7 @@ public:
 	void subclassActivate();
 	void equipmentActivation();
 	void calcLineTracePoints();
-	void checkCanFit(bool* canFit);
+	void checkCanFit(bool* CanFit);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
 	void ReceiveTick(float* DeltaSeconds);

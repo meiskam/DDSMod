@@ -1,7 +1,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.4.30
+// Name: DDS, Version: 2020.5.27
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -126,6 +126,89 @@ class UGameplayTask_ClaimResource* UGameplayTask_ClaimResource::STATIC_ClaimReso
 }
 
 
+// Function GameplayTasks.GameplayTask_SpawnActor.SpawnActor
+// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// TScriptInterface<class UGameplayTaskOwnerInterface> TaskOwner                      (Parm, ZeroConstructor, IsPlainOldData)
+// struct FVector                 SpawnLocation                  (Parm, ZeroConstructor, IsPlainOldData)
+// struct FRotator                SpawnRotation                  (Parm, ZeroConstructor, IsPlainOldData)
+// class UClass*                  Class                          (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bSpawnOnlyOnAuthority          (Parm, ZeroConstructor, IsPlainOldData)
+// class UGameplayTask_SpawnActor* ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class UGameplayTask_SpawnActor* UGameplayTask_SpawnActor::STATIC_SpawnActor(const TScriptInterface<class UGameplayTaskOwnerInterface>& TaskOwner, const struct FVector& SpawnLocation, const struct FRotator& SpawnRotation, class UClass* Class, bool bSpawnOnlyOnAuthority)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function GameplayTasks.GameplayTask_SpawnActor.SpawnActor");
+
+	UGameplayTask_SpawnActor_SpawnActor_Params params;
+	params.TaskOwner = TaskOwner;
+	params.SpawnLocation = SpawnLocation;
+	params.SpawnRotation = SpawnRotation;
+	params.Class = Class;
+	params.bSpawnOnlyOnAuthority = bSpawnOnlyOnAuthority;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function GameplayTasks.GameplayTask_SpawnActor.FinishSpawningActor
+// (Native, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  SpawnedActor                   (Parm, ZeroConstructor, IsPlainOldData)
+
+void UGameplayTask_SpawnActor::FinishSpawningActor(class UObject* WorldContextObject, class AActor* SpawnedActor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function GameplayTasks.GameplayTask_SpawnActor.FinishSpawningActor");
+
+	UGameplayTask_SpawnActor_FinishSpawningActor_Params params;
+	params.WorldContextObject = WorldContextObject;
+	params.SpawnedActor = SpawnedActor;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function GameplayTasks.GameplayTask_SpawnActor.BeginSpawningActor
+// (Native, Public, HasOutParms, BlueprintCallable)
+// Parameters:
+// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  SpawnedActor                   (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UGameplayTask_SpawnActor::BeginSpawningActor(class UObject* WorldContextObject, class AActor** SpawnedActor)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function GameplayTasks.GameplayTask_SpawnActor.BeginSpawningActor");
+
+	UGameplayTask_SpawnActor_BeginSpawningActor_Params params;
+	params.WorldContextObject = WorldContextObject;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (SpawnedActor != nullptr)
+		*SpawnedActor = params.SpawnedActor;
+
+	return params.ReturnValue;
+}
+
+
 // Function GameplayTasks.GameplayTask_WaitDelay.TaskWaitDelay
 // (Final, Native, Static, Public, BlueprintCallable)
 // Parameters:
@@ -216,89 +299,6 @@ EGameplayTaskRunResult UGameplayTasksComponent::STATIC_K2_RunGameplayTask(const 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function GameplayTasks.GameplayTask_SpawnActor.SpawnActor
-// (Final, Native, Static, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// TScriptInterface<class UGameplayTaskOwnerInterface> TaskOwner                      (Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector                 SpawnLocation                  (Parm, ZeroConstructor, IsPlainOldData)
-// struct FRotator                SpawnRotation                  (Parm, ZeroConstructor, IsPlainOldData)
-// class UClass*                  Class                          (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bSpawnOnlyOnAuthority          (Parm, ZeroConstructor, IsPlainOldData)
-// class UGameplayTask_SpawnActor* ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class UGameplayTask_SpawnActor* UGameplayTask_SpawnActor::STATIC_SpawnActor(const TScriptInterface<class UGameplayTaskOwnerInterface>& TaskOwner, const struct FVector& SpawnLocation, const struct FRotator& SpawnRotation, class UClass* Class, bool bSpawnOnlyOnAuthority)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function GameplayTasks.GameplayTask_SpawnActor.SpawnActor");
-
-	UGameplayTask_SpawnActor_SpawnActor_Params params;
-	params.TaskOwner = TaskOwner;
-	params.SpawnLocation = SpawnLocation;
-	params.SpawnRotation = SpawnRotation;
-	params.Class = Class;
-	params.bSpawnOnlyOnAuthority = bSpawnOnlyOnAuthority;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function GameplayTasks.GameplayTask_SpawnActor.FinishSpawningActor
-// (Native, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  SpawnedActor                   (Parm, ZeroConstructor, IsPlainOldData)
-
-void UGameplayTask_SpawnActor::FinishSpawningActor(class UObject* WorldContextObject, class AActor* SpawnedActor)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function GameplayTasks.GameplayTask_SpawnActor.FinishSpawningActor");
-
-	UGameplayTask_SpawnActor_FinishSpawningActor_Params params;
-	params.WorldContextObject = WorldContextObject;
-	params.SpawnedActor = SpawnedActor;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function GameplayTasks.GameplayTask_SpawnActor.BeginSpawningActor
-// (Native, Public, HasOutParms, BlueprintCallable)
-// Parameters:
-// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  SpawnedActor                   (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool UGameplayTask_SpawnActor::BeginSpawningActor(class UObject* WorldContextObject, class AActor** SpawnedActor)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function GameplayTasks.GameplayTask_SpawnActor.BeginSpawningActor");
-
-	UGameplayTask_SpawnActor_BeginSpawningActor_Params params;
-	params.WorldContextObject = WorldContextObject;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	if (SpawnedActor != nullptr)
-		*SpawnedActor = params.SpawnedActor;
 
 	return params.ReturnValue;
 }
