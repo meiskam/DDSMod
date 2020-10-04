@@ -1,5 +1,5 @@
 
-#include "../SDK.h"
+#include "SDK.h"
 
 // Name: DDS, Version: 2020.5.27
 
