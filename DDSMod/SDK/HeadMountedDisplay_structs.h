@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -25,16 +25,6 @@ enum class EXRTrackedDeviceType : uint8_t
 };
 
 
-// Enum HeadMountedDisplay.EHMDWornState
-enum class EHMDWornState : uint8_t
-{
-	EHMDWornState__Unknown         = 0,
-	EHMDWornState__Worn            = 1,
-	EHMDWornState__NotWorn         = 2,
-	EHMDWornState__EHMDWornState_MAX = 3
-};
-
-
 // Enum HeadMountedDisplay.ESpectatorScreenMode
 enum class ESpectatorScreenMode : uint8_t
 {
@@ -47,6 +37,16 @@ enum class ESpectatorScreenMode : uint8_t
 	ESpectatorScreenMode__Texture  = 6,
 	ESpectatorScreenMode__TexturePlusEye = 7,
 	ESpectatorScreenMode__ESpectatorScreenMode_MAX = 8
+};
+
+
+// Enum HeadMountedDisplay.EHMDWornState
+enum class EHMDWornState : uint8_t
+{
+	EHMDWornState__Unknown         = 0,
+	EHMDWornState__Worn            = 1,
+	EHMDWornState__NotWorn         = 2,
+	EHMDWornState__EHMDWornState_MAX = 3
 };
 
 

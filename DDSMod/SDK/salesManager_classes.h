@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -133,7 +133,7 @@ public:
 	void countAddictedClients(int* ClientCount);
 	void countMaxDealers(int* NumDealers);
 	void adaptDifficulty();
-	void generateClientMessage(bool Dealer, bool CashMeet, int quantity, const struct FText& DrugNam, bool priceHigh, struct FText* Message);
+	void generateClientMessage(bool dealer, bool CashMeet, int quantity, const struct FText& DrugNam, bool priceHigh, struct FText* Message);
 	void recalcClientCount();
 	void tryDisplayClientState();
 	void displayClientAddictedPopup(int ClientId);
@@ -142,13 +142,13 @@ public:
 	void spawnAreaSampleClient(const struct FString& ClientArea);
 	void updateAreaTimeMultiplier();
 	void loopCheckPrices(bool* someAffordable);
-	void getOrderedDrugName(int drugIndex, struct FText* Output);
+	void getOrderedDrugName(int DrugIndex, struct FText* Output);
 	void checkClientInterested(int ClientId, int DrugDemandedID, bool* Interested, bool* priceHigh);
 	void badSaleResponse(bool ClientLost, int ClientId);
 	void sendDealerOffer(int ClientId);
 	bool dealerOfferChance(int ClientId);
-	void odMessageResponse(bool Dealer, int ClientId);
-	void showODPopup(bool Dealer, int ClientId);
+	void odMessageResponse(bool dealer, int ClientId);
+	void showODPopup(bool dealer, int ClientId);
 	void addStatsOD();
 	void selectDrugID(int ClientId, int* DrugID);
 	void timeShift(float TimeShiftHours, float TimeShiftMinutes);
@@ -158,7 +158,7 @@ public:
 	void getOrderedDrugIndex(int RandomIndex, int* OutIndex);
 	void refreshAvailableDrugs(bool* DrugsAreAvailable);
 	void countClientStatistics();
-	void calcOrderQuantity(int inClientID, bool nightTime, bool priceHigh, int* outQuantity);
+	void calcOrderQuantity(int inClientID, bool nightTime, bool priceHigh, int* OutQuantity);
 	void clientSendNewOrder(int ClientId, bool nightTime);
 	void clientOrderCountdown(float Delta);
 	void generateNewClient(bool Force);

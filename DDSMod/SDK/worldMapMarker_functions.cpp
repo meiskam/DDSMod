@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -53,10 +53,10 @@ void AworldMapMarker_C::ReceiveBeginPlay()
 // TEnumAsByte<EmapMarkerCategories> Category                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   Name                           (BlueprintVisible, BlueprintReadOnly, Parm)
 // struct FText                   ToolTip                        (BlueprintVisible, BlueprintReadOnly, Parm)
-// bool                           Dealer                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            taskID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           dealer                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            TaskID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AworldMapMarker_C::setup(TEnumAsByte<EmapMarkerCategories> Category, const struct FText& Name, const struct FText& ToolTip, bool Dealer, int taskID)
+void AworldMapMarker_C::setup(TEnumAsByte<EmapMarkerCategories> Category, const struct FText& Name, const struct FText& ToolTip, bool dealer, int TaskID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function worldMapMarker.worldMapMarker_C.setup");
 
@@ -64,8 +64,8 @@ void AworldMapMarker_C::setup(TEnumAsByte<EmapMarkerCategories> Category, const 
 	params.Category = Category;
 	params.Name = Name;
 	params.ToolTip = ToolTip;
-	params.Dealer = Dealer;
-	params.taskID = taskID;
+	params.dealer = dealer;
+	params.TaskID = TaskID;
 
 	auto flags = fn->FunctionFlags;
 
@@ -92,14 +92,14 @@ void AworldMapMarker_C::checkTaskEnded()
 }
 
 
-// Function worldMapMarker.worldMapMarker_C.ReInitialise
+// Function worldMapMarker.worldMapMarker_C.reInitialise
 // (BlueprintCallable, BlueprintEvent)
 
-void AworldMapMarker_C::ReInitialise()
+void AworldMapMarker_C::reInitialise()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function worldMapMarker.worldMapMarker_C.ReInitialise");
+	static auto fn = UObject::FindObject<UFunction>("Function worldMapMarker.worldMapMarker_C.reInitialise");
 
-	AworldMapMarker_C_ReInitialise_Params params;
+	AworldMapMarker_C_reInitialise_Params params;
 
 	auto flags = fn->FunctionFlags;
 

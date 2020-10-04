@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -23,16 +23,6 @@ enum class ELandscapeSetupErrors : uint8_t
 };
 
 
-// Enum Landscape.ELandscapeGizmoType
-enum class ELandscapeGizmoType : uint8_t
-{
-	LGT_None                       = 0,
-	LGT_Height                     = 1,
-	LGT_Weight                     = 2,
-	LGT_MAX                        = 3
-};
-
-
 // Enum Landscape.EGrassScaling
 enum class EGrassScaling : uint8_t
 {
@@ -49,6 +39,16 @@ enum class ELandscapeLODFalloff : uint8_t
 	ELandscapeLODFalloff__Linear   = 0,
 	ELandscapeLODFalloff__SquareRoot = 1,
 	ELandscapeLODFalloff__ELandscapeLODFalloff_MAX = 2
+};
+
+
+// Enum Landscape.ELandscapeGizmoType
+enum class ELandscapeGizmoType : uint8_t
+{
+	LGT_None                       = 0,
+	LGT_Height                     = 1,
+	LGT_Weight                     = 2,
+	LGT_MAX                        = 3
 };
 
 
@@ -71,6 +71,17 @@ enum class ELandscapeImportAlphamapType : uint8_t
 };
 
 
+// Enum Landscape.ELandscapeLayerPaintingRestriction
+enum class ELandscapeLayerPaintingRestriction : uint8_t
+{
+	ELandscapeLayerPaintingRestriction__None = 0,
+	ELandscapeLayerPaintingRestriction__UseMaxLayers = 1,
+	ELandscapeLayerPaintingRestriction__ExistingOnly = 2,
+	ELandscapeLayerPaintingRestriction__UseComponentWhitelist = 3,
+	ELandscapeLayerPaintingRestriction__ELandscapeLayerPaintingRestriction_MAX = 4
+};
+
+
 // Enum Landscape.LandscapeSplineMeshOrientation
 enum class ELandscapeSplineMeshOrientation : uint8_t
 {
@@ -90,14 +101,14 @@ enum class ELandscapeLayerBlendType : uint8_t
 };
 
 
-// Enum Landscape.ELandscapeLayerPaintingRestriction
-enum class ELandscapeLayerPaintingRestriction : uint8_t
+// Enum Landscape.ETerrainCoordMappingType
+enum class ETerrainCoordMappingType : uint8_t
 {
-	ELandscapeLayerPaintingRestriction__None = 0,
-	ELandscapeLayerPaintingRestriction__UseMaxLayers = 1,
-	ELandscapeLayerPaintingRestriction__ExistingOnly = 2,
-	ELandscapeLayerPaintingRestriction__UseComponentWhitelist = 3,
-	ELandscapeLayerPaintingRestriction__ELandscapeLayerPaintingRestriction_MAX = 4
+	TCMT_Auto                      = 0,
+	TCMT_XY                        = 1,
+	TCMT_XZ                        = 2,
+	TCMT_YZ                        = 3,
+	TCMT_MAX                       = 4
 };
 
 
@@ -110,17 +121,6 @@ enum class ELandscapeCustomizedCoordType : uint8_t
 	LCCT_CustomUV2                 = 3,
 	LCCT_WeightMapUV               = 4,
 	LCCT_MAX                       = 5
-};
-
-
-// Enum Landscape.ETerrainCoordMappingType
-enum class ETerrainCoordMappingType : uint8_t
-{
-	TCMT_Auto                      = 0,
-	TCMT_XY                        = 1,
-	TCMT_XZ                        = 2,
-	TCMT_YZ                        = 3,
-	TCMT_MAX                       = 4
 };
 
 
@@ -270,18 +270,18 @@ struct FLandscapeInfoLayerSettings
 	struct FName                                       LayerName;                                                // 0x0008(0x0008) (ZeroConstructor, IsPlainOldData)
 };
 
-// ScriptStruct Landscape.LandscapeLayerStruct
-// 0x0008
-struct FLandscapeLayerStruct
-{
-	class ULandscapeLayerInfoObject*                   LayerInfoObj;                                             // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
-};
-
 // ScriptStruct Landscape.LandscapeImportLayerInfo
 // 0x0001
 struct FLandscapeImportLayerInfo
 {
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
+};
+
+// ScriptStruct Landscape.LandscapeLayerStruct
+// 0x0008
+struct FLandscapeLayerStruct
+{
+	class ULandscapeLayerInfoObject*                   LayerInfoObj;                                             // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct Landscape.LandscapeEditorLayerSettings
@@ -305,16 +305,16 @@ struct FForeignWorldSplineData
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };
 
-// ScriptStruct Landscape.ForeignSplineSegmentData
+// ScriptStruct Landscape.ForeignControlPointData
 // 0x0001
-struct FForeignSplineSegmentData
+struct FForeignControlPointData
 {
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };
 
-// ScriptStruct Landscape.ForeignControlPointData
+// ScriptStruct Landscape.ForeignSplineSegmentData
 // 0x0001
-struct FForeignControlPointData
+struct FForeignSplineSegmentData
 {
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };

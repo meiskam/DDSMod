@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,7 +17,7 @@ namespace SDK
 // Function sprayActionWidget.sprayActionWidget_C.setup
 struct UsprayActionWidget_C_setup_Params
 {
-	struct FText                                       AreaNam;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm)
+	struct FText                                       areaNam;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm)
 };
 
 // Function sprayActionWidget.sprayActionWidget_C.ExecuteUbergraph_sprayActionWidget

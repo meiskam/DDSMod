@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -36,11 +36,11 @@ public:
 	}
 
 
-	void checkAreaUnlocked(bool* unlocked);
+	void checkAreaUnlocked(bool* Unlocked);
 	struct FEventReply OnMouseButtonDoubleClick(const struct FGeometry& InMyGeometry, const struct FPointerEvent& InMouseEvent);
 	class UWidget* Get_mainCanvas_ToolTipWidget_1();
 	bool Get_mainCanvas_bIsEnabled_1();
-	void setup(const struct FText& MarkerName, TEnumAsByte<EmapMarkerCategories> MarkerType, const struct FVector2D& basePos, const struct FText& ToolTip, bool Dealer, const struct FString& AreaString);
+	void setup(const struct FText& MarkerName, TEnumAsByte<EmapMarkerCategories> MarkerType, const struct FVector2D& basePos, const struct FText& ToolTip, bool dealer, const struct FString& AreaString);
 	void ExecuteUbergraph_worldMapUI_Marker(int EntryPoint);
 };
 

@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -429,14 +429,14 @@ void UmainMenuWidget_C::BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_4_OnButto
 // Function mainMenuWidget.mainMenuWidget_C.startNewGame
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// TEnumAsByte<EdifficultyLevels> ChosenDifficulty               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// TEnumAsByte<EdifficultyLevels> chosenDifficulty               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UmainMenuWidget_C::startNewGame(TEnumAsByte<EdifficultyLevels> ChosenDifficulty)
+void UmainMenuWidget_C::startNewGame(TEnumAsByte<EdifficultyLevels> chosenDifficulty)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.startNewGame");
 
 	UmainMenuWidget_C_startNewGame_Params params;
-	params.ChosenDifficulty = ChosenDifficulty;
+	params.chosenDifficulty = chosenDifficulty;
 
 	auto flags = fn->FunctionFlags;
 

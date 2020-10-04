@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -24,12 +24,6 @@ struct UMediaSource_Validate_Params
 struct UMediaSource_GetUrl_Params
 {
 	struct FString                                     ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm)
-};
-
-// Function MediaAssets.FileMediaSource.SetFilePath
-struct UFileMediaSource_SetFilePath_Params
-{
-	struct FString                                     Path;                                                     // (Parm, ZeroConstructor)
 };
 
 // Function MediaAssets.MediaBlueprintFunctionLibrary.EnumerateWebcamCaptureDevices
@@ -641,6 +635,12 @@ struct UMediaTexture_GetHeight_Params
 struct UMediaTexture_GetAspectRatio_Params
 {
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MediaAssets.FileMediaSource.SetFilePath
+struct UFileMediaSource_SetFilePath_Params
+{
+	struct FString                                     Path;                                                     // (Parm, ZeroConstructor)
 };
 
 }

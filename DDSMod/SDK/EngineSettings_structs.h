@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,12 +12,13 @@ namespace SDK
 // Enums
 //---------------------------------------------------------------------------
 
-// Enum EngineSettings.EFourPlayerSplitScreenType
-enum class EFourPlayerSplitScreenType : uint8_t
+// Enum EngineSettings.EThreePlayerSplitScreenType
+enum class EThreePlayerSplitScreenType : uint8_t
 {
-	EFourPlayerSplitScreenType__Grid = 0,
-	EFourPlayerSplitScreenType__Vertical = 1,
-	EFourPlayerSplitScreenType__EFourPlayerSplitScreenType_MAX = 2
+	EThreePlayerSplitScreenType__FavorTop = 0,
+	EThreePlayerSplitScreenType__FavorBottom = 1,
+	EThreePlayerSplitScreenType__Vertical = 2,
+	EThreePlayerSplitScreenType__EThreePlayerSplitScreenType_MAX = 3
 };
 
 
@@ -30,13 +31,12 @@ enum class ETwoPlayerSplitScreenType : uint8_t
 };
 
 
-// Enum EngineSettings.EThreePlayerSplitScreenType
-enum class EThreePlayerSplitScreenType : uint8_t
+// Enum EngineSettings.EFourPlayerSplitScreenType
+enum class EFourPlayerSplitScreenType : uint8_t
 {
-	EThreePlayerSplitScreenType__FavorTop = 0,
-	EThreePlayerSplitScreenType__FavorBottom = 1,
-	EThreePlayerSplitScreenType__Vertical = 2,
-	EThreePlayerSplitScreenType__EThreePlayerSplitScreenType_MAX = 3
+	EFourPlayerSplitScreenType__Grid = 0,
+	EFourPlayerSplitScreenType__Vertical = 1,
+	EFourPlayerSplitScreenType__EFourPlayerSplitScreenType_MAX = 2
 };
 
 

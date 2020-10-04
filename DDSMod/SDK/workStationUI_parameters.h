@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -75,8 +75,8 @@ struct UworkStationUI_C_Tick_Params
 	float                                              InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function workStationUI.workStationUI_C.ReInitialise
-struct UworkStationUI_C_ReInitialise_Params
+// Function workStationUI.workStationUI_C.reInitialise
+struct UworkStationUI_C_reInitialise_Params
 {
 };
 

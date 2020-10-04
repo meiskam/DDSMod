@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -69,7 +69,7 @@ struct AquestManager_C_addNewQuest_Params
 // Function questManager.questManager_C.checkCanAddWidget
 struct AquestManager_C_checkCanAddWidget_Params
 {
-	bool                                               OK;                                                       // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               ok;                                                       // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function questManager.questManager_C.playerAvailable
@@ -81,7 +81,7 @@ struct AquestManager_C_playerAvailable_Params
 // Function questManager.questManager_C.checkTaskRelatedMarkers
 struct AquestManager_C_checkTaskRelatedMarkers_Params
 {
-	int                                                taskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                TaskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function questManager.questManager_C.checkDisplayNewTask
@@ -253,7 +253,7 @@ struct AquestManager_C_workStationTask_Params
 // Function questManager.questManager_C.firstOwnOrderReceived
 struct AquestManager_C_firstOwnOrderReceived_Params
 {
-	int                                                taskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                TaskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function questManager.questManager_C.tutWorkPlayerPutDrug
@@ -649,7 +649,7 @@ struct AquestManager_C_displayWeedTutorial_Params
 // Function questManager.questManager_C.displayPlantHints
 struct AquestManager_C_displayPlantHints_Params
 {
-	bool                                               Indoor;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               indoor;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function questManager.questManager_C.ExecuteUbergraph_questManager

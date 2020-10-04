@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -63,14 +63,14 @@ void AfurnitureShopEnterTrigger_C::BndEvt__Box_K2Node_ComponentBoundEvent_0_Comp
 // Function furnitureShopEnterTrigger.furnitureShopEnterTrigger_C.prepare
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int                            taskID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            TaskID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AfurnitureShopEnterTrigger_C::prepare(int taskID)
+void AfurnitureShopEnterTrigger_C::prepare(int TaskID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function furnitureShopEnterTrigger.furnitureShopEnterTrigger_C.prepare");
 
 	AfurnitureShopEnterTrigger_C_prepare_Params params;
-	params.taskID = taskID;
+	params.TaskID = TaskID;
 
 	auto flags = fn->FunctionFlags;
 

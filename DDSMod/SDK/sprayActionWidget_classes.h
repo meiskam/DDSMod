@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -29,7 +29,7 @@ public:
 	}
 
 
-	void setup(const struct FText& AreaNam);
+	void setup(const struct FText& areaNam);
 	void ExecuteUbergraph_sprayActionWidget(int EntryPoint);
 };
 

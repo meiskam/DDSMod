@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -441,16 +441,16 @@ void AworkStationEquipmentBase_C::ReceiveTick(float DeltaSeconds)
 // Parameters:
 // struct FappartmentEquipment    Data                           (BlueprintVisible, BlueprintReadOnly, Parm)
 // bool                           Gizmo                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// bool                           fromHovered                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           FromHovered                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AworkStationEquipmentBase_C::initialSetup(const struct FappartmentEquipment& Data, bool Gizmo, bool fromHovered)
+void AworkStationEquipmentBase_C::initialSetup(const struct FappartmentEquipment& Data, bool Gizmo, bool FromHovered)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function workStationEquipmentBase.workStationEquipmentBase_C.initialSetup");
 
 	AworkStationEquipmentBase_C_initialSetup_Params params;
 	params.Data = Data;
 	params.Gizmo = Gizmo;
-	params.fromHovered = fromHovered;
+	params.FromHovered = FromHovered;
 
 	auto flags = fn->FunctionFlags;
 

@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -18,16 +18,16 @@ namespace SDK
 // Parameters:
 // bool                           Show                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FString                 AreaString                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
-// bool                           unlocked                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           Unlocked                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UshadyCommInterface_C::toggleAreaDetails(bool Show, const struct FString& AreaString, bool unlocked)
+void UshadyCommInterface_C::toggleAreaDetails(bool Show, const struct FString& AreaString, bool Unlocked)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function shadyCommInterface.shadyCommInterface_C.toggleAreaDetails");
 
 	UshadyCommInterface_C_toggleAreaDetails_Params params;
 	params.Show = Show;
 	params.AreaString = AreaString;
-	params.unlocked = unlocked;
+	params.Unlocked = Unlocked;
 
 	auto flags = fn->FunctionFlags;
 
@@ -442,15 +442,15 @@ void UshadyCommInterface_C::findSalePointByAreaID(const struct FString& stringID
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // class AsalesManager_C*         SaleManager                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            OrderID                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            OrderId                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UshadyCommInterface_C::spawnClientOnMap(class AsalesManager_C* SaleManager, int OrderID)
+void UshadyCommInterface_C::spawnClientOnMap(class AsalesManager_C* SaleManager, int OrderId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function shadyCommInterface.shadyCommInterface_C.spawnClientOnMap");
 
 	UshadyCommInterface_C_spawnClientOnMap_Params params;
 	params.SaleManager = SaleManager;
-	params.OrderID = OrderID;
+	params.OrderId = OrderId;
 
 	auto flags = fn->FunctionFlags;
 
@@ -798,14 +798,14 @@ void UshadyCommInterface_C::closeOptions()
 // Function shadyCommInterface.shadyCommInterface_C.showPriceEdit
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int                            drugIndex                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            DrugIndex                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UshadyCommInterface_C::showPriceEdit(int drugIndex)
+void UshadyCommInterface_C::showPriceEdit(int DrugIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function shadyCommInterface.shadyCommInterface_C.showPriceEdit");
 
 	UshadyCommInterface_C_showPriceEdit_Params params;
-	params.drugIndex = drugIndex;
+	params.DrugIndex = DrugIndex;
 
 	auto flags = fn->FunctionFlags;
 

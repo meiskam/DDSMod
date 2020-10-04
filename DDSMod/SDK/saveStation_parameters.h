@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -72,6 +72,11 @@ struct AsaveStation_C_BndEvt__pawnDetector_K2Node_ComponentBoundEvent_1_Componen
 
 // Function saveStation.saveStation_C.drawCheck
 struct AsaveStation_C_drawCheck_Params
+{
+};
+
+// Function saveStation.saveStation_C.updateDisplayState
+struct AsaveStation_C_updateDisplayState_Params
 {
 };
 

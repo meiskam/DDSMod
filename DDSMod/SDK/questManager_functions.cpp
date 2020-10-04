@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -188,9 +188,9 @@ void AquestManager_C::addNewQuest(const struct FText& QuestNam, const struct FTe
 // Function questManager.questManager_C.checkCanAddWidget
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
-// bool                           OK                             (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           ok                             (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AquestManager_C::checkCanAddWidget(bool* OK)
+void AquestManager_C::checkCanAddWidget(bool* ok)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function questManager.questManager_C.checkCanAddWidget");
 
@@ -202,8 +202,8 @@ void AquestManager_C::checkCanAddWidget(bool* OK)
 
 	fn->FunctionFlags = flags;
 
-	if (OK != nullptr)
-		*OK = params.OK;
+	if (ok != nullptr)
+		*ok = params.ok;
 }
 
 
@@ -232,14 +232,14 @@ void AquestManager_C::playerAvailable(bool* isAvailable)
 // Function questManager.questManager_C.checkTaskRelatedMarkers
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int                            taskID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            TaskID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AquestManager_C::checkTaskRelatedMarkers(int taskID)
+void AquestManager_C::checkTaskRelatedMarkers(int TaskID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function questManager.questManager_C.checkTaskRelatedMarkers");
 
 	AquestManager_C_checkTaskRelatedMarkers_Params params;
-	params.taskID = taskID;
+	params.TaskID = TaskID;
 
 	auto flags = fn->FunctionFlags;
 
@@ -797,14 +797,14 @@ void AquestManager_C::workStationTask()
 // Function questManager.questManager_C.firstOwnOrderReceived
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int                            taskID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            TaskID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AquestManager_C::firstOwnOrderReceived(int taskID)
+void AquestManager_C::firstOwnOrderReceived(int TaskID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function questManager.questManager_C.firstOwnOrderReceived");
 
 	AquestManager_C_firstOwnOrderReceived_Params params;
-	params.taskID = taskID;
+	params.TaskID = TaskID;
 
 	auto flags = fn->FunctionFlags;
 
@@ -2140,14 +2140,14 @@ void AquestManager_C::displayWeedTutorial()
 // Function questManager.questManager_C.displayPlantHints
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           Indoor                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           indoor                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AquestManager_C::displayPlantHints(bool Indoor)
+void AquestManager_C::displayPlantHints(bool indoor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function questManager.questManager_C.displayPlantHints");
 
 	AquestManager_C_displayPlantHints_Params params;
-	params.Indoor = Indoor;
+	params.indoor = indoor;
 
 	auto flags = fn->FunctionFlags;
 

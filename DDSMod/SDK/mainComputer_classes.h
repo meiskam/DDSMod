@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -114,7 +114,7 @@ public:
 	void addUserMessage(int userID, const struct FText& Text, bool PlayerMessage);
 	void getOrderRefByID(int ID, class AorderInstance_C** orderInstance);
 	void constructMessageSentence(bool LastIndex, bool BeforeLastIndex, int quantity, const struct FdrugData& drugData, bool isSingle);
-	void sendNewOrder(TArray<struct FdrugData>* drugData, TArray<int>* drugQuantities);
+	void sendNewOrder(TArray<struct FdrugData>* drugData, TArray<int>* DrugQuantities);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
 	void ReceiveTick(float DeltaSeconds);

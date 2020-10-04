@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -44,26 +44,6 @@ public:
 		return ptr;
 	}
 
-};
-
-
-// Class MediaAssets.FileMediaSource
-// 0x0028 (0x0060 - 0x0038)
-class UFileMediaSource : public UBaseMediaSource
-{
-public:
-	struct FString                                     FilePath;                                                 // 0x0038(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	bool                                               PrecacheFile;                                             // 0x0048(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x17];                                      // 0x0049(0x0017) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MediaAssets.FileMediaSource");
-		return ptr;
-	}
-
-
-	void SetFilePath(const struct FString& Path);
 };
 
 
@@ -253,6 +233,35 @@ public:
 };
 
 
+// Class MediaAssets.MediaTexture
+// 0x0090 (0x0140 - 0x00B0)
+class UMediaTexture : public UTexture
+{
+public:
+	TEnumAsByte<ETextureAddress>                       AddressX;                                                 // 0x00B0(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<ETextureAddress>                       AddressY;                                                 // 0x00B1(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	bool                                               AutoClear;                                                // 0x00B2(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x1];                                       // 0x00B3(0x0001) MISSED OFFSET
+	struct FLinearColor                                ClearColor;                                               // 0x00B4(0x0010) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x00C4(0x0004) MISSED OFFSET
+	class UMediaPlayer*                                MediaPlayer;                                              // 0x00C8(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x70];                                      // 0x00D0(0x0070) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MediaAssets.MediaTexture");
+		return ptr;
+	}
+
+
+	void SetMediaPlayer(class UMediaPlayer* NewMediaPlayer);
+	int GetWidth();
+	class UMediaPlayer* GetMediaPlayer();
+	int GetHeight();
+	float GetAspectRatio();
+};
+
+
 // Class MediaAssets.PlatformMediaSource
 // 0x0008 (0x0038 - 0x0030)
 class UPlatformMediaSource : public UMediaSource
@@ -302,32 +311,23 @@ public:
 };
 
 
-// Class MediaAssets.MediaTexture
-// 0x0090 (0x0140 - 0x00B0)
-class UMediaTexture : public UTexture
+// Class MediaAssets.FileMediaSource
+// 0x0028 (0x0060 - 0x0038)
+class UFileMediaSource : public UBaseMediaSource
 {
 public:
-	TEnumAsByte<ETextureAddress>                       AddressX;                                                 // 0x00B0(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<ETextureAddress>                       AddressY;                                                 // 0x00B1(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	bool                                               AutoClear;                                                // 0x00B2(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x1];                                       // 0x00B3(0x0001) MISSED OFFSET
-	struct FLinearColor                                ClearColor;                                               // 0x00B4(0x0010) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x00C4(0x0004) MISSED OFFSET
-	class UMediaPlayer*                                MediaPlayer;                                              // 0x00C8(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x70];                                      // 0x00D0(0x0070) MISSED OFFSET
+	struct FString                                     FilePath;                                                 // 0x0038(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	bool                                               PrecacheFile;                                             // 0x0048(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x17];                                      // 0x0049(0x0017) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class MediaAssets.MediaTexture");
+		static auto ptr = UObject::FindClass("Class MediaAssets.FileMediaSource");
 		return ptr;
 	}
 
 
-	void SetMediaPlayer(class UMediaPlayer* NewMediaPlayer);
-	int GetWidth();
-	class UMediaPlayer* GetMediaPlayer();
-	int GetHeight();
-	float GetAspectRatio();
+	void SetFilePath(const struct FString& Path);
 };
 
 

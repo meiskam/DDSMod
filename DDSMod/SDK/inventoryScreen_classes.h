@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -128,12 +128,13 @@ public:
 	}
 
 
+	void _3dcharacterToggle(bool Enable);
 	void updateFactorRanks();
 	void refreshQuickUse();
 	void inventoryError(const struct FText& ErrorText);
 	void refreshSkills();
 	void countTotalDrugGrams(int* OutGrams);
-	void checkSubstanceSame(TArray<struct FinventoryItemStruct>* Substances, TArray<int>* quantities, bool* TheSame, struct FdrugData* dataAverage);
+	void checkSubstanceSame(TArray<struct FinventoryItemStruct>* Substances, TArray<int>* Quantities, bool* TheSame, struct FdrugData* dataAverage);
 	void renderQuestList();
 	void acceptBoughtItems();
 	void countBoughtItemValue(class AplayerCharacterBP_C* playerRef, int* Value);
@@ -150,7 +151,7 @@ public:
 	void countItemValue(int* totalValue);
 	void clearTradeItems();
 	void renderShopItems(class AbaseNPC_C* sellerRef);
-	void renderContainer(class AcontainerBase_C* container, TArray<struct FinventoryItemStruct>* containerItems);
+	void renderContainer(class AcontainerBase_C* Container, TArray<struct FinventoryItemStruct>* containerItems);
 	void prepareInventoryMode(class AcontainerBase_C* ContainerRef, class AbaseNPC_C* sellerRef, class AplayerCharacterBP_C* playerRef);
 	void renderPockets(class AplayerCharacterBP_C* Player, TArray<struct FinventoryItemStruct>* pocketItems);
 	void renderBackpack(TArray<struct FinventoryItemStruct>* backpackItems);

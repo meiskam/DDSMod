@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -23,17 +23,6 @@ enum class EDatasmithAreaLightActorShape : uint8_t
 };
 
 
-// Enum DatasmithContent.EVREDDataTableType
-enum class EVREDDataTableType : uint8_t
-{
-	EVREDDataTableType__NotDatatable = 0,
-	EVREDDataTableType__Variants   = 1,
-	EVREDDataTableType__AnimClips  = 2,
-	EVREDDataTableType__AnimNodes  = 3,
-	EVREDDataTableType__EVREDDataTableType_MAX = 4
-};
-
-
 // Enum DatasmithContent.EDatasmithImportHierarchy
 enum class EDatasmithImportHierarchy : uint8_t
 {
@@ -51,6 +40,17 @@ enum class EDatasmithImportScene : uint8_t
 	EDatasmithImportScene__CurrentLevel = 1,
 	EDatasmithImportScene__AssetsOnly = 2,
 	EDatasmithImportScene__EDatasmithImportScene_MAX = 3
+};
+
+
+// Enum DatasmithContent.EVREDDataTableType
+enum class EVREDDataTableType : uint8_t
+{
+	EVREDDataTableType__NotDatatable = 0,
+	EVREDDataTableType__Variants   = 1,
+	EVREDDataTableType__AnimClips  = 2,
+	EVREDDataTableType__AnimNodes  = 3,
+	EVREDDataTableType__EVREDDataTableType_MAX = 4
 };
 
 

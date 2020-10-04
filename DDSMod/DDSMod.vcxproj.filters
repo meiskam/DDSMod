@@ -1474,6 +1474,9 @@
     <ClCompile Include="SDK\policeSearchWidget_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\policeSignBoardBP_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
     <ClCompile Include="SDK\policeTeleportLocation_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
@@ -6507,6 +6510,15 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\policeSearchWidget_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\policeSignBoardBP_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\policeSignBoardBP_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\policeSignBoardBP_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\policeTeleportLocation_classes.h">

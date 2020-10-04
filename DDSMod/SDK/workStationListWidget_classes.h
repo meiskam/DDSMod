@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -29,7 +29,7 @@ public:
 	int                                                quantity;                                                 // 0x0260(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0264(0x0004) MISSED OFFSET
 	struct FinventoryItemStruct                        invData;                                                  // 0x0268(0x0108) (Edit, BlueprintVisible, DisableEditOnInstance)
-	struct FappartmentEquipment                        EqData;                                                   // 0x0370(0x0050) (Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FappartmentEquipment                        eqData;                                                   // 0x0370(0x0050) (Edit, BlueprintVisible, DisableEditOnInstance)
 
 	static UClass* StaticClass()
 	{
@@ -38,7 +38,7 @@ public:
 	}
 
 
-	void setup(const struct FinventoryItemStruct& InventoryData, int quantity, bool Equipment, const struct FappartmentEquipment& EqData, bool Selected);
+	void setup(const struct FinventoryItemStruct& InventoryData, int quantity, bool equipment, const struct FappartmentEquipment& eqData, bool selected);
 	void ExecuteUbergraph_workStationListWidget(int EntryPoint);
 };
 

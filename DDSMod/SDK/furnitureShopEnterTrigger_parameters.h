@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -33,7 +33,7 @@ struct AfurnitureShopEnterTrigger_C_BndEvt__Box_K2Node_ComponentBoundEvent_0_Com
 // Function furnitureShopEnterTrigger.furnitureShopEnterTrigger_C.prepare
 struct AfurnitureShopEnterTrigger_C_prepare_Params
 {
-	int                                                taskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                TaskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function furnitureShopEnterTrigger.furnitureShopEnterTrigger_C.ExecuteUbergraph_furnitureShopEnterTrigger

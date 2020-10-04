@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -47,9 +47,9 @@ struct FEventReply UappartmentListItem_C::OnMouseButtonDown(const struct FGeomet
 // class UTexture2D*              Image                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            Index                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // class UEquipmentShopInterfaceWidget_C* parentRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-// bool                           Selected                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           selected                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UappartmentListItem_C::setup(const struct FText& Name, const struct FText& Address, float Meterage, class UTexture2D* Image, int Index, class UEquipmentShopInterfaceWidget_C* parentRef, bool Selected)
+void UappartmentListItem_C::setup(const struct FText& Name, const struct FText& Address, float Meterage, class UTexture2D* Image, int Index, class UEquipmentShopInterfaceWidget_C* parentRef, bool selected)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function appartmentListItem.appartmentListItem_C.setup");
 
@@ -60,7 +60,7 @@ void UappartmentListItem_C::setup(const struct FText& Name, const struct FText& 
 	params.Image = Image;
 	params.Index = Index;
 	params.parentRef = parentRef;
-	params.Selected = Selected;
+	params.selected = selected;
 
 	auto flags = fn->FunctionFlags;
 

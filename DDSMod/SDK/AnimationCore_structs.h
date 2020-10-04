@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,15 @@ namespace SDK
 // Enums
 //---------------------------------------------------------------------------
 
+// Enum AnimationCore.EConstraintType
+enum class EConstraintType : uint8_t
+{
+	EConstraintType__Transform     = 0,
+	EConstraintType__Aim           = 1,
+	EConstraintType__MAX           = 2
+};
+
+
 // Enum AnimationCore.ETransformConstraintType
 enum class ETransformConstraintType : uint8_t
 {
@@ -20,15 +29,6 @@ enum class ETransformConstraintType : uint8_t
 	ETransformConstraintType__Scale = 2,
 	ETransformConstraintType__Parent = 3,
 	ETransformConstraintType__ETransformConstraintType_MAX = 4
-};
-
-
-// Enum AnimationCore.EConstraintType
-enum class EConstraintType : uint8_t
-{
-	EConstraintType__Transform     = 0,
-	EConstraintType__Aim           = 1,
-	EConstraintType__MAX           = 2
 };
 
 
@@ -95,6 +95,14 @@ struct FAimConstraintDescription : public FConstraintDescriptionEx
 	struct FVector                                     LookUpTarget;                                             // 0x0034(0x000C) (Edit, ZeroConstructor, IsPlainOldData)
 };
 
+// ScriptStruct AnimationCore.TransformConstraintDescription
+// 0x0008 (0x0018 - 0x0010)
+struct FTransformConstraintDescription : public FConstraintDescriptionEx
+{
+	ETransformConstraintType                           TransformType;                                            // 0x0010(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0011(0x0007) MISSED OFFSET
+};
+
 // ScriptStruct AnimationCore.ConstraintDescription
 // 0x000D
 struct FConstraintDescription
@@ -119,14 +127,6 @@ struct FTransformConstraint
 	float                                              Weight;                                                   // 0x0020(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	bool                                               bMaintainOffset;                                          // 0x0024(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x0025(0x0003) MISSED OFFSET
-};
-
-// ScriptStruct AnimationCore.TransformConstraintDescription
-// 0x0008 (0x0018 - 0x0010)
-struct FTransformConstraintDescription : public FConstraintDescriptionEx
-{
-	ETransformConstraintType                           TransformType;                                            // 0x0010(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0011(0x0007) MISSED OFFSET
 };
 
 // ScriptStruct AnimationCore.ConstraintOffset

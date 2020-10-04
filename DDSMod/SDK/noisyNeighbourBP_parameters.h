@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -30,8 +30,8 @@ struct AnoisyNeighbourBP_C_ReceiveTick_Params
 	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function noisyNeighbourBP.noisyNeighbourBP_C.ReInitialise
-struct AnoisyNeighbourBP_C_ReInitialise_Params
+// Function noisyNeighbourBP.noisyNeighbourBP_C.reInitialise
+struct AnoisyNeighbourBP_C_reInitialise_Params
 {
 };
 

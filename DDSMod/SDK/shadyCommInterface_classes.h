@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -147,7 +147,7 @@ public:
 	}
 
 
-	void toggleAreaDetails(bool Show, const struct FString& AreaString, bool unlocked);
+	void toggleAreaDetails(bool Show, const struct FString& AreaString, bool Unlocked);
 	void spawnSeedGuy();
 	void checkUserResetReadMessages(int userID);
 	class UWidget* Get_txtStatusClientSatisfaction_ToolTipWidget_1();
@@ -167,7 +167,7 @@ public:
 	void putContactListSection(const struct FText& Nam);
 	void clearNewMessages();
 	void findSalePointByAreaID(const struct FString& stringID, struct FVector* Location, class ADrugSalePoint_C** SalePoint, struct FRotator* Rotation);
-	void spawnClientOnMap(class AsalesManager_C* SaleManager, int OrderID);
+	void spawnClientOnMap(class AsalesManager_C* SaleManager, int OrderId);
 	void checkOptionAvailability();
 	void switchContact(int newContactID);
 	class UWidget* Get_btnBankAccount_ToolTipWidget_1();
@@ -186,7 +186,7 @@ public:
 	void BndEvt__btnCloseOptions_K2Node_ComponentBoundEvent_2_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__Button_3_K2Node_ComponentBoundEvent_3_OnButtonClickedEvent__DelegateSignature();
 	void closeOptions();
-	void showPriceEdit(int drugIndex);
+	void showPriceEdit(int DrugIndex);
 	void BndEvt__Button_2_K2Node_ComponentBoundEvent_5_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__Button_3_K2Node_ComponentBoundEvent_6_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__drugPriceEditInput_K2Node_ComponentBoundEvent_7_OnSpinBoxValueCommittedEvent__DelegateSignature(float InValue, TEnumAsByte<ETextCommit> CommitMethod);

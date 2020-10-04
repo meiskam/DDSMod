@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -269,14 +269,14 @@ struct UNavRelevantComponent_SetNavigationRelevancy_Params
 	bool                                               bRelevant;                                                // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function NavigationSystem.NavModifierVolume.SetAreaClass
-struct ANavModifierVolume_SetAreaClass_Params
+// Function NavigationSystem.NavModifierComponent.SetAreaClass
+struct UNavModifierComponent_SetAreaClass_Params
 {
 	class UClass*                                      NewAreaClass;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function NavigationSystem.NavModifierComponent.SetAreaClass
-struct UNavModifierComponent_SetAreaClass_Params
+// Function NavigationSystem.NavModifierVolume.SetAreaClass
+struct ANavModifierVolume_SetAreaClass_Params
 {
 	class UClass*                                      NewAreaClass;                                             // (Parm, ZeroConstructor, IsPlainOldData)
 };

@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -22,7 +22,7 @@ struct AlaunderSpawnLocation_C_UserConstructionScript_Params
 // Function launderSpawnLocation.launderSpawnLocation_C.SpawnCharacter
 struct AlaunderSpawnLocation_C_SpawnCharacter_Params
 {
-	int                                                taskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                TaskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function launderSpawnLocation.launderSpawnLocation_C.ExecuteUbergraph_launderSpawnLocation

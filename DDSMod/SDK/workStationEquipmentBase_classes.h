@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -23,14 +23,14 @@ public:
 	class UWidgetComponent*                            progressWidget;                                           // 0x0408(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	class UWidgetComponent*                            selectionWidget;                                          // 0x0410(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	class UBoxComponent*                               baseGizmo;                                                // 0x0418(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
-	struct FappartmentEquipment                        EqData_1;                                                 // 0x0420(0x0050) (Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FappartmentEquipment                        eqData_1;                                                 // 0x0420(0x0050) (Edit, BlueprintVisible, DisableEditOnInstance)
 	bool                                               isGizmo_1;                                                // 0x0470(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x3];                                       // 0x0471(0x0003) MISSED OFFSET
 	struct FVector2D                                   baseSizing;                                               // 0x0474(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               canFit;                                                   // 0x047C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x3];                                       // 0x047D(0x0003) MISSED OFFSET
 	TArray<struct FVector>                             lineTracePoints;                                          // 0x0480(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
-	bool                                               fromHovered;                                              // 0x0490(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	bool                                               FromHovered;                                              // 0x0490(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               isWorking;                                                // 0x0491(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               isOccupied;                                               // 0x0492(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               isSelected;                                               // 0x0493(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -86,7 +86,7 @@ public:
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
 	void ReceiveTick(float DeltaSeconds);
-	void initialSetup(const struct FappartmentEquipment& Data, bool Gizmo, bool fromHovered);
+	void initialSetup(const struct FappartmentEquipment& Data, bool Gizmo, bool FromHovered);
 	void verifyCorrectNaming();
 	void selectMe();
 	void dumpContent();

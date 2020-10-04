@@ -1558,6 +1558,9 @@
     <ClInclude Include="SDK\policeSearchWidget_classes.h" />
     <ClInclude Include="SDK\policeSearchWidget_parameters.h" />
     <ClInclude Include="SDK\policeSearchWidget_structs.h" />
+    <ClInclude Include="SDK\policeSignBoardBP_classes.h" />
+    <ClInclude Include="SDK\policeSignBoardBP_parameters.h" />
+    <ClInclude Include="SDK\policeSignBoardBP_structs.h" />
     <ClInclude Include="SDK\policeTeleportLocation2_classes.h" />
     <ClInclude Include="SDK\policeTeleportLocation2_parameters.h" />
     <ClInclude Include="SDK\policeTeleportLocation2_structs.h" />
@@ -2691,6 +2694,7 @@
     <ClCompile Include="SDK\policePatrolPoint_functions.cpp" />
     <ClCompile Include="SDK\policePenaltyWidget_functions.cpp" />
     <ClCompile Include="SDK\policeSearchWidget_functions.cpp" />
+    <ClCompile Include="SDK\policeSignBoardBP_functions.cpp" />
     <ClCompile Include="SDK\policeTeleportLocation2_functions.cpp" />
     <ClCompile Include="SDK\policeTeleportLocation_functions.cpp" />
     <ClCompile Include="SDK\policeWalkieTalkie_functions.cpp" />

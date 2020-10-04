@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -109,6 +109,18 @@ enum class EPawnActionEventType : uint8_t
 };
 
 
+// Enum AIModule.EPawnActionResult
+enum class EPawnActionResult : uint8_t
+{
+	EPawnActionResult__NotStarted  = 0,
+	EPawnActionResult__InProgress  = 1,
+	EPawnActionResult__Success     = 2,
+	EPawnActionResult__Failed      = 3,
+	EPawnActionResult__Aborted     = 4,
+	EPawnActionResult__EPawnActionResult_MAX = 5
+};
+
+
 // Enum AIModule.EPawnActionAbortState
 enum class EPawnActionAbortState : uint8_t
 {
@@ -141,15 +153,14 @@ enum class EAIOptionFlag : uint8_t
 };
 
 
-// Enum AIModule.EPawnActionResult
-enum class EPawnActionResult : uint8_t
+// Enum AIModule.EBTFlowAbortMode
+enum class EBTFlowAbortMode : uint8_t
 {
-	EPawnActionResult__NotStarted  = 0,
-	EPawnActionResult__InProgress  = 1,
-	EPawnActionResult__Success     = 2,
-	EPawnActionResult__Failed      = 3,
-	EPawnActionResult__Aborted     = 4,
-	EPawnActionResult__EPawnActionResult_MAX = 5
+	EBTFlowAbortMode__None         = 0,
+	EBTFlowAbortMode__LowerPriority = 1,
+	EBTFlowAbortMode__Self         = 2,
+	EBTFlowAbortMode__Both         = 3,
+	EBTFlowAbortMode__EBTFlowAbortMode_MAX = 4
 };
 
 
@@ -245,6 +256,16 @@ enum class EBlackBoardEntryComparison : uint8_t
 };
 
 
+// Enum AIModule.EPathExistanceQueryType
+enum class EPathExistanceQueryType : uint8_t
+{
+	EPathExistanceQueryType__NavmeshRaycast2D = 0,
+	EPathExistanceQueryType__HierarchicalQuery = 1,
+	EPathExistanceQueryType__RegularPathFinding = 2,
+	EPathExistanceQueryType__EPathExistanceQueryType_MAX = 3
+};
+
+
 // Enum AIModule.EPointOnCircleSpacingMethod
 enum class EPointOnCircleSpacingMethod : uint8_t
 {
@@ -254,13 +275,12 @@ enum class EPointOnCircleSpacingMethod : uint8_t
 };
 
 
-// Enum AIModule.EPathExistanceQueryType
-enum class EPathExistanceQueryType : uint8_t
+// Enum AIModule.EEQSNormalizationType
+enum class EEQSNormalizationType : uint8_t
 {
-	EPathExistanceQueryType__NavmeshRaycast2D = 0,
-	EPathExistanceQueryType__HierarchicalQuery = 1,
-	EPathExistanceQueryType__RegularPathFinding = 2,
-	EPathExistanceQueryType__EPathExistanceQueryType_MAX = 3
+	EEQSNormalizationType__Absolute = 0,
+	EEQSNormalizationType__RelativeToScores = 1,
+	EEQSNormalizationType__EEQSNormalizationType_MAX = 2
 };
 
 
@@ -272,15 +292,6 @@ enum class EEnvTestDistance : uint8_t
 	EEnvTestDistance__DistanceZ    = 2,
 	EEnvTestDistance__DistanceAbsoluteZ = 3,
 	EEnvTestDistance__EEnvTestDistance_MAX = 4
-};
-
-
-// Enum AIModule.EEQSNormalizationType
-enum class EEQSNormalizationType : uint8_t
-{
-	EEQSNormalizationType__Absolute = 0,
-	EEQSNormalizationType__RelativeToScores = 1,
-	EEQSNormalizationType__EEQSNormalizationType_MAX = 2
 };
 
 
@@ -343,14 +354,13 @@ enum class EEnvTraceShape : uint8_t
 };
 
 
-// Enum AIModule.EEnvQueryTrace
-enum class EEnvQueryTrace : uint8_t
+// Enum AIModule.EAIParamType
+enum class EAIParamType : uint8_t
 {
-	EEnvQueryTrace__None           = 0,
-	EEnvQueryTrace__Navigation     = 1,
-	EEnvQueryTrace__Geometry       = 2,
-	EEnvQueryTrace__NavigationOverLedges = 3,
-	EEnvQueryTrace__EEnvQueryTrace_MAX = 4
+	EAIParamType__Float            = 0,
+	EAIParamType__Int              = 1,
+	EAIParamType__Bool             = 2,
+	EAIParamType__MAX              = 3
 };
 
 
@@ -375,22 +385,14 @@ enum class EEnvQueryRunMode : uint8_t
 };
 
 
-// Enum AIModule.EAIParamType
-enum class EAIParamType : uint8_t
+// Enum AIModule.EEnvQueryTrace
+enum class EEnvQueryTrace : uint8_t
 {
-	EAIParamType__Float            = 0,
-	EAIParamType__Int              = 1,
-	EAIParamType__Bool             = 2,
-	EAIParamType__MAX              = 3
-};
-
-
-// Enum AIModule.EEnvTestFilterOperator
-enum class EEnvTestFilterOperator : uint8_t
-{
-	EEnvTestFilterOperator__AllPass = 0,
-	EEnvTestFilterOperator__AnyPass = 1,
-	EEnvTestFilterOperator__EEnvTestFilterOperator_MAX = 2
+	EEnvQueryTrace__None           = 0,
+	EEnvQueryTrace__Navigation     = 1,
+	EEnvQueryTrace__Geometry       = 2,
+	EEnvQueryTrace__NavigationOverLedges = 3,
+	EEnvQueryTrace__EEnvQueryTrace_MAX = 4
 };
 
 
@@ -404,6 +406,15 @@ enum class EEnvTestScoreOperator : uint8_t
 };
 
 
+// Enum AIModule.EEnvTestFilterOperator
+enum class EEnvTestFilterOperator : uint8_t
+{
+	EEnvTestFilterOperator__AllPass = 0,
+	EEnvTestFilterOperator__AnyPass = 1,
+	EEnvTestFilterOperator__EEnvTestFilterOperator_MAX = 2
+};
+
+
 // Enum AIModule.EEnvTestCost
 enum class EEnvTestCost : uint8_t
 {
@@ -411,6 +422,19 @@ enum class EEnvTestCost : uint8_t
 	EEnvTestCost__Medium           = 1,
 	EEnvTestCost__High             = 2,
 	EEnvTestCost__EEnvTestCost_MAX = 3
+};
+
+
+// Enum AIModule.EEnvTestWeight
+enum class EEnvTestWeight : uint8_t
+{
+	EEnvTestWeight__None           = 0,
+	EEnvTestWeight__Square         = 1,
+	EEnvTestWeight__Inverse        = 2,
+	EEnvTestWeight__Unused         = 3,
+	EEnvTestWeight__Constant       = 4,
+	EEnvTestWeight__Skip           = 5,
+	EEnvTestWeight__EEnvTestWeight_MAX = 6
 };
 
 
@@ -447,16 +471,13 @@ enum class EEnvTestPurpose : uint8_t
 };
 
 
-// Enum AIModule.EEnvTestWeight
-enum class EEnvTestWeight : uint8_t
+// Enum AIModule.EEnvQueryHightlightMode
+enum class EEnvQueryHightlightMode : uint8_t
 {
-	EEnvTestWeight__None           = 0,
-	EEnvTestWeight__Square         = 1,
-	EEnvTestWeight__Inverse        = 2,
-	EEnvTestWeight__Unused         = 3,
-	EEnvTestWeight__Constant       = 4,
-	EEnvTestWeight__Skip           = 5,
-	EEnvTestWeight__EEnvTestWeight_MAX = 6
+	EEnvQueryHightlightMode__All   = 0,
+	EEnvQueryHightlightMode__Best5Pct = 1,
+	EEnvQueryHightlightMode__Best25Pct = 2,
+	EEnvQueryHightlightMode__EEnvQueryHightlightMode_MAX = 3
 };
 
 
@@ -470,16 +491,6 @@ enum class ETeamAttitude : uint8_t
 };
 
 
-// Enum AIModule.EPathFollowingRequestResult
-enum class EPathFollowingRequestResult : uint8_t
-{
-	EPathFollowingRequestResult__Failed = 0,
-	EPathFollowingRequestResult__AlreadyAtGoal = 1,
-	EPathFollowingRequestResult__RequestSuccessful = 2,
-	EPathFollowingRequestResult__EPathFollowingRequestResult_MAX = 3
-};
-
-
 // Enum AIModule.EPathFollowingAction
 enum class EPathFollowingAction : uint8_t
 {
@@ -489,16 +500,6 @@ enum class EPathFollowingAction : uint8_t
 	EPathFollowingAction__PartialPath = 3,
 	EPathFollowingAction__PathToGoal = 4,
 	EPathFollowingAction__EPathFollowingAction_MAX = 5
-};
-
-
-// Enum AIModule.EEnvQueryHightlightMode
-enum class EEnvQueryHightlightMode : uint8_t
-{
-	EEnvQueryHightlightMode__All   = 0,
-	EEnvQueryHightlightMode__Best5Pct = 1,
-	EEnvQueryHightlightMode__Best25Pct = 2,
-	EEnvQueryHightlightMode__EEnvQueryHightlightMode_MAX = 3
 };
 
 
@@ -522,12 +523,13 @@ enum class EPawnActionFailHandling : uint8_t
 };
 
 
-// Enum AIModule.EPawnSubActionTriggeringPolicy
-enum class EPawnSubActionTriggeringPolicy : uint8_t
+// Enum AIModule.EPathFollowingRequestResult
+enum class EPathFollowingRequestResult : uint8_t
 {
-	EPawnSubActionTriggeringPolicy__CopyBeforeTriggering = 0,
-	EPawnSubActionTriggeringPolicy__ReuseInstances = 1,
-	EPawnSubActionTriggeringPolicy__EPawnSubActionTriggeringPolicy_MAX = 2
+	EPathFollowingRequestResult__Failed = 0,
+	EPathFollowingRequestResult__AlreadyAtGoal = 1,
+	EPathFollowingRequestResult__RequestSuccessful = 2,
+	EPathFollowingRequestResult__EPathFollowingRequestResult_MAX = 3
 };
 
 
@@ -540,14 +542,12 @@ enum class EPawnActionMoveMode : uint8_t
 };
 
 
-// Enum AIModule.EBTFlowAbortMode
-enum class EBTFlowAbortMode : uint8_t
+// Enum AIModule.EPawnSubActionTriggeringPolicy
+enum class EPawnSubActionTriggeringPolicy : uint8_t
 {
-	EBTFlowAbortMode__None         = 0,
-	EBTFlowAbortMode__LowerPriority = 1,
-	EBTFlowAbortMode__Self         = 2,
-	EBTFlowAbortMode__Both         = 3,
-	EBTFlowAbortMode__EBTFlowAbortMode_MAX = 4
+	EPawnSubActionTriggeringPolicy__CopyBeforeTriggering = 0,
+	EPawnSubActionTriggeringPolicy__ReuseInstances = 1,
+	EPawnSubActionTriggeringPolicy__EPawnSubActionTriggeringPolicy_MAX = 2
 };
 
 

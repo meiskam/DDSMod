@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,14 +16,14 @@ namespace SDK
 // Function sprayActionWidget.sprayActionWidget_C.setup
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FText                   AreaNam                        (BlueprintVisible, BlueprintReadOnly, Parm)
+// struct FText                   areaNam                        (BlueprintVisible, BlueprintReadOnly, Parm)
 
-void UsprayActionWidget_C::setup(const struct FText& AreaNam)
+void UsprayActionWidget_C::setup(const struct FText& areaNam)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function sprayActionWidget.sprayActionWidget_C.setup");
 
 	UsprayActionWidget_C_setup_Params params;
-	params.AreaNam = AreaNam;
+	params.areaNam = areaNam;
 
 	auto flags = fn->FunctionFlags;
 

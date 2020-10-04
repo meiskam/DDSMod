@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -55,6 +55,26 @@ void AinventoryCharacterBP_C::testTime()
 	static auto fn = UObject::FindObject<UFunction>("Function inventoryCharacterBP.inventoryCharacterBP_C.testTime");
 
 	AinventoryCharacterBP_C_testTime_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function inventoryCharacterBP.inventoryCharacterBP_C.toggleCharacterEnabled
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// bool                           Enabled                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+
+void AinventoryCharacterBP_C::toggleCharacterEnabled(bool Enabled)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function inventoryCharacterBP.inventoryCharacterBP_C.toggleCharacterEnabled");
+
+	AinventoryCharacterBP_C_toggleCharacterEnabled_Params params;
+	params.Enabled = Enabled;
 
 	auto flags = fn->FunctionFlags;
 

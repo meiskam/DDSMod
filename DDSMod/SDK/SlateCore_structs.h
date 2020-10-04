@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,18 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
-
-// Enum SlateCore.EWidgetClipping
-enum class EWidgetClipping : uint8_t
-{
-	EWidgetClipping__Inherit       = 0,
-	EWidgetClipping__ClipToBounds  = 1,
-	EWidgetClipping__ClipToBoundsWithoutIntersecting = 2,
-	EWidgetClipping__ClipToBoundsAlways = 3,
-	EWidgetClipping__OnDemand      = 4,
-	EWidgetClipping__EWidgetClipping_MAX = 5
-};
-
 
 // Enum SlateCore.EFontLayoutMethod
 enum class EFontLayoutMethod : uint8_t
@@ -146,14 +134,15 @@ enum class ESlateBrushDrawType : uint8_t
 };
 
 
-// Enum SlateCore.ESlateColorStylingMode
-enum class ESlateColorStylingMode : uint8_t
+// Enum SlateCore.EWidgetClipping
+enum class EWidgetClipping : uint8_t
 {
-	ESlateColorStylingMode__UseColor_Specified = 0,
-	ESlateColorStylingMode__UseColor_Specified_Link = 1,
-	ESlateColorStylingMode__UseColor_Foreground = 2,
-	ESlateColorStylingMode__UseColor_Foreground_Subdued = 3,
-	ESlateColorStylingMode__UseColor_MAX = 4
+	EWidgetClipping__Inherit       = 0,
+	EWidgetClipping__ClipToBounds  = 1,
+	EWidgetClipping__ClipToBoundsWithoutIntersecting = 2,
+	EWidgetClipping__ClipToBoundsAlways = 3,
+	EWidgetClipping__OnDemand      = 4,
+	EWidgetClipping__EWidgetClipping_MAX = 5
 };
 
 
@@ -168,14 +157,14 @@ enum class ESelectInfo : uint8_t
 };
 
 
-// Enum SlateCore.ETextCommit
-enum class ETextCommit : uint8_t
+// Enum SlateCore.ESlateColorStylingMode
+enum class ESlateColorStylingMode : uint8_t
 {
-	ETextCommit__Default           = 0,
-	ETextCommit__OnEnter           = 1,
-	ETextCommit__OnUserMovedFocus  = 2,
-	ETextCommit__OnCleared         = 3,
-	ETextCommit__ETextCommit_MAX   = 4
+	ESlateColorStylingMode__UseColor_Specified = 0,
+	ESlateColorStylingMode__UseColor_Specified_Link = 1,
+	ESlateColorStylingMode__UseColor_Foreground = 2,
+	ESlateColorStylingMode__UseColor_Foreground_Subdued = 3,
+	ESlateColorStylingMode__UseColor_MAX = 4
 };
 
 
@@ -185,6 +174,17 @@ enum class EScrollDirection : uint8_t
 	Scroll_Down                    = 0,
 	Scroll_Up                      = 1,
 	Scroll_MAX                     = 2
+};
+
+
+// Enum SlateCore.ETextCommit
+enum class ETextCommit : uint8_t
+{
+	ETextCommit__Default           = 0,
+	ETextCommit__OnEnter           = 1,
+	ETextCommit__OnUserMovedFocus  = 2,
+	ETextCommit__OnCleared         = 3,
+	ETextCommit__ETextCommit_MAX   = 4
 };
 
 
@@ -356,13 +356,6 @@ enum class EConsumeMouseWheel : uint8_t
 // Script Structs
 //---------------------------------------------------------------------------
 
-// ScriptStruct SlateCore.Geometry
-// 0x0038
-struct FGeometry
-{
-	unsigned char                                      UnknownData00[0x38];                                      // 0x0000(0x0038) MISSED OFFSET
-};
-
 // ScriptStruct SlateCore.Margin
 // 0x0010
 struct FMargin
@@ -415,6 +408,13 @@ struct FInputEvent
 struct FPointerEvent : public FInputEvent
 {
 	unsigned char                                      UnknownData00[0x58];                                      // 0x0018(0x0058) MISSED OFFSET
+};
+
+// ScriptStruct SlateCore.Geometry
+// 0x0038
+struct FGeometry
+{
+	unsigned char                                      UnknownData00[0x38];                                      // 0x0000(0x0038) MISSED OFFSET
 };
 
 // ScriptStruct SlateCore.CharacterEvent
@@ -663,16 +663,23 @@ struct FCompositeFont
 	TArray<struct FCompositeSubFont>                   SubTypefaces;                                             // 0x0028(0x0010) (ZeroConstructor)
 };
 
-// ScriptStruct SlateCore.FocusEvent
-// 0x0008
-struct FFocusEvent
+// ScriptStruct SlateCore.MotionEvent
+// 0x0030 (0x0048 - 0x0018)
+struct FMotionEvent : public FInputEvent
 {
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x30];                                      // 0x0018(0x0030) MISSED OFFSET
 };
 
 // ScriptStruct SlateCore.CaptureLostEvent
 // 0x0008
 struct FCaptureLostEvent
+{
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
+};
+
+// ScriptStruct SlateCore.FocusEvent
+// 0x0008
+struct FFocusEvent
 {
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
 };
@@ -697,11 +704,12 @@ struct FWindowStyle : public FSlateWidgetStyle
 	struct FSlateBrush                                 ChildBackgroundBrush;                                     // 0x0F50(0x0088) (Edit, BlueprintVisible)
 };
 
-// ScriptStruct SlateCore.MotionEvent
-// 0x0030 (0x0048 - 0x0018)
-struct FMotionEvent : public FInputEvent
+// ScriptStruct SlateCore.ScrollBorderStyle
+// 0x0110 (0x0118 - 0x0008)
+struct FScrollBorderStyle : public FSlateWidgetStyle
 {
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0018(0x0030) MISSED OFFSET
+	struct FSlateBrush                                 TopShadowBrush;                                           // 0x0008(0x0088) (Edit, BlueprintVisible)
+	struct FSlateBrush                                 BottomShadowBrush;                                        // 0x0090(0x0088) (Edit, BlueprintVisible)
 };
 
 // ScriptStruct SlateCore.ScrollBoxStyle
@@ -731,14 +739,6 @@ struct FDockTabStyle : public FSlateWidgetStyle
 	float                                              OverlapWidth;                                             // 0x06D0(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x06D4(0x0004) MISSED OFFSET
 	struct FSlateColor                                 FlashColor;                                               // 0x06D8(0x0028) (Edit)
-};
-
-// ScriptStruct SlateCore.ScrollBorderStyle
-// 0x0110 (0x0118 - 0x0008)
-struct FScrollBorderStyle : public FSlateWidgetStyle
-{
-	struct FSlateBrush                                 TopShadowBrush;                                           // 0x0008(0x0088) (Edit, BlueprintVisible)
-	struct FSlateBrush                                 BottomShadowBrush;                                        // 0x0090(0x0088) (Edit, BlueprintVisible)
 };
 
 // ScriptStruct SlateCore.TableColumnHeaderStyle

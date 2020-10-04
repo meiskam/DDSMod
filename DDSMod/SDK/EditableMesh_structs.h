@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -18,6 +18,16 @@ enum class ETriangleTessellationMode : uint8_t
 	ETriangleTessellationMode__ThreeTriangles = 0,
 	ETriangleTessellationMode__FourTriangles = 1,
 	ETriangleTessellationMode__ETriangleTessellationMode_MAX = 2
+};
+
+
+// Enum EditableMesh.EInsetPolygonsMode
+enum class EInsetPolygonsMode : uint8_t
+{
+	EInsetPolygonsMode__All        = 0,
+	EInsetPolygonsMode__CenterPolygonOnly = 1,
+	EInsetPolygonsMode__SidePolygonsOnly = 2,
+	EInsetPolygonsMode__EInsetPolygonsMode_MAX = 3
 };
 
 
@@ -44,16 +54,6 @@ enum class EMeshElementAttributeType : uint8_t
 	EMeshElementAttributeType__Bool = 6,
 	EMeshElementAttributeType__FName = 7,
 	EMeshElementAttributeType__EMeshElementAttributeType_MAX = 8
-};
-
-
-// Enum EditableMesh.EInsetPolygonsMode
-enum class EInsetPolygonsMode : uint8_t
-{
-	EInsetPolygonsMode__All        = 0,
-	EInsetPolygonsMode__CenterPolygonOnly = 1,
-	EInsetPolygonsMode__SidePolygonsOnly = 2,
-	EInsetPolygonsMode__EInsetPolygonsMode_MAX = 3
 };
 
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -65,6 +65,15 @@ struct FNamedInterfaceDef
 	struct FString                                     InterfaceClassName;                                       // 0x0008(0x0010) (ZeroConstructor)
 };
 
+// ScriptStruct OnlineSubsystem.InAppPurchaseRestoreInfo
+// 0x0030
+struct FInAppPurchaseRestoreInfo
+{
+	struct FString                                     Identifier;                                               // 0x0000(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	struct FString                                     ReceiptData;                                              // 0x0010(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	struct FString                                     TransactionIdentifier;                                    // 0x0020(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+};
+
 // ScriptStruct OnlineSubsystem.InAppPurchaseProductInfo
 // 0x00A8
 struct FInAppPurchaseProductInfo
@@ -81,15 +90,6 @@ struct FInAppPurchaseProductInfo
 	struct FString                                     DecimalSeparator;                                         // 0x0078(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 	struct FString                                     GroupingSeparator;                                        // 0x0088(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 	struct FString                                     ReceiptData;                                              // 0x0098(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-};
-
-// ScriptStruct OnlineSubsystem.InAppPurchaseRestoreInfo
-// 0x0030
-struct FInAppPurchaseRestoreInfo
-{
-	struct FString                                     Identifier;                                               // 0x0000(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	struct FString                                     ReceiptData;                                              // 0x0010(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	struct FString                                     TransactionIdentifier;                                    // 0x0020(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 };
 
 // ScriptStruct OnlineSubsystem.InAppPurchaseProductRequest

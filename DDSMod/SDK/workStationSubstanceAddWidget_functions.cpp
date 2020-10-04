@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -86,15 +86,15 @@ void UworkStationSubstanceAddWidget_C::Construct()
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
 // class AinteractiveBaseObject_C* SelectedSubstance              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// class AworkStationEquipmentBase_C* Equipment                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AworkStationEquipmentBase_C* equipment                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UworkStationSubstanceAddWidget_C::setup(class AinteractiveBaseObject_C* SelectedSubstance, class AworkStationEquipmentBase_C* Equipment)
+void UworkStationSubstanceAddWidget_C::setup(class AinteractiveBaseObject_C* SelectedSubstance, class AworkStationEquipmentBase_C* equipment)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function workStationSubstanceAddWidget.workStationSubstanceAddWidget_C.setup");
 
 	UworkStationSubstanceAddWidget_C_setup_Params params;
 	params.SelectedSubstance = SelectedSubstance;
-	params.Equipment = Equipment;
+	params.equipment = equipment;
 
 	auto flags = fn->FunctionFlags;
 

@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -77,19 +77,19 @@ void AsalesManager_C::adaptDifficulty()
 // Function salesManager.salesManager_C.generateClientMessage
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
-// bool                           Dealer                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           dealer                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           CashMeet                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   DrugNam                        (BlueprintVisible, BlueprintReadOnly, Parm)
 // bool                           priceHigh                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   Message                        (Parm, OutParm)
 
-void AsalesManager_C::generateClientMessage(bool Dealer, bool CashMeet, int quantity, const struct FText& DrugNam, bool priceHigh, struct FText* Message)
+void AsalesManager_C::generateClientMessage(bool dealer, bool CashMeet, int quantity, const struct FText& DrugNam, bool priceHigh, struct FText* Message)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function salesManager.salesManager_C.generateClientMessage");
 
 	AsalesManager_C_generateClientMessage_Params params;
-	params.Dealer = Dealer;
+	params.dealer = dealer;
 	params.CashMeet = CashMeet;
 	params.quantity = quantity;
 	params.DrugNam = DrugNam;
@@ -263,15 +263,15 @@ void AsalesManager_C::loopCheckPrices(bool* someAffordable)
 // Function salesManager.salesManager_C.getOrderedDrugName
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
-// int                            drugIndex                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            DrugIndex                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   Output                         (Parm, OutParm)
 
-void AsalesManager_C::getOrderedDrugName(int drugIndex, struct FText* Output)
+void AsalesManager_C::getOrderedDrugName(int DrugIndex, struct FText* Output)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function salesManager.salesManager_C.getOrderedDrugName");
 
 	AsalesManager_C_getOrderedDrugName_Params params;
-	params.drugIndex = drugIndex;
+	params.DrugIndex = DrugIndex;
 
 	auto flags = fn->FunctionFlags;
 
@@ -381,15 +381,15 @@ bool AsalesManager_C::dealerOfferChance(int ClientId)
 // Function salesManager.salesManager_C.odMessageResponse
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           Dealer                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           dealer                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            ClientId                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AsalesManager_C::odMessageResponse(bool Dealer, int ClientId)
+void AsalesManager_C::odMessageResponse(bool dealer, int ClientId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function salesManager.salesManager_C.odMessageResponse");
 
 	AsalesManager_C_odMessageResponse_Params params;
-	params.Dealer = Dealer;
+	params.dealer = dealer;
 	params.ClientId = ClientId;
 
 	auto flags = fn->FunctionFlags;
@@ -403,15 +403,15 @@ void AsalesManager_C::odMessageResponse(bool Dealer, int ClientId)
 // Function salesManager.salesManager_C.showODPopup
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           Dealer                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           dealer                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            ClientId                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AsalesManager_C::showODPopup(bool Dealer, int ClientId)
+void AsalesManager_C::showODPopup(bool dealer, int ClientId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function salesManager.salesManager_C.showODPopup");
 
 	AsalesManager_C_showODPopup_Params params;
-	params.Dealer = Dealer;
+	params.dealer = dealer;
 	params.ClientId = ClientId;
 
 	auto flags = fn->FunctionFlags;
@@ -620,9 +620,9 @@ void AsalesManager_C::countClientStatistics()
 // int                            inClientID                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           nightTime                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           priceHigh                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            outQuantity                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// int                            OutQuantity                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AsalesManager_C::calcOrderQuantity(int inClientID, bool nightTime, bool priceHigh, int* outQuantity)
+void AsalesManager_C::calcOrderQuantity(int inClientID, bool nightTime, bool priceHigh, int* OutQuantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function salesManager.salesManager_C.calcOrderQuantity");
 
@@ -637,8 +637,8 @@ void AsalesManager_C::calcOrderQuantity(int inClientID, bool nightTime, bool pri
 
 	fn->FunctionFlags = flags;
 
-	if (outQuantity != nullptr)
-		*outQuantity = params.outQuantity;
+	if (OutQuantity != nullptr)
+		*OutQuantity = params.OutQuantity;
 }
 
 

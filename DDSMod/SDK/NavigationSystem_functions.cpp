@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -833,16 +833,16 @@ void UNavRelevantComponent::SetNavigationRelevancy(bool bRelevant)
 }
 
 
-// Function NavigationSystem.NavModifierVolume.SetAreaClass
+// Function NavigationSystem.NavModifierComponent.SetAreaClass
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UClass*                  NewAreaClass                   (Parm, ZeroConstructor, IsPlainOldData)
 
-void ANavModifierVolume::SetAreaClass(class UClass* NewAreaClass)
+void UNavModifierComponent::SetAreaClass(class UClass* NewAreaClass)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function NavigationSystem.NavModifierVolume.SetAreaClass");
+	static auto fn = UObject::FindObject<UFunction>("Function NavigationSystem.NavModifierComponent.SetAreaClass");
 
-	ANavModifierVolume_SetAreaClass_Params params;
+	UNavModifierComponent_SetAreaClass_Params params;
 	params.NewAreaClass = NewAreaClass;
 
 	auto flags = fn->FunctionFlags;
@@ -854,16 +854,16 @@ void ANavModifierVolume::SetAreaClass(class UClass* NewAreaClass)
 }
 
 
-// Function NavigationSystem.NavModifierComponent.SetAreaClass
+// Function NavigationSystem.NavModifierVolume.SetAreaClass
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
 // class UClass*                  NewAreaClass                   (Parm, ZeroConstructor, IsPlainOldData)
 
-void UNavModifierComponent::SetAreaClass(class UClass* NewAreaClass)
+void ANavModifierVolume::SetAreaClass(class UClass* NewAreaClass)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function NavigationSystem.NavModifierComponent.SetAreaClass");
+	static auto fn = UObject::FindObject<UFunction>("Function NavigationSystem.NavModifierVolume.SetAreaClass");
 
-	UNavModifierComponent_SetAreaClass_Params params;
+	ANavModifierVolume_SetAreaClass_Params params;
 	params.NewAreaClass = NewAreaClass;
 
 	auto flags = fn->FunctionFlags;

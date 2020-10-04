@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -95,21 +95,21 @@ enum class EWidgetDesignFlags : uint8_t
 };
 
 
-// Enum UMG.EBindingKind
-enum class EBindingKind : uint8_t
-{
-	EBindingKind__Function         = 0,
-	EBindingKind__Property         = 1,
-	EBindingKind__EBindingKind_MAX = 2
-};
-
-
 // Enum UMG.EWidgetGeometryMode
 enum class EWidgetGeometryMode : uint8_t
 {
 	EWidgetGeometryMode__Plane     = 0,
 	EWidgetGeometryMode__Cylinder  = 1,
 	EWidgetGeometryMode__EWidgetGeometryMode_MAX = 2
+};
+
+
+// Enum UMG.EBindingKind
+enum class EBindingKind : uint8_t
+{
+	EBindingKind__Function         = 0,
+	EBindingKind__Property         = 1,
+	EBindingKind__EBindingKind_MAX = 2
 };
 
 
@@ -313,6 +313,13 @@ struct FMovieSceneMarginSectionTemplate : public FMovieScenePropertySectionTempl
 	unsigned char                                      UnknownData00[0x7];                                       // 0x02C9(0x0007) MISSED OFFSET
 };
 
+// ScriptStruct UMG.MovieSceneWidgetMaterialSectionTemplate
+// 0x0010 (0x0060 - 0x0050)
+struct FMovieSceneWidgetMaterialSectionTemplate : public FMovieSceneParameterSectionTemplate
+{
+	TArray<struct FName>                               BrushPropertyNamePath;                                    // 0x0050(0x0010) (ZeroConstructor)
+};
+
 // ScriptStruct UMG.RichTextStyleRow
 // 0x01E8 (0x01F0 - 0x0008)
 struct FRichTextStyleRow : public FTableRowBase
@@ -325,13 +332,6 @@ struct FRichTextStyleRow : public FTableRowBase
 struct FRichImageRow : public FTableRowBase
 {
 	struct FSlateBrush                                 Brush;                                                    // 0x0008(0x0088) (Edit)
-};
-
-// ScriptStruct UMG.MovieSceneWidgetMaterialSectionTemplate
-// 0x0010 (0x0060 - 0x0050)
-struct FMovieSceneWidgetMaterialSectionTemplate : public FMovieSceneParameterSectionTemplate
-{
-	TArray<struct FName>                               BrushPropertyNamePath;                                    // 0x0050(0x0010) (ZeroConstructor)
 };
 
 }

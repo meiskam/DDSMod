@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -50,14 +50,14 @@ void AstreetLantern_C::ReceiveBeginPlay()
 // Function streetLantern.streetLantern_C.eventLightChange
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           On                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           on                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AstreetLantern_C::eventLightChange(bool On)
+void AstreetLantern_C::eventLightChange(bool on)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function streetLantern.streetLantern_C.eventLightChange");
 
 	AstreetLantern_C_eventLightChange_Params params;
-	params.On = On;
+	params.on = on;
 
 	auto flags = fn->FunctionFlags;
 

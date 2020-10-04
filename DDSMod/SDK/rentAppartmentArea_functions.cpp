@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -195,15 +195,15 @@ void ArentAppartmentArea_C::spawnFlashBang()
 // Function rentAppartmentArea.rentAppartmentArea_C.addInventoryItem
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FappartmentEquipment    EqData                         (BlueprintVisible, BlueprintReadOnly, Parm)
+// struct FappartmentEquipment    eqData                         (BlueprintVisible, BlueprintReadOnly, Parm)
 // int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ArentAppartmentArea_C::addInventoryItem(const struct FappartmentEquipment& EqData, int quantity)
+void ArentAppartmentArea_C::addInventoryItem(const struct FappartmentEquipment& eqData, int quantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function rentAppartmentArea.rentAppartmentArea_C.addInventoryItem");
 
 	ArentAppartmentArea_C_addInventoryItem_Params params;
-	params.EqData = EqData;
+	params.eqData = eqData;
 	params.quantity = quantity;
 
 	auto flags = fn->FunctionFlags;

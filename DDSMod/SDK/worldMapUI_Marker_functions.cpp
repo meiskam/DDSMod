@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,9 +16,9 @@ namespace SDK
 // Function worldMapUI_Marker.worldMapUI_Marker_C.checkAreaUnlocked
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           unlocked                       (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           Unlocked                       (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UworldMapUI_Marker_C::checkAreaUnlocked(bool* unlocked)
+void UworldMapUI_Marker_C::checkAreaUnlocked(bool* Unlocked)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function worldMapUI_Marker.worldMapUI_Marker_C.checkAreaUnlocked");
 
@@ -30,8 +30,8 @@ void UworldMapUI_Marker_C::checkAreaUnlocked(bool* unlocked)
 
 	fn->FunctionFlags = flags;
 
-	if (unlocked != nullptr)
-		*unlocked = params.unlocked;
+	if (Unlocked != nullptr)
+		*Unlocked = params.Unlocked;
 }
 
 
@@ -109,10 +109,10 @@ bool UworldMapUI_Marker_C::Get_mainCanvas_bIsEnabled_1()
 // TEnumAsByte<EmapMarkerCategories> MarkerType                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FVector2D               basePos                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   ToolTip                        (BlueprintVisible, BlueprintReadOnly, Parm)
-// bool                           Dealer                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           dealer                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FString                 AreaString                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 
-void UworldMapUI_Marker_C::setup(const struct FText& MarkerName, TEnumAsByte<EmapMarkerCategories> MarkerType, const struct FVector2D& basePos, const struct FText& ToolTip, bool Dealer, const struct FString& AreaString)
+void UworldMapUI_Marker_C::setup(const struct FText& MarkerName, TEnumAsByte<EmapMarkerCategories> MarkerType, const struct FVector2D& basePos, const struct FText& ToolTip, bool dealer, const struct FString& AreaString)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function worldMapUI_Marker.worldMapUI_Marker_C.setup");
 
@@ -121,7 +121,7 @@ void UworldMapUI_Marker_C::setup(const struct FText& MarkerName, TEnumAsByte<Ema
 	params.MarkerType = MarkerType;
 	params.basePos = basePos;
 	params.ToolTip = ToolTip;
-	params.Dealer = Dealer;
+	params.dealer = dealer;
 	params.AreaString = AreaString;
 
 	auto flags = fn->FunctionFlags;

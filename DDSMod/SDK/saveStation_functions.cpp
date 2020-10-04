@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -199,6 +199,23 @@ void AsaveStation_C::drawCheck()
 	static auto fn = UObject::FindObject<UFunction>("Function saveStation.saveStation_C.drawCheck");
 
 	AsaveStation_C_drawCheck_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function saveStation.saveStation_C.updateDisplayState
+// (BlueprintCallable, BlueprintEvent)
+
+void AsaveStation_C::updateDisplayState()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function saveStation.saveStation_C.updateDisplayState");
+
+	AsaveStation_C_updateDisplayState_Params params;
 
 	auto flags = fn->FunctionFlags;
 

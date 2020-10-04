@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -178,9 +178,9 @@ public:
 	void questEnded(bool Success, int QuestID);
 	void activateQuest(int QuestID);
 	void addNewQuest(const struct FText& QuestNam, const struct FText& QuestShort, const struct FText& QuestDescription, float QuestExp, int QuestCash, const struct FString& QuestScriptNam);
-	void checkCanAddWidget(bool* OK);
+	void checkCanAddWidget(bool* ok);
 	void playerAvailable(bool* isAvailable);
-	void checkTaskRelatedMarkers(int taskID);
+	void checkTaskRelatedMarkers(int TaskID);
 	void checkDisplayNewTask();
 	void playNarration(class USoundWave* Sound, const struct FText& MonologueText, float* Length);
 	void markTaskStatus(int ID, TEnumAsByte<EtaskStatuses> Status);
@@ -210,7 +210,7 @@ public:
 	void firstWorkStation();
 	void madeFirstOrder();
 	void workStationTask();
-	void firstOwnOrderReceived(int taskID);
+	void firstOwnOrderReceived(int TaskID);
 	void tutWorkPlayerPutDrug();
 	void tutWorkPlayerPutContainer();
 	void tutWorkPlayerAddedSubstance();
@@ -288,7 +288,7 @@ public:
 	void openWeedGate();
 	void closeWeedGate();
 	void displayWeedTutorial();
-	void displayPlantHints(bool Indoor);
+	void displayPlantHints(bool indoor);
 	void ExecuteUbergraph_questManager(int EntryPoint);
 };
 

@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,13 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
+
+// Function AIModule.AIAsyncTaskBlueprintProxy.OnMoveCompleted
+struct UAIAsyncTaskBlueprintProxy_OnMoveCompleted_Params
+{
+	struct FAIRequestID                                RequestID;                                                // (Parm)
+	TEnumAsByte<EPathFollowingResult>                  MovementResult;                                           // (Parm, ZeroConstructor, IsPlainOldData)
+};
 
 // Function AIModule.AIBlueprintHelperLibrary.UnlockAIResourcesWithAnimation
 struct UAIBlueprintHelperLibrary_UnlockAIResourcesWithAnimation_Params
@@ -277,13 +284,6 @@ struct AAIController_ClaimTaskResource_Params
 	class UClass*                                      ResourceClass;                                            // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
-// Function AIModule.AIAsyncTaskBlueprintProxy.OnMoveCompleted
-struct UAIAsyncTaskBlueprintProxy_OnMoveCompleted_Params
-{
-	struct FAIRequestID                                RequestID;                                                // (Parm)
-	TEnumAsByte<EPathFollowingResult>                  MovementResult;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
 // Function AIModule.AIPerceptionComponent.SetSenseEnabled
 struct UAIPerceptionComponent_SetSenseEnabled_Params
 {
@@ -336,6 +336,28 @@ struct UAIPerceptionComponent_GetActorsPerception_Params
 	class AActor*                                      Actor;                                                    // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FActorPerceptionBlueprintInfo               Info;                                                     // (Parm, OutParm)
 	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromSense
+struct UAIPerceptionStimuliSourceComponent_UnregisterFromSense_Params
+{
+	class UClass*                                      SenseClass;                                               // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromPerceptionSystem
+struct UAIPerceptionStimuliSourceComponent_UnregisterFromPerceptionSystem_Params
+{
+};
+
+// Function AIModule.AIPerceptionStimuliSourceComponent.RegisterWithPerceptionSystem
+struct UAIPerceptionStimuliSourceComponent_RegisterWithPerceptionSystem_Params
+{
+};
+
+// Function AIModule.AIPerceptionStimuliSourceComponent.RegisterForSense
+struct UAIPerceptionStimuliSourceComponent_RegisterForSense_Params
+{
+	class UClass*                                      SenseClass;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function AIModule.AIPerceptionSystem.ReportPerceptionEvent
@@ -457,28 +479,6 @@ struct UAISense_Prediction_RequestControllerPredictionEvent_Params
 	class AAIController*                               Requestor;                                                // (Parm, ZeroConstructor, IsPlainOldData)
 	class AActor*                                      PredictedActor;                                           // (Parm, ZeroConstructor, IsPlainOldData)
 	float                                              PredictionTime;                                           // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromSense
-struct UAIPerceptionStimuliSourceComponent_UnregisterFromSense_Params
-{
-	class UClass*                                      SenseClass;                                               // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function AIModule.AIPerceptionStimuliSourceComponent.UnregisterFromPerceptionSystem
-struct UAIPerceptionStimuliSourceComponent_UnregisterFromPerceptionSystem_Params
-{
-};
-
-// Function AIModule.AIPerceptionStimuliSourceComponent.RegisterWithPerceptionSystem
-struct UAIPerceptionStimuliSourceComponent_RegisterWithPerceptionSystem_Params
-{
-};
-
-// Function AIModule.AIPerceptionStimuliSourceComponent.RegisterForSense
-struct UAIPerceptionStimuliSourceComponent_RegisterForSense_Params
-{
-	class UClass*                                      SenseClass;                                               // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function AIModule.AISystem.AILoggingVerbose

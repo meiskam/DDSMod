@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -174,9 +174,9 @@ void AmainComputer_C::constructMessageSentence(bool LastIndex, bool BeforeLastIn
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // TArray<struct FdrugData>       drugData                       (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
-// TArray<int>                    drugQuantities                 (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+// TArray<int>                    DrugQuantities                 (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 
-void AmainComputer_C::sendNewOrder(TArray<struct FdrugData>* drugData, TArray<int>* drugQuantities)
+void AmainComputer_C::sendNewOrder(TArray<struct FdrugData>* drugData, TArray<int>* DrugQuantities)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function mainComputer.mainComputer_C.sendNewOrder");
 
@@ -190,8 +190,8 @@ void AmainComputer_C::sendNewOrder(TArray<struct FdrugData>* drugData, TArray<in
 
 	if (drugData != nullptr)
 		*drugData = params.drugData;
-	if (drugQuantities != nullptr)
-		*drugQuantities = params.drugQuantities;
+	if (DrugQuantities != nullptr)
+		*DrugQuantities = params.DrugQuantities;
 }
 
 

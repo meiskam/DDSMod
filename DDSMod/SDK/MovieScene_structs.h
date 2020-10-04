@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -63,15 +63,6 @@ enum class EMovieSceneBuiltInEasing : uint8_t
 };
 
 
-// Enum MovieScene.EEvaluationMethod
-enum class EEvaluationMethod : uint8_t
-{
-	EEvaluationMethod__Static      = 0,
-	EEvaluationMethod__Swept       = 1,
-	EEvaluationMethod__EEvaluationMethod_MAX = 2
-};
-
-
 // Enum MovieScene.EUpdateClockSource
 enum class EUpdateClockSource : uint8_t
 {
@@ -91,17 +82,21 @@ enum class EMovieSceneEvaluationType : uint8_t
 };
 
 
-// Enum MovieScene.EMovieScenePlayerStatus
-enum class EMovieScenePlayerStatus : uint8_t
+// Enum MovieScene.EEvaluationMethod
+enum class EEvaluationMethod : uint8_t
 {
-	EMovieScenePlayerStatus__Stopped = 0,
-	EMovieScenePlayerStatus__Playing = 1,
-	EMovieScenePlayerStatus__Recording = 2,
-	EMovieScenePlayerStatus__Scrubbing = 3,
-	EMovieScenePlayerStatus__Jumping = 4,
-	EMovieScenePlayerStatus__Stepping = 5,
-	EMovieScenePlayerStatus__Paused = 6,
-	EMovieScenePlayerStatus__MAX   = 7
+	EEvaluationMethod__Static      = 0,
+	EEvaluationMethod__Swept       = 1,
+	EEvaluationMethod__EEvaluationMethod_MAX = 2
+};
+
+
+// Enum MovieScene.EMovieSceneObjectBindingSpace
+enum class EMovieSceneObjectBindingSpace : uint8_t
+{
+	EMovieSceneObjectBindingSpace__Local = 0,
+	EMovieSceneObjectBindingSpace__Root = 1,
+	EMovieSceneObjectBindingSpace__EMovieSceneObjectBindingSpace_MAX = 2
 };
 
 
@@ -112,15 +107,6 @@ enum class EMovieSceneCompletionMode : uint8_t
 	EMovieSceneCompletionMode__RestoreState = 1,
 	EMovieSceneCompletionMode__ProjectDefault = 2,
 	EMovieSceneCompletionMode__EMovieSceneCompletionMode_MAX = 3
-};
-
-
-// Enum MovieScene.EMovieSceneObjectBindingSpace
-enum class EMovieSceneObjectBindingSpace : uint8_t
-{
-	EMovieSceneObjectBindingSpace__Local = 0,
-	EMovieSceneObjectBindingSpace__Root = 1,
-	EMovieSceneObjectBindingSpace__EMovieSceneObjectBindingSpace_MAX = 2
 };
 
 
@@ -141,6 +127,20 @@ enum class ESpawnOwnership : uint8_t
 	ESpawnOwnership__MasterSequence = 1,
 	ESpawnOwnership__External      = 2,
 	ESpawnOwnership__ESpawnOwnership_MAX = 3
+};
+
+
+// Enum MovieScene.EMovieScenePlayerStatus
+enum class EMovieScenePlayerStatus : uint8_t
+{
+	EMovieScenePlayerStatus__Stopped = 0,
+	EMovieScenePlayerStatus__Playing = 1,
+	EMovieScenePlayerStatus__Recording = 2,
+	EMovieScenePlayerStatus__Scrubbing = 3,
+	EMovieScenePlayerStatus__Jumping = 4,
+	EMovieScenePlayerStatus__Stepping = 5,
+	EMovieScenePlayerStatus__Paused = 6,
+	EMovieScenePlayerStatus__MAX   = 7
 };
 
 

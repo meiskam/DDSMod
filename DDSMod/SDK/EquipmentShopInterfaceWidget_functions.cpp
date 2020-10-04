@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,9 +16,9 @@ namespace SDK
 // Function EquipmentShopInterfaceWidget.EquipmentShopInterfaceWidget_C.checkAvailableApartments
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           OK                             (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           ok                             (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UEquipmentShopInterfaceWidget_C::checkAvailableApartments(bool* OK)
+void UEquipmentShopInterfaceWidget_C::checkAvailableApartments(bool* ok)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EquipmentShopInterfaceWidget.EquipmentShopInterfaceWidget_C.checkAvailableApartments");
 
@@ -30,8 +30,8 @@ void UEquipmentShopInterfaceWidget_C::checkAvailableApartments(bool* OK)
 
 	fn->FunctionFlags = flags;
 
-	if (OK != nullptr)
-		*OK = params.OK;
+	if (ok != nullptr)
+		*ok = params.ok;
 }
 
 

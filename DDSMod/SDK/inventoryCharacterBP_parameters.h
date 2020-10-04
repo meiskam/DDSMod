@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.9.30
+// Name: DDS, Version: 2020.10.2
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -27,6 +27,12 @@ struct AinventoryCharacterBP_C_ReceiveBeginPlay_Params
 // Function inventoryCharacterBP.inventoryCharacterBP_C.testTime
 struct AinventoryCharacterBP_C_testTime_Params
 {
+};
+
+// Function inventoryCharacterBP.inventoryCharacterBP_C.toggleCharacterEnabled
+struct AinventoryCharacterBP_C_toggleCharacterEnabled_Params
+{
+	bool                                               Enabled;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function inventoryCharacterBP.inventoryCharacterBP_C.ExecuteUbergraph_inventoryCharacterBP
