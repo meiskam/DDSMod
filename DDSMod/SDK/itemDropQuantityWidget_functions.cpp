@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -20,9 +20,9 @@ namespace SDK
 // class UUserWidget*             Widget                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 // int                            sourceQuan                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FinventoryItemStruct    Data                           (BlueprintVisible, BlueprintReadOnly, Parm)
-// int                            MaxQuantity                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// int                            maxQuantity                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UitemDropQuantityWidget_C::getMaxQuantity(const struct FString& targetString, class UUserWidget* Widget, int sourceQuan, const struct FinventoryItemStruct& Data, int* MaxQuantity)
+void UitemDropQuantityWidget_C::getMaxQuantity(const struct FString& targetString, class UUserWidget* Widget, int sourceQuan, const struct FinventoryItemStruct& Data, int* maxQuantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function itemDropQuantityWidget.itemDropQuantityWidget_C.getMaxQuantity");
 
@@ -38,8 +38,8 @@ void UitemDropQuantityWidget_C::getMaxQuantity(const struct FString& targetStrin
 
 	fn->FunctionFlags = flags;
 
-	if (MaxQuantity != nullptr)
-		*MaxQuantity = params.MaxQuantity;
+	if (maxQuantity != nullptr)
+		*maxQuantity = params.maxQuantity;
 }
 
 

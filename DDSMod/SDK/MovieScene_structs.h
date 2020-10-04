@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -70,34 +70,12 @@ enum class EUpdateClockSource : uint8_t
 };
 
 
-// Enum MovieScene.EMovieSceneKeyInterpolation
-enum class EMovieSceneKeyInterpolation : uint8_t
+// Enum MovieScene.EMovieSceneEvaluationType
+enum class EMovieSceneEvaluationType : uint8_t
 {
-	EMovieSceneKeyInterpolation__Auto = 0,
-	EMovieSceneKeyInterpolation__User = 1,
-	EMovieSceneKeyInterpolation__Break = 2,
-	EMovieSceneKeyInterpolation__Linear = 3,
-	EMovieSceneKeyInterpolation__Constant = 4,
-	EMovieSceneKeyInterpolation__EMovieSceneKeyInterpolation_MAX = 5
-};
-
-
-// Enum MovieScene.EMovieSceneObjectBindingSpace
-enum class EMovieSceneObjectBindingSpace : uint8_t
-{
-	EMovieSceneObjectBindingSpace__Local = 0,
-	EMovieSceneObjectBindingSpace__Root = 1,
-	EMovieSceneObjectBindingSpace__EMovieSceneObjectBindingSpace_MAX = 2
-};
-
-
-// Enum MovieScene.EMovieSceneCompletionMode
-enum class EMovieSceneCompletionMode : uint8_t
-{
-	EMovieSceneCompletionMode__KeepState = 0,
-	EMovieSceneCompletionMode__RestoreState = 1,
-	EMovieSceneCompletionMode__ProjectDefault = 2,
-	EMovieSceneCompletionMode__EMovieSceneCompletionMode_MAX = 3
+	EMovieSceneEvaluationType__FrameLocked = 0,
+	EMovieSceneEvaluationType__WithSubFrames = 1,
+	EMovieSceneEvaluationType__EMovieSceneEvaluationType_MAX = 2
 };
 
 
@@ -115,6 +93,15 @@ enum class EMovieScenePlayerStatus : uint8_t
 };
 
 
+// Enum MovieScene.EMovieSceneObjectBindingSpace
+enum class EMovieSceneObjectBindingSpace : uint8_t
+{
+	EMovieSceneObjectBindingSpace__Local = 0,
+	EMovieSceneObjectBindingSpace__Root = 1,
+	EMovieSceneObjectBindingSpace__EMovieSceneObjectBindingSpace_MAX = 2
+};
+
+
 // Enum MovieScene.ESectionEvaluationFlags
 enum class ESectionEvaluationFlags : uint8_t
 {
@@ -125,15 +112,6 @@ enum class ESectionEvaluationFlags : uint8_t
 };
 
 
-// Enum MovieScene.EMovieSceneEvaluationType
-enum class EMovieSceneEvaluationType : uint8_t
-{
-	EMovieSceneEvaluationType__FrameLocked = 0,
-	EMovieSceneEvaluationType__WithSubFrames = 1,
-	EMovieSceneEvaluationType__EMovieSceneEvaluationType_MAX = 2
-};
-
-
 // Enum MovieScene.ESpawnOwnership
 enum class ESpawnOwnership : uint8_t
 {
@@ -141,6 +119,28 @@ enum class ESpawnOwnership : uint8_t
 	ESpawnOwnership__MasterSequence = 1,
 	ESpawnOwnership__External      = 2,
 	ESpawnOwnership__ESpawnOwnership_MAX = 3
+};
+
+
+// Enum MovieScene.EMovieSceneCompletionMode
+enum class EMovieSceneCompletionMode : uint8_t
+{
+	EMovieSceneCompletionMode__KeepState = 0,
+	EMovieSceneCompletionMode__RestoreState = 1,
+	EMovieSceneCompletionMode__ProjectDefault = 2,
+	EMovieSceneCompletionMode__EMovieSceneCompletionMode_MAX = 3
+};
+
+
+// Enum MovieScene.EMovieSceneKeyInterpolation
+enum class EMovieSceneKeyInterpolation : uint8_t
+{
+	EMovieSceneKeyInterpolation__Auto = 0,
+	EMovieSceneKeyInterpolation__User = 1,
+	EMovieSceneKeyInterpolation__Break = 2,
+	EMovieSceneKeyInterpolation__Linear = 3,
+	EMovieSceneKeyInterpolation__Constant = 4,
+	EMovieSceneKeyInterpolation__EMovieSceneKeyInterpolation_MAX = 5
 };
 
 
@@ -571,14 +571,6 @@ struct FMovieSceneExpansionState
 	bool                                               bExpanded;                                                // 0x0000(0x0001) (ZeroConstructor, IsPlainOldData)
 };
 
-// ScriptStruct MovieScene.MovieSceneTimecodeSource
-// 0x0018
-struct FMovieSceneTimecodeSource
-{
-	struct FTimecode                                   Timecode;                                                 // 0x0000(0x0014) (ZeroConstructor, IsPlainOldData)
-	struct FFrameNumber                                DeltaFrame;                                               // 0x0014(0x0004)
-};
-
 // ScriptStruct MovieScene.MovieSceneEditorData
 // 0x00E0
 struct FMovieSceneEditorData
@@ -591,6 +583,14 @@ struct FMovieSceneEditorData
 	unsigned char                                      UnknownData00[0x50];                                      // 0x0070(0x0050) UNKNOWN PROPERTY: SetProperty MovieScene.MovieSceneEditorData.MarkedFrames
 	struct FFloatRange                                 WorkingRange;                                             // 0x00C0(0x0010) (ZeroConstructor, Deprecated, IsPlainOldData)
 	struct FFloatRange                                 ViewRange;                                                // 0x00D0(0x0010) (ZeroConstructor, Deprecated, IsPlainOldData)
+};
+
+// ScriptStruct MovieScene.MovieSceneTimecodeSource
+// 0x0018
+struct FMovieSceneTimecodeSource
+{
+	struct FTimecode                                   Timecode;                                                 // 0x0000(0x0014) (ZeroConstructor, IsPlainOldData)
+	struct FFrameNumber                                DeltaFrame;                                               // 0x0014(0x0004)
 };
 
 // ScriptStruct MovieScene.MovieSceneChannel

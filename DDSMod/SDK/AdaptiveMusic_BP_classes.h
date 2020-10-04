@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -32,7 +32,7 @@ public:
 	TEnumAsByte<ETimelineDirection>                    Chase_HideoutTransitionTimeline__Direction_E077DD6A477BBAF884D89F8F6DCAF7CB;// 0x0380(0x0001) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x7];                                       // 0x0381(0x0007) MISSED OFFSET
 	class UTimelineComponent*                          HideoutTransitionTimeline;                                // 0x0388(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class AplayerCharacterBP_C*                        playerRef;                                                // 0x0390(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
+	class AplayerCharacterBP_C*                        PlayerRef;                                                // 0x0390(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 	TArray<struct FMusicBPM>                           ChaseIntroMusic;                                          // 0x0398(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<struct FMusicBPM>                           ChaseMusic;                                               // 0x03A8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<struct FMusicBPM>                           HideoutMusic;                                             // 0x03B8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
@@ -75,7 +75,7 @@ public:
 	void HideoutTransitionTimeline__UpdateFunc();
 	void endChaseMusic();
 	void ReceiveTick(float* DeltaSeconds);
-	void InitiateMe(class AplayerCharacterBP_C* playerRef);
+	void InitiateMe(class AplayerCharacterBP_C* PlayerRef);
 	void StartChaseMusic();
 	void BndEvt__IntroChase_K2Node_ComponentBoundEvent_4_OnAudioPlaybackPercent__DelegateSignature(class USoundWave* PlayingSoundWave, float PlaybackPercent);
 	void PlayChaseMusic(float StartTime);

@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -188,9 +188,9 @@ void AquestManager_C::addNewQuest(const struct FText& QuestNam, const struct FTe
 // Function questManager.questManager_C.checkCanAddWidget
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
-// bool                           ok                             (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           OK                             (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AquestManager_C::checkCanAddWidget(bool* ok)
+void AquestManager_C::checkCanAddWidget(bool* OK)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function questManager.questManager_C.checkCanAddWidget");
 
@@ -202,8 +202,8 @@ void AquestManager_C::checkCanAddWidget(bool* ok)
 
 	fn->FunctionFlags = flags;
 
-	if (ok != nullptr)
-		*ok = params.ok;
+	if (OK != nullptr)
+		*OK = params.OK;
 }
 
 
@@ -2140,14 +2140,14 @@ void AquestManager_C::displayWeedTutorial()
 // Function questManager.questManager_C.displayPlantHints
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           indoor                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           Indoor                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AquestManager_C::displayPlantHints(bool indoor)
+void AquestManager_C::displayPlantHints(bool Indoor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function questManager.questManager_C.displayPlantHints");
 
 	AquestManager_C_displayPlantHints_Params params;
-	params.indoor = indoor;
+	params.Indoor = Indoor;
 
 	auto flags = fn->FunctionFlags;
 

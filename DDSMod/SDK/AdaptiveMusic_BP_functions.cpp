@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -121,14 +121,14 @@ void AAdaptiveMusic_BP_C::ReceiveTick(float* DeltaSeconds)
 // Function AdaptiveMusic_BP.AdaptiveMusic_BP_C.InitiateMe
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class AplayerCharacterBP_C*    playerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AplayerCharacterBP_C*    PlayerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AAdaptiveMusic_BP_C::InitiateMe(class AplayerCharacterBP_C* playerRef)
+void AAdaptiveMusic_BP_C::InitiateMe(class AplayerCharacterBP_C* PlayerRef)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function AdaptiveMusic_BP.AdaptiveMusic_BP_C.InitiateMe");
 
 	AAdaptiveMusic_BP_C_InitiateMe_Params params;
-	params.playerRef = playerRef;
+	params.PlayerRef = PlayerRef;
 
 	auto flags = fn->FunctionFlags;
 

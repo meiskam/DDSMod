@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,11 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
+
+// Function laBallena.laBallena_C.removeOldCigars
+struct AlaBallena_C_removeOldCigars_Params
+{
+};
 
 // Function laBallena.laBallena_C.playDialogueLine
 struct AlaBallena_C_playDialogueLine_Params

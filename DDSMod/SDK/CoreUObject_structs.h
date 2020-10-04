@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -154,6 +154,17 @@ enum class EMouseCursor : uint8_t
 };
 
 
+// Enum CoreUObject.EAxis
+enum class EAxis : uint8_t
+{
+	EAxis__None                    = 0,
+	EAxis__X                       = 1,
+	EAxis__Y                       = 2,
+	EAxis__Z                       = 3,
+	EAxis__EAxis_MAX               = 4
+};
+
+
 // Enum CoreUObject.EPixelFormat
 enum class EPixelFormat : uint8_t
 {
@@ -225,28 +236,6 @@ enum class EPixelFormat : uint8_t
 };
 
 
-// Enum CoreUObject.EAxis
-enum class EAxis : uint8_t
-{
-	EAxis__None                    = 0,
-	EAxis__X                       = 1,
-	EAxis__Y                       = 2,
-	EAxis__Z                       = 3,
-	EAxis__EAxis_MAX               = 4
-};
-
-
-// Enum CoreUObject.ELogTimes
-enum class ELogTimes : uint8_t
-{
-	ELogTimes__None                = 0,
-	ELogTimes__UTC                 = 1,
-	ELogTimes__SinceGStartTime     = 2,
-	ELogTimes__Local               = 3,
-	ELogTimes__ELogTimes_MAX       = 4
-};
-
-
 // Enum CoreUObject.ESearchDir
 enum class ESearchDir : uint8_t
 {
@@ -262,6 +251,17 @@ enum class ESearchCase : uint8_t
 	ESearchCase__CaseSensitive     = 0,
 	ESearchCase__IgnoreCase        = 1,
 	ESearchCase__ESearchCase_MAX   = 2
+};
+
+
+// Enum CoreUObject.ELogTimes
+enum class ELogTimes : uint8_t
+{
+	ELogTimes__None                = 0,
+	ELogTimes__UTC                 = 1,
+	ELogTimes__SinceGStartTime     = 2,
+	ELogTimes__Local               = 3,
+	ELogTimes__ELogTimes_MAX       = 4
 };
 
 

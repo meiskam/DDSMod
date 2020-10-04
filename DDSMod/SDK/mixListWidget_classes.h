@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -29,7 +29,7 @@ public:
 	}
 
 
-	void setup(const struct FText& Substance, float Quantity, float TotalMass);
+	void setup(const struct FText& Substance, float Quantity, float totalMass);
 	void ExecuteUbergraph_mixListWidget(int EntryPoint);
 };
 

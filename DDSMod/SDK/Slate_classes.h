@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,22 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
+
+// Class Slate.ButtonWidgetStyle
+// 0x0278 (0x02A8 - 0x0030)
+class UButtonWidgetStyle : public USlateWidgetStyleContainerBase
+{
+public:
+	struct FButtonStyle                                ButtonStyle;                                              // 0x0030(0x0278) (Edit, BlueprintVisible)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Slate.ButtonWidgetStyle");
+		return ptr;
+	}
+
+};
+
 
 // Class Slate.CheckBoxWidgetStyle
 // 0x0580 (0x05B0 - 0x0030)
@@ -44,16 +60,16 @@ public:
 };
 
 
-// Class Slate.ButtonWidgetStyle
-// 0x0278 (0x02A8 - 0x0030)
-class UButtonWidgetStyle : public USlateWidgetStyleContainerBase
+// Class Slate.ComboButtonWidgetStyle
+// 0x03A0 (0x03D0 - 0x0030)
+class UComboButtonWidgetStyle : public USlateWidgetStyleContainerBase
 {
 public:
-	struct FButtonStyle                                ButtonStyle;                                              // 0x0030(0x0278) (Edit, BlueprintVisible)
+	struct FComboButtonStyle                           ComboButtonStyle;                                         // 0x0030(0x03A0) (Edit)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Slate.ButtonWidgetStyle");
+		static auto ptr = UObject::FindClass("Class Slate.ComboButtonWidgetStyle");
 		return ptr;
 	}
 
@@ -183,22 +199,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Slate.TextBlockWidgetStyle");
-		return ptr;
-	}
-
-};
-
-
-// Class Slate.ComboButtonWidgetStyle
-// 0x03A0 (0x03D0 - 0x0030)
-class UComboButtonWidgetStyle : public USlateWidgetStyleContainerBase
-{
-public:
-	struct FComboButtonStyle                           ComboButtonStyle;                                         // 0x0030(0x03A0) (Edit)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Slate.ComboButtonWidgetStyle");
 		return ptr;
 	}
 

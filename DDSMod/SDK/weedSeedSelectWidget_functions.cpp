@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -72,15 +72,15 @@ void UweedSeedSelectWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaT
 // Function weedSeedSelectWidget.weedSeedSelectWidget_C.setup
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class AplayerCharacterBP_C*    playerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AplayerCharacterBP_C*    PlayerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           showIndoor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UweedSeedSelectWidget_C::setup(class AplayerCharacterBP_C* playerRef, bool showIndoor)
+void UweedSeedSelectWidget_C::setup(class AplayerCharacterBP_C* PlayerRef, bool showIndoor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function weedSeedSelectWidget.weedSeedSelectWidget_C.setup");
 
 	UweedSeedSelectWidget_C_setup_Params params;
-	params.playerRef = playerRef;
+	params.PlayerRef = PlayerRef;
 	params.showIndoor = showIndoor;
 
 	auto flags = fn->FunctionFlags;

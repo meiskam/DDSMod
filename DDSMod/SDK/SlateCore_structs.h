@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -24,6 +24,15 @@ enum class EWidgetClipping : uint8_t
 };
 
 
+// Enum SlateCore.EFontLayoutMethod
+enum class EFontLayoutMethod : uint8_t
+{
+	EFontLayoutMethod__Metrics     = 0,
+	EFontLayoutMethod__BoundingBox = 1,
+	EFontLayoutMethod__EFontLayoutMethod_MAX = 2
+};
+
+
 // Enum SlateCore.EFontLoadingPolicy
 enum class EFontLoadingPolicy : uint8_t
 {
@@ -43,15 +52,6 @@ enum class EFontHinting : uint8_t
 	EFontHinting__Monochrome       = 3,
 	EFontHinting__None             = 4,
 	EFontHinting__EFontHinting_MAX = 5
-};
-
-
-// Enum SlateCore.EFontLayoutMethod
-enum class EFontLayoutMethod : uint8_t
-{
-	EFontLayoutMethod__Metrics     = 0,
-	EFontLayoutMethod__BoundingBox = 1,
-	EFontLayoutMethod__EFontLayoutMethod_MAX = 2
 };
 
 
@@ -249,6 +249,15 @@ enum class ENavigationGenesis : uint8_t
 };
 
 
+// Enum SlateCore.ENavigationSource
+enum class ENavigationSource : uint8_t
+{
+	ENavigationSource__FocusedWidget = 0,
+	ENavigationSource__WidgetUnderCursor = 1,
+	ENavigationSource__ENavigationSource_MAX = 2
+};
+
+
 // Enum SlateCore.EUINavigation
 enum class EUINavigation : uint8_t
 {
@@ -261,15 +270,6 @@ enum class EUINavigation : uint8_t
 	EUINavigation__Num             = 6,
 	EUINavigation__Invalid         = 7,
 	EUINavigation__EUINavigation_MAX = 8
-};
-
-
-// Enum SlateCore.ENavigationSource
-enum class ENavigationSource : uint8_t
-{
-	ENavigationSource__FocusedWidget = 0,
-	ENavigationSource__WidgetUnderCursor = 1,
-	ENavigationSource__ENavigationSource_MAX = 2
 };
 
 
@@ -290,16 +290,6 @@ enum class EButtonClickMethod : uint8_t
 	EButtonClickMethod__MouseUp    = 2,
 	EButtonClickMethod__PreciseClick = 3,
 	EButtonClickMethod__EButtonClickMethod_MAX = 4
-};
-
-
-// Enum SlateCore.EButtonPressMethod
-enum class EButtonPressMethod : uint8_t
-{
-	EButtonPressMethod__DownAndUp  = 0,
-	EButtonPressMethod__ButtonPress = 1,
-	EButtonPressMethod__ButtonRelease = 2,
-	EButtonPressMethod__EButtonPressMethod_MAX = 3
 };
 
 
@@ -329,6 +319,16 @@ enum class ESlateCheckBoxType : uint8_t
 	ESlateCheckBoxType__CheckBox   = 0,
 	ESlateCheckBoxType__ToggleButton = 1,
 	ESlateCheckBoxType__ESlateCheckBoxType_MAX = 2
+};
+
+
+// Enum SlateCore.EButtonPressMethod
+enum class EButtonPressMethod : uint8_t
+{
+	EButtonPressMethod__DownAndUp  = 0,
+	EButtonPressMethod__ButtonPress = 1,
+	EButtonPressMethod__ButtonRelease = 2,
+	EButtonPressMethod__EButtonPressMethod_MAX = 3
 };
 
 
@@ -852,15 +852,6 @@ struct FInlineEditableTextBlockStyle : public FSlateWidgetStyle
 	struct FTextBlockStyle                             TextStyle;                                                // 0x0800(0x01E8) (Edit, BlueprintVisible)
 };
 
-// ScriptStruct SlateCore.HyperlinkStyle
-// 0x0470 (0x0478 - 0x0008)
-struct FHyperlinkStyle : public FSlateWidgetStyle
-{
-	struct FButtonStyle                                UnderlineStyle;                                           // 0x0008(0x0278) (Edit, BlueprintVisible)
-	struct FTextBlockStyle                             TextStyle;                                                // 0x0280(0x01E8) (Edit, BlueprintVisible)
-	struct FMargin                                     Padding;                                                  // 0x0468(0x0010) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-};
-
 // ScriptStruct SlateCore.CheckBoxStyle
 // 0x0578 (0x0580 - 0x0008)
 struct FCheckBoxStyle : public FSlateWidgetStyle
@@ -882,6 +873,15 @@ struct FCheckBoxStyle : public FSlateWidgetStyle
 	struct FSlateSound                                 CheckedSlateSound;                                        // 0x0538(0x0018) (Edit, BlueprintVisible)
 	struct FSlateSound                                 UncheckedSlateSound;                                      // 0x0550(0x0018) (Edit, BlueprintVisible)
 	struct FSlateSound                                 HoveredSlateSound;                                        // 0x0568(0x0018) (Edit, BlueprintVisible)
+};
+
+// ScriptStruct SlateCore.HyperlinkStyle
+// 0x0470 (0x0478 - 0x0008)
+struct FHyperlinkStyle : public FSlateWidgetStyle
+{
+	struct FButtonStyle                                UnderlineStyle;                                           // 0x0008(0x0278) (Edit, BlueprintVisible)
+	struct FTextBlockStyle                             TextStyle;                                                // 0x0280(0x01E8) (Edit, BlueprintVisible)
+	struct FMargin                                     Padding;                                                  // 0x0468(0x0010) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
 
 }

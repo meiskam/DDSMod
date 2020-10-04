@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -183,14 +183,14 @@ void AsprayPlacementGizmo_C::ActionPress()
 }
 
 
-// Function sprayPlacementGizmo.sprayPlacementGizmo_C.actionRelease
+// Function sprayPlacementGizmo.sprayPlacementGizmo_C.ActionRelease
 // (BlueprintCallable, BlueprintEvent)
 
-void AsprayPlacementGizmo_C::actionRelease()
+void AsprayPlacementGizmo_C::ActionRelease()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function sprayPlacementGizmo.sprayPlacementGizmo_C.actionRelease");
+	static auto fn = UObject::FindObject<UFunction>("Function sprayPlacementGizmo.sprayPlacementGizmo_C.ActionRelease");
 
-	AsprayPlacementGizmo_C_actionRelease_Params params;
+	AsprayPlacementGizmo_C_ActionRelease_Params params;
 
 	auto flags = fn->FunctionFlags;
 

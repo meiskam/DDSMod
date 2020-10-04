@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -69,7 +69,7 @@ struct AquestManager_C_addNewQuest_Params
 // Function questManager.questManager_C.checkCanAddWidget
 struct AquestManager_C_checkCanAddWidget_Params
 {
-	bool                                               ok;                                                       // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               OK;                                                       // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function questManager.questManager_C.playerAvailable
@@ -649,7 +649,7 @@ struct AquestManager_C_displayWeedTutorial_Params
 // Function questManager.questManager_C.displayPlantHints
 struct AquestManager_C_displayPlantHints_Params
 {
-	bool                                               indoor;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               Indoor;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function questManager.questManager_C.ExecuteUbergraph_questManager

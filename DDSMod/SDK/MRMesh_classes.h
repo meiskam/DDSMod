@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,29 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
+
+// Class MRMesh.MeshReconstructorBase
+// 0x0000 (0x0028 - 0x0028)
+class UMeshReconstructorBase : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MRMesh.MeshReconstructorBase");
+		return ptr;
+	}
+
+
+	void StopReconstruction();
+	void StartReconstruction();
+	void PauseReconstruction();
+	bool IsReconstructionStarted();
+	bool IsReconstructionPaused();
+	void DisconnectMRMesh();
+	void ConnectMRMesh(class UMRMeshComponent* Mesh);
+};
+
 
 // Class MRMesh.MRMeshComponent
 // 0x0040 (0x05A0 - 0x0560)
@@ -34,29 +57,6 @@ public:
 	bool IsConnected();
 	void ForceNavMeshUpdate();
 	void Clear();
-};
-
-
-// Class MRMesh.MeshReconstructorBase
-// 0x0000 (0x0028 - 0x0028)
-class UMeshReconstructorBase : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MRMesh.MeshReconstructorBase");
-		return ptr;
-	}
-
-
-	void StopReconstruction();
-	void StartReconstruction();
-	void PauseReconstruction();
-	bool IsReconstructionStarted();
-	bool IsReconstructionPaused();
-	void DisconnectMRMesh();
-	void ConnectMRMesh(class UMRMeshComponent* Mesh);
 };
 
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -45,6 +45,16 @@ enum class EProgressBarFillType : uint8_t
 };
 
 
+// Enum Slate.EStretchDirection
+enum class EStretchDirection : uint8_t
+{
+	EStretchDirection__Both        = 0,
+	EStretchDirection__DownOnly    = 1,
+	EStretchDirection__UpOnly      = 2,
+	EStretchDirection__EStretchDirection_MAX = 3
+};
+
+
 // Enum Slate.EStretch
 enum class EStretch : uint8_t
 {
@@ -70,13 +80,17 @@ enum class EDescendantScrollDestination : uint8_t
 };
 
 
-// Enum Slate.EStretchDirection
-enum class EStretchDirection : uint8_t
+// Enum Slate.EListItemAlignment
+enum class EListItemAlignment : uint8_t
 {
-	EStretchDirection__Both        = 0,
-	EStretchDirection__DownOnly    = 1,
-	EStretchDirection__UpOnly      = 2,
-	EStretchDirection__EStretchDirection_MAX = 3
+	EListItemAlignment__EvenlyDistributed = 0,
+	EListItemAlignment__EvenlySize = 1,
+	EListItemAlignment__EvenlyWide = 2,
+	EListItemAlignment__LeftAligned = 3,
+	EListItemAlignment__RightAligned = 4,
+	EListItemAlignment__CenterAligned = 5,
+	EListItemAlignment__Fill       = 6,
+	EListItemAlignment__EListItemAlignment_MAX = 7
 };
 
 
@@ -126,20 +140,6 @@ enum class ETableViewMode : uint8_t
 	ETableViewMode__Tile           = 1,
 	ETableViewMode__Tree           = 2,
 	ETableViewMode__ETableViewMode_MAX = 3
-};
-
-
-// Enum Slate.EListItemAlignment
-enum class EListItemAlignment : uint8_t
-{
-	EListItemAlignment__EvenlyDistributed = 0,
-	EListItemAlignment__EvenlySize = 1,
-	EListItemAlignment__EvenlyWide = 2,
-	EListItemAlignment__LeftAligned = 3,
-	EListItemAlignment__RightAligned = 4,
-	EListItemAlignment__CenterAligned = 5,
-	EListItemAlignment__Fill       = 6,
-	EListItemAlignment__EListItemAlignment_MAX = 7
 };
 
 

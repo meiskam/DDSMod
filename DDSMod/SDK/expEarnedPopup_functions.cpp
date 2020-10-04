@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -33,14 +33,14 @@ void UexpEarnedPopup_C::Construct()
 // Function expEarnedPopup.expEarnedPopup_C.setup
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// float                          expAmount                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          ExpAmount                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UexpEarnedPopup_C::setup(float expAmount)
+void UexpEarnedPopup_C::setup(float ExpAmount)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function expEarnedPopup.expEarnedPopup_C.setup");
 
 	UexpEarnedPopup_C_setup_Params params;
-	params.expAmount = expAmount;
+	params.ExpAmount = ExpAmount;
 
 	auto flags = fn->FunctionFlags;
 

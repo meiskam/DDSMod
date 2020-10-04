@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -132,10 +132,10 @@ public:
 	void inventoryError(const struct FText& ErrorText);
 	void refreshSkills();
 	void countTotalDrugGrams(int* OutGrams);
-	void checkSubstanceSame(TArray<struct FinventoryItemStruct>* Substances, TArray<int>* Quantities, bool* TheSame, struct FdrugData* dataAverage);
+	void checkSubstanceSame(TArray<struct FinventoryItemStruct>* Substances, TArray<int>* quantities, bool* TheSame, struct FdrugData* dataAverage);
 	void renderQuestList();
 	void acceptBoughtItems();
-	void countBoughtItemValue(class AplayerCharacterBP_C* playerRef, int* Value);
+	void countBoughtItemValue(class AplayerCharacterBP_C* PlayerRef, int* Value);
 	void calcDistribution(float AmountDistribution, struct FText* TextOut);
 	void updateStatistics();
 	class UWidget* Get_txtExpositionHeading_ToolTipWidget_1();
@@ -144,13 +144,13 @@ public:
 	void countTotalSelledDrugsMoney(bool* playerCanFitMoney);
 	void checkSelledDrugs(bool* CheckedPositive, struct FdrugData* endDrugAverage);
 	void renderBuyerNeeded();
-	void checkItemsFitPockets(class AplayerCharacterBP_C* playerRef, bool* NoFit);
+	void checkItemsFitPockets(class AplayerCharacterBP_C* PlayerRef, bool* NoFit);
 	void countTradeItemSizing(float* TotalSize, float* TotalWieght);
 	void countItemValue(int* totalValue);
 	void clearTradeItems();
 	void renderShopItems(class AbaseNPC_C* sellerRef);
 	void renderContainer(class AcontainerBase_C* container, TArray<struct FinventoryItemStruct>* containerItems);
-	void prepareInventoryMode(class AcontainerBase_C* ContainerRef, class AbaseNPC_C* sellerRef, class AplayerCharacterBP_C* playerRef);
+	void prepareInventoryMode(class AcontainerBase_C* ContainerRef, class AbaseNPC_C* sellerRef, class AplayerCharacterBP_C* PlayerRef);
 	void renderPockets(class AplayerCharacterBP_C* Player, TArray<struct FinventoryItemStruct>* pocketItems);
 	void renderBackpack(TArray<struct FinventoryItemStruct>* backpackItems);
 	void PreConstruct(bool* IsDesignTime);

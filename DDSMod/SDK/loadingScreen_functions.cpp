@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -33,9 +33,9 @@ void UloadingScreen_C::setNewTip()
 // Function loadingScreen.loadingScreen_C.killLoadingScreen
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// float                          DelayTime                      (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// float                          delayTime                      (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UloadingScreen_C::killLoadingScreen(float* DelayTime)
+void UloadingScreen_C::killLoadingScreen(float* delayTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function loadingScreen.loadingScreen_C.killLoadingScreen");
 
@@ -47,8 +47,8 @@ void UloadingScreen_C::killLoadingScreen(float* DelayTime)
 
 	fn->FunctionFlags = flags;
 
-	if (DelayTime != nullptr)
-		*DelayTime = params.DelayTime;
+	if (delayTime != nullptr)
+		*delayTime = params.delayTime;
 }
 
 

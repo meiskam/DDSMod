@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -184,6 +184,174 @@ void UShiroBlueprint::STATIC_calculateSky(int dayNum, int curHour, int curMinute
 		*moonVisible = params.moonVisible;
 	if (varDump != nullptr)
 		*varDump = params.varDump;
+}
+
+
+// Function DrugDealerSimulator.TrainControllerCode.initOnWorld
+// (Final, Native, Private)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+float ATrainControllerCode::initOnWorld()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function DrugDealerSimulator.TrainControllerCode.initOnWorld");
+
+	ATrainControllerCode_initOnWorld_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function DrugDealerSimulator.TrainControllerCode.initInstance
+// (Final, Native, Private)
+// Parameters:
+// int                            followingSegmentsCount         (Parm, ZeroConstructor, IsPlainOldData)
+
+void ATrainControllerCode::initInstance(int followingSegmentsCount)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function DrugDealerSimulator.TrainControllerCode.initInstance");
+
+	ATrainControllerCode_initInstance_Params params;
+	params.followingSegmentsCount = followingSegmentsCount;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function DrugDealerSimulator.TrainControllerCode.calcTotalWeigthAndPower
+// (Final, Native, Private)
+
+void ATrainControllerCode::calcTotalWeigthAndPower()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function DrugDealerSimulator.TrainControllerCode.calcTotalWeigthAndPower");
+
+	ATrainControllerCode_calcTotalWeigthAndPower_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function DrugDealerSimulator.TrainControllerCode.calcTotalFrictionForce
+// (Final, Native, Private)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+float ATrainControllerCode::calcTotalFrictionForce()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function DrugDealerSimulator.TrainControllerCode.calcTotalFrictionForce");
+
+	ATrainControllerCode_calcTotalFrictionForce_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function DrugDealerSimulator.TrainControllerCode.calcSingleSegment
+// (Final, Native, Private)
+// Parameters:
+// class ATrainRealSegment*       calcSegment                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void ATrainControllerCode::calcSingleSegment(class ATrainRealSegment* calcSegment)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function DrugDealerSimulator.TrainControllerCode.calcSingleSegment");
+
+	ATrainControllerCode_calcSingleSegment_Params params;
+	params.calcSegment = calcSegment;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function DrugDealerSimulator.TrainControllerCode.calcSegmentDistanceToLeader
+// (Final, Native, Private)
+// Parameters:
+// int                            SegmentIndex                   (Parm, ZeroConstructor, IsPlainOldData)
+// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+float ATrainControllerCode::calcSegmentDistanceToLeader(int SegmentIndex)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function DrugDealerSimulator.TrainControllerCode.calcSegmentDistanceToLeader");
+
+	ATrainControllerCode_calcSegmentDistanceToLeader_Params params;
+	params.SegmentIndex = SegmentIndex;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function DrugDealerSimulator.CepSaveTester.noticeAction
+// (Final, Native, Public)
+
+void ACepSaveTester::noticeAction()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function DrugDealerSimulator.CepSaveTester.noticeAction");
+
+	ACepSaveTester_noticeAction_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function DrugDealerSimulator.CepSaveTester.getCount
+// (Final, Native, Public)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+int ACepSaveTester::getCount()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function DrugDealerSimulator.CepSaveTester.getCount");
+
+	ACepSaveTester_getCount_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 

@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -110,11 +110,11 @@ void UinventoryScreen_C::countTotalDrugGrams(int* OutGrams)
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
 // TArray<struct FinventoryItemStruct> Substances                     (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
-// TArray<int>                    Quantities                     (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+// TArray<int>                    quantities                     (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 // bool                           TheSame                        (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 // struct FdrugData               dataAverage                    (Parm, OutParm)
 
-void UinventoryScreen_C::checkSubstanceSame(TArray<struct FinventoryItemStruct>* Substances, TArray<int>* Quantities, bool* TheSame, struct FdrugData* dataAverage)
+void UinventoryScreen_C::checkSubstanceSame(TArray<struct FinventoryItemStruct>* Substances, TArray<int>* quantities, bool* TheSame, struct FdrugData* dataAverage)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function inventoryScreen.inventoryScreen_C.checkSubstanceSame");
 
@@ -128,8 +128,8 @@ void UinventoryScreen_C::checkSubstanceSame(TArray<struct FinventoryItemStruct>*
 
 	if (Substances != nullptr)
 		*Substances = params.Substances;
-	if (Quantities != nullptr)
-		*Quantities = params.Quantities;
+	if (quantities != nullptr)
+		*quantities = params.quantities;
 	if (TheSame != nullptr)
 		*TheSame = params.TheSame;
 	if (dataAverage != nullptr)
@@ -174,15 +174,15 @@ void UinventoryScreen_C::acceptBoughtItems()
 // Function inventoryScreen.inventoryScreen_C.countBoughtItemValue
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
-// class AplayerCharacterBP_C*    playerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AplayerCharacterBP_C*    PlayerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            Value                          (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UinventoryScreen_C::countBoughtItemValue(class AplayerCharacterBP_C* playerRef, int* Value)
+void UinventoryScreen_C::countBoughtItemValue(class AplayerCharacterBP_C* PlayerRef, int* Value)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function inventoryScreen.inventoryScreen_C.countBoughtItemValue");
 
 	UinventoryScreen_C_countBoughtItemValue_Params params;
-	params.playerRef = playerRef;
+	params.PlayerRef = PlayerRef;
 
 	auto flags = fn->FunctionFlags;
 
@@ -362,15 +362,15 @@ void UinventoryScreen_C::renderBuyerNeeded()
 // Function inventoryScreen.inventoryScreen_C.checkItemsFitPockets
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class AplayerCharacterBP_C*    playerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AplayerCharacterBP_C*    PlayerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           NoFit                          (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UinventoryScreen_C::checkItemsFitPockets(class AplayerCharacterBP_C* playerRef, bool* NoFit)
+void UinventoryScreen_C::checkItemsFitPockets(class AplayerCharacterBP_C* PlayerRef, bool* NoFit)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function inventoryScreen.inventoryScreen_C.checkItemsFitPockets");
 
 	UinventoryScreen_C_checkItemsFitPockets_Params params;
-	params.playerRef = playerRef;
+	params.PlayerRef = PlayerRef;
 
 	auto flags = fn->FunctionFlags;
 
@@ -496,16 +496,16 @@ void UinventoryScreen_C::renderContainer(class AcontainerBase_C* container, TArr
 // Parameters:
 // class AcontainerBase_C*        ContainerRef                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // class AbaseNPC_C*              sellerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// class AplayerCharacterBP_C*    playerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AplayerCharacterBP_C*    PlayerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UinventoryScreen_C::prepareInventoryMode(class AcontainerBase_C* ContainerRef, class AbaseNPC_C* sellerRef, class AplayerCharacterBP_C* playerRef)
+void UinventoryScreen_C::prepareInventoryMode(class AcontainerBase_C* ContainerRef, class AbaseNPC_C* sellerRef, class AplayerCharacterBP_C* PlayerRef)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function inventoryScreen.inventoryScreen_C.prepareInventoryMode");
 
 	UinventoryScreen_C_prepareInventoryMode_Params params;
 	params.ContainerRef = ContainerRef;
 	params.sellerRef = sellerRef;
-	params.playerRef = playerRef;
+	params.PlayerRef = PlayerRef;
 
 	auto flags = fn->FunctionFlags;
 

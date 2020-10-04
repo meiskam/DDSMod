@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -94,7 +94,7 @@ public:
 	int                                                pocketCount;                                              // 0x08E0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               hasBackpack;                                              // 0x08E4(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData09[0x3];                                       // 0x08E5(0x0003) MISSED OFFSET
-	struct FinventoryItemStruct                        Backpack;                                                 // 0x08E8(0x0108) (Edit, BlueprintVisible, DisableEditOnInstance)
+	struct FinventoryItemStruct                        backpack;                                                 // 0x08E8(0x0108) (Edit, BlueprintVisible, DisableEditOnInstance)
 	TArray<struct FinventoryItemStruct>                backpackItems;                                            // 0x09F0(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<int>                                        backpackItemQuantity;                                     // 0x0A00(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<bool>                                       backpackItemVendor;                                       // 0x0A10(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
@@ -317,6 +317,7 @@ public:
 	}
 
 
+	void convertBackpackData(const struct FinventoryItemStruct& BackpackIn, struct FinventoryItemStruct* BackpackOut);
 	void checkSeedsInventory();
 	void updateWeedPlacement();
 	struct FText geyKeyNam(float Scale, const struct FName& InActionName);
@@ -345,7 +346,7 @@ public:
 	void markAsFugitive();
 	void fugitiveCountdown(float Delta);
 	void updateNotifyIcons();
-	void checkInventorySizing(const struct FinventoryItemStruct& Data, int Quantity, bool* CanFit);
+	void checkInventorySizing(const struct FinventoryItemStruct& Data, int Quantity, bool* canFit);
 	void checkAllPocketsSizing(const struct FinventoryItemStruct& Data, int Quantity, bool* AllFits, int* Rest);
 	void compareInventoryData(const struct FinventoryItemStruct& Compare01, const struct FinventoryItemStruct& Compare02, bool* TheSame);
 	void addCryptocurrency(int Amount);
@@ -362,16 +363,16 @@ public:
 	void displayPopup(const struct FText& Title, const struct FText& Description, const struct FText& ButtonText, bool ShowMouse);
 	void checkItemContents(const struct FString& Source, int Index);
 	void clearBackpack();
-	void setCurrentBackpack(class AbackpackBase_C* Backpack, class AitemInventoryHolder_C* itemHolder, const struct FinventoryItemStruct& backpackData);
+	void setCurrentBackpack(class AbackpackBase_C* backpack, class AitemInventoryHolder_C* itemHolder, const struct FinventoryItemStruct& backpackData);
 	void phoneCallFunction(const struct FString& functionToCall);
 	void phoneNewNote(bool done, const struct FText& noteText);
-	void phoneNewCall(int callerID, class USoundWave* callAudio, const struct FString& functionOnAnswer, const struct FString& functionOnDecline, const struct FString& functionOnEnd, const struct FText& CallText);
+	void phoneNewCall(int callerID, class USoundWave* callAudio, const struct FString& functionOnAnswer, const struct FString& functionOnDecline, const struct FString& functionOnEnd, const struct FText& callText);
 	void phoneNewMessage(int From, const struct FText& Message, int vcardID);
-	void checkContainerSizing(const struct FinventoryItemStruct& Data, int Quantity, bool* CanFit, int* MaxQuantity);
+	void checkContainerSizing(const struct FinventoryItemStruct& Data, int Quantity, bool* canFit, int* maxQuantity);
 	void tryAddToPockets(const struct FinventoryItemStruct& Data, int Quantity, bool* AllAdded, int* Rest);
 	void addBackpackContent(const struct FinventoryItemStruct& Data, int Quantity, bool fromVendor, int ItemPrice);
-	void checkBackpackSizing(const struct FinventoryItemStruct& itemData, int Quantity, bool* CanFit, int* MaxQuantity);
-	void checkPocketSizing(const struct FinventoryItemStruct& itemData, int Quantity, int Index, bool* CanFit, int* MaxQuantity);
+	void checkBackpackSizing(const struct FinventoryItemStruct& itemData, int Quantity, bool* canFit, int* maxQuantity);
+	void checkPocketSizing(const struct FinventoryItemStruct& itemData, int Quantity, int Index, bool* canFit, int* maxQuantity);
 	void setPocketContent(const struct FinventoryItemStruct& itemData, int PocketIndex, int Quantity, bool fromVendor, int vendorPrice);
 	void removeFromPocket(int Index, int Quantity);
 	void removeDraggedItem(const struct FString& parentTag, int Index, int Quantity, const struct FinventoryItemStruct& Data);
@@ -477,7 +478,7 @@ public:
 	void endWorkStationMode();
 	void resetClearHover();
 	void clearOptionPanel();
-	void actionRelease();
+	void ActionRelease();
 	void removeMap();
 	void OnLanded(struct FHitResult* Hit);
 	void openMap();

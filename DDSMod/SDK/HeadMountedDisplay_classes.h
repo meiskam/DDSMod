@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,54 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
-
-// Class HeadMountedDisplay.HeadMountedDisplayFunctionLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UHeadMountedDisplayFunctionLibrary : public UBlueprintFunctionLibrary
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class HeadMountedDisplay.HeadMountedDisplayFunctionLibrary");
-		return ptr;
-	}
-
-
-	void STATIC_UpdateExternalTrackingHMDPosition(const struct FTransform& ExternalTrackingTransform);
-	void STATIC_SetWorldToMetersScale(class UObject* WorldContext, float NewScale);
-	void STATIC_SetTrackingOrigin(TEnumAsByte<EHMDTrackingOrigin> Origin);
-	void STATIC_SetSpectatorScreenTexture(class UTexture* InTexture);
-	void STATIC_SetSpectatorScreenModeTexturePlusEyeLayout(const struct FVector2D& EyeRectMin, const struct FVector2D& EyeRectMax, const struct FVector2D& TextureRectMin, const struct FVector2D& TextureRectMax, bool bDrawEyeFirst, bool bClearBlack, bool bUseAlpha);
-	void STATIC_SetSpectatorScreenMode(ESpectatorScreenMode Mode);
-	void STATIC_SetClippingPlanes(float Near, float Far);
-	void STATIC_ResetOrientationAndPosition(float Yaw, TEnumAsByte<EOrientPositionSelector> Options);
-	bool STATIC_IsSpectatorScreenModeControllable();
-	bool STATIC_IsInLowPersistenceMode();
-	bool STATIC_IsHeadMountedDisplayEnabled();
-	bool STATIC_IsHeadMountedDisplayConnected();
-	bool STATIC_IsDeviceTracking(const struct FXRDeviceId& XRDeviceId);
-	bool STATIC_HasValidTrackingPosition();
-	float STATIC_GetWorldToMetersScale(class UObject* WorldContext);
-	void STATIC_GetVRFocusState(bool* bUseFocus, bool* bHasFocus);
-	struct FTransform STATIC_GetTrackingToWorldTransform(class UObject* WorldContext);
-	void STATIC_GetTrackingSensorParameters(int Index, struct FVector* Origin, struct FRotator* Rotation, float* LeftFOV, float* RightFOV, float* TopFOV, float* BottomFOV, float* Distance, float* NearPlane, float* FarPlane, bool* IsActive);
-	TEnumAsByte<EHMDTrackingOrigin> STATIC_GetTrackingOrigin();
-	float STATIC_GetScreenPercentage();
-	void STATIC_GetPositionalTrackingCameraParameters(struct FVector* CameraOrigin, struct FRotator* CameraRotation, float* HFOV, float* VFOV, float* CameraDistance, float* NearPlane, float* FarPlane);
-	float STATIC_GetPixelDensity();
-	void STATIC_GetOrientationAndPosition(struct FRotator* DeviceRotation, struct FVector* DevicePosition);
-	int STATIC_GetNumOfTrackingSensors();
-	TEnumAsByte<EHMDWornState> STATIC_GetHMDWornState();
-	struct FName STATIC_GetHMDDeviceName();
-	void STATIC_GetDeviceWorldPose(class UObject* WorldContext, const struct FXRDeviceId& XRDeviceId, bool* bIsTracked, struct FRotator* Orientation, bool* bHasPositionalTracking, struct FVector* Position);
-	void STATIC_GetDevicePose(const struct FXRDeviceId& XRDeviceId, bool* bIsTracked, struct FRotator* Orientation, bool* bHasPositionalTracking, struct FVector* Position);
-	TArray<struct FXRDeviceId> STATIC_EnumerateTrackedDevices(const struct FName& SystemId, EXRTrackedDeviceType DeviceType);
-	void STATIC_EnableLowPersistenceMode(bool bEnable);
-	bool STATIC_EnableHMD(bool bEnable);
-	void STATIC_CalibrateExternalTrackingToHMD(const struct FTransform& ExternalTrackingTransform);
-};
-
 
 // Class HeadMountedDisplay.MotionControllerComponent
 // 0x00B0 (0x0610 - 0x0560)
@@ -193,6 +145,54 @@ public:
 
 	class UAsyncTask_LoadXRDeviceVisComponent* STATIC_AddNamedDeviceVisualizationComponentAsync(class AActor* Target, const struct FName& SystemName, const struct FName& DeviceName, bool bManualAttachment, const struct FTransform& RelativeTransform, struct FXRDeviceId* XRDeviceId, class UPrimitiveComponent** NewComponent);
 	class UAsyncTask_LoadXRDeviceVisComponent* STATIC_AddDeviceVisualizationComponentAsync(class AActor* Target, const struct FXRDeviceId& XRDeviceId, bool bManualAttachment, const struct FTransform& RelativeTransform, class UPrimitiveComponent** NewComponent);
+};
+
+
+// Class HeadMountedDisplay.HeadMountedDisplayFunctionLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UHeadMountedDisplayFunctionLibrary : public UBlueprintFunctionLibrary
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class HeadMountedDisplay.HeadMountedDisplayFunctionLibrary");
+		return ptr;
+	}
+
+
+	void STATIC_UpdateExternalTrackingHMDPosition(const struct FTransform& ExternalTrackingTransform);
+	void STATIC_SetWorldToMetersScale(class UObject* WorldContext, float NewScale);
+	void STATIC_SetTrackingOrigin(TEnumAsByte<EHMDTrackingOrigin> Origin);
+	void STATIC_SetSpectatorScreenTexture(class UTexture* InTexture);
+	void STATIC_SetSpectatorScreenModeTexturePlusEyeLayout(const struct FVector2D& EyeRectMin, const struct FVector2D& EyeRectMax, const struct FVector2D& TextureRectMin, const struct FVector2D& TextureRectMax, bool bDrawEyeFirst, bool bClearBlack, bool bUseAlpha);
+	void STATIC_SetSpectatorScreenMode(ESpectatorScreenMode Mode);
+	void STATIC_SetClippingPlanes(float Near, float Far);
+	void STATIC_ResetOrientationAndPosition(float Yaw, TEnumAsByte<EOrientPositionSelector> Options);
+	bool STATIC_IsSpectatorScreenModeControllable();
+	bool STATIC_IsInLowPersistenceMode();
+	bool STATIC_IsHeadMountedDisplayEnabled();
+	bool STATIC_IsHeadMountedDisplayConnected();
+	bool STATIC_IsDeviceTracking(const struct FXRDeviceId& XRDeviceId);
+	bool STATIC_HasValidTrackingPosition();
+	float STATIC_GetWorldToMetersScale(class UObject* WorldContext);
+	void STATIC_GetVRFocusState(bool* bUseFocus, bool* bHasFocus);
+	struct FTransform STATIC_GetTrackingToWorldTransform(class UObject* WorldContext);
+	void STATIC_GetTrackingSensorParameters(int Index, struct FVector* Origin, struct FRotator* Rotation, float* LeftFOV, float* RightFOV, float* TopFOV, float* BottomFOV, float* Distance, float* NearPlane, float* FarPlane, bool* IsActive);
+	TEnumAsByte<EHMDTrackingOrigin> STATIC_GetTrackingOrigin();
+	float STATIC_GetScreenPercentage();
+	void STATIC_GetPositionalTrackingCameraParameters(struct FVector* CameraOrigin, struct FRotator* CameraRotation, float* HFOV, float* VFOV, float* CameraDistance, float* NearPlane, float* FarPlane);
+	float STATIC_GetPixelDensity();
+	void STATIC_GetOrientationAndPosition(struct FRotator* DeviceRotation, struct FVector* DevicePosition);
+	int STATIC_GetNumOfTrackingSensors();
+	TEnumAsByte<EHMDWornState> STATIC_GetHMDWornState();
+	struct FName STATIC_GetHMDDeviceName();
+	void STATIC_GetDeviceWorldPose(class UObject* WorldContext, const struct FXRDeviceId& XRDeviceId, bool* bIsTracked, struct FRotator* Orientation, bool* bHasPositionalTracking, struct FVector* Position);
+	void STATIC_GetDevicePose(const struct FXRDeviceId& XRDeviceId, bool* bIsTracked, struct FRotator* Orientation, bool* bHasPositionalTracking, struct FVector* Position);
+	TArray<struct FXRDeviceId> STATIC_EnumerateTrackedDevices(const struct FName& SystemId, EXRTrackedDeviceType DeviceType);
+	void STATIC_EnableLowPersistenceMode(bool bEnable);
+	bool STATIC_EnableHMD(bool bEnable);
+	void STATIC_CalibrateExternalTrackingToHMD(const struct FTransform& ExternalTrackingTransform);
 };
 
 

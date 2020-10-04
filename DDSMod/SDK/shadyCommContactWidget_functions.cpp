@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -66,7 +66,7 @@ struct FEventReply UshadyCommContactWidget_C::OnMouseButtonDown(struct FGeometry
 // Function shadyCommContactWidget.shadyCommContactWidget_C.setup
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int                            userID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            userId                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           active                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // class UshadyCommInterface_C*   shadyRef                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
 // struct FcontactPersonStruct    userData                       (BlueprintVisible, BlueprintReadOnly, Parm)
@@ -74,12 +74,12 @@ struct FEventReply UshadyCommContactWidget_C::OnMouseButtonDown(struct FGeometry
 // bool                           isDead                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           Addicted                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UshadyCommContactWidget_C::setup(int userID, bool active, class UshadyCommInterface_C* shadyRef, const struct FcontactPersonStruct& userData, int newMessageNumber, bool isDead, bool Addicted)
+void UshadyCommContactWidget_C::setup(int userId, bool active, class UshadyCommInterface_C* shadyRef, const struct FcontactPersonStruct& userData, int newMessageNumber, bool isDead, bool Addicted)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function shadyCommContactWidget.shadyCommContactWidget_C.setup");
 
 	UshadyCommContactWidget_C_setup_Params params;
-	params.userID = userID;
+	params.userId = userId;
 	params.active = active;
 	params.shadyRef = shadyRef;
 	params.userData = userData;

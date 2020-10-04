@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -19,11 +19,11 @@ namespace SDK
 // struct FdrugData               drugData                       (BlueprintVisible, BlueprintReadOnly, Parm)
 // float                          BuyPrice                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          CurSellPrice                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            DrugIndex                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// class AmainComputer_C*         ComputerRef                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            drugIndex                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AmainComputer_C*         computerRef                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           firstLocked                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UdruPriceListingItem_C::setup(const struct FdrugData& drugData, float BuyPrice, float CurSellPrice, int DrugIndex, class AmainComputer_C* ComputerRef, bool firstLocked)
+void UdruPriceListingItem_C::setup(const struct FdrugData& drugData, float BuyPrice, float CurSellPrice, int drugIndex, class AmainComputer_C* computerRef, bool firstLocked)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function druPriceListingItem.druPriceListingItem_C.setup");
 
@@ -31,8 +31,8 @@ void UdruPriceListingItem_C::setup(const struct FdrugData& drugData, float BuyPr
 	params.drugData = drugData;
 	params.BuyPrice = BuyPrice;
 	params.CurSellPrice = CurSellPrice;
-	params.DrugIndex = DrugIndex;
-	params.ComputerRef = ComputerRef;
+	params.drugIndex = drugIndex;
+	params.computerRef = computerRef;
 	params.firstLocked = firstLocked;
 
 	auto flags = fn->FunctionFlags;

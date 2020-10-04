@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -72,7 +72,7 @@ public:
 	}
 
 
-	void checkAvailableApartments(bool* ok);
+	void checkAvailableApartments(bool* OK);
 	void updateBalance();
 	void checkPlayerHasApartments(bool* hasApartments);
 	void renderAppartments();

@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -218,14 +218,14 @@ void UworkStationUI_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
 }
 
 
-// Function workStationUI.workStationUI_C.reInitialise
+// Function workStationUI.workStationUI_C.ReInitialise
 // (BlueprintCallable, BlueprintEvent)
 
-void UworkStationUI_C::reInitialise()
+void UworkStationUI_C::ReInitialise()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function workStationUI.workStationUI_C.reInitialise");
+	static auto fn = UObject::FindObject<UFunction>("Function workStationUI.workStationUI_C.ReInitialise");
 
-	UworkStationUI_C_reInitialise_Params params;
+	UworkStationUI_C_ReInitialise_Params params;
 
 	auto flags = fn->FunctionFlags;
 

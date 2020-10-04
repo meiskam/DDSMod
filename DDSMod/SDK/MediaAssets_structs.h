@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -45,16 +45,6 @@ enum class EMediaAudioCaptureDeviceFilter : uint8_t
 };
 
 
-// Enum MediaAssets.EMediaSoundChannels
-enum class EMediaSoundChannels : uint8_t
-{
-	EMediaSoundChannels__Mono      = 0,
-	EMediaSoundChannels__Stereo    = 1,
-	EMediaSoundChannels__Surround  = 2,
-	EMediaSoundChannels__EMediaSoundChannels_MAX = 3
-};
-
-
 // Enum MediaAssets.EMediaPlayerTrack
 enum class EMediaPlayerTrack : uint8_t
 {
@@ -66,6 +56,16 @@ enum class EMediaPlayerTrack : uint8_t
 	EMediaPlayerTrack__Text        = 5,
 	EMediaPlayerTrack__Video       = 6,
 	EMediaPlayerTrack__EMediaPlayerTrack_MAX = 7
+};
+
+
+// Enum MediaAssets.EMediaSoundChannels
+enum class EMediaSoundChannels : uint8_t
+{
+	EMediaSoundChannels__Mono      = 0,
+	EMediaSoundChannels__Stereo    = 1,
+	EMediaSoundChannels__Surround  = 2,
+	EMediaSoundChannels__EMediaSoundChannels_MAX = 3
 };
 
 

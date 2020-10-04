@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -117,9 +117,9 @@ void AorderInstance_C::calcPackagingPattern(const struct FdrugData& drugData, in
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // TArray<struct FinventoryItemStruct> OutInventory                   (Parm, OutParm, ZeroConstructor)
-// TArray<int>                    OutQuantity                    (Parm, OutParm, ZeroConstructor)
+// TArray<int>                    outQuantity                    (Parm, OutParm, ZeroConstructor)
 
-void AorderInstance_C::generatePackageContents(TArray<struct FinventoryItemStruct>* OutInventory, TArray<int>* OutQuantity)
+void AorderInstance_C::generatePackageContents(TArray<struct FinventoryItemStruct>* OutInventory, TArray<int>* outQuantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderInstance.orderInstance_C.generatePackageContents");
 
@@ -133,8 +133,8 @@ void AorderInstance_C::generatePackageContents(TArray<struct FinventoryItemStruc
 
 	if (OutInventory != nullptr)
 		*OutInventory = params.OutInventory;
-	if (OutQuantity != nullptr)
-		*OutQuantity = params.OutQuantity;
+	if (outQuantity != nullptr)
+		*outQuantity = params.outQuantity;
 }
 
 
@@ -294,11 +294,11 @@ void AorderInstance_C::ReceiveTick(float* DeltaSeconds)
 // (HasOutParms, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // TArray<struct FdrugData>       drugData                       (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
-// TArray<int>                    DrugQuantities                 (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+// TArray<int>                    drugQuantities                 (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 // int                            ID                             (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          spawnTime                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AorderInstance_C::SetupOrder(int ID, float spawnTime, TArray<struct FdrugData>* drugData, TArray<int>* DrugQuantities)
+void AorderInstance_C::SetupOrder(int ID, float spawnTime, TArray<struct FdrugData>* drugData, TArray<int>* drugQuantities)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderInstance.orderInstance_C.SetupOrder");
 
@@ -314,8 +314,8 @@ void AorderInstance_C::SetupOrder(int ID, float spawnTime, TArray<struct FdrugDa
 
 	if (drugData != nullptr)
 		*drugData = params.drugData;
-	if (DrugQuantities != nullptr)
-		*DrugQuantities = params.DrugQuantities;
+	if (drugQuantities != nullptr)
+		*drugQuantities = params.drugQuantities;
 }
 
 

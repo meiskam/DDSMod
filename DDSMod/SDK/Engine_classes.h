@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -1686,99 +1686,6 @@ public:
 };
 
 
-// Class Engine.AnimInstance
-// 0x0338 (0x0360 - 0x0028)
-class UAnimInstance : public UObject
-{
-public:
-	class USkeleton*                                   CurrentSkeleton;                                          // 0x0028(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	TEnumAsByte<ERootMotionMode>                       RootMotionMode;                                           // 0x0030(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      bUseMultiThreadedAnimationUpdate : 1;                     // 0x0031(0x0001)
-	unsigned char                                      bUsingCopyPoseFromMesh : 1;                               // 0x0031(0x0001)
-	unsigned char                                      UnknownData00 : 1;                                        // 0x0031(0x0001)
-	unsigned char                                      bQueueMontageEvents : 1;                                  // 0x0031(0x0001) (Transient)
-	unsigned char                                      UnknownData01[0x6];                                       // 0x0032(0x0006) MISSED OFFSET
-	struct FScriptMulticastDelegate                    OnMontageBlendingOut;                                     // 0x0038(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnMontageStarted;                                         // 0x0048(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnMontageEnded;                                           // 0x0058(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnAllMontageInstancesEnded;                               // 0x0068(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	unsigned char                                      UnknownData02[0x80];                                      // 0x0078(0x0080) MISSED OFFSET
-	struct FAnimNotifyQueue                            NotifyQueue;                                              // 0x00F8(0x0070) (Transient)
-	TArray<struct FAnimNotifyEvent>                    ActiveAnimNotifyState;                                    // 0x0168(0x0010) (ZeroConstructor, Transient)
-	unsigned char                                      UnknownData03[0x1E8];                                     // 0x0178(0x01E8) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimInstance");
-		return ptr;
-	}
-
-
-	void UnlockAIResources(bool bUnlockMovement, bool UnlockAILogic);
-	class APawn* TryGetPawnOwner();
-	void StopSlotAnimation(float InBlendOutTime, const struct FName& SlotNodeName);
-	void SnapshotPose(struct FPoseSnapshot* Snapshot);
-	void SetRootMotionMode(TEnumAsByte<ERootMotionMode> Value);
-	void SetMorphTarget(const struct FName& MorphTargetName, float Value);
-	void SavePoseSnapshot(const struct FName& SnapshotName);
-	void ResetDynamics(ETeleportType InTeleportType);
-	class UAnimMontage* PlaySlotAnimationAsDynamicMontage(class UAnimSequenceBase* Asset, const struct FName& SlotNodeName, float BlendInTime, float BlendOutTime, float InPlayRate, int LoopCount, float BlendOutTriggerTime, float InTimeToStartMontageAt);
-	float PlaySlotAnimation(class UAnimSequenceBase* Asset, const struct FName& SlotNodeName, float BlendInTime, float BlendOutTime, float InPlayRate, int LoopCount);
-	void Montage_Stop(float InBlendOutTime, class UAnimMontage* Montage);
-	void Montage_SetPosition(class UAnimMontage* Montage, float NewPosition);
-	void Montage_SetPlayRate(class UAnimMontage* Montage, float NewPlayRate);
-	void Montage_SetNextSection(const struct FName& SectionNameToChange, const struct FName& NextSection, class UAnimMontage* Montage);
-	void Montage_Resume(class UAnimMontage* Montage);
-	float Montage_Play(class UAnimMontage* MontageToPlay, float InPlayRate, EMontagePlayReturnType ReturnValueType, float InTimeToStartMontageAt, bool bStopAllMontages);
-	void Montage_Pause(class UAnimMontage* Montage);
-	void Montage_JumpToSectionsEnd(const struct FName& SectionName, class UAnimMontage* Montage);
-	void Montage_JumpToSection(const struct FName& SectionName, class UAnimMontage* Montage);
-	bool Montage_IsPlaying(class UAnimMontage* Montage);
-	bool Montage_IsActive(class UAnimMontage* Montage);
-	float Montage_GetPosition(class UAnimMontage* Montage);
-	float Montage_GetPlayRate(class UAnimMontage* Montage);
-	bool Montage_GetIsStopped(class UAnimMontage* Montage);
-	struct FName Montage_GetCurrentSection(class UAnimMontage* Montage);
-	float Montage_GetBlendTime(class UAnimMontage* Montage);
-	void LockAIResources(bool bLockMovement, bool LockAILogic);
-	bool IsSyncGroupBetweenMarkers(const struct FName& InSyncGroupName, const struct FName& PreviousMarker, const struct FName& NextMarker, bool bRespectMarkerOrder);
-	bool IsPlayingSlotAnimation(class UAnimSequenceBase* Asset, const struct FName& SlotNodeName);
-	bool IsAnyMontagePlaying();
-	bool HasMarkerBeenHitThisFrame(const struct FName& SyncGroup, const struct FName& MarkerName);
-	bool GetTimeToClosestMarker(const struct FName& SyncGroup, const struct FName& MarkerName, float* OutMarkerTime);
-	struct FMarkerSyncAnimPosition GetSyncGroupPosition(const struct FName& InSyncGroupName);
-	float GetRelevantAnimTimeRemainingFraction(int MachineIndex, int StateIndex);
-	float GetRelevantAnimTimeRemaining(int MachineIndex, int StateIndex);
-	float GetRelevantAnimTimeFraction(int MachineIndex, int StateIndex);
-	float GetRelevantAnimTime(int MachineIndex, int StateIndex);
-	float GetRelevantAnimLength(int MachineIndex, int StateIndex);
-	class USkeletalMeshComponent* GetOwningComponent();
-	class AActor* GetOwningActor();
-	float GetInstanceTransitionTimeElapsedFraction(int MachineIndex, int TransitionIndex);
-	float GetInstanceTransitionTimeElapsed(int MachineIndex, int TransitionIndex);
-	float GetInstanceTransitionCrossfadeDuration(int MachineIndex, int TransitionIndex);
-	float GetInstanceStateWeight(int MachineIndex, int StateIndex);
-	float GetInstanceMachineWeight(int MachineIndex);
-	float GetInstanceCurrentStateElapsedTime(int MachineIndex);
-	float GetInstanceAssetPlayerTimeFromEndFraction(int AssetPlayerIndex);
-	float GetInstanceAssetPlayerTimeFromEnd(int AssetPlayerIndex);
-	float GetInstanceAssetPlayerTimeFraction(int AssetPlayerIndex);
-	float GetInstanceAssetPlayerTime(int AssetPlayerIndex);
-	float GetInstanceAssetPlayerLength(int AssetPlayerIndex);
-	float GetCurveValue(const struct FName& CurveName);
-	struct FName GetCurrentStateName(int MachineIndex);
-	class UAnimMontage* GetCurrentActiveMontage();
-	void GetAllCurveNames(TArray<struct FName>* OutNames);
-	void GetActiveCurveNames(EAnimCurveType CurveType, TArray<struct FName>* OutNames);
-	void ClearMorphTargets();
-	float CalculateDirection(const struct FVector& Velocity, const struct FRotator& BaseRotation);
-	void BlueprintUpdateAnimation(float DeltaTimeX);
-	void BlueprintPostEvaluateAnimation();
-	void BlueprintInitializeAnimation();
-	void BlueprintBeginPlay();
-};
-
-
 // Class Engine.SkinnedMeshComponent
 // 0x0140 (0x06C0 - 0x0580)
 class USkinnedMeshComponent : public UMeshComponent
@@ -2036,6 +1943,99 @@ public:
 	void AddImpulseToAllBodiesBelow(const struct FVector& Impulse, const struct FName& BoneName, bool bVelChange, bool bIncludeSelf);
 	void AddForceToAllBodiesBelow(const struct FVector& Force, const struct FName& BoneName, bool bAccelChange, bool bIncludeSelf);
 	void AccumulateAllBodiesBelowPhysicsBlendWeight(const struct FName& InBoneName, float AddPhysicsBlendWeight, bool bSkipCustomPhysicsType);
+};
+
+
+// Class Engine.AnimInstance
+// 0x0338 (0x0360 - 0x0028)
+class UAnimInstance : public UObject
+{
+public:
+	class USkeleton*                                   CurrentSkeleton;                                          // 0x0028(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	TEnumAsByte<ERootMotionMode>                       RootMotionMode;                                           // 0x0030(0x0001) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      bUseMultiThreadedAnimationUpdate : 1;                     // 0x0031(0x0001)
+	unsigned char                                      bUsingCopyPoseFromMesh : 1;                               // 0x0031(0x0001)
+	unsigned char                                      UnknownData00 : 1;                                        // 0x0031(0x0001)
+	unsigned char                                      bQueueMontageEvents : 1;                                  // 0x0031(0x0001) (Transient)
+	unsigned char                                      UnknownData01[0x6];                                       // 0x0032(0x0006) MISSED OFFSET
+	struct FScriptMulticastDelegate                    OnMontageBlendingOut;                                     // 0x0038(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnMontageStarted;                                         // 0x0048(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnMontageEnded;                                           // 0x0058(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnAllMontageInstancesEnded;                               // 0x0068(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	unsigned char                                      UnknownData02[0x80];                                      // 0x0078(0x0080) MISSED OFFSET
+	struct FAnimNotifyQueue                            NotifyQueue;                                              // 0x00F8(0x0070) (Transient)
+	TArray<struct FAnimNotifyEvent>                    ActiveAnimNotifyState;                                    // 0x0168(0x0010) (ZeroConstructor, Transient)
+	unsigned char                                      UnknownData03[0x1E8];                                     // 0x0178(0x01E8) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.AnimInstance");
+		return ptr;
+	}
+
+
+	void UnlockAIResources(bool bUnlockMovement, bool UnlockAILogic);
+	class APawn* TryGetPawnOwner();
+	void StopSlotAnimation(float InBlendOutTime, const struct FName& SlotNodeName);
+	void SnapshotPose(struct FPoseSnapshot* Snapshot);
+	void SetRootMotionMode(TEnumAsByte<ERootMotionMode> Value);
+	void SetMorphTarget(const struct FName& MorphTargetName, float Value);
+	void SavePoseSnapshot(const struct FName& SnapshotName);
+	void ResetDynamics(ETeleportType InTeleportType);
+	class UAnimMontage* PlaySlotAnimationAsDynamicMontage(class UAnimSequenceBase* Asset, const struct FName& SlotNodeName, float BlendInTime, float BlendOutTime, float InPlayRate, int LoopCount, float BlendOutTriggerTime, float InTimeToStartMontageAt);
+	float PlaySlotAnimation(class UAnimSequenceBase* Asset, const struct FName& SlotNodeName, float BlendInTime, float BlendOutTime, float InPlayRate, int LoopCount);
+	void Montage_Stop(float InBlendOutTime, class UAnimMontage* Montage);
+	void Montage_SetPosition(class UAnimMontage* Montage, float NewPosition);
+	void Montage_SetPlayRate(class UAnimMontage* Montage, float NewPlayRate);
+	void Montage_SetNextSection(const struct FName& SectionNameToChange, const struct FName& NextSection, class UAnimMontage* Montage);
+	void Montage_Resume(class UAnimMontage* Montage);
+	float Montage_Play(class UAnimMontage* MontageToPlay, float InPlayRate, EMontagePlayReturnType ReturnValueType, float InTimeToStartMontageAt, bool bStopAllMontages);
+	void Montage_Pause(class UAnimMontage* Montage);
+	void Montage_JumpToSectionsEnd(const struct FName& SectionName, class UAnimMontage* Montage);
+	void Montage_JumpToSection(const struct FName& SectionName, class UAnimMontage* Montage);
+	bool Montage_IsPlaying(class UAnimMontage* Montage);
+	bool Montage_IsActive(class UAnimMontage* Montage);
+	float Montage_GetPosition(class UAnimMontage* Montage);
+	float Montage_GetPlayRate(class UAnimMontage* Montage);
+	bool Montage_GetIsStopped(class UAnimMontage* Montage);
+	struct FName Montage_GetCurrentSection(class UAnimMontage* Montage);
+	float Montage_GetBlendTime(class UAnimMontage* Montage);
+	void LockAIResources(bool bLockMovement, bool LockAILogic);
+	bool IsSyncGroupBetweenMarkers(const struct FName& InSyncGroupName, const struct FName& PreviousMarker, const struct FName& NextMarker, bool bRespectMarkerOrder);
+	bool IsPlayingSlotAnimation(class UAnimSequenceBase* Asset, const struct FName& SlotNodeName);
+	bool IsAnyMontagePlaying();
+	bool HasMarkerBeenHitThisFrame(const struct FName& SyncGroup, const struct FName& MarkerName);
+	bool GetTimeToClosestMarker(const struct FName& SyncGroup, const struct FName& MarkerName, float* OutMarkerTime);
+	struct FMarkerSyncAnimPosition GetSyncGroupPosition(const struct FName& InSyncGroupName);
+	float GetRelevantAnimTimeRemainingFraction(int MachineIndex, int StateIndex);
+	float GetRelevantAnimTimeRemaining(int MachineIndex, int StateIndex);
+	float GetRelevantAnimTimeFraction(int MachineIndex, int StateIndex);
+	float GetRelevantAnimTime(int MachineIndex, int StateIndex);
+	float GetRelevantAnimLength(int MachineIndex, int StateIndex);
+	class USkeletalMeshComponent* GetOwningComponent();
+	class AActor* GetOwningActor();
+	float GetInstanceTransitionTimeElapsedFraction(int MachineIndex, int TransitionIndex);
+	float GetInstanceTransitionTimeElapsed(int MachineIndex, int TransitionIndex);
+	float GetInstanceTransitionCrossfadeDuration(int MachineIndex, int TransitionIndex);
+	float GetInstanceStateWeight(int MachineIndex, int StateIndex);
+	float GetInstanceMachineWeight(int MachineIndex);
+	float GetInstanceCurrentStateElapsedTime(int MachineIndex);
+	float GetInstanceAssetPlayerTimeFromEndFraction(int AssetPlayerIndex);
+	float GetInstanceAssetPlayerTimeFromEnd(int AssetPlayerIndex);
+	float GetInstanceAssetPlayerTimeFraction(int AssetPlayerIndex);
+	float GetInstanceAssetPlayerTime(int AssetPlayerIndex);
+	float GetInstanceAssetPlayerLength(int AssetPlayerIndex);
+	float GetCurveValue(const struct FName& CurveName);
+	struct FName GetCurrentStateName(int MachineIndex);
+	class UAnimMontage* GetCurrentActiveMontage();
+	void GetAllCurveNames(TArray<struct FName>* OutNames);
+	void GetActiveCurveNames(EAnimCurveType CurveType, TArray<struct FName>* OutNames);
+	void ClearMorphTargets();
+	float CalculateDirection(const struct FVector& Velocity, const struct FRotator& BaseRotation);
+	void BlueprintUpdateAnimation(float DeltaTimeX);
+	void BlueprintPostEvaluateAnimation();
+	void BlueprintInitializeAnimation();
+	void BlueprintBeginPlay();
 };
 
 
@@ -2300,21 +2300,6 @@ public:
 };
 
 
-// Class Engine.EngineCustomTimeStep
-// 0x0000 (0x0028 - 0x0028)
-class UEngineCustomTimeStep : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.EngineCustomTimeStep");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionCustomOutput
 // 0x0000 (0x0040 - 0x0040)
 class UMaterialExpressionCustomOutput : public UMaterialExpression
@@ -2324,6 +2309,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCustomOutput");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.EngineCustomTimeStep
+// 0x0000 (0x0028 - 0x0028)
+class UEngineCustomTimeStep : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.EngineCustomTimeStep");
 		return ptr;
 	}
 
@@ -2425,37 +2425,6 @@ public:
 };
 
 
-// Class Engine.SoundEffectPreset
-// 0x0018 (0x0040 - 0x0028)
-class USoundEffectPreset : public UObject
-{
-public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0028(0x0018) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundEffectPreset");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.SoundEffectSubmixPreset
-// 0x0000 (0x0040 - 0x0040)
-class USoundEffectSubmixPreset : public USoundEffectPreset
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundEffectSubmixPreset");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.CameraComponent
 // 0x0550 (0x0790 - 0x0240)
 class UCameraComponent : public USceneComponent
@@ -2493,6 +2462,37 @@ public:
 	void RemoveBlendable(const TScriptInterface<class UBlendableInterface>& InBlendableObject);
 	void GetCameraView(float DeltaTime, struct FMinimalViewInfo* DesiredView);
 	void AddOrUpdateBlendable(const TScriptInterface<class UBlendableInterface>& InBlendableObject, float InWeight);
+};
+
+
+// Class Engine.SoundEffectPreset
+// 0x0018 (0x0040 - 0x0028)
+class USoundEffectPreset : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x18];                                      // 0x0028(0x0018) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.SoundEffectPreset");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.SoundEffectSubmixPreset
+// 0x0000 (0x0040 - 0x0040)
+class USoundEffectSubmixPreset : public USoundEffectPreset
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.SoundEffectSubmixPreset");
+		return ptr;
+	}
+
 };
 
 
@@ -2568,6 +2568,22 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.SoundWave");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.SoundWaveProcedural
+// 0x0058 (0x0260 - 0x0208)
+class USoundWaveProcedural : public USoundWave
+{
+public:
+	unsigned char                                      UnknownData00[0x58];                                      // 0x0208(0x0058) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.SoundWaveProcedural");
 		return ptr;
 	}
 
@@ -2661,6 +2677,25 @@ public:
 };
 
 
+// Class Engine.ActorChannel
+// 0x01D0 (0x0238 - 0x0068)
+class UActorChannel : public UChannel
+{
+public:
+	class AActor*                                      Actor;                                                    // 0x0068(0x0008) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0xE0];                                      // 0x0070(0x00E0) MISSED OFFSET
+	TArray<class UObject*>                             CreateSubObjects;                                         // 0x0150(0x0010) (ZeroConstructor)
+	unsigned char                                      UnknownData01[0xD8];                                      // 0x0160(0x00D8) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ActorChannel");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.AnimationAsset
 // 0x0058 (0x0080 - 0x0028)
 class UAnimationAsset : public UObject
@@ -2675,25 +2710,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.AnimationAsset");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.ActorChannel
-// 0x01D0 (0x0238 - 0x0068)
-class UActorChannel : public UChannel
-{
-public:
-	class AActor*                                      Actor;                                                    // 0x0068(0x0008) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0xE0];                                      // 0x0070(0x00E0) MISSED OFFSET
-	TArray<class UObject*>                             CreateSubObjects;                                         // 0x0150(0x0010) (ZeroConstructor)
-	unsigned char                                      UnknownData01[0xD8];                                      // 0x0160(0x00D8) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ActorChannel");
 		return ptr;
 	}
 
@@ -2813,28 +2829,6 @@ public:
 };
 
 
-// Class Engine.AmbientSound
-// 0x0008 (0x0330 - 0x0328)
-class AAmbientSound : public AActor
-{
-public:
-	class UAudioComponent*                             AudioComponent;                                           // 0x0328(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.AmbientSound");
-		return ptr;
-	}
-
-
-	void Stop();
-	void Play(float StartTime);
-	void FadeOut(float FadeOutDuration, float FadeVolumeLevel);
-	void FadeIn(float FadeInDuration, float FadeVolumeLevel);
-	void AdjustVolume(float AdjustVolumeDuration, float AdjustVolumeLevel);
-};
-
-
 // Class Engine.AnimationSettings
 // 0x0038 (0x0070 - 0x0038)
 class UAnimationSettings : public UDeveloperSettings
@@ -2908,6 +2902,31 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.AnimBlueprintGeneratedClass");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.AnimClassData
+// 0x0070 (0x0098 - 0x0028)
+class UAnimClassData : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
+	TArray<struct FBakedAnimationStateMachine>         BakedStateMachines;                                       // 0x0030(0x0010) (ZeroConstructor)
+	class USkeleton*                                   TargetSkeleton;                                           // 0x0040(0x0008) (ZeroConstructor, IsPlainOldData)
+	TArray<struct FAnimNotifyEvent>                    AnimNotifies;                                             // 0x0048(0x0010) (ZeroConstructor)
+	int                                                RootAnimNodeIndex;                                        // 0x0058(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
+	TArray<int>                                        OrderedSavedPoseIndices;                                  // 0x0060(0x0010) (ZeroConstructor)
+	class UStructProperty*                             RootAnimNodeProperty;                                     // 0x0070(0x0008) (ZeroConstructor, IsPlainOldData)
+	TArray<class UStructProperty*>                     AnimNodeProperties;                                       // 0x0078(0x0010) (ZeroConstructor)
+	TArray<struct FName>                               SyncGroupNames;                                           // 0x0088(0x0010) (ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.AnimClassData");
 		return ptr;
 	}
 
@@ -3087,6 +3106,24 @@ public:
 };
 
 
+// Class Engine.AnimCompress_RemoveEverySecondKey
+// 0x0008 (0x0058 - 0x0050)
+class UAnimCompress_RemoveEverySecondKey : public UAnimCompress
+{
+public:
+	int                                                MinKeys;                                                  // 0x0050(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bStartAtSecondKey : 1;                                    // 0x0054(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0055(0x0003) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.AnimCompress_RemoveEverySecondKey");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.AnimCompress_PerTrackCompression
 // 0x0080 (0x00F0 - 0x0070)
 class UAnimCompress_PerTrackCompression : public UAnimCompress_RemoveLinearKeys
@@ -3200,24 +3237,6 @@ public:
 };
 
 
-// Class Engine.AnimCompress_RemoveEverySecondKey
-// 0x0008 (0x0058 - 0x0050)
-class UAnimCompress_RemoveEverySecondKey : public UAnimCompress
-{
-public:
-	int                                                MinKeys;                                                  // 0x0050(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bStartAtSecondKey : 1;                                    // 0x0054(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0055(0x0003) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimCompress_RemoveEverySecondKey");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.AnimNotify_PauseClothingSimulation
 // 0x0000 (0x0038 - 0x0038)
 class UAnimNotify_PauseClothingSimulation : public UAnimNotify
@@ -3256,21 +3275,6 @@ public:
 };
 
 
-// Class Engine.AnimNotify_ResetClothingSimulation
-// 0x0000 (0x0038 - 0x0038)
-class UAnimNotify_ResetClothingSimulation : public UAnimNotify
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_ResetClothingSimulation");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.AnimNotify_PlaySound
 // 0x0020 (0x0058 - 0x0038)
 class UAnimNotify_PlaySound : public UAnimNotify
@@ -3286,6 +3290,36 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_PlaySound");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.AnimNotify_ResetClothingSimulation
+// 0x0000 (0x0038 - 0x0038)
+class UAnimNotify_ResetClothingSimulation : public UAnimNotify
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_ResetClothingSimulation");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.AnimNotify_ResetDynamics
+// 0x0000 (0x0038 - 0x0038)
+class UAnimNotify_ResetDynamics : public UAnimNotify
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_ResetDynamics");
 		return ptr;
 	}
 
@@ -3322,21 +3356,6 @@ public:
 };
 
 
-// Class Engine.AnimNotify_ResetDynamics
-// 0x0000 (0x0038 - 0x0038)
-class UAnimNotify_ResetDynamics : public UAnimNotify
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotify_ResetDynamics");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.AnimNotifyState_TimedParticleEffect
 // 0x0030 (0x0060 - 0x0030)
 class UAnimNotifyState_TimedParticleEffect : public UAnimNotifyState
@@ -3358,28 +3377,28 @@ public:
 };
 
 
-// Class Engine.AnimClassData
-// 0x0070 (0x0098 - 0x0028)
-class UAnimClassData : public UObject
+// Class Engine.AnimNotifyState_Trail
+// 0x0030 (0x0060 - 0x0030)
+class UAnimNotifyState_Trail : public UAnimNotifyState
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
-	TArray<struct FBakedAnimationStateMachine>         BakedStateMachines;                                       // 0x0030(0x0010) (ZeroConstructor)
-	class USkeleton*                                   TargetSkeleton;                                           // 0x0040(0x0008) (ZeroConstructor, IsPlainOldData)
-	TArray<struct FAnimNotifyEvent>                    AnimNotifies;                                             // 0x0048(0x0010) (ZeroConstructor)
-	int                                                RootAnimNodeIndex;                                        // 0x0058(0x0004) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
-	TArray<int>                                        OrderedSavedPoseIndices;                                  // 0x0060(0x0010) (ZeroConstructor)
-	class UStructProperty*                             RootAnimNodeProperty;                                     // 0x0070(0x0008) (ZeroConstructor, IsPlainOldData)
-	TArray<class UStructProperty*>                     AnimNodeProperties;                                       // 0x0078(0x0010) (ZeroConstructor)
-	TArray<struct FName>                               SyncGroupNames;                                           // 0x0088(0x0010) (ZeroConstructor)
+	class UParticleSystem*                             PSTemplate;                                               // 0x0030(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FName                                       FirstSocketName;                                          // 0x0038(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FName                                       SecondSocketName;                                         // 0x0040(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<ETrailWidthMode>                       WidthScaleMode;                                           // 0x0048(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0049(0x0007) MISSED OFFSET
+	struct FName                                       WidthScaleCurve;                                          // 0x0050(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bRecycleSpawnedSystems : 1;                               // 0x0058(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0059(0x0007) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimClassData");
+		static auto ptr = UObject::FindClass("Class Engine.AnimNotifyState_Trail");
 		return ptr;
 	}
 
+
+	class UParticleSystem* OverridePSTemplate(class USkeletalMeshComponent* MeshComp, class UAnimSequenceBase* Animation);
 };
 
 
@@ -3513,31 +3532,6 @@ public:
 };
 
 
-// Class Engine.AnimNotifyState_Trail
-// 0x0030 (0x0060 - 0x0030)
-class UAnimNotifyState_Trail : public UAnimNotifyState
-{
-public:
-	class UParticleSystem*                             PSTemplate;                                               // 0x0030(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	struct FName                                       FirstSocketName;                                          // 0x0038(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	struct FName                                       SecondSocketName;                                         // 0x0040(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<ETrailWidthMode>                       WidthScaleMode;                                           // 0x0048(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0049(0x0007) MISSED OFFSET
-	struct FName                                       WidthScaleCurve;                                          // 0x0050(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bRecycleSpawnedSystems : 1;                               // 0x0058(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0059(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.AnimNotifyState_Trail");
-		return ptr;
-	}
-
-
-	class UParticleSystem* OverridePSTemplate(class USkeletalMeshComponent* MeshComp, class UAnimSequenceBase* Animation);
-};
-
-
 // Class Engine.ArrowComponent
 // 0x0010 (0x0570 - 0x0560)
 class UArrowComponent : public UPrimitiveComponent
@@ -3646,6 +3640,22 @@ public:
 };
 
 
+// Class Engine.AssetMappingTable
+// 0x0010 (0x0038 - 0x0028)
+class UAssetMappingTable : public UObject
+{
+public:
+	TArray<struct FAssetMapping>                       MappedAssets;                                             // 0x0028(0x0010) (Edit, EditFixedSize, ZeroConstructor, EditConst)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.AssetMappingTable");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.AsyncActionLoadPrimaryAssetBase
 // 0x0048 (0x0078 - 0x0030)
 class UAsyncActionLoadPrimaryAssetBase : public UBlueprintAsyncActionBase
@@ -3662,37 +3672,21 @@ public:
 };
 
 
-// Class Engine.AsyncActionLoadPrimaryAsset
+// Class Engine.AsyncActionLoadPrimaryAssetClass
 // 0x0010 (0x0088 - 0x0078)
-class UAsyncActionLoadPrimaryAsset : public UAsyncActionLoadPrimaryAssetBase
+class UAsyncActionLoadPrimaryAssetClass : public UAsyncActionLoadPrimaryAssetBase
 {
 public:
 	struct FScriptMulticastDelegate                    Completed;                                                // 0x0078(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AsyncActionLoadPrimaryAsset");
+		static auto ptr = UObject::FindClass("Class Engine.AsyncActionLoadPrimaryAssetClass");
 		return ptr;
 	}
 
 
-	class UAsyncActionLoadPrimaryAsset* STATIC_AsyncLoadPrimaryAsset(class UObject* WorldContextObject, const struct FPrimaryAssetId& PrimaryAsset, TArray<struct FName> LoadBundles);
-};
-
-
-// Class Engine.AssetMappingTable
-// 0x0010 (0x0038 - 0x0028)
-class UAssetMappingTable : public UObject
-{
-public:
-	TArray<struct FAssetMapping>                       MappedAssets;                                             // 0x0028(0x0010) (Edit, EditFixedSize, ZeroConstructor, EditConst)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.AssetMappingTable");
-		return ptr;
-	}
-
+	class UAsyncActionLoadPrimaryAssetClass* STATIC_AsyncLoadPrimaryAssetClass(class UObject* WorldContextObject, const struct FPrimaryAssetId& PrimaryAsset, TArray<struct FName> LoadBundles);
 };
 
 
@@ -3714,21 +3708,39 @@ public:
 };
 
 
-// Class Engine.AsyncActionLoadPrimaryAssetClass
+// Class Engine.AsyncActionLoadPrimaryAssetClassList
 // 0x0010 (0x0088 - 0x0078)
-class UAsyncActionLoadPrimaryAssetClass : public UAsyncActionLoadPrimaryAssetBase
+class UAsyncActionLoadPrimaryAssetClassList : public UAsyncActionLoadPrimaryAssetBase
 {
 public:
 	struct FScriptMulticastDelegate                    Completed;                                                // 0x0078(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AsyncActionLoadPrimaryAssetClass");
+		static auto ptr = UObject::FindClass("Class Engine.AsyncActionLoadPrimaryAssetClassList");
 		return ptr;
 	}
 
 
-	class UAsyncActionLoadPrimaryAssetClass* STATIC_AsyncLoadPrimaryAssetClass(class UObject* WorldContextObject, const struct FPrimaryAssetId& PrimaryAsset, TArray<struct FName> LoadBundles);
+	class UAsyncActionLoadPrimaryAssetClassList* STATIC_AsyncLoadPrimaryAssetClassList(class UObject* WorldContextObject, TArray<struct FPrimaryAssetId> PrimaryAssetList, TArray<struct FName> LoadBundles);
+};
+
+
+// Class Engine.AsyncActionLoadPrimaryAsset
+// 0x0010 (0x0088 - 0x0078)
+class UAsyncActionLoadPrimaryAsset : public UAsyncActionLoadPrimaryAssetBase
+{
+public:
+	struct FScriptMulticastDelegate                    Completed;                                                // 0x0078(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.AsyncActionLoadPrimaryAsset");
+		return ptr;
+	}
+
+
+	class UAsyncActionLoadPrimaryAsset* STATIC_AsyncLoadPrimaryAsset(class UObject* WorldContextObject, const struct FPrimaryAssetId& PrimaryAsset, TArray<struct FName> LoadBundles);
 };
 
 
@@ -3779,24 +3791,6 @@ public:
 		return ptr;
 	}
 
-};
-
-
-// Class Engine.AsyncActionLoadPrimaryAssetClassList
-// 0x0010 (0x0088 - 0x0078)
-class UAsyncActionLoadPrimaryAssetClassList : public UAsyncActionLoadPrimaryAssetBase
-{
-public:
-	struct FScriptMulticastDelegate                    Completed;                                                // 0x0078(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.AsyncActionLoadPrimaryAssetClassList");
-		return ptr;
-	}
-
-
-	class UAsyncActionLoadPrimaryAssetClassList* STATIC_AsyncLoadPrimaryAssetClassList(class UObject* WorldContextObject, TArray<struct FPrimaryAssetId> PrimaryAssetList, TArray<struct FName> LoadBundles);
 };
 
 
@@ -3911,6 +3905,57 @@ public:
 };
 
 
+// Class Engine.AmbientSound
+// 0x0008 (0x0330 - 0x0328)
+class AAmbientSound : public AActor
+{
+public:
+	class UAudioComponent*                             AudioComponent;                                           // 0x0328(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.AmbientSound");
+		return ptr;
+	}
+
+
+	void Stop();
+	void Play(float StartTime);
+	void FadeOut(float FadeOutDuration, float FadeVolumeLevel);
+	void FadeIn(float FadeInDuration, float FadeVolumeLevel);
+	void AdjustVolume(float AdjustVolumeDuration, float AdjustVolumeLevel);
+};
+
+
+// Class Engine.AutomationTestSettings
+// 0x0300 (0x0328 - 0x0028)
+class UAutomationTestSettings : public UObject
+{
+public:
+	TArray<struct FString>                             EngineTestModules;                                        // 0x0028(0x0010) (Edit, ZeroConstructor, Config)
+	TArray<struct FString>                             EditorTestModules;                                        // 0x0038(0x0010) (Edit, ZeroConstructor, Config)
+	struct FSoftObjectPath                             AutomationTestmap;                                        // 0x0048(0x0018) (Edit, ZeroConstructor, Config)
+	TArray<struct FEditorMapPerformanceTestDefinition> EditorPerformanceTestMaps;                                // 0x0060(0x0010) (Edit, ZeroConstructor, Config)
+	TArray<struct FSoftObjectPath>                     AssetsToOpen;                                             // 0x0070(0x0010) (Edit, ZeroConstructor, Config)
+	struct FBuildPromotionTestSettings                 BuildPromotionTest;                                       // 0x0080(0x01F0) (Edit, Config)
+	struct FMaterialEditorPromotionSettings            MaterialEditorPromotionTest;                              // 0x0270(0x0030) (Edit, Config)
+	struct FParticleEditorPromotionSettings            ParticleEditorPromotionTest;                              // 0x02A0(0x0010) (Edit, Config)
+	struct FBlueprintEditorPromotionSettings           BlueprintEditorPromotionTest;                             // 0x02B0(0x0030) (Edit, Config)
+	TArray<struct FString>                             TestLevelFolders;                                         // 0x02E0(0x0010) (Edit, ZeroConstructor, Config)
+	TArray<struct FExternalToolDefinition>             ExternalTools;                                            // 0x02F0(0x0010) (Edit, ZeroConstructor, Config)
+	TArray<struct FEditorImportExportTestDefinition>   ImportExportTestDefinitions;                              // 0x0300(0x0010) (Edit, ZeroConstructor, Config)
+	TArray<struct FLaunchOnTestSettings>               LaunchOnSettings;                                         // 0x0310(0x0010) (Edit, ZeroConstructor, Config)
+	struct FIntPoint                                   DefaultScreenshotResolution;                              // 0x0320(0x0008) (Edit, ZeroConstructor, Config, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.AutomationTestSettings");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.AvoidanceManager
 // 0x00B8 (0x00E0 - 0x0028)
 class UAvoidanceManager : public UObject
@@ -4011,47 +4056,15 @@ public:
 };
 
 
-// Class Engine.AutomationTestSettings
-// 0x0300 (0x0328 - 0x0028)
-class UAutomationTestSettings : public UObject
+// Class Engine.BlockingVolume
+// 0x0000 (0x0360 - 0x0360)
+class ABlockingVolume : public AVolume
 {
 public:
-	TArray<struct FString>                             EngineTestModules;                                        // 0x0028(0x0010) (Edit, ZeroConstructor, Config)
-	TArray<struct FString>                             EditorTestModules;                                        // 0x0038(0x0010) (Edit, ZeroConstructor, Config)
-	struct FSoftObjectPath                             AutomationTestmap;                                        // 0x0048(0x0018) (Edit, ZeroConstructor, Config)
-	TArray<struct FEditorMapPerformanceTestDefinition> EditorPerformanceTestMaps;                                // 0x0060(0x0010) (Edit, ZeroConstructor, Config)
-	TArray<struct FSoftObjectPath>                     AssetsToOpen;                                             // 0x0070(0x0010) (Edit, ZeroConstructor, Config)
-	struct FBuildPromotionTestSettings                 BuildPromotionTest;                                       // 0x0080(0x01F0) (Edit, Config)
-	struct FMaterialEditorPromotionSettings            MaterialEditorPromotionTest;                              // 0x0270(0x0030) (Edit, Config)
-	struct FParticleEditorPromotionSettings            ParticleEditorPromotionTest;                              // 0x02A0(0x0010) (Edit, Config)
-	struct FBlueprintEditorPromotionSettings           BlueprintEditorPromotionTest;                             // 0x02B0(0x0030) (Edit, Config)
-	TArray<struct FString>                             TestLevelFolders;                                         // 0x02E0(0x0010) (Edit, ZeroConstructor, Config)
-	TArray<struct FExternalToolDefinition>             ExternalTools;                                            // 0x02F0(0x0010) (Edit, ZeroConstructor, Config)
-	TArray<struct FEditorImportExportTestDefinition>   ImportExportTestDefinitions;                              // 0x0300(0x0010) (Edit, ZeroConstructor, Config)
-	TArray<struct FLaunchOnTestSettings>               LaunchOnSettings;                                         // 0x0310(0x0010) (Edit, ZeroConstructor, Config)
-	struct FIntPoint                                   DefaultScreenshotResolution;                              // 0x0320(0x0008) (Edit, ZeroConstructor, Config, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AutomationTestSettings");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.BlendProfile
-// 0x0020 (0x0048 - 0x0028)
-class UBlendProfile : public UObject
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
-	class USkeleton*                                   OwningSkeleton;                                           // 0x0030(0x0008) (ZeroConstructor, IsPlainOldData)
-	TArray<struct FBlendProfileBoneEntry>              ProfileEntries;                                           // 0x0038(0x0010) (ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.BlendProfile");
+		static auto ptr = UObject::FindClass("Class Engine.BlockingVolume");
 		return ptr;
 	}
 
@@ -4162,18 +4175,31 @@ public:
 };
 
 
-// Class Engine.BlockingVolume
-// 0x0000 (0x0360 - 0x0360)
-class ABlockingVolume : public AVolume
+// Class Engine.BlueprintSetLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UBlueprintSetLibrary : public UBlueprintFunctionLibrary
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.BlockingVolume");
+		static auto ptr = UObject::FindClass("Class Engine.BlueprintSetLibrary");
 		return ptr;
 	}
 
+
+	void STATIC_SetSetPropertyByName(class UObject* Object, const struct FName& PropertyName);
+	void STATIC_Set_Union();
+	void STATIC_Set_ToArray(TArray<int>* Result);
+	void STATIC_Set_RemoveItems(TArray<int> Items);
+	bool STATIC_Set_Remove(int Item);
+	int STATIC_Set_Length();
+	void STATIC_Set_Intersection();
+	void STATIC_Set_Difference();
+	bool STATIC_Set_Contains(int ItemToFind);
+	void STATIC_Set_Clear();
+	void STATIC_Set_AddItems(TArray<int> NewItems);
+	void STATIC_Set_Add(int NewItem);
 };
 
 
@@ -4226,34 +4252,6 @@ public:
 		return ptr;
 	}
 
-};
-
-
-// Class Engine.BlueprintSetLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UBlueprintSetLibrary : public UBlueprintFunctionLibrary
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.BlueprintSetLibrary");
-		return ptr;
-	}
-
-
-	void STATIC_SetSetPropertyByName(class UObject* Object, const struct FName& PropertyName);
-	void STATIC_Set_Union();
-	void STATIC_Set_ToArray(TArray<int>* Result);
-	void STATIC_Set_RemoveItems(TArray<int> Items);
-	bool STATIC_Set_Remove(int Item);
-	int STATIC_Set_Length();
-	void STATIC_Set_Intersection();
-	void STATIC_Set_Difference();
-	bool STATIC_Set_Contains(int ItemToFind);
-	void STATIC_Set_Clear();
-	void STATIC_Set_AddItems(TArray<int> NewItems);
-	void STATIC_Set_Add(int NewItem);
 };
 
 
@@ -4329,27 +4327,6 @@ public:
 };
 
 
-// Class Engine.BoxComponent
-// 0x0010 (0x0580 - 0x0570)
-class UBoxComponent : public UShapeComponent
-{
-public:
-	struct FVector                                     BoxExtent;                                                // 0x0570(0x000C) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	float                                              LineThickness;                                            // 0x057C(0x0004) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.BoxComponent");
-		return ptr;
-	}
-
-
-	void SetBoxExtent(const struct FVector& InBoxExtent, bool bUpdateOverlaps);
-	struct FVector GetUnscaledBoxExtent();
-	struct FVector GetScaledBoxExtent();
-};
-
-
 // Class Engine.ReflectionCapture
 // 0x0008 (0x0330 - 0x0328)
 class AReflectionCapture : public AActor
@@ -4421,28 +4398,6 @@ public:
 };
 
 
-// Class Engine.Breakpoint
-// 0x0018 (0x0040 - 0x0028)
-class UBreakpoint : public UObject
-{
-public:
-	unsigned char                                      bEnabled : 1;                                             // 0x0028(0x0001) (Transient)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0029(0x0007) MISSED OFFSET
-	class UEdGraphNode*                                Node;                                                     // 0x0030(0x0008) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bStepOnce : 1;                                            // 0x0038(0x0001)
-	unsigned char                                      bStepOnce_WasPreviouslyDisabled : 1;                      // 0x0038(0x0001)
-	unsigned char                                      bStepOnce_RemoveAfterHit : 1;                             // 0x0038(0x0001)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0039(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.Breakpoint");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.BrushBuilder
 // 0x0058 (0x0080 - 0x0028)
 class UBrushBuilder : public UObject
@@ -4478,6 +4433,42 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.BrushComponent");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.BoxComponent
+// 0x0010 (0x0580 - 0x0570)
+class UBoxComponent : public UShapeComponent
+{
+public:
+	struct FVector                                     BoxExtent;                                                // 0x0570(0x000C) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	float                                              LineThickness;                                            // 0x057C(0x0004) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.BoxComponent");
+		return ptr;
+	}
+
+
+	void SetBoxExtent(const struct FVector& InBoxExtent, bool bUpdateOverlaps);
+	struct FVector GetUnscaledBoxExtent();
+	struct FVector GetScaledBoxExtent();
+};
+
+
+// Class Engine.BrushShape
+// 0x0000 (0x0360 - 0x0360)
+class ABrushShape : public ABrush
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.BrushShape");
 		return ptr;
 	}
 
@@ -4601,15 +4592,18 @@ public:
 };
 
 
-// Class Engine.BrushShape
-// 0x0000 (0x0360 - 0x0360)
-class ABrushShape : public ABrush
+// Class Engine.CameraModifier_CameraShake
+// 0x0018 (0x0060 - 0x0048)
+class UCameraModifier_CameraShake : public UCameraModifier
 {
 public:
+	TArray<class UCameraShake*>                        ActiveShakes;                                             // 0x0048(0x0010) (ZeroConstructor)
+	float                                              SplitScreenShakeScale;                                    // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.BrushShape");
+		static auto ptr = UObject::FindClass("Class Engine.CameraModifier_CameraShake");
 		return ptr;
 	}
 
@@ -4701,24 +4695,6 @@ public:
 	void K2_DrawBox(const struct FVector2D& ScreenPosition, const struct FVector2D& ScreenSize, float Thickness, const struct FLinearColor& RenderColor);
 	void K2_DrawBorder(class UTexture* BorderTexture, class UTexture* BackgroundTexture, class UTexture* LeftBorderTexture, class UTexture* RightBorderTexture, class UTexture* TopBorderTexture, class UTexture* BottomBorderTexture, const struct FVector2D& ScreenPosition, const struct FVector2D& ScreenSize, const struct FVector2D& CoordinatePosition, const struct FVector2D& CoordinateSize, const struct FLinearColor& RenderColor, const struct FVector2D& BorderScale, const struct FVector2D& BackgroundScale, float Rotation, const struct FVector2D& PivotPoint, const struct FVector2D& CornerSize);
 	void K2_Deproject(const struct FVector2D& ScreenPosition, struct FVector* WorldOrigin, struct FVector* WorldDirection);
-};
-
-
-// Class Engine.CameraModifier_CameraShake
-// 0x0018 (0x0060 - 0x0048)
-class UCameraModifier_CameraShake : public UCameraModifier
-{
-public:
-	TArray<class UCameraShake*>                        ActiveShakes;                                             // 0x0048(0x0010) (ZeroConstructor)
-	float                                              SplitScreenShakeScale;                                    // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.CameraModifier_CameraShake");
-		return ptr;
-	}
-
 };
 
 
@@ -5134,26 +5110,6 @@ public:
 };
 
 
-// Class Engine.ChildActorComponent
-// 0x0030 (0x0270 - 0x0240)
-class UChildActorComponent : public USceneComponent
-{
-public:
-	class AActor*                                      ChildActor;                                               // 0x0240(0x0008) (BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, IsPlainOldData)
-	class AActor*                                      ChildActorTemplate;                                       // 0x0248(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, EditConst, DuplicateTransient, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0250(0x0020) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ChildActorComponent");
-		return ptr;
-	}
-
-
-	void SetChildActorClass(class UClass* InClass);
-};
-
-
 // Class Engine.CheatManager
 // 0x0050 (0x0078 - 0x0028)
 class UCheatManager : public UObject
@@ -5228,6 +5184,42 @@ public:
 };
 
 
+// Class Engine.ChildConnection
+// 0x0008 (0x1920 - 0x1918)
+class UChildConnection : public UNetConnection
+{
+public:
+	class UNetConnection*                              Parent;                                                   // 0x1918(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ChildConnection");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.ChildActorComponent
+// 0x0030 (0x0270 - 0x0240)
+class UChildActorComponent : public USceneComponent
+{
+public:
+	class AActor*                                      ChildActor;                                               // 0x0240(0x0008) (BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      ChildActorTemplate;                                       // 0x0248(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, EditConst, DuplicateTransient, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x20];                                      // 0x0250(0x0020) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ChildActorComponent");
+		return ptr;
+	}
+
+
+	void SetChildActorClass(class UClass* InClass);
+};
+
+
 // Class Engine.PlatformInterfaceBase
 // 0x0010 (0x0038 - 0x0028)
 class UPlatformInterfaceBase : public UObject
@@ -5277,22 +5269,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.CollisionProfile");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.ChildConnection
-// 0x0008 (0x1920 - 0x1918)
-class UChildConnection : public UNetConnection
-{
-public:
-	class UNetConnection*                              Parent;                                                   // 0x1918(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ChildConnection");
 		return ptr;
 	}
 
@@ -5373,6 +5349,23 @@ public:
 };
 
 
+// Class Engine.CompositeCurveTable
+// 0x0020 (0x00B8 - 0x0098)
+class UCompositeCurveTable : public UCurveTable
+{
+public:
+	TArray<class UCurveTable*>                         ParentTables;                                             // 0x0098(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	TArray<class UCurveTable*>                         OldParentTables;                                          // 0x00A8(0x0010) (ZeroConstructor, Transient)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.CompositeCurveTable");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.DataTable
 // 0x0078 (0x00A0 - 0x0028)
 class UDataTable : public UObject
@@ -5392,16 +5385,18 @@ public:
 };
 
 
-// Class Engine.SoundWaveProcedural
-// 0x0058 (0x0260 - 0x0208)
-class USoundWaveProcedural : public USoundWave
+// Class Engine.CompositeDataTable
+// 0x0028 (0x00C8 - 0x00A0)
+class UCompositeDataTable : public UDataTable
 {
 public:
-	unsigned char                                      UnknownData00[0x58];                                      // 0x0208(0x0058) MISSED OFFSET
+	TArray<class UDataTable*>                          ParentTables;                                             // 0x00A0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x00B0(0x0008) MISSED OFFSET
+	TArray<class UDataTable*>                          OldParentTables;                                          // 0x00B8(0x0010) (ZeroConstructor, Transient)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundWaveProcedural");
+		static auto ptr = UObject::FindClass("Class Engine.CompositeDataTable");
 		return ptr;
 	}
 
@@ -5658,24 +5653,6 @@ public:
 };
 
 
-// Class Engine.CompositeDataTable
-// 0x0028 (0x00C8 - 0x00A0)
-class UCompositeDataTable : public UDataTable
-{
-public:
-	TArray<class UDataTable*>                          ParentTables;                                             // 0x00A0(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00B0(0x0008) MISSED OFFSET
-	TArray<class UDataTable*>                          OldParentTables;                                          // 0x00B8(0x0010) (ZeroConstructor, Transient)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.CompositeDataTable");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.ScriptViewportClient
 // 0x0010 (0x0038 - 0x0028)
 class UScriptViewportClient : public UObject
@@ -5765,23 +5742,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.ControlRigInterface");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.CompositeCurveTable
-// 0x0020 (0x00B8 - 0x0098)
-class UCompositeCurveTable : public UCurveTable
-{
-public:
-	TArray<class UCurveTable*>                         ParentTables;                                             // 0x0098(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	TArray<class UCurveTable*>                         OldParentTables;                                          // 0x00A8(0x0010) (ZeroConstructor, Transient)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.CompositeCurveTable");
 		return ptr;
 	}
 
@@ -5886,21 +5846,6 @@ public:
 
 	void GetValueRange(float* MinValue, float* MaxValue);
 	void GetTimeRange(float* MinTime, float* MaxTime);
-};
-
-
-// Class Engine.CurveEdPresetCurve
-// 0x0000 (0x0028 - 0x0028)
-class UCurveEdPresetCurve : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.CurveEdPresetCurve");
-		return ptr;
-	}
-
 };
 
 
@@ -6041,6 +5986,28 @@ public:
 };
 
 
+// Class Engine.Breakpoint
+// 0x0018 (0x0040 - 0x0028)
+class UBreakpoint : public UObject
+{
+public:
+	unsigned char                                      bEnabled : 1;                                             // 0x0028(0x0001) (Transient)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0029(0x0007) MISSED OFFSET
+	class UEdGraphNode*                                Node;                                                     // 0x0030(0x0008) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bStepOnce : 1;                                            // 0x0038(0x0001)
+	unsigned char                                      bStepOnce_WasPreviouslyDisabled : 1;                      // 0x0038(0x0001)
+	unsigned char                                      bStepOnce_RemoveAfterHit : 1;                             // 0x0038(0x0001)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0039(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.Breakpoint");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.DamageType
 // 0x0018 (0x0040 - 0x0028)
 class UDamageType : public UObject
@@ -6065,24 +6032,18 @@ public:
 };
 
 
-// Class Engine.DataTableFunctionLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UDataTableFunctionLibrary : public UBlueprintFunctionLibrary
+// Class Engine.PrimaryDataAsset
+// 0x0000 (0x0030 - 0x0030)
+class UPrimaryDataAsset : public UDataAsset
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DataTableFunctionLibrary");
+		static auto ptr = UObject::FindClass("Class Engine.PrimaryDataAsset");
 		return ptr;
 	}
 
-
-	void STATIC_GetDataTableRowNames(class UDataTable* Table, TArray<struct FName>* OutRowNames);
-	bool STATIC_GetDataTableRowFromName(class UDataTable* Table, const struct FName& RowName, struct FTableRowBase* OutRow);
-	TArray<struct FString> STATIC_GetDataTableColumnAsString(class UDataTable* DataTable, const struct FName& PropertyName);
-	void STATIC_EvaluateCurveTableRow(class UCurveTable* CurveTable, const struct FName& RowName, float InXY, const struct FString& ContextString, TEnumAsByte<EEvaluateCurveTableResult>* OutResult, float* OutXY);
-	bool STATIC_DoesDataTableRowExist(class UDataTable* Table, const struct FName& RowName);
 };
 
 
@@ -6116,6 +6077,42 @@ public:
 	void ReceiveOnActorSelected(class AActor* NewSelectedActor, const struct FVector& SelectHitLocation, const struct FVector& SelectHitNormal, const struct FHitResult& Hit);
 	void ReceiveOnActivate(class APlayerController* OriginalPC);
 	class AActor* GetSelectedActor();
+};
+
+
+// Class Engine.DataTableFunctionLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UDataTableFunctionLibrary : public UBlueprintFunctionLibrary
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.DataTableFunctionLibrary");
+		return ptr;
+	}
+
+
+	void STATIC_GetDataTableRowNames(class UDataTable* Table, TArray<struct FName>* OutRowNames);
+	bool STATIC_GetDataTableRowFromName(class UDataTable* Table, const struct FName& RowName, struct FTableRowBase* OutRow);
+	TArray<struct FString> STATIC_GetDataTableColumnAsString(class UDataTable* DataTable, const struct FName& PropertyName);
+	void STATIC_EvaluateCurveTableRow(class UCurveTable* CurveTable, const struct FName& RowName, float InXY, const struct FString& ContextString, TEnumAsByte<EEvaluateCurveTableResult>* OutResult, float* OutXY);
+	bool STATIC_DoesDataTableRowExist(class UDataTable* Table, const struct FName& RowName);
+};
+
+
+// Class Engine.CurveEdPresetCurve
+// 0x0000 (0x0028 - 0x0028)
+class UCurveEdPresetCurve : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.CurveEdPresetCurve");
+		return ptr;
+	}
+
 };
 
 
@@ -6184,36 +6181,6 @@ public:
 };
 
 
-// Class Engine.DebugCameraHUD
-// 0x0000 (0x0418 - 0x0418)
-class ADebugCameraHUD : public AHUD
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.DebugCameraHUD");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.DebugDrawService
-// 0x0000 (0x0028 - 0x0028)
-class UDebugDrawService : public UBlueprintFunctionLibrary
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.DebugDrawService");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.DecalActor
 // 0x0008 (0x0330 - 0x0328)
 class ADecalActor : public AActor
@@ -6271,57 +6238,6 @@ public:
 };
 
 
-// Class Engine.PrimaryDataAsset
-// 0x0000 (0x0030 - 0x0030)
-class UPrimaryDataAsset : public UDataAsset
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.PrimaryDataAsset");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.PhysicsVolume
-// 0x0010 (0x0370 - 0x0360)
-class APhysicsVolume : public AVolume
-{
-public:
-	float                                              TerminalVelocity;                                         // 0x0360(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	int                                                Priority;                                                 // 0x0364(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              FluidFriction;                                            // 0x0368(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bWaterVolume : 1;                                         // 0x036C(0x0001) (Edit, BlueprintVisible)
-	unsigned char                                      bPhysicsOnContact : 1;                                    // 0x036C(0x0001) (Edit, BlueprintVisible)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x036D(0x0003) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.PhysicsVolume");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.DefaultPhysicsVolume
-// 0x0000 (0x0370 - 0x0370)
-class ADefaultPhysicsVolume : public APhysicsVolume
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.DefaultPhysicsVolume");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.DefaultPawn
 // 0x0028 (0x03B0 - 0x0388)
 class ADefaultPawn : public APawn
@@ -6350,6 +6266,21 @@ public:
 };
 
 
+// Class Engine.DebugDrawService
+// 0x0000 (0x0028 - 0x0028)
+class UDebugDrawService : public UBlueprintFunctionLibrary
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.DebugDrawService");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.DemoNetConnection
 // 0x0020 (0x1938 - 0x1918)
 class UDemoNetConnection : public UNetConnection
@@ -6360,6 +6291,27 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.DemoNetConnection");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.PhysicsVolume
+// 0x0010 (0x0370 - 0x0360)
+class APhysicsVolume : public AVolume
+{
+public:
+	float                                              TerminalVelocity;                                         // 0x0360(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	int                                                Priority;                                                 // 0x0364(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              FluidFriction;                                            // 0x0368(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bWaterVolume : 1;                                         // 0x036C(0x0001) (Edit, BlueprintVisible)
+	unsigned char                                      bPhysicsOnContact : 1;                                    // 0x036C(0x0001) (Edit, BlueprintVisible)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x036D(0x0003) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.PhysicsVolume");
 		return ptr;
 	}
 
@@ -6407,15 +6359,15 @@ public:
 };
 
 
-// Class Engine.DemoPendingNetGame
-// 0x0000 (0x00C8 - 0x00C8)
-class UDemoPendingNetGame : public UPendingNetGame
+// Class Engine.DefaultPhysicsVolume
+// 0x0000 (0x0370 - 0x0370)
+class ADefaultPhysicsVolume : public APhysicsVolume
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DemoPendingNetGame");
+		static auto ptr = UObject::FindClass("Class Engine.DefaultPhysicsVolume");
 		return ptr;
 	}
 
@@ -6447,6 +6399,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.TextureLODSettings");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.DemoPendingNetGame
+// 0x0000 (0x00C8 - 0x00C8)
+class UDemoPendingNetGame : public UPendingNetGame
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.DemoPendingNetGame");
 		return ptr;
 	}
 
@@ -6860,17 +6827,15 @@ public:
 };
 
 
-// Class Engine.DistributionFloatUniform
-// 0x0008 (0x0040 - 0x0038)
-class UDistributionFloatUniform : public UDistributionFloat
+// Class Engine.DebugCameraHUD
+// 0x0000 (0x0418 - 0x0418)
+class ADebugCameraHUD : public AHUD
 {
 public:
-	float                                              Min;                                                      // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              Max;                                                      // 0x003C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionFloatUniform");
+		static auto ptr = UObject::FindClass("Class Engine.DebugCameraHUD");
 		return ptr;
 	}
 
@@ -6932,20 +6897,17 @@ public:
 };
 
 
-// Class Engine.DistributionVectorConstantCurve
-// 0x0020 (0x0058 - 0x0038)
-class UDistributionVectorConstantCurve : public UDistributionVector
+// Class Engine.DistributionFloatUniform
+// 0x0008 (0x0040 - 0x0038)
+class UDistributionFloatUniform : public UDistributionFloat
 {
 public:
-	struct FInterpCurveVector                          ConstantCurve;                                            // 0x0038(0x0018) (Edit, ZeroConstructor)
-	unsigned char                                      bLockAxes : 1;                                            // 0x0050(0x0001)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0051(0x0003) MISSED OFFSET
-	TEnumAsByte<EDistributionVectorLockFlags>          LockedAxes;                                               // 0x0054(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x0055(0x0003) MISSED OFFSET
+	float                                              Min;                                                      // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              Max;                                                      // 0x003C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionVectorConstantCurve");
+		static auto ptr = UObject::FindClass("Class Engine.DistributionFloatUniform");
 		return ptr;
 	}
 
@@ -7012,6 +6974,30 @@ public:
 };
 
 
+// Class Engine.DistributionVectorUniformCurve
+// 0x0028 (0x0060 - 0x0038)
+class UDistributionVectorUniformCurve : public UDistributionVector
+{
+public:
+	struct FInterpCurveTwoVectors                      ConstantCurve;                                            // 0x0038(0x0018) (Edit, ZeroConstructor)
+	unsigned char                                      bLockAxes1 : 1;                                           // 0x0050(0x0001)
+	unsigned char                                      bLockAxes2 : 1;                                           // 0x0050(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0051(0x0003) MISSED OFFSET
+	TEnumAsByte<EDistributionVectorLockFlags>          LockedAxes[0x2];                                          // 0x0054(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EDistributionVectorMirrorFlags>        MirrorFlags[0x3];                                         // 0x0056(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0059(0x0003) MISSED OFFSET
+	unsigned char                                      bUseExtremes : 1;                                         // 0x005C(0x0001) (Edit)
+	unsigned char                                      UnknownData02[0x3];                                       // 0x005D(0x0003) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.DistributionVectorUniformCurve");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.DocumentationActor
 // 0x0008 (0x0330 - 0x0328)
 class ADocumentationActor : public AActor
@@ -7022,6 +7008,26 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.DocumentationActor");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.DistributionVectorConstantCurve
+// 0x0020 (0x0058 - 0x0038)
+class UDistributionVectorConstantCurve : public UDistributionVector
+{
+public:
+	struct FInterpCurveVector                          ConstantCurve;                                            // 0x0038(0x0018) (Edit, ZeroConstructor)
+	unsigned char                                      bLockAxes : 1;                                            // 0x0050(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0051(0x0003) MISSED OFFSET
+	TEnumAsByte<EDistributionVectorLockFlags>          LockedAxes;                                               // 0x0054(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0055(0x0003) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.DistributionVectorConstantCurve");
 		return ptr;
 	}
 
@@ -7095,51 +7101,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.DrawSphereComponent");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.EdGraph
-// 0x0038 (0x0060 - 0x0028)
-class UEdGraph : public UObject
-{
-public:
-	class UClass*                                      Schema;                                                   // 0x0028(0x0008) (ZeroConstructor, IsPlainOldData)
-	TArray<class UEdGraphNode*>                        Nodes;                                                    // 0x0030(0x0010) (ZeroConstructor)
-	unsigned char                                      bEditable : 1;                                            // 0x0040(0x0001)
-	unsigned char                                      bAllowDeletion : 1;                                       // 0x0040(0x0001)
-	unsigned char                                      bAllowRenaming : 1;                                       // 0x0040(0x0001)
-	unsigned char                                      UnknownData00[0x1F];                                      // 0x0041(0x001F) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.EdGraph");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.DistributionVectorUniformCurve
-// 0x0028 (0x0060 - 0x0038)
-class UDistributionVectorUniformCurve : public UDistributionVector
-{
-public:
-	struct FInterpCurveTwoVectors                      ConstantCurve;                                            // 0x0038(0x0018) (Edit, ZeroConstructor)
-	unsigned char                                      bLockAxes1 : 1;                                           // 0x0050(0x0001)
-	unsigned char                                      bLockAxes2 : 1;                                           // 0x0050(0x0001)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0051(0x0003) MISSED OFFSET
-	TEnumAsByte<EDistributionVectorLockFlags>          LockedAxes[0x2];                                          // 0x0054(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EDistributionVectorMirrorFlags>        MirrorFlags[0x3];                                         // 0x0056(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x0059(0x0003) MISSED OFFSET
-	unsigned char                                      bUseExtremes : 1;                                         // 0x005C(0x0001) (Edit)
-	unsigned char                                      UnknownData02[0x3];                                       // 0x005D(0x0003) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.DistributionVectorUniformCurve");
 		return ptr;
 	}
 
@@ -7231,6 +7192,21 @@ public:
 };
 
 
+// Class Engine.EdGraphSchema
+// 0x0000 (0x0028 - 0x0028)
+class UEdGraphSchema : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.EdGraphSchema");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.Emitter
 // 0x0050 (0x0378 - 0x0328)
 class AEmitter : public AActor
@@ -7288,21 +7264,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.EmitterCameraLensEffectBase");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.EdGraphSchema
-// 0x0000 (0x0028 - 0x0028)
-class UEdGraphSchema : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.EdGraphSchema");
 		return ptr;
 	}
 
@@ -7377,21 +7338,6 @@ public:
 };
 
 
-// Class Engine.EngineTypes
-// 0x0000 (0x0028 - 0x0028)
-class UEngineTypes : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.EngineTypes");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.ExponentialHeightFog
 // 0x0010 (0x0338 - 0x0328)
 class AExponentialHeightFog : public AInfo
@@ -7409,6 +7355,98 @@ public:
 
 
 	void OnRep_bEnabled();
+};
+
+
+// Class Engine.EngineTypes
+// 0x0000 (0x0028 - 0x0028)
+class UEngineTypes : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.EngineTypes");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.FloatingPawnMovement
+// 0x0018 (0x0190 - 0x0178)
+class UFloatingPawnMovement : public UPawnMovementComponent
+{
+public:
+	float                                              MaxSpeed;                                                 // 0x0178(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              Acceleration;                                             // 0x017C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              Deceleration;                                             // 0x0180(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              TurningBoost;                                             // 0x0184(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bPositionCorrected : 1;                                   // 0x0188(0x0001) (Transient)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0189(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.FloatingPawnMovement");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.Font
+// 0x01A8 (0x01D0 - 0x0028)
+class UFont : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
+	EFontCacheType                                     FontCacheType;                                            // 0x0030(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
+	TArray<struct FFontCharacter>                      Characters;                                               // 0x0038(0x0010) (Edit, ZeroConstructor)
+	TArray<class UTexture2D*>                          Textures;                                                 // 0x0048(0x0010) (ZeroConstructor)
+	int                                                IsRemapped;                                               // 0x0058(0x0004) (ZeroConstructor, IsPlainOldData)
+	float                                              EmScale;                                                  // 0x005C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              Ascent;                                                   // 0x0060(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              Descent;                                                  // 0x0064(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              Leading;                                                  // 0x0068(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                Kerning;                                                  // 0x006C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FFontImportOptionsData                      ImportOptions;                                            // 0x0070(0x00B0) (Edit)
+	int                                                NumCharacters;                                            // 0x0120(0x0004) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x4];                                       // 0x0124(0x0004) MISSED OFFSET
+	TArray<int>                                        MaxCharHeight;                                            // 0x0128(0x0010) (ZeroConstructor, Transient)
+	float                                              ScalingFactor;                                            // 0x0138(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                LegacyFontSize;                                           // 0x013C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FName                                       LegacyFontName;                                           // 0x0140(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FCompositeFont                              CompositeFont;                                            // 0x0148(0x0038)
+	unsigned char                                      UnknownData03[0x50];                                      // 0x0180(0x0050) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.Font");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.FontFace
+// 0x0030 (0x0058 - 0x0028)
+class UFontFace : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
+	struct FString                                     SourceFilename;                                           // 0x0030(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	EFontHinting                                       Hinting;                                                  // 0x0040(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	EFontLoadingPolicy                                 LoadingPolicy;                                            // 0x0041(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	EFontLayoutMethod                                  LayoutMethod;                                             // 0x0042(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x15];                                      // 0x0043(0x0015) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.FontFace");
+		return ptr;
+	}
+
 };
 
 
@@ -7471,108 +7509,16 @@ public:
 };
 
 
-// Class Engine.Exporter
-// 0x0050 (0x0078 - 0x0028)
-class UExporter : public UObject
+// Class Engine.ForceFeedbackAttenuation
+// 0x00A0 (0x00C8 - 0x0028)
+class UForceFeedbackAttenuation : public UObject
 {
 public:
-	class UClass*                                      SupportedClass;                                           // 0x0028(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	class UObject*                                     ExportRootScope;                                          // 0x0030(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	TArray<struct FString>                             FormatExtension;                                          // 0x0038(0x0010) (BlueprintVisible, ZeroConstructor)
-	TArray<struct FString>                             FormatDescription;                                        // 0x0048(0x0010) (BlueprintVisible, ZeroConstructor)
-	int                                                PreferredFormatIndex;                                     // 0x0058(0x0004) (ZeroConstructor, IsPlainOldData)
-	int                                                TextIndent;                                               // 0x005C(0x0004) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bText : 1;                                                // 0x0060(0x0001) (BlueprintVisible)
-	unsigned char                                      bSelectedOnly : 1;                                        // 0x0060(0x0001)
-	unsigned char                                      bForceFileOperations : 1;                                 // 0x0060(0x0001)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0061(0x0007) MISSED OFFSET
-	class UAssetExportTask*                            ExportTask;                                               // 0x0068(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0070(0x0008) MISSED OFFSET
+	struct FForceFeedbackAttenuationSettings           Attenuation;                                              // 0x0028(0x00A0) (Edit, BlueprintVisible, BlueprintReadOnly)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Exporter");
-		return ptr;
-	}
-
-
-	bool ScriptRunAssetExportTask(class UAssetExportTask* Task);
-	bool STATIC_RunAssetExportTasks(TArray<class UAssetExportTask*> ExportTasks);
-	bool STATIC_RunAssetExportTask(class UAssetExportTask* Task);
-};
-
-
-// Class Engine.FloatingPawnMovement
-// 0x0018 (0x0190 - 0x0178)
-class UFloatingPawnMovement : public UPawnMovementComponent
-{
-public:
-	float                                              MaxSpeed;                                                 // 0x0178(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              Acceleration;                                             // 0x017C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              Deceleration;                                             // 0x0180(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              TurningBoost;                                             // 0x0184(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bPositionCorrected : 1;                                   // 0x0188(0x0001) (Transient)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0189(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.FloatingPawnMovement");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.FontFace
-// 0x0030 (0x0058 - 0x0028)
-class UFontFace : public UObject
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
-	struct FString                                     SourceFilename;                                           // 0x0030(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	EFontHinting                                       Hinting;                                                  // 0x0040(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	EFontLoadingPolicy                                 LoadingPolicy;                                            // 0x0041(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	EFontLayoutMethod                                  LayoutMethod;                                             // 0x0042(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x15];                                      // 0x0043(0x0015) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.FontFace");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.Font
-// 0x01A8 (0x01D0 - 0x0028)
-class UFont : public UObject
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
-	EFontCacheType                                     FontCacheType;                                            // 0x0030(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
-	TArray<struct FFontCharacter>                      Characters;                                               // 0x0038(0x0010) (Edit, ZeroConstructor)
-	TArray<class UTexture2D*>                          Textures;                                                 // 0x0048(0x0010) (ZeroConstructor)
-	int                                                IsRemapped;                                               // 0x0058(0x0004) (ZeroConstructor, IsPlainOldData)
-	float                                              EmScale;                                                  // 0x005C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              Ascent;                                                   // 0x0060(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              Descent;                                                  // 0x0064(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              Leading;                                                  // 0x0068(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                Kerning;                                                  // 0x006C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FFontImportOptionsData                      ImportOptions;                                            // 0x0070(0x00B0) (Edit)
-	int                                                NumCharacters;                                            // 0x0120(0x0004) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x4];                                       // 0x0124(0x0004) MISSED OFFSET
-	TArray<int>                                        MaxCharHeight;                                            // 0x0128(0x0010) (ZeroConstructor, Transient)
-	float                                              ScalingFactor;                                            // 0x0138(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                LegacyFontSize;                                           // 0x013C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FName                                       LegacyFontName;                                           // 0x0140(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FCompositeFont                              CompositeFont;                                            // 0x0148(0x0038)
-	unsigned char                                      UnknownData03[0x50];                                      // 0x0180(0x0050) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.Font");
+		static auto ptr = UObject::FindClass("Class Engine.ForceFeedbackAttenuation");
 		return ptr;
 	}
 
@@ -7589,6 +7535,43 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.FontImportOptions");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.ForceFeedbackEffect
+// 0x0018 (0x0040 - 0x0028)
+class UForceFeedbackEffect : public UObject
+{
+public:
+	TArray<struct FForceFeedbackChannelDetails>        ChannelDetails;                                           // 0x0028(0x0010) (Edit, ZeroConstructor)
+	float                                              Duration;                                                 // 0x0038(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x003C(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ForceFeedbackEffect");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.GameEngine
+// 0x0050 (0x0CF8 - 0x0CA8)
+class UGameEngine : public UEngine
+{
+public:
+	float                                              MaxDeltaTime;                                             // 0x0CA8(0x0004) (ZeroConstructor, Config, IsPlainOldData)
+	float                                              ServerFlushLogInterval;                                   // 0x0CAC(0x0004) (ZeroConstructor, Config, IsPlainOldData)
+	class UGameInstance*                               GameInstance;                                             // 0x0CB0(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x40];                                      // 0x0CB8(0x0040) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.GameEngine");
 		return ptr;
 	}
 
@@ -7628,19 +7611,73 @@ public:
 };
 
 
-// Class Engine.GameEngine
-// 0x0050 (0x0CF8 - 0x0CA8)
-class UGameEngine : public UEngine
+// Class Engine.GameNetworkManager
+// 0x0090 (0x03B8 - 0x0328)
+class AGameNetworkManager : public AInfo
 {
 public:
-	float                                              MaxDeltaTime;                                             // 0x0CA8(0x0004) (ZeroConstructor, Config, IsPlainOldData)
-	float                                              ServerFlushLogInterval;                                   // 0x0CAC(0x0004) (ZeroConstructor, Config, IsPlainOldData)
-	class UGameInstance*                               GameInstance;                                             // 0x0CB0(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x40];                                      // 0x0CB8(0x0040) MISSED OFFSET
+	int                                                AdjustedNetSpeed;                                         // 0x0328(0x0004) (ZeroConstructor, IsPlainOldData)
+	float                                              LastNetSpeedUpdateTime;                                   // 0x032C(0x0004) (ZeroConstructor, IsPlainOldData)
+	int                                                TotalNetBandwidth;                                        // 0x0330(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	int                                                MinDynamicBandwidth;                                      // 0x0334(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	int                                                MaxDynamicBandwidth;                                      // 0x0338(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	unsigned char                                      bIsStandbyCheckingEnabled : 1;                            // 0x033C(0x0001) (Config)
+	unsigned char                                      bHasStandbyCheatTriggered : 1;                            // 0x033C(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x033D(0x0003) MISSED OFFSET
+	float                                              StandbyRxCheatTime;                                       // 0x0340(0x0004) (ZeroConstructor, Config, IsPlainOldData)
+	float                                              StandbyTxCheatTime;                                       // 0x0344(0x0004) (ZeroConstructor, Config, IsPlainOldData)
+	int                                                BadPingThreshold;                                         // 0x0348(0x0004) (ZeroConstructor, Config, IsPlainOldData)
+	float                                              PercentMissingForRxStandby;                               // 0x034C(0x0004) (ZeroConstructor, Config, IsPlainOldData)
+	float                                              PercentMissingForTxStandby;                               // 0x0350(0x0004) (ZeroConstructor, Config, IsPlainOldData)
+	float                                              PercentForBadPing;                                        // 0x0354(0x0004) (ZeroConstructor, Config, IsPlainOldData)
+	float                                              JoinInProgressStandbyWaitTime;                            // 0x0358(0x0004) (ZeroConstructor, Config, IsPlainOldData)
+	float                                              MoveRepSize;                                              // 0x035C(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              MAXPOSITIONERRORSQUARED;                                  // 0x0360(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              MAXNEARZEROVELOCITYSQUARED;                               // 0x0364(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              CLIENTADJUSTUPDATECOST;                                   // 0x0368(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              MAXCLIENTUPDATEINTERVAL;                                  // 0x036C(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              MaxClientForcedUpdateDuration;                            // 0x0370(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              MaxMoveDeltaTime;                                         // 0x0374(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              ClientNetSendMoveDeltaTime;                               // 0x0378(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              ClientNetSendMoveDeltaTimeThrottled;                      // 0x037C(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              ClientNetSendMoveDeltaTimeStationary;                     // 0x0380(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	int                                                ClientNetSendMoveThrottleAtNetSpeed;                      // 0x0384(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	int                                                ClientNetSendMoveThrottleOverPlayerCount;                 // 0x0388(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	bool                                               ClientAuthorativePosition;                                // 0x038C(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x038D(0x0003) MISSED OFFSET
+	float                                              ClientErrorUpdateRateLimit;                               // 0x0390(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	bool                                               bMovementTimeDiscrepancyDetection;                        // 0x0394(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	bool                                               bMovementTimeDiscrepancyResolution;                       // 0x0395(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x2];                                       // 0x0396(0x0002) MISSED OFFSET
+	float                                              MovementTimeDiscrepancyMaxTimeMargin;                     // 0x0398(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              MovementTimeDiscrepancyMinTimeMargin;                     // 0x039C(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              MovementTimeDiscrepancyResolutionRate;                    // 0x03A0(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	float                                              MovementTimeDiscrepancyDriftAllowance;                    // 0x03A4(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	bool                                               bMovementTimeDiscrepancyForceCorrectionsDuringResolution; // 0x03A8(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	bool                                               bUseDistanceBasedRelevancy;                               // 0x03A9(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	unsigned char                                      UnknownData03[0xE];                                       // 0x03AA(0x000E) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameEngine");
+		static auto ptr = UObject::FindClass("Class Engine.GameNetworkManager");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.BlendProfile
+// 0x0020 (0x0048 - 0x0028)
+class UBlendProfile : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
+	class USkeleton*                                   OwningSkeleton;                                           // 0x0030(0x0008) (ZeroConstructor, IsPlainOldData)
+	TArray<struct FBlendProfileBoneEntry>              ProfileEntries;                                           // 0x0038(0x0010) (ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.BlendProfile");
 		return ptr;
 	}
 
@@ -7709,116 +7746,81 @@ public:
 };
 
 
-// Class Engine.GameMode
-// 0x0048 (0x0410 - 0x03C8)
-class AGameMode : public AGameModeBase
+// Class Engine.EdGraph
+// 0x0038 (0x0060 - 0x0028)
+class UEdGraph : public UObject
 {
 public:
-	struct FName                                       MatchState;                                               // 0x03C8(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      bDelayedStart : 1;                                        // 0x03D0(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x03D1(0x0003) MISSED OFFSET
-	int                                                NumSpectators;                                            // 0x03D4(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	int                                                NumPlayers;                                               // 0x03D8(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	int                                                NumBots;                                                  // 0x03DC(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	float                                              MinRespawnDelay;                                          // 0x03E0(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	int                                                NumTravellingPlayers;                                     // 0x03E4(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      EngineMessageClass;                                       // 0x03E8(0x0008) (ZeroConstructor, IsPlainOldData)
-	TArray<class APlayerState*>                        InactivePlayerArray;                                      // 0x03F0(0x0010) (ZeroConstructor)
-	float                                              InactivePlayerStateLifeSpan;                              // 0x0400(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                MaxInactivePlayers;                                       // 0x0404(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	bool                                               bHandleDedicatedServerReplays;                            // 0x0408(0x0001) (ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0409(0x0007) MISSED OFFSET
+	class UClass*                                      Schema;                                                   // 0x0028(0x0008) (ZeroConstructor, IsPlainOldData)
+	TArray<class UEdGraphNode*>                        Nodes;                                                    // 0x0030(0x0010) (ZeroConstructor)
+	unsigned char                                      bEditable : 1;                                            // 0x0040(0x0001)
+	unsigned char                                      bAllowDeletion : 1;                                       // 0x0040(0x0001)
+	unsigned char                                      bAllowRenaming : 1;                                       // 0x0040(0x0001)
+	unsigned char                                      UnknownData00[0x1F];                                      // 0x0041(0x001F) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameMode");
-		return ptr;
-	}
-
-
-	void StartMatch();
-	void SetBandwidthLimit(float AsyncIOBandwidthLimit);
-	void Say(const struct FString& Msg);
-	void RestartGame();
-	bool ReadyToStartMatch();
-	bool ReadyToEndMatch();
-	void K2_OnSetMatchState(const struct FName& NewState);
-	bool IsMatchInProgress();
-	bool HasMatchEnded();
-	struct FName GetMatchState();
-	void EndMatch();
-	void AbortMatch();
-};
-
-
-// Class Engine.GameNetworkManager
-// 0x0090 (0x03B8 - 0x0328)
-class AGameNetworkManager : public AInfo
-{
-public:
-	int                                                AdjustedNetSpeed;                                         // 0x0328(0x0004) (ZeroConstructor, IsPlainOldData)
-	float                                              LastNetSpeedUpdateTime;                                   // 0x032C(0x0004) (ZeroConstructor, IsPlainOldData)
-	int                                                TotalNetBandwidth;                                        // 0x0330(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	int                                                MinDynamicBandwidth;                                      // 0x0334(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	int                                                MaxDynamicBandwidth;                                      // 0x0338(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	unsigned char                                      bIsStandbyCheckingEnabled : 1;                            // 0x033C(0x0001) (Config)
-	unsigned char                                      bHasStandbyCheatTriggered : 1;                            // 0x033C(0x0001)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x033D(0x0003) MISSED OFFSET
-	float                                              StandbyRxCheatTime;                                       // 0x0340(0x0004) (ZeroConstructor, Config, IsPlainOldData)
-	float                                              StandbyTxCheatTime;                                       // 0x0344(0x0004) (ZeroConstructor, Config, IsPlainOldData)
-	int                                                BadPingThreshold;                                         // 0x0348(0x0004) (ZeroConstructor, Config, IsPlainOldData)
-	float                                              PercentMissingForRxStandby;                               // 0x034C(0x0004) (ZeroConstructor, Config, IsPlainOldData)
-	float                                              PercentMissingForTxStandby;                               // 0x0350(0x0004) (ZeroConstructor, Config, IsPlainOldData)
-	float                                              PercentForBadPing;                                        // 0x0354(0x0004) (ZeroConstructor, Config, IsPlainOldData)
-	float                                              JoinInProgressStandbyWaitTime;                            // 0x0358(0x0004) (ZeroConstructor, Config, IsPlainOldData)
-	float                                              MoveRepSize;                                              // 0x035C(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              MAXPOSITIONERRORSQUARED;                                  // 0x0360(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              MAXNEARZEROVELOCITYSQUARED;                               // 0x0364(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              CLIENTADJUSTUPDATECOST;                                   // 0x0368(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              MAXCLIENTUPDATEINTERVAL;                                  // 0x036C(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              MaxClientForcedUpdateDuration;                            // 0x0370(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              MaxMoveDeltaTime;                                         // 0x0374(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              ClientNetSendMoveDeltaTime;                               // 0x0378(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              ClientNetSendMoveDeltaTimeThrottled;                      // 0x037C(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              ClientNetSendMoveDeltaTimeStationary;                     // 0x0380(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	int                                                ClientNetSendMoveThrottleAtNetSpeed;                      // 0x0384(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	int                                                ClientNetSendMoveThrottleOverPlayerCount;                 // 0x0388(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	bool                                               ClientAuthorativePosition;                                // 0x038C(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x038D(0x0003) MISSED OFFSET
-	float                                              ClientErrorUpdateRateLimit;                               // 0x0390(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	bool                                               bMovementTimeDiscrepancyDetection;                        // 0x0394(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	bool                                               bMovementTimeDiscrepancyResolution;                       // 0x0395(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x2];                                       // 0x0396(0x0002) MISSED OFFSET
-	float                                              MovementTimeDiscrepancyMaxTimeMargin;                     // 0x0398(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              MovementTimeDiscrepancyMinTimeMargin;                     // 0x039C(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              MovementTimeDiscrepancyResolutionRate;                    // 0x03A0(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	float                                              MovementTimeDiscrepancyDriftAllowance;                    // 0x03A4(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	bool                                               bMovementTimeDiscrepancyForceCorrectionsDuringResolution; // 0x03A8(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	bool                                               bUseDistanceBasedRelevancy;                               // 0x03A9(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	unsigned char                                      UnknownData03[0xE];                                       // 0x03AA(0x000E) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.GameNetworkManager");
+		static auto ptr = UObject::FindClass("Class Engine.EdGraph");
 		return ptr;
 	}
 
 };
 
 
-// Class Engine.ForceFeedbackAttenuation
-// 0x00A0 (0x00C8 - 0x0028)
-class UForceFeedbackAttenuation : public UObject
+// Class Engine.GameStateBase
+// 0x0040 (0x0368 - 0x0328)
+class AGameStateBase : public AInfo
 {
 public:
-	struct FForceFeedbackAttenuationSettings           Attenuation;                                              // 0x0028(0x00A0) (Edit, BlueprintVisible, BlueprintReadOnly)
+	class UClass*                                      GameModeClass;                                            // 0x0328(0x0008) (BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, Transient, IsPlainOldData)
+	class AGameModeBase*                               AuthorityGameMode;                                        // 0x0330(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData)
+	class UClass*                                      SpectatorClass;                                           // 0x0338(0x0008) (BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, Transient, IsPlainOldData)
+	TArray<class APlayerState*>                        PlayerArray;                                              // 0x0340(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient)
+	bool                                               bReplicatedHasBegunPlay;                                  // 0x0350(0x0001) (Net, ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0351(0x0003) MISSED OFFSET
+	float                                              ReplicatedWorldTimeSeconds;                               // 0x0354(0x0004) (Net, ZeroConstructor, Transient, IsPlainOldData)
+	float                                              ServerWorldTimeSecondsDelta;                              // 0x0358(0x0004) (ZeroConstructor, Transient, IsPlainOldData)
+	float                                              ServerWorldTimeSecondsUpdateFrequency;                    // 0x035C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0360(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ForceFeedbackAttenuation");
+		static auto ptr = UObject::FindClass("Class Engine.GameStateBase");
 		return ptr;
 	}
 
+
+	void OnRep_SpectatorClass();
+	void OnRep_ReplicatedWorldTimeSeconds();
+	void OnRep_ReplicatedHasBegunPlay();
+	void OnRep_GameModeClass();
+	bool HasMatchStarted();
+	bool HasBegunPlay();
+	float GetServerWorldTimeSeconds();
+	float GetPlayerStartTime(class AController* Controller);
+	float GetPlayerRespawnDelay(class AController* Controller);
+};
+
+
+// Class Engine.GameState
+// 0x0020 (0x0388 - 0x0368)
+class AGameState : public AGameStateBase
+{
+public:
+	struct FName                                       MatchState;                                               // 0x0368(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData)
+	struct FName                                       PreviousMatchState;                                       // 0x0370(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData)
+	int                                                ElapsedTime;                                              // 0x0378(0x0004) (BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0xC];                                       // 0x037C(0x000C) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.GameState");
+		return ptr;
+	}
+
+
+	void OnRep_MatchState();
+	void OnRep_ElapsedTime();
 };
 
 
@@ -7941,63 +7943,6 @@ public:
 	float STATIC_ApplyPointDamage(class AActor* DamagedActor, float BaseDamage, const struct FVector& HitFromDirection, const struct FHitResult& HitInfo, class AController* EventInstigator, class AActor* DamageCauser, class UClass* DamageTypeClass);
 	float STATIC_ApplyDamage(class AActor* DamagedActor, float BaseDamage, class AController* EventInstigator, class AActor* DamageCauser, class UClass* DamageTypeClass);
 	void STATIC_ActivateReverbEffect(class UObject* WorldContextObject, class UReverbEffect* ReverbEffect, const struct FName& TagName, float Priority, float Volume, float FadeTime);
-};
-
-
-// Class Engine.GameStateBase
-// 0x0040 (0x0368 - 0x0328)
-class AGameStateBase : public AInfo
-{
-public:
-	class UClass*                                      GameModeClass;                                            // 0x0328(0x0008) (BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, Transient, IsPlainOldData)
-	class AGameModeBase*                               AuthorityGameMode;                                        // 0x0330(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient, IsPlainOldData)
-	class UClass*                                      SpectatorClass;                                           // 0x0338(0x0008) (BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, Transient, IsPlainOldData)
-	TArray<class APlayerState*>                        PlayerArray;                                              // 0x0340(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, Transient)
-	bool                                               bReplicatedHasBegunPlay;                                  // 0x0350(0x0001) (Net, ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0351(0x0003) MISSED OFFSET
-	float                                              ReplicatedWorldTimeSeconds;                               // 0x0354(0x0004) (Net, ZeroConstructor, Transient, IsPlainOldData)
-	float                                              ServerWorldTimeSecondsDelta;                              // 0x0358(0x0004) (ZeroConstructor, Transient, IsPlainOldData)
-	float                                              ServerWorldTimeSecondsUpdateFrequency;                    // 0x035C(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0360(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.GameStateBase");
-		return ptr;
-	}
-
-
-	void OnRep_SpectatorClass();
-	void OnRep_ReplicatedWorldTimeSeconds();
-	void OnRep_ReplicatedHasBegunPlay();
-	void OnRep_GameModeClass();
-	bool HasMatchStarted();
-	bool HasBegunPlay();
-	float GetServerWorldTimeSeconds();
-	float GetPlayerStartTime(class AController* Controller);
-	float GetPlayerRespawnDelay(class AController* Controller);
-};
-
-
-// Class Engine.GameState
-// 0x0020 (0x0388 - 0x0368)
-class AGameState : public AGameStateBase
-{
-public:
-	struct FName                                       MatchState;                                               // 0x0368(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData)
-	struct FName                                       PreviousMatchState;                                       // 0x0370(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, DisableEditOnTemplate, EditConst, IsPlainOldData)
-	int                                                ElapsedTime;                                              // 0x0378(0x0004) (BlueprintVisible, BlueprintReadOnly, Net, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x037C(0x000C) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.GameState");
-		return ptr;
-	}
-
-
-	void OnRep_MatchState();
-	void OnRep_ElapsedTime();
 };
 
 
@@ -8137,21 +8082,6 @@ public:
 };
 
 
-// Class Engine.GeneratedMeshAreaLight
-// 0x0000 (0x0340 - 0x0340)
-class AGeneratedMeshAreaLight : public ASpotLight
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.GeneratedMeshAreaLight");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.HapticFeedbackEffect_Base
 // 0x0000 (0x0028 - 0x0028)
 class UHapticFeedbackEffect_Base : public UObject
@@ -8167,40 +8097,31 @@ public:
 };
 
 
-// Class Engine.GameSession
-// 0x0018 (0x0340 - 0x0328)
-class AGameSession : public AInfo
+// Class Engine.GeneratedMeshAreaLight
+// 0x0000 (0x0340 - 0x0340)
+class AGeneratedMeshAreaLight : public ASpotLight
 {
 public:
-	int                                                MaxSpectators;                                            // 0x0328(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	int                                                MaxPlayers;                                               // 0x032C(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	int                                                MaxPartySize;                                             // 0x0330(0x0004) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      MaxSplitscreensPerConnection;                             // 0x0334(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	bool                                               bRequiresPushToTalk;                                      // 0x0335(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x2];                                       // 0x0336(0x0002) MISSED OFFSET
-	struct FName                                       SessionName;                                              // 0x0338(0x0008) (ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.GameSession");
+		static auto ptr = UObject::FindClass("Class Engine.GeneratedMeshAreaLight");
 		return ptr;
 	}
 
 };
 
 
-// Class Engine.HapticFeedbackEffect_Buffer
-// 0x0040 (0x0068 - 0x0028)
-class UHapticFeedbackEffect_Buffer : public UHapticFeedbackEffect_Base
+// Class Engine.HapticFeedbackEffect_Curve
+// 0x00F0 (0x0118 - 0x0028)
+class UHapticFeedbackEffect_Curve : public UHapticFeedbackEffect_Base
 {
 public:
-	TArray<unsigned char>                              Amplitudes;                                               // 0x0028(0x0010) (Edit, ZeroConstructor)
-	int                                                SampleRate;                                               // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x2C];                                      // 0x003C(0x002C) MISSED OFFSET
+	struct FHapticFeedbackDetails_Curve                HapticDetails;                                            // 0x0028(0x00F0) (Edit)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.HapticFeedbackEffect_Buffer");
+		static auto ptr = UObject::FindClass("Class Engine.HapticFeedbackEffect_Curve");
 		return ptr;
 	}
 
@@ -8259,30 +8180,18 @@ public:
 };
 
 
-// Class Engine.AmbisonicsSubmixSettingsBase
-// 0x0000 (0x0028 - 0x0028)
-class UAmbisonicsSubmixSettingsBase : public UObject
+// Class Engine.HapticFeedbackEffect_Buffer
+// 0x0040 (0x0068 - 0x0028)
+class UHapticFeedbackEffect_Buffer : public UHapticFeedbackEffect_Base
 {
 public:
+	TArray<unsigned char>                              Amplitudes;                                               // 0x0028(0x0010) (Edit, ZeroConstructor)
+	int                                                SampleRate;                                               // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x2C];                                      // 0x003C(0x002C) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.AmbisonicsSubmixSettingsBase");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.SpatializationPluginSourceSettingsBase
-// 0x0000 (0x0028 - 0x0028)
-class USpatializationPluginSourceSettingsBase : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.SpatializationPluginSourceSettingsBase");
+		static auto ptr = UObject::FindClass("Class Engine.HapticFeedbackEffect_Buffer");
 		return ptr;
 	}
 
@@ -8304,43 +8213,60 @@ public:
 };
 
 
-// Class Engine.ReverbPluginSourceSettingsBase
+// Class Engine.SpatializationPluginSourceSettingsBase
 // 0x0000 (0x0028 - 0x0028)
-class UReverbPluginSourceSettingsBase : public UObject
+class USpatializationPluginSourceSettingsBase : public UObject
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ReverbPluginSourceSettingsBase");
+		static auto ptr = UObject::FindClass("Class Engine.SpatializationPluginSourceSettingsBase");
 		return ptr;
 	}
 
 };
 
 
-// Class Engine.ImportanceSamplingLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UImportanceSamplingLibrary : public UBlueprintFunctionLibrary
+// Class Engine.GameMode
+// 0x0048 (0x0410 - 0x03C8)
+class AGameMode : public AGameModeBase
 {
 public:
+	struct FName                                       MatchState;                                               // 0x03C8(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      bDelayedStart : 1;                                        // 0x03D0(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x03D1(0x0003) MISSED OFFSET
+	int                                                NumSpectators;                                            // 0x03D4(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	int                                                NumPlayers;                                               // 0x03D8(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	int                                                NumBots;                                                  // 0x03DC(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	float                                              MinRespawnDelay;                                          // 0x03E0(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	int                                                NumTravellingPlayers;                                     // 0x03E4(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      EngineMessageClass;                                       // 0x03E8(0x0008) (ZeroConstructor, IsPlainOldData)
+	TArray<class APlayerState*>                        InactivePlayerArray;                                      // 0x03F0(0x0010) (ZeroConstructor)
+	float                                              InactivePlayerStateLifeSpan;                              // 0x0400(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                MaxInactivePlayers;                                       // 0x0404(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               bHandleDedicatedServerReplays;                            // 0x0408(0x0001) (ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0409(0x0007) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ImportanceSamplingLibrary");
+		static auto ptr = UObject::FindClass("Class Engine.GameMode");
 		return ptr;
 	}
 
 
-	float STATIC_RandomSobolFloat(int Index, int Dimension, float Seed);
-	struct FVector STATIC_RandomSobolCell3D(int Index, int NumCells, const struct FVector& Cell, const struct FVector& Seed);
-	struct FVector2D STATIC_RandomSobolCell2D(int Index, int NumCells, const struct FVector2D& Cell, const struct FVector2D& Seed);
-	float STATIC_NextSobolFloat(int Index, int Dimension, float PreviousValue);
-	struct FVector STATIC_NextSobolCell3D(int Index, int NumCells, const struct FVector& PreviousValue);
-	struct FVector2D STATIC_NextSobolCell2D(int Index, int NumCells, const struct FVector2D& PreviousValue);
-	struct FImportanceTexture STATIC_MakeImportanceTexture(class UTexture2D* Texture, TEnumAsByte<EImportanceWeight> WeightingFunc);
-	void STATIC_ImportanceSample(const struct FImportanceTexture& Texture, const struct FVector2D& Rand, int Samples, float Intensity, struct FVector2D* SamplePosition, struct FLinearColor* SampleColor, float* SampleIntensity, float* SampleSize);
-	void STATIC_BreakImportanceTexture(const struct FImportanceTexture& ImportanceTexture, class UTexture2D** Texture, TEnumAsByte<EImportanceWeight>* WeightingFunc);
+	void StartMatch();
+	void SetBandwidthLimit(float AsyncIOBandwidthLimit);
+	void Say(const struct FString& Msg);
+	void RestartGame();
+	bool ReadyToStartMatch();
+	bool ReadyToEndMatch();
+	void K2_OnSetMatchState(const struct FName& NewState);
+	bool IsMatchInProgress();
+	bool HasMatchEnded();
+	struct FName GetMatchState();
+	void EndMatch();
+	void AbortMatch();
 };
 
 
@@ -8378,35 +8304,15 @@ public:
 };
 
 
-// Class Engine.ForceFeedbackEffect
-// 0x0018 (0x0040 - 0x0028)
-class UForceFeedbackEffect : public UObject
+// Class Engine.AmbisonicsSubmixSettingsBase
+// 0x0000 (0x0028 - 0x0028)
+class UAmbisonicsSubmixSettingsBase : public UObject
 {
 public:
-	TArray<struct FForceFeedbackChannelDetails>        ChannelDetails;                                           // 0x0028(0x0010) (Edit, ZeroConstructor)
-	float                                              Duration;                                                 // 0x0038(0x0004) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, EditConst, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x003C(0x0004) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ForceFeedbackEffect");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.InheritableComponentHandler
-// 0x0020 (0x0048 - 0x0028)
-class UInheritableComponentHandler : public UObject
-{
-public:
-	TArray<struct FComponentOverrideRecord>            Records;                                                  // 0x0028(0x0010) (ZeroConstructor)
-	TArray<class UActorComponent*>                     UnnecessaryComponents;                                    // 0x0038(0x0010) (ExportObject, ZeroConstructor, Transient)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InheritableComponentHandler");
+		static auto ptr = UObject::FindClass("Class Engine.AmbisonicsSubmixSettingsBase");
 		return ptr;
 	}
 
@@ -8428,16 +8334,17 @@ public:
 };
 
 
-// Class Engine.InputActionDelegateBinding
-// 0x0010 (0x0038 - 0x0028)
-class UInputActionDelegateBinding : public UInputDelegateBinding
+// Class Engine.InheritableComponentHandler
+// 0x0020 (0x0048 - 0x0028)
+class UInheritableComponentHandler : public UObject
 {
 public:
-	TArray<struct FBlueprintInputActionDelegateBinding> InputActionDelegateBindings;                              // 0x0028(0x0010) (ZeroConstructor)
+	TArray<struct FComponentOverrideRecord>            Records;                                                  // 0x0028(0x0010) (ZeroConstructor)
+	TArray<class UActorComponent*>                     UnnecessaryComponents;                                    // 0x0038(0x0010) (ExportObject, ZeroConstructor, Transient)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InputActionDelegateBinding");
+		static auto ptr = UObject::FindClass("Class Engine.InheritableComponentHandler");
 		return ptr;
 	}
 
@@ -8476,47 +8383,19 @@ public:
 };
 
 
-// Class Engine.HapticFeedbackEffect_Curve
-// 0x00F0 (0x0118 - 0x0028)
-class UHapticFeedbackEffect_Curve : public UHapticFeedbackEffect_Base
+// Class Engine.InputActionDelegateBinding
+// 0x0010 (0x0038 - 0x0028)
+class UInputActionDelegateBinding : public UInputDelegateBinding
 {
 public:
-	struct FHapticFeedbackDetails_Curve                HapticDetails;                                            // 0x0028(0x00F0) (Edit)
+	TArray<struct FBlueprintInputActionDelegateBinding> InputActionDelegateBindings;                              // 0x0028(0x0010) (ZeroConstructor)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.HapticFeedbackEffect_Curve");
+		static auto ptr = UObject::FindClass("Class Engine.InputActionDelegateBinding");
 		return ptr;
 	}
 
-};
-
-
-// Class Engine.InputComponent
-// 0x0088 (0x0178 - 0x00F0)
-class UInputComponent : public UActorComponent
-{
-public:
-	unsigned char                                      UnknownData00[0x70];                                      // 0x00F0(0x0070) MISSED OFFSET
-	TArray<struct FCachedKeyToActionInfo>              CachedKeyToActionInfo;                                    // 0x0160(0x0010) (ZeroConstructor, Transient, DuplicateTransient)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0170(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InputComponent");
-		return ptr;
-	}
-
-
-	bool WasControllerKeyJustReleased(const struct FKey& Key);
-	bool WasControllerKeyJustPressed(const struct FKey& Key);
-	bool IsControllerKeyDown(const struct FKey& Key);
-	void GetTouchState(int FingerIndex, float* LocationX, float* LocationY, bool* bIsCurrentlyPressed);
-	struct FVector GetControllerVectorKeyState(const struct FKey& Key);
-	void GetControllerMouseDelta(float* DeltaX, float* DeltaY);
-	float GetControllerKeyTimeDown(const struct FKey& Key);
-	void GetControllerAnalogStickState(TEnumAsByte<EControllerAnalogStick> WhichStick, float* StickX, float* StickY);
-	float GetControllerAnalogKeyState(const struct FKey& Key);
 };
 
 
@@ -8590,6 +8469,22 @@ public:
 };
 
 
+// Class Engine.InputTouchDelegateBinding
+// 0x0010 (0x0038 - 0x0028)
+class UInputTouchDelegateBinding : public UInputDelegateBinding
+{
+public:
+	TArray<struct FBlueprintInputTouchDelegateBinding> InputTouchDelegateBindings;                               // 0x0028(0x0010) (ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InputTouchDelegateBinding");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.InputVectorAxisDelegateBinding
 // 0x0000 (0x0038 - 0x0038)
 class UInputVectorAxisDelegateBinding : public UInputAxisKeyDelegateBinding
@@ -8620,22 +8515,6 @@ public:
 };
 
 
-// Class Engine.InputTouchDelegateBinding
-// 0x0010 (0x0038 - 0x0028)
-class UInputTouchDelegateBinding : public UInputDelegateBinding
-{
-public:
-	TArray<struct FBlueprintInputTouchDelegateBinding> InputTouchDelegateBindings;                               // 0x0028(0x0010) (ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InputTouchDelegateBinding");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.Interface_CollisionDataProvider
 // 0x0000 (0x0028 - 0x0028)
 class UInterface_CollisionDataProvider : public UInterface
@@ -8645,6 +8524,49 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.Interface_CollisionDataProvider");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.InputComponent
+// 0x0088 (0x0178 - 0x00F0)
+class UInputComponent : public UActorComponent
+{
+public:
+	unsigned char                                      UnknownData00[0x70];                                      // 0x00F0(0x0070) MISSED OFFSET
+	TArray<struct FCachedKeyToActionInfo>              CachedKeyToActionInfo;                                    // 0x0160(0x0010) (ZeroConstructor, Transient, DuplicateTransient)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0170(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InputComponent");
+		return ptr;
+	}
+
+
+	bool WasControllerKeyJustReleased(const struct FKey& Key);
+	bool WasControllerKeyJustPressed(const struct FKey& Key);
+	bool IsControllerKeyDown(const struct FKey& Key);
+	void GetTouchState(int FingerIndex, float* LocationX, float* LocationY, bool* bIsCurrentlyPressed);
+	struct FVector GetControllerVectorKeyState(const struct FKey& Key);
+	void GetControllerMouseDelta(float* DeltaX, float* DeltaY);
+	float GetControllerKeyTimeDown(const struct FKey& Key);
+	void GetControllerAnalogStickState(TEnumAsByte<EControllerAnalogStick> WhichStick, float* StickX, float* StickY);
+	float GetControllerAnalogKeyState(const struct FKey& Key);
+};
+
+
+// Class Engine.Interface_PreviewMeshProvider
+// 0x0000 (0x0028 - 0x0028)
+class UInterface_PreviewMeshProvider : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.Interface_PreviewMeshProvider");
 		return ptr;
 	}
 
@@ -8684,34 +8606,28 @@ public:
 };
 
 
-// Class Engine.Interface_PreviewMeshProvider
+// Class Engine.ImportanceSamplingLibrary
 // 0x0000 (0x0028 - 0x0028)
-class UInterface_PreviewMeshProvider : public UInterface
+class UImportanceSamplingLibrary : public UBlueprintFunctionLibrary
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Interface_PreviewMeshProvider");
+		static auto ptr = UObject::FindClass("Class Engine.ImportanceSamplingLibrary");
 		return ptr;
 	}
 
-};
 
-
-// Class Engine.InterpFilter
-// 0x0010 (0x0038 - 0x0028)
-class UInterpFilter : public UObject
-{
-public:
-	struct FString                                     Caption;                                                  // 0x0028(0x0010) (ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpFilter");
-		return ptr;
-	}
-
+	float STATIC_RandomSobolFloat(int Index, int Dimension, float Seed);
+	struct FVector STATIC_RandomSobolCell3D(int Index, int NumCells, const struct FVector& Cell, const struct FVector& Seed);
+	struct FVector2D STATIC_RandomSobolCell2D(int Index, int NumCells, const struct FVector2D& Cell, const struct FVector2D& Seed);
+	float STATIC_NextSobolFloat(int Index, int Dimension, float PreviousValue);
+	struct FVector STATIC_NextSobolCell3D(int Index, int NumCells, const struct FVector& PreviousValue);
+	struct FVector2D STATIC_NextSobolCell2D(int Index, int NumCells, const struct FVector2D& PreviousValue);
+	struct FImportanceTexture STATIC_MakeImportanceTexture(class UTexture2D* Texture, TEnumAsByte<EImportanceWeight> WeightingFunc);
+	void STATIC_ImportanceSample(const struct FImportanceTexture& Texture, const struct FVector2D& Rand, int Samples, float Intensity, struct FVector2D* SamplePosition, struct FLinearColor* SampleColor, float* SampleIntensity, float* SampleSize);
+	void STATIC_BreakImportanceTexture(const struct FImportanceTexture& ImportanceTexture, class UTexture2D** Texture, TEnumAsByte<EImportanceWeight>* WeightingFunc);
 };
 
 
@@ -8734,6 +8650,37 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.InterpData");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.InterpFilter
+// 0x0010 (0x0038 - 0x0028)
+class UInterpFilter : public UObject
+{
+public:
+	struct FString                                     Caption;                                                  // 0x0028(0x0010) (ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InterpFilter");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.InterpFilter_Custom
+// 0x0000 (0x0038 - 0x0038)
+class UInterpFilter_Custom : public UInterpFilter
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InterpFilter_Custom");
 		return ptr;
 	}
 
@@ -8774,21 +8721,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.InterpGroup");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.InterpFilter_Custom
-// 0x0000 (0x0038 - 0x0038)
-class UInterpFilter_Custom : public UInterpFilter
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpFilter_Custom");
 		return ptr;
 	}
 
@@ -8843,43 +8775,33 @@ public:
 };
 
 
-// Class Engine.InterpToMovementComponent
-// 0x00A0 (0x01D0 - 0x0130)
-class UInterpToMovementComponent : public UMovementComponent
+// Class Engine.InterpGroupInstDirector
+// 0x0000 (0x0048 - 0x0048)
+class UInterpGroupInstDirector : public UInterpGroupInst
 {
 public:
-	float                                              Duration;                                                 // 0x0130(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bPauseOnImpact : 1;                                       // 0x0134(0x0001) (Edit, BlueprintVisible)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0135(0x0003) MISSED OFFSET
-	EInterpToBehaviourType                             BehaviourType;                                            // 0x0138(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x0139(0x0003) MISSED OFFSET
-	unsigned char                                      bForceSubStepping : 1;                                    // 0x013C(0x0001) (Edit, BlueprintVisible)
-	unsigned char                                      UnknownData02[0x3];                                       // 0x013D(0x0003) MISSED OFFSET
-	struct FScriptMulticastDelegate                    OnInterpToReverse;                                        // 0x0140(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnInterpToStop;                                           // 0x0150(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnWaitBeginDelegate;                                      // 0x0160(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnWaitEndDelegate;                                        // 0x0170(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	struct FScriptMulticastDelegate                    OnResetDelegate;                                          // 0x0180(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	float                                              MaxSimulationTimeStep;                                    // 0x0190(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	int                                                MaxSimulationIterations;                                  // 0x0194(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	TArray<struct FInterpControlPoint>                 ControlPoints;                                            // 0x0198(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	unsigned char                                      UnknownData03[0x28];                                      // 0x01A8(0x0028) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpToMovementComponent");
+		static auto ptr = UObject::FindClass("Class Engine.InterpGroupInstDirector");
 		return ptr;
 	}
 
+};
 
-	void StopSimulating(const struct FHitResult& HitResult);
-	void RestartMovement(float InitialDirection);
-	void OnInterpToWaitEndDelegate__DelegateSignature(const struct FHitResult& ImpactResult, float Time);
-	void OnInterpToWaitBeginDelegate__DelegateSignature(const struct FHitResult& ImpactResult, float Time);
-	void OnInterpToStopDelegate__DelegateSignature(const struct FHitResult& ImpactResult, float Time);
-	void OnInterpToReverseDelegate__DelegateSignature(const struct FHitResult& ImpactResult, float Time);
-	void OnInterpToResetDelegate__DelegateSignature(const struct FHitResult& ImpactResult, float Time);
-	void FinaliseControlPoints();
+
+// Class Engine.ReverbPluginSourceSettingsBase
+// 0x0000 (0x0028 - 0x0028)
+class UReverbPluginSourceSettingsBase : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ReverbPluginSourceSettingsBase");
+		return ptr;
+	}
+
 };
 
 
@@ -8907,24 +8829,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.InterpTrack");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.InterpGroupCamera
-// 0x0010 (0x0060 - 0x0050)
-class UInterpGroupCamera : public UInterpGroup
-{
-public:
-	class UCameraAnim*                                 CameraAnimInst;                                           // 0x0050(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	float                                              CompressTolerance;                                        // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpGroupCamera");
 		return ptr;
 	}
 
@@ -8962,6 +8866,46 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.InterpTrackAnimControl");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.GameSession
+// 0x0018 (0x0340 - 0x0328)
+class AGameSession : public AInfo
+{
+public:
+	int                                                MaxSpectators;                                            // 0x0328(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	int                                                MaxPlayers;                                               // 0x032C(0x0004) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	int                                                MaxPartySize;                                             // 0x0330(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      MaxSplitscreensPerConnection;                             // 0x0334(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	bool                                               bRequiresPushToTalk;                                      // 0x0335(0x0001) (ZeroConstructor, Config, GlobalConfig, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x0336(0x0002) MISSED OFFSET
+	struct FName                                       SessionName;                                              // 0x0338(0x0008) (ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.GameSession");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.InterpGroupCamera
+// 0x0010 (0x0060 - 0x0050)
+class UInterpGroupCamera : public UInterpGroup
+{
+public:
+	class UCameraAnim*                                 CameraAnimInst;                                           // 0x0050(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	float                                              CompressTolerance;                                        // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InterpGroupCamera");
 		return ptr;
 	}
 
@@ -9034,6 +8978,24 @@ public:
 };
 
 
+// Class Engine.InterpTrackDirector
+// 0x0018 (0x0088 - 0x0070)
+class UInterpTrackDirector : public UInterpTrack
+{
+public:
+	TArray<struct FDirectorTrackCut>                   CutTrack;                                                 // 0x0070(0x0010) (ZeroConstructor)
+	unsigned char                                      bSimulateCameraCutsOnClients : 1;                         // 0x0080(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0081(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InterpTrackDirector");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.InterpTrackColorScale
 // 0x0000 (0x0090 - 0x0090)
 class UInterpTrackColorScale : public UInterpTrackVectorBase
@@ -9043,21 +9005,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.InterpTrackColorScale");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.InterpGroupInstDirector
-// 0x0000 (0x0048 - 0x0048)
-class UInterpGroupInstDirector : public UInterpGroupInst
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpGroupInstDirector");
 		return ptr;
 	}
 
@@ -9097,27 +9044,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.InterpTrackFloatAnimBPParam");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.InterpTrackEvent
-// 0x0018 (0x0088 - 0x0070)
-class UInterpTrackEvent : public UInterpTrack
-{
-public:
-	TArray<struct FEventTrackKey>                      EventTrack;                                               // 0x0070(0x0010) (ZeroConstructor)
-	unsigned char                                      bFireEventsWhenForwards : 1;                              // 0x0080(0x0001) (Edit)
-	unsigned char                                      bFireEventsWhenBackwards : 1;                             // 0x0080(0x0001) (Edit)
-	unsigned char                                      bFireEventsWhenJumpingForwards : 1;                       // 0x0080(0x0001) (Edit)
-	unsigned char                                      bUseCustomEventName : 1;                                  // 0x0080(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0081(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackEvent");
 		return ptr;
 	}
 
@@ -9205,15 +9131,21 @@ public:
 };
 
 
-// Class Engine.InterpTrackInstAudioMaster
-// 0x0000 (0x0028 - 0x0028)
-class UInterpTrackInstAudioMaster : public UInterpTrackInst
+// Class Engine.InterpTrackEvent
+// 0x0018 (0x0088 - 0x0070)
+class UInterpTrackEvent : public UInterpTrack
 {
 public:
+	TArray<struct FEventTrackKey>                      EventTrack;                                               // 0x0070(0x0010) (ZeroConstructor)
+	unsigned char                                      bFireEventsWhenForwards : 1;                              // 0x0080(0x0001) (Edit)
+	unsigned char                                      bFireEventsWhenBackwards : 1;                             // 0x0080(0x0001) (Edit)
+	unsigned char                                      bFireEventsWhenJumpingForwards : 1;                       // 0x0080(0x0001) (Edit)
+	unsigned char                                      bUseCustomEventName : 1;                                  // 0x0080(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0081(0x0007) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstAudioMaster");
+		static auto ptr = UObject::FindClass("Class Engine.InterpTrackEvent");
 		return ptr;
 	}
 
@@ -9256,18 +9188,15 @@ public:
 };
 
 
-// Class Engine.InterpTrackInstColorProp
-// 0x0010 (0x0048 - 0x0038)
-class UInterpTrackInstColorProp : public UInterpTrackInstProperty
+// Class Engine.InterpTrackInstAudioMaster
+// 0x0000 (0x0028 - 0x0028)
+class UInterpTrackInstAudioMaster : public UInterpTrackInst
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0038(0x0008) MISSED OFFSET
-	struct FColor                                      ResetColor;                                               // 0x0040(0x0004) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x0044(0x0004) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstColorProp");
+		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstAudioMaster");
 		return ptr;
 	}
 
@@ -9283,24 +9212,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstColorScale");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.InterpTrackDirector
-// 0x0018 (0x0088 - 0x0070)
-class UInterpTrackDirector : public UInterpTrack
-{
-public:
-	TArray<struct FDirectorTrackCut>                   CutTrack;                                                 // 0x0070(0x0010) (ZeroConstructor)
-	unsigned char                                      bSimulateCameraCutsOnClients : 1;                         // 0x0080(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0081(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackDirector");
 		return ptr;
 	}
 
@@ -9373,6 +9284,25 @@ public:
 };
 
 
+// Class Engine.InterpTrackInstFloatMaterialParam
+// 0x0038 (0x0060 - 0x0028)
+class UInterpTrackInstFloatMaterialParam : public UInterpTrackInst
+{
+public:
+	TArray<class UMaterialInstanceDynamic*>            MaterialInstances;                                        // 0x0028(0x0010) (ZeroConstructor)
+	TArray<float>                                      ResetFloats;                                              // 0x0038(0x0010) (ZeroConstructor)
+	TArray<struct FPrimitiveMaterialRef>               PrimitiveMaterialRefs;                                    // 0x0048(0x0010) (ZeroConstructor)
+	class UInterpTrackFloatMaterialParam*              InstancedTrack;                                           // 0x0058(0x0008) (ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstFloatMaterialParam");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.InterpTrackInstFloatParticleParam
 // 0x0008 (0x0030 - 0x0028)
 class UInterpTrackInstFloatParticleParam : public UInterpTrackInst
@@ -9384,6 +9314,58 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstFloatParticleParam");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.InterpTrackInstColorProp
+// 0x0010 (0x0048 - 0x0038)
+class UInterpTrackInstColorProp : public UInterpTrackInstProperty
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0038(0x0008) MISSED OFFSET
+	struct FColor                                      ResetColor;                                               // 0x0040(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x0044(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstColorProp");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.InterpTrackInstLinearColorProp
+// 0x0018 (0x0050 - 0x0038)
+class UInterpTrackInstLinearColorProp : public UInterpTrackInstProperty
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0038(0x0008) MISSED OFFSET
+	struct FLinearColor                                ResetColor;                                               // 0x0040(0x0010) (ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstLinearColorProp");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.InterpTrackInstMove
+// 0x0018 (0x0040 - 0x0028)
+class UInterpTrackInstMove : public UInterpTrackInst
+{
+public:
+	struct FVector                                     ResetLocation;                                            // 0x0028(0x000C) (ZeroConstructor, IsPlainOldData)
+	struct FRotator                                    ResetRotation;                                            // 0x0034(0x000C) (ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstMove");
 		return ptr;
 	}
 
@@ -9408,76 +9390,6 @@ public:
 };
 
 
-// Class Engine.InterpTrackInstLinearColorProp
-// 0x0018 (0x0050 - 0x0038)
-class UInterpTrackInstLinearColorProp : public UInterpTrackInstProperty
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0038(0x0008) MISSED OFFSET
-	struct FLinearColor                                ResetColor;                                               // 0x0040(0x0010) (ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstLinearColorProp");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.InterpTrackInstFloatMaterialParam
-// 0x0038 (0x0060 - 0x0028)
-class UInterpTrackInstFloatMaterialParam : public UInterpTrackInst
-{
-public:
-	TArray<class UMaterialInstanceDynamic*>            MaterialInstances;                                        // 0x0028(0x0010) (ZeroConstructor)
-	TArray<float>                                      ResetFloats;                                              // 0x0038(0x0010) (ZeroConstructor)
-	TArray<struct FPrimitiveMaterialRef>               PrimitiveMaterialRefs;                                    // 0x0048(0x0010) (ZeroConstructor)
-	class UInterpTrackFloatMaterialParam*              InstancedTrack;                                           // 0x0058(0x0008) (ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstFloatMaterialParam");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.InterpTrackInstMove
-// 0x0018 (0x0040 - 0x0028)
-class UInterpTrackInstMove : public UInterpTrackInst
-{
-public:
-	struct FVector                                     ResetLocation;                                            // 0x0028(0x000C) (ZeroConstructor, IsPlainOldData)
-	struct FRotator                                    ResetRotation;                                            // 0x0034(0x000C) (ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstMove");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.InterpTrackInstParticleReplay
-// 0x0008 (0x0030 - 0x0028)
-class UInterpTrackInstParticleReplay : public UInterpTrackInst
-{
-public:
-	float                                              LastUpdatePosition;                                       // 0x0028(0x0004) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x002C(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstParticleReplay");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.InterpTrackInstSlomo
 // 0x0008 (0x0030 - 0x0028)
 class UInterpTrackInstSlomo : public UInterpTrackInst
@@ -9495,18 +9407,17 @@ public:
 };
 
 
-// Class Engine.InterpTrackInstSound
-// 0x0010 (0x0038 - 0x0028)
-class UInterpTrackInstSound : public UInterpTrackInst
+// Class Engine.InterpTrackInstParticleReplay
+// 0x0008 (0x0030 - 0x0028)
+class UInterpTrackInstParticleReplay : public UInterpTrackInst
 {
 public:
 	float                                              LastUpdatePosition;                                       // 0x0028(0x0004) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x002C(0x0004) MISSED OFFSET
-	class UAudioComponent*                             PlayAudioComp;                                            // 0x0030(0x0008) (ExportObject, ZeroConstructor, Transient, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstSound");
+		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstParticleReplay");
 		return ptr;
 	}
 
@@ -9533,19 +9444,18 @@ public:
 };
 
 
-// Class Engine.InterpTrackInstVectorMaterialParam
-// 0x0038 (0x0060 - 0x0028)
-class UInterpTrackInstVectorMaterialParam : public UInterpTrackInst
+// Class Engine.InterpTrackInstSound
+// 0x0010 (0x0038 - 0x0028)
+class UInterpTrackInstSound : public UInterpTrackInst
 {
 public:
-	TArray<class UMaterialInstanceDynamic*>            MaterialInstances;                                        // 0x0028(0x0010) (ZeroConstructor)
-	TArray<struct FVector>                             ResetVectors;                                             // 0x0038(0x0010) (ZeroConstructor)
-	TArray<struct FPrimitiveMaterialRef>               PrimitiveMaterialRefs;                                    // 0x0048(0x0010) (ZeroConstructor)
-	class UInterpTrackVectorMaterialParam*             InstancedTrack;                                           // 0x0058(0x0008) (ZeroConstructor, IsPlainOldData)
+	float                                              LastUpdatePosition;                                       // 0x0028(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x002C(0x0004) MISSED OFFSET
+	class UAudioComponent*                             PlayAudioComp;                                            // 0x0030(0x0008) (ExportObject, ZeroConstructor, Transient, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstVectorMaterialParam");
+		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstSound");
 		return ptr;
 	}
 
@@ -9570,18 +9480,19 @@ public:
 };
 
 
-// Class Engine.InterpTrackInstVisibility
-// 0x0008 (0x0030 - 0x0028)
-class UInterpTrackInstVisibility : public UInterpTrackInst
+// Class Engine.InterpTrackInstVectorMaterialParam
+// 0x0038 (0x0060 - 0x0028)
+class UInterpTrackInstVectorMaterialParam : public UInterpTrackInst
 {
 public:
-	TEnumAsByte<EVisibilityTrackAction>                Action;                                                   // 0x0028(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0029(0x0003) MISSED OFFSET
-	float                                              LastUpdatePosition;                                       // 0x002C(0x0004) (ZeroConstructor, IsPlainOldData)
+	TArray<class UMaterialInstanceDynamic*>            MaterialInstances;                                        // 0x0028(0x0010) (ZeroConstructor)
+	TArray<struct FVector>                             ResetVectors;                                             // 0x0038(0x0010) (ZeroConstructor)
+	TArray<struct FPrimitiveMaterialRef>               PrimitiveMaterialRefs;                                    // 0x0048(0x0010) (ZeroConstructor)
+	class UInterpTrackVectorMaterialParam*             InstancedTrack;                                           // 0x0058(0x0008) (ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstVisibility");
+		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstVectorMaterialParam");
 		return ptr;
 	}
 
@@ -9606,6 +9517,24 @@ public:
 };
 
 
+// Class Engine.InterpTrackInstVisibility
+// 0x0008 (0x0030 - 0x0028)
+class UInterpTrackInstVisibility : public UInterpTrackInst
+{
+public:
+	TEnumAsByte<EVisibilityTrackAction>                Action;                                                   // 0x0028(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0029(0x0003) MISSED OFFSET
+	float                                              LastUpdatePosition;                                       // 0x002C(0x0004) (ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InterpTrackInstVisibility");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.InterpTrackLinearColorProp
 // 0x0008 (0x0098 - 0x0090)
 class UInterpTrackLinearColorProp : public UInterpTrackLinearColorBase
@@ -9616,36 +9545,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.InterpTrackLinearColorProp");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.InterpTrackMove
-// 0x0058 (0x00C8 - 0x0070)
-class UInterpTrackMove : public UInterpTrack
-{
-public:
-	struct FInterpCurveVector                          PosTrack;                                                 // 0x0070(0x0018) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-	struct FInterpCurveVector                          EulerTrack;                                               // 0x0088(0x0018) (ZeroConstructor)
-	struct FInterpLookupTrack                          LookupTrack;                                              // 0x00A0(0x0010)
-	struct FName                                       LookAtGroupName;                                          // 0x00B0(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              LinCurveTension;                                          // 0x00B8(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              AngCurveTension;                                          // 0x00BC(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bUseQuatInterpolation : 1;                                // 0x00C0(0x0001) (Edit)
-	unsigned char                                      bShowArrowAtKeys : 1;                                     // 0x00C0(0x0001) (Edit)
-	unsigned char                                      bDisableMovement : 1;                                     // 0x00C0(0x0001) (Edit)
-	unsigned char                                      bShowTranslationOnCurveEd : 1;                            // 0x00C0(0x0001) (Edit)
-	unsigned char                                      bShowRotationOnCurveEd : 1;                               // 0x00C0(0x0001) (Edit)
-	unsigned char                                      bHide3DTrack : 1;                                         // 0x00C0(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x00C1(0x0003) MISSED OFFSET
-	TEnumAsByte<EInterpTrackMoveRotMode>               RotMode;                                                  // 0x00C4(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x00C5(0x0003) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackMove");
 		return ptr;
 	}
 
@@ -9680,21 +9579,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.InterpTrackParticleReplay");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.InterpTrackSlomo
-// 0x0000 (0x0090 - 0x0090)
-class UInterpTrackSlomo : public UInterpTrackFloatBase
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackSlomo");
 		return ptr;
 	}
 
@@ -9762,6 +9646,51 @@ public:
 };
 
 
+// Class Engine.InterpTrackMove
+// 0x0058 (0x00C8 - 0x0070)
+class UInterpTrackMove : public UInterpTrack
+{
+public:
+	struct FInterpCurveVector                          PosTrack;                                                 // 0x0070(0x0018) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	struct FInterpCurveVector                          EulerTrack;                                               // 0x0088(0x0018) (ZeroConstructor)
+	struct FInterpLookupTrack                          LookupTrack;                                              // 0x00A0(0x0010)
+	struct FName                                       LookAtGroupName;                                          // 0x00B0(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              LinCurveTension;                                          // 0x00B8(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              AngCurveTension;                                          // 0x00BC(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bUseQuatInterpolation : 1;                                // 0x00C0(0x0001) (Edit)
+	unsigned char                                      bShowArrowAtKeys : 1;                                     // 0x00C0(0x0001) (Edit)
+	unsigned char                                      bDisableMovement : 1;                                     // 0x00C0(0x0001) (Edit)
+	unsigned char                                      bShowTranslationOnCurveEd : 1;                            // 0x00C0(0x0001) (Edit)
+	unsigned char                                      bShowRotationOnCurveEd : 1;                               // 0x00C0(0x0001) (Edit)
+	unsigned char                                      bHide3DTrack : 1;                                         // 0x00C0(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x00C1(0x0003) MISSED OFFSET
+	TEnumAsByte<EInterpTrackMoveRotMode>               RotMode;                                                  // 0x00C4(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x00C5(0x0003) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InterpTrackMove");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.InterpTrackSlomo
+// 0x0000 (0x0090 - 0x0090)
+class UInterpTrackSlomo : public UInterpTrackFloatBase
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InterpTrackSlomo");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.InterpTrackVectorProp
 // 0x0008 (0x0098 - 0x0090)
 class UInterpTrackVectorProp : public UInterpTrackVectorBase
@@ -9772,26 +9701,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.InterpTrackVectorProp");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.InterpTrackVisibility
-// 0x0018 (0x0088 - 0x0070)
-class UInterpTrackVisibility : public UInterpTrack
-{
-public:
-	TArray<struct FVisibilityTrackKey>                 VisibilityTrack;                                          // 0x0070(0x0010) (ZeroConstructor)
-	unsigned char                                      bFireEventsWhenForwards : 1;                              // 0x0080(0x0001) (Edit)
-	unsigned char                                      bFireEventsWhenBackwards : 1;                             // 0x0080(0x0001) (Edit)
-	unsigned char                                      bFireEventsWhenJumpingForwards : 1;                       // 0x0080(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0081(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.InterpTrackVisibility");
 		return ptr;
 	}
 
@@ -9819,6 +9728,26 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.IntSerialization");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.InterpTrackVisibility
+// 0x0018 (0x0088 - 0x0070)
+class UInterpTrackVisibility : public UInterpTrack
+{
+public:
+	TArray<struct FVisibilityTrackKey>                 VisibilityTrack;                                          // 0x0070(0x0010) (ZeroConstructor)
+	unsigned char                                      bFireEventsWhenForwards : 1;                              // 0x0080(0x0001) (Edit)
+	unsigned char                                      bFireEventsWhenBackwards : 1;                             // 0x0080(0x0001) (Edit)
+	unsigned char                                      bFireEventsWhenJumpingForwards : 1;                       // 0x0080(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0081(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InterpTrackVisibility");
 		return ptr;
 	}
 
@@ -9976,6 +9905,27 @@ public:
 	struct FString STATIC_GetCurrentCulture();
 	struct FString STATIC_GetCurrentAssetGroupCulture(const struct FName& AssetGroup);
 	void STATIC_ClearCurrentAssetGroupCulture(const struct FName& AssetGroup, bool SaveToConfig);
+};
+
+
+// Class Engine.KismetMaterialLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UKismetMaterialLibrary : public UBlueprintFunctionLibrary
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.KismetMaterialLibrary");
+		return ptr;
+	}
+
+
+	void STATIC_SetVectorParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, const struct FName& ParameterName, const struct FLinearColor& ParameterValue);
+	void STATIC_SetScalarParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, const struct FName& ParameterName, float ParameterValue);
+	struct FLinearColor STATIC_GetVectorParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, const struct FName& ParameterName);
+	float STATIC_GetScalarParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, const struct FName& ParameterName);
+	class UMaterialInstanceDynamic* STATIC_CreateDynamicMaterialInstance(class UObject* WorldContextObject, class UMaterialInterface* Parent, const struct FName& OptionalName);
 };
 
 
@@ -10535,30 +10485,6 @@ public:
 };
 
 
-// Class Engine.KismetStringTableLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UKismetStringTableLibrary : public UBlueprintFunctionLibrary
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.KismetStringTableLibrary");
-		return ptr;
-	}
-
-
-	bool STATIC_IsRegisteredTableId(const struct FName& TableId);
-	bool STATIC_IsRegisteredTableEntry(const struct FName& TableId, const struct FString& Key);
-	struct FString STATIC_GetTableNamespace(const struct FName& TableId);
-	struct FString STATIC_GetTableEntrySourceString(const struct FName& TableId, const struct FString& Key);
-	struct FString STATIC_GetTableEntryMetaData(const struct FName& TableId, const struct FString& Key, const struct FName& MetaDataId);
-	TArray<struct FName> STATIC_GetRegisteredStringTables();
-	TArray<struct FName> STATIC_GetMetaDataIdsFromStringTableEntry(const struct FName& TableId, const struct FString& Key);
-	TArray<struct FString> STATIC_GetKeysFromStringTable(const struct FName& TableId);
-};
-
-
 // Class Engine.KismetSystemLibrary
 // 0x0000 (0x0028 - 0x0028)
 class UKismetSystemLibrary : public UBlueprintFunctionLibrary
@@ -10805,6 +10731,30 @@ public:
 };
 
 
+// Class Engine.KismetStringTableLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UKismetStringTableLibrary : public UBlueprintFunctionLibrary
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.KismetStringTableLibrary");
+		return ptr;
+	}
+
+
+	bool STATIC_IsRegisteredTableId(const struct FName& TableId);
+	bool STATIC_IsRegisteredTableEntry(const struct FName& TableId, const struct FString& Key);
+	struct FString STATIC_GetTableNamespace(const struct FName& TableId);
+	struct FString STATIC_GetTableEntrySourceString(const struct FName& TableId, const struct FString& Key);
+	struct FString STATIC_GetTableEntryMetaData(const struct FName& TableId, const struct FString& Key, const struct FName& MetaDataId);
+	TArray<struct FName> STATIC_GetRegisteredStringTables();
+	TArray<struct FName> STATIC_GetMetaDataIdsFromStringTableEntry(const struct FName& TableId, const struct FString& Key);
+	TArray<struct FString> STATIC_GetKeysFromStringTable(const struct FName& TableId);
+};
+
+
 // Class Engine.KismetTextLibrary
 // 0x0000 (0x0028 - 0x0028)
 class UKismetTextLibrary : public UBlueprintFunctionLibrary
@@ -10862,25 +10812,6 @@ public:
 	struct FText STATIC_AsCurrencyBase(int BaseValue, const struct FString& CurrencyCode);
 	struct FText STATIC_AsCurrency_Integer(int Value, TEnumAsByte<ERoundingMode> RoundingMode, bool bAlwaysSign, bool bUseGrouping, int MinimumIntegralDigits, int MaximumIntegralDigits, int MinimumFractionalDigits, int MaximumFractionalDigits, const struct FString& CurrencyCode);
 	struct FText STATIC_AsCurrency_Float(float Value, TEnumAsByte<ERoundingMode> RoundingMode, bool bAlwaysSign, bool bUseGrouping, int MinimumIntegralDigits, int MaximumIntegralDigits, int MinimumFractionalDigits, int MaximumFractionalDigits, const struct FString& CurrencyCode);
-};
-
-
-// Class Engine.Layer
-// 0x0020 (0x0048 - 0x0028)
-class ULayer : public UObject
-{
-public:
-	struct FName                                       LayerName;                                                // 0x0028(0x0008) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bIsVisible : 1;                                           // 0x0030(0x0001)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
-	TArray<struct FLayerActorStats>                    ActorStats;                                               // 0x0038(0x0010) (ZeroConstructor, Transient)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.Layer");
-		return ptr;
-	}
-
 };
 
 
@@ -10964,6 +10895,25 @@ public:
 };
 
 
+// Class Engine.Layer
+// 0x0020 (0x0048 - 0x0028)
+class ULayer : public UObject
+{
+public:
+	struct FName                                       LayerName;                                                // 0x0028(0x0008) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bIsVisible : 1;                                           // 0x0030(0x0001)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
+	TArray<struct FLayerActorStats>                    ActorStats;                                               // 0x0038(0x0010) (ZeroConstructor, Transient)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.Layer");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.LevelScriptActor
 // 0x0008 (0x0330 - 0x0328)
 class ALevelScriptActor : public AActor
@@ -10998,27 +10948,6 @@ public:
 		return ptr;
 	}
 
-};
-
-
-// Class Engine.KismetMaterialLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UKismetMaterialLibrary : public UBlueprintFunctionLibrary
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.KismetMaterialLibrary");
-		return ptr;
-	}
-
-
-	void STATIC_SetVectorParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, const struct FName& ParameterName, const struct FLinearColor& ParameterValue);
-	void STATIC_SetScalarParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, const struct FName& ParameterName, float ParameterValue);
-	struct FLinearColor STATIC_GetVectorParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, const struct FName& ParameterName);
-	float STATIC_GetScalarParameterValue(class UObject* WorldContextObject, class UMaterialParameterCollection* Collection, const struct FName& ParameterName);
-	class UMaterialInstanceDynamic* STATIC_CreateDynamicMaterialInstance(class UObject* WorldContextObject, class UMaterialInterface* Parent, const struct FName& OptionalName);
 };
 
 
@@ -11180,6 +11109,36 @@ public:
 };
 
 
+// Class Engine.LightmassCharacterIndirectDetailVolume
+// 0x0000 (0x0360 - 0x0360)
+class ALightmassCharacterIndirectDetailVolume : public AVolume
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.LightmassCharacterIndirectDetailVolume");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.LightmassImportanceVolume
+// 0x0000 (0x0360 - 0x0360)
+class ALightmassImportanceVolume : public AVolume
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.LightmassImportanceVolume");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.World
 // 0x0840 (0x0868 - 0x0028)
 class UWorld : public UObject
@@ -11235,36 +11194,6 @@ public:
 };
 
 
-// Class Engine.LightmassCharacterIndirectDetailVolume
-// 0x0000 (0x0360 - 0x0360)
-class ALightmassCharacterIndirectDetailVolume : public AVolume
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.LightmassCharacterIndirectDetailVolume");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.LightmassImportanceVolume
-// 0x0000 (0x0360 - 0x0360)
-class ALightmassImportanceVolume : public AVolume
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.LightmassImportanceVolume");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.LightmassPortal
 // 0x0008 (0x0330 - 0x0328)
 class ALightmassPortal : public AActor
@@ -11275,22 +11204,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.LightmassPortal");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.LightmassPrimitiveSettingsObject
-// 0x0018 (0x0040 - 0x0028)
-class ULightmassPrimitiveSettingsObject : public UObject
-{
-public:
-	struct FLightmassPrimitiveSettings                 LightmassSettings;                                        // 0x0028(0x0018) (Edit)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.LightmassPrimitiveSettingsObject");
 		return ptr;
 	}
 
@@ -11309,6 +11222,37 @@ public:
 		return ptr;
 	}
 
+};
+
+
+// Class Engine.Exporter
+// 0x0050 (0x0078 - 0x0028)
+class UExporter : public UObject
+{
+public:
+	class UClass*                                      SupportedClass;                                           // 0x0028(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UObject*                                     ExportRootScope;                                          // 0x0030(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	TArray<struct FString>                             FormatExtension;                                          // 0x0038(0x0010) (BlueprintVisible, ZeroConstructor)
+	TArray<struct FString>                             FormatDescription;                                        // 0x0048(0x0010) (BlueprintVisible, ZeroConstructor)
+	int                                                PreferredFormatIndex;                                     // 0x0058(0x0004) (ZeroConstructor, IsPlainOldData)
+	int                                                TextIndent;                                               // 0x005C(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bText : 1;                                                // 0x0060(0x0001) (BlueprintVisible)
+	unsigned char                                      bSelectedOnly : 1;                                        // 0x0060(0x0001)
+	unsigned char                                      bForceFileOperations : 1;                                 // 0x0060(0x0001)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0061(0x0007) MISSED OFFSET
+	class UAssetExportTask*                            ExportTask;                                               // 0x0068(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0070(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.Exporter");
+		return ptr;
+	}
+
+
+	bool ScriptRunAssetExportTask(class UAssetExportTask* Task);
+	bool STATIC_RunAssetExportTasks(TArray<class UAssetExportTask*> ExportTasks);
+	bool STATIC_RunAssetExportTask(class UAssetExportTask* Task);
 };
 
 
@@ -11377,6 +11321,23 @@ public:
 };
 
 
+// Class Engine.MapBuildDataRegistry
+// 0x01A0 (0x01C8 - 0x0028)
+class UMapBuildDataRegistry : public UObject
+{
+public:
+	TEnumAsByte<ELightingBuildQuality>                 LevelLightingQuality;                                     // 0x0028(0x0001) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x19F];                                     // 0x0029(0x019F) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MapBuildDataRegistry");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.LODActor
 // 0x0050 (0x0378 - 0x0328)
 class ALODActor : public AActor
@@ -11402,17 +11363,1064 @@ public:
 };
 
 
-// Class Engine.MapBuildDataRegistry
-// 0x01A0 (0x01C8 - 0x0028)
-class UMapBuildDataRegistry : public UObject
+// Class Engine.MaterialBillboardComponent
+// 0x0010 (0x0570 - 0x0560)
+class UMaterialBillboardComponent : public UPrimitiveComponent
 {
 public:
-	TEnumAsByte<ELightingBuildQuality>                 LevelLightingQuality;                                     // 0x0028(0x0001) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x19F];                                     // 0x0029(0x019F) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0560(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MapBuildDataRegistry");
+		static auto ptr = UObject::FindClass("Class Engine.MaterialBillboardComponent");
+		return ptr;
+	}
+
+
+	void SetElements(TArray<struct FMaterialSpriteElement> NewElements);
+	void AddElement(class UMaterialInterface* Material, class UCurveFloat* DistanceToOpacityCurve, bool bSizeIsInScreenSpace, float BaseSizeX, float BaseSizeY, class UCurveFloat* DistanceToSizeCurve);
+};
+
+
+// Class Engine.MaterialExpressionAbs
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionAbs : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAbs");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionActorPositionWS
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionActorPositionWS : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionActorPositionWS");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.LightmassPrimitiveSettingsObject
+// 0x0018 (0x0040 - 0x0028)
+class ULightmassPrimitiveSettingsObject : public UObject
+{
+public:
+	struct FLightmassPrimitiveSettings                 LightmassSettings;                                        // 0x0028(0x0018) (Edit)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.LightmassPrimitiveSettingsObject");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionAdd
+// 0x0038 (0x0078 - 0x0040)
+class UMaterialExpressionAdd : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+	float                                              ConstA;                                                   // 0x0070(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              ConstB;                                                   // 0x0074(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAdd");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionAntialiasedTextureMask
+// 0x0008 (0x0120 - 0x0118)
+class UMaterialExpressionAntialiasedTextureMask : public UMaterialExpressionTextureSampleParameter2D
+{
+public:
+	float                                              Threshold;                                                // 0x0118(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<ETextureColorChannel>                  Channel;                                                  // 0x011C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x011D(0x0003) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAntialiasedTextureMask");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionAppendVector
+// 0x0030 (0x0070 - 0x0040)
+class UMaterialExpressionAppendVector : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAppendVector");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionArccosine
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionArccosine : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArccosine");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionArccosineFast
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionArccosineFast : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArccosineFast");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionArcsine
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionArcsine : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArcsine");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionArctangent
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionArctangent : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArctangent");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionArctangent2
+// 0x0030 (0x0070 - 0x0040)
+class UMaterialExpressionArctangent2 : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Y;                                                        // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	struct FExpressionInput                            X;                                                        // 0x0058(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArctangent2");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionArcsineFast
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionArcsineFast : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArcsineFast");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionArctangentFast
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionArctangentFast : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArctangentFast");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.InterpToMovementComponent
+// 0x00A0 (0x01D0 - 0x0130)
+class UInterpToMovementComponent : public UMovementComponent
+{
+public:
+	float                                              Duration;                                                 // 0x0130(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bPauseOnImpact : 1;                                       // 0x0134(0x0001) (Edit, BlueprintVisible)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0135(0x0003) MISSED OFFSET
+	EInterpToBehaviourType                             BehaviourType;                                            // 0x0138(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0139(0x0003) MISSED OFFSET
+	unsigned char                                      bForceSubStepping : 1;                                    // 0x013C(0x0001) (Edit, BlueprintVisible)
+	unsigned char                                      UnknownData02[0x3];                                       // 0x013D(0x0003) MISSED OFFSET
+	struct FScriptMulticastDelegate                    OnInterpToReverse;                                        // 0x0140(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnInterpToStop;                                           // 0x0150(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnWaitBeginDelegate;                                      // 0x0160(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnWaitEndDelegate;                                        // 0x0170(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	struct FScriptMulticastDelegate                    OnResetDelegate;                                          // 0x0180(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	float                                              MaxSimulationTimeStep;                                    // 0x0190(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	int                                                MaxSimulationIterations;                                  // 0x0194(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	TArray<struct FInterpControlPoint>                 ControlPoints;                                            // 0x0198(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	unsigned char                                      UnknownData03[0x28];                                      // 0x01A8(0x0028) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.InterpToMovementComponent");
+		return ptr;
+	}
+
+
+	void StopSimulating(const struct FHitResult& HitResult);
+	void RestartMovement(float InitialDirection);
+	void OnInterpToWaitEndDelegate__DelegateSignature(const struct FHitResult& ImpactResult, float Time);
+	void OnInterpToWaitBeginDelegate__DelegateSignature(const struct FHitResult& ImpactResult, float Time);
+	void OnInterpToStopDelegate__DelegateSignature(const struct FHitResult& ImpactResult, float Time);
+	void OnInterpToReverseDelegate__DelegateSignature(const struct FHitResult& ImpactResult, float Time);
+	void OnInterpToResetDelegate__DelegateSignature(const struct FHitResult& ImpactResult, float Time);
+	void FinaliseControlPoints();
+};
+
+
+// Class Engine.MaterialExpressionArctangent2Fast
+// 0x0030 (0x0070 - 0x0040)
+class UMaterialExpressionArctangent2Fast : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Y;                                                        // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	struct FExpressionInput                            X;                                                        // 0x0058(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArctangent2Fast");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionAtmosphericLightColor
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionAtmosphericLightColor : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAtmosphericLightColor");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionBentNormalCustomOutput
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionBentNormalCustomOutput : public UMaterialExpressionCustomOutput
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionBentNormalCustomOutput");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionAtmosphericLightVector
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionAtmosphericLightVector : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAtmosphericLightVector");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionBlackBody
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionBlackBody : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Temp;                                                     // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionBlackBody");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionAtmosphericFogColor
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionAtmosphericFogColor : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            WorldPosition;                                            // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAtmosphericFogColor");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionBreakMaterialAttributes
+// 0x0020 (0x0060 - 0x0040)
+class UMaterialExpressionBreakMaterialAttributes : public UMaterialExpression
+{
+public:
+	struct FMaterialAttributesInput                    MaterialAttributes;                                       // 0x0040(0x0018)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionBreakMaterialAttributes");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionBumpOffset
+// 0x0058 (0x0098 - 0x0040)
+class UMaterialExpressionBumpOffset : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Coordinate;                                               // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	struct FExpressionInput                            Height;                                                   // 0x0058(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+	struct FExpressionInput                            HeightRatioInput;                                         // 0x0070(0x0010)
+	unsigned char                                      UnknownData02[0x8];                                       // 0x0080(0x0008) MISSED OFFSET
+	float                                              HeightRatio;                                              // 0x0088(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              ReferencePlane;                                           // 0x008C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           ConstCoordinate;                                          // 0x0090(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x4];                                       // 0x0094(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionBumpOffset");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionCameraPositionWS
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionCameraPositionWS : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCameraPositionWS");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionCeil
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionCeil : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCeil");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionParameter
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionParameter : public UMaterialExpression
+{
+public:
+	struct FName                                       ParameterName;                                            // 0x0040(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FGuid                                       ExpressionGUID;                                           // 0x0048(0x0010) (ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionParameter");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionVectorParameter
+// 0x0010 (0x0068 - 0x0058)
+class UMaterialExpressionVectorParameter : public UMaterialExpressionParameter
+{
+public:
+	struct FLinearColor                                DefaultValue;                                             // 0x0058(0x0010) (Edit, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionVectorParameter");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionChannelMaskParameter
+// 0x0020 (0x0088 - 0x0068)
+class UMaterialExpressionChannelMaskParameter : public UMaterialExpressionVectorParameter
+{
+public:
+	TEnumAsByte<EChannelMaskParameterColor>            MaskChannel;                                              // 0x0068(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0069(0x0007) MISSED OFFSET
+	struct FExpressionInput                            Input;                                                    // 0x0070(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0080(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionChannelMaskParameter");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionCameraVectorWS
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionCameraVectorWS : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCameraVectorWS");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionClearCoatNormalCustomOutput
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionClearCoatNormalCustomOutput : public UMaterialExpressionCustomOutput
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionClearCoatNormalCustomOutput");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionCollectionParameter
+// 0x0020 (0x0060 - 0x0040)
+class UMaterialExpressionCollectionParameter : public UMaterialExpression
+{
+public:
+	class UMaterialParameterCollection*                Collection;                                               // 0x0040(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FName                                       ParameterName;                                            // 0x0048(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FGuid                                       ParameterId;                                              // 0x0050(0x0010) (ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCollectionParameter");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionComment
+// 0x0030 (0x0070 - 0x0040)
+class UMaterialExpressionComment : public UMaterialExpression
+{
+public:
+	int                                                SizeX;                                                    // 0x0040(0x0004) (ZeroConstructor, IsPlainOldData)
+	int                                                SizeY;                                                    // 0x0044(0x0004) (ZeroConstructor, IsPlainOldData)
+	struct FString                                     Text;                                                     // 0x0048(0x0010) (Edit, ZeroConstructor)
+	struct FLinearColor                                CommentColor;                                             // 0x0058(0x0010) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                FontSize;                                                 // 0x0068(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x006C(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionComment");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionBlendMaterialAttributes
+// 0x0060 (0x00A0 - 0x0040)
+class UMaterialExpressionBlendMaterialAttributes : public UMaterialExpression
+{
+public:
+	struct FMaterialAttributesInput                    A;                                                        // 0x0040(0x0018)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
+	struct FMaterialAttributesInput                    B;                                                        // 0x0060(0x0018)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0078(0x0008) MISSED OFFSET
+	struct FExpressionInput                            Alpha;                                                    // 0x0080(0x0010)
+	unsigned char                                      UnknownData02[0x8];                                       // 0x0090(0x0008) MISSED OFFSET
+	TEnumAsByte<EMaterialAttributeBlend>               PixelAttributeBlendType;                                  // 0x0098(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EMaterialAttributeBlend>               VertexAttributeBlendType;                                 // 0x0099(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x6];                                       // 0x009A(0x0006) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionBlendMaterialAttributes");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionComponentMask
+// 0x0020 (0x0060 - 0x0040)
+class UMaterialExpressionComponentMask : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	unsigned char                                      R : 1;                                                    // 0x0058(0x0001) (Edit)
+	unsigned char                                      G : 1;                                                    // 0x0058(0x0001) (Edit)
+	unsigned char                                      B : 1;                                                    // 0x0058(0x0001) (Edit)
+	unsigned char                                      A : 1;                                                    // 0x0058(0x0001) (Edit)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0059(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionComponentMask");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionConstant
+// 0x0008 (0x0048 - 0x0040)
+class UMaterialExpressionConstant : public UMaterialExpression
+{
+public:
+	float                                              R;                                                        // 0x0040(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0044(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionConstant2Vector
+// 0x0008 (0x0048 - 0x0040)
+class UMaterialExpressionConstant2Vector : public UMaterialExpression
+{
+public:
+	float                                              R;                                                        // 0x0040(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              G;                                                        // 0x0044(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant2Vector");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionConstant3Vector
+// 0x0010 (0x0050 - 0x0040)
+class UMaterialExpressionConstant3Vector : public UMaterialExpression
+{
+public:
+	struct FLinearColor                                Constant;                                                 // 0x0040(0x0010) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant3Vector");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionClamp
+// 0x0058 (0x0098 - 0x0040)
+class UMaterialExpressionClamp : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	struct FExpressionInput                            Min;                                                      // 0x0058(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+	struct FExpressionInput                            Max;                                                      // 0x0070(0x0010)
+	unsigned char                                      UnknownData02[0x8];                                       // 0x0080(0x0008) MISSED OFFSET
+	TEnumAsByte<EClampMode>                            ClampMode;                                                // 0x0088(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x3];                                       // 0x0089(0x0003) MISSED OFFSET
+	float                                              MinDefault;                                               // 0x008C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              MaxDefault;                                               // 0x0090(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData04[0x4];                                       // 0x0094(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionClamp");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionConstant4Vector
+// 0x0010 (0x0050 - 0x0040)
+class UMaterialExpressionConstant4Vector : public UMaterialExpression
+{
+public:
+	struct FLinearColor                                Constant;                                                 // 0x0040(0x0010) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant4Vector");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionConstantBiasScale
+// 0x0020 (0x0060 - 0x0040)
+class UMaterialExpressionConstantBiasScale : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	float                                              Bias;                                                     // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              Scale;                                                    // 0x005C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstantBiasScale");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionCosine
+// 0x0020 (0x0060 - 0x0040)
+class UMaterialExpressionCosine : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	float                                              Period;                                                   // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCosine");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionScalarParameter
+// 0x0008 (0x0060 - 0x0058)
+class UMaterialExpressionScalarParameter : public UMaterialExpressionParameter
+{
+public:
+	float                                              DefaultValue;                                             // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionScalarParameter");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionCurveAtlasRowParameter
+// 0x0028 (0x0088 - 0x0060)
+class UMaterialExpressionCurveAtlasRowParameter : public UMaterialExpressionScalarParameter
+{
+public:
+	class UCurveLinearColor*                           Curve;                                                    // 0x0060(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UCurveLinearColorAtlas*                      Atlas;                                                    // 0x0068(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FExpressionInput                            InputTime;                                                // 0x0070(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0080(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCurveAtlasRowParameter");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionCustom
+// 0x0038 (0x0078 - 0x0040)
+class UMaterialExpressionCustom : public UMaterialExpression
+{
+public:
+	struct FString                                     Code;                                                     // 0x0040(0x0010) (Edit, ZeroConstructor)
+	TEnumAsByte<ECustomMaterialOutputType>             OutputType;                                               // 0x0050(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0051(0x0007) MISSED OFFSET
+	struct FString                                     Description;                                              // 0x0058(0x0010) (Edit, ZeroConstructor)
+	TArray<struct FCustomInput>                        Inputs;                                                   // 0x0068(0x0010) (Edit, ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCustom");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionDDX
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionDDX : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Value;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDDX");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionDDY
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionDDY : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Value;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDDY");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionDecalDerivative
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionDecalDerivative : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDecalDerivative");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionDecalLifetimeOpacity
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionDecalLifetimeOpacity : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDecalLifetimeOpacity");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionDecalMipmapLevel
+// 0x0020 (0x0060 - 0x0040)
+class UMaterialExpressionDecalMipmapLevel : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            TextureSize;                                              // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	float                                              ConstWidth;                                               // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              ConstHeight;                                              // 0x005C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDecalMipmapLevel");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionDepthOfFieldFunction
+// 0x0020 (0x0060 - 0x0040)
+class UMaterialExpressionDepthOfFieldFunction : public UMaterialExpression
+{
+public:
+	TEnumAsByte<EDepthOfFieldFunctionValue>            FunctionValue;                                            // 0x0040(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0041(0x0007) MISSED OFFSET
+	struct FExpressionInput                            Depth;                                                    // 0x0048(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDepthOfFieldFunction");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionDeriveNormalZ
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionDeriveNormalZ : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            InXY;                                                     // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDeriveNormalZ");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionDepthFade
+// 0x0038 (0x0078 - 0x0040)
+class UMaterialExpressionDepthFade : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            InOpacity;                                                // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	struct FExpressionInput                            FadeDistance;                                             // 0x0058(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+	float                                              OpacityDefault;                                           // 0x0070(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              FadeDistanceDefault;                                      // 0x0074(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDepthFade");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionDesaturation
+// 0x0040 (0x0080 - 0x0040)
+class UMaterialExpressionDesaturation : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	struct FExpressionInput                            Fraction;                                                 // 0x0058(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+	struct FLinearColor                                LuminanceFactors;                                         // 0x0070(0x0010) (Edit, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDesaturation");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionDistance
+// 0x0030 (0x0070 - 0x0040)
+class UMaterialExpressionDistance : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDistance");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionDistanceCullFade
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionDistanceCullFade : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDistanceCullFade");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionDistanceFieldGradient
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionDistanceFieldGradient : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Position;                                                 // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDistanceFieldGradient");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionDistanceToNearestSurface
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionDistanceToNearestSurface : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Position;                                                 // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDistanceToNearestSurface");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionDivide
+// 0x0038 (0x0078 - 0x0040)
+class UMaterialExpressionDivide : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+	float                                              ConstA;                                                   // 0x0070(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              ConstB;                                                   // 0x0074(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDivide");
 		return ptr;
 	}
 
@@ -11548,1012 +12556,6 @@ public:
 };
 
 
-// Class Engine.MaterialBillboardComponent
-// 0x0010 (0x0570 - 0x0560)
-class UMaterialBillboardComponent : public UPrimitiveComponent
-{
-public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0560(0x0010) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialBillboardComponent");
-		return ptr;
-	}
-
-
-	void SetElements(TArray<struct FMaterialSpriteElement> NewElements);
-	void AddElement(class UMaterialInterface* Material, class UCurveFloat* DistanceToOpacityCurve, bool bSizeIsInScreenSpace, float BaseSizeX, float BaseSizeY, class UCurveFloat* DistanceToSizeCurve);
-};
-
-
-// Class Engine.MaterialExpressionAbs
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionAbs : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAbs");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionActorPositionWS
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionActorPositionWS : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionActorPositionWS");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionAdd
-// 0x0038 (0x0078 - 0x0040)
-class UMaterialExpressionAdd : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
-	float                                              ConstA;                                                   // 0x0070(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              ConstB;                                                   // 0x0074(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAdd");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionAntialiasedTextureMask
-// 0x0008 (0x0120 - 0x0118)
-class UMaterialExpressionAntialiasedTextureMask : public UMaterialExpressionTextureSampleParameter2D
-{
-public:
-	float                                              Threshold;                                                // 0x0118(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<ETextureColorChannel>                  Channel;                                                  // 0x011C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x011D(0x0003) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAntialiasedTextureMask");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionAppendVector
-// 0x0030 (0x0070 - 0x0040)
-class UMaterialExpressionAppendVector : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAppendVector");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionArccosineFast
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionArccosineFast : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArccosineFast");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionArcsine
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionArcsine : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArcsine");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionArcsineFast
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionArcsineFast : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArcsineFast");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionArctangent2
-// 0x0030 (0x0070 - 0x0040)
-class UMaterialExpressionArctangent2 : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Y;                                                        // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            X;                                                        // 0x0058(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArctangent2");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionArctangent2Fast
-// 0x0030 (0x0070 - 0x0040)
-class UMaterialExpressionArctangent2Fast : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Y;                                                        // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            X;                                                        // 0x0058(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArctangent2Fast");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionArctangentFast
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionArctangentFast : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArctangentFast");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionAtmosphericFogColor
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionAtmosphericFogColor : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            WorldPosition;                                            // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAtmosphericFogColor");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionArccosine
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionArccosine : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArccosine");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionAtmosphericLightColor
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionAtmosphericLightColor : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAtmosphericLightColor");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionBentNormalCustomOutput
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionBentNormalCustomOutput : public UMaterialExpressionCustomOutput
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionBentNormalCustomOutput");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionAtmosphericLightVector
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionAtmosphericLightVector : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionAtmosphericLightVector");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionBlackBody
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionBlackBody : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Temp;                                                     // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionBlackBody");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionArctangent
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionArctangent : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionArctangent");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionBreakMaterialAttributes
-// 0x0020 (0x0060 - 0x0040)
-class UMaterialExpressionBreakMaterialAttributes : public UMaterialExpression
-{
-public:
-	struct FMaterialAttributesInput                    MaterialAttributes;                                       // 0x0040(0x0018)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionBreakMaterialAttributes");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionBumpOffset
-// 0x0058 (0x0098 - 0x0040)
-class UMaterialExpressionBumpOffset : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Coordinate;                                               // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            Height;                                                   // 0x0058(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
-	struct FExpressionInput                            HeightRatioInput;                                         // 0x0070(0x0010)
-	unsigned char                                      UnknownData02[0x8];                                       // 0x0080(0x0008) MISSED OFFSET
-	float                                              HeightRatio;                                              // 0x0088(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              ReferencePlane;                                           // 0x008C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           ConstCoordinate;                                          // 0x0090(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x4];                                       // 0x0094(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionBumpOffset");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionCameraPositionWS
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionCameraPositionWS : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCameraPositionWS");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionCameraVectorWS
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionCameraVectorWS : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCameraVectorWS");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionParameter
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionParameter : public UMaterialExpression
-{
-public:
-	struct FName                                       ParameterName;                                            // 0x0040(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FGuid                                       ExpressionGUID;                                           // 0x0048(0x0010) (ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionParameter");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionBlendMaterialAttributes
-// 0x0060 (0x00A0 - 0x0040)
-class UMaterialExpressionBlendMaterialAttributes : public UMaterialExpression
-{
-public:
-	struct FMaterialAttributesInput                    A;                                                        // 0x0040(0x0018)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
-	struct FMaterialAttributesInput                    B;                                                        // 0x0060(0x0018)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0078(0x0008) MISSED OFFSET
-	struct FExpressionInput                            Alpha;                                                    // 0x0080(0x0010)
-	unsigned char                                      UnknownData02[0x8];                                       // 0x0090(0x0008) MISSED OFFSET
-	TEnumAsByte<EMaterialAttributeBlend>               PixelAttributeBlendType;                                  // 0x0098(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EMaterialAttributeBlend>               VertexAttributeBlendType;                                 // 0x0099(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x6];                                       // 0x009A(0x0006) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionBlendMaterialAttributes");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionVectorParameter
-// 0x0010 (0x0068 - 0x0058)
-class UMaterialExpressionVectorParameter : public UMaterialExpressionParameter
-{
-public:
-	struct FLinearColor                                DefaultValue;                                             // 0x0058(0x0010) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionVectorParameter");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionChannelMaskParameter
-// 0x0020 (0x0088 - 0x0068)
-class UMaterialExpressionChannelMaskParameter : public UMaterialExpressionVectorParameter
-{
-public:
-	TEnumAsByte<EChannelMaskParameterColor>            MaskChannel;                                              // 0x0068(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0069(0x0007) MISSED OFFSET
-	struct FExpressionInput                            Input;                                                    // 0x0070(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0080(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionChannelMaskParameter");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionClearCoatNormalCustomOutput
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionClearCoatNormalCustomOutput : public UMaterialExpressionCustomOutput
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionClearCoatNormalCustomOutput");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionCollectionParameter
-// 0x0020 (0x0060 - 0x0040)
-class UMaterialExpressionCollectionParameter : public UMaterialExpression
-{
-public:
-	class UMaterialParameterCollection*                Collection;                                               // 0x0040(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FName                                       ParameterName;                                            // 0x0048(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FGuid                                       ParameterId;                                              // 0x0050(0x0010) (ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCollectionParameter");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionClamp
-// 0x0058 (0x0098 - 0x0040)
-class UMaterialExpressionClamp : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            Min;                                                      // 0x0058(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
-	struct FExpressionInput                            Max;                                                      // 0x0070(0x0010)
-	unsigned char                                      UnknownData02[0x8];                                       // 0x0080(0x0008) MISSED OFFSET
-	TEnumAsByte<EClampMode>                            ClampMode;                                                // 0x0088(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x3];                                       // 0x0089(0x0003) MISSED OFFSET
-	float                                              MinDefault;                                               // 0x008C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              MaxDefault;                                               // 0x0090(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData04[0x4];                                       // 0x0094(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionClamp");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionComment
-// 0x0030 (0x0070 - 0x0040)
-class UMaterialExpressionComment : public UMaterialExpression
-{
-public:
-	int                                                SizeX;                                                    // 0x0040(0x0004) (ZeroConstructor, IsPlainOldData)
-	int                                                SizeY;                                                    // 0x0044(0x0004) (ZeroConstructor, IsPlainOldData)
-	struct FString                                     Text;                                                     // 0x0048(0x0010) (Edit, ZeroConstructor)
-	struct FLinearColor                                CommentColor;                                             // 0x0058(0x0010) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                FontSize;                                                 // 0x0068(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x006C(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionComment");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionComponentMask
-// 0x0020 (0x0060 - 0x0040)
-class UMaterialExpressionComponentMask : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	unsigned char                                      R : 1;                                                    // 0x0058(0x0001) (Edit)
-	unsigned char                                      G : 1;                                                    // 0x0058(0x0001) (Edit)
-	unsigned char                                      B : 1;                                                    // 0x0058(0x0001) (Edit)
-	unsigned char                                      A : 1;                                                    // 0x0058(0x0001) (Edit)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0059(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionComponentMask");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionConstant
-// 0x0008 (0x0048 - 0x0040)
-class UMaterialExpressionConstant : public UMaterialExpression
-{
-public:
-	float                                              R;                                                        // 0x0040(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0044(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionConstant2Vector
-// 0x0008 (0x0048 - 0x0040)
-class UMaterialExpressionConstant2Vector : public UMaterialExpression
-{
-public:
-	float                                              R;                                                        // 0x0040(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              G;                                                        // 0x0044(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant2Vector");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionCeil
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionCeil : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCeil");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionConstant4Vector
-// 0x0010 (0x0050 - 0x0040)
-class UMaterialExpressionConstant4Vector : public UMaterialExpression
-{
-public:
-	struct FLinearColor                                Constant;                                                 // 0x0040(0x0010) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant4Vector");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionConstantBiasScale
-// 0x0020 (0x0060 - 0x0040)
-class UMaterialExpressionConstantBiasScale : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	float                                              Bias;                                                     // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              Scale;                                                    // 0x005C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstantBiasScale");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionCosine
-// 0x0020 (0x0060 - 0x0040)
-class UMaterialExpressionCosine : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	float                                              Period;                                                   // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCosine");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionCrossProduct
-// 0x0030 (0x0070 - 0x0040)
-class UMaterialExpressionCrossProduct : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCrossProduct");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionScalarParameter
-// 0x0008 (0x0060 - 0x0058)
-class UMaterialExpressionScalarParameter : public UMaterialExpressionParameter
-{
-public:
-	float                                              DefaultValue;                                             // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionScalarParameter");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionCurveAtlasRowParameter
-// 0x0028 (0x0088 - 0x0060)
-class UMaterialExpressionCurveAtlasRowParameter : public UMaterialExpressionScalarParameter
-{
-public:
-	class UCurveLinearColor*                           Curve;                                                    // 0x0060(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UCurveLinearColorAtlas*                      Atlas;                                                    // 0x0068(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FExpressionInput                            InputTime;                                                // 0x0070(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0080(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCurveAtlasRowParameter");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionConstant3Vector
-// 0x0010 (0x0050 - 0x0040)
-class UMaterialExpressionConstant3Vector : public UMaterialExpression
-{
-public:
-	struct FLinearColor                                Constant;                                                 // 0x0040(0x0010) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionConstant3Vector");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionDDX
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionDDX : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Value;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDDX");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionCustom
-// 0x0038 (0x0078 - 0x0040)
-class UMaterialExpressionCustom : public UMaterialExpression
-{
-public:
-	struct FString                                     Code;                                                     // 0x0040(0x0010) (Edit, ZeroConstructor)
-	TEnumAsByte<ECustomMaterialOutputType>             OutputType;                                               // 0x0050(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0051(0x0007) MISSED OFFSET
-	struct FString                                     Description;                                              // 0x0058(0x0010) (Edit, ZeroConstructor)
-	TArray<struct FCustomInput>                        Inputs;                                                   // 0x0068(0x0010) (Edit, ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCustom");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionDDY
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionDDY : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Value;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDDY");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionDecalDerivative
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionDecalDerivative : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDecalDerivative");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionDecalLifetimeOpacity
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionDecalLifetimeOpacity : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDecalLifetimeOpacity");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionDepthOfFieldFunction
-// 0x0020 (0x0060 - 0x0040)
-class UMaterialExpressionDepthOfFieldFunction : public UMaterialExpression
-{
-public:
-	TEnumAsByte<EDepthOfFieldFunctionValue>            FunctionValue;                                            // 0x0040(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0041(0x0007) MISSED OFFSET
-	struct FExpressionInput                            Depth;                                                    // 0x0048(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDepthOfFieldFunction");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionDepthFade
-// 0x0038 (0x0078 - 0x0040)
-class UMaterialExpressionDepthFade : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            InOpacity;                                                // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            FadeDistance;                                             // 0x0058(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
-	float                                              OpacityDefault;                                           // 0x0070(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              FadeDistanceDefault;                                      // 0x0074(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDepthFade");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionDesaturation
-// 0x0040 (0x0080 - 0x0040)
-class UMaterialExpressionDesaturation : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            Fraction;                                                 // 0x0058(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
-	struct FLinearColor                                LuminanceFactors;                                         // 0x0070(0x0010) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDesaturation");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionDistance
-// 0x0030 (0x0070 - 0x0040)
-class UMaterialExpressionDistance : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDistance");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionDeriveNormalZ
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionDeriveNormalZ : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            InXY;                                                     // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDeriveNormalZ");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionDistanceFieldGradient
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionDistanceFieldGradient : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Position;                                                 // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDistanceFieldGradient");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionDistanceToNearestSurface
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionDistanceToNearestSurface : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Position;                                                 // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDistanceToNearestSurface");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionDistanceCullFade
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionDistanceCullFade : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDistanceCullFade");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionDotProduct
-// 0x0030 (0x0070 - 0x0040)
-class UMaterialExpressionDotProduct : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDotProduct");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionDynamicParameter
 // 0x0028 (0x0068 - 0x0040)
 class UMaterialExpressionDynamicParameter : public UMaterialExpression
@@ -12624,27 +12626,6 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionDivide
-// 0x0038 (0x0078 - 0x0040)
-class UMaterialExpressionDivide : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
-	float                                              ConstA;                                                   // 0x0070(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              ConstB;                                                   // 0x0074(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDivide");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionFontSample
 // 0x0010 (0x0050 - 0x0040)
 class UMaterialExpressionFontSample : public UMaterialExpression
@@ -12698,53 +12679,19 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionFresnel
-// 0x0058 (0x0098 - 0x0040)
-class UMaterialExpressionFresnel : public UMaterialExpression
+// Class Engine.MaterialExpressionDotProduct
+// 0x0030 (0x0070 - 0x0040)
+class UMaterialExpressionDotProduct : public UMaterialExpression
 {
 public:
-	struct FExpressionInput                            ExponentIn;                                               // 0x0040(0x0010)
+	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	float                                              Exponent;                                                 // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
-	struct FExpressionInput                            BaseReflectFractionIn;                                    // 0x0060(0x0010)
-	unsigned char                                      UnknownData02[0x8];                                       // 0x0070(0x0008) MISSED OFFSET
-	float                                              BaseReflectFraction;                                      // 0x0078(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x4];                                       // 0x007C(0x0004) MISSED OFFSET
-	struct FExpressionInput                            Normal;                                                   // 0x0080(0x0010)
-	unsigned char                                      UnknownData04[0x8];                                       // 0x0090(0x0008) MISSED OFFSET
+	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFresnel");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionFunctionInput
-// 0x0090 (0x00D0 - 0x0040)
-class UMaterialExpressionFunctionInput : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Preview;                                                  // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FName                                       InputName;                                                // 0x0058(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	struct FString                                     Description;                                              // 0x0060(0x0010) (Edit, ZeroConstructor)
-	struct FGuid                                       ID;                                                       // 0x0070(0x0010) (ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EFunctionInputType>                    InputType;                                                // 0x0080(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0xF];                                       // 0x0081(0x000F) MISSED OFFSET
-	struct FVector4                                    PreviewValue;                                             // 0x0090(0x0010) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bUsePreviewValueAsDefault : 1;                            // 0x00A0(0x0001) (Edit, BlueprintVisible)
-	unsigned char                                      UnknownData02[0x3];                                       // 0x00A1(0x0003) MISSED OFFSET
-	int                                                SortPriority;                                             // 0x00A4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bCompilingFunctionPreview : 1;                            // 0x00A8(0x0001) (Transient)
-	unsigned char                                      UnknownData03[0x27];                                      // 0x00A9(0x0027) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFunctionInput");
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDotProduct");
 		return ptr;
 	}
 
@@ -12815,19 +12762,53 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionFmod
-// 0x0030 (0x0070 - 0x0040)
-class UMaterialExpressionFmod : public UMaterialExpression
+// Class Engine.MaterialExpressionFresnel
+// 0x0058 (0x0098 - 0x0040)
+class UMaterialExpressionFresnel : public UMaterialExpression
 {
 public:
-	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
+	struct FExpressionInput                            ExponentIn;                                               // 0x0040(0x0010)
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+	float                                              Exponent;                                                 // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
+	struct FExpressionInput                            BaseReflectFractionIn;                                    // 0x0060(0x0010)
+	unsigned char                                      UnknownData02[0x8];                                       // 0x0070(0x0008) MISSED OFFSET
+	float                                              BaseReflectFraction;                                      // 0x0078(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x4];                                       // 0x007C(0x0004) MISSED OFFSET
+	struct FExpressionInput                            Normal;                                                   // 0x0080(0x0010)
+	unsigned char                                      UnknownData04[0x8];                                       // 0x0090(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFmod");
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFresnel");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionFunctionInput
+// 0x0090 (0x00D0 - 0x0040)
+class UMaterialExpressionFunctionInput : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Preview;                                                  // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	struct FName                                       InputName;                                                // 0x0058(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	struct FString                                     Description;                                              // 0x0060(0x0010) (Edit, ZeroConstructor)
+	struct FGuid                                       ID;                                                       // 0x0070(0x0010) (ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EFunctionInputType>                    InputType;                                                // 0x0080(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0xF];                                       // 0x0081(0x000F) MISSED OFFSET
+	struct FVector4                                    PreviewValue;                                             // 0x0090(0x0010) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bUsePreviewValueAsDefault : 1;                            // 0x00A0(0x0001) (Edit, BlueprintVisible)
+	unsigned char                                      UnknownData02[0x3];                                       // 0x00A1(0x0003) MISSED OFFSET
+	int                                                SortPriority;                                             // 0x00A4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bCompilingFunctionPreview : 1;                            // 0x00A8(0x0001) (Transient)
+	unsigned char                                      UnknownData03[0x27];                                      // 0x00A9(0x0027) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFunctionInput");
 		return ptr;
 	}
 
@@ -12897,6 +12878,21 @@ public:
 };
 
 
+// Class Engine.MaterialExpressionLightmapUVs
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionLightmapUVs : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionLightmapUVs");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.MaterialExpressionLinearInterpolate
 // 0x0058 (0x0098 - 0x0040)
 class UMaterialExpressionLinearInterpolate : public UMaterialExpression
@@ -12922,21 +12918,6 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionLightmapUVs
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionLightmapUVs : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionLightmapUVs");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionLogarithm2
 // 0x0018 (0x0058 - 0x0040)
 class UMaterialExpressionLogarithm2 : public UMaterialExpression
@@ -12954,51 +12935,19 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionMakeMaterialAttributes
-// 0x0258 (0x0298 - 0x0040)
-class UMaterialExpressionMakeMaterialAttributes : public UMaterialExpression
+// Class Engine.MaterialExpressionCrossProduct
+// 0x0030 (0x0070 - 0x0040)
+class UMaterialExpressionCrossProduct : public UMaterialExpression
 {
 public:
-	struct FExpressionInput                            BaseColor;                                                // 0x0040(0x0010)
+	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            Metallic;                                                 // 0x0058(0x0010)
+	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
 	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
-	struct FExpressionInput                            Specular;                                                 // 0x0070(0x0010)
-	unsigned char                                      UnknownData02[0x8];                                       // 0x0080(0x0008) MISSED OFFSET
-	struct FExpressionInput                            Roughness;                                                // 0x0088(0x0010)
-	unsigned char                                      UnknownData03[0x8];                                       // 0x0098(0x0008) MISSED OFFSET
-	struct FExpressionInput                            EmissiveColor;                                            // 0x00A0(0x0010)
-	unsigned char                                      UnknownData04[0x8];                                       // 0x00B0(0x0008) MISSED OFFSET
-	struct FExpressionInput                            Opacity;                                                  // 0x00B8(0x0010)
-	unsigned char                                      UnknownData05[0x8];                                       // 0x00C8(0x0008) MISSED OFFSET
-	struct FExpressionInput                            OpacityMask;                                              // 0x00D0(0x0010)
-	unsigned char                                      UnknownData06[0x8];                                       // 0x00E0(0x0008) MISSED OFFSET
-	struct FExpressionInput                            Normal;                                                   // 0x00E8(0x0010)
-	unsigned char                                      UnknownData07[0x8];                                       // 0x00F8(0x0008) MISSED OFFSET
-	struct FExpressionInput                            WorldPositionOffset;                                      // 0x0100(0x0010)
-	unsigned char                                      UnknownData08[0x8];                                       // 0x0110(0x0008) MISSED OFFSET
-	struct FExpressionInput                            WorldDisplacement;                                        // 0x0118(0x0010)
-	unsigned char                                      UnknownData09[0x8];                                       // 0x0128(0x0008) MISSED OFFSET
-	struct FExpressionInput                            TessellationMultiplier;                                   // 0x0130(0x0010)
-	unsigned char                                      UnknownData10[0x8];                                       // 0x0140(0x0008) MISSED OFFSET
-	struct FExpressionInput                            SubsurfaceColor;                                          // 0x0148(0x0010)
-	unsigned char                                      UnknownData11[0x8];                                       // 0x0158(0x0008) MISSED OFFSET
-	struct FExpressionInput                            ClearCoat;                                                // 0x0160(0x0010)
-	unsigned char                                      UnknownData12[0x8];                                       // 0x0170(0x0008) MISSED OFFSET
-	struct FExpressionInput                            ClearCoatRoughness;                                       // 0x0178(0x0010)
-	unsigned char                                      UnknownData13[0x8];                                       // 0x0188(0x0008) MISSED OFFSET
-	struct FExpressionInput                            AmbientOcclusion;                                         // 0x0190(0x0010)
-	unsigned char                                      UnknownData14[0x8];                                       // 0x01A0(0x0008) MISSED OFFSET
-	struct FExpressionInput                            Refraction;                                               // 0x01A8(0x0010)
-	unsigned char                                      UnknownData15[0x8];                                       // 0x01B8(0x0008) MISSED OFFSET
-	struct FExpressionInput                            CustomizedUVs[0x8];                                       // 0x01C0(0x0010)
-	unsigned char                                      UnknownData16[0x40];                                      // 0x0240(0x0040) MISSED OFFSET
-	struct FExpressionInput                            PixelDepthOffset;                                         // 0x0280(0x0010)
-	unsigned char                                      UnknownData17[0x8];                                       // 0x0290(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionMakeMaterialAttributes");
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionCrossProduct");
 		return ptr;
 	}
 
@@ -13049,21 +12998,6 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionMaterialLayerOutput
-// 0x0000 (0x0090 - 0x0090)
-class UMaterialExpressionMaterialLayerOutput : public UMaterialExpressionFunctionOutput
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionMaterialLayerOutput");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionMaterialProxyReplace
 // 0x0030 (0x0070 - 0x0040)
 class UMaterialExpressionMaterialProxyReplace : public UMaterialExpression
@@ -13077,6 +13011,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionMaterialProxyReplace");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionMaterialLayerOutput
+// 0x0000 (0x0090 - 0x0090)
+class UMaterialExpressionMaterialLayerOutput : public UMaterialExpressionFunctionOutput
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionMaterialLayerOutput");
 		return ptr;
 	}
 
@@ -13146,17 +13095,47 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionLogarithm10
+// Class Engine.MaterialExpressionNormalize
 // 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionLogarithm10 : public UMaterialExpression
+class UMaterialExpressionNormalize : public UMaterialExpression
 {
 public:
-	struct FExpressionInput                            X;                                                        // 0x0040(0x0010)
+	struct FExpressionInput                            VectorInput;                                              // 0x0040(0x0010)
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionLogarithm10");
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionNormalize");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionObjectBounds
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionObjectBounds : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionObjectBounds");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionObjectOrientation
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionObjectOrientation : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionObjectOrientation");
 		return ptr;
 	}
 
@@ -13195,70 +13174,6 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionDecalMipmapLevel
-// 0x0020 (0x0060 - 0x0040)
-class UMaterialExpressionDecalMipmapLevel : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            TextureSize;                                              // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	float                                              ConstWidth;                                               // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              ConstHeight;                                              // 0x005C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionDecalMipmapLevel");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionObjectBounds
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionObjectBounds : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionObjectBounds");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionObjectOrientation
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionObjectOrientation : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionObjectOrientation");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionObjectPositionWS
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionObjectPositionWS : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionObjectPositionWS");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionObjectRadius
 // 0x0000 (0x0040 - 0x0040)
 class UMaterialExpressionObjectRadius : public UMaterialExpression
@@ -13291,21 +13206,6 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionParticleColor
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionParticleColor : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionParticleColor");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionPanner
 // 0x0058 (0x0098 - 0x0040)
 class UMaterialExpressionPanner : public UMaterialExpression
@@ -13326,6 +13226,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionPanner");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionParticleColor
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionParticleColor : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionParticleColor");
 		return ptr;
 	}
 
@@ -13362,17 +13277,45 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionNormalize
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionNormalize : public UMaterialExpression
+// Class Engine.MaterialExpressionParticleMotionBlurFade
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionParticleMotionBlurFade : public UMaterialExpression
 {
 public:
-	struct FExpressionInput                            VectorInput;                                              // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionNormalize");
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionParticleMotionBlurFade");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionParticlePositionWS
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionParticlePositionWS : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionParticlePositionWS");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionObjectPositionWS
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionObjectPositionWS : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionObjectPositionWS");
 		return ptr;
 	}
 
@@ -13394,15 +13337,15 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionParticleMotionBlurFade
+// Class Engine.MaterialExpressionParticleRandom
 // 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionParticleMotionBlurFade : public UMaterialExpression
+class UMaterialExpressionParticleRandom : public UMaterialExpression
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionParticleMotionBlurFade");
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionParticleRandom");
 		return ptr;
 	}
 
@@ -13501,21 +13444,6 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionParticleRandom
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionParticleRandom : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionParticleRandom");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionPixelDepth
 // 0x0000 (0x0040 - 0x0040)
 class UMaterialExpressionPixelDepth : public UMaterialExpression
@@ -13546,36 +13474,6 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionPrecomputedAOMask
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionPrecomputedAOMask : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionPrecomputedAOMask");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionPreSkinnedNormal
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionPreSkinnedNormal : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionPreSkinnedNormal");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionPower
 // 0x0038 (0x0078 - 0x0040)
 class UMaterialExpressionPower : public UMaterialExpression
@@ -13591,6 +13489,72 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionPower");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionMakeMaterialAttributes
+// 0x0258 (0x0298 - 0x0040)
+class UMaterialExpressionMakeMaterialAttributes : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            BaseColor;                                                // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	struct FExpressionInput                            Metallic;                                                 // 0x0058(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+	struct FExpressionInput                            Specular;                                                 // 0x0070(0x0010)
+	unsigned char                                      UnknownData02[0x8];                                       // 0x0080(0x0008) MISSED OFFSET
+	struct FExpressionInput                            Roughness;                                                // 0x0088(0x0010)
+	unsigned char                                      UnknownData03[0x8];                                       // 0x0098(0x0008) MISSED OFFSET
+	struct FExpressionInput                            EmissiveColor;                                            // 0x00A0(0x0010)
+	unsigned char                                      UnknownData04[0x8];                                       // 0x00B0(0x0008) MISSED OFFSET
+	struct FExpressionInput                            Opacity;                                                  // 0x00B8(0x0010)
+	unsigned char                                      UnknownData05[0x8];                                       // 0x00C8(0x0008) MISSED OFFSET
+	struct FExpressionInput                            OpacityMask;                                              // 0x00D0(0x0010)
+	unsigned char                                      UnknownData06[0x8];                                       // 0x00E0(0x0008) MISSED OFFSET
+	struct FExpressionInput                            Normal;                                                   // 0x00E8(0x0010)
+	unsigned char                                      UnknownData07[0x8];                                       // 0x00F8(0x0008) MISSED OFFSET
+	struct FExpressionInput                            WorldPositionOffset;                                      // 0x0100(0x0010)
+	unsigned char                                      UnknownData08[0x8];                                       // 0x0110(0x0008) MISSED OFFSET
+	struct FExpressionInput                            WorldDisplacement;                                        // 0x0118(0x0010)
+	unsigned char                                      UnknownData09[0x8];                                       // 0x0128(0x0008) MISSED OFFSET
+	struct FExpressionInput                            TessellationMultiplier;                                   // 0x0130(0x0010)
+	unsigned char                                      UnknownData10[0x8];                                       // 0x0140(0x0008) MISSED OFFSET
+	struct FExpressionInput                            SubsurfaceColor;                                          // 0x0148(0x0010)
+	unsigned char                                      UnknownData11[0x8];                                       // 0x0158(0x0008) MISSED OFFSET
+	struct FExpressionInput                            ClearCoat;                                                // 0x0160(0x0010)
+	unsigned char                                      UnknownData12[0x8];                                       // 0x0170(0x0008) MISSED OFFSET
+	struct FExpressionInput                            ClearCoatRoughness;                                       // 0x0178(0x0010)
+	unsigned char                                      UnknownData13[0x8];                                       // 0x0188(0x0008) MISSED OFFSET
+	struct FExpressionInput                            AmbientOcclusion;                                         // 0x0190(0x0010)
+	unsigned char                                      UnknownData14[0x8];                                       // 0x01A0(0x0008) MISSED OFFSET
+	struct FExpressionInput                            Refraction;                                               // 0x01A8(0x0010)
+	unsigned char                                      UnknownData15[0x8];                                       // 0x01B8(0x0008) MISSED OFFSET
+	struct FExpressionInput                            CustomizedUVs[0x8];                                       // 0x01C0(0x0010)
+	unsigned char                                      UnknownData16[0x40];                                      // 0x0240(0x0040) MISSED OFFSET
+	struct FExpressionInput                            PixelDepthOffset;                                         // 0x0280(0x0010)
+	unsigned char                                      UnknownData17[0x8];                                       // 0x0290(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionMakeMaterialAttributes");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionPreSkinnedPosition
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionPreSkinnedPosition : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionPreSkinnedPosition");
 		return ptr;
 	}
 
@@ -13616,6 +13580,21 @@ public:
 };
 
 
+// Class Engine.MaterialExpressionPrecomputedAOMask
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionPrecomputedAOMask : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionPrecomputedAOMask");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.MaterialExpressionQualitySwitch
 // 0x0060 (0x00A0 - 0x0040)
 class UMaterialExpressionQualitySwitch : public UMaterialExpression
@@ -13635,15 +13614,15 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionPreSkinnedPosition
+// Class Engine.MaterialExpressionPreSkinnedNormal
 // 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionPreSkinnedPosition : public UMaterialExpression
+class UMaterialExpressionPreSkinnedNormal : public UMaterialExpression
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionPreSkinnedPosition");
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionPreSkinnedNormal");
 		return ptr;
 	}
 
@@ -13751,21 +13730,6 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionParticlePositionWS
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionParticlePositionWS : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionParticlePositionWS");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionSaturate
 // 0x0018 (0x0058 - 0x0040)
 class UMaterialExpressionSaturate : public UMaterialExpression
@@ -13805,28 +13769,6 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionSceneDepth
-// 0x0040 (0x0080 - 0x0040)
-class UMaterialExpressionSceneDepth : public UMaterialExpression
-{
-public:
-	TEnumAsByte<EMaterialSceneAttributeInputMode>      InputMode;                                                // 0x0040(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0041(0x0007) MISSED OFFSET
-	struct FExpressionInput                            Input;                                                    // 0x0048(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
-	struct FExpressionInput                            Coordinates;                                              // 0x0060(0x0010) (Deprecated)
-	unsigned char                                      UnknownData02[0x8];                                       // 0x0070(0x0008) MISSED OFFSET
-	struct FVector2D                                   ConstInput;                                               // 0x0078(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionSceneDepth");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionSceneTexelSize
 // 0x0000 (0x0040 - 0x0040)
 class UMaterialExpressionSceneTexelSize : public UMaterialExpression
@@ -13836,21 +13778,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionSceneTexelSize");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionScreenPosition
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionScreenPosition : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionScreenPosition");
 		return ptr;
 	}
 
@@ -13871,6 +13798,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionSceneTexture");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionScreenPosition
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionScreenPosition : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionScreenPosition");
 		return ptr;
 	}
 
@@ -13907,25 +13849,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionShadingPathSwitch");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionSine
-// 0x0020 (0x0060 - 0x0040)
-class UMaterialExpressionSine : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	float                                              Period;                                                   // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionSine");
 		return ptr;
 	}
 
@@ -14003,31 +13926,6 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionSphereMask
-// 0x0068 (0x00A8 - 0x0040)
-class UMaterialExpressionSphereMask : public UMaterialExpression
-{
-public:
-	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
-	struct FExpressionInput                            Radius;                                                   // 0x0070(0x0010)
-	unsigned char                                      UnknownData02[0x8];                                       // 0x0080(0x0008) MISSED OFFSET
-	struct FExpressionInput                            Hardness;                                                 // 0x0088(0x0010)
-	unsigned char                                      UnknownData03[0x8];                                       // 0x0098(0x0008) MISSED OFFSET
-	float                                              AttenuationRadius;                                        // 0x00A0(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              HardnessPercent;                                          // 0x00A4(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionSphereMask");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionSphericalParticleOpacity
 // 0x0020 (0x0060 - 0x0040)
 class UMaterialExpressionSphericalParticleOpacity : public UMaterialExpression
@@ -14064,17 +13962,25 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionStaticBool
-// 0x0008 (0x0048 - 0x0040)
-class UMaterialExpressionStaticBool : public UMaterialExpression
+// Class Engine.MaterialExpressionSphereMask
+// 0x0068 (0x00A8 - 0x0040)
+class UMaterialExpressionSphereMask : public UMaterialExpression
 {
 public:
-	unsigned char                                      Value : 1;                                                // 0x0040(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0041(0x0007) MISSED OFFSET
+	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+	struct FExpressionInput                            Radius;                                                   // 0x0070(0x0010)
+	unsigned char                                      UnknownData02[0x8];                                       // 0x0080(0x0008) MISSED OFFSET
+	struct FExpressionInput                            Hardness;                                                 // 0x0088(0x0010)
+	unsigned char                                      UnknownData03[0x8];                                       // 0x0098(0x0008) MISSED OFFSET
+	float                                              AttenuationRadius;                                        // 0x00A0(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              HardnessPercent;                                          // 0x00A4(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticBool");
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionSphereMask");
 		return ptr;
 	}
 
@@ -14120,6 +14026,25 @@ public:
 };
 
 
+// Class Engine.MaterialExpressionFmod
+// 0x0030 (0x0070 - 0x0040)
+class UMaterialExpressionFmod : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            A;                                                        // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	struct FExpressionInput                            B;                                                        // 0x0058(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0068(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionFmod");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.MaterialExpressionStaticSwitch
 // 0x0050 (0x0090 - 0x0040)
 class UMaterialExpressionStaticSwitch : public UMaterialExpression
@@ -14137,25 +14062,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticSwitch");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.MaterialExpressionStaticSwitchParameter
-// 0x0030 (0x0090 - 0x0060)
-class UMaterialExpressionStaticSwitchParameter : public UMaterialExpressionStaticBoolParameter
-{
-public:
-	struct FExpressionInput                            A;                                                        // 0x0060(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0070(0x0008) MISSED OFFSET
-	struct FExpressionInput                            B;                                                        // 0x0078(0x0010)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0088(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticSwitchParameter");
 		return ptr;
 	}
 
@@ -14202,6 +14108,25 @@ public:
 };
 
 
+// Class Engine.MaterialExpressionStaticSwitchParameter
+// 0x0030 (0x0090 - 0x0060)
+class UMaterialExpressionStaticSwitchParameter : public UMaterialExpressionStaticBoolParameter
+{
+public:
+	struct FExpressionInput                            A;                                                        // 0x0060(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0070(0x0008) MISSED OFFSET
+	struct FExpressionInput                            B;                                                        // 0x0078(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0088(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticSwitchParameter");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.MaterialExpressionTangentOutput
 // 0x0018 (0x0058 - 0x0040)
 class UMaterialExpressionTangentOutput : public UMaterialExpressionCustomOutput
@@ -14241,27 +14166,6 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionTextureCoordinate
-// 0x0010 (0x0050 - 0x0040)
-class UMaterialExpressionTextureCoordinate : public UMaterialExpression
-{
-public:
-	int                                                CoordinateIndex;                                          // 0x0040(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              UTiling;                                                  // 0x0044(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              VTiling;                                                  // 0x0048(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnMirrorU : 1;                                            // 0x004C(0x0001) (Edit)
-	unsigned char                                      UnMirrorV : 1;                                            // 0x004C(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x004D(0x0003) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureCoordinate");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionTextureObject
 // 0x0000 (0x0050 - 0x0050)
 class UMaterialExpressionTextureObject : public UMaterialExpressionTextureBase
@@ -14292,19 +14196,37 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionTextureProperty
-// 0x0020 (0x0060 - 0x0040)
-class UMaterialExpressionTextureProperty : public UMaterialExpression
+// Class Engine.MaterialExpressionSceneDepth
+// 0x0040 (0x0080 - 0x0040)
+class UMaterialExpressionSceneDepth : public UMaterialExpression
 {
 public:
-	struct FExpressionInput                            TextureObject;                                            // 0x0040(0x0010)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	TEnumAsByte<EMaterialExposedTextureProperty>       Property;                                                 // 0x0058(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0059(0x0007) MISSED OFFSET
+	TEnumAsByte<EMaterialSceneAttributeInputMode>      InputMode;                                                // 0x0040(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0041(0x0007) MISSED OFFSET
+	struct FExpressionInput                            Input;                                                    // 0x0048(0x0010)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0058(0x0008) MISSED OFFSET
+	struct FExpressionInput                            Coordinates;                                              // 0x0060(0x0010) (Deprecated)
+	unsigned char                                      UnknownData02[0x8];                                       // 0x0070(0x0008) MISSED OFFSET
+	struct FVector2D                                   ConstInput;                                               // 0x0078(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureProperty");
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionSceneDepth");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionTextureSampleParameterCube
+// 0x0000 (0x0118 - 0x0118)
+class UMaterialExpressionTextureSampleParameterCube : public UMaterialExpressionTextureSampleParameter
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterCube");
 		return ptr;
 	}
 
@@ -14328,21 +14250,6 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionTextureSampleParameterCube
-// 0x0000 (0x0118 - 0x0118)
-class UMaterialExpressionTextureSampleParameterCube : public UMaterialExpressionTextureSampleParameter
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterCube");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionTextureSampleParameterVolume
 // 0x0000 (0x0118 - 0x0118)
 class UMaterialExpressionTextureSampleParameterVolume : public UMaterialExpressionTextureSampleParameter
@@ -14352,6 +14259,25 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureSampleParameterVolume");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionTextureProperty
+// 0x0020 (0x0060 - 0x0040)
+class UMaterialExpressionTextureProperty : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            TextureObject;                                            // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	TEnumAsByte<EMaterialExposedTextureProperty>       Property;                                                 // 0x0058(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0059(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureProperty");
 		return ptr;
 	}
 
@@ -14377,20 +14303,19 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionTransform
+// Class Engine.MaterialExpressionSine
 // 0x0020 (0x0060 - 0x0040)
-class UMaterialExpressionTransform : public UMaterialExpression
+class UMaterialExpressionSine : public UMaterialExpression
 {
 public:
 	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
-	TEnumAsByte<EMaterialVectorCoordTransformSource>   TransformSourceType;                                      // 0x0058(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EMaterialVectorCoordTransform>         TransformType;                                            // 0x0059(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x6];                                       // 0x005A(0x0006) MISSED OFFSET
+	float                                              Period;                                                   // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTransform");
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionSine");
 		return ptr;
 	}
 
@@ -14417,17 +14342,37 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionTruncate
-// 0x0018 (0x0058 - 0x0040)
-class UMaterialExpressionTruncate : public UMaterialExpression
+// Class Engine.MaterialExpressionTransform
+// 0x0020 (0x0060 - 0x0040)
+class UMaterialExpressionTransform : public UMaterialExpression
 {
 public:
 	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+	TEnumAsByte<EMaterialVectorCoordTransformSource>   TransformSourceType;                                      // 0x0058(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EMaterialVectorCoordTransform>         TransformType;                                            // 0x0059(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x6];                                       // 0x005A(0x0006) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTruncate");
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTransform");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionStaticBool
+// 0x0008 (0x0048 - 0x0040)
+class UMaterialExpressionStaticBool : public UMaterialExpression
+{
+public:
+	unsigned char                                      Value : 1;                                                // 0x0040(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0041(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionStaticBool");
 		return ptr;
 	}
 
@@ -14443,6 +14388,23 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTwoSidedSign");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionTruncate
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionTruncate : public UMaterialExpression
+{
+public:
+	struct FExpressionInput                            Input;                                                    // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTruncate");
 		return ptr;
 	}
 
@@ -14472,6 +14434,21 @@ public:
 };
 
 
+// Class Engine.MaterialExpressionVertexColor
+// 0x0000 (0x0040 - 0x0040)
+class UMaterialExpressionVertexColor : public UMaterialExpression
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionVertexColor");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.MaterialExpressionVertexInterpolator
 // 0x0028 (0x0068 - 0x0040)
 class UMaterialExpressionVertexInterpolator : public UMaterialExpressionCustomOutput
@@ -14489,21 +14466,6 @@ public:
 };
 
 
-// Class Engine.MaterialExpressionVertexColor
-// 0x0000 (0x0040 - 0x0040)
-class UMaterialExpressionVertexColor : public UMaterialExpression
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionVertexColor");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.MaterialExpressionVertexNormalWS
 // 0x0000 (0x0040 - 0x0040)
 class UMaterialExpressionVertexNormalWS : public UMaterialExpression
@@ -14513,6 +14475,27 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionVertexNormalWS");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.MaterialExpressionTextureCoordinate
+// 0x0010 (0x0050 - 0x0040)
+class UMaterialExpressionTextureCoordinate : public UMaterialExpression
+{
+public:
+	int                                                CoordinateIndex;                                          // 0x0040(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              UTiling;                                                  // 0x0044(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              VTiling;                                                  // 0x0048(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnMirrorU : 1;                                            // 0x004C(0x0001) (Edit)
+	unsigned char                                      UnMirrorV : 1;                                            // 0x004C(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x004D(0x0003) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionTextureCoordinate");
 		return ptr;
 	}
 
@@ -14851,6 +14834,21 @@ public:
 };
 
 
+// Class Engine.MatineeAnimInterface
+// 0x0000 (0x0028 - 0x0028)
+class UMatineeAnimInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.MatineeAnimInterface");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.MatineeInterface
 // 0x0000 (0x0028 - 0x0028)
 class UMatineeInterface : public UInterface
@@ -14866,15 +14864,15 @@ public:
 };
 
 
-// Class Engine.MatineeAnimInterface
-// 0x0000 (0x0028 - 0x0028)
-class UMatineeAnimInterface : public UInterface
+// Class Engine.MeshMergeCullingVolume
+// 0x0000 (0x0360 - 0x0360)
+class AMeshMergeCullingVolume : public AVolume
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.MatineeAnimInterface");
+		static auto ptr = UObject::FindClass("Class Engine.MeshMergeCullingVolume");
 		return ptr;
 	}
 
@@ -14913,21 +14911,6 @@ public:
 	void STATIC_RemovePaintedVertices(class UStaticMeshComponent* StaticMeshComponent);
 	void STATIC_PaintVerticesSingleColor(class UStaticMeshComponent* StaticMeshComponent, const struct FLinearColor& FillColor, bool bConvertToSRGB);
 	void STATIC_PaintVerticesLerpAlongAxis(class UStaticMeshComponent* StaticMeshComponent, const struct FLinearColor& StartColor, const struct FLinearColor& EndColor, EVertexPaintAxis Axis, bool bConvertToSRGB);
-};
-
-
-// Class Engine.MeshMergeCullingVolume
-// 0x0000 (0x0360 - 0x0360)
-class AMeshMergeCullingVolume : public AVolume
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.MeshMergeCullingVolume");
-		return ptr;
-	}
-
 };
 
 
@@ -15132,22 +15115,18 @@ public:
 };
 
 
-// Class Engine.NavigationSystem
-// 0x0010 (0x0038 - 0x0028)
-class UNavigationSystem : public UObject
+// Class Engine.NullNavSysConfig
+// 0x0000 (0x0048 - 0x0048)
+class UNullNavSysConfig : public UNavigationSystemConfig
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0028(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NavigationSystem");
+		static auto ptr = UObject::FindClass("Class Engine.NullNavSysConfig");
 		return ptr;
 	}
 
-
-	void STATIC_SimpleMoveToLocation(class AController* Controller, const struct FVector& Goal);
-	void STATIC_SimpleMoveToActor(class AController* Controller, class AActor* Goal);
 };
 
 
@@ -15199,21 +15178,6 @@ public:
 };
 
 
-// Class Engine.SimulatedClientNetConnection
-// 0x0000 (0x1918 - 0x1918)
-class USimulatedClientNetConnection : public UNetConnection
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.SimulatedClientNetConnection");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.NetworkPredictionInterface
 // 0x0000 (0x0028 - 0x0028)
 class UNetworkPredictionInterface : public UInterface
@@ -15229,24 +15193,22 @@ public:
 };
 
 
-// Class Engine.NetworkSettings
-// 0x0010 (0x0048 - 0x0038)
-class UNetworkSettings : public UDeveloperSettings
+// Class Engine.NavigationSystem
+// 0x0010 (0x0038 - 0x0028)
+class UNavigationSystem : public UObject
 {
 public:
-	unsigned char                                      bVerifyPeer : 1;                                          // 0x0038(0x0001) (Edit, Config)
-	unsigned char                                      bEnableMultiplayerWorldOriginRebasing : 1;                // 0x0038(0x0001) (Edit, Config)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0039(0x0003) MISSED OFFSET
-	int                                                MaxRepArraySize;                                          // 0x003C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	int                                                MaxRepArrayMemory;                                        // 0x0040(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x0044(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0028(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NetworkSettings");
+		static auto ptr = UObject::FindClass("Class Engine.NavigationSystem");
 		return ptr;
 	}
 
+
+	void STATIC_SimpleMoveToLocation(class AController* Controller, const struct FVector& Goal);
+	void STATIC_SimpleMoveToActor(class AController* Controller, class AActor* Goal);
 };
 
 
@@ -15300,15 +15262,23 @@ public:
 };
 
 
-// Class Engine.NullNavSysConfig
-// 0x0000 (0x0048 - 0x0048)
-class UNullNavSysConfig : public UNavigationSystemConfig
+// Class Engine.ObjectLibrary
+// 0x0080 (0x00A8 - 0x0028)
+class UObjectLibrary : public UObject
 {
 public:
+	class UClass*                                      ObjectBaseClass;                                          // 0x0028(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               bHasBlueprintClasses;                                     // 0x0030(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
+	TArray<class UObject*>                             Objects;                                                  // 0x0038(0x0010) (Edit, ZeroConstructor)
+	TArray<TWeakObjectPtr<class UObject>>              WeakObjects;                                              // 0x0048(0x0010) (ZeroConstructor)
+	bool                                               bUseWeakReferences;                                       // 0x0058(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
+	bool                                               bIsFullyLoaded;                                           // 0x0059(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4E];                                      // 0x005A(0x004E) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.NullNavSysConfig");
+		static auto ptr = UObject::FindClass("Class Engine.ObjectLibrary");
 		return ptr;
 	}
 
@@ -15482,6 +15452,21 @@ public:
 };
 
 
+// Class Engine.SimulatedClientNetConnection
+// 0x0000 (0x1918 - 0x1918)
+class USimulatedClientNetConnection : public UNetConnection
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.SimulatedClientNetConnection");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.ParticleModuleAccelerationBase
 // 0x0008 (0x0038 - 0x0030)
 class UParticleModuleAccelerationBase : public UParticleModule
@@ -15499,18 +15484,21 @@ public:
 };
 
 
-// Class Engine.ParticleModuleAcceleration
-// 0x0058 (0x0090 - 0x0038)
-class UParticleModuleAcceleration : public UParticleModuleAccelerationBase
+// Class Engine.NetworkSettings
+// 0x0010 (0x0048 - 0x0038)
+class UNetworkSettings : public UDeveloperSettings
 {
 public:
-	struct FRawDistributionVector                      Acceleration;                                             // 0x0038(0x0050) (Edit)
-	unsigned char                                      bApplyOwnerScale : 1;                                     // 0x0088(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0089(0x0007) MISSED OFFSET
+	unsigned char                                      bVerifyPeer : 1;                                          // 0x0038(0x0001) (Edit, Config)
+	unsigned char                                      bEnableMultiplayerWorldOriginRebasing : 1;                // 0x0038(0x0001) (Edit, Config)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0039(0x0003) MISSED OFFSET
+	int                                                MaxRepArraySize;                                          // 0x003C(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	int                                                MaxRepArrayMemory;                                        // 0x0040(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x0044(0x0004) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleAcceleration");
+		static auto ptr = UObject::FindClass("Class Engine.NetworkSettings");
 		return ptr;
 	}
 
@@ -15551,23 +15539,35 @@ public:
 };
 
 
-// Class Engine.ObjectLibrary
-// 0x0080 (0x00A8 - 0x0028)
-class UObjectLibrary : public UObject
+// Class Engine.ParticleModuleAcceleration
+// 0x0058 (0x0090 - 0x0038)
+class UParticleModuleAcceleration : public UParticleModuleAccelerationBase
 {
 public:
-	class UClass*                                      ObjectBaseClass;                                          // 0x0028(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	bool                                               bHasBlueprintClasses;                                     // 0x0030(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
-	TArray<class UObject*>                             Objects;                                                  // 0x0038(0x0010) (Edit, ZeroConstructor)
-	TArray<TWeakObjectPtr<class UObject>>              WeakObjects;                                              // 0x0048(0x0010) (ZeroConstructor)
-	bool                                               bUseWeakReferences;                                       // 0x0058(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
-	bool                                               bIsFullyLoaded;                                           // 0x0059(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4E];                                      // 0x005A(0x004E) MISSED OFFSET
+	struct FRawDistributionVector                      Acceleration;                                             // 0x0038(0x0050) (Edit)
+	unsigned char                                      bApplyOwnerScale : 1;                                     // 0x0088(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0089(0x0007) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ObjectLibrary");
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleAcceleration");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.ParticleModuleAccelerationDragScaleOverLife
+// 0x0040 (0x0078 - 0x0038)
+class UParticleModuleAccelerationDragScaleOverLife : public UParticleModuleAccelerationBase
+{
+public:
+	class UDistributionFloat*                          DragScale;                                                // 0x0038(0x0008) (ExportObject, ZeroConstructor, InstancedReference, Deprecated, IsPlainOldData)
+	struct FRawDistributionFloat                       DragScaleRaw;                                             // 0x0040(0x0038) (Edit)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleAccelerationDragScaleOverLife");
 		return ptr;
 	}
 
@@ -15960,23 +15960,6 @@ public:
 };
 
 
-// Class Engine.ParticleModuleAccelerationDragScaleOverLife
-// 0x0040 (0x0078 - 0x0038)
-class UParticleModuleAccelerationDragScaleOverLife : public UParticleModuleAccelerationBase
-{
-public:
-	class UDistributionFloat*                          DragScale;                                                // 0x0038(0x0008) (ExportObject, ZeroConstructor, InstancedReference, Deprecated, IsPlainOldData)
-	struct FRawDistributionFloat                       DragScaleRaw;                                             // 0x0040(0x0038) (Edit)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleAccelerationDragScaleOverLife");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.ParticleModuleColorBase
 // 0x0000 (0x0030 - 0x0030)
 class UParticleModuleColorBase : public UParticleModule
@@ -16046,6 +16029,25 @@ public:
 };
 
 
+// Class Engine.ParticleModuleColorScaleOverLife
+// 0x0090 (0x00C0 - 0x0030)
+class UParticleModuleColorScaleOverLife : public UParticleModuleColorBase
+{
+public:
+	struct FRawDistributionVector                      ColorScaleOverLife;                                       // 0x0030(0x0050) (Edit)
+	struct FRawDistributionFloat                       AlphaScaleOverLife;                                       // 0x0080(0x0038) (Edit)
+	unsigned char                                      bEmitterTime : 1;                                         // 0x00B8(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x00B9(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleColorScaleOverLife");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.ParticleModuleEventBase
 // 0x0000 (0x0030 - 0x0030)
 class UParticleModuleEventBase : public UParticleModule
@@ -16055,22 +16057,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleEventBase");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.ParticleModuleEventGenerator
-// 0x0010 (0x0040 - 0x0030)
-class UParticleModuleEventGenerator : public UParticleModuleEventBase
-{
-public:
-	TArray<struct FParticleEvent_GenerateInfo>         Events;                                                   // 0x0030(0x0010) (Edit, ExportObject, ZeroConstructor, NoClear)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleEventGenerator");
 		return ptr;
 	}
 
@@ -16112,6 +16098,22 @@ public:
 };
 
 
+// Class Engine.ParticleModuleEventGenerator
+// 0x0010 (0x0040 - 0x0030)
+class UParticleModuleEventGenerator : public UParticleModuleEventBase
+{
+public:
+	TArray<struct FParticleEvent_GenerateInfo>         Events;                                                   // 0x0030(0x0010) (Edit, ExportObject, ZeroConstructor, NoClear)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleEventGenerator");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.ParticleModuleEventReceiverSpawn
 // 0x00A8 (0x00E8 - 0x0040)
 class UParticleModuleEventReceiverSpawn : public UParticleModuleEventReceiverBase
@@ -16130,25 +16132,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleEventReceiverSpawn");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.ParticleModuleColorScaleOverLife
-// 0x0090 (0x00C0 - 0x0030)
-class UParticleModuleColorScaleOverLife : public UParticleModuleColorBase
-{
-public:
-	struct FRawDistributionVector                      ColorScaleOverLife;                                       // 0x0030(0x0050) (Edit)
-	struct FRawDistributionFloat                       AlphaScaleOverLife;                                       // 0x0080(0x0038) (Edit)
-	unsigned char                                      bEmitterTime : 1;                                         // 0x00B8(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x00B9(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleColorScaleOverLife");
 		return ptr;
 	}
 
@@ -16273,6 +16256,21 @@ public:
 };
 
 
+// Class Engine.ParticleModuleEventSendToGame
+// 0x0000 (0x0028 - 0x0028)
+class UParticleModuleEventSendToGame : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleEventSendToGame");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.ParticleModuleLight
 // 0x0110 (0x0140 - 0x0030)
 class UParticleModuleLight : public UParticleModuleLightBase
@@ -16368,36 +16366,6 @@ public:
 };
 
 
-// Class Engine.ParticleModuleLocationBoneSocket
-// 0x0040 (0x0070 - 0x0030)
-class UParticleModuleLocationBoneSocket : public UParticleModuleLocationBase
-{
-public:
-	TEnumAsByte<ELocationBoneSocketSource>             SourceType;                                               // 0x0030(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0031(0x0003) MISSED OFFSET
-	struct FVector                                     UniversalOffset;                                          // 0x0034(0x000C) (Edit, ZeroConstructor, IsPlainOldData)
-	TArray<struct FLocationBoneSocketInfo>             SourceLocations;                                          // 0x0040(0x0010) (Edit, ZeroConstructor)
-	TEnumAsByte<ELocationBoneSocketSelectionMethod>    SelectionMethod;                                          // 0x0050(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x0051(0x0003) MISSED OFFSET
-	unsigned char                                      bUpdatePositionEachFrame : 1;                             // 0x0054(0x0001) (Edit)
-	unsigned char                                      bOrientMeshEmitters : 1;                                  // 0x0054(0x0001)
-	unsigned char                                      bInheritBoneVelocity : 1;                                 // 0x0054(0x0001) (Edit)
-	unsigned char                                      UnknownData02[0x3];                                       // 0x0055(0x0003) MISSED OFFSET
-	float                                              InheritVelocityScale;                                     // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
-	struct FName                                       SkelMeshActorParamName;                                   // 0x0060(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                NumPreSelectedIndices;                                    // 0x0068(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData04[0x4];                                       // 0x006C(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationBoneSocket");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.ParticleModuleLocationDirect
 // 0x0140 (0x0170 - 0x0030)
 class UParticleModuleLocationDirect : public UParticleModuleLocationBase
@@ -16484,6 +16452,36 @@ public:
 };
 
 
+// Class Engine.ParticleModuleLocationBoneSocket
+// 0x0040 (0x0070 - 0x0030)
+class UParticleModuleLocationBoneSocket : public UParticleModuleLocationBase
+{
+public:
+	TEnumAsByte<ELocationBoneSocketSource>             SourceType;                                               // 0x0030(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0031(0x0003) MISSED OFFSET
+	struct FVector                                     UniversalOffset;                                          // 0x0034(0x000C) (Edit, ZeroConstructor, IsPlainOldData)
+	TArray<struct FLocationBoneSocketInfo>             SourceLocations;                                          // 0x0040(0x0010) (Edit, ZeroConstructor)
+	TEnumAsByte<ELocationBoneSocketSelectionMethod>    SelectionMethod;                                          // 0x0050(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0051(0x0003) MISSED OFFSET
+	unsigned char                                      bUpdatePositionEachFrame : 1;                             // 0x0054(0x0001) (Edit)
+	unsigned char                                      bOrientMeshEmitters : 1;                                  // 0x0054(0x0001)
+	unsigned char                                      bInheritBoneVelocity : 1;                                 // 0x0054(0x0001) (Edit)
+	unsigned char                                      UnknownData02[0x3];                                       // 0x0055(0x0003) MISSED OFFSET
+	float                                              InheritVelocityScale;                                     // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x4];                                       // 0x005C(0x0004) MISSED OFFSET
+	struct FName                                       SkelMeshActorParamName;                                   // 0x0060(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                NumPreSelectedIndices;                                    // 0x0068(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData04[0x4];                                       // 0x006C(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationBoneSocket");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.ParticleModuleLocationPrimitiveCylinder
 // 0x0080 (0x0140 - 0x00C0)
 class UParticleModuleLocationPrimitiveCylinder : public UParticleModuleLocationPrimitiveBase
@@ -16499,6 +16497,22 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveCylinder");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.ParticleModuleLocationPrimitiveCylinder_Seeded
+// 0x0020 (0x0160 - 0x0140)
+class UParticleModuleLocationPrimitiveCylinder_Seeded : public UParticleModuleLocationPrimitiveCylinder
+{
+public:
+	struct FParticleRandomSeedInfo                     RandomSeedInfo;                                           // 0x0140(0x0020) (Edit)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveCylinder_Seeded");
 		return ptr;
 	}
 
@@ -16537,16 +16551,19 @@ public:
 };
 
 
-// Class Engine.ParticleModuleLocationPrimitiveCylinder_Seeded
-// 0x0020 (0x0160 - 0x0140)
-class UParticleModuleLocationPrimitiveCylinder_Seeded : public UParticleModuleLocationPrimitiveCylinder
+// Class Engine.ParticleModuleLocationPrimitiveTriangle
+// 0x00F8 (0x0128 - 0x0030)
+class UParticleModuleLocationPrimitiveTriangle : public UParticleModuleLocationBase
 {
 public:
-	struct FParticleRandomSeedInfo                     RandomSeedInfo;                                           // 0x0140(0x0020) (Edit)
+	struct FRawDistributionVector                      StartOffset;                                              // 0x0030(0x0050) (Edit)
+	struct FRawDistributionFloat                       Height;                                                   // 0x0080(0x0038) (Edit)
+	struct FRawDistributionFloat                       Angle;                                                    // 0x00B8(0x0038) (Edit)
+	struct FRawDistributionFloat                       Thickness;                                                // 0x00F0(0x0038) (Edit)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveCylinder_Seeded");
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveTriangle");
 		return ptr;
 	}
 
@@ -16628,21 +16645,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleMaterialBase");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.ParticleModuleEventSendToGame
-// 0x0000 (0x0028 - 0x0028)
-class UParticleModuleEventSendToGame : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleEventSendToGame");
 		return ptr;
 	}
 
@@ -16761,22 +16763,6 @@ public:
 };
 
 
-// Class Engine.ParticleModuleMeshRotationRateMultiplyLife
-// 0x0050 (0x0080 - 0x0030)
-class UParticleModuleMeshRotationRateMultiplyLife : public UParticleModuleRotationRateBase
-{
-public:
-	struct FRawDistributionVector                      LifeMultiplier;                                           // 0x0030(0x0050) (Edit)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotationRateMultiplyLife");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.ParticleModuleMeshRotationRateOverLife
 // 0x0058 (0x0088 - 0x0030)
 class UParticleModuleMeshRotationRateOverLife : public UParticleModuleRotationRateBase
@@ -16789,6 +16775,22 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotationRateOverLife");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.ParticleModuleMeshRotationRateMultiplyLife
+// 0x0050 (0x0080 - 0x0030)
+class UParticleModuleMeshRotationRateMultiplyLife : public UParticleModuleRotationRateBase
+{
+public:
+	struct FRawDistributionVector                      LifeMultiplier;                                           // 0x0030(0x0050) (Edit)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleMeshRotationRateMultiplyLife");
 		return ptr;
 	}
 
@@ -16847,6 +16849,23 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleOrientationBase");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.ParticleModuleOrientationAxisLock
+// 0x0008 (0x0038 - 0x0030)
+class UParticleModuleOrientationAxisLock : public UParticleModuleOrientationBase
+{
+public:
+	TEnumAsByte<EParticleAxisLock>                     LockAxisFlags;                                            // 0x0030(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleOrientationAxisLock");
 		return ptr;
 	}
 
@@ -16979,22 +16998,6 @@ public:
 };
 
 
-// Class Engine.ParticleModulePivotOffset
-// 0x0008 (0x0038 - 0x0030)
-class UParticleModulePivotOffset : public UParticleModuleLocationBase
-{
-public:
-	struct FVector2D                                   PivotOffset;                                              // 0x0030(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModulePivotOffset");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.ParticleModuleRotation
 // 0x0038 (0x0068 - 0x0030)
 class UParticleModuleRotation : public UParticleModuleRotationBase
@@ -17011,16 +17014,16 @@ public:
 };
 
 
-// Class Engine.ParticleModuleRotation_Seeded
-// 0x0020 (0x0088 - 0x0068)
-class UParticleModuleRotation_Seeded : public UParticleModuleRotation
+// Class Engine.ParticleModulePivotOffset
+// 0x0008 (0x0038 - 0x0030)
+class UParticleModulePivotOffset : public UParticleModuleLocationBase
 {
 public:
-	struct FParticleRandomSeedInfo                     RandomSeedInfo;                                           // 0x0068(0x0020) (Edit)
+	struct FVector2D                                   PivotOffset;                                              // 0x0030(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleRotation_Seeded");
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModulePivotOffset");
 		return ptr;
 	}
 
@@ -17061,16 +17064,16 @@ public:
 };
 
 
-// Class Engine.ParticleModuleRotationRate_Seeded
+// Class Engine.ParticleModuleRotation_Seeded
 // 0x0020 (0x0088 - 0x0068)
-class UParticleModuleRotationRate_Seeded : public UParticleModuleRotationRate
+class UParticleModuleRotation_Seeded : public UParticleModuleRotation
 {
 public:
 	struct FParticleRandomSeedInfo                     RandomSeedInfo;                                           // 0x0068(0x0020) (Edit)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleRotationRate_Seeded");
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleRotation_Seeded");
 		return ptr;
 	}
 
@@ -17160,6 +17163,22 @@ public:
 };
 
 
+// Class Engine.ParticleModuleRotationRate_Seeded
+// 0x0020 (0x0088 - 0x0068)
+class UParticleModuleRotationRate_Seeded : public UParticleModuleRotationRate
+{
+public:
+	struct FParticleRandomSeedInfo                     RandomSeedInfo;                                           // 0x0068(0x0020) (Edit)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleRotationRate_Seeded");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.ParticleModuleSizeScale
 // 0x0058 (0x0088 - 0x0030)
 class UParticleModuleSizeScale : public UParticleModuleSizeBase
@@ -17174,6 +17193,24 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSizeScale");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.ParticleModuleSpawnBase
+// 0x0008 (0x0038 - 0x0030)
+class UParticleModuleSpawnBase : public UParticleModule
+{
+public:
+	unsigned char                                      bProcessSpawnRate : 1;                                    // 0x0030(0x0001) (Edit)
+	unsigned char                                      bProcessBurstList : 1;                                    // 0x0030(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSpawnBase");
 		return ptr;
 	}
 
@@ -17213,24 +17250,6 @@ public:
 };
 
 
-// Class Engine.ParticleModuleSpawnBase
-// 0x0008 (0x0038 - 0x0030)
-class UParticleModuleSpawnBase : public UParticleModule
-{
-public:
-	unsigned char                                      bProcessSpawnRate : 1;                                    // 0x0030(0x0001) (Edit)
-	unsigned char                                      bProcessBurstList : 1;                                    // 0x0030(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSpawnBase");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.ParticleModuleSpawn
 // 0x00C8 (0x0100 - 0x0038)
 class UParticleModuleSpawn : public UParticleModuleSpawnBase
@@ -17248,21 +17267,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSpawn");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.ParticleModuleSubUVBase
-// 0x0000 (0x0030 - 0x0030)
-class UParticleModuleSubUVBase : public UParticleModule
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSubUVBase");
 		return ptr;
 	}
 
@@ -17289,6 +17293,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSpawnPerUnit");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.ParticleModuleSubUVBase
+// 0x0000 (0x0030 - 0x0030)
+class UParticleModuleSubUVBase : public UParticleModule
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleSubUVBase");
 		return ptr;
 	}
 
@@ -17415,20 +17434,38 @@ public:
 };
 
 
-// Class Engine.ParticleModuleTypeDataGpu
-// 0x0430 (0x0460 - 0x0030)
-class UParticleModuleTypeDataGpu : public UParticleModuleTypeDataBase
+// Class Engine.ParticleModuleTypeDataBeam2
+// 0x0138 (0x0168 - 0x0030)
+class UParticleModuleTypeDataBeam2 : public UParticleModuleTypeDataBase
 {
 public:
-	struct FGPUSpriteEmitterInfo                       EmitterInfo;                                              // 0x0030(0x02C0)
-	struct FGPUSpriteResourceData                      ResourceData;                                             // 0x02F0(0x0160)
-	float                                              CameraMotionBlurAmount;                                   // 0x0450(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bClearExistingParticlesOnInit : 1;                        // 0x0454(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0xB];                                       // 0x0455(0x000B) MISSED OFFSET
+	TEnumAsByte<EBeam2Method>                          BeamMethod;                                               // 0x0030(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0031(0x0003) MISSED OFFSET
+	int                                                TextureTile;                                              // 0x0034(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              TextureTileDistance;                                      // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                Sheets;                                                   // 0x003C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                MaxBeamCount;                                             // 0x0040(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              Speed;                                                    // 0x0044(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                InterpolationPoints;                                      // 0x0048(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bAlwaysOn : 1;                                            // 0x004C(0x0001) (Edit)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x004D(0x0003) MISSED OFFSET
+	int                                                UpVectorStepSize;                                         // 0x0050(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x4];                                       // 0x0054(0x0004) MISSED OFFSET
+	struct FName                                       BranchParentName;                                         // 0x0058(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FRawDistributionFloat                       Distance;                                                 // 0x0060(0x0038) (Edit)
+	TEnumAsByte<EBeamTaperMethod>                      TaperMethod;                                              // 0x0098(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x7];                                       // 0x0099(0x0007) MISSED OFFSET
+	struct FRawDistributionFloat                       TaperFactor;                                              // 0x00A0(0x0038) (Edit)
+	struct FRawDistributionFloat                       TaperScale;                                               // 0x00D8(0x0038) (Edit)
+	unsigned char                                      RenderGeometry : 1;                                       // 0x0110(0x0001) (Edit)
+	unsigned char                                      RenderDirectLine : 1;                                     // 0x0110(0x0001) (Edit)
+	unsigned char                                      RenderLines : 1;                                          // 0x0110(0x0001) (Edit)
+	unsigned char                                      RenderTessellation : 1;                                   // 0x0110(0x0001) (Edit)
+	unsigned char                                      UnknownData04[0x57];                                      // 0x0111(0x0057) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataGpu");
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataBeam2");
 		return ptr;
 	}
 
@@ -17479,77 +17516,20 @@ public:
 };
 
 
-// Class Engine.ParticleModuleTypeDataRibbon
-// 0x0030 (0x0060 - 0x0030)
-class UParticleModuleTypeDataRibbon : public UParticleModuleTypeDataBase
+// Class Engine.ParticleModuleTypeDataGpu
+// 0x0430 (0x0460 - 0x0030)
+class UParticleModuleTypeDataGpu : public UParticleModuleTypeDataBase
 {
 public:
-	int                                                MaxTessellationBetweenParticles;                          // 0x0030(0x0004) (ZeroConstructor, IsPlainOldData)
-	int                                                SheetsPerTrail;                                           // 0x0034(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                MaxTrailCount;                                            // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                MaxParticleInTrailCount;                                  // 0x003C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bDeadTrailsOnDeactivate : 1;                              // 0x0040(0x0001) (Edit)
-	unsigned char                                      bDeadTrailsOnSourceLoss : 1;                              // 0x0040(0x0001) (Edit)
-	unsigned char                                      bClipSourceSegement : 1;                                  // 0x0040(0x0001) (Edit)
-	unsigned char                                      bEnablePreviousTangentRecalculation : 1;                  // 0x0040(0x0001) (Edit)
-	unsigned char                                      bTangentRecalculationEveryFrame : 1;                      // 0x0040(0x0001) (Edit)
-	unsigned char                                      bSpawnInitialParticle : 1;                                // 0x0040(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0041(0x0003) MISSED OFFSET
-	TEnumAsByte<ETrailsRenderAxisOption>               RenderAxis;                                               // 0x0044(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x0045(0x0003) MISSED OFFSET
-	float                                              TangentSpawningScalar;                                    // 0x0048(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bRenderGeometry : 1;                                      // 0x004C(0x0001) (Edit)
-	unsigned char                                      bRenderSpawnPoints : 1;                                   // 0x004C(0x0001) (Edit)
-	unsigned char                                      bRenderTangents : 1;                                      // 0x004C(0x0001) (Edit)
-	unsigned char                                      bRenderTessellation : 1;                                  // 0x004C(0x0001) (Edit)
-	unsigned char                                      UnknownData02[0x3];                                       // 0x004D(0x0003) MISSED OFFSET
-	float                                              TilingDistance;                                           // 0x0050(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              DistanceTessellationStepSize;                             // 0x0054(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bEnableTangentDiffInterpScale : 1;                        // 0x0058(0x0001) (Edit)
-	unsigned char                                      UnknownData03[0x3];                                       // 0x0059(0x0003) MISSED OFFSET
-	float                                              TangentTessellationScalar;                                // 0x005C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	struct FGPUSpriteEmitterInfo                       EmitterInfo;                                              // 0x0030(0x02C0)
+	struct FGPUSpriteResourceData                      ResourceData;                                             // 0x02F0(0x0160)
+	float                                              CameraMotionBlurAmount;                                   // 0x0450(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bClearExistingParticlesOnInit : 1;                        // 0x0454(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0xB];                                       // 0x0455(0x000B) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataRibbon");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.ParticleModuleTypeDataBeam2
-// 0x0138 (0x0168 - 0x0030)
-class UParticleModuleTypeDataBeam2 : public UParticleModuleTypeDataBase
-{
-public:
-	TEnumAsByte<EBeam2Method>                          BeamMethod;                                               // 0x0030(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0031(0x0003) MISSED OFFSET
-	int                                                TextureTile;                                              // 0x0034(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              TextureTileDistance;                                      // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                Sheets;                                                   // 0x003C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                MaxBeamCount;                                             // 0x0040(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              Speed;                                                    // 0x0044(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                InterpolationPoints;                                      // 0x0048(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bAlwaysOn : 1;                                            // 0x004C(0x0001) (Edit)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x004D(0x0003) MISSED OFFSET
-	int                                                UpVectorStepSize;                                         // 0x0050(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x4];                                       // 0x0054(0x0004) MISSED OFFSET
-	struct FName                                       BranchParentName;                                         // 0x0058(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	struct FRawDistributionFloat                       Distance;                                                 // 0x0060(0x0038) (Edit)
-	TEnumAsByte<EBeamTaperMethod>                      TaperMethod;                                              // 0x0098(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x7];                                       // 0x0099(0x0007) MISSED OFFSET
-	struct FRawDistributionFloat                       TaperFactor;                                              // 0x00A0(0x0038) (Edit)
-	struct FRawDistributionFloat                       TaperScale;                                               // 0x00D8(0x0038) (Edit)
-	unsigned char                                      RenderGeometry : 1;                                       // 0x0110(0x0001) (Edit)
-	unsigned char                                      RenderDirectLine : 1;                                     // 0x0110(0x0001) (Edit)
-	unsigned char                                      RenderLines : 1;                                          // 0x0110(0x0001) (Edit)
-	unsigned char                                      RenderTessellation : 1;                                   // 0x0110(0x0001) (Edit)
-	unsigned char                                      UnknownData04[0x57];                                      // 0x0111(0x0057) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataBeam2");
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataGpu");
 		return ptr;
 	}
 
@@ -17978,15 +17958,39 @@ public:
 };
 
 
-// Class Engine.PathFollowingAgentInterface
-// 0x0000 (0x0028 - 0x0028)
-class UPathFollowingAgentInterface : public UInterface
+// Class Engine.ParticleModuleTypeDataRibbon
+// 0x0030 (0x0060 - 0x0030)
+class UParticleModuleTypeDataRibbon : public UParticleModuleTypeDataBase
 {
 public:
+	int                                                MaxTessellationBetweenParticles;                          // 0x0030(0x0004) (ZeroConstructor, IsPlainOldData)
+	int                                                SheetsPerTrail;                                           // 0x0034(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                MaxTrailCount;                                            // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                MaxParticleInTrailCount;                                  // 0x003C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bDeadTrailsOnDeactivate : 1;                              // 0x0040(0x0001) (Edit)
+	unsigned char                                      bDeadTrailsOnSourceLoss : 1;                              // 0x0040(0x0001) (Edit)
+	unsigned char                                      bClipSourceSegement : 1;                                  // 0x0040(0x0001) (Edit)
+	unsigned char                                      bEnablePreviousTangentRecalculation : 1;                  // 0x0040(0x0001) (Edit)
+	unsigned char                                      bTangentRecalculationEveryFrame : 1;                      // 0x0040(0x0001) (Edit)
+	unsigned char                                      bSpawnInitialParticle : 1;                                // 0x0040(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0041(0x0003) MISSED OFFSET
+	TEnumAsByte<ETrailsRenderAxisOption>               RenderAxis;                                               // 0x0044(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0045(0x0003) MISSED OFFSET
+	float                                              TangentSpawningScalar;                                    // 0x0048(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bRenderGeometry : 1;                                      // 0x004C(0x0001) (Edit)
+	unsigned char                                      bRenderSpawnPoints : 1;                                   // 0x004C(0x0001) (Edit)
+	unsigned char                                      bRenderTangents : 1;                                      // 0x004C(0x0001) (Edit)
+	unsigned char                                      bRenderTessellation : 1;                                  // 0x004C(0x0001) (Edit)
+	unsigned char                                      UnknownData02[0x3];                                       // 0x004D(0x0003) MISSED OFFSET
+	float                                              TilingDistance;                                           // 0x0050(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              DistanceTessellationStepSize;                             // 0x0054(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bEnableTangentDiffInterpScale : 1;                        // 0x0058(0x0001) (Edit)
+	unsigned char                                      UnknownData03[0x3];                                       // 0x0059(0x0003) MISSED OFFSET
+	float                                              TangentTessellationScalar;                                // 0x005C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PathFollowingAgentInterface");
+		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleTypeDataRibbon");
 		return ptr;
 	}
 
@@ -18019,6 +18023,21 @@ public:
 };
 
 
+// Class Engine.PathFollowingAgentInterface
+// 0x0000 (0x0028 - 0x0028)
+class UPathFollowingAgentInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.PathFollowingAgentInterface");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.PhysicalAnimationComponent
 // 0x0038 (0x0128 - 0x00F0)
 class UPhysicalAnimationComponent : public UActorComponent
@@ -18042,6 +18061,21 @@ public:
 	void ApplyPhysicalAnimationSettingsBelow(const struct FName& BodyName, const struct FPhysicalAnimationData& PhysicalAnimationData, bool bIncludeSelf);
 	void ApplyPhysicalAnimationSettings(const struct FName& BodyName, const struct FPhysicalAnimationData& PhysicalAnimationData);
 	void ApplyPhysicalAnimationProfileBelow(const struct FName& BodyName, const struct FName& ProfileName, bool bIncludeSelf, bool bClearNotFound);
+};
+
+
+// Class Engine.PhysicalMaterialPropertyBase
+// 0x0000 (0x0028 - 0x0028)
+class UPhysicalMaterialPropertyBase : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.PhysicalMaterialPropertyBase");
+		return ptr;
+	}
+
 };
 
 
@@ -18072,45 +18106,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.PhysicalMaterial");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.PhysicalMaterialPropertyBase
-// 0x0000 (0x0028 - 0x0028)
-class UPhysicalMaterialPropertyBase : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.PhysicalMaterialPropertyBase");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.PhysicsAsset
-// 0x00F8 (0x0120 - 0x0028)
-class UPhysicsAsset : public UObject
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
-	TArray<int>                                        BoundsBodies;                                             // 0x0030(0x0010) (ZeroConstructor)
-	TArray<class USkeletalBodySetup*>                  SkeletalBodySetups;                                       // 0x0040(0x0010) (ExportObject, ZeroConstructor)
-	TArray<class UPhysicsConstraintTemplate*>          ConstraintSetup;                                          // 0x0050(0x0010) (ExportObject, ZeroConstructor)
-	unsigned char                                      bUseAsyncScene : 1;                                       // 0x0060(0x0001) (Edit)
-	unsigned char                                      bNotForDedicatedServer : 1;                               // 0x0060(0x0001) (Edit)
-	unsigned char                                      UnknownData01[0xA7];                                      // 0x0061(0x00A7) MISSED OFFSET
-	class UThumbnailInfo*                              ThumbnailInfo;                                            // 0x0108(0x0008) (Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-	TArray<class UBodySetup*>                          BodySetup;                                                // 0x0110(0x0010) (ExportObject, ZeroConstructor, Deprecated)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.PhysicsAsset");
 		return ptr;
 	}
 
@@ -18155,35 +18150,24 @@ public:
 };
 
 
-// Class Engine.RigidBodyBase
-// 0x0000 (0x0328 - 0x0328)
-class ARigidBodyBase : public AActor
+// Class Engine.PhysicsAsset
+// 0x00F8 (0x0120 - 0x0028)
+class UPhysicsAsset : public UObject
 {
 public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
+	TArray<int>                                        BoundsBodies;                                             // 0x0030(0x0010) (ZeroConstructor)
+	TArray<class USkeletalBodySetup*>                  SkeletalBodySetups;                                       // 0x0040(0x0010) (ExportObject, ZeroConstructor)
+	TArray<class UPhysicsConstraintTemplate*>          ConstraintSetup;                                          // 0x0050(0x0010) (ExportObject, ZeroConstructor)
+	unsigned char                                      bUseAsyncScene : 1;                                       // 0x0060(0x0001) (Edit)
+	unsigned char                                      bNotForDedicatedServer : 1;                               // 0x0060(0x0001) (Edit)
+	unsigned char                                      UnknownData01[0xA7];                                      // 0x0061(0x00A7) MISSED OFFSET
+	class UThumbnailInfo*                              ThumbnailInfo;                                            // 0x0108(0x0008) (Edit, ExportObject, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	TArray<class UBodySetup*>                          BodySetup;                                                // 0x0110(0x0010) (ExportObject, ZeroConstructor, Deprecated)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.RigidBodyBase");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.PhysicsConstraintActor
-// 0x0020 (0x0348 - 0x0328)
-class APhysicsConstraintActor : public ARigidBodyBase
-{
-public:
-	class UPhysicsConstraintComponent*                 ConstraintComp;                                           // 0x0328(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-	class AActor*                                      ConstraintActor1;                                         // 0x0330(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
-	class AActor*                                      ConstraintActor2;                                         // 0x0338(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
-	unsigned char                                      bDisableCollision : 1;                                    // 0x0340(0x0001) (Deprecated)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0341(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.PhysicsConstraintActor");
+		static auto ptr = UObject::FindClass("Class Engine.PhysicsAsset");
 		return ptr;
 	}
 
@@ -18245,6 +18229,21 @@ public:
 	float GetCurrentSwing1();
 	void GetConstraintForce(struct FVector* OutLinearForce, struct FVector* OutAngularForce);
 	void BreakConstraint();
+};
+
+
+// Class Engine.RigidBodyBase
+// 0x0000 (0x0328 - 0x0328)
+class ARigidBodyBase : public AActor
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.RigidBodyBase");
+		return ptr;
+	}
+
 };
 
 
@@ -18763,6 +18762,26 @@ public:
 };
 
 
+// Class Engine.PhysicsConstraintActor
+// 0x0020 (0x0348 - 0x0328)
+class APhysicsConstraintActor : public ARigidBodyBase
+{
+public:
+	class UPhysicsConstraintComponent*                 ConstraintComp;                                           // 0x0328(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	class AActor*                                      ConstraintActor1;                                         // 0x0330(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
+	class AActor*                                      ConstraintActor2;                                         // 0x0338(0x0008) (ZeroConstructor, Deprecated, IsPlainOldData)
+	unsigned char                                      bDisableCollision : 1;                                    // 0x0340(0x0001) (Deprecated)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0341(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.PhysicsConstraintActor");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.PlayerState
 // 0x00C8 (0x03F0 - 0x0328)
 class APlayerState : public AInfo
@@ -18829,25 +18848,6 @@ public:
 };
 
 
-// Class Engine.PointLight
-// 0x0008 (0x0340 - 0x0338)
-class APointLight : public ALight
-{
-public:
-	class UPointLightComponent*                        PointLightComponent;                                      // 0x0338(0x0008) (BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.PointLight");
-		return ptr;
-	}
-
-
-	void SetRadius(float NewRadius);
-	void SetLightFalloffExponent(float NewLightFalloffExponent);
-};
-
-
 // Class Engine.PointLightComponent
 // 0x0010 (0x0390 - 0x0380)
 class UPointLightComponent : public ULocalLightComponent
@@ -18888,30 +18888,22 @@ public:
 };
 
 
-// Class Engine.PoseableMeshComponent
-// 0x0140 (0x0800 - 0x06C0)
-class UPoseableMeshComponent : public USkinnedMeshComponent
+// Class Engine.PointLight
+// 0x0008 (0x0340 - 0x0338)
+class APointLight : public ALight
 {
 public:
-	unsigned char                                      UnknownData00[0x140];                                     // 0x06C0(0x0140) MISSED OFFSET
+	class UPointLightComponent*                        PointLightComponent;                                      // 0x0338(0x0008) (BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.PoseableMeshComponent");
+		static auto ptr = UObject::FindClass("Class Engine.PointLight");
 		return ptr;
 	}
 
 
-	void SetBoneTransformByName(const struct FName& BoneName, const struct FTransform& InTransform, TEnumAsByte<EBoneSpaces> BoneSpace);
-	void SetBoneScaleByName(const struct FName& BoneName, const struct FVector& InScale3D, TEnumAsByte<EBoneSpaces> BoneSpace);
-	void SetBoneRotationByName(const struct FName& BoneName, const struct FRotator& InRotation, TEnumAsByte<EBoneSpaces> BoneSpace);
-	void SetBoneLocationByName(const struct FName& BoneName, const struct FVector& InLocation, TEnumAsByte<EBoneSpaces> BoneSpace);
-	void ResetBoneTransformByName(const struct FName& BoneName);
-	struct FTransform GetBoneTransformByName(const struct FName& BoneName, TEnumAsByte<EBoneSpaces> BoneSpace);
-	struct FVector GetBoneScaleByName(const struct FName& BoneName, TEnumAsByte<EBoneSpaces> BoneSpace);
-	struct FRotator GetBoneRotationByName(const struct FName& BoneName, TEnumAsByte<EBoneSpaces> BoneSpace);
-	struct FVector GetBoneLocationByName(const struct FName& BoneName, TEnumAsByte<EBoneSpaces> BoneSpace);
-	void CopyPoseFromSkeletalComponent(class USkeletalMeshComponent* InComponentToCopy);
+	void SetRadius(float NewRadius);
+	void SetLightFalloffExponent(float NewLightFalloffExponent);
 };
 
 
@@ -18950,6 +18942,33 @@ public:
 		return ptr;
 	}
 
+};
+
+
+// Class Engine.PoseableMeshComponent
+// 0x0140 (0x0800 - 0x06C0)
+class UPoseableMeshComponent : public USkinnedMeshComponent
+{
+public:
+	unsigned char                                      UnknownData00[0x140];                                     // 0x06C0(0x0140) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.PoseableMeshComponent");
+		return ptr;
+	}
+
+
+	void SetBoneTransformByName(const struct FName& BoneName, const struct FTransform& InTransform, TEnumAsByte<EBoneSpaces> BoneSpace);
+	void SetBoneScaleByName(const struct FName& BoneName, const struct FVector& InScale3D, TEnumAsByte<EBoneSpaces> BoneSpace);
+	void SetBoneRotationByName(const struct FName& BoneName, const struct FRotator& InRotation, TEnumAsByte<EBoneSpaces> BoneSpace);
+	void SetBoneLocationByName(const struct FName& BoneName, const struct FVector& InLocation, TEnumAsByte<EBoneSpaces> BoneSpace);
+	void ResetBoneTransformByName(const struct FName& BoneName);
+	struct FTransform GetBoneTransformByName(const struct FName& BoneName, TEnumAsByte<EBoneSpaces> BoneSpace);
+	struct FVector GetBoneScaleByName(const struct FName& BoneName, TEnumAsByte<EBoneSpaces> BoneSpace);
+	struct FRotator GetBoneRotationByName(const struct FName& BoneName, TEnumAsByte<EBoneSpaces> BoneSpace);
+	struct FVector GetBoneLocationByName(const struct FName& BoneName, TEnumAsByte<EBoneSpaces> BoneSpace);
+	void CopyPoseFromSkeletalComponent(class USkeletalMeshComponent* InComponentToCopy);
 };
 
 
@@ -19090,6 +19109,22 @@ public:
 };
 
 
+// Class Engine.ProxyLODMeshSimplificationSettings
+// 0x0008 (0x0040 - 0x0038)
+class UProxyLODMeshSimplificationSettings : public UDeveloperSettings
+{
+public:
+	struct FName                                       ProxyLODMeshReductionModuleName;                          // 0x0038(0x0008) (Edit, ZeroConstructor, Config, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ProxyLODMeshSimplificationSettings");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.ProjectileMovementComponent
 // 0x00C0 (0x01F0 - 0x0130)
 class UProjectileMovementComponent : public UMovementComponent
@@ -19151,22 +19186,6 @@ public:
 };
 
 
-// Class Engine.ProxyLODMeshSimplificationSettings
-// 0x0008 (0x0040 - 0x0038)
-class UProxyLODMeshSimplificationSettings : public UDeveloperSettings
-{
-public:
-	struct FName                                       ProxyLODMeshReductionModuleName;                          // 0x0038(0x0008) (Edit, ZeroConstructor, Config, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ProxyLODMeshSimplificationSettings");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.RadialForceActor
 // 0x0008 (0x0330 - 0x0328)
 class ARadialForceActor : public ARigidBodyBase
@@ -19185,33 +19204,6 @@ public:
 	void FireImpulse();
 	void EnableForce();
 	void DisableForce();
-};
-
-
-// Class Engine.RadialForceComponent
-// 0x0030 (0x0270 - 0x0240)
-class URadialForceComponent : public USceneComponent
-{
-public:
-	float                                              ImpulseStrength;                                          // 0x0240(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bImpulseVelChange : 1;                                    // 0x0244(0x0001) (Edit, BlueprintVisible)
-	unsigned char                                      bIgnoreOwningActor : 1;                                   // 0x0244(0x0001) (Edit, BlueprintVisible)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0245(0x0003) MISSED OFFSET
-	float                                              ForceStrength;                                            // 0x0248(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              DestructibleDamage;                                       // 0x024C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	TArray<TEnumAsByte<EObjectTypeQuery>>              ObjectTypesToAffect;                                      // 0x0250(0x0010) (Edit, ZeroConstructor)
-	unsigned char                                      UnknownData01[0x10];                                      // 0x0260(0x0010) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.RadialForceComponent");
-		return ptr;
-	}
-
-
-	void RemoveObjectTypeToAffect(TEnumAsByte<EObjectTypeQuery> ObjectType);
-	void FireImpulse();
-	void AddObjectTypeToAffect(TEnumAsByte<EObjectTypeQuery> ObjectType);
 };
 
 
@@ -19248,6 +19240,33 @@ public:
 
 	void SetSourceWidth(float bNewValue);
 	void SetSourceHeight(float NewValue);
+};
+
+
+// Class Engine.RadialForceComponent
+// 0x0030 (0x0270 - 0x0240)
+class URadialForceComponent : public USceneComponent
+{
+public:
+	float                                              ImpulseStrength;                                          // 0x0240(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bImpulseVelChange : 1;                                    // 0x0244(0x0001) (Edit, BlueprintVisible)
+	unsigned char                                      bIgnoreOwningActor : 1;                                   // 0x0244(0x0001) (Edit, BlueprintVisible)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0245(0x0003) MISSED OFFSET
+	float                                              ForceStrength;                                            // 0x0248(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              DestructibleDamage;                                       // 0x024C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	TArray<TEnumAsByte<EObjectTypeQuery>>              ObjectTypesToAffect;                                      // 0x0250(0x0010) (Edit, ZeroConstructor)
+	unsigned char                                      UnknownData01[0x10];                                      // 0x0260(0x0010) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.RadialForceComponent");
+		return ptr;
+	}
+
+
+	void RemoveObjectTypeToAffect(TEnumAsByte<EObjectTypeQuery> ObjectType);
+	void FireImpulse();
+	void AddObjectTypeToAffect(TEnumAsByte<EObjectTypeQuery> ObjectType);
 };
 
 
@@ -19411,38 +19430,6 @@ public:
 };
 
 
-// Class Engine.ParticleModuleOrientationAxisLock
-// 0x0008 (0x0038 - 0x0030)
-class UParticleModuleOrientationAxisLock : public UParticleModuleOrientationBase
-{
-public:
-	TEnumAsByte<EParticleAxisLock>                     LockAxisFlags;                                            // 0x0030(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleOrientationAxisLock");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.ReplicationConnectionDriver
-// 0x0000 (0x0028 - 0x0028)
-class UReplicationConnectionDriver : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ReplicationConnectionDriver");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.ReporterBase
 // 0x0008 (0x0030 - 0x0028)
 class UReporterBase : public UObject
@@ -19459,6 +19446,33 @@ public:
 };
 
 
+// Class Engine.ReverbEffect
+// 0x0030 (0x0058 - 0x0028)
+class UReverbEffect : public UObject
+{
+public:
+	float                                              Density;                                                  // 0x0028(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              Diffusion;                                                // 0x002C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              Gain;                                                     // 0x0030(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              GainHF;                                                   // 0x0034(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              DecayTime;                                                // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              DecayHFRatio;                                             // 0x003C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              ReflectionsGain;                                          // 0x0040(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              ReflectionsDelay;                                         // 0x0044(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              LateGain;                                                 // 0x0048(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              LateDelay;                                                // 0x004C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              AirAbsorptionGainHF;                                      // 0x0050(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              RoomRolloffFactor;                                        // 0x0054(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ReverbEffect");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.ReporterGraph
 // 0x0078 (0x00A8 - 0x0030)
 class UReporterGraph : public UReporterBase
@@ -19469,6 +19483,25 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.ReporterGraph");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.RotatingMovementComponent
+// 0x0020 (0x0150 - 0x0130)
+class URotatingMovementComponent : public UMovementComponent
+{
+public:
+	struct FRotator                                    RotationRate;                                             // 0x0130(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     PivotTranslation;                                         // 0x013C(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bRotationInLocalSpace : 1;                                // 0x0148(0x0001) (Edit, BlueprintVisible)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0149(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.RotatingMovementComponent");
 		return ptr;
 	}
 
@@ -19517,33 +19550,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.SaveGame");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.ReverbEffect
-// 0x0030 (0x0058 - 0x0028)
-class UReverbEffect : public UObject
-{
-public:
-	float                                              Density;                                                  // 0x0028(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              Diffusion;                                                // 0x002C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              Gain;                                                     // 0x0030(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              GainHF;                                                   // 0x0034(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              DecayTime;                                                // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              DecayHFRatio;                                             // 0x003C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              ReflectionsGain;                                          // 0x0040(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              ReflectionsDelay;                                         // 0x0044(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              LateGain;                                                 // 0x0048(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              LateDelay;                                                // 0x004C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              AirAbsorptionGainHF;                                      // 0x0050(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              RoomRolloffFactor;                                        // 0x0054(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.ReverbEffect");
 		return ptr;
 	}
 
@@ -19621,29 +19627,6 @@ public:
 };
 
 
-// Class Engine.SceneCaptureComponentCube
-// 0x0030 (0x0300 - 0x02D0)
-class USceneCaptureComponentCube : public USceneCaptureComponent
-{
-public:
-	class UTextureRenderTargetCube*                    TextureTarget;                                            // 0x02D0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	class UTextureRenderTargetCube*                    TextureTargetLeft;                                        // 0x02D8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	class UTextureRenderTargetCube*                    TextureTargetRight;                                       // 0x02E0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	class UTextureRenderTarget2D*                      TextureTargetODS;                                         // 0x02E8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              IPD;                                                      // 0x02F0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x02F4(0x000C) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.SceneCaptureComponentCube");
-		return ptr;
-	}
-
-
-	void CaptureScene();
-};
-
-
 // Class Engine.SceneCaptureCube
 // 0x0008 (0x0338 - 0x0330)
 class ASceneCaptureCube : public ASceneCapture
@@ -19659,6 +19642,21 @@ public:
 
 
 	void OnInterpToggle(bool bEnable);
+};
+
+
+// Class Engine.ReplicationConnectionDriver
+// 0x0000 (0x0028 - 0x0028)
+class UReplicationConnectionDriver : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ReplicationConnectionDriver");
+		return ptr;
+	}
+
 };
 
 
@@ -19689,16 +19687,67 @@ public:
 };
 
 
-// Class Engine.Selection
-// 0x0078 (0x00A0 - 0x0028)
-class USelection : public UObject
+// Class Engine.ServerStatReplicator
+// 0x00C8 (0x03F0 - 0x0328)
+class AServerStatReplicator : public AInfo
 {
 public:
-	unsigned char                                      UnknownData00[0x78];                                      // 0x0028(0x0078) MISSED OFFSET
+	bool                                               bUpdateStatNet;                                           // 0x0328(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               bOverwriteClientStats;                                    // 0x0329(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x2];                                       // 0x032A(0x0002) MISSED OFFSET
+	uint32_t                                           Channels;                                                 // 0x032C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           InRate;                                                   // 0x0330(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           OutRate;                                                  // 0x0334(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           OutSaturation;                                            // 0x0338(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           MaxPacketOverhead;                                        // 0x033C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           InRateClientMax;                                          // 0x0340(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           InRateClientMin;                                          // 0x0344(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           InRateClientAvg;                                          // 0x0348(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           InPacketsClientMax;                                       // 0x034C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           InPacketsClientMin;                                       // 0x0350(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           InPacketsClientAvg;                                       // 0x0354(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           OutRateClientMax;                                         // 0x0358(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           OutRateClientMin;                                         // 0x035C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           OutRateClientAvg;                                         // 0x0360(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           OutPacketsClientMax;                                      // 0x0364(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           OutPacketsClientMin;                                      // 0x0368(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           OutPacketsClientAvg;                                      // 0x036C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NetNumClients;                                            // 0x0370(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           InPackets;                                                // 0x0374(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           OutPackets;                                               // 0x0378(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           InBunches;                                                // 0x037C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           OutBunches;                                               // 0x0380(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           OutLoss;                                                  // 0x0384(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           InLoss;                                                   // 0x0388(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           VoiceBytesSent;                                           // 0x038C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           VoiceBytesRecv;                                           // 0x0390(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           VoicePacketsSent;                                         // 0x0394(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           VoicePacketsRecv;                                         // 0x0398(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           PercentInVoice;                                           // 0x039C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           PercentOutVoice;                                          // 0x03A0(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NumActorChannels;                                         // 0x03A4(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NumConsideredActors;                                      // 0x03A8(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           PrioritizedActors;                                        // 0x03AC(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NumRelevantActors;                                        // 0x03B0(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NumRelevantDeletedActors;                                 // 0x03B4(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NumReplicatedActorAttempts;                               // 0x03B8(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NumReplicatedActors;                                      // 0x03BC(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NumActors;                                                // 0x03C0(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NumNetActors;                                             // 0x03C4(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NumDormantActors;                                         // 0x03C8(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NumInitiallyDormantActors;                                // 0x03CC(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NumNetGUIDsAckd;                                          // 0x03D0(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NumNetGUIDsPending;                                       // 0x03D4(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NumNetGUIDsUnAckd;                                        // 0x03D8(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           ObjPathBytes;                                             // 0x03DC(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NetGUIDOutRate;                                           // 0x03E0(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NetGUIDInRate;                                            // 0x03E4(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	uint32_t                                           NetSaturated;                                             // 0x03E8(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x03EC(0x0004) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.Selection");
+		static auto ptr = UObject::FindClass("Class Engine.ServerStatReplicator");
 		return ptr;
 	}
 
@@ -19716,6 +19765,22 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.ShadowMapTexture2D");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.Selection
+// 0x0078 (0x00A0 - 0x0028)
+class USelection : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x78];                                      // 0x0028(0x0078) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.Selection");
 		return ptr;
 	}
 
@@ -19845,25 +19910,6 @@ public:
 };
 
 
-// Class Engine.RotatingMovementComponent
-// 0x0020 (0x0150 - 0x0130)
-class URotatingMovementComponent : public UMovementComponent
-{
-public:
-	struct FRotator                                    RotationRate;                                             // 0x0130(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     PivotTranslation;                                         // 0x013C(0x000C) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bRotationInLocalSpace : 1;                                // 0x0148(0x0001) (Edit, BlueprintVisible)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0149(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.RotatingMovementComponent");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.SkeletalMeshSocket
 // 0x0038 (0x0060 - 0x0028)
 class USkeletalMeshSocket : public UObject
@@ -19972,67 +20018,15 @@ public:
 };
 
 
-// Class Engine.ServerStatReplicator
-// 0x00C8 (0x03F0 - 0x0328)
-class AServerStatReplicator : public AInfo
+// Class Engine.SlateTextureAtlasInterface
+// 0x0000 (0x0028 - 0x0028)
+class USlateTextureAtlasInterface : public UInterface
 {
 public:
-	bool                                               bUpdateStatNet;                                           // 0x0328(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	bool                                               bOverwriteClientStats;                                    // 0x0329(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x2];                                       // 0x032A(0x0002) MISSED OFFSET
-	uint32_t                                           Channels;                                                 // 0x032C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           InRate;                                                   // 0x0330(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           OutRate;                                                  // 0x0334(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           OutSaturation;                                            // 0x0338(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           MaxPacketOverhead;                                        // 0x033C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           InRateClientMax;                                          // 0x0340(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           InRateClientMin;                                          // 0x0344(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           InRateClientAvg;                                          // 0x0348(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           InPacketsClientMax;                                       // 0x034C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           InPacketsClientMin;                                       // 0x0350(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           InPacketsClientAvg;                                       // 0x0354(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           OutRateClientMax;                                         // 0x0358(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           OutRateClientMin;                                         // 0x035C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           OutRateClientAvg;                                         // 0x0360(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           OutPacketsClientMax;                                      // 0x0364(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           OutPacketsClientMin;                                      // 0x0368(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           OutPacketsClientAvg;                                      // 0x036C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NetNumClients;                                            // 0x0370(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           InPackets;                                                // 0x0374(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           OutPackets;                                               // 0x0378(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           InBunches;                                                // 0x037C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           OutBunches;                                               // 0x0380(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           OutLoss;                                                  // 0x0384(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           InLoss;                                                   // 0x0388(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           VoiceBytesSent;                                           // 0x038C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           VoiceBytesRecv;                                           // 0x0390(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           VoicePacketsSent;                                         // 0x0394(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           VoicePacketsRecv;                                         // 0x0398(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           PercentInVoice;                                           // 0x039C(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           PercentOutVoice;                                          // 0x03A0(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NumActorChannels;                                         // 0x03A4(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NumConsideredActors;                                      // 0x03A8(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           PrioritizedActors;                                        // 0x03AC(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NumRelevantActors;                                        // 0x03B0(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NumRelevantDeletedActors;                                 // 0x03B4(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NumReplicatedActorAttempts;                               // 0x03B8(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NumReplicatedActors;                                      // 0x03BC(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NumActors;                                                // 0x03C0(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NumNetActors;                                             // 0x03C4(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NumDormantActors;                                         // 0x03C8(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NumInitiallyDormantActors;                                // 0x03CC(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NumNetGUIDsAckd;                                          // 0x03D0(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NumNetGUIDsPending;                                       // 0x03D4(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NumNetGUIDsUnAckd;                                        // 0x03D8(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           ObjPathBytes;                                             // 0x03DC(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NetGUIDOutRate;                                           // 0x03E0(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NetGUIDInRate;                                            // 0x03E4(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	uint32_t                                           NetSaturated;                                             // 0x03E8(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x03EC(0x0004) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ServerStatReplicator");
+		static auto ptr = UObject::FindClass("Class Engine.SlateTextureAtlasInterface");
 		return ptr;
 	}
 
@@ -20070,15 +20064,17 @@ public:
 };
 
 
-// Class Engine.SlateTextureAtlasInterface
-// 0x0000 (0x0028 - 0x0028)
-class USlateTextureAtlasInterface : public UInterface
+// Class Engine.MaterialExpressionLogarithm10
+// 0x0018 (0x0058 - 0x0040)
+class UMaterialExpressionLogarithm10 : public UMaterialExpression
 {
 public:
+	struct FExpressionInput                            X;                                                        // 0x0040(0x0010)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0050(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SlateTextureAtlasInterface");
+		static auto ptr = UObject::FindClass("Class Engine.MaterialExpressionLogarithm10");
 		return ptr;
 	}
 
@@ -20105,19 +20101,26 @@ public:
 };
 
 
-// Class Engine.SoundConcurrency
-// 0x0010 (0x0038 - 0x0028)
-class USoundConcurrency : public UObject
+// Class Engine.SceneCaptureComponentCube
+// 0x0030 (0x0300 - 0x02D0)
+class USceneCaptureComponentCube : public USceneCaptureComponent
 {
 public:
-	struct FSoundConcurrencySettings                   Concurrency;                                              // 0x0028(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly)
+	class UTextureRenderTargetCube*                    TextureTarget;                                            // 0x02D0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UTextureRenderTargetCube*                    TextureTargetLeft;                                        // 0x02D8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UTextureRenderTargetCube*                    TextureTargetRight;                                       // 0x02E0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UTextureRenderTarget2D*                      TextureTargetODS;                                         // 0x02E8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              IPD;                                                      // 0x02F0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0xC];                                       // 0x02F4(0x000C) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundConcurrency");
+		static auto ptr = UObject::FindClass("Class Engine.SceneCaptureComponentCube");
 		return ptr;
 	}
 
+
+	void CaptureScene();
 };
 
 
@@ -20145,21 +20148,6 @@ public:
 };
 
 
-// Class Engine.SoundEffectSourcePreset
-// 0x0000 (0x0040 - 0x0040)
-class USoundEffectSourcePreset : public USoundEffectPreset
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundEffectSourcePreset");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.SoundEffectSourcePresetChain
 // 0x0018 (0x0040 - 0x0028)
 class USoundEffectSourcePresetChain : public UObject
@@ -20172,6 +20160,22 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.SoundEffectSourcePresetChain");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.SoundConcurrency
+// 0x0010 (0x0038 - 0x0028)
+class USoundConcurrency : public UObject
+{
+public:
+	struct FSoundConcurrencySettings                   Concurrency;                                              // 0x0028(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.SoundConcurrency");
 		return ptr;
 	}
 
@@ -20211,31 +20215,15 @@ public:
 };
 
 
-// Class Engine.SoundNodeAssetReferencer
-// 0x0000 (0x0038 - 0x0038)
-class USoundNodeAssetReferencer : public USoundNode
+// Class Engine.SoundEffectSourcePreset
+// 0x0000 (0x0040 - 0x0040)
+class USoundEffectSourcePreset : public USoundEffectPreset
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeAssetReferencer");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.SoundNodeBranch
-// 0x0008 (0x0040 - 0x0038)
-class USoundNodeBranch : public USoundNode
-{
-public:
-	struct FName                                       BoolParameterName;                                        // 0x0038(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeBranch");
+		static auto ptr = UObject::FindClass("Class Engine.SoundEffectSourcePreset");
 		return ptr;
 	}
 
@@ -20255,39 +20243,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.SoundNodeAttenuation");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.SoundNodeConcatenator
-// 0x0010 (0x0048 - 0x0038)
-class USoundNodeConcatenator : public USoundNode
-{
-public:
-	TArray<float>                                      InputVolume;                                              // 0x0038(0x0010) (Edit, EditFixedSize, ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeConcatenator");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.SoundNodeDelay
-// 0x0008 (0x0040 - 0x0038)
-class USoundNodeDelay : public USoundNode
-{
-public:
-	float                                              DelayMin;                                                 // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              DelayMax;                                                 // 0x003C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeDelay");
 		return ptr;
 	}
 
@@ -20318,6 +20273,38 @@ public:
 };
 
 
+// Class Engine.SoundNodeConcatenator
+// 0x0010 (0x0048 - 0x0038)
+class USoundNodeConcatenator : public USoundNode
+{
+public:
+	TArray<float>                                      InputVolume;                                              // 0x0038(0x0010) (Edit, EditFixedSize, ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.SoundNodeConcatenator");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.SoundNodeBranch
+// 0x0008 (0x0040 - 0x0038)
+class USoundNodeBranch : public USoundNode
+{
+public:
+	struct FName                                       BoolParameterName;                                        // 0x0038(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.SoundNodeBranch");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.SoundNodeDialoguePlayer
 // 0x0028 (0x0060 - 0x0038)
 class USoundNodeDialoguePlayer : public USoundNode
@@ -20330,6 +20317,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.SoundNodeDialoguePlayer");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.SoundNodeAssetReferencer
+// 0x0000 (0x0038 - 0x0038)
+class USoundNodeAssetReferencer : public USoundNode
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.SoundNodeAssetReferencer");
 		return ptr;
 	}
 
@@ -20352,17 +20354,17 @@ public:
 };
 
 
-// Class Engine.SoundNodeDoppler
+// Class Engine.SoundNodeDelay
 // 0x0008 (0x0040 - 0x0038)
-class USoundNodeDoppler : public USoundNode
+class USoundNodeDelay : public USoundNode
 {
 public:
-	float                                              DopplerIntensity;                                         // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x003C(0x0004) MISSED OFFSET
+	float                                              DelayMin;                                                 // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              DelayMax;                                                 // 0x003C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeDoppler");
+		static auto ptr = UObject::FindClass("Class Engine.SoundNodeDelay");
 		return ptr;
 	}
 
@@ -20399,6 +20401,39 @@ public:
 };
 
 
+// Class Engine.SoundNodeGroupControl
+// 0x0010 (0x0048 - 0x0038)
+class USoundNodeGroupControl : public USoundNode
+{
+public:
+	TArray<int>                                        GroupSizes;                                               // 0x0038(0x0010) (Edit, EditFixedSize, ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.SoundNodeGroupControl");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.SoundNodeDoppler
+// 0x0008 (0x0040 - 0x0038)
+class USoundNodeDoppler : public USoundNode
+{
+public:
+	float                                              DopplerIntensity;                                         // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x003C(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.SoundNodeDoppler");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.SoundNodeLooping
 // 0x0008 (0x0040 - 0x0038)
 class USoundNodeLooping : public USoundNode
@@ -20426,22 +20461,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.SoundNodeMature");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.SoundNodeMixer
-// 0x0010 (0x0048 - 0x0038)
-class USoundNodeMixer : public USoundNode
-{
-public:
-	TArray<float>                                      InputVolume;                                              // 0x0038(0x0010) (Edit, ExportObject, EditFixedSize, ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeMixer");
 		return ptr;
 	}
 
@@ -20542,16 +20561,41 @@ public:
 };
 
 
-// Class Engine.SoundNodeGroupControl
+// Class Engine.SoundNodeMixer
 // 0x0010 (0x0048 - 0x0038)
-class USoundNodeGroupControl : public USoundNode
+class USoundNodeMixer : public USoundNode
 {
 public:
-	TArray<int>                                        GroupSizes;                                               // 0x0038(0x0010) (Edit, EditFixedSize, ZeroConstructor)
+	TArray<float>                                      InputVolume;                                              // 0x0038(0x0010) (Edit, ExportObject, EditFixedSize, ZeroConstructor)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeGroupControl");
+		static auto ptr = UObject::FindClass("Class Engine.SoundNodeMixer");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.SoundNodeRandom
+// 0x0038 (0x0070 - 0x0038)
+class USoundNodeRandom : public USoundNode
+{
+public:
+	TArray<float>                                      Weights;                                                  // 0x0038(0x0010) (Edit, EditFixedSize, ZeroConstructor)
+	int                                                PreselectAtLevelLoad;                                     // 0x0048(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bShouldExcludeFromBranchCulling : 1;                      // 0x004C(0x0001) (Edit)
+	unsigned char                                      bSoundCueExcludedFromBranchCulling : 1;                   // 0x004C(0x0001)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x004D(0x0003) MISSED OFFSET
+	unsigned char                                      bRandomizeWithoutReplacement : 1;                         // 0x0050(0x0001) (Edit)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0051(0x0007) MISSED OFFSET
+	TArray<bool>                                       HasBeenUsed;                                              // 0x0058(0x0010) (ZeroConstructor, Transient)
+	int                                                NumRandomUsed;                                            // 0x0068(0x0004) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x4];                                       // 0x006C(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.SoundNodeRandom");
 		return ptr;
 	}
 
@@ -20600,31 +20644,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.SoundNodeWaveParam");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.SoundNodeRandom
-// 0x0038 (0x0070 - 0x0038)
-class USoundNodeRandom : public USoundNode
-{
-public:
-	TArray<float>                                      Weights;                                                  // 0x0038(0x0010) (Edit, EditFixedSize, ZeroConstructor)
-	int                                                PreselectAtLevelLoad;                                     // 0x0048(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bShouldExcludeFromBranchCulling : 1;                      // 0x004C(0x0001) (Edit)
-	unsigned char                                      bSoundCueExcludedFromBranchCulling : 1;                   // 0x004C(0x0001)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x004D(0x0003) MISSED OFFSET
-	unsigned char                                      bRandomizeWithoutReplacement : 1;                         // 0x0050(0x0001) (Edit)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0051(0x0007) MISSED OFFSET
-	TArray<bool>                                       HasBeenUsed;                                              // 0x0058(0x0010) (ZeroConstructor, Transient)
-	int                                                NumRandomUsed;                                            // 0x0068(0x0004) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x4];                                       // 0x006C(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeRandom");
 		return ptr;
 	}
 
@@ -20682,20 +20701,15 @@ public:
 };
 
 
-// Class Engine.SoundNodeWavePlayer
-// 0x0038 (0x0070 - 0x0038)
-class USoundNodeWavePlayer : public USoundNodeAssetReferencer
+// Class Engine.SpectatorPawn
+// 0x0000 (0x03B0 - 0x03B0)
+class ASpectatorPawn : public ADefaultPawn
 {
 public:
-	unsigned char                                      UnknownData00[0x28];                                      // 0x0038(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Engine.SoundNodeWavePlayer.SoundWaveAssetPtr
-	class USoundWave*                                  SoundWave;                                                // 0x0060(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData01 : 1;                                        // 0x0068(0x0001)
-	unsigned char                                      bLooping : 1;                                             // 0x0068(0x0001) (Edit)
-	unsigned char                                      UnknownData02[0x7];                                       // 0x0069(0x0007) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SoundNodeWavePlayer");
+		static auto ptr = UObject::FindClass("Class Engine.SpectatorPawn");
 		return ptr;
 	}
 
@@ -20735,31 +20749,37 @@ public:
 };
 
 
-// Class Engine.SpectatorPawn
-// 0x0000 (0x03B0 - 0x03B0)
-class ASpectatorPawn : public ADefaultPawn
+// Class Engine.SphereReflectionCaptureComponent
+// 0x0010 (0x02C0 - 0x02B0)
+class USphereReflectionCaptureComponent : public UReflectionCaptureComponent
 {
 public:
+	class UDrawSphereComponent*                        PreviewInfluenceRadius;                                   // 0x02B0(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x02B8(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SpectatorPawn");
+		static auto ptr = UObject::FindClass("Class Engine.SphereReflectionCaptureComponent");
 		return ptr;
 	}
 
 };
 
 
-// Class Engine.SplineMeshActor
-// 0x0008 (0x0330 - 0x0328)
-class ASplineMeshActor : public AActor
+// Class Engine.SoundNodeWavePlayer
+// 0x0038 (0x0070 - 0x0038)
+class USoundNodeWavePlayer : public USoundNodeAssetReferencer
 {
 public:
-	class USplineMeshComponent*                        SplineMeshComponent;                                      // 0x0328(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x28];                                      // 0x0038(0x0028) UNKNOWN PROPERTY: SoftObjectProperty Engine.SoundNodeWavePlayer.SoundWaveAssetPtr
+	class USoundWave*                                  SoundWave;                                                // 0x0060(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData01 : 1;                                        // 0x0068(0x0001)
+	unsigned char                                      bLooping : 1;                                             // 0x0068(0x0001) (Edit)
+	unsigned char                                      UnknownData02[0x7];                                       // 0x0069(0x0007) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SplineMeshActor");
+		static auto ptr = UObject::FindClass("Class Engine.SoundNodeWavePlayer");
 		return ptr;
 	}
 
@@ -20903,6 +20923,22 @@ public:
 };
 
 
+// Class Engine.SplineMeshActor
+// 0x0008 (0x0330 - 0x0328)
+class ASplineMeshActor : public AActor
+{
+public:
+	class USplineMeshComponent*                        SplineMeshComponent;                                      // 0x0328(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.SplineMeshActor");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.StaticMesh
 // 0x00E8 (0x0110 - 0x0028)
 class UStaticMesh : public UObject
@@ -21011,6 +21047,22 @@ public:
 };
 
 
+// Class Engine.StringTable
+// 0x0018 (0x0040 - 0x0028)
+class UStringTable : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x18];                                      // 0x0028(0x0018) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.StringTable");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.StereoLayerFunctionLibrary
 // 0x0000 (0x0028 - 0x0028)
 class UStereoLayerFunctionLibrary : public UBlueprintFunctionLibrary
@@ -21028,38 +21080,6 @@ public:
 	void STATIC_SetSplashScreen(class UTexture* Texture, const struct FVector2D& Scale, const struct FVector2D& Offset, bool bShowLoadingMovie, bool bShowOnSet);
 	void STATIC_HideSplashScreen();
 	void STATIC_EnableAutoLoadingSplashScreen(bool InAutoShowEnabled);
-};
-
-
-// Class Engine.StringTable
-// 0x0018 (0x0040 - 0x0028)
-class UStringTable : public UObject
-{
-public:
-	unsigned char                                      UnknownData00[0x18];                                      // 0x0028(0x0018) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.StringTable");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.SubsurfaceProfile
-// 0x0050 (0x0078 - 0x0028)
-class USubsurfaceProfile : public UObject
-{
-public:
-	struct FSubsurfaceProfileStruct                    Settings;                                                 // 0x0028(0x0050) (Edit)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.SubsurfaceProfile");
-		return ptr;
-	}
-
 };
 
 
@@ -21105,34 +21125,16 @@ public:
 };
 
 
-// Class Engine.SystemTimeTimecodeProvider
-// 0x0010 (0x0038 - 0x0028)
-class USystemTimeTimecodeProvider : public UTimecodeProvider
+// Class Engine.SubsurfaceProfile
+// 0x0050 (0x0078 - 0x0028)
+class USubsurfaceProfile : public UObject
 {
 public:
-	struct FFrameRate                                  FrameRate;                                                // 0x0028(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0030(0x0008) MISSED OFFSET
+	struct FSubsurfaceProfileStruct                    Settings;                                                 // 0x0028(0x0050) (Edit)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.SystemTimeTimecodeProvider");
-		return ptr;
-	}
-
-
-	void SetFrameRate(const struct FFrameRate& InFrameRate);
-};
-
-
-// Class Engine.TargetPoint
-// 0x0000 (0x0328 - 0x0328)
-class ATargetPoint : public AActor
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.TargetPoint");
+		static auto ptr = UObject::FindClass("Class Engine.SubsurfaceProfile");
 		return ptr;
 	}
 
@@ -21157,35 +21159,52 @@ public:
 };
 
 
-// Class Engine.TextRenderActor
-// 0x0008 (0x0330 - 0x0328)
-class ATextRenderActor : public AActor
+// Class Engine.TargetPoint
+// 0x0000 (0x0328 - 0x0328)
+class ATargetPoint : public AActor
 {
 public:
-	class UTextRenderComponent*                        TextRender;                                               // 0x0328(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TextRenderActor");
+		static auto ptr = UObject::FindClass("Class Engine.TargetPoint");
 		return ptr;
 	}
 
 };
 
 
-// Class Engine.ParticleModuleLocationPrimitiveTriangle
-// 0x00F8 (0x0128 - 0x0030)
-class UParticleModuleLocationPrimitiveTriangle : public UParticleModuleLocationBase
+// Class Engine.SystemTimeTimecodeProvider
+// 0x0010 (0x0038 - 0x0028)
+class USystemTimeTimecodeProvider : public UTimecodeProvider
 {
 public:
-	struct FRawDistributionVector                      StartOffset;                                              // 0x0030(0x0050) (Edit)
-	struct FRawDistributionFloat                       Height;                                                   // 0x0080(0x0038) (Edit)
-	struct FRawDistributionFloat                       Angle;                                                    // 0x00B8(0x0038) (Edit)
-	struct FRawDistributionFloat                       Thickness;                                                // 0x00F0(0x0038) (Edit)
+	struct FFrameRate                                  FrameRate;                                                // 0x0028(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0030(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ParticleModuleLocationPrimitiveTriangle");
+		static auto ptr = UObject::FindClass("Class Engine.SystemTimeTimecodeProvider");
+		return ptr;
+	}
+
+
+	void SetFrameRate(const struct FFrameRate& InFrameRate);
+};
+
+
+// Class Engine.Texture2DDynamic
+// 0x0018 (0x00C8 - 0x00B0)
+class UTexture2DDynamic : public UTexture
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x00B0(0x0008) MISSED OFFSET
+	TEnumAsByte<EPixelFormat>                          Format;                                                   // 0x00B8(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData01[0xF];                                       // 0x00B9(0x000F) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.Texture2DDynamic");
 		return ptr;
 	}
 
@@ -21237,24 +21256,6 @@ public:
 };
 
 
-// Class Engine.Texture2DDynamic
-// 0x0018 (0x00C8 - 0x00B0)
-class UTexture2DDynamic : public UTexture
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00B0(0x0008) MISSED OFFSET
-	TEnumAsByte<EPixelFormat>                          Format;                                                   // 0x00B8(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData01[0xF];                                       // 0x00B9(0x000F) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.Texture2DDynamic");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.TextureCube
 // 0x0058 (0x0108 - 0x00B0)
 class UTextureCube : public UTexture
@@ -21292,79 +21293,16 @@ public:
 };
 
 
-// Class Engine.ThumbnailInfo
-// 0x0000 (0x0028 - 0x0028)
-class UThumbnailInfo : public UObject
+// Class Engine.TextRenderActor
+// 0x0008 (0x0330 - 0x0328)
+class ATextRenderActor : public AActor
 {
 public:
+	class UTextRenderComponent*                        TextRender;                                               // 0x0328(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.ThumbnailInfo");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.TextureLightProfile
-// 0x0008 (0x00F0 - 0x00E8)
-class UTextureLightProfile : public UTexture2D
-{
-public:
-	float                                              Brightness;                                               // 0x00E8(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              TextureMultiplier;                                        // 0x00EC(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.TextureLightProfile");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.TimelineTemplate
-// 0x0070 (0x0098 - 0x0028)
-class UTimelineTemplate : public UObject
-{
-public:
-	float                                              TimelineLength;                                           // 0x0028(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<ETimelineLengthMode>                   LengthMode;                                               // 0x002C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x002D(0x0003) MISSED OFFSET
-	unsigned char                                      bAutoPlay : 1;                                            // 0x0030(0x0001) (Edit)
-	unsigned char                                      bLoop : 1;                                                // 0x0030(0x0001) (Edit)
-	unsigned char                                      bReplicated : 1;                                          // 0x0030(0x0001) (Edit, BlueprintVisible)
-	unsigned char                                      bValidatedAsWired : 1;                                    // 0x0030(0x0001)
-	unsigned char                                      bIgnoreTimeDilation : 1;                                  // 0x0030(0x0001) (Edit)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
-	TArray<struct FTTEventTrack>                       EventTracks;                                              // 0x0038(0x0010) (ZeroConstructor)
-	TArray<struct FTTFloatTrack>                       FloatTracks;                                              // 0x0048(0x0010) (ZeroConstructor)
-	TArray<struct FTTVectorTrack>                      VectorTracks;                                             // 0x0058(0x0010) (ZeroConstructor)
-	TArray<struct FTTLinearColorTrack>                 LinearColorTracks;                                        // 0x0068(0x0010) (ZeroConstructor)
-	TArray<struct FBPVariableMetaDataEntry>            MetaDataArray;                                            // 0x0078(0x0010) (Edit, ZeroConstructor)
-	struct FGuid                                       TimelineGuid;                                             // 0x0088(0x0010) (ZeroConstructor, DuplicateTransient, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.TimelineTemplate");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.TireType
-// 0x0008 (0x0038 - 0x0030)
-class UTireType : public UDataAsset
-{
-public:
-	float                                              FrictionScale;                                            // 0x0030(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0034(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.TireType");
+		static auto ptr = UObject::FindClass("Class Engine.TextRenderActor");
 		return ptr;
 	}
 
@@ -21413,6 +21351,93 @@ public:
 };
 
 
+// Class Engine.TimelineTemplate
+// 0x0070 (0x0098 - 0x0028)
+class UTimelineTemplate : public UObject
+{
+public:
+	float                                              TimelineLength;                                           // 0x0028(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<ETimelineLengthMode>                   LengthMode;                                               // 0x002C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x002D(0x0003) MISSED OFFSET
+	unsigned char                                      bAutoPlay : 1;                                            // 0x0030(0x0001) (Edit)
+	unsigned char                                      bLoop : 1;                                                // 0x0030(0x0001) (Edit)
+	unsigned char                                      bReplicated : 1;                                          // 0x0030(0x0001) (Edit, BlueprintVisible)
+	unsigned char                                      bValidatedAsWired : 1;                                    // 0x0030(0x0001)
+	unsigned char                                      bIgnoreTimeDilation : 1;                                  // 0x0030(0x0001) (Edit)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0031(0x0007) MISSED OFFSET
+	TArray<struct FTTEventTrack>                       EventTracks;                                              // 0x0038(0x0010) (ZeroConstructor)
+	TArray<struct FTTFloatTrack>                       FloatTracks;                                              // 0x0048(0x0010) (ZeroConstructor)
+	TArray<struct FTTVectorTrack>                      VectorTracks;                                             // 0x0058(0x0010) (ZeroConstructor)
+	TArray<struct FTTLinearColorTrack>                 LinearColorTracks;                                        // 0x0068(0x0010) (ZeroConstructor)
+	TArray<struct FBPVariableMetaDataEntry>            MetaDataArray;                                            // 0x0078(0x0010) (Edit, ZeroConstructor)
+	struct FGuid                                       TimelineGuid;                                             // 0x0088(0x0010) (ZeroConstructor, DuplicateTransient, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.TimelineTemplate");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.ThumbnailInfo
+// 0x0000 (0x0028 - 0x0028)
+class UThumbnailInfo : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.ThumbnailInfo");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.TireType
+// 0x0008 (0x0038 - 0x0030)
+class UTireType : public UDataAsset
+{
+public:
+	float                                              FrictionScale;                                            // 0x0030(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0034(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.TireType");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.TouchInterface
+// 0x0030 (0x0058 - 0x0028)
+class UTouchInterface : public UObject
+{
+public:
+	TArray<struct FTouchInputControl>                  Controls;                                                 // 0x0028(0x0010) (Edit, ZeroConstructor)
+	float                                              ActiveOpacity;                                            // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              InactiveOpacity;                                          // 0x003C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              TimeUntilDeactive;                                        // 0x0040(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              TimeUntilReset;                                           // 0x0044(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              ActivationDelay;                                          // 0x0048(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               bPreventRecenter;                                         // 0x004C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x004D(0x0003) MISSED OFFSET
+	float                                              StartupDelay;                                             // 0x0050(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x0054(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.TouchInterface");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.TriggerBase
 // 0x0008 (0x0330 - 0x0328)
 class ATriggerBase : public AActor
@@ -21429,32 +21454,15 @@ public:
 };
 
 
-// Class Engine.TriggerBox
+// Class Engine.TriggerCapsule
 // 0x0000 (0x0330 - 0x0330)
-class ATriggerBox : public ATriggerBase
+class ATriggerCapsule : public ATriggerBase
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TriggerBox");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.SphereReflectionCaptureComponent
-// 0x0010 (0x02C0 - 0x02B0)
-class USphereReflectionCaptureComponent : public UReflectionCaptureComponent
-{
-public:
-	class UDrawSphereComponent*                        PreviewInfluenceRadius;                                   // 0x02B0(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x02B8(0x0008) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.SphereReflectionCaptureComponent");
+		static auto ptr = UObject::FindClass("Class Engine.TriggerCapsule");
 		return ptr;
 	}
 
@@ -21470,21 +21478,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.TriggerSphere");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.TriggerCapsule
-// 0x0000 (0x0330 - 0x0330)
-class ATriggerCapsule : public ATriggerBase
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.TriggerCapsule");
 		return ptr;
 	}
 
@@ -21545,6 +21538,23 @@ public:
 };
 
 
+// Class Engine.TextureLightProfile
+// 0x0008 (0x00F0 - 0x00E8)
+class UTextureLightProfile : public UTexture2D
+{
+public:
+	float                                              Brightness;                                               // 0x00E8(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              TextureMultiplier;                                        // 0x00EC(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.TextureLightProfile");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.UserDefinedStruct
 // 0x0048 (0x00E0 - 0x0098)
 class UUserDefinedStruct : public UScriptStruct
@@ -21558,23 +21568,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.UserDefinedStruct");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.VectorField
-// 0x0020 (0x0048 - 0x0028)
-class UVectorField : public UObject
-{
-public:
-	struct FBox                                        Bounds;                                                   // 0x0028(0x001C) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              Intensity;                                                // 0x0044(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.VectorField");
 		return ptr;
 	}
 
@@ -21613,6 +21606,53 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.UserInterfaceSettings");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.VectorField
+// 0x0020 (0x0048 - 0x0028)
+class UVectorField : public UObject
+{
+public:
+	struct FBox                                        Bounds;                                                   // 0x0028(0x001C) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              Intensity;                                                // 0x0044(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.VectorField");
+		return ptr;
+	}
+
+};
+
+
+// Class Engine.VectorFieldAnimated
+// 0x0040 (0x0088 - 0x0048)
+class UVectorFieldAnimated : public UVectorField
+{
+public:
+	class UTexture2D*                                  Texture;                                                  // 0x0048(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EVectorFieldConstructionOp>            ConstructionOp;                                           // 0x0050(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0051(0x0003) MISSED OFFSET
+	int                                                VolumeSizeX;                                              // 0x0054(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                VolumeSizeY;                                              // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                VolumeSizeZ;                                              // 0x005C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                SubImagesX;                                               // 0x0060(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                SubImagesY;                                               // 0x0064(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                FrameCount;                                               // 0x0068(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              FramesPerSecond;                                          // 0x006C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      bLoop : 1;                                                // 0x0070(0x0001) (Edit)
+	unsigned char                                      UnknownData01[0x7];                                       // 0x0071(0x0007) MISSED OFFSET
+	class UVectorFieldStatic*                          NoiseField;                                               // 0x0078(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              NoiseScale;                                               // 0x0080(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              NoiseMax;                                                 // 0x0084(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.VectorFieldAnimated");
 		return ptr;
 	}
 
@@ -21659,30 +21699,16 @@ public:
 };
 
 
-// Class Engine.VectorFieldAnimated
-// 0x0040 (0x0088 - 0x0048)
-class UVectorFieldAnimated : public UVectorField
+// Class Engine.VectorFieldVolume
+// 0x0008 (0x0330 - 0x0328)
+class AVectorFieldVolume : public AActor
 {
 public:
-	class UTexture2D*                                  Texture;                                                  // 0x0048(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	TEnumAsByte<EVectorFieldConstructionOp>            ConstructionOp;                                           // 0x0050(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0051(0x0003) MISSED OFFSET
-	int                                                VolumeSizeX;                                              // 0x0054(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                VolumeSizeY;                                              // 0x0058(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                VolumeSizeZ;                                              // 0x005C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                SubImagesX;                                               // 0x0060(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                SubImagesY;                                               // 0x0064(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                FrameCount;                                               // 0x0068(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              FramesPerSecond;                                          // 0x006C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      bLoop : 1;                                                // 0x0070(0x0001) (Edit)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x0071(0x0007) MISSED OFFSET
-	class UVectorFieldStatic*                          NoiseField;                                               // 0x0078(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              NoiseScale;                                               // 0x0080(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              NoiseMax;                                                 // 0x0084(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	class UVectorFieldComponent*                       VectorFieldComponent;                                     // 0x0328(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.VectorFieldAnimated");
+		static auto ptr = UObject::FindClass("Class Engine.VectorFieldVolume");
 		return ptr;
 	}
 
@@ -21748,22 +21774,6 @@ public:
 };
 
 
-// Class Engine.VectorFieldVolume
-// 0x0008 (0x0330 - 0x0328)
-class AVectorFieldVolume : public AActor
-{
-public:
-	class UVectorFieldComponent*                       VectorFieldComponent;                                     // 0x0328(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.VectorFieldVolume");
-		return ptr;
-	}
-
-};
-
-
 // Class Engine.LightMapVirtualTextureSpace
 // 0x0000 (0x0070 - 0x0070)
 class ULightMapVirtualTextureSpace : public UVirtualTextureSpace
@@ -21773,21 +21783,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Engine.LightMapVirtualTextureSpace");
-		return ptr;
-	}
-
-};
-
-
-// Class Engine.VisualLoggerAutomationTests
-// 0x0000 (0x0028 - 0x0028)
-class UVisualLoggerAutomationTests : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.VisualLoggerAutomationTests");
 		return ptr;
 	}
 
@@ -21809,6 +21804,21 @@ public:
 };
 
 
+// Class Engine.VisualLoggerAutomationTests
+// 0x0000 (0x0028 - 0x0028)
+class UVisualLoggerAutomationTests : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.VisualLoggerAutomationTests");
+		return ptr;
+	}
+
+};
+
+
 // Class Engine.VoiceChannel
 // 0x0010 (0x0078 - 0x0068)
 class UVoiceChannel : public UChannel
@@ -21822,28 +21832,6 @@ public:
 		return ptr;
 	}
 
-};
-
-
-// Class Engine.VisualLoggerKismetLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UVisualLoggerKismetLibrary : public UBlueprintFunctionLibrary
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.VisualLoggerKismetLibrary");
-		return ptr;
-	}
-
-
-	void STATIC_RedirectVislog(class UObject* SourceOwner, class UObject* DestinationOwner);
-	void STATIC_LogText(class UObject* WorldContextObject, const struct FString& Text, const struct FName& LogCategory, bool bAddToMessageLog);
-	void STATIC_LogSegment(class UObject* WorldContextObject, const struct FVector& SegmentStart, const struct FVector& SegmentEnd, const struct FString& Text, const struct FLinearColor& ObjectColor, float Thickness, const struct FName& CategoryName, bool bAddToMessageLog);
-	void STATIC_LogLocation(class UObject* WorldContextObject, const struct FVector& Location, const struct FString& Text, const struct FLinearColor& ObjectColor, float Radius, const struct FName& LogCategory, bool bAddToMessageLog);
-	void STATIC_LogBox(class UObject* WorldContextObject, const struct FBox& BoxShape, const struct FString& Text, const struct FLinearColor& ObjectColor, const struct FName& LogCategory, bool bAddToMessageLog);
-	void STATIC_EnableRecording(bool bEnabled);
 };
 
 
@@ -21867,6 +21855,45 @@ public:
 	class UVOIPTalker* STATIC_CreateTalkerForPlayer(class APlayerState* OwningState);
 	void BPOnTalkingEnd();
 	void BPOnTalkingBegin(class UAudioComponent* AudioComponent);
+};
+
+
+// Class Engine.VOIPStatics
+// 0x0000 (0x0028 - 0x0028)
+class UVOIPStatics : public UBlueprintFunctionLibrary
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.VOIPStatics");
+		return ptr;
+	}
+
+
+	void STATIC_SetMicThreshold(float InThreshold);
+};
+
+
+// Class Engine.VisualLoggerKismetLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UVisualLoggerKismetLibrary : public UBlueprintFunctionLibrary
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Engine.VisualLoggerKismetLibrary");
+		return ptr;
+	}
+
+
+	void STATIC_RedirectVislog(class UObject* SourceOwner, class UObject* DestinationOwner);
+	void STATIC_LogText(class UObject* WorldContextObject, const struct FString& Text, const struct FName& LogCategory, bool bAddToMessageLog);
+	void STATIC_LogSegment(class UObject* WorldContextObject, const struct FVector& SegmentStart, const struct FVector& SegmentEnd, const struct FString& Text, const struct FLinearColor& ObjectColor, float Thickness, const struct FName& CategoryName, bool bAddToMessageLog);
+	void STATIC_LogLocation(class UObject* WorldContextObject, const struct FVector& Location, const struct FString& Text, const struct FLinearColor& ObjectColor, float Radius, const struct FName& LogCategory, bool bAddToMessageLog);
+	void STATIC_LogBox(class UObject* WorldContextObject, const struct FBox& BoxShape, const struct FString& Text, const struct FLinearColor& ObjectColor, const struct FName& LogCategory, bool bAddToMessageLog);
+	void STATIC_EnableRecording(bool bEnabled);
 };
 
 
@@ -21984,23 +22011,6 @@ public:
 };
 
 
-// Class Engine.VOIPStatics
-// 0x0000 (0x0028 - 0x0028)
-class UVOIPStatics : public UBlueprintFunctionLibrary
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Engine.VOIPStatics");
-		return ptr;
-	}
-
-
-	void STATIC_SetMicThreshold(float InThreshold);
-};
-
-
 // Class Engine.WorldSettings
 // 0x0228 (0x0550 - 0x0328)
 class AWorldSettings : public AInfo
@@ -22085,25 +22095,15 @@ public:
 };
 
 
-// Class Engine.TouchInterface
-// 0x0030 (0x0058 - 0x0028)
-class UTouchInterface : public UObject
+// Class Engine.TriggerBox
+// 0x0000 (0x0330 - 0x0330)
+class ATriggerBox : public ATriggerBase
 {
 public:
-	TArray<struct FTouchInputControl>                  Controls;                                                 // 0x0028(0x0010) (Edit, ZeroConstructor)
-	float                                              ActiveOpacity;                                            // 0x0038(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              InactiveOpacity;                                          // 0x003C(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              TimeUntilDeactive;                                        // 0x0040(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              TimeUntilReset;                                           // 0x0044(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              ActivationDelay;                                          // 0x0048(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	bool                                               bPreventRecenter;                                         // 0x004C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x004D(0x0003) MISSED OFFSET
-	float                                              StartupDelay;                                             // 0x0050(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x0054(0x0004) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Engine.TouchInterface");
+		static auto ptr = UObject::FindClass("Class Engine.TriggerBox");
 		return ptr;
 	}
 

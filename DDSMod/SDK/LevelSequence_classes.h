@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,25 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
-
-// Class LevelSequence.DefaultLevelSequenceInstanceData
-// 0x0048 (0x0070 - 0x0028)
-class UDefaultLevelSequenceInstanceData : public UObject
-{
-public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
-	class AActor*                                      TransformOriginActor;                                     // 0x0030(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0038(0x0008) MISSED OFFSET
-	struct FTransform                                  TransformOrigin;                                          // 0x0040(0x0030) (Edit, BlueprintVisible, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class LevelSequence.DefaultLevelSequenceInstanceData");
-		return ptr;
-	}
-
-};
-
 
 // Class LevelSequence.LevelSequence
 // 0x0150 (0x0498 - 0x0348)
@@ -124,23 +105,22 @@ public:
 };
 
 
-// Class LevelSequence.LevelSequenceBurnIn
-// 0x0090 (0x0298 - 0x0208)
-class ULevelSequenceBurnIn : public UUserWidget
+// Class LevelSequence.DefaultLevelSequenceInstanceData
+// 0x0048 (0x0070 - 0x0028)
+class UDefaultLevelSequenceInstanceData : public UObject
 {
 public:
-	struct FLevelSequencePlayerSnapshot                FrameInformation;                                         // 0x0208(0x0088) (BlueprintVisible, BlueprintReadOnly)
-	class ALevelSequenceActor*                         LevelSequenceActor;                                       // 0x0290(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0028(0x0008) MISSED OFFSET
+	class AActor*                                      TransformOriginActor;                                     // 0x0030(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0038(0x0008) MISSED OFFSET
+	struct FTransform                                  TransformOrigin;                                          // 0x0040(0x0030) (Edit, BlueprintVisible, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class LevelSequence.LevelSequenceBurnIn");
+		static auto ptr = UObject::FindClass("Class LevelSequence.DefaultLevelSequenceInstanceData");
 		return ptr;
 	}
 
-
-	void SetSettings(class UObject* InSettings);
-	class UClass* GetSettingsClass();
 };
 
 
@@ -195,6 +175,26 @@ public:
 
 
 	class ULevelSequencePlayer* STATIC_CreateLevelSequencePlayer(class UObject* WorldContextObject, class ULevelSequence* LevelSequence, const struct FMovieSceneSequencePlaybackSettings& Settings, class ALevelSequenceActor** OutActor);
+};
+
+
+// Class LevelSequence.LevelSequenceBurnIn
+// 0x0090 (0x0298 - 0x0208)
+class ULevelSequenceBurnIn : public UUserWidget
+{
+public:
+	struct FLevelSequencePlayerSnapshot                FrameInformation;                                         // 0x0208(0x0088) (BlueprintVisible, BlueprintReadOnly)
+	class ALevelSequenceActor*                         LevelSequenceActor;                                       // 0x0290(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class LevelSequence.LevelSequenceBurnIn");
+		return ptr;
+	}
+
+
+	void SetSettings(class UObject* InSettings);
+	class UClass* GetSettingsClass();
 };
 
 

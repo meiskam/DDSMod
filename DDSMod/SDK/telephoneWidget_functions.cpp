@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -35,16 +35,16 @@ void UtelephoneWidget_C::renderNotifications()
 // Parameters:
 // class AtelephoneBP_C*          phoneRef                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           renderUserMsg                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            userID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            userId                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UtelephoneWidget_C::renderMessages(class AtelephoneBP_C* phoneRef, bool renderUserMsg, int userID)
+void UtelephoneWidget_C::renderMessages(class AtelephoneBP_C* phoneRef, bool renderUserMsg, int userId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function telephoneWidget.telephoneWidget_C.renderMessages");
 
 	UtelephoneWidget_C_renderMessages_Params params;
 	params.phoneRef = phoneRef;
 	params.renderUserMsg = renderUserMsg;
-	params.userID = userID;
+	params.userId = userId;
 
 	auto flags = fn->FunctionFlags;
 

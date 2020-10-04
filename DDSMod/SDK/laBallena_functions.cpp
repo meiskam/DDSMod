@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,23 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function laBallena.laBallena_C.removeOldCigars
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void AlaBallena_C::removeOldCigars()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function laBallena.laBallena_C.removeOldCigars");
+
+	AlaBallena_C_removeOldCigars_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function laBallena.laBallena_C.playDialogueLine
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)

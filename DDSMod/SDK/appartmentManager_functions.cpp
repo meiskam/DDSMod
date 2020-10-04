@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -306,23 +306,6 @@ void AappartmentManager_C::startAppartmentViewer()
 }
 
 
-// Function appartmentManager.appartmentManager_C.sendDebtInfo
-// (BlueprintCallable, BlueprintEvent)
-
-void AappartmentManager_C::sendDebtInfo()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function appartmentManager.appartmentManager_C.sendDebtInfo");
-
-	AappartmentManager_C_sendDebtInfo_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function appartmentManager.appartmentManager_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
@@ -351,6 +334,23 @@ void AappartmentManager_C::ReceiveBeginPlay()
 	static auto fn = UObject::FindObject<UFunction>("Function appartmentManager.appartmentManager_C.ReceiveBeginPlay");
 
 	AappartmentManager_C_ReceiveBeginPlay_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function appartmentManager.appartmentManager_C.sendDebtInfo
+// (BlueprintCallable, BlueprintEvent)
+
+void AappartmentManager_C::sendDebtInfo()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function appartmentManager.appartmentManager_C.sendDebtInfo");
+
+	AappartmentManager_C_sendDebtInfo_Params params;
 
 	auto flags = fn->FunctionFlags;
 

@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,23 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function clothesWardrobeBP.clothesWardrobeBP_C.endCopAlert
+// (Public, BlueprintCallable, BlueprintEvent)
+
+void AclothesWardrobeBP_C::endCopAlert()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function clothesWardrobeBP.clothesWardrobeBP_C.endCopAlert");
+
+	AclothesWardrobeBP_C_endCopAlert_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
 
 // Function clothesWardrobeBP.clothesWardrobeBP_C.UserConstructionScript
 // (Event, Public, BlueprintCallable, BlueprintEvent)

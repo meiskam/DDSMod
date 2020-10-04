@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,22 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
-
-// Class MaterialShaderQualitySettings.MaterialShaderQualitySettings
-// 0x0050 (0x0078 - 0x0028)
-class UMaterialShaderQualitySettings : public UObject
-{
-public:
-	TMap<struct FName, class UShaderPlatformQualitySettings*> ForwardSettingMap;                                        // 0x0028(0x0050) (ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MaterialShaderQualitySettings.MaterialShaderQualitySettings");
-		return ptr;
-	}
-
-};
-
 
 // Class MaterialShaderQualitySettings.ShaderPlatformQualitySettings
 // 0x0028 (0x0050 - 0x0028)
@@ -39,6 +23,22 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class MaterialShaderQualitySettings.ShaderPlatformQualitySettings");
+		return ptr;
+	}
+
+};
+
+
+// Class MaterialShaderQualitySettings.MaterialShaderQualitySettings
+// 0x0050 (0x0078 - 0x0028)
+class UMaterialShaderQualitySettings : public UObject
+{
+public:
+	TMap<struct FName, class UShaderPlatformQualitySettings*> ForwardSettingMap;                                        // 0x0028(0x0050) (ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MaterialShaderQualitySettings.MaterialShaderQualitySettings");
 		return ptr;
 	}
 

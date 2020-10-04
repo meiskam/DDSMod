@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,30 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function playerCharacterBP.playerCharacterBP_C.convertBackpackData
+// (Public, HasOutParms, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// struct FinventoryItemStruct    BackpackIn                     (BlueprintVisible, BlueprintReadOnly, Parm)
+// struct FinventoryItemStruct    BackpackOut                    (Parm, OutParm)
+
+void AplayerCharacterBP_C::convertBackpackData(const struct FinventoryItemStruct& BackpackIn, struct FinventoryItemStruct* BackpackOut)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function playerCharacterBP.playerCharacterBP_C.convertBackpackData");
+
+	AplayerCharacterBP_C_convertBackpackData_Params params;
+	params.BackpackIn = BackpackIn;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (BackpackOut != nullptr)
+		*BackpackOut = params.BackpackOut;
+}
+
 
 // Function playerCharacterBP.playerCharacterBP_C.checkSeedsInventory
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
@@ -541,9 +565,9 @@ void AplayerCharacterBP_C::updateNotifyIcons()
 // Parameters:
 // struct FinventoryItemStruct    Data                           (BlueprintVisible, BlueprintReadOnly, Parm)
 // int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// bool                           CanFit                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           canFit                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AplayerCharacterBP_C::checkInventorySizing(const struct FinventoryItemStruct& Data, int Quantity, bool* CanFit)
+void AplayerCharacterBP_C::checkInventorySizing(const struct FinventoryItemStruct& Data, int Quantity, bool* canFit)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function playerCharacterBP.playerCharacterBP_C.checkInventorySizing");
 
@@ -557,8 +581,8 @@ void AplayerCharacterBP_C::checkInventorySizing(const struct FinventoryItemStruc
 
 	fn->FunctionFlags = flags;
 
-	if (CanFit != nullptr)
-		*CanFit = params.CanFit;
+	if (canFit != nullptr)
+		*canFit = params.canFit;
 }
 
 
@@ -917,16 +941,16 @@ void AplayerCharacterBP_C::clearBackpack()
 // Function playerCharacterBP.playerCharacterBP_C.setCurrentBackpack
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class AbackpackBase_C*         Backpack                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AbackpackBase_C*         backpack                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // class AitemInventoryHolder_C*  itemHolder                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FinventoryItemStruct    backpackData                   (BlueprintVisible, BlueprintReadOnly, Parm)
 
-void AplayerCharacterBP_C::setCurrentBackpack(class AbackpackBase_C* Backpack, class AitemInventoryHolder_C* itemHolder, const struct FinventoryItemStruct& backpackData)
+void AplayerCharacterBP_C::setCurrentBackpack(class AbackpackBase_C* backpack, class AitemInventoryHolder_C* itemHolder, const struct FinventoryItemStruct& backpackData)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function playerCharacterBP.playerCharacterBP_C.setCurrentBackpack");
 
 	AplayerCharacterBP_C_setCurrentBackpack_Params params;
-	params.Backpack = Backpack;
+	params.backpack = backpack;
 	params.itemHolder = itemHolder;
 	params.backpackData = backpackData;
 
@@ -988,9 +1012,9 @@ void AplayerCharacterBP_C::phoneNewNote(bool done, const struct FText& noteText)
 // struct FString                 functionOnAnswer               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 // struct FString                 functionOnDecline              (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 // struct FString                 functionOnEnd                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
-// struct FText                   CallText                       (BlueprintVisible, BlueprintReadOnly, Parm)
+// struct FText                   callText                       (BlueprintVisible, BlueprintReadOnly, Parm)
 
-void AplayerCharacterBP_C::phoneNewCall(int callerID, class USoundWave* callAudio, const struct FString& functionOnAnswer, const struct FString& functionOnDecline, const struct FString& functionOnEnd, const struct FText& CallText)
+void AplayerCharacterBP_C::phoneNewCall(int callerID, class USoundWave* callAudio, const struct FString& functionOnAnswer, const struct FString& functionOnDecline, const struct FString& functionOnEnd, const struct FText& callText)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function playerCharacterBP.playerCharacterBP_C.phoneNewCall");
 
@@ -1000,7 +1024,7 @@ void AplayerCharacterBP_C::phoneNewCall(int callerID, class USoundWave* callAudi
 	params.functionOnAnswer = functionOnAnswer;
 	params.functionOnDecline = functionOnDecline;
 	params.functionOnEnd = functionOnEnd;
-	params.CallText = CallText;
+	params.callText = callText;
 
 	auto flags = fn->FunctionFlags;
 
@@ -1039,10 +1063,10 @@ void AplayerCharacterBP_C::phoneNewMessage(int From, const struct FText& Message
 // Parameters:
 // struct FinventoryItemStruct    Data                           (BlueprintVisible, BlueprintReadOnly, Parm)
 // int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// bool                           CanFit                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-// int                            MaxQuantity                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           canFit                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// int                            maxQuantity                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AplayerCharacterBP_C::checkContainerSizing(const struct FinventoryItemStruct& Data, int Quantity, bool* CanFit, int* MaxQuantity)
+void AplayerCharacterBP_C::checkContainerSizing(const struct FinventoryItemStruct& Data, int Quantity, bool* canFit, int* maxQuantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function playerCharacterBP.playerCharacterBP_C.checkContainerSizing");
 
@@ -1056,10 +1080,10 @@ void AplayerCharacterBP_C::checkContainerSizing(const struct FinventoryItemStruc
 
 	fn->FunctionFlags = flags;
 
-	if (CanFit != nullptr)
-		*CanFit = params.CanFit;
-	if (MaxQuantity != nullptr)
-		*MaxQuantity = params.MaxQuantity;
+	if (canFit != nullptr)
+		*canFit = params.canFit;
+	if (maxQuantity != nullptr)
+		*maxQuantity = params.maxQuantity;
 }
 
 
@@ -1123,10 +1147,10 @@ void AplayerCharacterBP_C::addBackpackContent(const struct FinventoryItemStruct&
 // Parameters:
 // struct FinventoryItemStruct    itemData                       (BlueprintVisible, BlueprintReadOnly, Parm)
 // int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// bool                           CanFit                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-// int                            MaxQuantity                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           canFit                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// int                            maxQuantity                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AplayerCharacterBP_C::checkBackpackSizing(const struct FinventoryItemStruct& itemData, int Quantity, bool* CanFit, int* MaxQuantity)
+void AplayerCharacterBP_C::checkBackpackSizing(const struct FinventoryItemStruct& itemData, int Quantity, bool* canFit, int* maxQuantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function playerCharacterBP.playerCharacterBP_C.checkBackpackSizing");
 
@@ -1140,10 +1164,10 @@ void AplayerCharacterBP_C::checkBackpackSizing(const struct FinventoryItemStruct
 
 	fn->FunctionFlags = flags;
 
-	if (CanFit != nullptr)
-		*CanFit = params.CanFit;
-	if (MaxQuantity != nullptr)
-		*MaxQuantity = params.MaxQuantity;
+	if (canFit != nullptr)
+		*canFit = params.canFit;
+	if (maxQuantity != nullptr)
+		*maxQuantity = params.maxQuantity;
 }
 
 
@@ -1153,10 +1177,10 @@ void AplayerCharacterBP_C::checkBackpackSizing(const struct FinventoryItemStruct
 // struct FinventoryItemStruct    itemData                       (BlueprintVisible, BlueprintReadOnly, Parm)
 // int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            Index                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// bool                           CanFit                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-// int                            MaxQuantity                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           canFit                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// int                            maxQuantity                    (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AplayerCharacterBP_C::checkPocketSizing(const struct FinventoryItemStruct& itemData, int Quantity, int Index, bool* CanFit, int* MaxQuantity)
+void AplayerCharacterBP_C::checkPocketSizing(const struct FinventoryItemStruct& itemData, int Quantity, int Index, bool* canFit, int* maxQuantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function playerCharacterBP.playerCharacterBP_C.checkPocketSizing");
 
@@ -1171,10 +1195,10 @@ void AplayerCharacterBP_C::checkPocketSizing(const struct FinventoryItemStruct& 
 
 	fn->FunctionFlags = flags;
 
-	if (CanFit != nullptr)
-		*CanFit = params.CanFit;
-	if (MaxQuantity != nullptr)
-		*MaxQuantity = params.MaxQuantity;
+	if (canFit != nullptr)
+		*canFit = params.canFit;
+	if (maxQuantity != nullptr)
+		*maxQuantity = params.maxQuantity;
 }
 
 
@@ -3190,14 +3214,14 @@ void AplayerCharacterBP_C::clearOptionPanel()
 }
 
 
-// Function playerCharacterBP.playerCharacterBP_C.actionRelease
+// Function playerCharacterBP.playerCharacterBP_C.ActionRelease
 // (BlueprintCallable, BlueprintEvent)
 
-void AplayerCharacterBP_C::actionRelease()
+void AplayerCharacterBP_C::ActionRelease()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function playerCharacterBP.playerCharacterBP_C.actionRelease");
+	static auto fn = UObject::FindObject<UFunction>("Function playerCharacterBP.playerCharacterBP_C.ActionRelease");
 
-	AplayerCharacterBP_C_actionRelease_Params params;
+	AplayerCharacterBP_C_ActionRelease_Params params;
 
 	auto flags = fn->FunctionFlags;
 

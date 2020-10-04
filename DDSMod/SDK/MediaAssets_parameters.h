@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -30,6 +30,27 @@ struct UMediaSource_GetUrl_Params
 struct UFileMediaSource_SetFilePath_Params
 {
 	struct FString                                     Path;                                                     // (Parm, ZeroConstructor)
+};
+
+// Function MediaAssets.MediaBlueprintFunctionLibrary.EnumerateWebcamCaptureDevices
+struct UMediaBlueprintFunctionLibrary_EnumerateWebcamCaptureDevices_Params
+{
+	TArray<struct FMediaCaptureDevice>                 OutDevices;                                               // (Parm, OutParm, ZeroConstructor)
+	int                                                Filter;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaBlueprintFunctionLibrary.EnumerateVideoCaptureDevices
+struct UMediaBlueprintFunctionLibrary_EnumerateVideoCaptureDevices_Params
+{
+	TArray<struct FMediaCaptureDevice>                 OutDevices;                                               // (Parm, OutParm, ZeroConstructor)
+	int                                                Filter;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function MediaAssets.MediaBlueprintFunctionLibrary.EnumerateAudioCaptureDevices
+struct UMediaBlueprintFunctionLibrary_EnumerateAudioCaptureDevices_Params
+{
+	TArray<struct FMediaCaptureDevice>                 OutDevices;                                               // (Parm, OutParm, ZeroConstructor)
+	int                                                Filter;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function MediaAssets.MediaPlayer.SupportsSeeking
@@ -620,27 +641,6 @@ struct UMediaTexture_GetHeight_Params
 struct UMediaTexture_GetAspectRatio_Params
 {
 	float                                              ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaBlueprintFunctionLibrary.EnumerateWebcamCaptureDevices
-struct UMediaBlueprintFunctionLibrary_EnumerateWebcamCaptureDevices_Params
-{
-	TArray<struct FMediaCaptureDevice>                 OutDevices;                                               // (Parm, OutParm, ZeroConstructor)
-	int                                                Filter;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaBlueprintFunctionLibrary.EnumerateVideoCaptureDevices
-struct UMediaBlueprintFunctionLibrary_EnumerateVideoCaptureDevices_Params
-{
-	TArray<struct FMediaCaptureDevice>                 OutDevices;                                               // (Parm, OutParm, ZeroConstructor)
-	int                                                Filter;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
-};
-
-// Function MediaAssets.MediaBlueprintFunctionLibrary.EnumerateAudioCaptureDevices
-struct UMediaBlueprintFunctionLibrary_EnumerateAudioCaptureDevices_Params
-{
-	TArray<struct FMediaCaptureDevice>                 OutDevices;                                               // (Parm, OutParm, ZeroConstructor)
-	int                                                Filter;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -58,21 +58,6 @@ public:
 };
 
 
-// Class NavigationSystem.CrowdManagerBase
-// 0x0000 (0x0028 - 0x0028)
-class UCrowdManagerBase : public UObject
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.CrowdManagerBase");
-		return ptr;
-	}
-
-};
-
-
 // Class NavigationSystem.NavArea
 // 0x0018 (0x0048 - 0x0030)
 class UNavArea : public UNavAreaBase
@@ -103,6 +88,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class NavigationSystem.NavArea");
+		return ptr;
+	}
+
+};
+
+
+// Class NavigationSystem.CrowdManagerBase
+// 0x0000 (0x0028 - 0x0028)
+class UCrowdManagerBase : public UObject
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.CrowdManagerBase");
 		return ptr;
 	}
 
@@ -184,37 +184,6 @@ public:
 };
 
 
-// Class NavigationSystem.NavAreaMeta_SwitchByAgent
-// 0x0080 (0x00C8 - 0x0048)
-class UNavAreaMeta_SwitchByAgent : public UNavAreaMeta
-{
-public:
-	class UClass*                                      Agent0Area;                                               // 0x0048(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent1Area;                                               // 0x0050(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent2Area;                                               // 0x0058(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent3Area;                                               // 0x0060(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent4Area;                                               // 0x0068(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent5Area;                                               // 0x0070(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent6Area;                                               // 0x0078(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent7Area;                                               // 0x0080(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent8Area;                                               // 0x0088(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent9Area;                                               // 0x0090(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent10Area;                                              // 0x0098(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent11Area;                                              // 0x00A0(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent12Area;                                              // 0x00A8(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent13Area;                                              // 0x00B0(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent14Area;                                              // 0x00B8(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      Agent15Area;                                              // 0x00C0(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavAreaMeta_SwitchByAgent");
-		return ptr;
-	}
-
-};
-
-
 // Class NavigationSystem.NavCollision
 // 0x0068 (0x00D8 - 0x0070)
 class UNavCollision : public UNavCollisionBase
@@ -230,21 +199,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class NavigationSystem.NavCollision");
-		return ptr;
-	}
-
-};
-
-
-// Class NavigationSystem.NavigationGraph
-// 0x0000 (0x04E8 - 0x04E8)
-class ANavigationGraph : public ANavigationData
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavigationGraph");
 		return ptr;
 	}
 
@@ -284,17 +238,31 @@ public:
 };
 
 
-// Class NavigationSystem.NavigationInvokerComponent
-// 0x0008 (0x00F8 - 0x00F0)
-class UNavigationInvokerComponent : public UActorComponent
+// Class NavigationSystem.NavAreaMeta_SwitchByAgent
+// 0x0080 (0x00C8 - 0x0048)
+class UNavAreaMeta_SwitchByAgent : public UNavAreaMeta
 {
 public:
-	float                                              TileGenerationRadius;                                     // 0x00F0(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	float                                              TileRemovalRadius;                                        // 0x00F4(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent0Area;                                               // 0x0048(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent1Area;                                               // 0x0050(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent2Area;                                               // 0x0058(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent3Area;                                               // 0x0060(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent4Area;                                               // 0x0068(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent5Area;                                               // 0x0070(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent6Area;                                               // 0x0078(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent7Area;                                               // 0x0080(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent8Area;                                               // 0x0088(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent9Area;                                               // 0x0090(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent10Area;                                              // 0x0098(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent11Area;                                              // 0x00A0(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent12Area;                                              // 0x00A8(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent13Area;                                              // 0x00B0(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent14Area;                                              // 0x00B8(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      Agent15Area;                                              // 0x00C0(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavigationInvokerComponent");
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavAreaMeta_SwitchByAgent");
 		return ptr;
 	}
 
@@ -338,6 +306,21 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class NavigationSystem.NavigationPathGenerator");
+		return ptr;
+	}
+
+};
+
+
+// Class NavigationSystem.NavigationGraph
+// 0x0000 (0x04E8 - 0x04E8)
+class ANavigationGraph : public ANavigationData
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavigationGraph");
 		return ptr;
 	}
 
@@ -411,6 +394,26 @@ public:
 };
 
 
+// Class NavigationSystem.NavigationSystemModuleConfig
+// 0x0008 (0x0050 - 0x0048)
+class UNavigationSystemModuleConfig : public UNavigationSystemConfig
+{
+public:
+	unsigned char                                      bStrictlyStatic : 1;                                      // 0x0048(0x0001) (Edit)
+	unsigned char                                      bCreateOnClient : 1;                                      // 0x0048(0x0001) (Edit)
+	unsigned char                                      bAutoSpawnMissingNavData : 1;                             // 0x0048(0x0001) (Edit)
+	unsigned char                                      bSpawnNavDataInNavBoundsLevel : 1;                        // 0x0048(0x0001) (Edit)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0049(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavigationSystemModuleConfig");
+		return ptr;
+	}
+
+};
+
+
 // Class NavigationSystem.NavigationQueryFilter
 // 0x0020 (0x0048 - 0x0028)
 class UNavigationQueryFilter : public UObject
@@ -424,6 +427,22 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class NavigationSystem.NavigationQueryFilter");
+		return ptr;
+	}
+
+};
+
+
+// Class NavigationSystem.NavLinkComponent
+// 0x0010 (0x0570 - 0x0560)
+class UNavLinkComponent : public UPrimitiveComponent
+{
+public:
+	TArray<struct FNavigationLink>                     Links;                                                    // 0x0560(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkComponent");
 		return ptr;
 	}
 
@@ -481,22 +500,6 @@ public:
 };
 
 
-// Class NavigationSystem.NavLinkComponent
-// 0x0010 (0x0570 - 0x0560)
-class UNavLinkComponent : public UPrimitiveComponent
-{
-public:
-	TArray<struct FNavigationLink>                     Links;                                                    // 0x0560(0x0010) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkComponent");
-		return ptr;
-	}
-
-};
-
-
 // Class NavigationSystem.NavRelevantComponent
 // 0x0030 (0x0120 - 0x00F0)
 class UNavRelevantComponent : public UActorComponent
@@ -515,26 +518,6 @@ public:
 
 
 	void SetNavigationRelevancy(bool bRelevant);
-};
-
-
-// Class NavigationSystem.NavigationSystemModuleConfig
-// 0x0008 (0x0050 - 0x0048)
-class UNavigationSystemModuleConfig : public UNavigationSystemConfig
-{
-public:
-	unsigned char                                      bStrictlyStatic : 1;                                      // 0x0048(0x0001) (Edit)
-	unsigned char                                      bCreateOnClient : 1;                                      // 0x0048(0x0001) (Edit)
-	unsigned char                                      bAutoSpawnMissingNavData : 1;                             // 0x0048(0x0001) (Edit)
-	unsigned char                                      bSpawnNavDataInNavBoundsLevel : 1;                        // 0x0048(0x0001) (Edit)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0049(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavigationSystemModuleConfig");
-		return ptr;
-	}
-
 };
 
 
@@ -589,15 +572,15 @@ public:
 };
 
 
-// Class NavigationSystem.NavLinkHostInterface
-// 0x0000 (0x0028 - 0x0028)
-class UNavLinkHostInterface : public UInterface
+// Class NavigationSystem.NavLinkRenderingComponent
+// 0x0000 (0x0560 - 0x0560)
+class UNavLinkRenderingComponent : public UPrimitiveComponent
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkHostInterface");
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkRenderingComponent");
 		return ptr;
 	}
 
@@ -619,32 +602,48 @@ public:
 };
 
 
-// Class NavigationSystem.NavLinkRenderingComponent
-// 0x0000 (0x0560 - 0x0560)
-class UNavLinkRenderingComponent : public UPrimitiveComponent
+// Class NavigationSystem.NavigationInvokerComponent
+// 0x0008 (0x00F8 - 0x00F0)
+class UNavigationInvokerComponent : public UActorComponent
 {
 public:
+	float                                              TileGenerationRadius;                                     // 0x00F0(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
+	float                                              TileRemovalRadius;                                        // 0x00F4(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkRenderingComponent");
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavigationInvokerComponent");
 		return ptr;
 	}
 
 };
 
 
-// Class NavigationSystem.NavMeshBoundsVolume
-// 0x0008 (0x0368 - 0x0360)
-class ANavMeshBoundsVolume : public AVolume
+// Class NavigationSystem.NavMeshRenderingComponent
+// 0x0010 (0x0570 - 0x0560)
+class UNavMeshRenderingComponent : public UPrimitiveComponent
 {
 public:
-	struct FNavAgentSelector                           SupportedAgents;                                          // 0x0360(0x0004) (Edit)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0364(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0560(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavMeshBoundsVolume");
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavMeshRenderingComponent");
+		return ptr;
+	}
+
+};
+
+
+// Class NavigationSystem.NavLinkHostInterface
+// 0x0000 (0x0028 - 0x0028)
+class UNavLinkHostInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavLinkHostInterface");
 		return ptr;
 	}
 
@@ -672,22 +671,20 @@ public:
 };
 
 
-// Class NavigationSystem.NavModifierVolume
-// 0x0010 (0x0370 - 0x0360)
-class ANavModifierVolume : public AVolume
+// Class NavigationSystem.NavMeshBoundsVolume
+// 0x0008 (0x0368 - 0x0360)
+class ANavMeshBoundsVolume : public AVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0360(0x0008) MISSED OFFSET
-	class UClass*                                      AreaClass;                                                // 0x0368(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FNavAgentSelector                           SupportedAgents;                                          // 0x0360(0x0004) (Edit)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0364(0x0004) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavModifierVolume");
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavMeshBoundsVolume");
 		return ptr;
 	}
 
-
-	void SetAreaClass(class UClass* NewAreaClass);
 };
 
 
@@ -848,19 +845,22 @@ public:
 };
 
 
-// Class NavigationSystem.NavMeshRenderingComponent
-// 0x0010 (0x0570 - 0x0560)
-class UNavMeshRenderingComponent : public UPrimitiveComponent
+// Class NavigationSystem.NavModifierVolume
+// 0x0010 (0x0370 - 0x0360)
+class ANavModifierVolume : public AVolume
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0560(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0360(0x0008) MISSED OFFSET
+	class UClass*                                      AreaClass;                                                // 0x0368(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class NavigationSystem.NavMeshRenderingComponent");
+		static auto ptr = UObject::FindClass("Class NavigationSystem.NavModifierVolume");
 		return ptr;
 	}
 
+
+	void SetAreaClass(class UClass* NewAreaClass);
 };
 
 

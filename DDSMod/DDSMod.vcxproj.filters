@@ -1231,13 +1231,13 @@
     <ClCompile Include="SDK\orderInstance_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\Overlay_functions.cpp">
-      <Filter>SDK</Filter>
-    </ClCompile>
     <ClCompile Include="SDK\packageBase_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\packageProductWidget_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\PacketHandler_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\panEddie_functions.cpp">
@@ -1721,6 +1721,15 @@
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\stonePreacherFixer_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\stream_docks_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\stream_oldTown_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\streamMapLoader_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\streetLantern_functions.cpp">
@@ -5297,9 +5306,6 @@
     <ClInclude Include="SDK\miniTaskListItem_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\MISSING.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
     <ClInclude Include="SDK\mixConfirmWidget_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
@@ -5714,15 +5720,6 @@
     <ClInclude Include="SDK\orderInstance_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\Overlay_classes.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Overlay_parameters.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\Overlay_structs.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
     <ClInclude Include="SDK\packageBase_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
@@ -5739,6 +5736,15 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\packageProductWidget_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\PacketHandler_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\PacketHandler_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\PacketHandler_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\panEddie_classes.h">
@@ -7188,6 +7194,33 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\stonePreacherFixer_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stream_docks_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stream_docks_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stream_docks_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stream_oldTown_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stream_oldTown_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stream_oldTown_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\streamMapLoader_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\streamMapLoader_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\streamMapLoader_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\streetLantern_classes.h">

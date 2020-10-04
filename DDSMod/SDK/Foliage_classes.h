@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,42 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
+
+// Class Foliage.FoliageInstancedStaticMeshComponent
+// 0x0020 (0x0790 - 0x0770)
+class UFoliageInstancedStaticMeshComponent : public UHierarchicalInstancedStaticMeshComponent
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0770(0x0008) MISSED OFFSET
+	struct FScriptMulticastDelegate                    OnInstanceTakeRadialDamage;                               // 0x0778(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x0788(0x0008) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Foliage.FoliageInstancedStaticMeshComponent");
+		return ptr;
+	}
+
+};
+
+
+// Class Foliage.FoliageStatistics
+// 0x0000 (0x0028 - 0x0028)
+class UFoliageStatistics : public UBlueprintFunctionLibrary
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Foliage.FoliageStatistics");
+		return ptr;
+	}
+
+
+	int STATIC_FoliageOverlappingSphereCount(class UObject* WorldContextObject, class UStaticMesh* StaticMesh, const struct FVector& CenterPosition, float Radius);
+	int STATIC_FoliageOverlappingBoxCount(class UObject* WorldContextObject, class UStaticMesh* StaticMesh, const struct FBox& Box);
+};
+
 
 // Class Foliage.FoliageType
 // 0x0328 (0x0350 - 0x0028)
@@ -132,22 +168,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Foliage.FoliageType_InstancedStaticMesh");
-		return ptr;
-	}
-
-};
-
-
-// Class Foliage.InstancedFoliageActor
-// 0x0050 (0x0378 - 0x0328)
-class AInstancedFoliageActor : public AActor
-{
-public:
-	unsigned char                                      UnknownData00[0x50];                                      // 0x0328(0x0050) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Foliage.InstancedFoliageActor");
 		return ptr;
 	}
 
@@ -297,39 +317,19 @@ public:
 };
 
 
-// Class Foliage.FoliageInstancedStaticMeshComponent
-// 0x0020 (0x0790 - 0x0770)
-class UFoliageInstancedStaticMeshComponent : public UHierarchicalInstancedStaticMeshComponent
+// Class Foliage.InstancedFoliageActor
+// 0x0050 (0x0378 - 0x0328)
+class AInstancedFoliageActor : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0770(0x0008) MISSED OFFSET
-	struct FScriptMulticastDelegate                    OnInstanceTakeRadialDamage;                               // 0x0778(0x0010) (ZeroConstructor, InstancedReference, BlueprintAssignable)
-	unsigned char                                      UnknownData01[0x8];                                       // 0x0788(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x50];                                      // 0x0328(0x0050) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Foliage.FoliageInstancedStaticMeshComponent");
+		static auto ptr = UObject::FindClass("Class Foliage.InstancedFoliageActor");
 		return ptr;
 	}
 
-};
-
-
-// Class Foliage.FoliageStatistics
-// 0x0000 (0x0028 - 0x0028)
-class UFoliageStatistics : public UBlueprintFunctionLibrary
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Foliage.FoliageStatistics");
-		return ptr;
-	}
-
-
-	int STATIC_FoliageOverlappingSphereCount(class UObject* WorldContextObject, class UStaticMesh* StaticMesh, const struct FVector& CenterPosition, float Radius);
-	int STATIC_FoliageOverlappingBoxCount(class UObject* WorldContextObject, class UStaticMesh* StaticMesh, const struct FBox& Box);
 };
 
 

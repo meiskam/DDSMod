@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -150,23 +150,6 @@ void AappartmentViewerPawn_C::InpActEvt_F10_K2Node_InputKeyEvent_1(const struct 
 }
 
 
-// Function appartmentViewerPawn.appartmentViewerPawn_C.SpaceHeldDown
-// (BlueprintCallable, BlueprintEvent)
-
-void AappartmentViewerPawn_C::SpaceHeldDown()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function appartmentViewerPawn.appartmentViewerPawn_C.SpaceHeldDown");
-
-	AappartmentViewerPawn_C_SpaceHeldDown_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function appartmentViewerPawn.appartmentViewerPawn_C.InpAxisEvt_LookSideways_K2Node_InputAxisEvent_1
 // (BlueprintEvent)
 // Parameters:
@@ -178,6 +161,23 @@ void AappartmentViewerPawn_C::InpAxisEvt_LookSideways_K2Node_InputAxisEvent_1(fl
 
 	AappartmentViewerPawn_C_InpAxisEvt_LookSideways_K2Node_InputAxisEvent_1_Params params;
 	params.AxisValue = AxisValue;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function appartmentViewerPawn.appartmentViewerPawn_C.SpaceHeldDown
+// (BlueprintCallable, BlueprintEvent)
+
+void AappartmentViewerPawn_C::SpaceHeldDown()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function appartmentViewerPawn.appartmentViewerPawn_C.SpaceHeldDown");
+
+	AappartmentViewerPawn_C_SpaceHeldDown_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -218,6 +218,23 @@ void AappartmentViewerPawn_C::ReceiveUnpossessed(class AController** OldControll
 
 	AappartmentViewerPawn_C_ReceiveUnpossessed_Params params;
 	params.OldController = OldController;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function appartmentViewerPawn.appartmentViewerPawn_C.checkStreamAreas
+// (BlueprintCallable, BlueprintEvent)
+
+void AappartmentViewerPawn_C::checkStreamAreas()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function appartmentViewerPawn.appartmentViewerPawn_C.checkStreamAreas");
+
+	AappartmentViewerPawn_C_checkStreamAreas_Params params;
 
 	auto flags = fn->FunctionFlags;
 

@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,13 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
+
+// Function playerCharacterBP.playerCharacterBP_C.convertBackpackData
+struct AplayerCharacterBP_C_convertBackpackData_Params
+{
+	struct FinventoryItemStruct                        BackpackIn;                                               // (BlueprintVisible, BlueprintReadOnly, Parm)
+	struct FinventoryItemStruct                        BackpackOut;                                              // (Parm, OutParm)
+};
 
 // Function playerCharacterBP.playerCharacterBP_C.checkSeedsInventory
 struct AplayerCharacterBP_C_checkSeedsInventory_Params
@@ -173,7 +180,7 @@ struct AplayerCharacterBP_C_checkInventorySizing_Params
 {
 	struct FinventoryItemStruct                        Data;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm)
 	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               CanFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               canFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.checkAllPocketsSizing
@@ -287,7 +294,7 @@ struct AplayerCharacterBP_C_clearBackpack_Params
 // Function playerCharacterBP.playerCharacterBP_C.setCurrentBackpack
 struct AplayerCharacterBP_C_setCurrentBackpack_Params
 {
-	class AbackpackBase_C*                             Backpack;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AbackpackBase_C*                             backpack;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	class AitemInventoryHolder_C*                      itemHolder;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	struct FinventoryItemStruct                        backpackData;                                             // (BlueprintVisible, BlueprintReadOnly, Parm)
 };
@@ -313,7 +320,7 @@ struct AplayerCharacterBP_C_phoneNewCall_Params
 	struct FString                                     functionOnAnswer;                                         // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 	struct FString                                     functionOnDecline;                                        // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 	struct FString                                     functionOnEnd;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
-	struct FText                                       CallText;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm)
+	struct FText                                       callText;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.phoneNewMessage
@@ -329,8 +336,8 @@ struct AplayerCharacterBP_C_checkContainerSizing_Params
 {
 	struct FinventoryItemStruct                        Data;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm)
 	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               CanFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                MaxQuantity;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               canFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                maxQuantity;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.tryAddToPockets
@@ -356,8 +363,8 @@ struct AplayerCharacterBP_C_checkBackpackSizing_Params
 {
 	struct FinventoryItemStruct                        itemData;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm)
 	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               CanFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                MaxQuantity;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               canFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                maxQuantity;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.checkPocketSizing
@@ -366,8 +373,8 @@ struct AplayerCharacterBP_C_checkPocketSizing_Params
 	struct FinventoryItemStruct                        itemData;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm)
 	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	int                                                Index;                                                    // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	bool                                               CanFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                MaxQuantity;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	bool                                               canFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                maxQuantity;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.setPocketContent
@@ -974,8 +981,8 @@ struct AplayerCharacterBP_C_clearOptionPanel_Params
 {
 };
 
-// Function playerCharacterBP.playerCharacterBP_C.actionRelease
-struct AplayerCharacterBP_C_actionRelease_Params
+// Function playerCharacterBP.playerCharacterBP_C.ActionRelease
+struct AplayerCharacterBP_C_ActionRelease_Params
 {
 };
 

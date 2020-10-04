@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,22 +13,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
-
-// Function MRMesh.MRMeshComponent.IsConnected
-struct UMRMeshComponent_IsConnected_Params
-{
-	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function MRMesh.MRMeshComponent.ForceNavMeshUpdate
-struct UMRMeshComponent_ForceNavMeshUpdate_Params
-{
-};
-
-// Function MRMesh.MRMeshComponent.Clear
-struct UMRMeshComponent_Clear_Params
-{
-};
 
 // Function MRMesh.MeshReconstructorBase.StopReconstruction
 struct UMeshReconstructorBase_StopReconstruction_Params
@@ -66,6 +50,22 @@ struct UMeshReconstructorBase_DisconnectMRMesh_Params
 struct UMeshReconstructorBase_ConnectMRMesh_Params
 {
 	class UMRMeshComponent*                            Mesh;                                                     // (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+};
+
+// Function MRMesh.MRMeshComponent.IsConnected
+struct UMRMeshComponent_IsConnected_Params
+{
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function MRMesh.MRMeshComponent.ForceNavMeshUpdate
+struct UMRMeshComponent_ForceNavMeshUpdate_Params
+{
+};
+
+// Function MRMesh.MRMeshComponent.Clear
+struct UMRMeshComponent_Clear_Params
+{
 };
 
 }

@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -363,9 +363,9 @@ void AworkStationEquipmentBase_C::calcLineTracePoints()
 // Function workStationEquipmentBase.workStationEquipmentBase_C.checkCanFit
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// bool                           CanFit                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+// bool                           canFit                         (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AworkStationEquipmentBase_C::checkCanFit(bool* CanFit)
+void AworkStationEquipmentBase_C::checkCanFit(bool* canFit)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function workStationEquipmentBase.workStationEquipmentBase_C.checkCanFit");
 
@@ -377,8 +377,8 @@ void AworkStationEquipmentBase_C::checkCanFit(bool* CanFit)
 
 	fn->FunctionFlags = flags;
 
-	if (CanFit != nullptr)
-		*CanFit = params.CanFit;
+	if (canFit != nullptr)
+		*canFit = params.canFit;
 }
 
 
@@ -441,16 +441,16 @@ void AworkStationEquipmentBase_C::ReceiveTick(float* DeltaSeconds)
 // Parameters:
 // struct FappartmentEquipment    Data                           (BlueprintVisible, BlueprintReadOnly, Parm)
 // bool                           Gizmo                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// bool                           FromHovered                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           fromHovered                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AworkStationEquipmentBase_C::initialSetup(const struct FappartmentEquipment& Data, bool Gizmo, bool FromHovered)
+void AworkStationEquipmentBase_C::initialSetup(const struct FappartmentEquipment& Data, bool Gizmo, bool fromHovered)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function workStationEquipmentBase.workStationEquipmentBase_C.initialSetup");
 
 	AworkStationEquipmentBase_C_initialSetup_Params params;
 	params.Data = Data;
 	params.Gizmo = Gizmo;
-	params.FromHovered = FromHovered;
+	params.fromHovered = fromHovered;
 
 	auto flags = fn->FunctionFlags;
 

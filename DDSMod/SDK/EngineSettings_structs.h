@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -21,6 +21,15 @@ enum class EFourPlayerSplitScreenType : uint8_t
 };
 
 
+// Enum EngineSettings.ETwoPlayerSplitScreenType
+enum class ETwoPlayerSplitScreenType : uint8_t
+{
+	ETwoPlayerSplitScreenType__Horizontal = 0,
+	ETwoPlayerSplitScreenType__Vertical = 1,
+	ETwoPlayerSplitScreenType__ETwoPlayerSplitScreenType_MAX = 2
+};
+
+
 // Enum EngineSettings.EThreePlayerSplitScreenType
 enum class EThreePlayerSplitScreenType : uint8_t
 {
@@ -28,15 +37,6 @@ enum class EThreePlayerSplitScreenType : uint8_t
 	EThreePlayerSplitScreenType__FavorBottom = 1,
 	EThreePlayerSplitScreenType__Vertical = 2,
 	EThreePlayerSplitScreenType__EThreePlayerSplitScreenType_MAX = 3
-};
-
-
-// Enum EngineSettings.ETwoPlayerSplitScreenType
-enum class ETwoPlayerSplitScreenType : uint8_t
-{
-	ETwoPlayerSplitScreenType__Horizontal = 0,
-	ETwoPlayerSplitScreenType__Vertical = 1,
-	ETwoPlayerSplitScreenType__ETwoPlayerSplitScreenType_MAX = 2
 };
 
 

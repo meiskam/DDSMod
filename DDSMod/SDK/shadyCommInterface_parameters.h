@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -22,7 +22,7 @@ struct UshadyCommInterface_C_spawnSeedGuy_Params
 // Function shadyCommInterface.shadyCommInterface_C.checkUserResetReadMessages
 struct UshadyCommInterface_C_checkUserResetReadMessages_Params
 {
-	int                                                userID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                userId;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function shadyCommInterface.shadyCommInterface_C.Get_txtStatusClientSatisfaction_ToolTipWidget_1
@@ -40,7 +40,7 @@ struct UshadyCommInterface_C_Get_txtStatusDeliveryTime_ToolTipWidget_1_Params
 // Function shadyCommInterface.shadyCommInterface_C.countAverageSatisfaction
 struct UshadyCommInterface_C_countAverageSatisfaction_Params
 {
-	TArray<bool>                                       ClientsLost;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	TArray<bool>                                       clientsLost;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	TArray<float>                                      ClientSatisfaction;                                       // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	TArray<int>                                        ClientNumSales;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 };
@@ -135,7 +135,7 @@ struct UshadyCommInterface_C_findSalePointByAreaID_Params
 struct UshadyCommInterface_C_spawnClientOnMap_Params
 {
 	class AsalesManager_C*                             SaleManager;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                OrderId;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                orderID;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function shadyCommInterface.shadyCommInterface_C.checkOptionAvailability
@@ -180,7 +180,7 @@ struct UshadyCommInterface_C_renderPriceList_Params
 // Function shadyCommInterface.shadyCommInterface_C.renderMessages
 struct UshadyCommInterface_C_renderMessages_Params
 {
-	int                                                userID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                userId;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function shadyCommInterface.shadyCommInterface_C.renderDrugs
@@ -240,7 +240,7 @@ struct UshadyCommInterface_C_closeOptions_Params
 // Function shadyCommInterface.shadyCommInterface_C.showPriceEdit
 struct UshadyCommInterface_C_showPriceEdit_Params
 {
-	int                                                DrugIndex;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                drugIndex;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function shadyCommInterface.shadyCommInterface_C.BndEvt__Button_2_K2Node_ComponentBoundEvent_5_OnButtonClickedEvent__DelegateSignature

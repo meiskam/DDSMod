@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,17 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
-
-// Enum NavigationSystem.ERuntimeGenerationType
-enum class ERuntimeGenerationType : uint8_t
-{
-	ERuntimeGenerationType__Static = 0,
-	ERuntimeGenerationType__DynamicModifiersOnly = 1,
-	ERuntimeGenerationType__Dynamic = 2,
-	ERuntimeGenerationType__LegacyGeneration = 3,
-	ERuntimeGenerationType__ERuntimeGenerationType_MAX = 4
-};
-
 
 // Enum NavigationSystem.ENavCostDisplay
 enum class ENavCostDisplay : uint8_t
@@ -40,6 +29,17 @@ enum class ERecastPartitioning : uint8_t
 	ERecastPartitioning__Watershed = 1,
 	ERecastPartitioning__ChunkyMonotone = 2,
 	ERecastPartitioning__ERecastPartitioning_MAX = 3
+};
+
+
+// Enum NavigationSystem.ERuntimeGenerationType
+enum class ERuntimeGenerationType : uint8_t
+{
+	ERuntimeGenerationType__Static = 0,
+	ERuntimeGenerationType__DynamicModifiersOnly = 1,
+	ERuntimeGenerationType__Dynamic = 2,
+	ERuntimeGenerationType__LegacyGeneration = 3,
+	ERuntimeGenerationType__ERuntimeGenerationType_MAX = 4
 };
 
 

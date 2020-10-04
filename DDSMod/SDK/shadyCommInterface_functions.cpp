@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -33,14 +33,14 @@ void UshadyCommInterface_C::spawnSeedGuy()
 // Function shadyCommInterface.shadyCommInterface_C.checkUserResetReadMessages
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int                            userID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            userId                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UshadyCommInterface_C::checkUserResetReadMessages(int userID)
+void UshadyCommInterface_C::checkUserResetReadMessages(int userId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function shadyCommInterface.shadyCommInterface_C.checkUserResetReadMessages");
 
 	UshadyCommInterface_C_checkUserResetReadMessages_Params params;
-	params.userID = userID;
+	params.userId = userId;
 
 	auto flags = fn->FunctionFlags;
 
@@ -95,11 +95,11 @@ class UWidget* UshadyCommInterface_C::Get_txtStatusDeliveryTime_ToolTipWidget_1(
 // Function shadyCommInterface.shadyCommInterface_C.countAverageSatisfaction
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// TArray<bool>                   ClientsLost                    (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+// TArray<bool>                   clientsLost                    (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 // TArray<float>                  ClientSatisfaction             (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 // TArray<int>                    ClientNumSales                 (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 
-void UshadyCommInterface_C::countAverageSatisfaction(TArray<bool>* ClientsLost, TArray<float>* ClientSatisfaction, TArray<int>* ClientNumSales)
+void UshadyCommInterface_C::countAverageSatisfaction(TArray<bool>* clientsLost, TArray<float>* ClientSatisfaction, TArray<int>* ClientNumSales)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function shadyCommInterface.shadyCommInterface_C.countAverageSatisfaction");
 
@@ -111,8 +111,8 @@ void UshadyCommInterface_C::countAverageSatisfaction(TArray<bool>* ClientsLost, 
 
 	fn->FunctionFlags = flags;
 
-	if (ClientsLost != nullptr)
-		*ClientsLost = params.ClientsLost;
+	if (clientsLost != nullptr)
+		*clientsLost = params.clientsLost;
 	if (ClientSatisfaction != nullptr)
 		*ClientSatisfaction = params.ClientSatisfaction;
 	if (ClientNumSales != nullptr)
@@ -418,15 +418,15 @@ void UshadyCommInterface_C::findSalePointByAreaID(const struct FString& stringID
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // class AsalesManager_C*         SaleManager                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            OrderId                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            orderID                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UshadyCommInterface_C::spawnClientOnMap(class AsalesManager_C* SaleManager, int OrderId)
+void UshadyCommInterface_C::spawnClientOnMap(class AsalesManager_C* SaleManager, int orderID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function shadyCommInterface.shadyCommInterface_C.spawnClientOnMap");
 
 	UshadyCommInterface_C_spawnClientOnMap_Params params;
 	params.SaleManager = SaleManager;
-	params.OrderId = OrderId;
+	params.orderID = orderID;
 
 	auto flags = fn->FunctionFlags;
 
@@ -573,14 +573,14 @@ void UshadyCommInterface_C::renderPriceList()
 // Function shadyCommInterface.shadyCommInterface_C.renderMessages
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int                            userID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            userId                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UshadyCommInterface_C::renderMessages(int userID)
+void UshadyCommInterface_C::renderMessages(int userId)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function shadyCommInterface.shadyCommInterface_C.renderMessages");
 
 	UshadyCommInterface_C_renderMessages_Params params;
-	params.userID = userID;
+	params.userId = userId;
 
 	auto flags = fn->FunctionFlags;
 
@@ -774,14 +774,14 @@ void UshadyCommInterface_C::closeOptions()
 // Function shadyCommInterface.shadyCommInterface_C.showPriceEdit
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int                            DrugIndex                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            drugIndex                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UshadyCommInterface_C::showPriceEdit(int DrugIndex)
+void UshadyCommInterface_C::showPriceEdit(int drugIndex)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function shadyCommInterface.shadyCommInterface_C.showPriceEdit");
 
 	UshadyCommInterface_C_showPriceEdit_Params params;
-	params.DrugIndex = DrugIndex;
+	params.drugIndex = drugIndex;
 
 	auto flags = fn->FunctionFlags;
 

@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -100,11 +100,6 @@ struct AappartmentManager_C_startAppartmentViewer_Params
 {
 };
 
-// Function appartmentManager.appartmentManager_C.sendDebtInfo
-struct AappartmentManager_C_sendDebtInfo_Params
-{
-};
-
 // Function appartmentManager.appartmentManager_C.ReceiveTick
 struct AappartmentManager_C_ReceiveTick_Params
 {
@@ -113,6 +108,11 @@ struct AappartmentManager_C_ReceiveTick_Params
 
 // Function appartmentManager.appartmentManager_C.ReceiveBeginPlay
 struct AappartmentManager_C_ReceiveBeginPlay_Params
+{
+};
+
+// Function appartmentManager.appartmentManager_C.sendDebtInfo
+struct AappartmentManager_C_sendDebtInfo_Params
 {
 };
 

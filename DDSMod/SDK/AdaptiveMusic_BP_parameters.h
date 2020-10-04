@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -48,7 +48,7 @@ struct AAdaptiveMusic_BP_C_ReceiveTick_Params
 // Function AdaptiveMusic_BP.AdaptiveMusic_BP_C.InitiateMe
 struct AAdaptiveMusic_BP_C_InitiateMe_Params
 {
-	class AplayerCharacterBP_C*                        playerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AplayerCharacterBP_C*                        PlayerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function AdaptiveMusic_BP.AdaptiveMusic_BP_C.StartChaseMusic

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -32,7 +32,7 @@ public:
 	}
 
 
-	void checkDisplayWidget(class AplayerCharacterBP_C* playerRef, bool* Display);
+	void checkDisplayWidget(class AplayerCharacterBP_C* PlayerRef, bool* Display);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
 	void playRadio(class USoundBase* NewParam);

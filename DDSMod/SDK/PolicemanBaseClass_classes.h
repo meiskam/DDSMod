@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -32,7 +32,7 @@ public:
 	struct FRotator                                    tempHeadRot;                                              // 0x07A4(0x000C) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	int                                                partnerRefID;                                             // 0x07B0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	int                                                MyID;                                                     // 0x07B4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	class AplayerCharacterBP_C*                        playerRef;                                                // 0x07B8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
+	class AplayerCharacterBP_C*                        PlayerRef;                                                // 0x07B8(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 	float                                              perceptionMeter;                                          // 0x07C0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              perceptionRise;                                           // 0x07C4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              perceptionDetectLevel;                                    // 0x07C8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -100,7 +100,7 @@ public:
 	void checkPlayerRunning(float Delta);
 	void finishChasing(bool StayAlerted);
 	void checkChasingPolicemen();
-	void calcControlMultiplier(class AplayerCharacterBP_C* playerRef);
+	void calcControlMultiplier(class AplayerCharacterBP_C* PlayerRef);
 	void alertedCountdown(float Delta);
 	float calcPerceptionRaise(float DeltaTime);
 	void playVoiceSound(class USoundCue* Sound);

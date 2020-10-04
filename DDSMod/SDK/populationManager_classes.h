@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -45,7 +45,7 @@ public:
 	void refreshCitizenStatus();
 	void personGotHome(class AbaseNPC_C* Person);
 	void burstMothafuckers();
-	void populationTimeLapse(float endHour);
+	void populationTimeLapse(float EndHour);
 	void ExecuteUbergraph_populationManager(int EntryPoint);
 };
 

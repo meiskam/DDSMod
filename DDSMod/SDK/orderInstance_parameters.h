@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -49,7 +49,7 @@ struct AorderInstance_C_calcPackagingPattern_Params
 struct AorderInstance_C_generatePackageContents_Params
 {
 	TArray<struct FinventoryItemStruct>                OutInventory;                                             // (Parm, OutParm, ZeroConstructor)
-	TArray<int>                                        OutQuantity;                                              // (Parm, OutParm, ZeroConstructor)
+	TArray<int>                                        outQuantity;                                              // (Parm, OutParm, ZeroConstructor)
 };
 
 // Function orderInstance.orderInstance_C.spawnOrderPackage
@@ -100,7 +100,7 @@ struct AorderInstance_C_ReceiveTick_Params
 struct AorderInstance_C_SetupOrder_Params
 {
 	TArray<struct FdrugData>                           drugData;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	TArray<int>                                        DrugQuantities;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	TArray<int>                                        drugQuantities;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	int                                                ID;                                                       // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	float                                              spawnTime;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };

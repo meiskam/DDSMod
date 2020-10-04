@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -67,14 +67,14 @@ void AnoisyNeighbourBP_C::ReceiveTick(float* DeltaSeconds)
 }
 
 
-// Function noisyNeighbourBP.noisyNeighbourBP_C.reInitialise
+// Function noisyNeighbourBP.noisyNeighbourBP_C.ReInitialise
 // (BlueprintCallable, BlueprintEvent)
 
-void AnoisyNeighbourBP_C::reInitialise()
+void AnoisyNeighbourBP_C::ReInitialise()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function noisyNeighbourBP.noisyNeighbourBP_C.reInitialise");
+	static auto fn = UObject::FindObject<UFunction>("Function noisyNeighbourBP.noisyNeighbourBP_C.ReInitialise");
 
-	AnoisyNeighbourBP_C_reInitialise_Params params;
+	AnoisyNeighbourBP_C_ReInitialise_Params params;
 
 	auto flags = fn->FunctionFlags;
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,20 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
-
-// Enum InputCore.ETouchType
-enum class ETouchType : uint8_t
-{
-	ETouchType__Began              = 0,
-	ETouchType__Moved              = 1,
-	ETouchType__Stationary         = 2,
-	ETouchType__ForceChanged       = 3,
-	ETouchType__FirstMove          = 4,
-	ETouchType__Ended              = 5,
-	ETouchType__NumTypes           = 6,
-	ETouchType__ETouchType_MAX     = 7
-};
-
 
 // Enum InputCore.EConsoleForGamepadLabels
 enum class EConsoleForGamepadLabels : uint8_t
@@ -77,6 +63,20 @@ enum class EControllerHand : uint8_t
 	EControllerHand__Special10     = 16,
 	EControllerHand__ControllerHand_Count = 17,
 	EControllerHand__EControllerHand_MAX = 18
+};
+
+
+// Enum InputCore.ETouchType
+enum class ETouchType : uint8_t
+{
+	ETouchType__Began              = 0,
+	ETouchType__Moved              = 1,
+	ETouchType__Stationary         = 2,
+	ETouchType__ForceChanged       = 3,
+	ETouchType__FirstMove          = 4,
+	ETouchType__Ended              = 5,
+	ETouchType__NumTypes           = 6,
+	ETouchType__ETouchType_MAX     = 7
 };
 
 

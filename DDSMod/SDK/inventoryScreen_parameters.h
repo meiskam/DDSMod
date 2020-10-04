@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -45,7 +45,7 @@ struct UinventoryScreen_C_countTotalDrugGrams_Params
 struct UinventoryScreen_C_checkSubstanceSame_Params
 {
 	TArray<struct FinventoryItemStruct>                Substances;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
-	TArray<int>                                        Quantities;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+	TArray<int>                                        quantities;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 	bool                                               TheSame;                                                  // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 	struct FdrugData                                   dataAverage;                                              // (Parm, OutParm)
 };
@@ -63,7 +63,7 @@ struct UinventoryScreen_C_acceptBoughtItems_Params
 // Function inventoryScreen.inventoryScreen_C.countBoughtItemValue
 struct UinventoryScreen_C_countBoughtItemValue_Params
 {
-	class AplayerCharacterBP_C*                        playerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AplayerCharacterBP_C*                        PlayerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	int                                                Value;                                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
@@ -117,7 +117,7 @@ struct UinventoryScreen_C_renderBuyerNeeded_Params
 // Function inventoryScreen.inventoryScreen_C.checkItemsFitPockets
 struct UinventoryScreen_C_checkItemsFitPockets_Params
 {
-	class AplayerCharacterBP_C*                        playerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AplayerCharacterBP_C*                        PlayerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               NoFit;                                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
@@ -157,7 +157,7 @@ struct UinventoryScreen_C_prepareInventoryMode_Params
 {
 	class AcontainerBase_C*                            ContainerRef;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	class AbaseNPC_C*                                  sellerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	class AplayerCharacterBP_C*                        playerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AplayerCharacterBP_C*                        PlayerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function inventoryScreen.inventoryScreen_C.renderPockets

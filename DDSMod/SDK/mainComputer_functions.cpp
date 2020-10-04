@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -97,16 +97,16 @@ void AmainComputer_C::checkNewDrugAvailability()
 // Function mainComputer.mainComputer_C.addUserMessage
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int                            userID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            userId                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   Text                           (BlueprintVisible, BlueprintReadOnly, Parm)
 // bool                           PlayerMessage                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AmainComputer_C::addUserMessage(int userID, const struct FText& Text, bool PlayerMessage)
+void AmainComputer_C::addUserMessage(int userId, const struct FText& Text, bool PlayerMessage)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function mainComputer.mainComputer_C.addUserMessage");
 
 	AmainComputer_C_addUserMessage_Params params;
-	params.userID = userID;
+	params.userId = userId;
 	params.Text = Text;
 	params.PlayerMessage = PlayerMessage;
 
@@ -174,9 +174,9 @@ void AmainComputer_C::constructMessageSentence(bool LastIndex, bool BeforeLastIn
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // TArray<struct FdrugData>       drugData                       (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
-// TArray<int>                    DrugQuantities                 (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
+// TArray<int>                    drugQuantities                 (BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ZeroConstructor, ReferenceParm)
 
-void AmainComputer_C::sendNewOrder(TArray<struct FdrugData>* drugData, TArray<int>* DrugQuantities)
+void AmainComputer_C::sendNewOrder(TArray<struct FdrugData>* drugData, TArray<int>* drugQuantities)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function mainComputer.mainComputer_C.sendNewOrder");
 
@@ -190,8 +190,8 @@ void AmainComputer_C::sendNewOrder(TArray<struct FdrugData>* drugData, TArray<in
 
 	if (drugData != nullptr)
 		*drugData = params.drugData;
-	if (DrugQuantities != nullptr)
-		*DrugQuantities = params.DrugQuantities;
+	if (drugQuantities != nullptr)
+		*drugQuantities = params.drugQuantities;
 }
 
 

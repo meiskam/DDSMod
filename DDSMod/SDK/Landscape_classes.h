@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,21 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
+
+// Class Landscape.ControlPointMeshComponent
+// 0x0000 (0x05F0 - 0x05F0)
+class UControlPointMeshComponent : public UStaticMeshComponent
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Landscape.ControlPointMeshComponent");
+		return ptr;
+	}
+
+};
+
 
 // Class Landscape.LandscapeProxy
 // 0x0318 (0x0640 - 0x0328)
@@ -170,21 +185,6 @@ public:
 
 
 	class UMaterialInstanceDynamic* GetMaterialInstanceDynamic(int InIndex);
-};
-
-
-// Class Landscape.ControlPointMeshComponent
-// 0x0000 (0x05F0 - 0x05F0)
-class UControlPointMeshComponent : public UStaticMeshComponent
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Landscape.ControlPointMeshComponent");
-		return ptr;
-	}
-
 };
 
 
@@ -467,6 +467,27 @@ public:
 };
 
 
+// Class Landscape.LandscapeSplineSegment
+// 0x0088 (0x00B0 - 0x0028)
+class ULandscapeSplineSegment : public UObject
+{
+public:
+	struct FLandscapeSplineSegmentConnection           Connections[0x2];                                         // 0x0028(0x0018) (Edit, EditFixedSize)
+	struct FInterpCurveVector                          SplineInfo;                                               // 0x0058(0x0018) (ZeroConstructor)
+	TArray<struct FLandscapeSplineInterpPoint>         Points;                                                   // 0x0070(0x0010) (ZeroConstructor)
+	struct FBox                                        Bounds;                                                   // 0x0080(0x001C) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x009C(0x0004) MISSED OFFSET
+	TArray<class USplineMeshComponent*>                LocalMeshComponents;                                      // 0x00A0(0x0010) (ExportObject, ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Landscape.LandscapeSplineSegment");
+		return ptr;
+	}
+
+};
+
+
 // Class Landscape.LandscapeStreamingProxy
 // 0x0020 (0x0660 - 0x0640)
 class ALandscapeStreamingProxy : public ALandscapeProxy
@@ -500,21 +521,17 @@ public:
 };
 
 
-// Class Landscape.LandscapeSplineSegment
-// 0x0088 (0x00B0 - 0x0028)
-class ULandscapeSplineSegment : public UObject
+// Class Landscape.MaterialExpressionLandscapeLayerBlend
+// 0x0020 (0x0060 - 0x0040)
+class UMaterialExpressionLandscapeLayerBlend : public UMaterialExpression
 {
 public:
-	struct FLandscapeSplineSegmentConnection           Connections[0x2];                                         // 0x0028(0x0018) (Edit, EditFixedSize)
-	struct FInterpCurveVector                          SplineInfo;                                               // 0x0058(0x0018) (ZeroConstructor)
-	TArray<struct FLandscapeSplineInterpPoint>         Points;                                                   // 0x0070(0x0010) (ZeroConstructor)
-	struct FBox                                        Bounds;                                                   // 0x0080(0x001C) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x009C(0x0004) MISSED OFFSET
-	TArray<class USplineMeshComponent*>                LocalMeshComponents;                                      // 0x00A0(0x0010) (ExportObject, ZeroConstructor)
+	TArray<struct FLayerBlendInput>                    Layers;                                                   // 0x0040(0x0010) (Edit, ZeroConstructor)
+	struct FGuid                                       ExpressionGUID;                                           // 0x0050(0x0010) (ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class Landscape.LandscapeSplineSegment");
+		static auto ptr = UObject::FindClass("Class Landscape.MaterialExpressionLandscapeLayerBlend");
 		return ptr;
 	}
 
@@ -620,23 +637,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Landscape.MaterialExpressionLandscapeVisibilityMask");
-		return ptr;
-	}
-
-};
-
-
-// Class Landscape.MaterialExpressionLandscapeLayerBlend
-// 0x0020 (0x0060 - 0x0040)
-class UMaterialExpressionLandscapeLayerBlend : public UMaterialExpression
-{
-public:
-	TArray<struct FLayerBlendInput>                    Layers;                                                   // 0x0040(0x0010) (Edit, ZeroConstructor)
-	struct FGuid                                       ExpressionGUID;                                           // 0x0050(0x0010) (ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Landscape.MaterialExpressionLandscapeLayerBlend");
 		return ptr;
 	}
 

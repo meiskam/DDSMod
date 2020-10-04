@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -22,7 +22,7 @@ struct UloadingScreen_C_setNewTip_Params
 // Function loadingScreen.loadingScreen_C.killLoadingScreen
 struct UloadingScreen_C_killLoadingScreen_Params
 {
-	float                                              DelayTime;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	float                                              delayTime;                                                // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function loadingScreen.loadingScreen_C.Construct

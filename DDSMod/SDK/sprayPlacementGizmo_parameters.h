@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -64,8 +64,8 @@ struct AsprayPlacementGizmo_C_ActionPress_Params
 {
 };
 
-// Function sprayPlacementGizmo.sprayPlacementGizmo_C.actionRelease
-struct AsprayPlacementGizmo_C_actionRelease_Params
+// Function sprayPlacementGizmo.sprayPlacementGizmo_C.ActionRelease
+struct AsprayPlacementGizmo_C_ActionRelease_Params
 {
 };
 

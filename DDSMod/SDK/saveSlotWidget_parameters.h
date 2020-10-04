@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -33,7 +33,7 @@ struct UsaveSlotWidget_C_OnMouseButtonUp_Params
 // Function saveSlotWidget.saveSlotWidget_C.setup
 struct UsaveSlotWidget_C_setup_Params
 {
-	bool                                               occupied;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               Occupied;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	struct FString                                     SlotCustomName;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 	struct FString                                     saveDateTime;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 	int                                                Slot_Num;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)

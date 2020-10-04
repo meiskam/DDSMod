@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -91,7 +91,7 @@ public:
 	void factorTimeDrop(float Delta);
 	void addExpoEvent(float ExpoValue);
 	void addRiskEvent(float RiskValue);
-	void addExp(float expAmount);
+	void addExp(float ExpAmount);
 	void calcExpForLevelUp(float* ExpLacking, float* ExpNeededTotal, float* NextLevelProgress);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();

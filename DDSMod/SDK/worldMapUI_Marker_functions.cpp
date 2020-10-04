@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -109,10 +109,10 @@ bool UworldMapUI_Marker_C::Get_mainCanvas_bIsEnabled_1()
 // TEnumAsByte<EmapMarkerCategories> MarkerType                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FVector2D               basePos                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   ToolTip                        (BlueprintVisible, BlueprintReadOnly, Parm)
-// bool                           dealer                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// struct FString                 AreaString                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
+// bool                           Dealer                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FString                 areaString                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 
-void UworldMapUI_Marker_C::setup(const struct FText& MarkerName, TEnumAsByte<EmapMarkerCategories> MarkerType, const struct FVector2D& basePos, const struct FText& ToolTip, bool dealer, const struct FString& AreaString)
+void UworldMapUI_Marker_C::setup(const struct FText& MarkerName, TEnumAsByte<EmapMarkerCategories> MarkerType, const struct FVector2D& basePos, const struct FText& ToolTip, bool Dealer, const struct FString& areaString)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function worldMapUI_Marker.worldMapUI_Marker_C.setup");
 
@@ -121,8 +121,8 @@ void UworldMapUI_Marker_C::setup(const struct FText& MarkerName, TEnumAsByte<Ema
 	params.MarkerType = MarkerType;
 	params.basePos = basePos;
 	params.ToolTip = ToolTip;
-	params.dealer = dealer;
-	params.AreaString = AreaString;
+	params.Dealer = Dealer;
+	params.areaString = areaString;
 
 	auto flags = fn->FunctionFlags;
 

@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -34,15 +34,15 @@ void UappartmentViewerWidget_C::refreshAccBalance()
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // class ArentAppartmentArea_C*   areaRef                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// struct FText                   areaNam                        (BlueprintVisible, BlueprintReadOnly, Parm)
+// struct FText                   AreaNam                        (BlueprintVisible, BlueprintReadOnly, Parm)
 
-void UappartmentViewerWidget_C::setStatistics(class ArentAppartmentArea_C* areaRef, const struct FText& areaNam)
+void UappartmentViewerWidget_C::setStatistics(class ArentAppartmentArea_C* areaRef, const struct FText& AreaNam)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function appartmentViewerWidget.appartmentViewerWidget_C.setStatistics");
 
 	UappartmentViewerWidget_C_setStatistics_Params params;
 	params.areaRef = areaRef;
-	params.areaNam = areaNam;
+	params.AreaNam = AreaNam;
 
 	auto flags = fn->FunctionFlags;
 

@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -429,14 +429,14 @@ void UmainMenuWidget_C::BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_4_OnButto
 // Function mainMenuWidget.mainMenuWidget_C.startNewGame
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// TEnumAsByte<EdifficultyLevels> chosenDifficulty               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// TEnumAsByte<EdifficultyLevels> ChosenDifficulty               (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UmainMenuWidget_C::startNewGame(TEnumAsByte<EdifficultyLevels> chosenDifficulty)
+void UmainMenuWidget_C::startNewGame(TEnumAsByte<EdifficultyLevels> ChosenDifficulty)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.startNewGame");
 
 	UmainMenuWidget_C_startNewGame_Params params;
-	params.chosenDifficulty = chosenDifficulty;
+	params.ChosenDifficulty = ChosenDifficulty;
 
 	auto flags = fn->FunctionFlags;
 
@@ -709,6 +709,23 @@ void UmainMenuWidget_C::glitchSubs()
 	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.glitchSubs");
 
 	UmainMenuWidget_C_glitchSubs_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function mainMenuWidget.mainMenuWidget_C.retryPlayerInitiate
+// (BlueprintCallable, BlueprintEvent)
+
+void UmainMenuWidget_C::retryPlayerInitiate()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function mainMenuWidget.mainMenuWidget_C.retryPlayerInitiate");
+
+	UmainMenuWidget_C_retryPlayerInitiate_Params params;
 
 	auto flags = fn->FunctionFlags;
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.5.27
+// Name: DDS, Version: 2020.7.20
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -35,7 +35,7 @@ public:
 	int                                                nameLenLimit;                                             // 0x0280(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0284(0x0004) MISSED OFFSET
 	struct FdrugData                                   productData;                                              // 0x0288(0x00B0) (Edit, BlueprintVisible, DisableEditOnInstance)
-	class AworkStationEquipmentBase_C*                 equipment;                                                // 0x0338(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
+	class AworkStationEquipmentBase_C*                 Equipment;                                                // 0x0338(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 	struct FString                                     tempString;                                               // 0x0340(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	float                                              massTotalLast;                                            // 0x0350(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              massPackageLast;                                          // 0x0354(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -58,7 +58,7 @@ public:
 	void addPackage(int Size, int Quantity);
 	void generateDurgIcon(int Quantity, TEnumAsByte<EdrugForm> Form, class UTexture2D** IconOut);
 	void checkButtonActivity();
-	void checkCanFitInventory(bool* CanFit);
+	void checkCanFitInventory(bool* canFit);
 	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
 	void setup(class AworkStationEquipmentBase_C* EqRef);
 	void BndEvt__btnCancel_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();
