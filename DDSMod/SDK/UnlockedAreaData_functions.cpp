@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -186,13 +186,13 @@ void UUnlockedAreaData_C::Construct()
 // float                          ExpMax                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           AreaUnlocked                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           AreaAvailable                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// struct FString                 areaString                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
+// struct FString                 AreaString                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 // struct FText                   reqArea                        (BlueprintVisible, BlueprintReadOnly, Parm)
 // float                          reqRespect                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            reqLevel                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          ReqAreaExp                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UUnlockedAreaData_C::setup(const struct FText& AreaNam, float ExpVal, float ExpClamp, float ExpMax, bool AreaUnlocked, bool AreaAvailable, const struct FString& areaString, const struct FText& reqArea, float reqRespect, int reqLevel, float ReqAreaExp)
+void UUnlockedAreaData_C::setup(const struct FText& AreaNam, float ExpVal, float ExpClamp, float ExpMax, bool AreaUnlocked, bool AreaAvailable, const struct FString& AreaString, const struct FText& reqArea, float reqRespect, int reqLevel, float ReqAreaExp)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function UnlockedAreaData.UnlockedAreaData_C.setup");
 
@@ -203,7 +203,7 @@ void UUnlockedAreaData_C::setup(const struct FText& AreaNam, float ExpVal, float
 	params.ExpMax = ExpMax;
 	params.AreaUnlocked = AreaUnlocked;
 	params.AreaAvailable = AreaAvailable;
-	params.areaString = areaString;
+	params.AreaString = AreaString;
 	params.reqArea = reqArea;
 	params.reqRespect = reqRespect;
 	params.reqLevel = reqLevel;

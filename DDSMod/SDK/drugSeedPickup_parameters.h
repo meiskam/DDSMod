@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -14,8 +14,8 @@ namespace SDK
 // Parameters
 //---------------------------------------------------------------------------
 
-// Function BP_Carousel_A.BP_Carousel_A_C.UserConstructionScript
-struct ABP_Carousel_A_C_UserConstructionScript_Params
+// Function drugSeedPickup.drugSeedPickup_C.UserConstructionScript
+struct AdrugSeedPickup_C_UserConstructionScript_Params
 {
 };
 

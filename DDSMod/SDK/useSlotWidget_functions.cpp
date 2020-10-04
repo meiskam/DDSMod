@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -118,12 +118,12 @@ void UuseSlotWidget_C::checkItemAvailable(bool* itemAvailable)
 // Function useSlotWidget.useSlotWidget_C.OnDrop
 // (BlueprintCosmetic, Event, Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// struct FPointerEvent*          PointerEvent                   (BlueprintVisible, BlueprintReadOnly, Parm)
-// class UDragDropOperation**     Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// struct FPointerEvent           PointerEvent                   (BlueprintVisible, BlueprintReadOnly, Parm)
+// class UDragDropOperation*      Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 
-bool UuseSlotWidget_C::OnDrop(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation)
+bool UuseSlotWidget_C::OnDrop(const struct FGeometry& MyGeometry, const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function useSlotWidget.useSlotWidget_C.OnDrop");
 
@@ -145,9 +145,9 @@ bool UuseSlotWidget_C::OnDrop(struct FGeometry* MyGeometry, struct FPointerEvent
 // Function useSlotWidget.useSlotWidget_C.PreConstruct
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// bool*                          IsDesignTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           IsDesignTime                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UuseSlotWidget_C::PreConstruct(bool* IsDesignTime)
+void UuseSlotWidget_C::PreConstruct(bool IsDesignTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function useSlotWidget.useSlotWidget_C.PreConstruct");
 

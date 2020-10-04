@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,9 +16,9 @@ namespace SDK
 // Function sampleClientFindWanderPoint.sampleClientFindWanderPoint_C.ReceiveExecute
 // (Event, Protected, BlueprintEvent)
 // Parameters:
-// class AActor**                 OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AActor*                  OwnerActor                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UsampleClientFindWanderPoint_C::ReceiveExecute(class AActor** OwnerActor)
+void UsampleClientFindWanderPoint_C::ReceiveExecute(class AActor* OwnerActor)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function sampleClientFindWanderPoint.sampleClientFindWanderPoint_C.ReceiveExecute");
 

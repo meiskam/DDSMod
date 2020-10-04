@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -21,7 +21,7 @@ public:
 	class URamaSaveComponent*                          RamaSave;                                                 // 0x0330(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	class UBillboardComponent*                         Billboard;                                                // 0x0338(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	class USceneComponent*                             DefaultSceneRoot;                                         // 0x0340(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class AplayerCharacterBP_C*                        PlayerRef;                                                // 0x0348(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
+	class AplayerCharacterBP_C*                        playerRef;                                                // 0x0348(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 	class AcontactsManager_C*                          contactsManager;                                          // 0x0350(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 	class AstatisticsManager_C*                        statisticsManager;                                        // 0x0358(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 	class AmainComputer_C*                             mainComputerRef;                                          // 0x0360(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
@@ -133,7 +133,7 @@ public:
 	void countAddictedClients(int* ClientCount);
 	void countMaxDealers(int* NumDealers);
 	void adaptDifficulty();
-	void generateClientMessage(bool Dealer, bool CashMeet, int Quantity, const struct FText& DrugNam, bool priceHigh, struct FText* Message);
+	void generateClientMessage(bool Dealer, bool CashMeet, int quantity, const struct FText& DrugNam, bool priceHigh, struct FText* Message);
 	void recalcClientCount();
 	void tryDisplayClientState();
 	void displayClientAddictedPopup(int ClientId);
@@ -164,7 +164,7 @@ public:
 	void generateNewClient(bool Force);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void tryInitialise();
 	void checkClientState();
 	void trySpawnSampleGuy();

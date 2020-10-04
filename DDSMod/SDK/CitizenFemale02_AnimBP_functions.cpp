@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,9 +16,9 @@ namespace SDK
 // Function CitizenFemale02_AnimBP.CitizenFemale02_AnimBP_C.BlueprintUpdateAnimation
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UCitizenFemale02_AnimBP_C::BlueprintUpdateAnimation(float* DeltaTimeX)
+void UCitizenFemale02_AnimBP_C::BlueprintUpdateAnimation(float DeltaTimeX)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function CitizenFemale02_AnimBP.CitizenFemale02_AnimBP_C.BlueprintUpdateAnimation");
 

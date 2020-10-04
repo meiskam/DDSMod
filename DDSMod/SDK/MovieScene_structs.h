@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,18 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
+
+// Enum MovieScene.EMovieSceneKeyInterpolation
+enum class EMovieSceneKeyInterpolation : uint8_t
+{
+	EMovieSceneKeyInterpolation__Auto = 0,
+	EMovieSceneKeyInterpolation__User = 1,
+	EMovieSceneKeyInterpolation__Break = 2,
+	EMovieSceneKeyInterpolation__Linear = 3,
+	EMovieSceneKeyInterpolation__Constant = 4,
+	EMovieSceneKeyInterpolation__EMovieSceneKeyInterpolation_MAX = 5
+};
+
 
 // Enum MovieScene.EMovieSceneBlendType
 enum class EMovieSceneBlendType : uint8_t
@@ -93,6 +105,16 @@ enum class EMovieScenePlayerStatus : uint8_t
 };
 
 
+// Enum MovieScene.EMovieSceneCompletionMode
+enum class EMovieSceneCompletionMode : uint8_t
+{
+	EMovieSceneCompletionMode__KeepState = 0,
+	EMovieSceneCompletionMode__RestoreState = 1,
+	EMovieSceneCompletionMode__ProjectDefault = 2,
+	EMovieSceneCompletionMode__EMovieSceneCompletionMode_MAX = 3
+};
+
+
 // Enum MovieScene.EMovieSceneObjectBindingSpace
 enum class EMovieSceneObjectBindingSpace : uint8_t
 {
@@ -119,28 +141,6 @@ enum class ESpawnOwnership : uint8_t
 	ESpawnOwnership__MasterSequence = 1,
 	ESpawnOwnership__External      = 2,
 	ESpawnOwnership__ESpawnOwnership_MAX = 3
-};
-
-
-// Enum MovieScene.EMovieSceneCompletionMode
-enum class EMovieSceneCompletionMode : uint8_t
-{
-	EMovieSceneCompletionMode__KeepState = 0,
-	EMovieSceneCompletionMode__RestoreState = 1,
-	EMovieSceneCompletionMode__ProjectDefault = 2,
-	EMovieSceneCompletionMode__EMovieSceneCompletionMode_MAX = 3
-};
-
-
-// Enum MovieScene.EMovieSceneKeyInterpolation
-enum class EMovieSceneKeyInterpolation : uint8_t
-{
-	EMovieSceneKeyInterpolation__Auto = 0,
-	EMovieSceneKeyInterpolation__User = 1,
-	EMovieSceneKeyInterpolation__Break = 2,
-	EMovieSceneKeyInterpolation__Linear = 3,
-	EMovieSceneKeyInterpolation__Constant = 4,
-	EMovieSceneKeyInterpolation__EMovieSceneKeyInterpolation_MAX = 5
 };
 
 

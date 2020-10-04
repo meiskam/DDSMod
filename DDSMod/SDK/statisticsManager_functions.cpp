@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -228,14 +228,14 @@ void AstatisticsManager_C::addRiskEvent(float RiskValue)
 // Function statisticsManager.statisticsManager_C.addExp
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// float                          ExpAmount                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          expAmount                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AstatisticsManager_C::addExp(float ExpAmount)
+void AstatisticsManager_C::addExp(float expAmount)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function statisticsManager.statisticsManager_C.addExp");
 
 	AstatisticsManager_C_addExp_Params params;
-	params.ExpAmount = ExpAmount;
+	params.expAmount = expAmount;
 
 	auto flags = fn->FunctionFlags;
 
@@ -310,9 +310,9 @@ void AstatisticsManager_C::ReceiveBeginPlay()
 // Function statisticsManager.statisticsManager_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AstatisticsManager_C::ReceiveTick(float* DeltaSeconds)
+void AstatisticsManager_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function statisticsManager.statisticsManager_C.ReceiveTick");
 

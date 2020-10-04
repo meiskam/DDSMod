@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -27,6 +27,11 @@ struct UdeaBustedScreenWidget_C_showGameOver_Params
 
 // Function deaBustedScreenWidget.deaBustedScreenWidget_C.BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature
 struct UdeaBustedScreenWidget_C_BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature_Params
+{
+};
+
+// Function deaBustedScreenWidget.deaBustedScreenWidget_C.BndEvt__btnMainMenu_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature
+struct UdeaBustedScreenWidget_C_BndEvt__btnMainMenu_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature_Params
 {
 };
 

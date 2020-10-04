@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -49,7 +49,7 @@ struct ApopulationManager_C_burstMothafuckers_Params
 // Function populationManager.populationManager_C.populationTimeLapse
 struct ApopulationManager_C_populationTimeLapse_Params
 {
-	float                                              EndHour;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              endHour;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function populationManager.populationManager_C.ExecuteUbergraph_populationManager

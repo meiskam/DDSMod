@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass baseNPC.baseNPC_C
-// 0x036C (0x0AAC - 0x0740)
+// 0x037C (0x0ABC - 0x0740)
 class AbaseNPC_C : public ACharacter
 {
 public:
@@ -45,7 +45,7 @@ public:
 	class AshopInstance_C*                             shopReference;                                            // 0x0858(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData)
 	class AequipmentShop_C*                            eqShopReference;                                          // 0x0860(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, IsPlainOldData)
 	int                                                curTaskID;                                                // 0x0868(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	int                                                orderID;                                                  // 0x086C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                OrderID;                                                  // 0x086C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               isAgent;                                                  // 0x0870(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	bool                                               isDealer;                                                 // 0x0871(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x6];                                       // 0x0872(0x0006) MISSED OFFSET
@@ -89,6 +89,10 @@ public:
 	bool                                               notFar;                                                   // 0x0A9F(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	class AsalesManager_C*                             salesManager;                                             // 0x0AA0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 	float                                              deliveryResignAdd;                                        // 0x0AA8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              waitTimeWeatherMultiplier;                                // 0x0AAC(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              rainWaitInfluenceMax;                                     // 0x0AB0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              stormWaitInfluenceMax;                                    // 0x0AB4(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              waitMultiplierMax;                                        // 0x0AB8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -115,10 +119,10 @@ public:
 	void SetMasterPoseComponentForParts();
 	bool IsDefaultMeshInheritungItsAnimationAsset();
 	void processReceivedDrugs();
-	void setupNewDrugSale(const struct FdrugData& drugData, int DrugQuantity, const struct FText& characterName, float expectedPrice, int orderID, int TaskID, bool isMale, bool isDealer, float ExpectationLevel);
+	void setupNewDrugSale(const struct FdrugData& drugData, int DrugQuantity, const struct FText& characterName, float expectedPrice, int OrderID, int taskID, bool isMale, bool isDealer, float ExpectationLevel);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void dialogueMode();
 	void endDialogueMode();
 	void activateTrade();
@@ -132,6 +136,7 @@ public:
 	void failGoHome();
 	void testAroundPlayer();
 	void togglePoseCalc();
+	void waitTimeMultiplierCheck();
 	void ExecuteUbergraph_baseNPC(int EntryPoint);
 };
 

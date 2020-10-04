@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass mainComputer.mainComputer_C
-// 0x0327 (0x0718 - 0x03F1)
+// 0x0367 (0x0758 - 0x03F1)
 class AmainComputer_C : public AinteractiveBaseObject_C
 {
 public:
@@ -44,7 +44,7 @@ public:
 	float                                              playerBankMoney;                                          // 0x0508(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x4];                                       // 0x050C(0x0004) MISSED OFFSET
 	TArray<struct FText>                               msgOrderRandomStarts;                                     // 0x0510(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
-	struct FString                                     MsgString;                                                // 0x0520(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	struct FString                                     msgString;                                                // 0x0520(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<struct FText>                               msgOrderRandomEndings;                                    // 0x0530(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<struct FString>                             messagesList;                                             // 0x0540(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<int>                                        messagesUsers;                                            // 0x0550(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
@@ -95,6 +95,10 @@ public:
 	float                                              illegalIncomeTotal;                                       // 0x070C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              illegalIncomeMax;                                         // 0x0710(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              illegalIncomeDPS;                                         // 0x0714(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	TArray<struct FdrugData>                           psychedelicsOffer;                                        // 0x0718(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	TArray<float>                                      psychedelicsPrice;                                        // 0x0728(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	TArray<float>                                      psychedelicsSellPrice;                                    // 0x0738(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	TArray<float>                                      psychedelicsExpectedPrice;                                // 0x0748(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 
 	static UClass* StaticClass()
 	{
@@ -107,19 +111,20 @@ public:
 	void generateInitialBankHistory();
 	void newBankOperation(bool Income, float Amount, const struct FText& Title, const struct FText& SourceName, bool Notify, bool Legal);
 	void checkNewDrugAvailability();
-	void addUserMessage(int userId, const struct FText& Text, bool PlayerMessage);
+	void addUserMessage(int userID, const struct FText& Text, bool PlayerMessage);
 	void getOrderRefByID(int ID, class AorderInstance_C** orderInstance);
-	void constructMessageSentence(bool LastIndex, bool BeforeLastIndex, int Quantity, const struct FdrugData& drugData, bool isSingle);
+	void constructMessageSentence(bool LastIndex, bool BeforeLastIndex, int quantity, const struct FdrugData& drugData, bool isSingle);
 	void sendNewOrder(TArray<struct FdrugData>* drugData, TArray<int>* drugQuantities);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void openComputer();
 	void prepareOrderResponse();
 	void ActivateComputer();
 	void checkBenefitPayment();
 	void checkIllegalIncome();
 	void openIllegalGate();
+	void addPsychedelicsOffer();
 	void ExecuteUbergraph_mainComputer(int EntryPoint);
 };
 

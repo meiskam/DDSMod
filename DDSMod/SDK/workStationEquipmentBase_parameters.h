@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -135,7 +135,7 @@ struct AworkStationEquipmentBase_C_ReceiveBeginPlay_Params
 // Function workStationEquipmentBase.workStationEquipmentBase_C.ReceiveTick
 struct AworkStationEquipmentBase_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function workStationEquipmentBase.workStationEquipmentBase_C.initialSetup

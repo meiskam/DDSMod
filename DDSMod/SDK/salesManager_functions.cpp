@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -79,19 +79,19 @@ void AsalesManager_C::adaptDifficulty()
 // Parameters:
 // bool                           Dealer                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           CashMeet                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   DrugNam                        (BlueprintVisible, BlueprintReadOnly, Parm)
 // bool                           priceHigh                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   Message                        (Parm, OutParm)
 
-void AsalesManager_C::generateClientMessage(bool Dealer, bool CashMeet, int Quantity, const struct FText& DrugNam, bool priceHigh, struct FText* Message)
+void AsalesManager_C::generateClientMessage(bool Dealer, bool CashMeet, int quantity, const struct FText& DrugNam, bool priceHigh, struct FText* Message)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function salesManager.salesManager_C.generateClientMessage");
 
 	AsalesManager_C_generateClientMessage_Params params;
 	params.Dealer = Dealer;
 	params.CashMeet = CashMeet;
-	params.Quantity = Quantity;
+	params.quantity = quantity;
 	params.DrugNam = DrugNam;
 	params.priceHigh = priceHigh;
 
@@ -741,9 +741,9 @@ void AsalesManager_C::ReceiveBeginPlay()
 // Function salesManager.salesManager_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AsalesManager_C::ReceiveTick(float* DeltaSeconds)
+void AsalesManager_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function salesManager.salesManager_C.ReceiveTick");
 

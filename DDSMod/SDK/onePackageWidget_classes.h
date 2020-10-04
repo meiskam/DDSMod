@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -35,7 +35,7 @@ public:
 	}
 
 
-	void setup(const struct FText& DrugNam, int Grams, int Quantity, class UTexture2D* Icon, int Index, class UpackageProductWidget_C* Parent);
+	void setup(const struct FText& DrugNam, int Grams, int quantity, class UTexture2D* Icon, int Index, class UpackageProductWidget_C* Parent);
 	void BndEvt__Button_0_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();
 	void ExecuteUbergraph_onePackageWidget(int EntryPoint);
 };

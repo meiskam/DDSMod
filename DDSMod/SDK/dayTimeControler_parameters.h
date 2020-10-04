@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -65,6 +65,7 @@ struct AdayTimeControler_C_getStringTime_Params
 // Function dayTimeControler.dayTimeControler_C.setupReferences
 struct AdayTimeControler_C_setupReferences_Params
 {
+	bool                                               Valid;                                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function dayTimeControler.dayTimeControler_C.calculateSky
@@ -75,17 +76,6 @@ struct AdayTimeControler_C_calculateSky_Params
 // Function dayTimeControler.dayTimeControler_C.UserConstructionScript
 struct AdayTimeControler_C_UserConstructionScript_Params
 {
-};
-
-// Function dayTimeControler.dayTimeControler_C.ReceiveBeginPlay
-struct AdayTimeControler_C_ReceiveBeginPlay_Params
-{
-};
-
-// Function dayTimeControler.dayTimeControler_C.ReceiveTick
-struct AdayTimeControler_C_ReceiveTick_Params
-{
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function dayTimeControler.dayTimeControler_C.updateSun
@@ -108,11 +98,22 @@ struct AdayTimeControler_C_sunDefaults_Params
 {
 };
 
-// Function dayTimeControler.dayTimeControler_C.addTime
-struct AdayTimeControler_C_addTime_Params
+// Function dayTimeControler.dayTimeControler_C.AddTime
+struct AdayTimeControler_C_AddTime_Params
 {
 	float                                              Hours;                                                    // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	float                                              Minutes;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function dayTimeControler.dayTimeControler_C.ReceiveTick
+struct AdayTimeControler_C_ReceiveTick_Params
+{
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function dayTimeControler.dayTimeControler_C.ReceiveBeginPlay
+struct AdayTimeControler_C_ReceiveBeginPlay_Params
+{
 };
 
 // Function dayTimeControler.dayTimeControler_C.refreshSun
@@ -132,6 +133,16 @@ struct AdayTimeControler_C_CloseSunGate_Params
 
 // Function dayTimeControler.dayTimeControler_C.checkPoliceHoursAlarm
 struct AdayTimeControler_C_checkPoliceHoursAlarm_Params
+{
+};
+
+// Function dayTimeControler.dayTimeControler_C.updateCepTime
+struct AdayTimeControler_C_updateCepTime_Params
+{
+};
+
+// Function dayTimeControler.dayTimeControler_C.retrySetDefaultTime
+struct AdayTimeControler_C_retrySetDefaultTime_Params
 {
 };
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,15 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
+
+// Enum GameplayTasks.ETaskResourceOverlapPolicy
+enum class ETaskResourceOverlapPolicy : uint8_t
+{
+	ETaskResourceOverlapPolicy__StartOnTop = 0,
+	ETaskResourceOverlapPolicy__StartAtEnd = 1,
+	ETaskResourceOverlapPolicy__ETaskResourceOverlapPolicy_MAX = 2
+};
+
 
 // Enum GameplayTasks.EGameplayTaskState
 enum class EGameplayTaskState : uint8_t
@@ -33,15 +42,6 @@ enum class EGameplayTaskRunResult : uint8_t
 	EGameplayTaskRunResult__Success_Active = 3,
 	EGameplayTaskRunResult__Success_Finished = 4,
 	EGameplayTaskRunResult__EGameplayTaskRunResult_MAX = 5
-};
-
-
-// Enum GameplayTasks.ETaskResourceOverlapPolicy
-enum class ETaskResourceOverlapPolicy : uint8_t
-{
-	ETaskResourceOverlapPolicy__StartOnTop = 0,
-	ETaskResourceOverlapPolicy__StartAtEnd = 1,
-	ETaskResourceOverlapPolicy__ETaskResourceOverlapPolicy_MAX = 2
 };
 
 

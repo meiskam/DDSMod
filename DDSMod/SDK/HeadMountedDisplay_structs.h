@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -35,35 +35,6 @@ enum class EHMDWornState : uint8_t
 };
 
 
-// Enum HeadMountedDisplay.EOrientPositionSelector
-enum class EOrientPositionSelector : uint8_t
-{
-	EOrientPositionSelector__Orientation = 0,
-	EOrientPositionSelector__Position = 1,
-	EOrientPositionSelector__OrientationAndPosition = 2,
-	EOrientPositionSelector__EOrientPositionSelector_MAX = 3
-};
-
-
-// Enum HeadMountedDisplay.EHMDTrackingOrigin
-enum class EHMDTrackingOrigin : uint8_t
-{
-	EHMDTrackingOrigin__Floor      = 0,
-	EHMDTrackingOrigin__Eye        = 1,
-	EHMDTrackingOrigin__EHMDTrackingOrigin_MAX = 2
-};
-
-
-// Enum HeadMountedDisplay.ETrackingStatus
-enum class ETrackingStatus : uint8_t
-{
-	ETrackingStatus__NotTracked    = 0,
-	ETrackingStatus__InertialOnly  = 1,
-	ETrackingStatus__Tracked       = 2,
-	ETrackingStatus__ETrackingStatus_MAX = 3
-};
-
-
 // Enum HeadMountedDisplay.ESpectatorScreenMode
 enum class ESpectatorScreenMode : uint8_t
 {
@@ -76,6 +47,35 @@ enum class ESpectatorScreenMode : uint8_t
 	ESpectatorScreenMode__Texture  = 6,
 	ESpectatorScreenMode__TexturePlusEye = 7,
 	ESpectatorScreenMode__ESpectatorScreenMode_MAX = 8
+};
+
+
+// Enum HeadMountedDisplay.EHMDTrackingOrigin
+enum class EHMDTrackingOrigin : uint8_t
+{
+	EHMDTrackingOrigin__Floor      = 0,
+	EHMDTrackingOrigin__Eye        = 1,
+	EHMDTrackingOrigin__EHMDTrackingOrigin_MAX = 2
+};
+
+
+// Enum HeadMountedDisplay.EOrientPositionSelector
+enum class EOrientPositionSelector : uint8_t
+{
+	EOrientPositionSelector__Orientation = 0,
+	EOrientPositionSelector__Position = 1,
+	EOrientPositionSelector__OrientationAndPosition = 2,
+	EOrientPositionSelector__EOrientPositionSelector_MAX = 3
+};
+
+
+// Enum HeadMountedDisplay.ETrackingStatus
+enum class ETrackingStatus : uint8_t
+{
+	ETrackingStatus__NotTracked    = 0,
+	ETrackingStatus__InertialOnly  = 1,
+	ETrackingStatus__Tracked       = 2,
+	ETrackingStatus__ETrackingStatus_MAX = 3
 };
 
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,22 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
+
+// Class CableComponent.CableActor
+// 0x0008 (0x0330 - 0x0328)
+class ACableActor : public AActor
+{
+public:
+	class UCableComponent*                             CableComponent;                                           // 0x0328(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class CableComponent.CableActor");
+		return ptr;
+	}
+
+};
+
 
 // Class CableComponent.CableComponent
 // 0x0080 (0x0600 - 0x0580)
@@ -49,22 +65,6 @@ public:
 	void GetCableParticleLocations(TArray<struct FVector>* Locations);
 	class USceneComponent* GetAttachedComponent();
 	class AActor* GetAttachedActor();
-};
-
-
-// Class CableComponent.CableActor
-// 0x0008 (0x0330 - 0x0328)
-class ACableActor : public AActor
-{
-public:
-	class UCableComponent*                             CableComponent;                                           // 0x0328(0x0008) (Edit, BlueprintVisible, ExportObject, BlueprintReadOnly, ZeroConstructor, EditConst, InstancedReference, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class CableComponent.CableActor");
-		return ptr;
-	}
-
 };
 
 

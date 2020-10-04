@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -22,7 +22,7 @@ struct UexpEarnedPopup_C_Construct_Params
 // Function expEarnedPopup.expEarnedPopup_C.setup
 struct UexpEarnedPopup_C_setup_Params
 {
-	float                                              ExpAmount;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              expAmount;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function expEarnedPopup.expEarnedPopup_C.ExecuteUbergraph_expEarnedPopup

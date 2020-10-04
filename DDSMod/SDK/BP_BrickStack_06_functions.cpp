@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,14 +13,14 @@ namespace SDK
 // Functions
 //---------------------------------------------------------------------------
 
-// Function BP_Carousel_A.BP_Carousel_A_C.UserConstructionScript
+// Function BP_BrickStack_06.BP_BrickStack_06_C.UserConstructionScript
 // (Event, Public, BlueprintCallable, BlueprintEvent)
 
-void ABP_Carousel_A_C::UserConstructionScript()
+void ABP_BrickStack_06_C::UserConstructionScript()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_Carousel_A.BP_Carousel_A_C.UserConstructionScript");
+	static auto fn = UObject::FindObject<UFunction>("Function BP_BrickStack_06.BP_BrickStack_06_C.UserConstructionScript");
 
-	ABP_Carousel_A_C_UserConstructionScript_Params params;
+	ABP_BrickStack_06_C_UserConstructionScript_Params params;
 
 	auto flags = fn->FunctionFlags;
 

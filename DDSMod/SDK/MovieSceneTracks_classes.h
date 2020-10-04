@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -133,6 +133,30 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class MovieSceneTracks.MovieScene3DPathTrack");
+		return ptr;
+	}
+
+};
+
+
+// Class MovieSceneTracks.MovieScene3DTransformSection
+// 0x0650 (0x0730 - 0x00E0)
+class UMovieScene3DTransformSection : public UMovieSceneSection
+{
+public:
+	struct FMovieSceneTransformMask                    TransformMask;                                            // 0x00E0(0x0004)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x00E4(0x0004) MISSED OFFSET
+	struct FMovieSceneFloatChannel                     Translation[0x3];                                         // 0x00E8(0x00A0)
+	struct FMovieSceneFloatChannel                     Rotation[0x3];                                            // 0x02C8(0x00A0)
+	struct FMovieSceneFloatChannel                     Scale[0x3];                                               // 0x04A8(0x00A0)
+	struct FMovieSceneFloatChannel                     ManualWeight;                                             // 0x0688(0x00A0)
+	unsigned char                                      UnknownData01[0x4];                                       // 0x0728(0x0004) MISSED OFFSET
+	bool                                               bUseQuaternionInterpolation;                              // 0x072C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x3];                                       // 0x072D(0x0003) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MovieSceneTracks.MovieScene3DTransformSection");
 		return ptr;
 	}
 
@@ -1064,30 +1088,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class MovieSceneTracks.MovieSceneVisibilityTrack");
-		return ptr;
-	}
-
-};
-
-
-// Class MovieSceneTracks.MovieScene3DTransformSection
-// 0x0650 (0x0730 - 0x00E0)
-class UMovieScene3DTransformSection : public UMovieSceneSection
-{
-public:
-	struct FMovieSceneTransformMask                    TransformMask;                                            // 0x00E0(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x00E4(0x0004) MISSED OFFSET
-	struct FMovieSceneFloatChannel                     Translation[0x3];                                         // 0x00E8(0x00A0)
-	struct FMovieSceneFloatChannel                     Rotation[0x3];                                            // 0x02C8(0x00A0)
-	struct FMovieSceneFloatChannel                     Scale[0x3];                                               // 0x04A8(0x00A0)
-	struct FMovieSceneFloatChannel                     ManualWeight;                                             // 0x0688(0x00A0)
-	unsigned char                                      UnknownData01[0x4];                                       // 0x0728(0x0004) MISSED OFFSET
-	bool                                               bUseQuaternionInterpolation;                              // 0x072C(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData02[0x3];                                       // 0x072D(0x0003) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MovieSceneTracks.MovieScene3DTransformSection");
 		return ptr;
 	}
 

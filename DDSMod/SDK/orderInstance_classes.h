@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -25,7 +25,7 @@ public:
 	float                                              recoverHour;                                              // 0x0360(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	float                                              recoverMinute;                                            // 0x0364(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	class AsmuggleLocation_C*                          orderSmuggleLocation;                                     // 0x0368(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
-	int                                                orderID;                                                  // 0x0370(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                OrderID;                                                  // 0x0370(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0374(0x0004) MISSED OFFSET
 	struct FString                                     smuggleLocationStringID;                                  // 0x0378(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	int                                                recoverDay;                                               // 0x0388(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -48,7 +48,7 @@ public:
 	}
 
 
-	void choosePackageIcon(TEnumAsByte<EdrugForm> Form, int Quantity, class UTexture2D** IconOut);
+	void choosePackageIcon(TEnumAsByte<EdrugForm> Form, int quantity, class UTexture2D** IconOut);
 	void constructOrderSMS(TArray<struct FText>* MessageTemplates, struct FText* MessageText);
 	void calcPackagingPattern(const struct FdrugData& drugData, int Index, int leftToDivide, struct FText* PackageName, int* PackageQuantity, float* packageSize, float* packageWeight, int* restLeft, int* gramsPerPack, class UTexture2D** packageIcon, class UClass** ObjectClass);
 	void generatePackageContents(TArray<struct FinventoryItemStruct>* OutInventory, TArray<int>* outQuantity);
@@ -59,7 +59,7 @@ public:
 	void getSmuggleLocRef();
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void SetupOrder(int ID, float spawnTime, TArray<struct FdrugData>* drugData, TArray<int>* drugQuantities);
 	void checkOrderSpawnTime();
 	void spawnOrderNow();

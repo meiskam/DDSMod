@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,14 +11,6 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Script Structs
 //---------------------------------------------------------------------------
-
-// ScriptStruct EngineMessages.EngineServiceNotification
-// 0x0018
-struct FEngineServiceNotification
-{
-	struct FString                                     Text;                                                     // 0x0000(0x0010) (Edit, ZeroConstructor)
-	double                                             TimeSeconds;                                              // 0x0010(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-};
 
 // ScriptStruct EngineMessages.EngineServiceTerminate
 // 0x0010
@@ -71,6 +63,14 @@ struct FEngineServicePong
 struct FEngineServicePing
 {
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
+};
+
+// ScriptStruct EngineMessages.EngineServiceNotification
+// 0x0018
+struct FEngineServiceNotification
+{
+	struct FString                                     Text;                                                     // 0x0000(0x0010) (Edit, ZeroConstructor)
+	double                                             TimeSeconds;                                              // 0x0010(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 };
 
 }

@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,19 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
+
+// Function playerCharacterBP.playerCharacterBP_C.restoreGuardLocation
+struct AplayerCharacterBP_C_restoreGuardLocation_Params
+{
+};
+
+// Function playerCharacterBP.playerCharacterBP_C.checkBobbyPins
+struct AplayerCharacterBP_C_checkBobbyPins_Params
+{
+	bool                                               RemoveOne;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               HasBobbyPins;                                             // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                bobbyPinCount;                                            // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
 
 // Function playerCharacterBP.playerCharacterBP_C.convertBackpackData
 struct AplayerCharacterBP_C_convertBackpackData_Params
@@ -179,7 +192,7 @@ struct AplayerCharacterBP_C_updateNotifyIcons_Params
 struct AplayerCharacterBP_C_checkInventorySizing_Params
 {
 	struct FinventoryItemStruct                        Data;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm)
-	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               canFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
@@ -187,7 +200,7 @@ struct AplayerCharacterBP_C_checkInventorySizing_Params
 struct AplayerCharacterBP_C_checkAllPocketsSizing_Params
 {
 	struct FinventoryItemStruct                        Data;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm)
-	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               AllFits;                                                  // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 	int                                                Rest;                                                     // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
@@ -294,7 +307,7 @@ struct AplayerCharacterBP_C_clearBackpack_Params
 // Function playerCharacterBP.playerCharacterBP_C.setCurrentBackpack
 struct AplayerCharacterBP_C_setCurrentBackpack_Params
 {
-	class AbackpackBase_C*                             backpack;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AbackpackBase_C*                             Backpack;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	class AitemInventoryHolder_C*                      itemHolder;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	struct FinventoryItemStruct                        backpackData;                                             // (BlueprintVisible, BlueprintReadOnly, Parm)
 };
@@ -335,16 +348,16 @@ struct AplayerCharacterBP_C_phoneNewMessage_Params
 struct AplayerCharacterBP_C_checkContainerSizing_Params
 {
 	struct FinventoryItemStruct                        Data;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm)
-	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               canFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                maxQuantity;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                MaxQuantity;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.tryAddToPockets
 struct AplayerCharacterBP_C_tryAddToPockets_Params
 {
 	struct FinventoryItemStruct                        Data;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm)
-	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               AllAdded;                                                 // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 	int                                                Rest;                                                     // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
@@ -353,7 +366,7 @@ struct AplayerCharacterBP_C_tryAddToPockets_Params
 struct AplayerCharacterBP_C_addBackpackContent_Params
 {
 	struct FinventoryItemStruct                        Data;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm)
-	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               fromVendor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	int                                                ItemPrice;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
@@ -362,19 +375,19 @@ struct AplayerCharacterBP_C_addBackpackContent_Params
 struct AplayerCharacterBP_C_checkBackpackSizing_Params
 {
 	struct FinventoryItemStruct                        itemData;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm)
-	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               canFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                maxQuantity;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                MaxQuantity;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.checkPocketSizing
 struct AplayerCharacterBP_C_checkPocketSizing_Params
 {
 	struct FinventoryItemStruct                        itemData;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm)
-	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	int                                                Index;                                                    // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               canFit;                                                   // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
-	int                                                maxQuantity;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+	int                                                MaxQuantity;                                              // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.setPocketContent
@@ -382,7 +395,7 @@ struct AplayerCharacterBP_C_setPocketContent_Params
 {
 	struct FinventoryItemStruct                        itemData;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm)
 	int                                                PocketIndex;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               fromVendor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	int                                                vendorPrice;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
@@ -391,7 +404,7 @@ struct AplayerCharacterBP_C_setPocketContent_Params
 struct AplayerCharacterBP_C_removeFromPocket_Params
 {
 	int                                                Index;                                                    // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.removeDraggedItem
@@ -399,7 +412,7 @@ struct AplayerCharacterBP_C_removeDraggedItem_Params
 {
 	struct FString                                     parentTag;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 	int                                                Index;                                                    // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	struct FinventoryItemStruct                        Data;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm)
 };
 
@@ -407,14 +420,14 @@ struct AplayerCharacterBP_C_removeDraggedItem_Params
 struct AplayerCharacterBP_C_removeFromBackpack_Params
 {
 	int                                                Index;                                                    // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.tryAddToInventory
 struct AplayerCharacterBP_C_tryAddToInventory_Params
 {
 	struct FinventoryItemStruct                        Item;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm)
-	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               Success;                                                  // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 	struct FText                                       FailReason;                                               // (Parm, OutParm)
 };
@@ -760,7 +773,7 @@ struct AplayerCharacterBP_C_ReceiveBeginPlay_Params
 // Function playerCharacterBP.playerCharacterBP_C.ReceiveTick
 struct AplayerCharacterBP_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.InpAxisEvt_MoveForward_K2Node_InputAxisEvent_1
@@ -800,7 +813,7 @@ struct AplayerCharacterBP_C_footStep_Params
 // Function playerCharacterBP.playerCharacterBP_C.ReceivePossessed
 struct AplayerCharacterBP_C_ReceivePossessed_Params
 {
-	class AController**                                NewController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AController*                                 NewController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.lineTraceCheck
@@ -901,7 +914,7 @@ struct AplayerCharacterBP_C_closeLockpickMode_Params
 // Function playerCharacterBP.playerCharacterBP_C.ReceiveUnpossessed
 struct AplayerCharacterBP_C_ReceiveUnpossessed_Params
 {
-	class AController**                                OldController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AController*                                 OldController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.startDialogue
@@ -981,8 +994,8 @@ struct AplayerCharacterBP_C_clearOptionPanel_Params
 {
 };
 
-// Function playerCharacterBP.playerCharacterBP_C.ActionRelease
-struct AplayerCharacterBP_C_ActionRelease_Params
+// Function playerCharacterBP.playerCharacterBP_C.actionRelease
+struct AplayerCharacterBP_C_actionRelease_Params
 {
 };
 
@@ -994,7 +1007,7 @@ struct AplayerCharacterBP_C_removeMap_Params
 // Function playerCharacterBP.playerCharacterBP_C.OnLanded
 struct AplayerCharacterBP_C_OnLanded_Params
 {
-	struct FHitResult*                                 Hit;                                                      // (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, IsPlainOldData)
+	struct FHitResult                                  Hit;                                                      // (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm, IsPlainOldData)
 };
 
 // Function playerCharacterBP.playerCharacterBP_C.openMap

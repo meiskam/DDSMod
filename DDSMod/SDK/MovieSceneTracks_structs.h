@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -58,6 +58,13 @@ enum class EFireEventsAtPosition : uint8_t
 //---------------------------------------------------------------------------
 // Script Structs
 //---------------------------------------------------------------------------
+
+// ScriptStruct MovieSceneTracks.MovieSceneTransformMask
+// 0x0004
+struct FMovieSceneTransformMask
+{
+	uint32_t                                           Mask;                                                     // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
+};
 
 // ScriptStruct MovieSceneTracks.MovieSceneActorReferenceKey
 // 0x0018
@@ -202,13 +209,6 @@ struct FMovieSceneStringChannel : public FMovieSceneChannel
 	struct FString                                     DefaultValue;                                             // 0x0028(0x0010) (ZeroConstructor)
 	bool                                               bHasDefaultValue;                                         // 0x0038(0x0001) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x67];                                      // 0x0039(0x0067) MISSED OFFSET
-};
-
-// ScriptStruct MovieSceneTracks.MovieSceneTransformMask
-// 0x0004
-struct FMovieSceneTransformMask
-{
-	uint32_t                                           Mask;                                                     // 0x0000(0x0004) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct MovieSceneTracks.MovieScene3DAttachSectionTemplate
@@ -465,18 +465,18 @@ struct FMovieSceneComponentMaterialSectionTemplate : public FMovieSceneParameter
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0054(0x0004) MISSED OFFSET
 };
 
-// ScriptStruct MovieSceneTracks.MovieSceneParticleParameterSectionTemplate
-// 0x0000 (0x0050 - 0x0050)
-struct FMovieSceneParticleParameterSectionTemplate : public FMovieSceneParameterSectionTemplate
-{
-
-};
-
 // ScriptStruct MovieSceneTracks.MovieSceneParticleSectionTemplate
 // 0x0098 (0x00B8 - 0x0020)
 struct FMovieSceneParticleSectionTemplate : public FMovieSceneEvalTemplate
 {
 	struct FMovieSceneParticleChannel                  ParticleKeys;                                             // 0x0020(0x0098)
+};
+
+// ScriptStruct MovieSceneTracks.MovieSceneParticleParameterSectionTemplate
+// 0x0000 (0x0050 - 0x0050)
+struct FMovieSceneParticleParameterSectionTemplate : public FMovieSceneParameterSectionTemplate
+{
+
 };
 
 // ScriptStruct MovieSceneTracks.MovieSceneEulerTransformPropertySectionTemplate
@@ -564,18 +564,18 @@ struct FMovieSceneSkeletalAnimationSectionTemplate : public FMovieSceneEvalTempl
 	struct FMovieSceneSkeletalAnimationSectionTemplateParameters Params;                                                   // 0x0020(0x00D0)
 };
 
-// ScriptStruct MovieSceneTracks.MovieSceneSlomoSectionTemplate
-// 0x00A0 (0x00C0 - 0x0020)
-struct FMovieSceneSlomoSectionTemplate : public FMovieSceneEvalTemplate
-{
-	struct FMovieSceneFloatChannel                     SlomoCurve;                                               // 0x0020(0x00A0)
-};
-
 // ScriptStruct MovieSceneTracks.MovieSceneSpawnSectionTemplate
 // 0x0090 (0x00B0 - 0x0020)
 struct FMovieSceneSpawnSectionTemplate : public FMovieSceneEvalTemplate
 {
 	struct FMovieSceneBoolChannel                      Curve;                                                    // 0x0020(0x0090)
+};
+
+// ScriptStruct MovieSceneTracks.MovieSceneSlomoSectionTemplate
+// 0x00A0 (0x00C0 - 0x0020)
+struct FMovieSceneSlomoSectionTemplate : public FMovieSceneEvalTemplate
+{
+	struct FMovieSceneFloatChannel                     SlomoCurve;                                               // 0x0020(0x00A0)
 };
 
 // ScriptStruct MovieSceneTracks.MovieSceneVectorKeyStructBase
@@ -602,18 +602,18 @@ struct FMovieSceneVectorKeyStruct : public FMovieSceneVectorKeyStructBase
 	unsigned char                                      UnknownData00[0x4];                                       // 0x0034(0x0004) MISSED OFFSET
 };
 
-// ScriptStruct MovieSceneTracks.MovieSceneVector2DKeyStruct
-// 0x0008 (0x0030 - 0x0028)
-struct FMovieSceneVector2DKeyStruct : public FMovieSceneVectorKeyStructBase
-{
-	struct FVector2D                                   Vector;                                                   // 0x0028(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-};
-
 // ScriptStruct MovieSceneTracks.MovieSceneVisibilitySectionTemplate
 // 0x0000 (0x00D8 - 0x00D8)
 struct FMovieSceneVisibilitySectionTemplate : public FMovieSceneBoolPropertySectionTemplate
 {
 
+};
+
+// ScriptStruct MovieSceneTracks.MovieSceneVector2DKeyStruct
+// 0x0008 (0x0030 - 0x0028)
+struct FMovieSceneVector2DKeyStruct : public FMovieSceneVectorKeyStructBase
+{
+	struct FVector2D                                   Vector;                                                   // 0x0028(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
 };
 
 }

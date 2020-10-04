@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -33,9 +33,9 @@ void USeagull_AnimationBlueprint_C::EvaluateGraphExposedInputs_ExecuteUbergraph_
 // Function Seagull_AnimationBlueprint.Seagull_AnimationBlueprint_C.BlueprintUpdateAnimation
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaTimeX                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void USeagull_AnimationBlueprint_C::BlueprintUpdateAnimation(float* DeltaTimeX)
+void USeagull_AnimationBlueprint_C::BlueprintUpdateAnimation(float DeltaTimeX)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function Seagull_AnimationBlueprint.Seagull_AnimationBlueprint_C.BlueprintUpdateAnimation");
 

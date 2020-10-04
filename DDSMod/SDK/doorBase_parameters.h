@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -106,6 +106,11 @@ struct AdoorBase_C_breachDoor_Params
 
 // Function doorBase.doorBase_C.eventDoorActivated
 struct AdoorBase_C_eventDoorActivated_Params
+{
+};
+
+// Function doorBase.doorBase_C.lockpickReset
+struct AdoorBase_C_lockpickReset_Params
 {
 };
 

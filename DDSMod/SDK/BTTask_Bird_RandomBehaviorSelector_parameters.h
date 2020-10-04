@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,8 +17,8 @@ namespace SDK
 // Function BTTask_Bird_RandomBehaviorSelector.BTTask_Bird_RandomBehaviorSelector_C.ReceiveExecuteAI
 struct UBTTask_Bird_RandomBehaviorSelector_C_ReceiveExecuteAI_Params
 {
-	class AAIController**                              OwnerController;                                          // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	class APawn**                                      ControlledPawn;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AAIController*                               OwnerController;                                          // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class APawn*                                       ControlledPawn;                                           // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function BTTask_Bird_RandomBehaviorSelector.BTTask_Bird_RandomBehaviorSelector_C.ExecuteUbergraph_BTTask_Bird_RandomBehaviorSelector

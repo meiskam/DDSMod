@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -145,11 +145,11 @@ void UorderDropOverlay_C::sortGrid()
 // Function orderDropOverlay.orderDropOverlay_C.OnDragDetected
 // (BlueprintCosmetic, Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// struct FPointerEvent*          PointerEvent                   (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// struct FPointerEvent           PointerEvent                   (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 // class UDragDropOperation*      Operation                      (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void UorderDropOverlay_C::OnDragDetected(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation)
+void UorderDropOverlay_C::OnDragDetected(const struct FGeometry& MyGeometry, const struct FPointerEvent& PointerEvent, class UDragDropOperation** Operation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderDropOverlay.orderDropOverlay_C.OnDragDetected");
 
@@ -171,12 +171,12 @@ void UorderDropOverlay_C::OnDragDetected(struct FGeometry* MyGeometry, struct FP
 // Function orderDropOverlay.orderDropOverlay_C.OnDrop
 // (BlueprintCosmetic, Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// struct FPointerEvent*          PointerEvent                   (BlueprintVisible, BlueprintReadOnly, Parm)
-// class UDragDropOperation**     Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// struct FPointerEvent           PointerEvent                   (BlueprintVisible, BlueprintReadOnly, Parm)
+// class UDragDropOperation*      Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 
-bool UorderDropOverlay_C::OnDrop(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation)
+bool UorderDropOverlay_C::OnDrop(const struct FGeometry& MyGeometry, const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderDropOverlay.orderDropOverlay_C.OnDrop");
 
@@ -215,10 +215,10 @@ void UorderDropOverlay_C::Construct()
 // Function orderDropOverlay.orderDropOverlay_C.OnDragCancelled
 // (BlueprintCosmetic, Event, Public, HasOutParms, BlueprintEvent)
 // Parameters:
-// struct FPointerEvent*          PointerEvent                   (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
-// class UDragDropOperation**     Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FPointerEvent           PointerEvent                   (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// class UDragDropOperation*      Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UorderDropOverlay_C::OnDragCancelled(struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation)
+void UorderDropOverlay_C::OnDragCancelled(const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderDropOverlay.orderDropOverlay_C.OnDragCancelled");
 
@@ -237,11 +237,11 @@ void UorderDropOverlay_C::OnDragCancelled(struct FPointerEvent* PointerEvent, cl
 // Function orderDropOverlay.orderDropOverlay_C.OnDragEnter
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// struct FPointerEvent*          PointerEvent                   (BlueprintVisible, BlueprintReadOnly, Parm)
-// class UDragDropOperation**     Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// struct FPointerEvent           PointerEvent                   (BlueprintVisible, BlueprintReadOnly, Parm)
+// class UDragDropOperation*      Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UorderDropOverlay_C::OnDragEnter(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation)
+void UorderDropOverlay_C::OnDragEnter(const struct FGeometry& MyGeometry, const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderDropOverlay.orderDropOverlay_C.OnDragEnter");
 
@@ -261,10 +261,10 @@ void UorderDropOverlay_C::OnDragEnter(struct FGeometry* MyGeometry, struct FPoin
 // Function orderDropOverlay.orderDropOverlay_C.OnDragLeave
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// struct FPointerEvent*          PointerEvent                   (BlueprintVisible, BlueprintReadOnly, Parm)
-// class UDragDropOperation**     Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FPointerEvent           PointerEvent                   (BlueprintVisible, BlueprintReadOnly, Parm)
+// class UDragDropOperation*      Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UorderDropOverlay_C::OnDragLeave(struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation)
+void UorderDropOverlay_C::OnDragLeave(const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderDropOverlay.orderDropOverlay_C.OnDragLeave");
 

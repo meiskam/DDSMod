@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -97,16 +97,16 @@ void AmainComputer_C::checkNewDrugAvailability()
 // Function mainComputer.mainComputer_C.addUserMessage
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int                            userId                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            userID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FText                   Text                           (BlueprintVisible, BlueprintReadOnly, Parm)
 // bool                           PlayerMessage                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AmainComputer_C::addUserMessage(int userId, const struct FText& Text, bool PlayerMessage)
+void AmainComputer_C::addUserMessage(int userID, const struct FText& Text, bool PlayerMessage)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function mainComputer.mainComputer_C.addUserMessage");
 
 	AmainComputer_C_addUserMessage_Params params;
-	params.userId = userId;
+	params.userID = userID;
 	params.Text = Text;
 	params.PlayerMessage = PlayerMessage;
 
@@ -147,18 +147,18 @@ void AmainComputer_C::getOrderRefByID(int ID, class AorderInstance_C** orderInst
 // Parameters:
 // bool                           LastIndex                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           BeforeLastIndex                (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FdrugData               drugData                       (BlueprintVisible, BlueprintReadOnly, Parm)
 // bool                           isSingle                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AmainComputer_C::constructMessageSentence(bool LastIndex, bool BeforeLastIndex, int Quantity, const struct FdrugData& drugData, bool isSingle)
+void AmainComputer_C::constructMessageSentence(bool LastIndex, bool BeforeLastIndex, int quantity, const struct FdrugData& drugData, bool isSingle)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function mainComputer.mainComputer_C.constructMessageSentence");
 
 	AmainComputer_C_constructMessageSentence_Params params;
 	params.LastIndex = LastIndex;
 	params.BeforeLastIndex = BeforeLastIndex;
-	params.Quantity = Quantity;
+	params.quantity = quantity;
 	params.drugData = drugData;
 	params.isSingle = isSingle;
 
@@ -232,9 +232,9 @@ void AmainComputer_C::ReceiveBeginPlay()
 // Function mainComputer.mainComputer_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AmainComputer_C::ReceiveTick(float* DeltaSeconds)
+void AmainComputer_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function mainComputer.mainComputer_C.ReceiveTick");
 
@@ -342,6 +342,23 @@ void AmainComputer_C::openIllegalGate()
 	static auto fn = UObject::FindObject<UFunction>("Function mainComputer.mainComputer_C.openIllegalGate");
 
 	AmainComputer_C_openIllegalGate_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function mainComputer.mainComputer_C.addPsychedelicsOffer
+// (BlueprintCallable, BlueprintEvent)
+
+void AmainComputer_C::addPsychedelicsOffer()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function mainComputer.mainComputer_C.addPsychedelicsOffer");
+
+	AmainComputer_C_addPsychedelicsOffer_Params params;
 
 	auto flags = fn->FunctionFlags;
 

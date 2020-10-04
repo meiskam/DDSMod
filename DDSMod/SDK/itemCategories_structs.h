@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -30,7 +30,8 @@ enum class EitemCategories : uint8_t
 	itemCategories__NewEnumerator12 = 12,
 	itemCategories__NewEnumerator13 = 13,
 	itemCategories__NewEnumerator14 = 14,
-	itemCategories__itemCategories_MAX = 15
+	itemCategories__NewEnumerator15 = 15,
+	itemCategories__itemCategories_MAX = 16
 };
 
 

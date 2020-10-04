@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -210,9 +210,9 @@ void AsitingDownPawn_C::InpAxisEvt_LookSideways_K2Node_InputAxisEvent_2(float Ax
 // Function sitingDownPawn.sitingDownPawn_C.ReceivePossessed
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AController**            NewController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AController*             NewController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AsitingDownPawn_C::ReceivePossessed(class AController** NewController)
+void AsitingDownPawn_C::ReceivePossessed(class AController* NewController)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function sitingDownPawn.sitingDownPawn_C.ReceivePossessed");
 

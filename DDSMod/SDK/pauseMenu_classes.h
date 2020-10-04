@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -39,7 +39,7 @@ public:
 	bool                                               canUnpause;                                               // 0x02A0(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x7];                                       // 0x02A1(0x0007) MISSED OFFSET
 	struct FText                                       tooltipError;                                             // 0x02A8(0x0018) (Edit, BlueprintVisible, DisableEditOnInstance)
-	int                                                ConfirmActionIndex;                                       // 0x02C0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                confirmActionIndex;                                       // 0x02C0(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -48,7 +48,7 @@ public:
 	}
 
 
-	void showConfirm(const struct FText& Header, const struct FText& Desc, int ConfirmActionIndex);
+	void showConfirm(const struct FText& Header, const struct FText& Desc, int confirmActionIndex);
 	void terminateMe(bool* canUnpause);
 	void Construct();
 	void BndEvt__btnResume_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();

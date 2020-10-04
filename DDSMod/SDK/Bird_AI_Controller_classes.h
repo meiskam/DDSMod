@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -65,7 +65,7 @@ public:
 	void CalculateDistanceToActor(class AActor* InputActor, float* DistanceToActor);
 	void AddActorToEnemyArray(class AActor* InputActor);
 	void UserConstructionScript();
-	void OnPossess(class APawn** PossessedPawn);
+	void OnPossess(class APawn* PossessedPawn);
 	void BndEvt__AIPerception_K2Node_ComponentBoundEvent_3_PerceptionUpdatedDelegate__DelegateSignature(TArray<class AActor*> UpdatedActors);
 	void EnemySelection();
 	void OnEnemyDestroyed(class AActor* DestroyedActor);

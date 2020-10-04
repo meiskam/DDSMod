@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -47,7 +47,7 @@ public:
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale02_animBP_AnimGraphNode_TransitionResult_D5ED19BE4AC337301C76D6A7CBC21522();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale02_animBP_AnimGraphNode_TransitionResult_E5C2513249A59FAEB1C754B5BE0920BE();
 	void EvaluateGraphExposedInputs_ExecuteUbergraph_CitizenMale02_animBP_AnimGraphNode_TransitionResult_9AE92CF74F4C39142C9408BD3C23CFCD();
-	void BlueprintUpdateAnimation(float* DeltaTimeX);
+	void BlueprintUpdateAnimation(float DeltaTimeX);
 	void BlueprintBeginPlay();
 	void ExecuteUbergraph_CitizenMale02_animBP(int EntryPoint);
 };

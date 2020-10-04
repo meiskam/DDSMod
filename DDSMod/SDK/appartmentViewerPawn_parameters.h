@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -69,13 +69,13 @@ struct AappartmentViewerPawn_C_SpaceHeldDown_Params
 // Function appartmentViewerPawn.appartmentViewerPawn_C.ReceivePossessed
 struct AappartmentViewerPawn_C_ReceivePossessed_Params
 {
-	class AController**                                NewController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AController*                                 NewController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function appartmentViewerPawn.appartmentViewerPawn_C.ReceiveUnpossessed
 struct AappartmentViewerPawn_C_ReceiveUnpossessed_Params
 {
-	class AController**                                OldController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AController*                                 OldController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function appartmentViewerPawn.appartmentViewerPawn_C.checkStreamAreas

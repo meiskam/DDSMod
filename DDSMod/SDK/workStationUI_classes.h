@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -100,9 +100,9 @@ public:
 	void scrollDrugsUp();
 	void scrollDrugsDown();
 	void renderInventoryDrugs();
-	void PreConstruct(bool* IsDesignTime);
+	void PreConstruct(bool IsDesignTime);
 	void Construct();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void ReInitialise();
 	void popRing();
 	void ManualToggle();

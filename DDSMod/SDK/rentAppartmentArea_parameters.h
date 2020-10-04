@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -71,14 +71,14 @@ struct ArentAppartmentArea_C_spawnFlashBang_Params
 struct ArentAppartmentArea_C_addInventoryItem_Params
 {
 	struct FappartmentEquipment                        EqData;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm)
-	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function rentAppartmentArea.rentAppartmentArea_C.removeInventoryItem
 struct ArentAppartmentArea_C_removeInventoryItem_Params
 {
 	int                                                Index;                                                    // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                Quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function rentAppartmentArea.rentAppartmentArea_C.checkPlayerOverlaping
@@ -99,19 +99,19 @@ struct ArentAppartmentArea_C_ReceiveBeginPlay_Params
 // Function rentAppartmentArea.rentAppartmentArea_C.ReceiveActorBeginOverlap
 struct ArentAppartmentArea_C_ReceiveActorBeginOverlap_Params
 {
-	class AActor**                                     OtherActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OtherActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function rentAppartmentArea.rentAppartmentArea_C.ReceiveTick
 struct ArentAppartmentArea_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function rentAppartmentArea.rentAppartmentArea_C.ReceiveActorEndOverlap
 struct ArentAppartmentArea_C_ReceiveActorEndOverlap_Params
 {
-	class AActor**                                     OtherActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OtherActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function rentAppartmentArea.rentAppartmentArea_C.purgeAppartment

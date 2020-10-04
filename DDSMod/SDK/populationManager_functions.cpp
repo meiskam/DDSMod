@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -126,14 +126,14 @@ void ApopulationManager_C::burstMothafuckers()
 // Function populationManager.populationManager_C.populationTimeLapse
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// float                          EndHour                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          endHour                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void ApopulationManager_C::populationTimeLapse(float EndHour)
+void ApopulationManager_C::populationTimeLapse(float endHour)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function populationManager.populationManager_C.populationTimeLapse");
 
 	ApopulationManager_C_populationTimeLapse_Params params;
-	params.EndHour = EndHour;
+	params.endHour = endHour;
 
 	auto flags = fn->FunctionFlags;
 

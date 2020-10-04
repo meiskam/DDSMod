@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -320,6 +320,23 @@ void AdoorBase_C::eventDoorActivated()
 	static auto fn = UObject::FindObject<UFunction>("Function doorBase.doorBase_C.eventDoorActivated");
 
 	AdoorBase_C_eventDoorActivated_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function doorBase.doorBase_C.lockpickReset
+// (BlueprintCallable, BlueprintEvent)
+
+void AdoorBase_C::lockpickReset()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function doorBase.doorBase_C.lockpickReset");
+
+	AdoorBase_C_lockpickReset_Params params;
 
 	auto flags = fn->FunctionFlags;
 

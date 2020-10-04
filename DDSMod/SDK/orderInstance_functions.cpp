@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,16 +17,16 @@ namespace SDK
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
 // TEnumAsByte<EdrugForm>         Form                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // class UTexture2D*              IconOut                        (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AorderInstance_C::choosePackageIcon(TEnumAsByte<EdrugForm> Form, int Quantity, class UTexture2D** IconOut)
+void AorderInstance_C::choosePackageIcon(TEnumAsByte<EdrugForm> Form, int quantity, class UTexture2D** IconOut)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderInstance.orderInstance_C.choosePackageIcon");
 
 	AorderInstance_C_choosePackageIcon_Params params;
 	params.Form = Form;
-	params.Quantity = Quantity;
+	params.quantity = quantity;
 
 	auto flags = fn->FunctionFlags;
 
@@ -273,9 +273,9 @@ void AorderInstance_C::ReceiveBeginPlay()
 // Function orderInstance.orderInstance_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AorderInstance_C::ReceiveTick(float* DeltaSeconds)
+void AorderInstance_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function orderInstance.orderInstance_C.ReceiveTick");
 

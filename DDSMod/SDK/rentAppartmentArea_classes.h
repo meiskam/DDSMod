@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -92,14 +92,14 @@ public:
 	void vanCanSpawn(class AdeaRaidManager_C* raidManager, class AdeaRaidCarSpawnPoint_C** suvSpawnPoint, bool* CanSpawn);
 	void suvCanSpawn(class AdeaRaidManager_C* raidManager, class AdeaRaidCarSpawnPoint_C** suvSpawnPoint, bool* CanSpawn);
 	void spawnFlashBang();
-	void addInventoryItem(const struct FappartmentEquipment& EqData, int Quantity);
-	void removeInventoryItem(int Index, int Quantity);
+	void addInventoryItem(const struct FappartmentEquipment& EqData, int quantity);
+	void removeInventoryItem(int Index, int quantity);
 	void checkPlayerOverlaping();
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveActorBeginOverlap(class AActor** OtherActor);
-	void ReceiveTick(float* DeltaSeconds);
-	void ReceiveActorEndOverlap(class AActor** OtherActor);
+	void ReceiveActorBeginOverlap(class AActor* OtherActor);
+	void ReceiveTick(float DeltaSeconds);
+	void ReceiveActorEndOverlap(class AActor* OtherActor);
 	void purgeAppartment();
 	void unlockAppartment();
 	void areaRaidStarted();

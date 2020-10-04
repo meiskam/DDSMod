@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -22,7 +22,7 @@ public:
 	class URamaSaveComponent*                          RamaSave_1;                                               // 0x0400(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	class USoundBase*                                  pickupSound;                                              // 0x0408(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	struct FinventoryItemStruct                        Data;                                                     // 0x0410(0x0108) (Edit, BlueprintVisible, DisableEditOnInstance)
-	int                                                Quantity;                                                 // 0x0518(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	int                                                quantity;                                                 // 0x0518(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	bool                                               dropedByPlayer;                                           // 0x051C(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
@@ -36,9 +36,9 @@ public:
 	void ReceiveBeginPlay();
 	void objectPickup();
 	void pickupEventScript();
-	void setupItem(const struct FinventoryItemStruct& Data, int Quantity, const struct FText& Object_Name, const struct FText& Action_Name, bool Droped, bool SimulatePhysics, bool isGizmo);
+	void setupItem(const struct FinventoryItemStruct& Data, int quantity, const struct FText& Object_Name, const struct FText& Action_Name, bool Droped, bool SimulatePhysics, bool isGizmo);
 	void resetDroped();
-	void ReceiveActorBeginOverlap(class AActor** OtherActor);
+	void ReceiveActorBeginOverlap(class AActor* OtherActor);
 	void ExecuteUbergraph_pickupItemBase(int EntryPoint);
 };
 

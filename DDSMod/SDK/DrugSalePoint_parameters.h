@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -28,7 +28,7 @@ struct ADrugSalePoint_C_UserConstructionScript_Params
 // Function DrugSalePoint.DrugSalePoint_C.ReceiveTick
 struct ADrugSalePoint_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function DrugSalePoint.DrugSalePoint_C.ExecuteUbergraph_DrugSalePoint

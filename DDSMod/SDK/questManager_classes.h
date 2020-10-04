@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -22,7 +22,7 @@ public:
 	class URamaSaveComponent*                          RamaSave;                                                 // 0x0338(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	class UBillboardComponent*                         Billboard;                                                // 0x0340(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
 	class USceneComponent*                             DefaultSceneRoot;                                         // 0x0348(0x0008) (BlueprintVisible, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class AplayerCharacterBP_C*                        PlayerRef;                                                // 0x0350(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
+	class AplayerCharacterBP_C*                        playerRef;                                                // 0x0350(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 	TArray<struct FText>                               taskNames;                                                // 0x0358(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<struct FText>                               tempDrugNames;                                            // 0x0368(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<struct FText>                               taskDecriptions;                                          // 0x0378(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
@@ -180,7 +180,7 @@ public:
 	void addNewQuest(const struct FText& QuestNam, const struct FText& QuestShort, const struct FText& QuestDescription, float QuestExp, int QuestCash, const struct FString& QuestScriptNam);
 	void checkCanAddWidget(bool* OK);
 	void playerAvailable(bool* isAvailable);
-	void checkTaskRelatedMarkers(int TaskID);
+	void checkTaskRelatedMarkers(int taskID);
 	void checkDisplayNewTask();
 	void playNarration(class USoundWave* Sound, const struct FText& MonologueText, float* Length);
 	void markTaskStatus(int ID, TEnumAsByte<EtaskStatuses> Status);
@@ -210,7 +210,7 @@ public:
 	void firstWorkStation();
 	void madeFirstOrder();
 	void workStationTask();
-	void firstOwnOrderReceived(int TaskID);
+	void firstOwnOrderReceived(int taskID);
 	void tutWorkPlayerPutDrug();
 	void tutWorkPlayerPutContainer();
 	void tutWorkPlayerAddedSubstance();
@@ -262,7 +262,7 @@ public:
 	void gaveAwayFreeSample();
 	void launderCash();
 	void addCashToLaunder(int Amount);
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void eddieCallGangsters();
 	void repeatEddieGangsters();
 	void retryEddieGangsters();

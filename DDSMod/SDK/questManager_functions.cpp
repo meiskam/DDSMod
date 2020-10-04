@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -232,14 +232,14 @@ void AquestManager_C::playerAvailable(bool* isAvailable)
 // Function questManager.questManager_C.checkTaskRelatedMarkers
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int                            TaskID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            taskID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AquestManager_C::checkTaskRelatedMarkers(int TaskID)
+void AquestManager_C::checkTaskRelatedMarkers(int taskID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function questManager.questManager_C.checkTaskRelatedMarkers");
 
 	AquestManager_C_checkTaskRelatedMarkers_Params params;
-	params.TaskID = TaskID;
+	params.taskID = taskID;
 
 	auto flags = fn->FunctionFlags;
 
@@ -797,14 +797,14 @@ void AquestManager_C::workStationTask()
 // Function questManager.questManager_C.firstOwnOrderReceived
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int                            TaskID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            taskID                         (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AquestManager_C::firstOwnOrderReceived(int TaskID)
+void AquestManager_C::firstOwnOrderReceived(int taskID)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function questManager.questManager_C.firstOwnOrderReceived");
 
 	AquestManager_C_firstOwnOrderReceived_Params params;
-	params.TaskID = TaskID;
+	params.taskID = taskID;
 
 	auto flags = fn->FunctionFlags;
 
@@ -1690,9 +1690,9 @@ void AquestManager_C::addCashToLaunder(int Amount)
 // Function questManager.questManager_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AquestManager_C::ReceiveTick(float* DeltaSeconds)
+void AquestManager_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function questManager.questManager_C.ReceiveTick");
 

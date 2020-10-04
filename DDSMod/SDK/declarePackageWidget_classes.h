@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -42,7 +42,7 @@ public:
 	class UpackageProductWidget_C*                     parentRef;                                                // 0x02B0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, InstancedReference, IsPlainOldData)
 	struct FLinearColor                                colorSelected;                                            // 0x02B8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	struct FLinearColor                                colorDeselected;                                          // 0x02C8(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
-	int                                                maxQuantity;                                              // 0x02D8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	int                                                MaxQuantity;                                              // 0x02D8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -53,7 +53,7 @@ public:
 
 	void changeQuantity(int Quan);
 	void clearAllButtons();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void setup(class UpackageProductWidget_C* Parent);
 	void BndEvt__btnCancel_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__btn1g_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature();

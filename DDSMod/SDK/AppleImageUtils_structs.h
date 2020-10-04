@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,17 @@ namespace SDK
 // Enums
 //---------------------------------------------------------------------------
 
+// Enum AppleImageUtils.ETextureRotationDirection
+enum class ETextureRotationDirection : uint8_t
+{
+	ETextureRotationDirection__None = 0,
+	ETextureRotationDirection__Left = 1,
+	ETextureRotationDirection__Right = 2,
+	ETextureRotationDirection__Down = 3,
+	ETextureRotationDirection__ETextureRotationDirection_MAX = 4
+};
+
+
 // Enum AppleImageUtils.EAppleTextureType
 enum class EAppleTextureType : uint8_t
 {
@@ -21,17 +32,6 @@ enum class EAppleTextureType : uint8_t
 	EAppleTextureType__Surface     = 3,
 	EAppleTextureType__MetalTexture = 4,
 	EAppleTextureType__EAppleTextureType_MAX = 5
-};
-
-
-// Enum AppleImageUtils.ETextureRotationDirection
-enum class ETextureRotationDirection : uint8_t
-{
-	ETextureRotationDirection__None = 0,
-	ETextureRotationDirection__Left = 1,
-	ETextureRotationDirection__Right = 2,
-	ETextureRotationDirection__Down = 3,
-	ETextureRotationDirection__ETextureRotationDirection_MAX = 4
 };
 
 

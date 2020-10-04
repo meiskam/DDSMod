@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,16 +17,16 @@ namespace SDK
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
 // struct FappartmentEquipment    EqData                         (BlueprintVisible, BlueprintReadOnly, Parm)
-// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           Selected                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UequipmentListWidget_C::setup(const struct FappartmentEquipment& EqData, int Quantity, bool Selected)
+void UequipmentListWidget_C::setup(const struct FappartmentEquipment& EqData, int quantity, bool Selected)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function equipmentListWidget.equipmentListWidget_C.setup");
 
 	UequipmentListWidget_C_setup_Params params;
 	params.EqData = EqData;
-	params.Quantity = Quantity;
+	params.quantity = quantity;
 	params.Selected = Selected;
 
 	auto flags = fn->FunctionFlags;

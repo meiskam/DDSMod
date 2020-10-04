@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -54,7 +54,7 @@ public:
 
 
 	void Construct();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
 	void changeHour(float Value);
 	void changeMinute(float Value);
 	void BndEvt__btnSubHour_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature();

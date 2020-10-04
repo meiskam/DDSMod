@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -55,13 +55,13 @@ struct AdoorBreacher_C_InpActEvt_JumpObstacle_K2Node_InputActionEvent_1_Params
 // Function doorBreacher.doorBreacher_C.ReceivePossessed
 struct AdoorBreacher_C_ReceivePossessed_Params
 {
-	class AController**                                NewController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AController*                                 NewController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function doorBreacher.doorBreacher_C.ReceiveUnpossessed
 struct AdoorBreacher_C_ReceiveUnpossessed_Params
 {
-	class AController**                                OldController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AController*                                 OldController;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function doorBreacher.doorBreacher_C.breachHit
@@ -82,7 +82,7 @@ struct AdoorBreacher_C_rushBreach_Params
 // Function doorBreacher.doorBreacher_C.ReceiveTick
 struct AdoorBreacher_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function doorBreacher.doorBreacher_C.ExecuteUbergraph_doorBreacher

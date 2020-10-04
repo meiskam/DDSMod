@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -134,14 +134,14 @@ void APolicemanBaseClass_C::checkChasingPolicemen()
 // Function PolicemanBaseClass.PolicemanBaseClass_C.calcControlMultiplier
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// class AplayerCharacterBP_C*    PlayerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AplayerCharacterBP_C*    playerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void APolicemanBaseClass_C::calcControlMultiplier(class AplayerCharacterBP_C* PlayerRef)
+void APolicemanBaseClass_C::calcControlMultiplier(class AplayerCharacterBP_C* playerRef)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function PolicemanBaseClass.PolicemanBaseClass_C.calcControlMultiplier");
 
 	APolicemanBaseClass_C_calcControlMultiplier_Params params;
-	params.PlayerRef = PlayerRef;
+	params.playerRef = playerRef;
 
 	auto flags = fn->FunctionFlags;
 
@@ -322,9 +322,9 @@ void APolicemanBaseClass_C::UserConstructionScript()
 // Function PolicemanBaseClass.PolicemanBaseClass_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void APolicemanBaseClass_C::ReceiveTick(float* DeltaSeconds)
+void APolicemanBaseClass_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function PolicemanBaseClass.PolicemanBaseClass_C.ReceiveTick");
 

@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -63,7 +63,7 @@ struct UinventoryScreen_C_acceptBoughtItems_Params
 // Function inventoryScreen.inventoryScreen_C.countBoughtItemValue
 struct UinventoryScreen_C_countBoughtItemValue_Params
 {
-	class AplayerCharacterBP_C*                        PlayerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AplayerCharacterBP_C*                        playerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	int                                                Value;                                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
@@ -117,7 +117,7 @@ struct UinventoryScreen_C_renderBuyerNeeded_Params
 // Function inventoryScreen.inventoryScreen_C.checkItemsFitPockets
 struct UinventoryScreen_C_checkItemsFitPockets_Params
 {
-	class AplayerCharacterBP_C*                        PlayerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AplayerCharacterBP_C*                        playerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               NoFit;                                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
@@ -157,7 +157,7 @@ struct UinventoryScreen_C_prepareInventoryMode_Params
 {
 	class AcontainerBase_C*                            ContainerRef;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	class AbaseNPC_C*                                  sellerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	class AplayerCharacterBP_C*                        PlayerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AplayerCharacterBP_C*                        playerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function inventoryScreen.inventoryScreen_C.renderPockets
@@ -176,7 +176,7 @@ struct UinventoryScreen_C_renderBackpack_Params
 // Function inventoryScreen.inventoryScreen_C.PreConstruct
 struct UinventoryScreen_C_PreConstruct_Params
 {
-	bool*                                              IsDesignTime;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               IsDesignTime;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function inventoryScreen.inventoryScreen_C.Construct
@@ -187,8 +187,8 @@ struct UinventoryScreen_C_Construct_Params
 // Function inventoryScreen.inventoryScreen_C.Tick
 struct UinventoryScreen_C_Tick_Params
 {
-	struct FGeometry*                                  MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-	float*                                             InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	struct FGeometry                                   MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+	float                                              InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function inventoryScreen.inventoryScreen_C.BndEvt__tabInventory_K2Node_ComponentBoundEvent_0_OnButtonClickedEvent__DelegateSignature

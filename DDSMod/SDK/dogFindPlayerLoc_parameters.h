@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,7 +17,7 @@ namespace SDK
 // Function dogFindPlayerLoc.dogFindPlayerLoc_C.ReceiveExecute
 struct UdogFindPlayerLoc_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function dogFindPlayerLoc.dogFindPlayerLoc_C.ExecuteUbergraph_dogFindPlayerLoc

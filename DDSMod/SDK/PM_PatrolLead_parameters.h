@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -27,7 +27,7 @@ struct APM_PatrolLead_C_ReceiveBeginPlay_Params
 // Function PM_PatrolLead.PM_PatrolLead_C.ReceiveTick
 struct APM_PatrolLead_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_PatrolLead.PM_PatrolLead_C.EngageSuspect
@@ -58,6 +58,16 @@ struct APM_PatrolLead_C_breakControl_Params
 
 // Function PM_PatrolLead.PM_PatrolLead_C.overrideStartSearch
 struct APM_PatrolLead_C_overrideStartSearch_Params
+{
+};
+
+// Function PM_PatrolLead.PM_PatrolLead_C.checkForPartner
+struct APM_PatrolLead_C_checkForPartner_Params
+{
+};
+
+// Function PM_PatrolLead.PM_PatrolLead_C.unlockRespawnPartner
+struct APM_PatrolLead_C_unlockRespawnPartner_Params
 {
 };
 

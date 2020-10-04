@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -75,12 +75,23 @@ enum class EUMGSequencePlayMode : uint8_t
 };
 
 
-// Enum UMG.ESlateSizeRule
-enum class ESlateSizeRule : uint8_t
+// Enum UMG.EWidgetTickFrequency
+enum class EWidgetTickFrequency : uint8_t
 {
-	ESlateSizeRule__Automatic      = 0,
-	ESlateSizeRule__Fill           = 1,
-	ESlateSizeRule__ESlateSizeRule_MAX = 2
+	EWidgetTickFrequency__Never    = 0,
+	EWidgetTickFrequency__Auto     = 1,
+	EWidgetTickFrequency__EWidgetTickFrequency_MAX = 2
+};
+
+
+// Enum UMG.EWidgetDesignFlags
+enum class EWidgetDesignFlags : uint8_t
+{
+	EWidgetDesignFlags__None       = 0,
+	EWidgetDesignFlags__Designing  = 1,
+	EWidgetDesignFlags__ShowOutline = 2,
+	EWidgetDesignFlags__ExecutePreConstruct = 3,
+	EWidgetDesignFlags__EWidgetDesignFlags_MAX = 4
 };
 
 
@@ -102,14 +113,13 @@ enum class EWidgetGeometryMode : uint8_t
 };
 
 
-// Enum UMG.EWidgetDesignFlags
-enum class EWidgetDesignFlags : uint8_t
+// Enum UMG.EWidgetBlendMode
+enum class EWidgetBlendMode : uint8_t
 {
-	EWidgetDesignFlags__None       = 0,
-	EWidgetDesignFlags__Designing  = 1,
-	EWidgetDesignFlags__ShowOutline = 2,
-	EWidgetDesignFlags__ExecutePreConstruct = 3,
-	EWidgetDesignFlags__EWidgetDesignFlags_MAX = 4
+	EWidgetBlendMode__Opaque       = 0,
+	EWidgetBlendMode__Masked       = 1,
+	EWidgetBlendMode__Transparent  = 2,
+	EWidgetBlendMode__EWidgetBlendMode_MAX = 3
 };
 
 
@@ -119,6 +129,15 @@ enum class EWidgetTimingPolicy : uint8_t
 	EWidgetTimingPolicy__RealTime  = 0,
 	EWidgetTimingPolicy__GameTime  = 1,
 	EWidgetTimingPolicy__EWidgetTimingPolicy_MAX = 2
+};
+
+
+// Enum UMG.EWidgetSpace
+enum class EWidgetSpace : uint8_t
+{
+	EWidgetSpace__World            = 0,
+	EWidgetSpace__Screen           = 1,
+	EWidgetSpace__EWidgetSpace_MAX = 2
 };
 
 
@@ -133,31 +152,12 @@ enum class EWidgetInteractionSource : uint8_t
 };
 
 
-// Enum UMG.EWidgetBlendMode
-enum class EWidgetBlendMode : uint8_t
+// Enum UMG.ESlateSizeRule
+enum class ESlateSizeRule : uint8_t
 {
-	EWidgetBlendMode__Opaque       = 0,
-	EWidgetBlendMode__Masked       = 1,
-	EWidgetBlendMode__Transparent  = 2,
-	EWidgetBlendMode__EWidgetBlendMode_MAX = 3
-};
-
-
-// Enum UMG.EWidgetSpace
-enum class EWidgetSpace : uint8_t
-{
-	EWidgetSpace__World            = 0,
-	EWidgetSpace__Screen           = 1,
-	EWidgetSpace__EWidgetSpace_MAX = 2
-};
-
-
-// Enum UMG.EWidgetTickFrequency
-enum class EWidgetTickFrequency : uint8_t
-{
-	EWidgetTickFrequency__Never    = 0,
-	EWidgetTickFrequency__Auto     = 1,
-	EWidgetTickFrequency__EWidgetTickFrequency_MAX = 2
+	ESlateSizeRule__Automatic      = 0,
+	ESlateSizeRule__Fill           = 1,
+	ESlateSizeRule__ESlateSizeRule_MAX = 2
 };
 
 
@@ -254,6 +254,17 @@ struct FPaintContext
 	unsigned char                                      UnknownData00[0x30];                                      // 0x0000(0x0030) MISSED OFFSET
 };
 
+// ScriptStruct UMG.WidgetAnimationBinding
+// 0x0028
+struct FWidgetAnimationBinding
+{
+	struct FName                                       WidgetName;                                               // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
+	struct FName                                       SlotWidgetName;                                           // 0x0008(0x0008) (ZeroConstructor, IsPlainOldData)
+	struct FGuid                                       AnimationGuid;                                            // 0x0010(0x0010) (ZeroConstructor, IsPlainOldData)
+	bool                                               bIsRootWidget;                                            // 0x0020(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0021(0x0007) MISSED OFFSET
+};
+
 // ScriptStruct UMG.DelegateRuntimeBinding
 // 0x0050
 struct FDelegateRuntimeBinding
@@ -275,17 +286,6 @@ struct FWidgetNavigationData
 	struct FName                                       WidgetToFocus;                                            // 0x0008(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 	TWeakObjectPtr<class UWidget>                      Widget;                                                   // 0x0010(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
 	struct FScriptDelegate                             CustomDelegate;                                           // 0x0018(0x0014) (ZeroConstructor, InstancedReference)
-};
-
-// ScriptStruct UMG.WidgetAnimationBinding
-// 0x0028
-struct FWidgetAnimationBinding
-{
-	struct FName                                       WidgetName;                                               // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
-	struct FName                                       SlotWidgetName;                                           // 0x0008(0x0008) (ZeroConstructor, IsPlainOldData)
-	struct FGuid                                       AnimationGuid;                                            // 0x0010(0x0010) (ZeroConstructor, IsPlainOldData)
-	bool                                               bIsRootWidget;                                            // 0x0020(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0021(0x0007) MISSED OFFSET
 };
 
 // ScriptStruct UMG.MovieScene2DTransformSectionTemplate

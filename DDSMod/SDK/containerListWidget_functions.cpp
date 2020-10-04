@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -38,14 +38,14 @@ void UcontainerListWidget_C::showQunatityDialogue(int InMaxQuantity, class Uinve
 // Function containerListWidget.containerListWidget_C.processDropOperation
 // (Public, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UcontainerListWidget_C::processDropOperation(int Quantity)
+void UcontainerListWidget_C::processDropOperation(int quantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function containerListWidget.containerListWidget_C.processDropOperation");
 
 	UcontainerListWidget_C_processDropOperation_Params params;
-	params.Quantity = Quantity;
+	params.quantity = quantity;
 
 	auto flags = fn->FunctionFlags;
 
@@ -125,12 +125,12 @@ void UcontainerListWidget_C::manageItemContents(const struct FinventoryItemStruc
 // Function containerListWidget.containerListWidget_C.OnDrop
 // (BlueprintCosmetic, Event, Public, HasOutParms, BlueprintCallable, BlueprintEvent)
 // Parameters:
-// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// struct FPointerEvent*          PointerEvent                   (BlueprintVisible, BlueprintReadOnly, Parm)
-// class UDragDropOperation**     Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// struct FPointerEvent           PointerEvent                   (BlueprintVisible, BlueprintReadOnly, Parm)
+// class UDragDropOperation*      Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 
-bool UcontainerListWidget_C::OnDrop(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation)
+bool UcontainerListWidget_C::OnDrop(const struct FGeometry& MyGeometry, const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function containerListWidget.containerListWidget_C.OnDrop");
 
@@ -206,10 +206,10 @@ void UcontainerListWidget_C::Construct()
 // Function containerListWidget.containerListWidget_C.Tick
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// float*                         InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// float                          InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UcontainerListWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
+void UcontainerListWidget_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function containerListWidget.containerListWidget_C.Tick");
 
@@ -228,11 +228,11 @@ void UcontainerListWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTi
 // Function containerListWidget.containerListWidget_C.OnDragEnter
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// struct FPointerEvent*          PointerEvent                   (BlueprintVisible, BlueprintReadOnly, Parm)
-// class UDragDropOperation**     Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// struct FPointerEvent           PointerEvent                   (BlueprintVisible, BlueprintReadOnly, Parm)
+// class UDragDropOperation*      Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UcontainerListWidget_C::OnDragEnter(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation)
+void UcontainerListWidget_C::OnDragEnter(const struct FGeometry& MyGeometry, const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function containerListWidget.containerListWidget_C.OnDragEnter");
 
@@ -252,10 +252,10 @@ void UcontainerListWidget_C::OnDragEnter(struct FGeometry* MyGeometry, struct FP
 // Function containerListWidget.containerListWidget_C.OnDragLeave
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// struct FPointerEvent*          PointerEvent                   (BlueprintVisible, BlueprintReadOnly, Parm)
-// class UDragDropOperation**     Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FPointerEvent           PointerEvent                   (BlueprintVisible, BlueprintReadOnly, Parm)
+// class UDragDropOperation*      Operation                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UcontainerListWidget_C::OnDragLeave(struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation)
+void UcontainerListWidget_C::OnDragLeave(const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function containerListWidget.containerListWidget_C.OnDragLeave");
 

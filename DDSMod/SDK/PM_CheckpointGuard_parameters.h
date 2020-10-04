@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,7 +17,7 @@ namespace SDK
 // Function PM_CheckpointGuard.PM_CheckpointGuard_C.checkBackpackForIllegals
 struct APM_CheckpointGuard_C_checkBackpackForIllegals_Params
 {
-	class AbackpackBase_C*                             backpack;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AbackpackBase_C*                             Backpack;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               found;                                                    // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 };
 
@@ -34,7 +34,7 @@ struct APM_CheckpointGuard_C_ReceiveBeginPlay_Params
 // Function PM_CheckpointGuard.PM_CheckpointGuard_C.ReceiveTick
 struct APM_CheckpointGuard_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PM_CheckpointGuard.PM_CheckpointGuard_C.checkTrespass

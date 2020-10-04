@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass laBallena.laBallena_C
-// 0x0090 (0x07D0 - 0x0740)
+// 0x00A1 (0x07E1 - 0x0740)
 class AlaBallena_C : public ACharacter
 {
 public:
@@ -35,6 +35,8 @@ public:
 	class UlaBallenaAnimBP_C*                          AnimBP;                                                   // 0x0790(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	class AsitingDownPawn_C*                           sitingPawn;                                               // 0x0798(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 	struct FTransform                                  tempTransform;                                            // 0x07A0(0x0030) (Edit, BlueprintVisible, DisableEditOnInstance, IsPlainOldData)
+	TArray<class AActor*>                              overlappingBallenas;                                      // 0x07D0(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance)
+	bool                                               TheOriginal;                                              // 0x07E0(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -53,7 +55,7 @@ public:
 	void ReceiveBeginPlay();
 	void playerSatDown();
 	void BndEvt__Box_K2Node_ComponentBoundEvent_0_ComponentBeginOverlapSignature__DelegateSignature(class UPrimitiveComponent* OverlappedComponent, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void animateMouth();
 	void stopAnimateMouth();
 	void eyeBlink();

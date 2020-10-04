@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -36,8 +36,8 @@ public:
 	void Construct();
 	void setup(const struct FText& Content, const struct FText& ToolTip);
 	void playPing();
-	void OnMouseEnter(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent);
-	void OnMouseLeave(struct FPointerEvent* MouseEvent);
+	void OnMouseEnter(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent);
+	void OnMouseLeave(const struct FPointerEvent& MouseEvent);
 	void ExecuteUbergraph_shadyCommWarningBar(int EntryPoint);
 };
 

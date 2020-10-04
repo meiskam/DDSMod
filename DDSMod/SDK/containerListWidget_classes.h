@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -57,17 +57,17 @@ public:
 
 
 	void showQunatityDialogue(int InMaxQuantity, class UinventoryItemWidget_C* Payload);
-	void processDropOperation(int Quantity);
+	void processDropOperation(int quantity);
 	void checkSource(class UObject* Object, const struct FString& Tag, bool* CanDrop);
 	void renderTradeItems();
 	void manageItemContents(const struct FinventoryItemStruct& itemData, const struct FString& Tag, int Index);
-	bool OnDrop(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation);
+	bool OnDrop(const struct FGeometry& MyGeometry, const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation);
 	void clearContainer();
 	void addContainerItem(class UinventoryItemWidget_C* itemWidget);
 	void Construct();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
-	void OnDragEnter(struct FGeometry* MyGeometry, struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation);
-	void OnDragLeave(struct FPointerEvent* PointerEvent, class UDragDropOperation** Operation);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
+	void OnDragEnter(const struct FGeometry& MyGeometry, const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation);
+	void OnDragLeave(const struct FPointerEvent& PointerEvent, class UDragDropOperation* Operation);
 	void BndEvt__quantitySlider_K2Node_ComponentBoundEvent_0_OnFloatValueChangedEvent__DelegateSignature(float Value);
 	void BndEvt__btnQuanOK_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature();
 	void BndEvt__btnQuanCancel_K2Node_ComponentBoundEvent_2_OnButtonClickedEvent__DelegateSignature();

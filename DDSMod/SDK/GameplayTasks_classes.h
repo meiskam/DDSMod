@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -34,6 +34,24 @@ public:
 	void ReadyForActivation();
 	void GenericGameplayTaskDelegate__DelegateSignature();
 	void EndTask();
+};
+
+
+// Class GameplayTasks.GameplayTask_ClaimResource
+// 0x0000 (0x0068 - 0x0068)
+class UGameplayTask_ClaimResource : public UGameplayTask
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class GameplayTasks.GameplayTask_ClaimResource");
+		return ptr;
+	}
+
+
+	class UGameplayTask_ClaimResource* STATIC_ClaimResources(const TScriptInterface<class UGameplayTaskOwnerInterface>& InTaskOwner, TArray<class UClass*> ResourceClasses, unsigned char Priority, const struct FName& TaskInstanceName);
+	class UGameplayTask_ClaimResource* STATIC_ClaimResource(const TScriptInterface<class UGameplayTaskOwnerInterface>& InTaskOwner, class UClass* ResourceClass, unsigned char Priority, const struct FName& TaskInstanceName);
 };
 
 
@@ -158,24 +176,6 @@ public:
 
 	void OnRep_SimulatedTasks();
 	EGameplayTaskRunResult STATIC_K2_RunGameplayTask(const TScriptInterface<class UGameplayTaskOwnerInterface>& TaskOwner, class UGameplayTask* Task, unsigned char Priority, TArray<class UClass*> AdditionalRequiredResources, TArray<class UClass*> AdditionalClaimedResources);
-};
-
-
-// Class GameplayTasks.GameplayTask_ClaimResource
-// 0x0000 (0x0068 - 0x0068)
-class UGameplayTask_ClaimResource : public UGameplayTask
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class GameplayTasks.GameplayTask_ClaimResource");
-		return ptr;
-	}
-
-
-	class UGameplayTask_ClaimResource* STATIC_ClaimResources(const TScriptInterface<class UGameplayTaskOwnerInterface>& InTaskOwner, TArray<class UClass*> ResourceClasses, unsigned char Priority, const struct FName& TaskInstanceName);
-	class UGameplayTask_ClaimResource* STATIC_ClaimResource(const TScriptInterface<class UGameplayTaskOwnerInterface>& InTaskOwner, class UClass* ResourceClass, unsigned char Priority, const struct FName& TaskInstanceName);
 };
 
 

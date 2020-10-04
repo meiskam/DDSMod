@@ -184,10 +184,22 @@
     <ClCompile Include="SDK\blockEntranceLight_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\BP_Carousel_A_functions.cpp">
+    <ClCompile Include="SDK\bobbyPinBoxPickupBP_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\BP_BrickStack_03_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\BP_BrickStack_04_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\BP_BrickStack_06_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\BP_Carousel_B_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\BP_CeilingLight_5_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\BP_CharacterBaseWithHealth_functions.cpp">
@@ -197,6 +209,18 @@
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\BP_Gas_Tank_Red_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\BP_LightSource_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\BP_MyLockpickPuzzle_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\BP_NextSingleton_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\BP_NextSingletonWorldHelper_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\BP_NPC_Bird_Base_functions.cpp">
@@ -236,6 +260,9 @@
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\BP_Wires_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\BP_WorldTimeAndConditions_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\breachCamShake_functions.cpp">
@@ -628,6 +655,9 @@
     <ClCompile Include="SDK\DrugSalePoint_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\drugSeedPickup_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
     <ClCompile Include="SDK\drugStoreUnlocker_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
@@ -1012,6 +1042,9 @@
     <ClCompile Include="SDK\lightDistanceDisabler_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\lightningEffectActor_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
     <ClCompile Include="SDK\LightPropagationVolumeRuntime_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
@@ -1034,6 +1067,9 @@
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\lookAtTrigger_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\lootSpawner_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\mainComputer_functions.cpp">
@@ -1082,6 +1118,12 @@
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\metalBoxContainer_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\metalWicket01_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\metalWicket02_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\millCoffeeElectric_functions.cpp">
@@ -1229,6 +1271,9 @@
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\orderInstance_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Overlay_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\packageBase_functions.cpp">
@@ -1459,9 +1504,6 @@
     <ClCompile Include="SDK\questManager_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
-    <ClCompile Include="SDK\questWidget_functions.cpp">
-      <Filter>SDK</Filter>
-    </ClCompile>
     <ClCompile Include="SDK\quickHintType_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
@@ -1478,6 +1520,9 @@
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\raidWindowTeleportWidget_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\rainActor_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\RamaSaveSystem_functions.cpp">
@@ -1505,6 +1550,12 @@
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\respectRaiseWidget_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\saleAreaManageMarker_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\saleAreaManagementWidget_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\saleAreaManager_functions.cpp">
@@ -1729,6 +1780,12 @@
     <ClCompile Include="SDK\stream_oldTown_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
+    <ClCompile Include="SDK\stream_supermarketSquare_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\stream_twoTowers_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
     <ClCompile Include="SDK\streamMapLoader_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
@@ -1877,6 +1934,9 @@
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\UdpMessaging_functions.cpp">
+      <Filter>SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Ultra_Dynamic_Sky_BP_functions.cpp">
       <Filter>SDK</Filter>
     </ClCompile>
     <ClCompile Include="SDK\UMG_functions.cpp">
@@ -2579,13 +2639,40 @@
     <ClInclude Include="SDK\blockEntranceLight_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\BP_Carousel_A_classes.h">
+    <ClInclude Include="SDK\bobbyPinBoxPickupBP_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\BP_Carousel_A_parameters.h">
+    <ClInclude Include="SDK\bobbyPinBoxPickupBP_parameters.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\BP_Carousel_A_structs.h">
+    <ClInclude Include="SDK\bobbyPinBoxPickupBP_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_BrickStack_03_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_BrickStack_03_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_BrickStack_03_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_BrickStack_04_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_BrickStack_04_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_BrickStack_04_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_BrickStack_06_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_BrickStack_06_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_BrickStack_06_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\BP_Carousel_B_classes.h">
@@ -2595,6 +2682,15 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\BP_Carousel_B_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_CeilingLight_5_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_CeilingLight_5_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_CeilingLight_5_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\BP_CharacterBaseWithHealth_classes.h">
@@ -2622,6 +2718,42 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\BP_Gas_Tank_Red_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_LightSource_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_LightSource_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_LightSource_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_MyLockpickPuzzle_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_MyLockpickPuzzle_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_MyLockpickPuzzle_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_NextSingleton_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_NextSingleton_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_NextSingleton_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_NextSingletonWorldHelper_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_NextSingletonWorldHelper_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_NextSingletonWorldHelper_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\BP_NPC_Bird_Base_classes.h">
@@ -2739,6 +2871,15 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\BP_Wires_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_WorldTimeAndConditions_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_WorldTimeAndConditions_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\BP_WorldTimeAndConditions_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\breachCamShake_classes.h">
@@ -3911,6 +4052,15 @@
     <ClInclude Include="SDK\DrugSalePoint_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
+    <ClInclude Include="SDK\drugSeedPickup_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\drugSeedPickup_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\drugSeedPickup_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
     <ClInclude Include="SDK\drugStoreUnlocker_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
@@ -5063,6 +5213,15 @@
     <ClInclude Include="SDK\lightDistanceDisabler_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
+    <ClInclude Include="SDK\lightningEffectActor_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\lightningEffectActor_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\lightningEffectActor_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
     <ClInclude Include="SDK\LightPropagationVolumeRuntime_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
@@ -5133,6 +5292,15 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\lookAtTrigger_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\lootSpawner_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\lootSpawner_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\lootSpawner_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\mainComputer_classes.h">
@@ -5277,6 +5445,24 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\metalBoxContainer_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\metalWicket01_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\metalWicket01_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\metalWicket01_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\metalWicket02_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\metalWicket02_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\metalWicket02_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\millCoffeeElectric_classes.h">
@@ -5718,6 +5904,15 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\orderInstance_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Overlay_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Overlay_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Overlay_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\packageBase_classes.h">
@@ -6404,15 +6599,6 @@
     <ClInclude Include="SDK\questManager_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
-    <ClInclude Include="SDK\questWidget_classes.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\questWidget_parameters.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\questWidget_structs.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
     <ClInclude Include="SDK\quickHintType_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
@@ -6465,6 +6651,15 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\raidWindowTeleportWidget_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\rainActor_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\rainActor_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\rainActor_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\RamaSaveSystem_classes.h">
@@ -6546,6 +6741,24 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\respectRaiseWidget_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\saleAreaManageMarker_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\saleAreaManageMarker_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\saleAreaManageMarker_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\saleAreaManagementWidget_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\saleAreaManagementWidget_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\saleAreaManagementWidget_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\saleAreaManager_classes.h">
@@ -7214,6 +7427,24 @@
     <ClInclude Include="SDK\stream_oldTown_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
+    <ClInclude Include="SDK\stream_supermarketSquare_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stream_supermarketSquare_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stream_supermarketSquare_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stream_twoTowers_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stream_twoTowers_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\stream_twoTowers_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
     <ClInclude Include="SDK\streamMapLoader_classes.h">
       <Filter>SDK</Filter>
     </ClInclude>
@@ -7662,6 +7893,15 @@
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\UdpMessaging_structs.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Ultra_Dynamic_Sky_BP_classes.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Ultra_Dynamic_Sky_BP_parameters.h">
+      <Filter>SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Ultra_Dynamic_Sky_BP_structs.h">
       <Filter>SDK</Filter>
     </ClInclude>
     <ClInclude Include="SDK\UMG_classes.h">

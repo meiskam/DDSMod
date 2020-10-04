@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -18,8 +18,9 @@ namespace SDK
 struct UshadyMessageWidget_C_setup_Params
 {
 	struct FText                                       UserName;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm)
-	struct FString                                     MsgString;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
+	struct FString                                     msgString;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 	class UTexture2D*                                  userAvatar;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               PlayerMessage;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function shadyMessageWidget.shadyMessageWidget_C.ExecuteUbergraph_shadyMessageWidget

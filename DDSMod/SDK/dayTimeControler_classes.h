@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -70,20 +70,22 @@ public:
 	void getFutureDate_2(float hoursFrom, float minutesFrom, bool fullHours, bool NightHour, float* outHour, float* outMinute, int* outDay);
 	void getFutureDate(float hoursFrom, float minutesFrom, bool fullHours, bool randomNightHour, float* outHour, float* outMinute, int* outDay);
 	void getStringTime(bool HourOnly, struct FString* ReturnDate);
-	void setupReferences();
+	void setupReferences(bool* Valid);
 	void calculateSky();
 	void UserConstructionScript();
-	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
 	void updateSun();
 	void disableStreetLight();
 	void enableStreetLight();
 	void sunDefaults();
-	void addTime(float Hours, float Minutes);
+	void AddTime(float Hours, float Minutes);
+	void ReceiveTick(float DeltaSeconds);
+	void ReceiveBeginPlay();
 	void refreshSun();
 	void openSunGate();
 	void CloseSunGate();
 	void checkPoliceHoursAlarm();
+	void updateCepTime();
+	void retrySetDefaultTime();
 	void ExecuteUbergraph_dayTimeControler(int EntryPoint);
 };
 

@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -36,6 +36,11 @@ struct AcontactsManager_C_ReceiveBeginPlay_Params
 
 // Function contactsManager.contactsManager_C.generateWeedGuy
 struct AcontactsManager_C_generateWeedGuy_Params
+{
+};
+
+// Function contactsManager.contactsManager_C.generatePsychedelicGuy
+struct AcontactsManager_C_generatePsychedelicGuy_Params
 {
 };
 

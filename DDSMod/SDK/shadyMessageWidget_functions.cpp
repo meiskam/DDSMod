@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,17 +17,19 @@ namespace SDK
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
 // struct FText                   UserName                       (BlueprintVisible, BlueprintReadOnly, Parm)
-// struct FString                 MsgString                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
+// struct FString                 msgString                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
 // class UTexture2D*              userAvatar                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// bool                           PlayerMessage                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UshadyMessageWidget_C::setup(const struct FText& UserName, const struct FString& MsgString, class UTexture2D* userAvatar)
+void UshadyMessageWidget_C::setup(const struct FText& UserName, const struct FString& msgString, class UTexture2D* userAvatar, bool PlayerMessage)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function shadyMessageWidget.shadyMessageWidget_C.setup");
 
 	UshadyMessageWidget_C_setup_Params params;
 	params.UserName = UserName;
-	params.MsgString = MsgString;
+	params.msgString = msgString;
 	params.userAvatar = userAvatar;
+	params.PlayerMessage = PlayerMessage;
 
 	auto flags = fn->FunctionFlags;
 

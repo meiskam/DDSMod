@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -124,8 +124,8 @@ struct AbaseNPC_C_setupNewDrugSale_Params
 	int                                                DrugQuantity;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	struct FText                                       characterName;                                            // (BlueprintVisible, BlueprintReadOnly, Parm)
 	float                                              expectedPrice;                                            // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                orderID;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                TaskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                OrderID;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                taskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               isMale;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               isDealer;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 	float                                              ExpectationLevel;                                         // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
@@ -144,7 +144,7 @@ struct AbaseNPC_C_ReceiveBeginPlay_Params
 // Function baseNPC.baseNPC_C.ReceiveTick
 struct AbaseNPC_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function baseNPC.baseNPC_C.dialogueMode
@@ -209,6 +209,11 @@ struct AbaseNPC_C_testAroundPlayer_Params
 
 // Function baseNPC.baseNPC_C.togglePoseCalc
 struct AbaseNPC_C_togglePoseCalc_Params
+{
+};
+
+// Function baseNPC.baseNPC_C.waitTimeMultiplierCheck
+struct AbaseNPC_C_waitTimeMultiplierCheck_Params
 {
 };
 

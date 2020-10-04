@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -50,9 +50,9 @@ void APM_PatrolLead_C::ReceiveBeginPlay()
 // Function PM_PatrolLead.PM_PatrolLead_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void APM_PatrolLead_C::ReceiveTick(float* DeltaSeconds)
+void APM_PatrolLead_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function PM_PatrolLead.PM_PatrolLead_C.ReceiveTick");
 
@@ -156,6 +156,40 @@ void APM_PatrolLead_C::overrideStartSearch()
 	static auto fn = UObject::FindObject<UFunction>("Function PM_PatrolLead.PM_PatrolLead_C.overrideStartSearch");
 
 	APM_PatrolLead_C_overrideStartSearch_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function PM_PatrolLead.PM_PatrolLead_C.checkForPartner
+// (BlueprintCallable, BlueprintEvent)
+
+void APM_PatrolLead_C::checkForPartner()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function PM_PatrolLead.PM_PatrolLead_C.checkForPartner");
+
+	APM_PatrolLead_C_checkForPartner_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function PM_PatrolLead.PM_PatrolLead_C.unlockRespawnPartner
+// (BlueprintCallable, BlueprintEvent)
+
+void APM_PatrolLead_C::unlockRespawnPartner()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function PM_PatrolLead.PM_PatrolLead_C.unlockRespawnPartner");
+
+	APM_PatrolLead_C_unlockRespawnPartner_Params params;
 
 	auto flags = fn->FunctionFlags;
 

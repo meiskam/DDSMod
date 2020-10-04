@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -56,7 +56,7 @@ struct AsprayPlacementGizmo_C_ReceiveBeginPlay_Params
 // Function sprayPlacementGizmo.sprayPlacementGizmo_C.ReceiveTick
 struct AsprayPlacementGizmo_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function sprayPlacementGizmo.sprayPlacementGizmo_C.ActionPress
@@ -64,8 +64,8 @@ struct AsprayPlacementGizmo_C_ActionPress_Params
 {
 };
 
-// Function sprayPlacementGizmo.sprayPlacementGizmo_C.ActionRelease
-struct AsprayPlacementGizmo_C_ActionRelease_Params
+// Function sprayPlacementGizmo.sprayPlacementGizmo_C.actionRelease
+struct AsprayPlacementGizmo_C_actionRelease_Params
 {
 };
 

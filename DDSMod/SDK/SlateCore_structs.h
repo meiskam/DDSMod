@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -273,6 +273,16 @@ enum class EUINavigation : uint8_t
 };
 
 
+// Enum SlateCore.EButtonPressMethod
+enum class EButtonPressMethod : uint8_t
+{
+	EButtonPressMethod__DownAndUp  = 0,
+	EButtonPressMethod__ButtonPress = 1,
+	EButtonPressMethod__ButtonRelease = 2,
+	EButtonPressMethod__EButtonPressMethod_MAX = 3
+};
+
+
 // Enum SlateCore.EButtonTouchMethod
 enum class EButtonTouchMethod : uint8_t
 {
@@ -319,16 +329,6 @@ enum class ESlateCheckBoxType : uint8_t
 	ESlateCheckBoxType__CheckBox   = 0,
 	ESlateCheckBoxType__ToggleButton = 1,
 	ESlateCheckBoxType__ESlateCheckBoxType_MAX = 2
-};
-
-
-// Enum SlateCore.EButtonPressMethod
-enum class EButtonPressMethod : uint8_t
-{
-	EButtonPressMethod__DownAndUp  = 0,
-	EButtonPressMethod__ButtonPress = 1,
-	EButtonPressMethod__ButtonRelease = 2,
-	EButtonPressMethod__EButtonPressMethod_MAX = 3
 };
 
 
@@ -663,23 +663,16 @@ struct FCompositeFont
 	TArray<struct FCompositeSubFont>                   SubTypefaces;                                             // 0x0028(0x0010) (ZeroConstructor)
 };
 
-// ScriptStruct SlateCore.MotionEvent
-// 0x0030 (0x0048 - 0x0018)
-struct FMotionEvent : public FInputEvent
+// ScriptStruct SlateCore.FocusEvent
+// 0x0008
+struct FFocusEvent
 {
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0018(0x0030) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
 };
 
 // ScriptStruct SlateCore.CaptureLostEvent
 // 0x0008
 struct FCaptureLostEvent
-{
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
-};
-
-// ScriptStruct SlateCore.FocusEvent
-// 0x0008
-struct FFocusEvent
 {
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
 };
@@ -704,12 +697,11 @@ struct FWindowStyle : public FSlateWidgetStyle
 	struct FSlateBrush                                 ChildBackgroundBrush;                                     // 0x0F50(0x0088) (Edit, BlueprintVisible)
 };
 
-// ScriptStruct SlateCore.ScrollBorderStyle
-// 0x0110 (0x0118 - 0x0008)
-struct FScrollBorderStyle : public FSlateWidgetStyle
+// ScriptStruct SlateCore.MotionEvent
+// 0x0030 (0x0048 - 0x0018)
+struct FMotionEvent : public FInputEvent
 {
-	struct FSlateBrush                                 TopShadowBrush;                                           // 0x0008(0x0088) (Edit, BlueprintVisible)
-	struct FSlateBrush                                 BottomShadowBrush;                                        // 0x0090(0x0088) (Edit, BlueprintVisible)
+	unsigned char                                      UnknownData00[0x30];                                      // 0x0018(0x0030) MISSED OFFSET
 };
 
 // ScriptStruct SlateCore.ScrollBoxStyle
@@ -739,6 +731,14 @@ struct FDockTabStyle : public FSlateWidgetStyle
 	float                                              OverlapWidth;                                             // 0x06D0(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x06D4(0x0004) MISSED OFFSET
 	struct FSlateColor                                 FlashColor;                                               // 0x06D8(0x0028) (Edit)
+};
+
+// ScriptStruct SlateCore.ScrollBorderStyle
+// 0x0110 (0x0118 - 0x0008)
+struct FScrollBorderStyle : public FSlateWidgetStyle
+{
+	struct FSlateBrush                                 TopShadowBrush;                                           // 0x0008(0x0088) (Edit, BlueprintVisible)
+	struct FSlateBrush                                 BottomShadowBrush;                                        // 0x0090(0x0088) (Edit, BlueprintVisible)
 };
 
 // ScriptStruct SlateCore.TableColumnHeaderStyle
@@ -852,6 +852,15 @@ struct FInlineEditableTextBlockStyle : public FSlateWidgetStyle
 	struct FTextBlockStyle                             TextStyle;                                                // 0x0800(0x01E8) (Edit, BlueprintVisible)
 };
 
+// ScriptStruct SlateCore.HyperlinkStyle
+// 0x0470 (0x0478 - 0x0008)
+struct FHyperlinkStyle : public FSlateWidgetStyle
+{
+	struct FButtonStyle                                UnderlineStyle;                                           // 0x0008(0x0278) (Edit, BlueprintVisible)
+	struct FTextBlockStyle                             TextStyle;                                                // 0x0280(0x01E8) (Edit, BlueprintVisible)
+	struct FMargin                                     Padding;                                                  // 0x0468(0x0010) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+};
+
 // ScriptStruct SlateCore.CheckBoxStyle
 // 0x0578 (0x0580 - 0x0008)
 struct FCheckBoxStyle : public FSlateWidgetStyle
@@ -873,15 +882,6 @@ struct FCheckBoxStyle : public FSlateWidgetStyle
 	struct FSlateSound                                 CheckedSlateSound;                                        // 0x0538(0x0018) (Edit, BlueprintVisible)
 	struct FSlateSound                                 UncheckedSlateSound;                                      // 0x0550(0x0018) (Edit, BlueprintVisible)
 	struct FSlateSound                                 HoveredSlateSound;                                        // 0x0568(0x0018) (Edit, BlueprintVisible)
-};
-
-// ScriptStruct SlateCore.HyperlinkStyle
-// 0x0470 (0x0478 - 0x0008)
-struct FHyperlinkStyle : public FSlateWidgetStyle
-{
-	struct FButtonStyle                                UnderlineStyle;                                           // 0x0008(0x0278) (Edit, BlueprintVisible)
-	struct FTextBlockStyle                             TextStyle;                                                // 0x0280(0x01E8) (Edit, BlueprintVisible)
-	struct FMargin                                     Padding;                                                  // 0x0468(0x0010) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
 
 }

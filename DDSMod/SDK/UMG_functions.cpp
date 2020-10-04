@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,30 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function UMG.AsyncTaskDownloadImage.DownloadImage
+// (Final, Native, Static, Public, BlueprintCallable)
+// Parameters:
+// struct FString                 URL                            (Parm, ZeroConstructor)
+// class UAsyncTaskDownloadImage* ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class UAsyncTaskDownloadImage* UAsyncTaskDownloadImage::STATIC_DownloadImage(const struct FString& URL)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.AsyncTaskDownloadImage.DownloadImage");
+
+	UAsyncTaskDownloadImage_DownloadImage_Params params;
+	params.URL = URL;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
 
 // Function UMG.Widget.SetVisibility
 // (Native, Public, BlueprintCallable)
@@ -1614,30 +1638,6 @@ void UBackgroundBlur::SetApplyAlphaToBlur(bool bInApplyAlphaToBlur)
 }
 
 
-// Function UMG.AsyncTaskDownloadImage.DownloadImage
-// (Final, Native, Static, Public, BlueprintCallable)
-// Parameters:
-// struct FString                 URL                            (Parm, ZeroConstructor)
-// class UAsyncTaskDownloadImage* ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class UAsyncTaskDownloadImage* UAsyncTaskDownloadImage::STATIC_DownloadImage(const struct FString& URL)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.AsyncTaskDownloadImage.DownloadImage");
-
-	UAsyncTaskDownloadImage_DownloadImage_Params params;
-	params.URL = URL;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
 // Function UMG.BackgroundBlurSlot.SetVerticalAlignment
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -2018,6 +2018,28 @@ void UBorderSlot::SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHor
 }
 
 
+// Function UMG.BrushBinding.GetValue
+// (Final, Native, Public, Const)
+// Parameters:
+// struct FSlateBrush             ReturnValue                    (Parm, OutParm, ReturnParm)
+
+struct FSlateBrush UBrushBinding::GetValue()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.BrushBinding.GetValue");
+
+	UBrushBinding_GetValue_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
 // Function UMG.Button.SetTouchMethod
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -2163,6 +2185,69 @@ bool UButton::IsPressed()
 	fn->FunctionFlags = flags;
 
 	return params.ReturnValue;
+}
+
+
+// Function UMG.ButtonSlot.SetVerticalAlignment
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// TEnumAsByte<EVerticalAlignment> InVerticalAlignment            (Parm, ZeroConstructor, IsPlainOldData)
+
+void UButtonSlot::SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ButtonSlot.SetVerticalAlignment");
+
+	UButtonSlot_SetVerticalAlignment_Params params;
+	params.InVerticalAlignment = InVerticalAlignment;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ButtonSlot.SetPadding
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// struct FMargin                 InPadding                      (Parm, ZeroConstructor, IsPlainOldData)
+
+void UButtonSlot::SetPadding(const struct FMargin& InPadding)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ButtonSlot.SetPadding");
+
+	UButtonSlot_SetPadding_Params params;
+	params.InPadding = InPadding;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ButtonSlot.SetHorizontalAlignment
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment          (Parm, ZeroConstructor, IsPlainOldData)
+
+void UButtonSlot::SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ButtonSlot.SetHorizontalAlignment");
+
+	UButtonSlot_SetHorizontalAlignment_Params params;
+	params.InHorizontalAlignment = InHorizontalAlignment;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
 }
 
 
@@ -2576,28 +2661,6 @@ struct FVector2D UCanvasPanelSlot::GetAlignment()
 }
 
 
-// Function UMG.BrushBinding.GetValue
-// (Final, Native, Public, Const)
-// Parameters:
-// struct FSlateBrush             ReturnValue                    (Parm, OutParm, ReturnParm)
-
-struct FSlateBrush UBrushBinding::GetValue()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.BrushBinding.GetValue");
-
-	UBrushBinding_GetValue_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
 // Function UMG.CheckBox.SetIsChecked
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -2706,17 +2769,16 @@ ECheckBoxState UCheckBox::GetCheckedState()
 }
 
 
-// Function UMG.ButtonSlot.SetVerticalAlignment
-// (Final, Native, Public, BlueprintCallable)
+// Function UMG.CheckedStateBinding.GetValue
+// (Final, Native, Public, Const)
 // Parameters:
-// TEnumAsByte<EVerticalAlignment> InVerticalAlignment            (Parm, ZeroConstructor, IsPlainOldData)
+// ECheckBoxState                 ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 
-void UButtonSlot::SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment)
+ECheckBoxState UCheckedStateBinding::GetValue()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ButtonSlot.SetVerticalAlignment");
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.CheckedStateBinding.GetValue");
 
-	UButtonSlot_SetVerticalAlignment_Params params;
-	params.InVerticalAlignment = InVerticalAlignment;
+	UCheckedStateBinding_GetValue_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -2724,48 +2786,8 @@ void UButtonSlot::SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVertica
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
-}
 
-
-// Function UMG.ButtonSlot.SetPadding
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// struct FMargin                 InPadding                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void UButtonSlot::SetPadding(const struct FMargin& InPadding)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ButtonSlot.SetPadding");
-
-	UButtonSlot_SetPadding_Params params;
-	params.InPadding = InPadding;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ButtonSlot.SetHorizontalAlignment
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment          (Parm, ZeroConstructor, IsPlainOldData)
-
-void UButtonSlot::SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ButtonSlot.SetHorizontalAlignment");
-
-	UButtonSlot_SetHorizontalAlignment_Params params;
-	params.InHorizontalAlignment = InHorizontalAlignment;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
+	return params.ReturnValue;
 }
 
 
@@ -2873,69 +2895,6 @@ struct FLinearColor UColorBinding::GetLinearValue()
 	fn->FunctionFlags = flags;
 
 	return params.ReturnValue;
-}
-
-
-// Function UMG.DragDropOperation.Drop
-// (Native, Event, Public, HasOutParms, BlueprintEvent)
-// Parameters:
-// struct FPointerEvent           PointerEvent                   (ConstParm, Parm, OutParm, ReferenceParm)
-
-void UDragDropOperation::Drop(const struct FPointerEvent& PointerEvent)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.DragDropOperation.Drop");
-
-	UDragDropOperation_Drop_Params params;
-	params.PointerEvent = PointerEvent;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.DragDropOperation.Dragged
-// (Native, Event, Public, HasOutParms, BlueprintEvent)
-// Parameters:
-// struct FPointerEvent           PointerEvent                   (ConstParm, Parm, OutParm, ReferenceParm)
-
-void UDragDropOperation::Dragged(const struct FPointerEvent& PointerEvent)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.DragDropOperation.Dragged");
-
-	UDragDropOperation_Dragged_Params params;
-	params.PointerEvent = PointerEvent;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.DragDropOperation.DragCancelled
-// (Native, Event, Public, HasOutParms, BlueprintEvent)
-// Parameters:
-// struct FPointerEvent           PointerEvent                   (ConstParm, Parm, OutParm, ReferenceParm)
-
-void UDragDropOperation::DragCancelled(const struct FPointerEvent& PointerEvent)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.DragDropOperation.DragCancelled");
-
-	UDragDropOperation_DragCancelled_Params params;
-	params.PointerEvent = PointerEvent;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
 }
 
 
@@ -3190,6 +3149,69 @@ void UComboBoxString::AddOption(const struct FString& Option)
 }
 
 
+// Function UMG.DragDropOperation.Drop
+// (Native, Event, Public, HasOutParms, BlueprintEvent)
+// Parameters:
+// struct FPointerEvent           PointerEvent                   (ConstParm, Parm, OutParm, ReferenceParm)
+
+void UDragDropOperation::Drop(const struct FPointerEvent& PointerEvent)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.DragDropOperation.Drop");
+
+	UDragDropOperation_Drop_Params params;
+	params.PointerEvent = PointerEvent;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.DragDropOperation.Dragged
+// (Native, Event, Public, HasOutParms, BlueprintEvent)
+// Parameters:
+// struct FPointerEvent           PointerEvent                   (ConstParm, Parm, OutParm, ReferenceParm)
+
+void UDragDropOperation::Dragged(const struct FPointerEvent& PointerEvent)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.DragDropOperation.Dragged");
+
+	UDragDropOperation_Dragged_Params params;
+	params.PointerEvent = PointerEvent;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.DragDropOperation.DragCancelled
+// (Native, Event, Public, HasOutParms, BlueprintEvent)
+// Parameters:
+// struct FPointerEvent           PointerEvent                   (ConstParm, Parm, OutParm, ReferenceParm)
+
+void UDragDropOperation::DragCancelled(const struct FPointerEvent& PointerEvent)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.DragDropOperation.DragCancelled");
+
+	UDragDropOperation_DragCancelled_Params params;
+	params.PointerEvent = PointerEvent;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function UMG.DynamicEntryBox.SetEntrySpacing
 // (Final, Native, Public, HasOutParms, HasDefaults, BlueprintCallable)
 // Parameters:
@@ -3331,28 +3353,6 @@ class UUserWidget* UDynamicEntryBox::BP_CreateEntry()
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.DynamicEntryBox.BP_CreateEntry");
 
 	UDynamicEntryBox_BP_CreateEntry_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.CheckedStateBinding.GetValue
-// (Final, Native, Public, Const)
-// Parameters:
-// ECheckBoxState                 ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-ECheckBoxState UCheckedStateBinding::GetValue()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.CheckedStateBinding.GetValue");
-
-	UCheckedStateBinding_GetValue_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -3510,6 +3510,215 @@ struct FText UEditableText::GetText()
 	fn->FunctionFlags = flags;
 
 	return params.ReturnValue;
+}
+
+
+// Function UMG.EditableTextBox.SetText
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// struct FText                   InText                         (Parm)
+
+void UEditableTextBox::SetText(const struct FText& InText)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.SetText");
+
+	UEditableTextBox_SetText_Params params;
+	params.InText = InText;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.EditableTextBox.SetIsReadOnly
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           bReadOnly                      (Parm, ZeroConstructor, IsPlainOldData)
+
+void UEditableTextBox::SetIsReadOnly(bool bReadOnly)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.SetIsReadOnly");
+
+	UEditableTextBox_SetIsReadOnly_Params params;
+	params.bReadOnly = bReadOnly;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.EditableTextBox.SetIsPassword
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           bIsPassword                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void UEditableTextBox::SetIsPassword(bool bIsPassword)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.SetIsPassword");
+
+	UEditableTextBox_SetIsPassword_Params params;
+	params.bIsPassword = bIsPassword;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.EditableTextBox.SetHintText
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// struct FText                   InText                         (Parm)
+
+void UEditableTextBox::SetHintText(const struct FText& InText)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.SetHintText");
+
+	UEditableTextBox_SetHintText_Params params;
+	params.InText = InText;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.EditableTextBox.SetError
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// struct FText                   InError                        (Parm)
+
+void UEditableTextBox::SetError(const struct FText& InError)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.SetError");
+
+	UEditableTextBox_SetError_Params params;
+	params.InError = InError;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// DelegateFunction UMG.EditableTextBox.OnEditableTextBoxCommittedEvent__DelegateSignature
+// (MulticastDelegate, Public, Delegate, HasOutParms)
+// Parameters:
+// struct FText                   Text                           (ConstParm, Parm, OutParm, ReferenceParm)
+// TEnumAsByte<ETextCommit>       CommitMethod                   (Parm, ZeroConstructor, IsPlainOldData)
+
+void UEditableTextBox::OnEditableTextBoxCommittedEvent__DelegateSignature(const struct FText& Text, TEnumAsByte<ETextCommit> CommitMethod)
+{
+	static auto fn = UObject::FindObject<UFunction>("DelegateFunction UMG.EditableTextBox.OnEditableTextBoxCommittedEvent__DelegateSignature");
+
+	UEditableTextBox_OnEditableTextBoxCommittedEvent__DelegateSignature_Params params;
+	params.Text = Text;
+	params.CommitMethod = CommitMethod;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// DelegateFunction UMG.EditableTextBox.OnEditableTextBoxChangedEvent__DelegateSignature
+// (MulticastDelegate, Public, Delegate, HasOutParms)
+// Parameters:
+// struct FText                   Text                           (ConstParm, Parm, OutParm, ReferenceParm)
+
+void UEditableTextBox::OnEditableTextBoxChangedEvent__DelegateSignature(const struct FText& Text)
+{
+	static auto fn = UObject::FindObject<UFunction>("DelegateFunction UMG.EditableTextBox.OnEditableTextBoxChangedEvent__DelegateSignature");
+
+	UEditableTextBox_OnEditableTextBoxChangedEvent__DelegateSignature_Params params;
+	params.Text = Text;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.EditableTextBox.HasError
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UEditableTextBox::HasError()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.HasError");
+
+	UEditableTextBox_HasError_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.EditableTextBox.GetText
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// struct FText                   ReturnValue                    (Parm, OutParm, ReturnParm)
+
+struct FText UEditableTextBox::GetText()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.GetText");
+
+	UEditableTextBox_GetText_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.EditableTextBox.ClearError
+// (Final, Native, Public, BlueprintCallable)
+
+void UEditableTextBox::ClearError()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.ClearError");
+
+	UEditableTextBox_ClearError_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
 }
 
 
@@ -4204,441 +4413,6 @@ class UMaterialInstanceDynamic* UImage::GetDynamicMaterial()
 }
 
 
-// Function UMG.Int32Binding.GetValue
-// (Final, Native, Public, Const)
-// Parameters:
-// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-int UInt32Binding::GetValue()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Int32Binding.GetValue");
-
-	UInt32Binding_GetValue_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.EditableTextBox.SetText
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// struct FText                   InText                         (Parm)
-
-void UEditableTextBox::SetText(const struct FText& InText)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.SetText");
-
-	UEditableTextBox_SetText_Params params;
-	params.InText = InText;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.EditableTextBox.SetIsReadOnly
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           bReadOnly                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void UEditableTextBox::SetIsReadOnly(bool bReadOnly)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.SetIsReadOnly");
-
-	UEditableTextBox_SetIsReadOnly_Params params;
-	params.bReadOnly = bReadOnly;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.EditableTextBox.SetIsPassword
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           bIsPassword                    (Parm, ZeroConstructor, IsPlainOldData)
-
-void UEditableTextBox::SetIsPassword(bool bIsPassword)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.SetIsPassword");
-
-	UEditableTextBox_SetIsPassword_Params params;
-	params.bIsPassword = bIsPassword;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.EditableTextBox.SetHintText
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// struct FText                   InText                         (Parm)
-
-void UEditableTextBox::SetHintText(const struct FText& InText)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.SetHintText");
-
-	UEditableTextBox_SetHintText_Params params;
-	params.InText = InText;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.EditableTextBox.SetError
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// struct FText                   InError                        (Parm)
-
-void UEditableTextBox::SetError(const struct FText& InError)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.SetError");
-
-	UEditableTextBox_SetError_Params params;
-	params.InError = InError;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// DelegateFunction UMG.EditableTextBox.OnEditableTextBoxCommittedEvent__DelegateSignature
-// (MulticastDelegate, Public, Delegate, HasOutParms)
-// Parameters:
-// struct FText                   Text                           (ConstParm, Parm, OutParm, ReferenceParm)
-// TEnumAsByte<ETextCommit>       CommitMethod                   (Parm, ZeroConstructor, IsPlainOldData)
-
-void UEditableTextBox::OnEditableTextBoxCommittedEvent__DelegateSignature(const struct FText& Text, TEnumAsByte<ETextCommit> CommitMethod)
-{
-	static auto fn = UObject::FindObject<UFunction>("DelegateFunction UMG.EditableTextBox.OnEditableTextBoxCommittedEvent__DelegateSignature");
-
-	UEditableTextBox_OnEditableTextBoxCommittedEvent__DelegateSignature_Params params;
-	params.Text = Text;
-	params.CommitMethod = CommitMethod;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// DelegateFunction UMG.EditableTextBox.OnEditableTextBoxChangedEvent__DelegateSignature
-// (MulticastDelegate, Public, Delegate, HasOutParms)
-// Parameters:
-// struct FText                   Text                           (ConstParm, Parm, OutParm, ReferenceParm)
-
-void UEditableTextBox::OnEditableTextBoxChangedEvent__DelegateSignature(const struct FText& Text)
-{
-	static auto fn = UObject::FindObject<UFunction>("DelegateFunction UMG.EditableTextBox.OnEditableTextBoxChangedEvent__DelegateSignature");
-
-	UEditableTextBox_OnEditableTextBoxChangedEvent__DelegateSignature_Params params;
-	params.Text = Text;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.EditableTextBox.HasError
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool UEditableTextBox::HasError()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.HasError");
-
-	UEditableTextBox_HasError_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.EditableTextBox.GetText
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// struct FText                   ReturnValue                    (Parm, OutParm, ReturnParm)
-
-struct FText UEditableTextBox::GetText()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.GetText");
-
-	UEditableTextBox_GetText_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.EditableTextBox.ClearError
-// (Final, Native, Public, BlueprintCallable)
-
-void UEditableTextBox::ClearError()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.EditableTextBox.ClearError");
-
-	UEditableTextBox_ClearError_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.NativeUserListEntry.IsListItemSelected
-// (Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool UNativeUserListEntry::IsListItemSelected()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.NativeUserListEntry.IsListItemSelected");
-
-	UNativeUserListEntry_IsListItemSelected_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.NativeUserListEntry.IsListItemExpanded
-// (Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool UNativeUserListEntry::IsListItemExpanded()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.NativeUserListEntry.IsListItemExpanded");
-
-	UNativeUserListEntry_IsListItemExpanded_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.InvalidationBox.SetCanCache
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           CanCache                       (Parm, ZeroConstructor, IsPlainOldData)
-
-void UInvalidationBox::SetCanCache(bool CanCache)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.InvalidationBox.SetCanCache");
-
-	UInvalidationBox_SetCanCache_Params params;
-	params.CanCache = CanCache;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.InvalidationBox.InvalidateCache
-// (Final, Native, Public, BlueprintCallable)
-
-void UInvalidationBox::InvalidateCache()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.InvalidationBox.InvalidateCache");
-
-	UInvalidationBox_InvalidateCache_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.InvalidationBox.GetCanCache
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool UInvalidationBox::GetCanCache()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.InvalidationBox.GetCanCache");
-
-	UInvalidationBox_GetCanCache_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.UserListEntry.BP_OnItemSelectionChanged
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// bool                           bIsSelected                    (Parm, ZeroConstructor, IsPlainOldData)
-
-void UUserListEntry::BP_OnItemSelectionChanged(bool bIsSelected)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserListEntry.BP_OnItemSelectionChanged");
-
-	UUserListEntry_BP_OnItemSelectionChanged_Params params;
-	params.bIsSelected = bIsSelected;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.UserListEntry.BP_OnItemExpansionChanged
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// bool                           bIsExpanded                    (Parm, ZeroConstructor, IsPlainOldData)
-
-void UUserListEntry::BP_OnItemExpansionChanged(bool bIsExpanded)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserListEntry.BP_OnItemExpansionChanged");
-
-	UUserListEntry_BP_OnItemExpansionChanged_Params params;
-	params.bIsExpanded = bIsExpanded;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.UserListEntry.BP_OnEntryReleased
-// (Event, Protected, BlueprintEvent)
-
-void UUserListEntry::BP_OnEntryReleased()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserListEntry.BP_OnEntryReleased");
-
-	UUserListEntry_BP_OnEntryReleased_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.UserObjectListEntry.OnListItemObjectSet
-// (Event, Protected, BlueprintEvent)
-// Parameters:
-// class UObject*                 ListItemObject                 (Parm, ZeroConstructor, IsPlainOldData)
-
-void UUserObjectListEntry::OnListItemObjectSet(class UObject* ListItemObject)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserObjectListEntry.OnListItemObjectSet");
-
-	UUserObjectListEntry_OnListItemObjectSet_Params params;
-	params.ListItemObject = ListItemObject;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.UserObjectListEntry.GetListItemObject
-// (Native, Event, Protected, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
-// Parameters:
-// class UObject*                 ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class UObject* UUserObjectListEntry::GetListItemObject()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserObjectListEntry.GetListItemObject");
-
-	UUserObjectListEntry_GetListItemObject_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
 // Function UMG.InputKeySelector.SetTextBlockVisibility
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -4845,6 +4619,232 @@ bool UInputKeySelector::GetIsSelectingKey()
 }
 
 
+// Function UMG.Int32Binding.GetValue
+// (Final, Native, Public, Const)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+int UInt32Binding::GetValue()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Int32Binding.GetValue");
+
+	UInt32Binding_GetValue_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.InvalidationBox.SetCanCache
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           CanCache                       (Parm, ZeroConstructor, IsPlainOldData)
+
+void UInvalidationBox::SetCanCache(bool CanCache)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.InvalidationBox.SetCanCache");
+
+	UInvalidationBox_SetCanCache_Params params;
+	params.CanCache = CanCache;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.InvalidationBox.InvalidateCache
+// (Final, Native, Public, BlueprintCallable)
+
+void UInvalidationBox::InvalidateCache()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.InvalidationBox.InvalidateCache");
+
+	UInvalidationBox_InvalidateCache_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.InvalidationBox.GetCanCache
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UInvalidationBox::GetCanCache()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.InvalidationBox.GetCanCache");
+
+	UInvalidationBox_GetCanCache_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.NativeUserListEntry.IsListItemSelected
+// (Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UNativeUserListEntry::IsListItemSelected()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.NativeUserListEntry.IsListItemSelected");
+
+	UNativeUserListEntry_IsListItemSelected_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.NativeUserListEntry.IsListItemExpanded
+// (Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UNativeUserListEntry::IsListItemExpanded()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.NativeUserListEntry.IsListItemExpanded");
+
+	UNativeUserListEntry_IsListItemExpanded_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.UserListEntry.BP_OnItemSelectionChanged
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// bool                           bIsSelected                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void UUserListEntry::BP_OnItemSelectionChanged(bool bIsSelected)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserListEntry.BP_OnItemSelectionChanged");
+
+	UUserListEntry_BP_OnItemSelectionChanged_Params params;
+	params.bIsSelected = bIsSelected;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.UserListEntry.BP_OnItemExpansionChanged
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// bool                           bIsExpanded                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void UUserListEntry::BP_OnItemExpansionChanged(bool bIsExpanded)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserListEntry.BP_OnItemExpansionChanged");
+
+	UUserListEntry_BP_OnItemExpansionChanged_Params params;
+	params.bIsExpanded = bIsExpanded;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.UserListEntry.BP_OnEntryReleased
+// (Event, Protected, BlueprintEvent)
+
+void UUserListEntry::BP_OnEntryReleased()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserListEntry.BP_OnEntryReleased");
+
+	UUserListEntry_BP_OnEntryReleased_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.UserObjectListEntry.OnListItemObjectSet
+// (Event, Protected, BlueprintEvent)
+// Parameters:
+// class UObject*                 ListItemObject                 (Parm, ZeroConstructor, IsPlainOldData)
+
+void UUserObjectListEntry::OnListItemObjectSet(class UObject* ListItemObject)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserObjectListEntry.OnListItemObjectSet");
+
+	UUserObjectListEntry_OnListItemObjectSet_Params params;
+	params.ListItemObject = ListItemObject;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.UserObjectListEntry.GetListItemObject
+// (Native, Event, Protected, BlueprintCallable, BlueprintEvent, BlueprintPure, Const)
+// Parameters:
+// class UObject*                 ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class UObject* UUserObjectListEntry::GetListItemObject()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.UserObjectListEntry.GetListItemObject");
+
+	UUserObjectListEntry_GetListItemObject_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
 // Function UMG.ListViewBase.ScrollToTop
 // (Final, Native, Public, BlueprintCallable)
 
@@ -4918,6 +4918,480 @@ TArray<class UUserWidget*> UListViewBase::GetDisplayedEntryWidgets()
 	fn->FunctionFlags = flags;
 
 	return params.ReturnValue;
+}
+
+
+// Function UMG.ListView.SetSelectionMode
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// TEnumAsByte<ESelectionMode>    SelectionMode                  (Parm, ZeroConstructor, IsPlainOldData)
+
+void UListView::SetSelectionMode(TEnumAsByte<ESelectionMode> SelectionMode)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.SetSelectionMode");
+
+	UListView_SetSelectionMode_Params params;
+	params.SelectionMode = SelectionMode;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ListView.SetSelectedIndex
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int                            Index                          (Parm, ZeroConstructor, IsPlainOldData)
+
+void UListView::SetSelectedIndex(int Index)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.SetSelectedIndex");
+
+	UListView_SetSelectedIndex_Params params;
+	params.Index = Index;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ListView.ScrollIndexIntoView
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int                            Index                          (Parm, ZeroConstructor, IsPlainOldData)
+
+void UListView::ScrollIndexIntoView(int Index)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.ScrollIndexIntoView");
+
+	UListView_ScrollIndexIntoView_Params params;
+	params.Index = Index;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ListView.NavigateToIndex
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int                            Index                          (Parm, ZeroConstructor, IsPlainOldData)
+
+void UListView::NavigateToIndex(int Index)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.NavigateToIndex");
+
+	UListView_NavigateToIndex_Params params;
+	params.Index = Index;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ListView.IsRefreshPending
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UListView::IsRefreshPending()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.IsRefreshPending");
+
+	UListView_IsRefreshPending_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.ListView.GetNumItems
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+int UListView::GetNumItems()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.GetNumItems");
+
+	UListView_GetNumItems_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.ListView.GetListItems
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// TArray<class UObject*>         ReturnValue                    (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm)
+
+TArray<class UObject*> UListView::GetListItems()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.GetListItems");
+
+	UListView_GetListItems_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.ListView.GetItemAt
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int                            Index                          (Parm, ZeroConstructor, IsPlainOldData)
+// class UObject*                 ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class UObject* UListView::GetItemAt(int Index)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.GetItemAt");
+
+	UListView_GetItemAt_Params params;
+	params.Index = Index;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.ListView.GetIndexForItem
+// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
+// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+int UListView::GetIndexForItem(class UObject* Item)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.GetIndexForItem");
+
+	UListView_GetIndexForItem_Params params;
+	params.Item = Item;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.ListView.ClearListItems
+// (Final, Native, Public, BlueprintCallable)
+
+void UListView::ClearListItems()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.ClearListItems");
+
+	UListView_ClearListItems_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ListView.BP_SetSelectedItem
+// (Final, Native, Private, BlueprintCallable)
+// Parameters:
+// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
+
+void UListView::BP_SetSelectedItem(class UObject* Item)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_SetSelectedItem");
+
+	UListView_BP_SetSelectedItem_Params params;
+	params.Item = Item;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ListView.BP_SetListItems
+// (Final, Native, Private, HasOutParms, BlueprintCallable)
+// Parameters:
+// TArray<class UObject*>         InListItems                    (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
+
+void UListView::BP_SetListItems(TArray<class UObject*> InListItems)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_SetListItems");
+
+	UListView_BP_SetListItems_Params params;
+	params.InListItems = InListItems;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ListView.BP_SetItemSelection
+// (Final, Native, Private, BlueprintCallable)
+// Parameters:
+// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bSelected                      (Parm, ZeroConstructor, IsPlainOldData)
+
+void UListView::BP_SetItemSelection(class UObject* Item, bool bSelected)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_SetItemSelection");
+
+	UListView_BP_SetItemSelection_Params params;
+	params.Item = Item;
+	params.bSelected = bSelected;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ListView.BP_ScrollItemIntoView
+// (Final, Native, Private, BlueprintCallable)
+// Parameters:
+// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
+
+void UListView::BP_ScrollItemIntoView(class UObject* Item)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_ScrollItemIntoView");
+
+	UListView_BP_ScrollItemIntoView_Params params;
+	params.Item = Item;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ListView.BP_NavigateToItem
+// (Final, Native, Private, BlueprintCallable)
+// Parameters:
+// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
+
+void UListView::BP_NavigateToItem(class UObject* Item)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_NavigateToItem");
+
+	UListView_BP_NavigateToItem_Params params;
+	params.Item = Item;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ListView.BP_IsItemVisible
+// (Final, Native, Private, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UListView::BP_IsItemVisible(class UObject* Item)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_IsItemVisible");
+
+	UListView_BP_IsItemVisible_Params params;
+	params.Item = Item;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.ListView.BP_GetSelectedItems
+// (Final, Native, Private, HasOutParms, BlueprintCallable, Const)
+// Parameters:
+// TArray<class UObject*>         Items                          (Parm, OutParm, ZeroConstructor)
+// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+bool UListView::BP_GetSelectedItems(TArray<class UObject*>* Items)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_GetSelectedItems");
+
+	UListView_BP_GetSelectedItems_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (Items != nullptr)
+		*Items = params.Items;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.ListView.BP_GetSelectedItem
+// (Final, Native, Private, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// class UObject*                 ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class UObject* UListView::BP_GetSelectedItem()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_GetSelectedItem");
+
+	UListView_BP_GetSelectedItem_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.ListView.BP_GetNumItemsSelected
+// (Final, Native, Private, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+int UListView::BP_GetNumItemsSelected()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_GetNumItemsSelected");
+
+	UListView_BP_GetNumItemsSelected_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.ListView.BP_ClearSelection
+// (Final, Native, Private, BlueprintCallable)
+
+void UListView::BP_ClearSelection()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_ClearSelection");
+
+	UListView_BP_ClearSelection_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ListView.BP_CancelScrollIntoView
+// (Final, Native, Private, BlueprintCallable)
+
+void UListView::BP_CancelScrollIntoView()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_CancelScrollIntoView");
+
+	UListView_BP_CancelScrollIntoView_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.ListView.AddItem
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
+
+void UListView::AddItem(class UObject* Item)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.AddItem");
+
+	UListView_AddItem_Params params;
+	params.Item = Item;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
 }
 
 
@@ -5579,17 +6053,39 @@ class UMaterialInstanceDynamic* URetainerBox::GetEffectMaterial()
 }
 
 
-// Function UMG.ListView.SetSelectionMode
+// Function UMG.RichTextBlock.SetText
+// (Final, Native, Public, HasOutParms, BlueprintCallable)
+// Parameters:
+// struct FText                   InText                         (ConstParm, Parm, OutParm, ReferenceParm)
+
+void URichTextBlock::SetText(const struct FText& InText)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.RichTextBlock.SetText");
+
+	URichTextBlock_SetText_Params params;
+	params.InText = InText;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.RichTextBlock.GetDecoratorByClass
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// TEnumAsByte<ESelectionMode>    SelectionMode                  (Parm, ZeroConstructor, IsPlainOldData)
+// class UClass*                  DecoratorClass                 (Parm, ZeroConstructor, IsPlainOldData)
+// class URichTextBlockDecorator* ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 
-void UListView::SetSelectionMode(TEnumAsByte<ESelectionMode> SelectionMode)
+class URichTextBlockDecorator* URichTextBlock::GetDecoratorByClass(class UClass* DecoratorClass)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.SetSelectionMode");
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.RichTextBlock.GetDecoratorByClass");
 
-	UListView_SetSelectionMode_Params params;
-	params.SelectionMode = SelectionMode;
+	URichTextBlock_GetDecoratorByClass_Params params;
+	params.DecoratorClass = DecoratorClass;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -5597,452 +6093,28 @@ void UListView::SetSelectionMode(TEnumAsByte<ESelectionMode> SelectionMode)
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
 }
 
 
-// Function UMG.ListView.SetSelectedIndex
+// Function UMG.SafeZone.SetSidesToPad
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// int                            Index                          (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           InPadLeft                      (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           InPadRight                     (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           InPadTop                       (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           InPadBottom                    (Parm, ZeroConstructor, IsPlainOldData)
 
-void UListView::SetSelectedIndex(int Index)
+void USafeZone::SetSidesToPad(bool InPadLeft, bool InPadRight, bool InPadTop, bool InPadBottom)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.SetSelectedIndex");
-
-	UListView_SetSelectedIndex_Params params;
-	params.Index = Index;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ListView.ScrollIndexIntoView
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// int                            Index                          (Parm, ZeroConstructor, IsPlainOldData)
-
-void UListView::ScrollIndexIntoView(int Index)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.ScrollIndexIntoView");
-
-	UListView_ScrollIndexIntoView_Params params;
-	params.Index = Index;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ListView.NavigateToIndex
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// int                            Index                          (Parm, ZeroConstructor, IsPlainOldData)
-
-void UListView::NavigateToIndex(int Index)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.NavigateToIndex");
-
-	UListView_NavigateToIndex_Params params;
-	params.Index = Index;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ListView.IsRefreshPending
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool UListView::IsRefreshPending()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.IsRefreshPending");
-
-	UListView_IsRefreshPending_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.ListView.GetNumItems
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-int UListView::GetNumItems()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.GetNumItems");
-
-	UListView_GetNumItems_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.ListView.GetListItems
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// TArray<class UObject*>         ReturnValue                    (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, ReferenceParm)
-
-TArray<class UObject*> UListView::GetListItems()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.GetListItems");
-
-	UListView_GetListItems_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.ListView.GetItemAt
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int                            Index                          (Parm, ZeroConstructor, IsPlainOldData)
-// class UObject*                 ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class UObject* UListView::GetItemAt(int Index)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.GetItemAt");
-
-	UListView_GetItemAt_Params params;
-	params.Index = Index;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.ListView.GetIndexForItem
-// (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
-// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-int UListView::GetIndexForItem(class UObject* Item)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.GetIndexForItem");
-
-	UListView_GetIndexForItem_Params params;
-	params.Item = Item;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.ListView.ClearListItems
-// (Final, Native, Public, BlueprintCallable)
-
-void UListView::ClearListItems()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.ClearListItems");
-
-	UListView_ClearListItems_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ListView.BP_SetSelectedItem
-// (Final, Native, Private, BlueprintCallable)
-// Parameters:
-// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
-
-void UListView::BP_SetSelectedItem(class UObject* Item)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_SetSelectedItem");
-
-	UListView_BP_SetSelectedItem_Params params;
-	params.Item = Item;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ListView.BP_SetListItems
-// (Final, Native, Private, HasOutParms, BlueprintCallable)
-// Parameters:
-// TArray<class UObject*>         InListItems                    (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-
-void UListView::BP_SetListItems(TArray<class UObject*> InListItems)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_SetListItems");
-
-	UListView_BP_SetListItems_Params params;
-	params.InListItems = InListItems;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ListView.BP_SetItemSelection
-// (Final, Native, Private, BlueprintCallable)
-// Parameters:
-// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bSelected                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void UListView::BP_SetItemSelection(class UObject* Item, bool bSelected)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_SetItemSelection");
-
-	UListView_BP_SetItemSelection_Params params;
-	params.Item = Item;
-	params.bSelected = bSelected;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ListView.BP_ScrollItemIntoView
-// (Final, Native, Private, BlueprintCallable)
-// Parameters:
-// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
-
-void UListView::BP_ScrollItemIntoView(class UObject* Item)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_ScrollItemIntoView");
-
-	UListView_BP_ScrollItemIntoView_Params params;
-	params.Item = Item;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ListView.BP_NavigateToItem
-// (Final, Native, Private, BlueprintCallable)
-// Parameters:
-// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
-
-void UListView::BP_NavigateToItem(class UObject* Item)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_NavigateToItem");
-
-	UListView_BP_NavigateToItem_Params params;
-	params.Item = Item;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ListView.BP_IsItemVisible
-// (Final, Native, Private, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool UListView::BP_IsItemVisible(class UObject* Item)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_IsItemVisible");
-
-	UListView_BP_IsItemVisible_Params params;
-	params.Item = Item;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.ListView.BP_GetSelectedItems
-// (Final, Native, Private, HasOutParms, BlueprintCallable, Const)
-// Parameters:
-// TArray<class UObject*>         Items                          (Parm, OutParm, ZeroConstructor)
-// bool                           ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-bool UListView::BP_GetSelectedItems(TArray<class UObject*>* Items)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_GetSelectedItems");
-
-	UListView_BP_GetSelectedItems_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	if (Items != nullptr)
-		*Items = params.Items;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.ListView.BP_GetSelectedItem
-// (Final, Native, Private, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// class UObject*                 ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class UObject* UListView::BP_GetSelectedItem()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_GetSelectedItem");
-
-	UListView_BP_GetSelectedItem_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.ListView.BP_GetNumItemsSelected
-// (Final, Native, Private, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// int                            ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-int UListView::BP_GetNumItemsSelected()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_GetNumItemsSelected");
-
-	UListView_BP_GetNumItemsSelected_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.ListView.BP_ClearSelection
-// (Final, Native, Private, BlueprintCallable)
-
-void UListView::BP_ClearSelection()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_ClearSelection");
-
-	UListView_BP_ClearSelection_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ListView.BP_CancelScrollIntoView
-// (Final, Native, Private, BlueprintCallable)
-
-void UListView::BP_CancelScrollIntoView()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.BP_CancelScrollIntoView");
-
-	UListView_BP_CancelScrollIntoView_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.ListView.AddItem
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
-
-void UListView::AddItem(class UObject* Item)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.ListView.AddItem");
-
-	UListView_AddItem_Params params;
-	params.Item = Item;
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.SafeZone.SetSidesToPad");
+
+	USafeZone_SetSidesToPad_Params params;
+	params.InPadLeft = InPadLeft;
+	params.InPadRight = InPadRight;
+	params.InPadTop = InPadTop;
+	params.InPadBottom = InPadBottom;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6213,33 +6285,6 @@ void UScrollBar::SetState(float InOffsetFraction, float InThumbSizeFraction)
 	UScrollBar_SetState_Params params;
 	params.InOffsetFraction = InOffsetFraction;
 	params.InThumbSizeFraction = InThumbSizeFraction;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.SafeZone.SetSidesToPad
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           InPadLeft                      (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           InPadRight                     (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           InPadTop                       (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           InPadBottom                    (Parm, ZeroConstructor, IsPlainOldData)
-
-void USafeZone::SetSidesToPad(bool InPadLeft, bool InPadRight, bool InPadTop, bool InPadBottom)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.SafeZone.SetSidesToPad");
-
-	USafeZone_SetSidesToPad_Params params;
-	params.InPadLeft = InPadLeft;
-	params.InPadRight = InPadRight;
-	params.InPadTop = InPadTop;
-	params.InPadBottom = InPadBottom;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -6541,51 +6586,6 @@ void UScrollBoxSlot::SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> In
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.RichTextBlock.SetText
-// (Final, Native, Public, HasOutParms, BlueprintCallable)
-// Parameters:
-// struct FText                   InText                         (ConstParm, Parm, OutParm, ReferenceParm)
-
-void URichTextBlock::SetText(const struct FText& InText)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.RichTextBlock.SetText");
-
-	URichTextBlock_SetText_Params params;
-	params.InText = InText;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.RichTextBlock.GetDecoratorByClass
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class UClass*                  DecoratorClass                 (Parm, ZeroConstructor, IsPlainOldData)
-// class URichTextBlockDecorator* ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class URichTextBlockDecorator* URichTextBlock::GetDecoratorByClass(class UClass* DecoratorClass)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.RichTextBlock.GetDecoratorByClass");
-
-	URichTextBlock_GetDecoratorByClass_Params params;
-	params.DecoratorClass = DecoratorClass;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
 }
 
 
@@ -7370,6 +7370,27 @@ float USlider::GetValue()
 }
 
 
+// Function UMG.Spacer.SetSize
+// (Final, Native, Public, HasDefaults, BlueprintCallable)
+// Parameters:
+// struct FVector2D               InSize                         (Parm, ZeroConstructor, IsPlainOldData)
+
+void USpacer::SetSize(const struct FVector2D& InSize)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Spacer.SetSize");
+
+	USpacer_SetSize_Params params;
+	params.InSize = InSize;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function UMG.SpinBox.SetValue
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -7781,90 +7802,6 @@ struct FString UTextBinding::GetStringValue()
 }
 
 
-// Function UMG.Throbber.SetNumberOfPieces
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// int                            InNumberOfPieces               (Parm, ZeroConstructor, IsPlainOldData)
-
-void UThrobber::SetNumberOfPieces(int InNumberOfPieces)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Throbber.SetNumberOfPieces");
-
-	UThrobber_SetNumberOfPieces_Params params;
-	params.InNumberOfPieces = InNumberOfPieces;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.Throbber.SetAnimateVertically
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           bInAnimateVertically           (Parm, ZeroConstructor, IsPlainOldData)
-
-void UThrobber::SetAnimateVertically(bool bInAnimateVertically)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Throbber.SetAnimateVertically");
-
-	UThrobber_SetAnimateVertically_Params params;
-	params.bInAnimateVertically = bInAnimateVertically;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.Throbber.SetAnimateOpacity
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           bInAnimateOpacity              (Parm, ZeroConstructor, IsPlainOldData)
-
-void UThrobber::SetAnimateOpacity(bool bInAnimateOpacity)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Throbber.SetAnimateOpacity");
-
-	UThrobber_SetAnimateOpacity_Params params;
-	params.bInAnimateOpacity = bInAnimateOpacity;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.Throbber.SetAnimateHorizontally
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// bool                           bInAnimateHorizontally         (Parm, ZeroConstructor, IsPlainOldData)
-
-void UThrobber::SetAnimateHorizontally(bool bInAnimateHorizontally)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Throbber.SetAnimateHorizontally");
-
-	UThrobber_SetAnimateHorizontally_Params params;
-	params.bInAnimateHorizontally = bInAnimateHorizontally;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function UMG.TextBlock.SetText
 // (Native, Public, BlueprintCallable)
 // Parameters:
@@ -8120,6 +8057,90 @@ class UMaterialInstanceDynamic* UTextBlock::GetDynamicFontMaterial()
 }
 
 
+// Function UMG.Throbber.SetNumberOfPieces
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int                            InNumberOfPieces               (Parm, ZeroConstructor, IsPlainOldData)
+
+void UThrobber::SetNumberOfPieces(int InNumberOfPieces)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Throbber.SetNumberOfPieces");
+
+	UThrobber_SetNumberOfPieces_Params params;
+	params.InNumberOfPieces = InNumberOfPieces;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.Throbber.SetAnimateVertically
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           bInAnimateVertically           (Parm, ZeroConstructor, IsPlainOldData)
+
+void UThrobber::SetAnimateVertically(bool bInAnimateVertically)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Throbber.SetAnimateVertically");
+
+	UThrobber_SetAnimateVertically_Params params;
+	params.bInAnimateVertically = bInAnimateVertically;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.Throbber.SetAnimateOpacity
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           bInAnimateOpacity              (Parm, ZeroConstructor, IsPlainOldData)
+
+void UThrobber::SetAnimateOpacity(bool bInAnimateOpacity)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Throbber.SetAnimateOpacity");
+
+	UThrobber_SetAnimateOpacity_Params params;
+	params.bInAnimateOpacity = bInAnimateOpacity;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.Throbber.SetAnimateHorizontally
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// bool                           bInAnimateHorizontally         (Parm, ZeroConstructor, IsPlainOldData)
+
+void UThrobber::SetAnimateHorizontally(bool bInAnimateHorizontally)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.Throbber.SetAnimateHorizontally");
+
+	UThrobber_SetAnimateHorizontally_Params params;
+	params.bInAnimateHorizontally = bInAnimateHorizontally;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function UMG.TileView.SetEntryWidth
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
@@ -8152,6 +8173,65 @@ void UTileView::SetEntryHeight(float NewHeight)
 
 	UTileView_SetEntryHeight_Params params;
 	params.NewHeight = NewHeight;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.TreeView.SetItemExpansion
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
+// bool                           bExpandItem                    (Parm, ZeroConstructor, IsPlainOldData)
+
+void UTreeView::SetItemExpansion(class UObject* Item, bool bExpandItem)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.TreeView.SetItemExpansion");
+
+	UTreeView_SetItemExpansion_Params params;
+	params.Item = Item;
+	params.bExpandItem = bExpandItem;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.TreeView.ExpandAll
+// (Final, Native, Public, BlueprintCallable)
+
+void UTreeView::ExpandAll()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.TreeView.ExpandAll");
+
+	UTreeView_ExpandAll_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.TreeView.CollapseAll
+// (Final, Native, Public, BlueprintCallable)
+
+void UTreeView::CollapseAll()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.TreeView.CollapseAll");
+
+	UTreeView_CollapseAll_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8249,19 +8329,17 @@ class UUniformGridSlot* UUniformGridPanel::AddChildToUniformGrid(class UWidget* 
 }
 
 
-// Function UMG.TreeView.SetItemExpansion
+// Function UMG.UniformGridSlot.SetVerticalAlignment
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// class UObject*                 Item                           (Parm, ZeroConstructor, IsPlainOldData)
-// bool                           bExpandItem                    (Parm, ZeroConstructor, IsPlainOldData)
+// TEnumAsByte<EVerticalAlignment> InVerticalAlignment            (Parm, ZeroConstructor, IsPlainOldData)
 
-void UTreeView::SetItemExpansion(class UObject* Item, bool bExpandItem)
+void UUniformGridSlot::SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.TreeView.SetItemExpansion");
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.UniformGridSlot.SetVerticalAlignment");
 
-	UTreeView_SetItemExpansion_Params params;
-	params.Item = Item;
-	params.bExpandItem = bExpandItem;
+	UUniformGridSlot_SetVerticalAlignment_Params params;
+	params.InVerticalAlignment = InVerticalAlignment;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8272,14 +8350,17 @@ void UTreeView::SetItemExpansion(class UObject* Item, bool bExpandItem)
 }
 
 
-// Function UMG.TreeView.ExpandAll
+// Function UMG.UniformGridSlot.SetRow
 // (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int                            InRow                          (Parm, ZeroConstructor, IsPlainOldData)
 
-void UTreeView::ExpandAll()
+void UUniformGridSlot::SetRow(int InRow)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.TreeView.ExpandAll");
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.UniformGridSlot.SetRow");
 
-	UTreeView_ExpandAll_Params params;
+	UUniformGridSlot_SetRow_Params params;
+	params.InRow = InRow;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -8290,14 +8371,38 @@ void UTreeView::ExpandAll()
 }
 
 
-// Function UMG.TreeView.CollapseAll
+// Function UMG.UniformGridSlot.SetHorizontalAlignment
 // (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment          (Parm, ZeroConstructor, IsPlainOldData)
 
-void UTreeView::CollapseAll()
+void UUniformGridSlot::SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.TreeView.CollapseAll");
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.UniformGridSlot.SetHorizontalAlignment");
 
-	UTreeView_CollapseAll_Params params;
+	UUniformGridSlot_SetHorizontalAlignment_Params params;
+	params.InHorizontalAlignment = InHorizontalAlignment;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.UniformGridSlot.SetColumn
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// int                            InColumn                       (Parm, ZeroConstructor, IsPlainOldData)
+
+void UUniformGridSlot::SetColumn(int InColumn)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.UniformGridSlot.SetColumn");
+
+	UUniformGridSlot_SetColumn_Params params;
+	params.InColumn = InColumn;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10079,17 +10184,18 @@ bool UUserWidget::AddToPlayerScreen(int ZOrder)
 }
 
 
-// Function UMG.UniformGridSlot.SetVerticalAlignment
+// Function UMG.VerticalBox.AddChildToVerticalBox
 // (Final, Native, Public, BlueprintCallable)
 // Parameters:
-// TEnumAsByte<EVerticalAlignment> InVerticalAlignment            (Parm, ZeroConstructor, IsPlainOldData)
+// class UWidget*                 Content                        (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
+// class UVerticalBoxSlot*        ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
 
-void UUniformGridSlot::SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment)
+class UVerticalBoxSlot* UVerticalBox::AddChildToVerticalBox(class UWidget* Content)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.UniformGridSlot.SetVerticalAlignment");
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.VerticalBox.AddChildToVerticalBox");
 
-	UUniformGridSlot_SetVerticalAlignment_Params params;
-	params.InVerticalAlignment = InVerticalAlignment;
+	UVerticalBox_AddChildToVerticalBox_Params params;
+	params.Content = Content;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -10097,69 +10203,8 @@ void UUniformGridSlot::SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVe
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
-}
 
-
-// Function UMG.UniformGridSlot.SetRow
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// int                            InRow                          (Parm, ZeroConstructor, IsPlainOldData)
-
-void UUniformGridSlot::SetRow(int InRow)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.UniformGridSlot.SetRow");
-
-	UUniformGridSlot_SetRow_Params params;
-	params.InRow = InRow;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.UniformGridSlot.SetHorizontalAlignment
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment          (Parm, ZeroConstructor, IsPlainOldData)
-
-void UUniformGridSlot::SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.UniformGridSlot.SetHorizontalAlignment");
-
-	UUniformGridSlot_SetHorizontalAlignment_Params params;
-	params.InHorizontalAlignment = InHorizontalAlignment;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.UniformGridSlot.SetColumn
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// int                            InColumn                       (Parm, ZeroConstructor, IsPlainOldData)
-
-void UUniformGridSlot::SetColumn(int InColumn)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.UniformGridSlot.SetColumn");
-
-	UUniformGridSlot_SetColumn_Params params;
-	params.InColumn = InColumn;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
+	return params.ReturnValue;
 }
 
 
@@ -10244,52 +10289,6 @@ void UVerticalBoxSlot::SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> 
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.VisibilityBinding.GetValue
-// (Final, Native, Public, Const)
-// Parameters:
-// ESlateVisibility               ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-ESlateVisibility UVisibilityBinding::GetValue()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.VisibilityBinding.GetValue");
-
-	UVisibilityBinding_GetValue_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.VerticalBox.AddChildToVerticalBox
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// class UWidget*                 Content                        (Parm, ZeroConstructor, InstancedReference, IsPlainOldData)
-// class UVerticalBoxSlot*        ReturnValue                    (ExportObject, Parm, OutParm, ZeroConstructor, ReturnParm, InstancedReference, IsPlainOldData)
-
-class UVerticalBoxSlot* UVerticalBox::AddChildToVerticalBox(class UWidget* Content)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.VerticalBox.AddChildToVerticalBox");
-
-	UVerticalBox_AddChildToVerticalBox_Params params;
-	params.Content = Content;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
 }
 
 
@@ -10413,6 +10412,72 @@ struct FVector UViewport::GetViewLocation()
 	static auto fn = UObject::FindObject<UFunction>("Function UMG.Viewport.GetViewLocation");
 
 	UViewport_GetViewLocation_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.VisibilityBinding.GetValue
+// (Final, Native, Public, Const)
+// Parameters:
+// ESlateVisibility               ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+ESlateVisibility UVisibilityBinding::GetValue()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.VisibilityBinding.GetValue");
+
+	UVisibilityBinding_GetValue_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.WidgetAnimation.GetStartTime
+// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+float UWidgetAnimation::GetStartTime()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetAnimation.GetStartTime");
+
+	UWidgetAnimation_GetStartTime_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
+// Function UMG.WidgetAnimation.GetEndTime
+// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
+// Parameters:
+// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+float UWidgetAnimation::GetEndTime()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetAnimation.GetEndTime");
+
+	UWidgetAnimation_GetEndTime_Params params;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;
@@ -12814,69 +12879,6 @@ struct FVector2D UWidgetLayoutLibrary::STATIC_GetMousePositionOnPlatform()
 }
 
 
-// Function UMG.WidgetSwitcherSlot.SetVerticalAlignment
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// TEnumAsByte<EVerticalAlignment> InVerticalAlignment            (Parm, ZeroConstructor, IsPlainOldData)
-
-void UWidgetSwitcherSlot::SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetSwitcherSlot.SetVerticalAlignment");
-
-	UWidgetSwitcherSlot_SetVerticalAlignment_Params params;
-	params.InVerticalAlignment = InVerticalAlignment;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.WidgetSwitcherSlot.SetPadding
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// struct FMargin                 InPadding                      (Parm, ZeroConstructor, IsPlainOldData)
-
-void UWidgetSwitcherSlot::SetPadding(const struct FMargin& InPadding)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetSwitcherSlot.SetPadding");
-
-	UWidgetSwitcherSlot_SetPadding_Params params;
-	params.InPadding = InPadding;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.WidgetSwitcherSlot.SetHorizontalAlignment
-// (Final, Native, Public, BlueprintCallable)
-// Parameters:
-// TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment          (Parm, ZeroConstructor, IsPlainOldData)
-
-void UWidgetSwitcherSlot::SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetSwitcherSlot.SetHorizontalAlignment");
-
-	UWidgetSwitcherSlot_SetHorizontalAlignment_Params params;
-	params.InHorizontalAlignment = InHorizontalAlignment;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
 // Function UMG.WidgetSwitcher.SetActiveWidgetIndex
 // (Native, Public, BlueprintCallable)
 // Parameters:
@@ -13006,6 +13008,69 @@ class UWidget* UWidgetSwitcher::GetActiveWidget()
 	fn->FunctionFlags = flags;
 
 	return params.ReturnValue;
+}
+
+
+// Function UMG.WidgetSwitcherSlot.SetVerticalAlignment
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// TEnumAsByte<EVerticalAlignment> InVerticalAlignment            (Parm, ZeroConstructor, IsPlainOldData)
+
+void UWidgetSwitcherSlot::SetVerticalAlignment(TEnumAsByte<EVerticalAlignment> InVerticalAlignment)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetSwitcherSlot.SetVerticalAlignment");
+
+	UWidgetSwitcherSlot_SetVerticalAlignment_Params params;
+	params.InVerticalAlignment = InVerticalAlignment;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.WidgetSwitcherSlot.SetPadding
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// struct FMargin                 InPadding                      (Parm, ZeroConstructor, IsPlainOldData)
+
+void UWidgetSwitcherSlot::SetPadding(const struct FMargin& InPadding)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetSwitcherSlot.SetPadding");
+
+	UWidgetSwitcherSlot_SetPadding_Params params;
+	params.InPadding = InPadding;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function UMG.WidgetSwitcherSlot.SetHorizontalAlignment
+// (Final, Native, Public, BlueprintCallable)
+// Parameters:
+// TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment          (Parm, ZeroConstructor, IsPlainOldData)
+
+void UWidgetSwitcherSlot::SetHorizontalAlignment(TEnumAsByte<EHorizontalAlignment> InHorizontalAlignment)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetSwitcherSlot.SetHorizontalAlignment");
+
+	UWidgetSwitcherSlot_SetHorizontalAlignment_Params params;
+	params.InHorizontalAlignment = InHorizontalAlignment;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
 }
 
 
@@ -13275,71 +13340,6 @@ void UWrapBoxSlot::SetFillEmptySpace(bool InbFillEmptySpace)
 
 	UWrapBoxSlot_SetFillEmptySpace_Params params;
 	params.InbFillEmptySpace = InbFillEmptySpace;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function UMG.WidgetAnimation.GetStartTime
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-float UWidgetAnimation::GetStartTime()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetAnimation.GetStartTime");
-
-	UWidgetAnimation_GetStartTime_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.WidgetAnimation.GetEndTime
-// (Final, RequiredAPI, Native, Public, BlueprintCallable, BlueprintPure, Const)
-// Parameters:
-// float                          ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-float UWidgetAnimation::GetEndTime()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.WidgetAnimation.GetEndTime");
-
-	UWidgetAnimation_GetEndTime_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-
-	return params.ReturnValue;
-}
-
-
-// Function UMG.Spacer.SetSize
-// (Final, Native, Public, HasDefaults, BlueprintCallable)
-// Parameters:
-// struct FVector2D               InSize                         (Parm, ZeroConstructor, IsPlainOldData)
-
-void USpacer::SetSize(const struct FVector2D& InSize)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function UMG.Spacer.SetSize");
-
-	USpacer_SetSize_Params params;
-	params.InSize = InSize;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;

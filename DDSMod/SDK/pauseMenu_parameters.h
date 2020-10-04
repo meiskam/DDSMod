@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -19,7 +19,7 @@ struct UpauseMenu_C_showConfirm_Params
 {
 	struct FText                                       Header;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm)
 	struct FText                                       Desc;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm)
-	int                                                ConfirmActionIndex;                                       // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                confirmActionIndex;                                       // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function pauseMenu.pauseMenu_C.terminateMe

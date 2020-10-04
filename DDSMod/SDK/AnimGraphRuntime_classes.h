@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,21 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Classes
 //---------------------------------------------------------------------------
+
+// Class AnimGraphRuntime.AnimCustomInstance
+// 0x0000 (0x0360 - 0x0360)
+class UAnimCustomInstance : public UAnimInstance
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class AnimGraphRuntime.AnimCustomInstance");
+		return ptr;
+	}
+
+};
+
 
 // Class AnimGraphRuntime.AnimNotify_PlayMontageNotify
 // 0x0008 (0x0040 - 0x0038)
@@ -38,21 +53,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class AnimGraphRuntime.AnimNotify_PlayMontageNotifyWindow");
-		return ptr;
-	}
-
-};
-
-
-// Class AnimGraphRuntime.AnimCustomInstance
-// 0x0000 (0x0360 - 0x0360)
-class UAnimCustomInstance : public UAnimInstance
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class AnimGraphRuntime.AnimCustomInstance");
 		return ptr;
 	}
 

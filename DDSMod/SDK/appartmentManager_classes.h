@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -77,7 +77,7 @@ public:
 	void terminateRenting();
 	void ChangeViewAppartment(int AppartmentID);
 	void startAppartmentViewer();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void ReceiveBeginPlay();
 	void sendDebtInfo();
 	void firstRentAction();

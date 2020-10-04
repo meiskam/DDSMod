@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -144,9 +144,9 @@ void AdoorBreacher_C::InpActEvt_JumpObstacle_K2Node_InputActionEvent_1(const str
 // Function doorBreacher.doorBreacher_C.ReceivePossessed
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AController**            NewController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AController*             NewController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AdoorBreacher_C::ReceivePossessed(class AController** NewController)
+void AdoorBreacher_C::ReceivePossessed(class AController* NewController)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function doorBreacher.doorBreacher_C.ReceivePossessed");
 
@@ -164,9 +164,9 @@ void AdoorBreacher_C::ReceivePossessed(class AController** NewController)
 // Function doorBreacher.doorBreacher_C.ReceiveUnpossessed
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AController**            OldController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AController*             OldController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AdoorBreacher_C::ReceiveUnpossessed(class AController** OldController)
+void AdoorBreacher_C::ReceiveUnpossessed(class AController* OldController)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function doorBreacher.doorBreacher_C.ReceiveUnpossessed");
 
@@ -235,9 +235,9 @@ void AdoorBreacher_C::rushBreach()
 // Function doorBreacher.doorBreacher_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AdoorBreacher_C::ReceiveTick(float* DeltaSeconds)
+void AdoorBreacher_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function doorBreacher.doorBreacher_C.ReceiveTick");
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -30,7 +30,7 @@ public:
 
 
 	void UserConstructionScript();
-	void ReceiveActorBeginOverlap(class AActor** OtherActor);
+	void ReceiveActorBeginOverlap(class AActor* OtherActor);
 	void ExecuteUbergraph_eddieWalkPoint(int EntryPoint);
 };
 

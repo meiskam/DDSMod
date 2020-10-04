@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -154,17 +154,6 @@ enum class EMouseCursor : uint8_t
 };
 
 
-// Enum CoreUObject.EAxis
-enum class EAxis : uint8_t
-{
-	EAxis__None                    = 0,
-	EAxis__X                       = 1,
-	EAxis__Y                       = 2,
-	EAxis__Z                       = 3,
-	EAxis__EAxis_MAX               = 4
-};
-
-
 // Enum CoreUObject.EPixelFormat
 enum class EPixelFormat : uint8_t
 {
@@ -236,12 +225,25 @@ enum class EPixelFormat : uint8_t
 };
 
 
-// Enum CoreUObject.ESearchDir
-enum class ESearchDir : uint8_t
+// Enum CoreUObject.EAxis
+enum class EAxis : uint8_t
 {
-	ESearchDir__FromStart          = 0,
-	ESearchDir__FromEnd            = 1,
-	ESearchDir__ESearchDir_MAX     = 2
+	EAxis__None                    = 0,
+	EAxis__X                       = 1,
+	EAxis__Y                       = 2,
+	EAxis__Z                       = 3,
+	EAxis__EAxis_MAX               = 4
+};
+
+
+// Enum CoreUObject.ELogTimes
+enum class ELogTimes : uint8_t
+{
+	ELogTimes__None                = 0,
+	ELogTimes__UTC                 = 1,
+	ELogTimes__SinceGStartTime     = 2,
+	ELogTimes__Local               = 3,
+	ELogTimes__ELogTimes_MAX       = 4
 };
 
 
@@ -254,14 +256,12 @@ enum class ESearchCase : uint8_t
 };
 
 
-// Enum CoreUObject.ELogTimes
-enum class ELogTimes : uint8_t
+// Enum CoreUObject.ESearchDir
+enum class ESearchDir : uint8_t
 {
-	ELogTimes__None                = 0,
-	ELogTimes__UTC                 = 1,
-	ELogTimes__SinceGStartTime     = 2,
-	ELogTimes__Local               = 3,
-	ELogTimes__ELogTimes_MAX       = 4
+	ESearchDir__FromStart          = 0,
+	ESearchDir__FromEnd            = 1,
+	ESearchDir__ESearchDir_MAX     = 2
 };
 
 
@@ -301,6 +301,15 @@ struct FGuid
 	int                                                D;                                                        // 0x000C(0x0004) (Edit, ZeroConstructor, SaveGame, IsPlainOldData)
 };
 
+// ScriptStruct CoreUObject.Vector
+// 0x000C
+struct FVector
+{
+	float                                              X;                                                        // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
+	float                                              Y;                                                        // 0x0004(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
+	float                                              Z;                                                        // 0x0008(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
+};
+
 // ScriptStruct CoreUObject.Vector4
 // 0x0010
 struct alignas(16) FVector4
@@ -309,15 +318,6 @@ struct alignas(16) FVector4
 	float                                              Y;                                                        // 0x0004(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
 	float                                              Z;                                                        // 0x0008(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
 	float                                              W;                                                        // 0x000C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
-};
-
-// ScriptStruct CoreUObject.Vector
-// 0x000C
-struct FVector
-{
-	float                                              X;                                                        // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
-	float                                              Y;                                                        // 0x0004(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
-	float                                              Z;                                                        // 0x0008(0x0004) (Edit, BlueprintVisible, ZeroConstructor, SaveGame, IsPlainOldData)
 };
 
 // ScriptStruct CoreUObject.Vector2D
@@ -382,19 +382,19 @@ struct FPackedNormal
 	unsigned char                                      W;                                                        // 0x0003(0x0001) (Edit, ZeroConstructor, SaveGame, IsPlainOldData)
 };
 
-// ScriptStruct CoreUObject.PackedRGB10A2N
-// 0x0004
-struct FPackedRGB10A2N
-{
-	int                                                Packed;                                                   // 0x0000(0x0004) (Edit, ZeroConstructor, SaveGame, IsPlainOldData)
-};
-
 // ScriptStruct CoreUObject.PackedRGBA16N
 // 0x0008
 struct FPackedRGBA16N
 {
 	int                                                XY;                                                       // 0x0000(0x0004) (Edit, ZeroConstructor, SaveGame, IsPlainOldData)
 	int                                                ZW;                                                       // 0x0004(0x0004) (Edit, ZeroConstructor, SaveGame, IsPlainOldData)
+};
+
+// ScriptStruct CoreUObject.PackedRGB10A2N
+// 0x0004
+struct FPackedRGB10A2N
+{
+	int                                                Packed;                                                   // 0x0000(0x0004) (Edit, ZeroConstructor, SaveGame, IsPlainOldData)
 };
 
 // ScriptStruct CoreUObject.IntPoint
@@ -664,20 +664,20 @@ struct FFrameNumber
 	int                                                Value;                                                    // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
 
-// ScriptStruct CoreUObject.FrameRate
-// 0x0008
-struct FFrameRate
-{
-	int                                                Numerator;                                                // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	int                                                Denominator;                                              // 0x0004(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-};
-
 // ScriptStruct CoreUObject.FrameTime
 // 0x0008
 struct FFrameTime
 {
 	struct FFrameNumber                                FrameNumber;                                              // 0x0000(0x0004) (BlueprintVisible)
 	float                                              SubFrame;                                                 // 0x0004(0x0004) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct CoreUObject.FrameRate
+// 0x0008
+struct FFrameRate
+{
+	int                                                Numerator;                                                // 0x0000(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	int                                                Denominator;                                              // 0x0004(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct CoreUObject.QualifiedFrameTime
@@ -715,13 +715,6 @@ struct FSoftObjectPath
 	struct FString                                     SubPathString;                                            // 0x0008(0x0010) (ZeroConstructor)
 };
 
-// ScriptStruct CoreUObject.SoftClassPath
-// 0x0000 (0x0018 - 0x0018)
-struct FSoftClassPath : public FSoftObjectPath
-{
-
-};
-
 // ScriptStruct CoreUObject.PrimaryAssetType
 // 0x0008
 struct FPrimaryAssetType
@@ -735,6 +728,13 @@ struct FPrimaryAssetId
 {
 	struct FPrimaryAssetType                           PrimaryAssetType;                                         // 0x0000(0x0008) (Edit, BlueprintVisible, ZeroConstructor)
 	struct FName                                       PrimaryAssetName;                                         // 0x0008(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct CoreUObject.SoftClassPath
+// 0x0000 (0x0018 - 0x0018)
+struct FSoftClassPath : public FSoftObjectPath
+{
+
 };
 
 // ScriptStruct CoreUObject.FallbackStruct

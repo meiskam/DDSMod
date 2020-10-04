@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass weedStrain_Brainfuck.weedStrain_Brainfuck_C
-// 0x0000 (0x0538 - 0x0538)
+// 0x0000 (0x054C - 0x054C)
 class AweedStrain_Brainfuck_C : public AweedPlantBP_C
 {
 public:

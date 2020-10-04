@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -175,6 +175,22 @@ public:
 };
 
 
+// Class GameplayTags.EditableGameplayTagQueryExpression_AllExprMatch
+// 0x0010 (0x0038 - 0x0028)
+class UEditableGameplayTagQueryExpression_AllExprMatch : public UEditableGameplayTagQueryExpression
+{
+public:
+	TArray<class UEditableGameplayTagQueryExpression*> Expressions;                                              // 0x0028(0x0010) (Edit, ExportObject, ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class GameplayTags.EditableGameplayTagQueryExpression_AllExprMatch");
+		return ptr;
+	}
+
+};
+
+
 // Class GameplayTags.EditableGameplayTagQueryExpression_NoExprMatch
 // 0x0010 (0x0038 - 0x0028)
 class UEditableGameplayTagQueryExpression_NoExprMatch : public UEditableGameplayTagQueryExpression
@@ -283,22 +299,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class GameplayTags.GameplayTagsDeveloperSettings");
-		return ptr;
-	}
-
-};
-
-
-// Class GameplayTags.EditableGameplayTagQueryExpression_AllExprMatch
-// 0x0010 (0x0038 - 0x0028)
-class UEditableGameplayTagQueryExpression_AllExprMatch : public UEditableGameplayTagQueryExpression
-{
-public:
-	TArray<class UEditableGameplayTagQueryExpression*> Expressions;                                              // 0x0028(0x0010) (Edit, ExportObject, ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class GameplayTags.EditableGameplayTagQueryExpression_AllExprMatch");
 		return ptr;
 	}
 

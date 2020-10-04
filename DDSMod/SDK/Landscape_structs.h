@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -11,6 +11,17 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Enums
 //---------------------------------------------------------------------------
+
+// Enum Landscape.ELandscapeSetupErrors
+enum class ELandscapeSetupErrors : uint8_t
+{
+	LSE_None                       = 0,
+	LSE_NoLandscapeInfo            = 1,
+	LSE_CollsionXY                 = 2,
+	LSE_NoLayerInfo                = 3,
+	LSE_MAX                        = 4
+};
+
 
 // Enum Landscape.ELandscapeGizmoType
 enum class ELandscapeGizmoType : uint8_t
@@ -51,14 +62,12 @@ enum class ELandscapeLayerDisplayMode : uint8_t
 };
 
 
-// Enum Landscape.ELandscapeLayerPaintingRestriction
-enum class ELandscapeLayerPaintingRestriction : uint8_t
+// Enum Landscape.ELandscapeImportAlphamapType
+enum class ELandscapeImportAlphamapType : uint8_t
 {
-	ELandscapeLayerPaintingRestriction__None = 0,
-	ELandscapeLayerPaintingRestriction__UseMaxLayers = 1,
-	ELandscapeLayerPaintingRestriction__ExistingOnly = 2,
-	ELandscapeLayerPaintingRestriction__UseComponentWhitelist = 3,
-	ELandscapeLayerPaintingRestriction__ELandscapeLayerPaintingRestriction_MAX = 4
+	ELandscapeImportAlphamapType__Additive = 0,
+	ELandscapeImportAlphamapType__Layered = 1,
+	ELandscapeImportAlphamapType__ELandscapeImportAlphamapType_MAX = 2
 };
 
 
@@ -78,6 +87,17 @@ enum class ELandscapeLayerBlendType : uint8_t
 	LB_AlphaBlend                  = 1,
 	LB_HeightBlend                 = 2,
 	LB_MAX                         = 3
+};
+
+
+// Enum Landscape.ELandscapeLayerPaintingRestriction
+enum class ELandscapeLayerPaintingRestriction : uint8_t
+{
+	ELandscapeLayerPaintingRestriction__None = 0,
+	ELandscapeLayerPaintingRestriction__UseMaxLayers = 1,
+	ELandscapeLayerPaintingRestriction__ExistingOnly = 2,
+	ELandscapeLayerPaintingRestriction__UseComponentWhitelist = 3,
+	ELandscapeLayerPaintingRestriction__ELandscapeLayerPaintingRestriction_MAX = 4
 };
 
 
@@ -101,26 +121,6 @@ enum class ETerrainCoordMappingType : uint8_t
 	TCMT_XZ                        = 2,
 	TCMT_YZ                        = 3,
 	TCMT_MAX                       = 4
-};
-
-
-// Enum Landscape.ELandscapeImportAlphamapType
-enum class ELandscapeImportAlphamapType : uint8_t
-{
-	ELandscapeImportAlphamapType__Additive = 0,
-	ELandscapeImportAlphamapType__Layered = 1,
-	ELandscapeImportAlphamapType__ELandscapeImportAlphamapType_MAX = 2
-};
-
-
-// Enum Landscape.ELandscapeSetupErrors
-enum class ELandscapeSetupErrors : uint8_t
-{
-	LSE_None                       = 0,
-	LSE_NoLandscapeInfo            = 1,
-	LSE_CollsionXY                 = 2,
-	LSE_NoLayerInfo                = 3,
-	LSE_MAX                        = 4
 };
 
 
@@ -262,11 +262,12 @@ struct FGizmoSelectData
 	unsigned char                                      UnknownData00[0x50];                                      // 0x0000(0x0050) MISSED OFFSET
 };
 
-// ScriptStruct Landscape.LandscapeImportLayerInfo
-// 0x0001
-struct FLandscapeImportLayerInfo
+// ScriptStruct Landscape.LandscapeInfoLayerSettings
+// 0x0010
+struct FLandscapeInfoLayerSettings
 {
-	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
+	class ULandscapeLayerInfoObject*                   LayerInfoObj;                                             // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
+	struct FName                                       LayerName;                                                // 0x0008(0x0008) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct Landscape.LandscapeLayerStruct
@@ -274,6 +275,13 @@ struct FLandscapeImportLayerInfo
 struct FLandscapeLayerStruct
 {
 	class ULandscapeLayerInfoObject*                   LayerInfoObj;                                             // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
+};
+
+// ScriptStruct Landscape.LandscapeImportLayerInfo
+// 0x0001
+struct FLandscapeImportLayerInfo
+{
+	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };
 
 // ScriptStruct Landscape.LandscapeEditorLayerSettings
@@ -304,6 +312,13 @@ struct FForeignSplineSegmentData
 	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
 };
 
+// ScriptStruct Landscape.ForeignControlPointData
+// 0x0001
+struct FForeignControlPointData
+{
+	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
+};
+
 // ScriptStruct Landscape.LandscapeSplineMeshEntry
 // 0x0038
 struct FLandscapeSplineMeshEntry
@@ -320,21 +335,6 @@ struct FLandscapeSplineMeshEntry
 	TEnumAsByte<ESplineMeshAxis>                       ForwardAxis;                                              // 0x0035(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	TEnumAsByte<ESplineMeshAxis>                       UpAxis;                                                   // 0x0036(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x1];                                       // 0x0037(0x0001) MISSED OFFSET
-};
-
-// ScriptStruct Landscape.ForeignControlPointData
-// 0x0001
-struct FForeignControlPointData
-{
-	unsigned char                                      UnknownData00[0x1];                                       // 0x0000(0x0001) MISSED OFFSET
-};
-
-// ScriptStruct Landscape.LandscapeInfoLayerSettings
-// 0x0010
-struct FLandscapeInfoLayerSettings
-{
-	class ULandscapeLayerInfoObject*                   LayerInfoObj;                                             // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
-	struct FName                                       LayerName;                                                // 0x0008(0x0008) (ZeroConstructor, IsPlainOldData)
 };
 
 }

@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -14,6 +14,14 @@ namespace SDK
 // Parameters
 //---------------------------------------------------------------------------
 
+// Function shadyCommInterface.shadyCommInterface_C.toggleAreaDetails
+struct UshadyCommInterface_C_toggleAreaDetails_Params
+{
+	bool                                               Show;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	struct FString                                     AreaString;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor)
+	bool                                               unlocked;                                                 // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function shadyCommInterface.shadyCommInterface_C.spawnSeedGuy
 struct UshadyCommInterface_C_spawnSeedGuy_Params
 {
@@ -22,7 +30,7 @@ struct UshadyCommInterface_C_spawnSeedGuy_Params
 // Function shadyCommInterface.shadyCommInterface_C.checkUserResetReadMessages
 struct UshadyCommInterface_C_checkUserResetReadMessages_Params
 {
-	int                                                userId;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                userID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function shadyCommInterface.shadyCommInterface_C.Get_txtStatusClientSatisfaction_ToolTipWidget_1
@@ -135,7 +143,7 @@ struct UshadyCommInterface_C_findSalePointByAreaID_Params
 struct UshadyCommInterface_C_spawnClientOnMap_Params
 {
 	class AsalesManager_C*                             SaleManager;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-	int                                                orderID;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                OrderID;                                                  // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function shadyCommInterface.shadyCommInterface_C.checkOptionAvailability
@@ -180,7 +188,7 @@ struct UshadyCommInterface_C_renderPriceList_Params
 // Function shadyCommInterface.shadyCommInterface_C.renderMessages
 struct UshadyCommInterface_C_renderMessages_Params
 {
-	int                                                userId;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                userID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function shadyCommInterface.shadyCommInterface_C.renderDrugs
@@ -202,8 +210,8 @@ struct UshadyCommInterface_C_Construct_Params
 // Function shadyCommInterface.shadyCommInterface_C.Tick
 struct UshadyCommInterface_C_Tick_Params
 {
-	struct FGeometry*                                  MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-	float*                                             InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	struct FGeometry                                   MyGeometry;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+	float                                              InDeltaTime;                                              // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function shadyCommInterface.shadyCommInterface_C.setup

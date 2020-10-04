@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass weedPlantBP.weedPlantBP_C
-// 0x0147 (0x0538 - 0x03F1)
+// 0x015B (0x054C - 0x03F1)
 class AweedPlantBP_C : public AinteractiveBaseObject_C
 {
 public:
@@ -71,6 +71,10 @@ public:
 	unsigned char                                      UnknownData05[0x7];                                       // 0x0519(0x0007) MISSED OFFSET
 	class UMaterialInstance*                           strainMaterial;                                           // 0x0520(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	TArray<class UStaticMesh*>                         curPlantModels;                                           // 0x0528(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	class ArainActor_C*                                rainActorRef;                                             // 0x0538(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
+	float                                              rainMaxHydration;                                         // 0x0540(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              curSunStrengthMultiplier;                                 // 0x0544(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              sunVitalityDropRate;                                      // 0x0548(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -92,7 +96,7 @@ public:
 	void useWater(float waterToUse);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void ReceiveTick(float* DeltaSeconds);
+	void ReceiveTick(float DeltaSeconds);
 	void updateGrowth();
 	void harvestPlant();
 	void activateMe();

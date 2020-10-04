@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -42,6 +42,23 @@ enum class ETileMapProjectionMode : uint8_t
 };
 
 
+// Enum Paper2D.ESpritePivotMode
+enum class ESpritePivotMode : uint8_t
+{
+	ESpritePivotMode__Top_Left     = 0,
+	ESpritePivotMode__Top_Center   = 1,
+	ESpritePivotMode__Top_Right    = 2,
+	ESpritePivotMode__Center_Left  = 3,
+	ESpritePivotMode__Center_Center = 4,
+	ESpritePivotMode__Center_Right = 5,
+	ESpritePivotMode__Bottom_Left  = 6,
+	ESpritePivotMode__Bottom_Center = 7,
+	ESpritePivotMode__Bottom_Right = 8,
+	ESpritePivotMode__Custom       = 9,
+	ESpritePivotMode__ESpritePivotMode_MAX = 10
+};
+
+
 // Enum Paper2D.ESpritePolygonMode
 enum class ESpritePolygonMode : uint8_t
 {
@@ -71,23 +88,6 @@ enum class ESpriteCollisionMode : uint8_t
 	ESpriteCollisionMode__Use2DPhysics = 1,
 	ESpriteCollisionMode__Use3DPhysics = 2,
 	ESpriteCollisionMode__ESpriteCollisionMode_MAX = 3
-};
-
-
-// Enum Paper2D.ESpritePivotMode
-enum class ESpritePivotMode : uint8_t
-{
-	ESpritePivotMode__Top_Left     = 0,
-	ESpritePivotMode__Top_Center   = 1,
-	ESpritePivotMode__Top_Right    = 2,
-	ESpritePivotMode__Center_Left  = 3,
-	ESpritePivotMode__Center_Center = 4,
-	ESpritePivotMode__Center_Right = 5,
-	ESpritePivotMode__Bottom_Left  = 6,
-	ESpritePivotMode__Bottom_Center = 7,
-	ESpritePivotMode__Bottom_Right = 8,
-	ESpritePivotMode__Custom       = 9,
-	ESpritePivotMode__ESpritePivotMode_MAX = 10
 };
 
 

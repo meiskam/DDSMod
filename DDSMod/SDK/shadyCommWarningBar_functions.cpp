@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -93,10 +93,10 @@ void UshadyCommWarningBar_C::playPing()
 // Function shadyCommWarningBar.shadyCommWarningBar_C.OnMouseEnter
 // (BlueprintCosmetic, Event, Public, HasOutParms, BlueprintEvent)
 // Parameters:
-// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// struct FPointerEvent*          MouseEvent                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// struct FPointerEvent           MouseEvent                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 
-void UshadyCommWarningBar_C::OnMouseEnter(struct FGeometry* MyGeometry, struct FPointerEvent* MouseEvent)
+void UshadyCommWarningBar_C::OnMouseEnter(const struct FGeometry& MyGeometry, const struct FPointerEvent& MouseEvent)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function shadyCommWarningBar.shadyCommWarningBar_C.OnMouseEnter");
 
@@ -115,9 +115,9 @@ void UshadyCommWarningBar_C::OnMouseEnter(struct FGeometry* MyGeometry, struct F
 // Function shadyCommWarningBar.shadyCommWarningBar_C.OnMouseLeave
 // (BlueprintCosmetic, Event, Public, HasOutParms, BlueprintEvent)
 // Parameters:
-// struct FPointerEvent*          MouseEvent                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
+// struct FPointerEvent           MouseEvent                     (ConstParm, BlueprintVisible, BlueprintReadOnly, Parm, OutParm, ReferenceParm)
 
-void UshadyCommWarningBar_C::OnMouseLeave(struct FPointerEvent* MouseEvent)
+void UshadyCommWarningBar_C::OnMouseLeave(const struct FPointerEvent& MouseEvent)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function shadyCommWarningBar.shadyCommWarningBar_C.OnMouseLeave");
 

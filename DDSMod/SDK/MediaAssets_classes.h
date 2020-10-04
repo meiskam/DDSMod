@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -253,6 +253,55 @@ public:
 };
 
 
+// Class MediaAssets.PlatformMediaSource
+// 0x0008 (0x0038 - 0x0030)
+class UPlatformMediaSource : public UMediaSource
+{
+public:
+	class UMediaSource*                                MediaSource;                                              // 0x0030(0x0008) (ZeroConstructor, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MediaAssets.PlatformMediaSource");
+		return ptr;
+	}
+
+};
+
+
+// Class MediaAssets.StreamMediaSource
+// 0x0010 (0x0048 - 0x0038)
+class UStreamMediaSource : public UBaseMediaSource
+{
+public:
+	struct FString                                     StreamUrl;                                                // 0x0038(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MediaAssets.StreamMediaSource");
+		return ptr;
+	}
+
+};
+
+
+// Class MediaAssets.TimeSynchronizableMediaSource
+// 0x0008 (0x0040 - 0x0038)
+class UTimeSynchronizableMediaSource : public UBaseMediaSource
+{
+public:
+	bool                                               bUseTimeSynchronization;                                  // 0x0038(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0039(0x0007) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class MediaAssets.TimeSynchronizableMediaSource");
+		return ptr;
+	}
+
+};
+
+
 // Class MediaAssets.MediaTexture
 // 0x0090 (0x0140 - 0x00B0)
 class UMediaTexture : public UTexture
@@ -279,55 +328,6 @@ public:
 	class UMediaPlayer* GetMediaPlayer();
 	int GetHeight();
 	float GetAspectRatio();
-};
-
-
-// Class MediaAssets.PlatformMediaSource
-// 0x0008 (0x0038 - 0x0030)
-class UPlatformMediaSource : public UMediaSource
-{
-public:
-	class UMediaSource*                                MediaSource;                                              // 0x0030(0x0008) (ZeroConstructor, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MediaAssets.PlatformMediaSource");
-		return ptr;
-	}
-
-};
-
-
-// Class MediaAssets.TimeSynchronizableMediaSource
-// 0x0008 (0x0040 - 0x0038)
-class UTimeSynchronizableMediaSource : public UBaseMediaSource
-{
-public:
-	bool                                               bUseTimeSynchronization;                                  // 0x0038(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0039(0x0007) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MediaAssets.TimeSynchronizableMediaSource");
-		return ptr;
-	}
-
-};
-
-
-// Class MediaAssets.StreamMediaSource
-// 0x0010 (0x0048 - 0x0038)
-class UStreamMediaSource : public UBaseMediaSource
-{
-public:
-	struct FString                                     StreamUrl;                                                // 0x0038(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class MediaAssets.StreamMediaSource");
-		return ptr;
-	}
-
 };
 
 

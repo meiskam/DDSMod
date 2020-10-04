@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -174,6 +174,22 @@ public:
 };
 
 
+// Class Foliage.InstancedFoliageActor
+// 0x0050 (0x0378 - 0x0328)
+class AInstancedFoliageActor : public AActor
+{
+public:
+	unsigned char                                      UnknownData00[0x50];                                      // 0x0328(0x0050) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindClass("Class Foliage.InstancedFoliageActor");
+		return ptr;
+	}
+
+};
+
+
 // Class Foliage.InteractiveFoliageActor
 // 0x0060 (0x0398 - 0x0338)
 class AInteractiveFoliageActor : public AStaticMeshActor
@@ -311,22 +327,6 @@ public:
 	static UClass* StaticClass()
 	{
 		static auto ptr = UObject::FindClass("Class Foliage.ProceduralFoliageVolume");
-		return ptr;
-	}
-
-};
-
-
-// Class Foliage.InstancedFoliageActor
-// 0x0050 (0x0378 - 0x0328)
-class AInstancedFoliageActor : public AActor
-{
-public:
-	unsigned char                                      UnknownData00[0x50];                                      // 0x0328(0x0050) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindClass("Class Foliage.InstancedFoliageActor");
 		return ptr;
 	}
 

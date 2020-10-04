@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,7 +13,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass worldMapMarker.worldMapMarker_C
-// 0x0090 (0x03B8 - 0x0328)
+// 0x0094 (0x03BC - 0x0328)
 class AworldMapMarker_C : public AActor
 {
 public:
@@ -34,6 +34,7 @@ public:
 	unsigned char                                      UnknownData02[0x7];                                       // 0x0399(0x0007) MISSED OFFSET
 	class AquestManager_C*                             questManager;                                             // 0x03A0(0x0008) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnTemplate, DisableEditOnInstance, IsPlainOldData)
 	struct FString                                     relatedAreaString;                                        // 0x03A8(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	float                                              waitTimeLeft;                                             // 0x03B8(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -44,9 +45,10 @@ public:
 
 	void UserConstructionScript();
 	void ReceiveBeginPlay();
-	void setup(TEnumAsByte<EmapMarkerCategories> Category, const struct FText& Name, const struct FText& ToolTip, bool Dealer, int TaskID);
+	void setup(TEnumAsByte<EmapMarkerCategories> Category, const struct FText& Name, const struct FText& ToolTip, bool Dealer, int taskID);
 	void checkTaskEnded();
 	void ReInitialise();
+	void recalcWaitTime();
 	void ExecuteUbergraph_worldMapMarker(int EntryPoint);
 };
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -46,7 +46,7 @@ public:
 	void setBackpackDefaults();
 	void returnItemSizing(const struct FinventoryItemStruct& Data, float* Size, float* Weight);
 	void resetContentSizes();
-	void removeItem(int ItemIndex, int Quantity);
+	void removeItem(int ItemIndex, int quantity);
 	void AddItem(const struct FinventoryItemStruct& itemData, int itemQuantity, int* AddedIndex, bool* QuanChanged);
 	void UserConstructionScript();
 	void ReceiveBeginPlay();

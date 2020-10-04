@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,15 +16,15 @@ namespace SDK
 // Function PM_CheckpointGuard.PM_CheckpointGuard_C.checkBackpackForIllegals
 // (Public, HasOutParms, HasDefaults, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
-// class AbackpackBase_C*         backpack                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AbackpackBase_C*         Backpack                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           found                          (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void APM_CheckpointGuard_C::checkBackpackForIllegals(class AbackpackBase_C* backpack, bool* found)
+void APM_CheckpointGuard_C::checkBackpackForIllegals(class AbackpackBase_C* Backpack, bool* found)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function PM_CheckpointGuard.PM_CheckpointGuard_C.checkBackpackForIllegals");
 
 	APM_CheckpointGuard_C_checkBackpackForIllegals_Params params;
-	params.backpack = backpack;
+	params.Backpack = Backpack;
 
 	auto flags = fn->FunctionFlags;
 
@@ -74,9 +74,9 @@ void APM_CheckpointGuard_C::ReceiveBeginPlay()
 // Function PM_CheckpointGuard.PM_CheckpointGuard_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void APM_CheckpointGuard_C::ReceiveTick(float* DeltaSeconds)
+void APM_CheckpointGuard_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function PM_CheckpointGuard.PM_CheckpointGuard_C.ReceiveTick");
 

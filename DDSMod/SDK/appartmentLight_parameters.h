@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -61,6 +61,11 @@ struct AappartmentLight_C_BndEvt__Sphere_K2Node_ComponentBoundEvent_1_ComponentE
 
 // Function appartmentLight.appartmentLight_C.enableShadows
 struct AappartmentLight_C_enableShadows_Params
+{
+};
+
+// Function appartmentLight.appartmentLight_C.retryInitialise
+struct AappartmentLight_C_retryInitialise_Params
 {
 };
 

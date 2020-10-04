@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -32,7 +32,7 @@ public:
 
 	void OnFail_A030AE6644CF82915307329D4CCBBD31(TEnumAsByte<EPathFollowingResult> MovementResult);
 	void OnSuccess_A030AE6644CF82915307329D4CCBBD31(TEnumAsByte<EPathFollowingResult> MovementResult);
-	void ReceiveExecuteAI(class AAIController** OwnerController, class APawn** ControlledPawn);
+	void ReceiveExecuteAI(class AAIController* OwnerController, class APawn* ControlledPawn);
 	void ExecuteUbergraph_BTTask_Bird_TurnAndRunFrom_Enemy(int EntryPoint);
 };
 

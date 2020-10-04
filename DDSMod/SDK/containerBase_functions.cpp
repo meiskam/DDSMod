@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -112,15 +112,15 @@ void AcontainerBase_C::resetContentSizes()
 // (Public, HasDefaults, BlueprintCallable, BlueprintEvent)
 // Parameters:
 // int                            ItemIndex                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AcontainerBase_C::removeItem(int ItemIndex, int Quantity)
+void AcontainerBase_C::removeItem(int ItemIndex, int quantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function containerBase.containerBase_C.removeItem");
 
 	AcontainerBase_C_removeItem_Params params;
 	params.ItemIndex = ItemIndex;
-	params.Quantity = Quantity;
+	params.quantity = quantity;
 
 	auto flags = fn->FunctionFlags;
 

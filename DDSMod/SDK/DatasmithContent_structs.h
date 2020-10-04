@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -44,6 +44,16 @@ enum class EDatasmithImportHierarchy : uint8_t
 };
 
 
+// Enum DatasmithContent.EDatasmithImportScene
+enum class EDatasmithImportScene : uint8_t
+{
+	EDatasmithImportScene__NewLevel = 0,
+	EDatasmithImportScene__CurrentLevel = 1,
+	EDatasmithImportScene__AssetsOnly = 2,
+	EDatasmithImportScene__EDatasmithImportScene_MAX = 3
+};
+
+
 // Enum DatasmithContent.EDatasmithImportLightmapMax
 enum class EDatasmithImportLightmapMax : uint8_t
 {
@@ -55,16 +65,6 @@ enum class EDatasmithImportLightmapMax : uint8_t
 	EDatasmithImportLightmapMax__LIGHTMAP05 = 5,
 	EDatasmithImportLightmapMax__LIGHTMAP06 = 6,
 	EDatasmithImportLightmapMax__LIGHTMAP_MAX = 7
-};
-
-
-// Enum DatasmithContent.EDatasmithImportScene
-enum class EDatasmithImportScene : uint8_t
-{
-	EDatasmithImportScene__NewLevel = 0,
-	EDatasmithImportScene__CurrentLevel = 1,
-	EDatasmithImportScene__AssetsOnly = 2,
-	EDatasmithImportScene__EDatasmithImportScene_MAX = 3
 };
 
 
@@ -81,16 +81,6 @@ enum class EDatasmithImportLightmapMin : uint8_t
 };
 
 
-// Enum DatasmithContent.EDatasmithImportActorPolicy
-enum class EDatasmithImportActorPolicy : uint8_t
-{
-	EDatasmithImportActorPolicy__Update = 0,
-	EDatasmithImportActorPolicy__Full = 1,
-	EDatasmithImportActorPolicy__Ignore = 2,
-	EDatasmithImportActorPolicy__EDatasmithImportActorPolicy_MAX = 3
-};
-
-
 // Enum DatasmithContent.EDatasmithImportMaterialQuality
 enum class EDatasmithImportMaterialQuality : uint8_t
 {
@@ -101,12 +91,13 @@ enum class EDatasmithImportMaterialQuality : uint8_t
 };
 
 
-// Enum DatasmithContent.EDatasmithImportSearchPackagePolicy
-enum class EDatasmithImportSearchPackagePolicy : uint8_t
+// Enum DatasmithContent.EDatasmithImportActorPolicy
+enum class EDatasmithImportActorPolicy : uint8_t
 {
-	EDatasmithImportSearchPackagePolicy__Current = 0,
-	EDatasmithImportSearchPackagePolicy__All = 1,
-	EDatasmithImportSearchPackagePolicy__EDatasmithImportSearchPackagePolicy_MAX = 2
+	EDatasmithImportActorPolicy__Update = 0,
+	EDatasmithImportActorPolicy__Full = 1,
+	EDatasmithImportActorPolicy__Ignore = 2,
+	EDatasmithImportActorPolicy__EDatasmithImportActorPolicy_MAX = 3
 };
 
 
@@ -118,6 +109,15 @@ enum class EDatasmithImportAssetConflictPolicy : uint8_t
 	EDatasmithImportAssetConflictPolicy__Use = 2,
 	EDatasmithImportAssetConflictPolicy__Ignore = 3,
 	EDatasmithImportAssetConflictPolicy__EDatasmithImportAssetConflictPolicy_MAX = 4
+};
+
+
+// Enum DatasmithContent.EDatasmithImportSearchPackagePolicy
+enum class EDatasmithImportSearchPackagePolicy : uint8_t
+{
+	EDatasmithImportSearchPackagePolicy__Current = 0,
+	EDatasmithImportSearchPackagePolicy__All = 1,
+	EDatasmithImportSearchPackagePolicy__EDatasmithImportSearchPackagePolicy_MAX = 2
 };
 
 

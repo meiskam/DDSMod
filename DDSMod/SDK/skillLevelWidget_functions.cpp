@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -71,10 +71,10 @@ void UskillLevelWidget_C::Construct()
 // Function skillLevelWidget.skillLevelWidget_C.Tick
 // (BlueprintCosmetic, Event, Public, BlueprintEvent)
 // Parameters:
-// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// float*                         InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// float                          InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UskillLevelWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
+void UskillLevelWidget_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function skillLevelWidget.skillLevelWidget_C.Tick");
 
@@ -93,15 +93,15 @@ void UskillLevelWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
 // Function skillLevelWidget.skillLevelWidget_C.SetValues
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
-// float                          SkillLevel                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          skillLevel                     (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          SkillMax                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UskillLevelWidget_C::SetValues(float SkillLevel, float SkillMax)
+void UskillLevelWidget_C::SetValues(float skillLevel, float SkillMax)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function skillLevelWidget.skillLevelWidget_C.SetValues");
 
 	UskillLevelWidget_C_SetValues_Params params;
-	params.SkillLevel = SkillLevel;
+	params.skillLevel = skillLevel;
 	params.SkillMax = SkillMax;
 
 	auto flags = fn->FunctionFlags;

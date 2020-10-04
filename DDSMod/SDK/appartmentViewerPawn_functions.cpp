@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -190,9 +190,9 @@ void AappartmentViewerPawn_C::SpaceHeldDown()
 // Function appartmentViewerPawn.appartmentViewerPawn_C.ReceivePossessed
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AController**            NewController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AController*             NewController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AappartmentViewerPawn_C::ReceivePossessed(class AController** NewController)
+void AappartmentViewerPawn_C::ReceivePossessed(class AController* NewController)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function appartmentViewerPawn.appartmentViewerPawn_C.ReceivePossessed");
 
@@ -210,9 +210,9 @@ void AappartmentViewerPawn_C::ReceivePossessed(class AController** NewController
 // Function appartmentViewerPawn.appartmentViewerPawn_C.ReceiveUnpossessed
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// class AController**            OldController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AController*             OldController                  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AappartmentViewerPawn_C::ReceiveUnpossessed(class AController** OldController)
+void AappartmentViewerPawn_C::ReceiveUnpossessed(class AController* OldController)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function appartmentViewerPawn.appartmentViewerPawn_C.ReceiveUnpossessed");
 

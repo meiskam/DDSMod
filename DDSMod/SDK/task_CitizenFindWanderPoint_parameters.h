@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,7 +17,7 @@ namespace SDK
 // Function task_CitizenFindWanderPoint.task_CitizenFindWanderPoint_C.ReceiveExecute
 struct Utask_CitizenFindWanderPoint_C_ReceiveExecute_Params
 {
-	class AActor**                                     OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AActor*                                      OwnerActor;                                               // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function task_CitizenFindWanderPoint.task_CitizenFindWanderPoint_C.ExecuteUbergraph_task_CitizenFindWanderPoint

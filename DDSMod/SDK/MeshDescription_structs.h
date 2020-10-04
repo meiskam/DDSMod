@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -35,13 +35,6 @@ struct FElementID
 	int                                                IDValue;                                                  // 0x0000(0x0004) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 };
 
-// ScriptStruct MeshDescription.PolygonGroupID
-// 0x0000 (0x0004 - 0x0004)
-struct FPolygonGroupID : public FElementID
-{
-
-};
-
 // ScriptStruct MeshDescription.PolygonID
 // 0x0000 (0x0004 - 0x0004)
 struct FPolygonID : public FElementID
@@ -59,6 +52,13 @@ struct FVertexID : public FElementID
 // ScriptStruct MeshDescription.EdgeID
 // 0x0000 (0x0004 - 0x0004)
 struct FEdgeID : public FElementID
+{
+
+};
+
+// ScriptStruct MeshDescription.PolygonGroupID
+// 0x0000 (0x0004 - 0x0004)
+struct FPolygonGroupID : public FElementID
 {
 
 };

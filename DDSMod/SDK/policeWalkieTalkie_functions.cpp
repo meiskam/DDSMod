@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -16,15 +16,15 @@ namespace SDK
 // Function policeWalkieTalkie.policeWalkieTalkie_C.checkDisplayWidget
 // (Public, HasOutParms, BlueprintCallable, BlueprintEvent, BlueprintPure)
 // Parameters:
-// class AplayerCharacterBP_C*    PlayerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// class AplayerCharacterBP_C*    playerRef                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           Display                        (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void ApoliceWalkieTalkie_C::checkDisplayWidget(class AplayerCharacterBP_C* PlayerRef, bool* Display)
+void ApoliceWalkieTalkie_C::checkDisplayWidget(class AplayerCharacterBP_C* playerRef, bool* Display)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function policeWalkieTalkie.policeWalkieTalkie_C.checkDisplayWidget");
 
 	ApoliceWalkieTalkie_C_checkDisplayWidget_Params params;
-	params.PlayerRef = PlayerRef;
+	params.playerRef = playerRef;
 
 	auto flags = fn->FunctionFlags;
 

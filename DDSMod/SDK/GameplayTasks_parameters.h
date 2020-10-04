@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -27,6 +27,26 @@ struct UGameplayTask_GenericGameplayTaskDelegate__DelegateSignature_Params
 // Function GameplayTasks.GameplayTask.EndTask
 struct UGameplayTask_EndTask_Params
 {
+};
+
+// Function GameplayTasks.GameplayTask_ClaimResource.ClaimResources
+struct UGameplayTask_ClaimResource_ClaimResources_Params
+{
+	TScriptInterface<class UGameplayTaskOwnerInterface> InTaskOwner;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	TArray<class UClass*>                              ResourceClasses;                                          // (Parm, ZeroConstructor)
+	unsigned char                                      Priority;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       TaskInstanceName;                                         // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	class UGameplayTask_ClaimResource*                 ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function GameplayTasks.GameplayTask_ClaimResource.ClaimResource
+struct UGameplayTask_ClaimResource_ClaimResource_Params
+{
+	TScriptInterface<class UGameplayTaskOwnerInterface> InTaskOwner;                                              // (Parm, ZeroConstructor, IsPlainOldData)
+	class UClass*                                      ResourceClass;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      Priority;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	struct FName                                       TaskInstanceName;                                         // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	class UGameplayTask_ClaimResource*                 ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function GameplayTasks.GameplayTask_SpawnActor.SpawnActor
@@ -83,26 +103,6 @@ struct UGameplayTasksComponent_K2_RunGameplayTask_Params
 	TArray<class UClass*>                              AdditionalRequiredResources;                              // (Parm, ZeroConstructor)
 	TArray<class UClass*>                              AdditionalClaimedResources;                               // (Parm, ZeroConstructor)
 	EGameplayTaskRunResult                             ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function GameplayTasks.GameplayTask_ClaimResource.ClaimResources
-struct UGameplayTask_ClaimResource_ClaimResources_Params
-{
-	TScriptInterface<class UGameplayTaskOwnerInterface> InTaskOwner;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	TArray<class UClass*>                              ResourceClasses;                                          // (Parm, ZeroConstructor)
-	unsigned char                                      Priority;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       TaskInstanceName;                                         // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	class UGameplayTask_ClaimResource*                 ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-};
-
-// Function GameplayTasks.GameplayTask_ClaimResource.ClaimResource
-struct UGameplayTask_ClaimResource_ClaimResource_Params
-{
-	TScriptInterface<class UGameplayTaskOwnerInterface> InTaskOwner;                                              // (Parm, ZeroConstructor, IsPlainOldData)
-	class UClass*                                      ResourceClass;                                            // (Parm, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      Priority;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	struct FName                                       TaskInstanceName;                                         // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-	class UGameplayTask_ClaimResource*                 ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 }

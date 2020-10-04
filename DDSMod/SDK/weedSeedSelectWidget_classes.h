@@ -1,6 +1,6 @@
 #pragma once
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -26,7 +26,7 @@ public:
 	TArray<struct FinventoryItemStruct>                seeds;                                                    // 0x0238(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<int>                                        seedQuantity;                                             // 0x0248(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	TArray<int>                                        SourceIndex;                                              // 0x0258(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
-	TArray<bool>                                       backpack;                                                 // 0x0268(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
+	TArray<bool>                                       Backpack;                                                 // 0x0268(0x0010) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance)
 	bool                                               showIndoor;                                               // 0x0278(0x0001) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x3];                                       // 0x0279(0x0003) MISSED OFFSET
 	int                                                chosenIndex;                                              // 0x027C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -44,8 +44,8 @@ public:
 
 	void plantCurrentSeed();
 	void renderSeedList();
-	void Tick(struct FGeometry* MyGeometry, float* InDeltaTime);
-	void setup(class AplayerCharacterBP_C* PlayerRef, bool showIndoor);
+	void Tick(const struct FGeometry& MyGeometry, float InDeltaTime);
+	void setup(class AplayerCharacterBP_C* playerRef, bool showIndoor);
 	void scrolledUp();
 	void scrolledDown();
 	void actionDown();

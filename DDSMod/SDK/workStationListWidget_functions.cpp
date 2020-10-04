@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,18 +17,18 @@ namespace SDK
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
 // struct FinventoryItemStruct    InventoryData                  (BlueprintVisible, BlueprintReadOnly, Parm)
-// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // bool                           Equipment                      (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FappartmentEquipment    EqData                         (BlueprintVisible, BlueprintReadOnly, Parm)
 // bool                           Selected                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UworkStationListWidget_C::setup(const struct FinventoryItemStruct& InventoryData, int Quantity, bool Equipment, const struct FappartmentEquipment& EqData, bool Selected)
+void UworkStationListWidget_C::setup(const struct FinventoryItemStruct& InventoryData, int quantity, bool Equipment, const struct FappartmentEquipment& EqData, bool Selected)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function workStationListWidget.workStationListWidget_C.setup");
 
 	UworkStationListWidget_C_setup_Params params;
 	params.InventoryData = InventoryData;
-	params.Quantity = Quantity;
+	params.quantity = quantity;
 	params.Equipment = Equipment;
 	params.EqData = EqData;
 	params.Selected = Selected;

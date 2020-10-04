@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -214,6 +214,48 @@ void ALevelSequenceActor::AddBinding(const struct FMovieSceneObjectBindingID& Bi
 }
 
 
+// Function LevelSequence.LevelSequenceBurnIn.SetSettings
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// class UObject*                 InSettings                     (Parm, ZeroConstructor, IsPlainOldData)
+
+void ULevelSequenceBurnIn::SetSettings(class UObject* InSettings)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function LevelSequence.LevelSequenceBurnIn.SetSettings");
+
+	ULevelSequenceBurnIn_SetSettings_Params params;
+	params.InSettings = InSettings;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function LevelSequence.LevelSequenceBurnIn.GetSettingsClass
+// (Native, Event, Public, BlueprintEvent, Const)
+// Parameters:
+// class UClass*                  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+
+class UClass* ULevelSequenceBurnIn::GetSettingsClass()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function LevelSequence.LevelSequenceBurnIn.GetSettingsClass");
+
+	ULevelSequenceBurnIn_GetSettingsClass_Params params;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	return params.ReturnValue;
+}
+
+
 // Function LevelSequence.LevelSequenceDirector.OnCreated
 // (Event, Public, BlueprintEvent)
 
@@ -258,48 +300,6 @@ class ULevelSequencePlayer* ULevelSequencePlayer::STATIC_CreateLevelSequencePlay
 
 	if (OutActor != nullptr)
 		*OutActor = params.OutActor;
-
-	return params.ReturnValue;
-}
-
-
-// Function LevelSequence.LevelSequenceBurnIn.SetSettings
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// class UObject*                 InSettings                     (Parm, ZeroConstructor, IsPlainOldData)
-
-void ULevelSequenceBurnIn::SetSettings(class UObject* InSettings)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function LevelSequence.LevelSequenceBurnIn.SetSettings");
-
-	ULevelSequenceBurnIn_SetSettings_Params params;
-	params.InSettings = InSettings;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function LevelSequence.LevelSequenceBurnIn.GetSettingsClass
-// (Native, Event, Public, BlueprintEvent, Const)
-// Parameters:
-// class UClass*                  ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
-
-class UClass* ULevelSequenceBurnIn::GetSettingsClass()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function LevelSequence.LevelSequenceBurnIn.GetSettingsClass");
-
-	ULevelSequenceBurnIn_GetSettingsClass_Params params;
-
-	auto flags = fn->FunctionFlags;
-	fn->FunctionFlags |= 0x400;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
 
 	return params.ReturnValue;
 }

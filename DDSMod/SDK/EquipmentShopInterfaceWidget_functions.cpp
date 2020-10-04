@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -147,21 +147,21 @@ void UEquipmentShopInterfaceWidget_C::recalcCheckout()
 // Parameters:
 // struct FText                   Name                           (BlueprintVisible, BlueprintReadOnly, Parm)
 // float                          Price                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // int                            Index                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // class UTexture2D*              Icon                           (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // struct FappartmentEquipment    Data                           (BlueprintVisible, BlueprintReadOnly, Parm)
 // struct FText                   Description                    (BlueprintVisible, BlueprintReadOnly, Parm)
 // class UequipmentShopItemWidget_C* ItemRef                        (Parm, OutParm, ZeroConstructor, InstancedReference, IsPlainOldData)
 
-void UEquipmentShopInterfaceWidget_C::addListItem(const struct FText& Name, float Price, int Quantity, int Index, class UTexture2D* Icon, const struct FappartmentEquipment& Data, const struct FText& Description, class UequipmentShopItemWidget_C** ItemRef)
+void UEquipmentShopInterfaceWidget_C::addListItem(const struct FText& Name, float Price, int quantity, int Index, class UTexture2D* Icon, const struct FappartmentEquipment& Data, const struct FText& Description, class UequipmentShopItemWidget_C** ItemRef)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function EquipmentShopInterfaceWidget.EquipmentShopInterfaceWidget_C.addListItem");
 
 	UEquipmentShopInterfaceWidget_C_addListItem_Params params;
 	params.Name = Name;
 	params.Price = Price;
-	params.Quantity = Quantity;
+	params.quantity = quantity;
 	params.Index = Index;
 	params.Icon = Icon;
 	params.Data = Data;

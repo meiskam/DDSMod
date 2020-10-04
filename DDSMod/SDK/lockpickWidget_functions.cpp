@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -32,45 +32,6 @@ void UlockpickWidget_C::compareAngles(bool* aligned)
 
 	if (aligned != nullptr)
 		*aligned = params.aligned;
-}
-
-
-// Function lockpickWidget.lockpickWidget_C.Construct
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-
-void UlockpickWidget_C::Construct()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function lockpickWidget.lockpickWidget_C.Construct");
-
-	UlockpickWidget_C_Construct_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function lockpickWidget.lockpickWidget_C.Tick
-// (BlueprintCosmetic, Event, Public, BlueprintEvent)
-// Parameters:
-// struct FGeometry*              MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
-// float*                         InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-
-void UlockpickWidget_C::Tick(struct FGeometry* MyGeometry, float* InDeltaTime)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function lockpickWidget.lockpickWidget_C.Tick");
-
-	UlockpickWidget_C_Tick_Params params;
-	params.MyGeometry = MyGeometry;
-	params.InDeltaTime = InDeltaTime;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
 }
 
 
@@ -114,6 +75,28 @@ void UlockpickWidget_C::MouseX(float Value)
 }
 
 
+// Function lockpickWidget.lockpickWidget_C.Tick
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+// Parameters:
+// struct FGeometry               MyGeometry                     (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData)
+// float                          InDeltaTime                    (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+
+void UlockpickWidget_C::Tick(const struct FGeometry& MyGeometry, float InDeltaTime)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function lockpickWidget.lockpickWidget_C.Tick");
+
+	UlockpickWidget_C_Tick_Params params;
+	params.MyGeometry = MyGeometry;
+	params.InDeltaTime = InDeltaTime;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
 // Function lockpickWidget.lockpickWidget_C.resetCircle
 // (BlueprintCallable, BlueprintEvent)
 
@@ -131,14 +114,31 @@ void UlockpickWidget_C::resetCircle()
 }
 
 
-// Function lockpickWidget.lockpickWidget_C.unlockStep
+// Function lockpickWidget.lockpickWidget_C.unlockUp
 // (BlueprintCallable, BlueprintEvent)
 
-void UlockpickWidget_C::unlockStep()
+void UlockpickWidget_C::unlockUp()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function lockpickWidget.lockpickWidget_C.unlockStep");
+	static auto fn = UObject::FindObject<UFunction>("Function lockpickWidget.lockpickWidget_C.unlockUp");
 
-	UlockpickWidget_C_unlockStep_Params params;
+	UlockpickWidget_C_unlockUp_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function lockpickWidget.lockpickWidget_C.Construct
+// (BlueprintCosmetic, Event, Public, BlueprintEvent)
+
+void UlockpickWidget_C::Construct()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function lockpickWidget.lockpickWidget_C.Construct");
+
+	UlockpickWidget_C_Construct_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -173,6 +173,43 @@ void UlockpickWidget_C::updateAlignment()
 	static auto fn = UObject::FindObject<UFunction>("Function lockpickWidget.lockpickWidget_C.updateAlignment");
 
 	UlockpickWidget_C_updateAlignment_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function lockpickWidget.lockpickWidget_C.unlockDown
+// (BlueprintCallable, BlueprintEvent)
+
+void UlockpickWidget_C::unlockDown()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function lockpickWidget.lockpickWidget_C.unlockDown");
+
+	UlockpickWidget_C_unlockDown_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function lockpickWidget.lockpickWidget_C.setBobbyPinCount
+// (BlueprintCallable, BlueprintEvent)
+// Parameters:
+// int                            PinsLeft                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+
+void UlockpickWidget_C::setBobbyPinCount(int PinsLeft)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function lockpickWidget.lockpickWidget_C.setBobbyPinCount");
+
+	UlockpickWidget_C_setBobbyPinCount_Params params;
+	params.PinsLeft = PinsLeft;
 
 	auto flags = fn->FunctionFlags;
 

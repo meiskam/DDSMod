@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12,6 +12,31 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Functions
 //---------------------------------------------------------------------------
+
+// Function randomSaleDialogueInstance.randomSaleDialogueInstance_C.chooseKnowResponses
+// (Public, HasOutParms, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// TArray<struct FText>           outResponses                   (Parm, OutParm, ZeroConstructor)
+// bool                           Success                        (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+
+void ArandomSaleDialogueInstance_C::chooseKnowResponses(TArray<struct FText>* outResponses, bool* Success)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function randomSaleDialogueInstance.randomSaleDialogueInstance_C.chooseKnowResponses");
+
+	ArandomSaleDialogueInstance_C_chooseKnowResponses_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+
+	if (outResponses != nullptr)
+		*outResponses = params.outResponses;
+	if (Success != nullptr)
+		*Success = params.Success;
+}
+
 
 // Function randomSaleDialogueInstance.randomSaleDialogueInstance_C.UserConstructionScript
 // (Event, Public, BlueprintCallable, BlueprintEvent)
@@ -58,6 +83,40 @@ void ArandomSaleDialogueInstance_C::ConfigDialogue(bool male)
 
 	ArandomSaleDialogueInstance_C_ConfigDialogue_Params params;
 	params.male = male;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function randomSaleDialogueInstance.randomSaleDialogueInstance_C.gangUnlock
+// (BlueprintCallable, BlueprintEvent)
+
+void ArandomSaleDialogueInstance_C::gangUnlock()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function randomSaleDialogueInstance.randomSaleDialogueInstance_C.gangUnlock");
+
+	ArandomSaleDialogueInstance_C_gangUnlock_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function randomSaleDialogueInstance.randomSaleDialogueInstance_C.askedAround
+// (BlueprintCallable, BlueprintEvent)
+
+void ArandomSaleDialogueInstance_C::askedAround()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function randomSaleDialogueInstance.randomSaleDialogueInstance_C.askedAround");
+
+	ArandomSaleDialogueInstance_C_askedAround_Params params;
 
 	auto flags = fn->FunctionFlags;
 

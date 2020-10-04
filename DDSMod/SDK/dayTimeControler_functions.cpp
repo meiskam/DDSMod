@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -168,9 +168,11 @@ void AdayTimeControler_C::getStringTime(bool HourOnly, struct FString* ReturnDat
 
 
 // Function dayTimeControler.dayTimeControler_C.setupReferences
-// (Public, BlueprintCallable, BlueprintEvent)
+// (Public, HasOutParms, BlueprintCallable, BlueprintEvent)
+// Parameters:
+// bool                           Valid                          (Parm, OutParm, ZeroConstructor, IsPlainOldData)
 
-void AdayTimeControler_C::setupReferences()
+void AdayTimeControler_C::setupReferences(bool* Valid)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function dayTimeControler.dayTimeControler_C.setupReferences");
 
@@ -181,6 +183,9 @@ void AdayTimeControler_C::setupReferences()
 	UObject::ProcessEvent(fn, &params);
 
 	fn->FunctionFlags = flags;
+
+	if (Valid != nullptr)
+		*Valid = params.Valid;
 }
 
 
@@ -209,43 +214,6 @@ void AdayTimeControler_C::UserConstructionScript()
 	static auto fn = UObject::FindObject<UFunction>("Function dayTimeControler.dayTimeControler_C.UserConstructionScript");
 
 	AdayTimeControler_C_UserConstructionScript_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function dayTimeControler.dayTimeControler_C.ReceiveBeginPlay
-// (Event, Protected, BlueprintEvent)
-
-void AdayTimeControler_C::ReceiveBeginPlay()
-{
-	static auto fn = UObject::FindObject<UFunction>("Function dayTimeControler.dayTimeControler_C.ReceiveBeginPlay");
-
-	AdayTimeControler_C_ReceiveBeginPlay_Params params;
-
-	auto flags = fn->FunctionFlags;
-
-	UObject::ProcessEvent(fn, &params);
-
-	fn->FunctionFlags = flags;
-}
-
-
-// Function dayTimeControler.dayTimeControler_C.ReceiveTick
-// (Event, Public, BlueprintEvent)
-// Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
-
-void AdayTimeControler_C::ReceiveTick(float* DeltaSeconds)
-{
-	static auto fn = UObject::FindObject<UFunction>("Function dayTimeControler.dayTimeControler_C.ReceiveTick");
-
-	AdayTimeControler_C_ReceiveTick_Params params;
-	params.DeltaSeconds = DeltaSeconds;
 
 	auto flags = fn->FunctionFlags;
 
@@ -323,19 +291,56 @@ void AdayTimeControler_C::sunDefaults()
 }
 
 
-// Function dayTimeControler.dayTimeControler_C.addTime
+// Function dayTimeControler.dayTimeControler_C.AddTime
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
 // float                          Hours                          (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 // float                          Minutes                        (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AdayTimeControler_C::addTime(float Hours, float Minutes)
+void AdayTimeControler_C::AddTime(float Hours, float Minutes)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function dayTimeControler.dayTimeControler_C.addTime");
+	static auto fn = UObject::FindObject<UFunction>("Function dayTimeControler.dayTimeControler_C.AddTime");
 
-	AdayTimeControler_C_addTime_Params params;
+	AdayTimeControler_C_AddTime_Params params;
 	params.Hours = Hours;
 	params.Minutes = Minutes;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function dayTimeControler.dayTimeControler_C.ReceiveTick
+// (Event, Public, BlueprintEvent)
+// Parameters:
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+
+void AdayTimeControler_C::ReceiveTick(float DeltaSeconds)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function dayTimeControler.dayTimeControler_C.ReceiveTick");
+
+	AdayTimeControler_C_ReceiveTick_Params params;
+	params.DeltaSeconds = DeltaSeconds;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function dayTimeControler.dayTimeControler_C.ReceiveBeginPlay
+// (Event, Protected, BlueprintEvent)
+
+void AdayTimeControler_C::ReceiveBeginPlay()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function dayTimeControler.dayTimeControler_C.ReceiveBeginPlay");
+
+	AdayTimeControler_C_ReceiveBeginPlay_Params params;
 
 	auto flags = fn->FunctionFlags;
 
@@ -404,6 +409,40 @@ void AdayTimeControler_C::checkPoliceHoursAlarm()
 	static auto fn = UObject::FindObject<UFunction>("Function dayTimeControler.dayTimeControler_C.checkPoliceHoursAlarm");
 
 	AdayTimeControler_C_checkPoliceHoursAlarm_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function dayTimeControler.dayTimeControler_C.updateCepTime
+// (BlueprintCallable, BlueprintEvent)
+
+void AdayTimeControler_C::updateCepTime()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function dayTimeControler.dayTimeControler_C.updateCepTime");
+
+	AdayTimeControler_C_updateCepTime_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function dayTimeControler.dayTimeControler_C.retrySetDefaultTime
+// (BlueprintCallable, BlueprintEvent)
+
+void AdayTimeControler_C::retrySetDefaultTime()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function dayTimeControler.dayTimeControler_C.retrySetDefaultTime");
+
+	AdayTimeControler_C_retrySetDefaultTime_Params params;
 
 	auto flags = fn->FunctionFlags;
 

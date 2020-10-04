@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,13 @@ namespace SDK
 //---------------------------------------------------------------------------
 // Parameters
 //---------------------------------------------------------------------------
+
+// Function randomSaleDialogueInstance.randomSaleDialogueInstance_C.chooseKnowResponses
+struct ArandomSaleDialogueInstance_C_chooseKnowResponses_Params
+{
+	TArray<struct FText>                               outResponses;                                             // (Parm, OutParm, ZeroConstructor)
+	bool                                               Success;                                                  // (Parm, OutParm, ZeroConstructor, IsPlainOldData)
+};
 
 // Function randomSaleDialogueInstance.randomSaleDialogueInstance_C.UserConstructionScript
 struct ArandomSaleDialogueInstance_C_UserConstructionScript_Params
@@ -28,6 +35,16 @@ struct ArandomSaleDialogueInstance_C_ReceiveBeginPlay_Params
 struct ArandomSaleDialogueInstance_C_ConfigDialogue_Params
 {
 	bool                                               male;                                                     // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function randomSaleDialogueInstance.randomSaleDialogueInstance_C.gangUnlock
+struct ArandomSaleDialogueInstance_C_gangUnlock_Params
+{
+};
+
+// Function randomSaleDialogueInstance.randomSaleDialogueInstance_C.askedAround
+struct ArandomSaleDialogueInstance_C_askedAround_Params
+{
 };
 
 // Function randomSaleDialogueInstance.randomSaleDialogueInstance_C.ExecuteUbergraph_randomSaleDialogueInstance

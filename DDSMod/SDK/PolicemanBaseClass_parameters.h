@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -51,7 +51,7 @@ struct APolicemanBaseClass_C_checkChasingPolicemen_Params
 // Function PolicemanBaseClass.PolicemanBaseClass_C.calcControlMultiplier
 struct APolicemanBaseClass_C_calcControlMultiplier_Params
 {
-	class AplayerCharacterBP_C*                        PlayerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	class AplayerCharacterBP_C*                        playerRef;                                                // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PolicemanBaseClass.PolicemanBaseClass_C.alertedCountdown
@@ -109,7 +109,7 @@ struct APolicemanBaseClass_C_UserConstructionScript_Params
 // Function PolicemanBaseClass.PolicemanBaseClass_C.ReceiveTick
 struct APolicemanBaseClass_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function PolicemanBaseClass.PolicemanBaseClass_C.BndEvt__AIPerception_K2Node_ComponentBoundEvent_2_ActorPerceptionUpdatedDelegate__DelegateSignature

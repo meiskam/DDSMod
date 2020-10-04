@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -149,9 +149,9 @@ void AsprayPlacementGizmo_C::ReceiveBeginPlay()
 // Function sprayPlacementGizmo.sprayPlacementGizmo_C.ReceiveTick
 // (Event, Public, BlueprintEvent)
 // Parameters:
-// float*                         DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// float                          DeltaSeconds                   (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void AsprayPlacementGizmo_C::ReceiveTick(float* DeltaSeconds)
+void AsprayPlacementGizmo_C::ReceiveTick(float DeltaSeconds)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function sprayPlacementGizmo.sprayPlacementGizmo_C.ReceiveTick");
 
@@ -183,14 +183,14 @@ void AsprayPlacementGizmo_C::ActionPress()
 }
 
 
-// Function sprayPlacementGizmo.sprayPlacementGizmo_C.ActionRelease
+// Function sprayPlacementGizmo.sprayPlacementGizmo_C.actionRelease
 // (BlueprintCallable, BlueprintEvent)
 
-void AsprayPlacementGizmo_C::ActionRelease()
+void AsprayPlacementGizmo_C::actionRelease()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function sprayPlacementGizmo.sprayPlacementGizmo_C.ActionRelease");
+	static auto fn = UObject::FindObject<UFunction>("Function sprayPlacementGizmo.sprayPlacementGizmo_C.actionRelease");
 
-	AsprayPlacementGizmo_C_ActionRelease_Params params;
+	AsprayPlacementGizmo_C_actionRelease_Params params;
 
 	auto flags = fn->FunctionFlags;
 

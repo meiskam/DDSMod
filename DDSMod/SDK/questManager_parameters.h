@@ -2,7 +2,7 @@
 
 #include "../SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -81,7 +81,7 @@ struct AquestManager_C_playerAvailable_Params
 // Function questManager.questManager_C.checkTaskRelatedMarkers
 struct AquestManager_C_checkTaskRelatedMarkers_Params
 {
-	int                                                TaskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                taskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function questManager.questManager_C.checkDisplayNewTask
@@ -253,7 +253,7 @@ struct AquestManager_C_workStationTask_Params
 // Function questManager.questManager_C.firstOwnOrderReceived
 struct AquestManager_C_firstOwnOrderReceived_Params
 {
-	int                                                TaskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	int                                                taskID;                                                   // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function questManager.questManager_C.tutWorkPlayerPutDrug
@@ -516,7 +516,7 @@ struct AquestManager_C_addCashToLaunder_Params
 // Function questManager.questManager_C.ReceiveTick
 struct AquestManager_C_ReceiveTick_Params
 {
-	float*                                             DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              DeltaSeconds;                                             // (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function questManager.questManager_C.eddieCallGangsters

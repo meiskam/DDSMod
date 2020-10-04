@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,15 +17,15 @@ namespace SDK
 // (BlueprintCallable, BlueprintEvent)
 // Parameters:
 // struct FdrugData               drugData                       (BlueprintVisible, BlueprintReadOnly, Parm)
-// int                            Quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
+// int                            quantity                       (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData)
 
-void UneededDrugWidget_C::setup(const struct FdrugData& drugData, int Quantity)
+void UneededDrugWidget_C::setup(const struct FdrugData& drugData, int quantity)
 {
 	static auto fn = UObject::FindObject<UFunction>("Function neededDrugWidget.neededDrugWidget_C.setup");
 
 	UneededDrugWidget_C_setup_Params params;
 	params.drugData = drugData;
-	params.Quantity = Quantity;
+	params.quantity = quantity;
 
 	auto flags = fn->FunctionFlags;
 

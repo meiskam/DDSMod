@@ -1,7 +1,7 @@
 
 #include "SDK.h"
 
-// Name: DDS, Version: 2020.7.20
+// Name: DDS, Version: 2020.9.30
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -89,6 +89,23 @@ void AcontactsManager_C::generateWeedGuy()
 	static auto fn = UObject::FindObject<UFunction>("Function contactsManager.contactsManager_C.generateWeedGuy");
 
 	AcontactsManager_C_generateWeedGuy_Params params;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function contactsManager.contactsManager_C.generatePsychedelicGuy
+// (BlueprintCallable, BlueprintEvent)
+
+void AcontactsManager_C::generatePsychedelicGuy()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function contactsManager.contactsManager_C.generatePsychedelicGuy");
+
+	AcontactsManager_C_generatePsychedelicGuy_Params params;
 
 	auto flags = fn->FunctionFlags;
 
