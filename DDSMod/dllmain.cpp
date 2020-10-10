@@ -22,6 +22,7 @@ void Dump()
 			}
 		}
 	}
+	/*
 	{ //this bit is broke :/
 		std::ofstream o("NamesDump.txt");
 		tfm::format(o, "Address: 0x%P\n\n", reinterpret_cast<void*>(*reinterpret_cast<uintptr_t*>(&SDK::FName::GetGlobalNames())));
@@ -35,6 +36,7 @@ void Dump()
 			}
 		}
 	}
+	*/
 }
 
 DWORD WINAPI ModThread(HMODULE hModule)
@@ -53,9 +55,10 @@ DWORD WINAPI ModThread(HMODULE hModule)
 
 	//bool bHealth = false, bAmmo = false, bRecoil = false;
 
-	SDK::InitSdk("DrugDealerSimulator-Win64-Shipping.exe", 
-		0x2E43590,  // objs: 48 8D 05 ? ? ? ? 48 89 01 33 C9 84 D2
-		0x2E3F260); // name: 4C 8B 35 ? ? ? ? 4D 85 F6 75 51 B9 ? ? ? ? E8
+	//TODO replace this with aob search
+	SDK::InitSdk("DrugDealerSimulator-Win64-Shipping.exe", // 00007FF7F3D50000
+		0x2E75B10,  // objs: 48 8D 05 ? ? ? ? 48 89 01 33 C9 84 D2
+		0x2E717E0); // name: 4C 8B 35 ? ? ? ? 4D 85 F6 75 51 B9 ? ? ? ? E8
 
 	SDK::AplayerCharacterBP_C *player = SDK::UObject::FindObjectReverse<SDK::AplayerCharacterBP_C>();
 	SDK::AmainComputer_C *computer = SDK::UObject::FindObjectReverse<SDK::AmainComputer_C>();
