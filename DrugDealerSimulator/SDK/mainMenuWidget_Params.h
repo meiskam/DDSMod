@@ -1,0 +1,319 @@
+﻿#pragma once
+
+/**
+ * Name: DrugDealerSimulator
+ * Version: 1.1.0.25_2022-06-21
+ */
+
+#ifdef _MSC_VER
+	#pragma pack(push, 0x01)
+#endif
+
+namespace CG
+{
+	// --------------------------------------------------
+	// # Structs
+	// --------------------------------------------------
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnGame_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnGame_K2Node_ComponentBoundEvent_2_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnTester_K2Node_ComponentBoundEvent_3_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnTester_K2Node_ComponentBoundEvent_3_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnTester_K2Node_ComponentBoundEvent_6_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnTester_K2Node_ComponentBoundEvent_6_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnGame_K2Node_ComponentBoundEvent_7_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnGame_K2Node_ComponentBoundEvent_7_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnSettings_K2Node_ComponentBoundEvent_8_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnSettings_K2Node_ComponentBoundEvent_8_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnGame_K2Node_ComponentBoundEvent_0_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.Tick
+	 */
+	struct UmainMenuWidget_C_Tick_Params
+	{
+	public:
+		struct FGeometry                                           MyGeometry;                                              // 0x0000(0x0038)  (BlueprintVisible, BlueprintReadOnly, Parm, IsPlainOldData, NoDestructor)
+		float                                                      InDeltaTime;                                             // 0x0000(0x0004)  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.Construct
+	 */
+	struct UmainMenuWidget_C_Construct_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnExit_K2Node_ComponentBoundEvent_9_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnExit_K2Node_ComponentBoundEvent_9_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnSettings_K2Node_ComponentBoundEvent_11_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnSettings_K2Node_ComponentBoundEvent_11_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.overridePlay
+	 */
+	struct UmainMenuWidget_C_overridePlay_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnVersion_K2Node_ComponentBoundEvent_12_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnVersion_K2Node_ComponentBoundEvent_12_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnVersion_K2Node_ComponentBoundEvent_13_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnVersion_K2Node_ComponentBoundEvent_13_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__Button_1_K2Node_ComponentBoundEvent_16_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__Button_1_K2Node_ComponentBoundEvent_16_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnContinue_K2Node_ComponentBoundEvent_17_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnContinue_K2Node_ComponentBoundEvent_17_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnExitGame_K2Node_ComponentBoundEvent_18_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnExitGame_K2Node_ComponentBoundEvent_18_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnOptions_K2Node_ComponentBoundEvent_19_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnOptions_K2Node_ComponentBoundEvent_19_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnOptions_K2Node_ComponentBoundEvent_20_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnOptions_K2Node_ComponentBoundEvent_20_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnContinue_K2Node_ComponentBoundEvent_21_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnContinue_K2Node_ComponentBoundEvent_21_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnContinue_K2Node_ComponentBoundEvent_22_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnContinue_K2Node_ComponentBoundEvent_22_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnExitGame_K2Node_ComponentBoundEvent_23_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnExitGame_K2Node_ComponentBoundEvent_23_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnExitGame_K2Node_ComponentBoundEvent_24_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnExitGame_K2Node_ComponentBoundEvent_24_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__Button_0_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__Button_0_K2Node_ComponentBoundEvent_1_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_4_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_4_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.startNewGame
+	 */
+	struct UmainMenuWidget_C_startNewGame_Params
+	{
+	public:
+		EdifficultyLevels                                          ChosenDifficulty;                                        // 0x0000(0x0001)  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnCasual_K2Node_ComponentBoundEvent_5_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnCasual_K2Node_ComponentBoundEvent_5_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__Button_3_K2Node_ComponentBoundEvent_10_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__Button_3_K2Node_ComponentBoundEvent_10_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__Button_4_K2Node_ComponentBoundEvent_14_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__Button_4_K2Node_ComponentBoundEvent_14_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__Button_5_K2Node_ComponentBoundEvent_25_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__Button_5_K2Node_ComponentBoundEvent_25_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnCasual_K2Node_ComponentBoundEvent_26_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnCasual_K2Node_ComponentBoundEvent_26_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnNormal_K2Node_ComponentBoundEvent_27_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnNormal_K2Node_ComponentBoundEvent_27_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnHard_K2Node_ComponentBoundEvent_28_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnHard_K2Node_ComponentBoundEvent_28_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnHardcore_K2Node_ComponentBoundEvent_29_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnHardcore_K2Node_ComponentBoundEvent_29_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnCasual_K2Node_ComponentBoundEvent_30_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnCasual_K2Node_ComponentBoundEvent_30_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnNormal_K2Node_ComponentBoundEvent_31_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnNormal_K2Node_ComponentBoundEvent_31_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnHard_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnHard_K2Node_ComponentBoundEvent_32_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnHardcore_K2Node_ComponentBoundEvent_33_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnHardcore_K2Node_ComponentBoundEvent_33_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__Button_6_K2Node_ComponentBoundEvent_34_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__Button_6_K2Node_ComponentBoundEvent_34_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnCredits_K2Node_ComponentBoundEvent_15_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnCredits_K2Node_ComponentBoundEvent_15_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.resetCredits
+	 */
+	struct UmainMenuWidget_C_resetCredits_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.glitchSubs
+	 */
+	struct UmainMenuWidget_C_glitchSubs_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.retryPlayerInitiate
+	 */
+	struct UmainMenuWidget_C_retryPlayerInitiate_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_35_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_35_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_36_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnLoadGame_K2Node_ComponentBoundEvent_36_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnOpenCredits_K2Node_ComponentBoundEvent_37_OnButtonClickedEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnOpenCredits_K2Node_ComponentBoundEvent_37_OnButtonClickedEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnOpenCredits_K2Node_ComponentBoundEvent_38_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnOpenCredits_K2Node_ComponentBoundEvent_38_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.BndEvt__btnOpenCredits_K2Node_ComponentBoundEvent_39_OnButtonHoverEvent__DelegateSignature
+	 */
+	struct UmainMenuWidget_C_BndEvt__btnOpenCredits_K2Node_ComponentBoundEvent_39_OnButtonHoverEvent__DelegateSignature_Params
+	{	};
+
+	/**
+	 * Function mainMenuWidget.mainMenuWidget_C.ExecuteUbergraph_mainMenuWidget
+	 */
+	struct UmainMenuWidget_C_ExecuteUbergraph_mainMenuWidget_Params
+	{
+	public:
+		int32_t                                                    EntryPoint;                                              // 0x0000(0x0004)  (BlueprintVisible, BlueprintReadOnly, Parm, ZeroConstructor, IsPlainOldData, NoDestructor, HasGetValueTypeHash)
+	};
+
+}
+
+#ifdef _MSC_VER
+	#pragma pack(pop)
+#endif
